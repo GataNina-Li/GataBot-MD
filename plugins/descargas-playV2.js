@@ -59,5 +59,4 @@ handler.help = ['play.1' , 'play.2'].map(v => v + ' <texto>')
 handler.tags = ['downloader']
 handler.command = ['play.1', 'play.2']
 handler.level = 8
-handler.limit = 1
 export default handler

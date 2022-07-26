@@ -12,6 +12,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /Todo bien|😇/i 
+handler.customPrefix = /Todo bien/i 
 handler.command = new RegExp
 export default handler

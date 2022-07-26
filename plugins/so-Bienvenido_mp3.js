@@ -12,6 +12,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /bienveni|🥳|🤗|👋/i
+handler.customPrefix = /bienvenido|bienvenida|🤗/i
 handler.command = new RegExp
 export default handler

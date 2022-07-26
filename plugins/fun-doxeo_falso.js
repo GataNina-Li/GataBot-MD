@@ -36,12 +36,10 @@ let ip = `*${pickRandom(['','','','','','','','','','','','','','','','','','','
 let ip = `*${pickRandom(['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''])}%*`
 */
 
-
-
 let old = performance.now()
 let neww = performance.now()
 let speed = `${neww - old}`
-let doxeo = `*_✅ Persona doxxeada con éxito_*\n\n*_Tiempo: ${speed} segundos!_*
+let doxeo = `*_🚬🐛 Persona doxxeada con éxito 🐛🚬_*\n\n*_Tiempo: ${speed} segundos!_*
 
 *RESULTADOS:*
 

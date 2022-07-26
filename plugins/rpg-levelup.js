@@ -109,7 +109,7 @@ let user = global.db.data.users[m.sender]
 ┃ *FECHA:* *${new Date().toLocaleString('id-ID')}*
 ╰━━━〔 *𓃠 ${vs}* 〕━━━━━⬣
 
-*_Cuanto más interactúes con GataBot-MD, mayor será tu nivel!!_*
+*_Cuanto más interactúes con FutabuBot-MD, mayor será tu nivel!!_*
 `.trim()
         try {
             const img = await levelup(teks, user.level)

@@ -5,7 +5,7 @@ if (!text) throw `${mg}𝘿𝙀𝘽𝙀 𝙄𝙉𝙂𝙍𝙀𝙎𝘼𝙍 𝙐�
 //if (command == 'tiktokaudio') {
 //conn.reply(m.chat, `${eg}PRONTO TENDRA EL VIDEO DE TIKTOK 😸*`, m, {
 //contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
-//title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨',
+//title: '𝙲𝚘𝚕𝚊𝚙𝚜𝚞𝚜 | 𝙱𝚎𝚗𝚓𝚊',
 //body: 'Super Bot WhatsApp',         
 //previewType: 0, thumbnail: fs.readFileSync("./media/menus/Menu3.jpg"),
 //sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}})
@@ -16,7 +16,7 @@ if (!text) throw `${mg}𝘿𝙀𝘽𝙀 𝙄𝙉𝙂𝙍𝙀𝙎𝘼𝙍 𝙐�
 
 conn.reply(m.chat, `${eg}𝙋𝙍𝙊𝙉𝙏𝙊 𝙏𝙀𝙉𝘿𝙍𝘼 𝙀𝙇 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙏𝙄𝙆𝙏𝙊𝙆 😸\n𝙎𝙊𝙊𝙉 𝙒𝙄𝙇𝙇 𝙃𝘼𝙑𝙀 𝙏𝙃𝙀 𝙏𝙄𝙆𝙏𝙊𝙆 𝙑𝙄𝘿𝙀𝙊 🥳`, m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
-title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨',
+title: '𝙲𝚘𝚕𝚊𝚙𝚜𝚞𝚜 | 𝙱𝚎𝚗𝚓𝚊',
 body: 'Super Bot WhatsApp',         
 previewType: 0, thumbnail: fs.readFileSync("./media/menus/Menu3.jpg"),
 sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}})

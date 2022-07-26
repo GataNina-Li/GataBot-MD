@@ -12,6 +12,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /mmm|Mmm|MmM/ 
+handler.customPrefix = /niño del oxxo|oxxo|hmm rico/ 
 handler.command = new RegExp
 export default handler

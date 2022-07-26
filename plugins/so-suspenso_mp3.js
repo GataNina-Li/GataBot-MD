@@ -12,6 +12,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /Cagaste|Miedo|miedo|Pvp|PVP|temor|que pasa|Que sucede|Que pasa|que sucede|Qué pasa|Qué sucede|Dime|dime/ 
+handler.customPrefix = /Cagaste|Miedo|miedo|Pvp|PVP|temor|suspenso/ 
 handler.command = new RegExp
 export default handler

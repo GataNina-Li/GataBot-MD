@@ -74,7 +74,7 @@ rows: [
 {title: "🔍 𝘽𝙪𝙨𝙘𝙖𝙧 𝙥𝙤𝙧 𝙒𝙞𝙠𝙞𝙥𝙚𝙙𝙞𝙖 | 𝙎𝙚𝙖𝙧𝙘𝙝 𝙗𝙮 𝙒𝙞𝙠𝙞𝙥𝙚𝙙𝙞𝙖 🔍", description: "𝙀𝙉𝘾𝙐𝙀𝙉𝙏𝙍𝘼 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊𝙉 𝙀𝙉 𝙒𝙄𝙆𝙄𝙋𝙀𝘿𝙄𝘼\n𝙁𝙄𝙉𝘿 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝙏𝙄𝙊𝙉 𝙊𝙉 𝙒𝙄𝙆𝙄𝙋𝙀𝘿𝙄𝘼", rowId: `${usedPrefix}wiki`},      
 ]}, ]*/
 //let name = await conn.getName(m.sender)
-let pp = './src/+18.jpg'
+let pp = './src/futabuclub.jpg'
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
@@ -96,45 +96,22 @@ let menu = `
 ╰━━━━━━〔 𓃠 *${vs}* 〕━━━━━━⬣
 
 ╭━━━━〔 𝙈𝙀𝙉𝙐 *+18* 〕━━━━⬣
-┃🔞➺ _${usedPrefix}nsfwloli_
-┃🔞➺ _${usedPrefix}nsfwfoot_
-┃🔞➺ _${usedPrefix}nsfwass_
-┃🔞➺ _${usedPrefix}nsfwbdsm_
-┃🔞➺ _${usedPrefix}nsfwcum_
-┃🔞➺ _${usedPrefix}nsfwero_
-┃🔞➺ _${usedPrefix}nsfwfemdom_
-┃🔞➺ _${usedPrefix}nsfwfoot_
-┃🔞➺ _${usedPrefix}nsfwglss_
-┃🔞➺ _${usedPrefix}nsfworgy_
-┃🔞➺ _${usedPrefix}pies_
-┃🔞➺ _${usedPrefix}yuri_
-┃🔞➺ _${usedPrefix}yuri2_ 
-┃🔞➺ _${usedPrefix}yaoi_
-┃🔞➺ _${usedPrefix}yaoi2_
-┃🔞➺ _${usedPrefix}panties_ 
-┃🔞➺ _${usedPrefix}tetas_ 
 ┃🔞➺ _${usedPrefix}booty_
-┃🔞➺ _${usedPrefix}ecchi_
-┃🔞➺ _${usedPrefix}furro_
+┃🔞➺ _${usedPrefix}boyonfutanari | PRONTO!_
+┃🔞➺ _${usedPrefix}girlonfutanari | PRONTO!_
 ┃🔞➺ _${usedPrefix}hentai_
-┃🔞➺ _${usedPrefix}trapito_
-┃🔞➺ _${usedPrefix}imagenlesbians_
-┃🔞➺ _${usedPrefix}pene_
-┃🔞➺ _${usedPrefix}porno_
-┃🔞➺ _${usedPrefix}porno2_
-┃🔞➺ _${usedPrefix}randomxxx_
 ┃🔞➺ _${usedPrefix}pechos_
-┃🔞➺ _${usedPrefix}pack_
-┃🔞➺ _${usedPrefix}pack2_
-┃🔞➺ _${usedPrefix}pack3_
-┃🔞➺ _${usedPrefix}videoxxx_
+┃🔞➺ _${usedPrefix}randomxxx_
+┃🔞➺ _${usedPrefix}trapito_
+┃🔞➺ _${usedPrefix}tetas_ 
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ 🥵 𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝘿𝙄𝙉𝘼𝙈𝙄𝘾𝙊 🥵
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃»🥵 _${usedPrefix}pornovideo | pornovid_
-┃»🥵 _${usedPrefix}pornovidgay | pornogayv_
-┃»🥵 _${usedPrefix}pornolesbivid | pornolesbiv_
-┃»🥵 _${usedPrefix}pornobisexualvid | pornobiv_
+┃»🥵 _${usedPrefix}futanari|futa|futasolo|futanarisolo|futanarisolo_
+┃»🥵 _${usedPrefix}videosfutanari | PRONTO!_
+┃»🥵 _${usedPrefix}videosfutanari2 | PRONTO!_
+┃»🥵 _${usedPrefix}videosfutanari3 | PRONTO!_
+┃»🥵 _${usedPrefix}videosfutanari4 | PRONTO!_
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ ❤️‍🔥 𝘽𝙐𝙎𝘾𝘼 𝙔 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼 ❤️‍🔥
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -150,9 +127,9 @@ let menu = `
 ┃ *Puede tardar en enviar*
 ┃ *Contenido de Calidad*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃»🔥 _${usedPrefix}pornopremium_
+┃»🔥 _${usedPrefix}futanaripremium | PRONTO!_
 ╰━━━━━━━━━━━━━━━━━━━⬣`.trim()
-conn.sendHydrated(m.chat, menu, wm, pp, 'https://github.com/GataNina-Li/GataBot-MD', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
+conn.sendHydrated(m.chat, menu, wm, pp, 'https://github.com/ColapsusHD/FutabuBot-MD', '𝙵𝚞𝚝𝚊𝚋𝚞𝙱𝚘𝚝-𝙼𝙳', null, null, [
 ['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 💫', '.allmenu'],
 ['𝙈𝙚𝙣𝙪 𝙙𝙚𝙨𝙥𝙡𝙚𝙜𝙖𝙗𝙡𝙚 | 𝙈𝙚𝙣𝙪 𝙇𝙞𝙨𝙩 🌟', '/menulista'],
 ['𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 | 𝙈𝙖𝙞𝙣 𝙢𝙚𝙣𝙪 ⚡', '#menu']

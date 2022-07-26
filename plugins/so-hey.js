@@ -12,6 +12,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /Hey|Hei|hey|HEY/i
+handler.customPrefix = /Hey|hey|HEY|jai/i
 handler.command = new RegExp
 export default handler
