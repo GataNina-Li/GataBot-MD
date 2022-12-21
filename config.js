@@ -6,22 +6,23 @@ import fs from 'fs'
 import { en, es, id, ar, pt } from './lib/idiomas/total-idiomas.js' 
 
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
-global.owner = [
-  ['573238484181', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈', true],
-  ['573208089136', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 2 💖🐈', true],
-  ['447451229913', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 3 💖🐈', true],
-  ['593959425714', '𝘿𝙄𝙀𝙂𝙊-𝙊𝙁𝘾 | 𝙀𝙍𝙍𝙊𝙍𝙀𝙎 💖🐈', true], 
-  ['5492266466080'], 
-  ['573136855110'],
-  ['50689823726'],
-  ['50495086382'],
-  ['51960086535'],
-  ['584125778026'],
-  ['584166662765'],
-  ['584163647116'],
-  ['593968585383']]
+global.owner = [ ['wa.me/593968585383'], //owner
+global.owner1 =  ['wa.me/584125778026', '𝘿𝙄𝙀𝙂𝙊-𝙊𝙁𝘾 | 𝙀𝙍𝙍𝙊𝙍𝙀𝙎 💖🐈'],
+global.owner1 =  ['wa.me/573238484181', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 1 💖🐈'], 
+global.owner2 =  ['wa.me/5492266466080'],  // colaborado ² 
+global.owner3 =  ['wa.me/573238484181'], //𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 1 💖🐈
+global.owner4 = ['wa.me/447451229913'], //𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 2 💖🐈
+global.owner5 = ['wa.me/573208089136'], //𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 3 💖🐈
+global.owner6 =  ['wa.me/593959425714'], 
+global.owner7 =  ['wa.me/573136855110'],
+global.owner8 =  ['wa.me/50689823726'],
+global.owner9 =  ['wa.me/50495086382'],
+global.owner10 =  ['wa.me/51960086535'], 
+global.owner11 =  ['wa.me/584166662765'],
+global.owner12 =  ['wa.me/584163647116']]
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
+global.asiste = ['Wa.me/51993042301'] //asistencia para usuario 
 global.mods = [] 
 global.prems = ['528451003894'], 
   
@@ -92,8 +93,6 @@ global.APIKeys = { // APIKey Here
   'https://neoxr-api.herokuapp.com': 'yntkts',
   'https://anabotofc.herokuapp.com/': 'AnaBot'
 }
-
-global.imagen1 = fs.readFileSync('./media/menus/Menu1.jpg')
 
 //⊱ ━━━━━.⋅ KEY ⋅.━━━━ ⊰
 
