@@ -196,18 +196,18 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 > Use CTRL + z para apagar el Bot
 
 * Cómo enciendo el Bot en termux?
-> En caso que vuelva a iniciar en termux use este comando ```cd GataBotMD-Termux & npm start```
+> En caso que vuelva a iniciar en termux use este comando ```cd GataBotMD & npm start```
 En caso que este Apagado el Bot sin salir de la carpeta del Bot, use este comando ```npm start```
 
 * Que hago si quiero volver a clonar el Bot?
-> En caso que quiera eliminar la carpeta del Bot y volver a clonar use este comando ```rm -rf GataBotMD-Termux && git clone https://github.com/GataNina-Li/GataBotMD-Termux && cd GataBotMD-Termux && yarn install && npm install && npm start``` Esta acción también sirve en caso que quiera Actualizar a la última versión (Si usa el Repositorio Oficial es probable que no sea Owner)
+> En caso que quiera eliminar la carpeta del Bot y volver a clonar use este comando ```rm -rf GataBotMD && git clone https://github.com/GataNina-Li/GataBotMD && cd GataBotMD && yarn install && npm install && npm start``` Esta acción también sirve en caso que quiera Actualizar a la última versión (Si usa el Repositorio Oficial es probable que no sea Owner)
 
 * Cómo puedo borrar la Session?
 > Ejecute este comando en Termux ```rm -rf GataBotSession```
-En caso que no tenga nada en el terminar puede usar este comando ```cd GataBotMD-Termux && rm -rf GataBotSession``` Y después solo debe de escanear el Código QR
+En caso que no tenga nada en el terminar puede usar este comando ```cd GataBotMD && rm -rf GataBotSession``` Y después solo debe de escanear el Código QR
 
 * Cómo puedo hacer el Bot Owner?
-> Debe de ingresar al archivo `config.js` o también [`Aquí`](https://github.com/GataNina-Li/GataBotMD-Termux/blob/master/config.js) luego añadir su número en donde diga `global.owner` Recuerde que requiere de hacer una Bifurcación, puede hacerla [`Aquí`](https://github.com/GataNina-Li/GataBotMD-Termux/fork)
+> Debe de ingresar al archivo `config.js` o también [`Aquí`](https://github.com/GataNina-Li/GataBotMD/blob/master/config.js) luego añadir su número en donde diga `global.owner` Recuerde que requiere de hacer una Bifurcación, puede hacerla [`Aquí`](https://github.com/GataNina-Li/GataBotMD/fork)
 ----
 ### SOBRE GATABOT <img src="https://i.pinimg.com/originals/0e/c9/89/0ec989dde8b5fc0deef4e5b09292b605.gif" height="30px">
 ```bash
