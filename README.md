@@ -64,6 +64,7 @@
 * BOXMINE
 * REPLIT
 * KOYEB
+* HEROKU
 -----
 ### 🟣 ACTIVAR EN HEROKU 
 #### ☂️ PARA USUARIOS DE HEROKU 
