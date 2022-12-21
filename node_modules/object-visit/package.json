@@ -1,0 +1,40 @@
+{
+  "name": "object-visit",
+  "description": "Call the given method on each value in the given object.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/object-visit",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/object-visit",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/object-visit/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "isobject": "^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "keywords": [
+    "context",
+    "function",
+    "helper",
+    "key",
+    "method",
+    "object",
+    "value",
+    "visit",
+    "visitor"
+  ]
+}
