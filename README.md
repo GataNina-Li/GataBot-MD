@@ -59,10 +59,11 @@
 
 ### 💖 ```DONAR``` [`Aquí`](https://paypal.me/OficialGD)
 -----
-* 𝗚𝗮𝘁𝗮𝗕𝗼𝘁 : 𝗕𝗼𝘅𝗠𝗶𝗻𝗲 & 𝗥𝗲𝗽𝗹𝗶𝘁 & 𝗧𝗲𝗿𝗺𝘂𝘅 💛
-> ESTE REPOSITORIO DE GATABOT ES COMPATIBLE CON BOXMINE, REPLIT Y TERMUX.
-* 𝗚𝗮𝘁𝗮𝗕𝗼𝘁 : 𝗛𝗲𝗿𝗼𝗸𝘂 💜
-> SI QUIERE INSTAR POR HEROKU USE [`GataBotMD-Heroku`](https://github.com/GataNina-Li/GataBotMD-Heroku)
+> ✅ ESTE REPOSITORIO DE GATABOT ES COMPATIBLE CON:
+* TERMUX
+* BOXMINE
+* REPLIT
+* KOYEB
 -----
 ### 🟣 ACTIVAR EN HEROKU 
 #### ☂️ PARA USUARIOS DE HEROKU 
@@ -111,13 +112,30 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/GataNina-Li/GataBot-MD&branch=master&name=gatabot-md)
 
 ------------------
-### ACTIVAR POR TERMUX  <img src="https://c.tenor.com/HLrXIleGBToAAAAC/transparent-cat.gif" height="40px">  
+### ACTIVAR POR TERMUX - GITHUB <a href="https://github.com/GataNina-Li/GataBot-MD"> <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-violet.png" height="40px"> </a>
+#### ⬇️ AGREGAR CADA COMANDO POR TEXMUX (Opción 1):
+> ❇️ YA PUEDE INSTALAR DIRECTAMENTE DESDE TERMUX USANDO ESTE REPOSITORIO!!
+```bash
+termux-setup-storage
+apt update
+pkg upgrade
+pkg install nodejs -y
+pkg install ffmpeg -y
+pkg install imagemagick -y
+git clone https://github.com/GataNina-Li/GataBot-MD
+cd GataBot-MD
+npm install
+npm update
+npm start
+```
+------------------
+### ACTIVAR POR TERMUX - ARCHIVOS <a href="https://github.com/GataNina-Li/GataBot-MD"> <img src="https://images.vexels.com/media/users/3/135984/isolated/preview/11c3e3e5d2a2c47fef7926854010d767-icono-de-carpeta-de-archivos.png" height="40px"> </a>
 > DESCARGUÉ Y DESCOMPRIMA 
 ### [`GataBot-MD ~ Archivos`](https://mega.nz/file/vvxxHYha#-I6Q64hayupW4_mQ86KWXt0qzy7tAg4sUxAaAKmMahk)
 [![blog](https://img.shields.io/badge/GataBotMD-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/UcWlyQ8u5HE)
 
-#### ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
+#### ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO (Opción 2):
 ```bash
 termux-setup-storage
 apt update
@@ -133,7 +151,7 @@ npm start
 * #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
 > ASEGÚRESE DE GUARDAR LOS ARCHIVOS EN ESTA UBICACIÓN: storage/downloads/GataBot-MD    
 ----
-## 💻 PARA USUARIOS DE WINDOWS/VPS/RDP (Opcional)
+## 💻 PARA USUARIOS DE WINDOWS/VPS/RDP
 
 * Descargar e instala Git [`Aquí`](https://git-scm.com/downloads)
 * Descargar e instala NodeJS [`Aquí`](https://nodejs.org/en/download)
@@ -142,8 +160,8 @@ npm start
 * Descargar e instala Yarn [`Aquí`](https://classic.yarnpkg.com/en/docs/install#windows-stable)
 
 ```bash
-git clone https://github.com/GataNina-Li/GataBotMD-Termux
-cd GataBotMD-Termux
+git clone https://github.com/GataNina-Li/GataBotMD
+cd GataBotMD
 npm install
 npm update
 node .
