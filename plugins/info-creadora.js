@@ -4,13 +4,13 @@ var doc = ['pdf','zip','vnd.openxmlformats-officedocument.presentationml.present
 var document = doc[Math.floor(Math.random() * doc.length)]    
 let text = `
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈
-*Wa.me/573238484181*
+*${global.owner3}*
 
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *2* 💖🐈
-*Wa.me/573208089136*
+*${global.owner4}*
 
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *3* 💖🐈
-*Wa.me/447451229913*
+*${global.owner5}*
 
 *---------------------*
 
@@ -21,7 +21,7 @@ let text = `
 *${asistencia}*
 
 *Sr. Pablo* - 𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼
-*Wa.me/51993042301*
+*${global.asiste}*
 
 
 🧡 *Eso son los contactos para ti.*\n💜 *That's the contacts for you.*`.trim()   

@@ -47,8 +47,8 @@ pkg install nodejs -y
 pkg install ffmpeg -y
 pkg install imagemagick -y
 pkg install yarn
-git clone https://github.com/GataNina-Li/GataBot-MD2
-cd GataBot-MD2
+git clone https://github.com/GataNina-Li/GataBot-MD
+cd GataBot-MD
 yarn install 
 npm install
 npm update
