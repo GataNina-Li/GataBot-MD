@@ -32,7 +32,7 @@
 ](https://youtube.com/channel/UCpNU4eY7eiI0ve05CssjdbA)  <img src="https://github.com/siegrin/siegrin/blob/main/Assets/powerup.gif" height="29px">
 
 <p align="hihg">   
-<a href="https://instagram.com/gata_dios" target="_blank"> <img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a> <img src="https://github.com/siegrin/siegrin/blob/main/Assets/Handshake.gif" height="30px">
+<a href="https://instagram.com/gata_dios" target="_blank"> <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a> <img src="https://github.com/siegrin/siegrin/blob/main/Assets/Handshake.gif" height="30px"> 
 <a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=14&duration=3000&color=ABF7BB&center=verdadero&vCenter=verdadero&lines=Solo+escr%C3%ADba+si+tiene+dudas." height="40px"
 </p> 
 
@@ -85,7 +85,7 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 -----
 
 ### ✅ BOXMINEHOST 
-[![blog](https://img.shields.io/badge/GataBotMD-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+[![blog](https://img.shields.io/badge/BoxMine-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/Ko019wvu2Tc)
 > ACTIVA GATABOT 24/7 EN LA PLATAFORMA BOXMINEHOST 
 
@@ -101,9 +101,9 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 - [x] Resultado <details><summary>Ajustes del Servidor - GataBot-MD</summary><img src="https://i.imgur.com/N0SwvbY.jpeg"></details>
 ------------------
 ### ⚡ REPLIT - GATABOT
-[![blog](https://img.shields.io/badge/GataBotMD-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+[![blog](https://img.shields.io/badge/Replit-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/pQYkq4xv37o)
-[![Deploy](https://img.shields.io/badge/replit_gatabot-667881?style=for-the-badge&logo=replit&logoColor=white)](https://replit.com/github/GataNina-Li/GataBot-MD)
+<a target="_blank" href="https://replit.com/github/GataNina-Li/GataBot-MD"><img alt="Run on Replit" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/replit.svg"></a>
 <a href="https://replit.com/github/GataNina-Li/GataBot-MD"> <img src="https://media0.giphy.com/media/lMwu8EJAnv9kmn51KQ/giphy.gif" height="29px"></a>
 ------------------
 - [x] Resultado <details><summary>Importar Repositorio - GataBot-MD</summary><img src="https://i.imgur.com/GQyRnMf.jpg"></details>
@@ -133,7 +133,7 @@ npm start
 ### ACTIVAR POR TERMUX - ARCHIVOS <a href="https://github.com/GataNina-Li/GataBot-MD"> <img src="https://images.vexels.com/media/users/3/135984/isolated/preview/11c3e3e5d2a2c47fef7926854010d767-icono-de-carpeta-de-archivos.png" height="40px"> </a>
 > DESCARGUÉ Y DESCOMPRIMA 
 ### [`GataBot-MD ~ Archivos`](https://mega.nz/file/vvxxHYha#-I6Q64hayupW4_mQ86KWXt0qzy7tAg4sUxAaAKmMahk)
-[![blog](https://img.shields.io/badge/GataBotMD-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+[![blog](https://img.shields.io/badge/Termux-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/UcWlyQ8u5HE)
 
 #### ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO (Opción 2):
@@ -223,10 +223,10 @@ En caso que no tenga nada en el terminar puede usar este comando ```cd GataBotMD
 ```
 ----
 ### 💠 [`IDIOMAS DISPONIBLES PARA GATABOT`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js) 
-### 🌐 Español 
-### 🌐 Inglés (English)
+### 🌐 Español  <img align="right" height="200" src="https://i.pinimg.com/originals/00/03/e2/0003e2cdacefee467626df70ae190db5.gif" alt="GataBot-MD">
+### 🌐 Inglés (English) 
 ### 🌐 Portugués (Português)
-### 🌐 Indonesio (Bahasa Indonesia)
+### 🌐 Indonesio (Bahasa Indonesia) 
 ### 🌐 Árabe (عرب)
 - [x] Ejemplo <details><summary>Idioma</summary><img src="https://i.imgur.com/RMWFgZo.jpeg"></details>
 ----
