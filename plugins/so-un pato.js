@@ -7,7 +7,11 @@ global.db.data.users[m.sender].money += 100
 global.db.data.users[m.sender].exp += 100
   
 let vn = './media/pato.mp3'
-conn.sendMessage(m.chat, { audio: { url: vn }, seconds: '1934.4', ptt: true, mimetype: 'audio/mpeg', fileName: `deja de llorar.mp3` }, { quoted: m })}
+conn.sendFile(m.chat, vn, 'pato.mp3', null, m, true, {
+type: 'audioMessage', 
+ptt: true
+})
+}
 handler.customPrefix = /un Pato| un pato|un pato que va caminando alegremente|Un pato|Un Pato/
 handler.command = new RegExp
 export default handler
