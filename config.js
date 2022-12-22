@@ -94,7 +94,7 @@ global.APIKeys = { // APIKey Here
   'https://anabotofc.herokuapp.com/': 'AnaBot'
 }
 
-global.imagen1 = fs.readFileSync('./media/menus/Menu1.jpg')
+global.imagen1 = fs.readFileSync('./Menu2.jpg')
 
 //⊱ ━━━━━.⋅ KEY ⋅.━━━━ ⊰
 
