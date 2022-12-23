@@ -4,16 +4,15 @@ var doc = ['pdf','zip','vnd.openxmlformats-officedocument.presentationml.present
 var document = doc[Math.floor(Math.random() * doc.length)]    
 let text = `
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈
-*${global.owner3}*
+*Wa.me/573238484181*
 
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *2* 💖🐈
-*${global.owner4}*
+*Wa.me/573208089136*
 
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *3* 💖🐈
-*${global.owner5}*
+*Wa.me/447451229913*
 
 *---------------------*
-
 *CENTER GATABOT*
 *centergatabot@gmail.com*
 
@@ -21,8 +20,7 @@ let text = `
 *${asistencia}*
 
 *Sr. Pablo* - 𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼
-*${global.asiste}*
-
+*Wa.me/51993042301*
 
 🧡 *Eso son los contactos para ti.*\n💜 *That's the contacts for you.*`.trim()   
 let buttonMessage= {
@@ -52,8 +50,9 @@ let buttonMessage= {
 
 await conn.sendMessage(m.chat, buttonMessage, { quoted: m })
 //await m.reply(`𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈 Wa.me/593993684821\n𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *2* 💖🐈 Wa.me/50498965677\n𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *3* 💖🐈 Wa.me/51993042301`)  
-const data = global.owner.filter(([id, isCreator]) => id && isCreator)
-await conn.sendContact(m.chat, data.map(([id, name]) => [id, name]), m)
+//const data = global.owner.filter(([id, isCreator]) => id && isCreator)
+//await conn.sendContact(m.chat, data.map(([id, name]) => [id, name]), m)
+await conn.sendContact(m.chat, `${owner[0][0]}`, `${await conn.getName(owner[0][0]+'@s.whatsapp.net')
   
 let pp = './media/menus/Menu2.jpg'
 let str = `${wm}`
