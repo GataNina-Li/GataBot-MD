@@ -223,7 +223,7 @@ En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-M
 ```
 ----
 ### 💠 [`IDIOMAS DISPONIBLES PARA GATABOT`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js) 
-### 🌐 Español  <img align="right" height="200" src="https://i.pinimg.com/originals/00/03/e2/0003e2cdacefee467626df70ae190db5.gif" alt="GataBot-MD">
+### 🌐 Español  
 ### 🌐 Inglés (English) 
 ### 🌐 Portugués (Português)
 ### 🌐 Indonesio (Bahasa Indonesia) 
