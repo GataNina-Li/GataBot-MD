@@ -52,7 +52,8 @@ await conn.sendMessage(m.chat, buttonMessage, { quoted: m })
 //await m.reply(`𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈 Wa.me/593993684821\n𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *2* 💖🐈 Wa.me/50498965677\n𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *3* 💖🐈 Wa.me/51993042301`)  
 //const data = global.owner.filter(([id, isCreator]) => id && isCreator)
 //await conn.sendContact(m.chat, data.map(([id, name]) => [id, name]), m)
-await conn.sendContact(m.chat, `${owner[0][0]}`, m)//, `${await conn.getName(owner[0][0]+'@s.whatsapp.net')
+//await conn.sendContact(m.chat, `${owner[0][0]}`, m)//, 
+  await conn.sendContact(m.chat,`${await conn.getName(owner[0][0]+'@s.whatsapp.net')
   
 let pp = './media/menus/Menu2.jpg'
 let str = `${wm}`
