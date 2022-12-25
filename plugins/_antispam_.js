@@ -8,7 +8,7 @@ return
 if (!user.antispam)
 return !0
 if (+new Date() > user.antispam) {
-let tiempo = 60000 * 1
+let tiempo = 320000 * 5
 setTimeout(() => {
 //this.updateBlockStatus(m.chat, 'unblock') No me gustó jjjjj
 user.banned = false
@@ -16,3 +16,5 @@ texto = `*@${m.sender.split("@")[0]} ${lenguajeGB['smsNoSpam2']()}*`
 this.sendButton(m.chat, texto, wm, null, [[lenguajeGB.smsConMenu(), '/menu']], m, { mentions: this.parseMention(texto) })}, tiempo)        
 user.antispam = null
 }}
+
+ 
