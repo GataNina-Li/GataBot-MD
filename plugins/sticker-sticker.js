@@ -7,7 +7,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   let stiker = false
   let user = db.data.users[m.sender]
   let time = user.lastmining + 600000 //tiempo de espera en min
-if (new Date - user.lastmiming < 600000) return
+if (new Date - user.lastmiming < 600000) return await conn.reply(m.chat, `*⏱️ espere ${msToTime(time - new Date())}`, fkontak,  m)
   try {
   	
     let q = m.quoted ? m.quoted : m
