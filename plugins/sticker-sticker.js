@@ -6,13 +6,8 @@ import { webp2png } from '../lib/webp2mp4.js'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   let stiker = false
   let user = db.data.users[m.sender]
-  const cooldown = 300000
-let handler = async (m, { usedPrefix }) => {
-    let user = global.db.data.users[m.sender]
-    let timers = (cooldown - (new Date - user.lastmining))
   let time = user.lastmining + 600000 //tiempo de espera en min
 if (new Date - user.lastmiming < 600000) return //if de true o false
- await conn.reply(m.chat, `🙀`,  m)
   try {
   	
     let q = m.quoted ? m.quoted : m
