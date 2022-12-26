@@ -2,6 +2,8 @@ import { sticker } from '../lib/sticker.js'
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
+let time = user.lastmiming + 600000 //10 min
+if (new Date - user.lastmiming < 600000) return await conn.reply(m.chat, `*⏱️ 𝙑𝙪𝙚𝙡𝙫𝙖 𝙚𝙣️*`, fkontak,  m)
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   let stiker = false
@@ -46,6 +48,18 @@ handler.tags = ['sticker']
 handler.command = ['s', 'sticker', 'stiker'] 
 
 export default handler
+function msToTime(duration) {
+var milliseconds = parseInt((duration % 1000) / 100),
+seconds = Math.floor((duration / 1000) % 60),
+minutes = Math.floor((duration / (1000 * 60)) % 60),
+hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
+
+hours = (hours < 10) ? "0" + hours : hours
+minutes = (minutes < 10) ? "0" + minutes : minutes
+seconds = (seconds < 10) ? "0" + seconds : seconds
+
+return minutes + " m y " + seconds + " s " 
+}
 
 const isUrl = (text) => {
   return text.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|gif|png)/, 'gi'))
