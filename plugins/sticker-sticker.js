@@ -6,8 +6,8 @@ import { webp2png } from '../lib/webp2mp4.js'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   let stiker = false
   let user = db.data.users[m.sender]
-  let time = user.lastmining + 600000 //tiempo de espera en min
-if (new Date - user.lastmiming < 600000) return await conn.reply(m.chat, `*⏱️ espere ${msToTime(time - new Date())}`, fkontak,  m)
+  let time = user.lastmiming + 600000 //10 min
+if (new Date - user.lastmiming < 600000) return await conn.reply(m.chat, `*⏱️ 𝙑𝙪𝙚𝙡𝙫𝙖 𝙚𝙣 ${msToTime(time - new Date())}`, fkontak,  m)
   try {
   	
     let q = m.quoted ? m.quoted : m
