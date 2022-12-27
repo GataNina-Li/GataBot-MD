@@ -1,7 +1,7 @@
 import fs from 'fs'
 
-let timeout = 60000
-let poin = 500
+let timeout = 120000
+let poin = 50
 
 let handler = async (m, { conn, usedPrefix }) => {
     conn.tekateki = conn.tekateki ? conn.tekateki : {}
@@ -16,7 +16,6 @@ let handler = async (m, { conn, usedPrefix }) => {
     let clue = _clue.replace(/[A-Za-z]/g, '_')
     let caption = `
 ⷮ *${json.question}*
-
 *• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
 *• Bono:* +${poin} Exp
 `.trim()
