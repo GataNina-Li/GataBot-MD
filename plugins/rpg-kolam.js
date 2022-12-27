@@ -26,7 +26,6 @@ let orca = global.db.data.users[m.sender].orca
 
 let peces = `🌊🌊 𝗣𝗜𝗦𝗖𝗜𝗡𝗔 𝗗𝗘 𝗣𝗘𝗖𝗘𝗦 🌊🌊
 👤» *${name}*
-
 ╭━━━━━━━━━⬣ 
 ┃ *𝗣𝗜𝗦𝗖𝗜𝗡𝗔 𝗗𝗘 𝗣𝗘𝗖𝗘𝗦 : 𝗙𝗜𝗦𝗛 𝗣𝗢𝗢𝗟*
 ┃ *╸╸╸╸╸╸╸╸╸╸╸╸╸╸*
@@ -44,7 +43,7 @@ let peces = `🌊🌊 𝗣𝗜𝗦𝗖𝗜𝗡𝗔 𝗗𝗘 𝗣𝗘𝗖𝗘𝗦
 ┃ 🦀 *Cangrejo : Crab » ${kepiting}*
 ╰━━━━━━━━━⬣
 🎏 *Total: ${paus + kepiting + gurita + cumi + buntal + dory + lumba + lobster + hiu + udang + ikan + orca}*`.trim()
-await conn.sendButton(m.chat, wm, peces, img5, [['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']], m, dos.getRandom())
+await conn.sendButton(m.chat, wm, peces, null, [['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']], m, dos.getRandom())
 //conn.sendButton(m.chat, peces, `${wm}`, [['Pasar', '#pasar']], m)
 }
 handler.help = ['kotakikan', 'kolam', 'kolamikan']
