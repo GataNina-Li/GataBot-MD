@@ -114,7 +114,7 @@ global.version = vs
 global.gt = '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿'
 global.gatabot = gt
 
-global.yt = 'https://youtube.com/channel/UCpNU4eY7eiI0ve05CssjdbA'
+global.yt = 'https://youtube.com/@gatadios'
 global.youtube = yt
 
 global.ig = 'https://www.instagram.com/gata_dios'
