@@ -40,16 +40,13 @@ _https://panel.boxmineworld.com_
 ✅ 𝙄𝙉𝙎𝙏𝘼𝙇𝘼𝙍 𝙀𝙉 𝙏𝙀𝙍𝙈𝙐𝙓
 *⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯*
 termux-setup-storage
-apt update 
-pkg upgrade 
-pkg install git -y
+apt update
+pkg upgrade
 pkg install nodejs -y
 pkg install ffmpeg -y
 pkg install imagemagick -y
-pkg install yarn
 git clone https://github.com/GataNina-Li/GataBot-MD
 cd GataBot-MD
-yarn install 
 npm install
 npm update
 npm start
