@@ -7,7 +7,7 @@ import { promises } from 'fs'
 import { join } from 'path'
 let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, command }) => {
 try {
-let vn = './media/menu.mp3'
+//let vn = './media/menu.mp3'
 let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
 let { exp, limit, level, role } = global.db.data.users[m.sender]
 let { min, xp, max } = xpRange(level, global.multiplier)
@@ -68,24 +68,19 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 let mentionedJid = [who]
 let username = conn.getName(who)
 //let enlace = { contextInfo: { externalAdReply: {title: wm, body: 'support group' , sourceUrl: nna, thumbnail: await(await fetch(img)).buffer() }}}
-let pp = gataVidMenu.getRandom()
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let fsizedoc = '1'.repeat(10)
-let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(gataMenu.getRandom())).buffer(), sourceUrl: redesMenu.getRandom() }}}
+//let pp = gataVidMenu.getRandom()
+//let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+//let fsizedoc = '1'.repeat(10)
+//let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(gataMenu.getRandom())).buffer(), sourceUrl: redesMenu.getRandom() }}}
 
-
-let menuA = `${lenguajeGB['smsConfi2']()} *${username}*
-
-╭┄〔 *${wm}* 〕┄⊱
+let menu = `╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
 ┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
 ┊
 ┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
 ┊დ *${lenguajeGB['smsBotonM6']()} » ${level} || ${user.exp - min}/${xp}*
 ┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
-╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱`.trim()
-
-let menuB = `
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
 *╭━〔* ${username} *〕━⬣*
 *┆⚡ EXPERIENCIA ➟ ${exp}*
 *┆💎 DIAMANTES ➟ ${limit}*
@@ -106,7 +101,6 @@ ${readMore}
 ┃💫➺ _Bot_ 
 ┃💫➺ _términos y condiciones_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━〔 FUNCIÓN SUB BOT 〕━⬣*
 ┃ *Ya puedes convertir tú*
 ┃ *Número en GataBot!!*
@@ -116,7 +110,6 @@ ${readMore}
 ┃💻 _${usedPrefix}detener | stop_
 ┃💻 _${usedPrefix}bcbot_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━〔 REPORTAR COMANDO 〕━⬣*
 ┃ *Reporta con este comando de haber*
 ┃ *Fallas para poder Solucionar!!*
@@ -124,14 +117,12 @@ ${readMore}
 ┃ 💌 _${usedPrefix}reporte *texto*_
 ┃ 💌 _${usedPrefix}report *texto*_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━〔 ÚNETE AL GRUPO 〕━⬣*
 ┃ *Une a GataBot en Grupos!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃🪅 _${usedPrefix}botemporal *enlace* *cantidad*_
 ┃🪅 _${usedPrefix}addbot *enlace* *cantidad*_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━〔 SER PREMIUM 〕━⬣*
 ┃ *Convierte en un(a)*
 ┃ *Usuario(a) Premium!!*
@@ -140,7 +131,6 @@ ${readMore}
 ┃🎟️ _${usedPrefix}pase premium_
 ┃🎟️ _${usedPrefix}pass premium_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━〔 JUEGOS - MULTI JUEGOS 〕━⬣*
 ┃🎡➺ _${usedPrefix}mates | matemáticas | math_
 ┃🎡➺ _${usedPrefix}ppt *piedra : papel : tijera*_
@@ -179,7 +169,6 @@ ${readMore}
 ┃🎡➺ _${usedPrefix}multijuegos_
 ┃🎡➺ _${usedPrefix}juegos_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━〔 IA 〕━⬣*
 ┃ *Tienes la Ocasión de*
 ┃ *Conversar con GataBot!!*
@@ -188,7 +177,6 @@ ${readMore}
 ┃🪄➺ _${usedPrefix}alexa | siri | cortana *texto*_
 ┃🪄➺ _${usedPrefix}simsimi | bixby *texto*_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━━━[ AJUSTES - CHATS ]━━━⬣*
 ┃ *Configura si eres Propietario(a) y/o*
 ┃ *Admin!!*
@@ -221,7 +209,6 @@ ${readMore}
 ┃⚙️ _${usedPrefix}on *:* off *soloprivados | pconly*_
 ┃⚙️ _${usedPrefix}on *:* off *sologrupos | gconly*_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━〔 GRUPO - RESUMEN 〕━⬣*
 ┃ *Ahora puedes ver el resumen*
 ┃ *de configuracion de Grupos!!*
@@ -230,7 +217,6 @@ ${readMore}
 ┃🧾➺ _${usedPrefix}settings_
 ┃🧾➺ _${usedPrefix}vergrupo_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━[ DESCARGAS | DOWNLOADS ]━⬣*
 ┃🚀➺ _${usedPrefix}imagen | image *texto*_
 ┃🚀➺ _${usedPrefix}pinterest | dlpinterest *texto*_
@@ -259,7 +245,6 @@ ${readMore}
 ┃🚀➺ _${usedPrefix}fraseromantica_
 ┃🚀➺ _${usedPrefix}historia_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━[ CHAT ANONIMO ]━⬣*
 ┃ *¡Escribe con Alguien* 
 ┃ *de forma Anónima!* 
@@ -270,7 +255,6 @@ ${readMore}
 ┃👤➺ _${usedPrefix}next_
 ┃👤➺ _${usedPrefix}leave_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━[ CONFIGURACIÓN - GRUPOS ]━⬣*
 ┃ *Mejora tú Grupo con GataBot!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -307,7 +291,6 @@ ${readMore}
 ┃🌐➺ _${usedPrefix}on_
 ┃🌐➺ _${usedPrefix}off_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━━━[ PAREJAS 💞 ]━━⬣*
 ┃ *Declarate con alguien*
 ┃ *para que sean Parejas!!*
@@ -319,7 +302,6 @@ ${readMore}
 ┃❤️➺ _${usedPrefix}rechazar | decline *@tag*_
 ┃❤️➺ _${usedPrefix}terminar | finish *@tag*_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━[ VOTACIONES EN GRUPOS 📧 ]━⬣*
 ┃ *Ahora puedes hacer*
 ┃ *Votaciones en Grupos!!*
@@ -330,14 +312,12 @@ ${readMore}
 ┃📧➺ _${usedPrefix}vervotos | cekvoto_
 ┃📧➺ _${usedPrefix}delvoto | deletevoto_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━━━[ CONTENIDO 🔞 ]━━⬣*
 ┃ *Visita el Menú de Comandos*
 ┃ *Para Adultos!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃🔞➺ _${usedPrefix}hornymenu_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━[ CONVERTIDORES 🛰️ ]━⬣*
 ┃ *Convierte sticker en imagen!!*
 ┃ *Crea enlace de archivos!!*
@@ -350,7 +330,6 @@ ${readMore}
 ┃🛰️➺ _${usedPrefix}toenlace  *video, imagen o audio*_
 ┃🛰️➺ _${usedPrefix}tts es *texto*_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━━━[ LOGOS 🔆 ]━━⬣*
 ┃ *Crea Logos o personaliza*
 ┃ *la información del Logo!!*
@@ -358,7 +337,6 @@ ${readMore}
 ┃🔆 _${usedPrefix}logos *efecto texto*_
 ┃🌅 _${usedPrefix}menulogos2_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━━━[ EFECTOS ⛺ ]━━⬣*
 ┃⛺ _${usedPrefix}simpcard *@tag*_
 ┃⛺ _${usedPrefix}hornycard *@tag*_
@@ -368,7 +346,6 @@ ${readMore}
 ┃⛺ _${usedPrefix}pixelar_
 ┃⛺ _${usedPrefix}blur_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━[ RANDOM | ANIME 🧩 ]━⬣*
 ┃🧩 _${usedPrefix}chica_
 ┃🧩 _${usedPrefix}chico_
@@ -421,7 +398,6 @@ ${readMore}
 ┃🧩 _${usedPrefix}sakura_
 ┃🧩 _${usedPrefix}cosplay_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━[ MODIFICAR AUDIO 🧰 ]━⬣*
 ┃ *Realiza Modificaciones*
 ┃ *al Audio o Nota de Voz!!*
@@ -439,7 +415,6 @@ ${readMore}
 ┃🧰 _${usedPrefix}smooth_
 ┃🧰 _${usedPrefix}tupai_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━━[ BÚSQUEDAS 🔍 ]━━⬣*
 ┃ *Busca lo que quieres con GataBot!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -450,14 +425,12 @@ ${readMore}
 ┃🔍➺ _${usedPrefix}ytsearch | yts *texto*_
 ┃🔍➺ _${usedPrefix}wiki | wikipedia *texto*_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━━━[ AUDIOS 🔊 ]━━⬣*
 ┃ *Visita el Menú de Audios!!*
 ┃ *Disfruta de una Gran Variedad*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➫🔊 _${usedPrefix}audios_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━━[ HERRAMIENTAS 🛠️ ]━━⬣*
 ┃🛠️ _${usedPrefix}afk *motivo*_
 ┃🛠️ _${usedPrefix}acortar *url*_
@@ -473,7 +446,6 @@ ${readMore}
 ┃🛠️➺ _${usedPrefix}encuesta | poll *Motivo*_
 ┃🛠️➺ _${usedPrefix}horario_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━━━[ FUNCIÓN RPG ]━━⬣*
 ┃ *Compra, Adquiere Recuersos*
 ┃ *Mejora Tú Nivel y Rango!!*
@@ -516,13 +488,11 @@ ${readMore}
 ┃⚗️➺ _${usedPrefix}cofre | abrircofre | coffer_
 ┃⚗️➺ _${usedPrefix}trabajar | work_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━━━[ TOP EN GATABOT ]━━⬣*
 ┃ *Averigua en que Top te encuentras!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃🏆➺ _${usedPrefix}top | lb | leaderboard_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━[ STICKERS Y FILTROS ]━⬣*
 ┃ *Realiza stickers o crea*
 ┃ *stickers con filtros!!*
@@ -545,14 +515,12 @@ ${readMore}
 ┃🎐 _${usedPrefix}stickerfilter *efecto : responder a imagen*_
 ┃🎐 _${usedPrefix}cs *:* cs2_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━[ MODIFICAR STICKERS ]━⬣*
 ┃ *Personaliza la información del Sticker!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃💡 _${usedPrefix}wm *packname|author*_
 ┃💡 _${usedPrefix}wm *texto1|texto2*_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━[ STICKERS DINÁMICOS ]━⬣*
 ┃ *Realiza acciones con Stickers*
 ┃ *Etiquetando a alguien!!*
@@ -563,7 +531,6 @@ ${readMore}
 ┃⛱️ _${usedPrefix}besar | kiss *@tag*_
 ┃⛱️ _${usedPrefix}alimentar | food *@tag*_
 *╰━━━━━━━━━━━━⬣*
-
 *╭━[ MENU PARA PROPIETARIO/A ]━⬣*
 ┃ *Comandos solo para Propietario/a!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -598,10 +565,11 @@ ${readMore}
 *╰━━━━━━━━━━━━⬣*
 `.trim()
 
-await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', '🎧 ' + lenguajeGB.smsTex16() + ' 🎧', '/audios', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, {
-type: 'audioMessage', 
-ptt: true})
+await conn.sendHydrated(m.chat, menu, wm, null, null, null, null, null, [
+['𝙈𝙚𝙣𝙪 𝘼𝙪𝙙𝙞𝙤𝙨 | 🔊', '.menuaudios'],
+['𝙄𝙣𝙫𝙚𝙣𝙩𝙖𝙧𝙞𝙤 | 𝙄𝙣𝙫𝙚𝙣𝙩𝙤𝙧𝙮 🎒', '/inventario'],
+['𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 | 𝙈𝙖𝙞𝙣 𝙢𝙚𝙣𝙪 ⚡', '#menu']
+], m,)
 	
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
@@ -613,7 +581,7 @@ handler.tags = ['main']
 handler.command = /^(menucompleto|allmenu|allm\?)$/i
 //handler.register = true
 handler.exp = 50
-handler.money = 20
+handler.money = null
 handler.fail = null
 export default handler
 
@@ -623,4 +591,4 @@ function clockString(ms) {
 let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
 let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
 let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}  
+return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
