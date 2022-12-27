@@ -36,10 +36,10 @@ let mentionedJid = [who]
 let username = conn.getName(who)
 //if (!args[1]) throw `${mg}*USE EL COMANDO COMO ESTE EJEMPLO*\n*${usedPrefix + command} enlace y Número de Token(s)*\n\n*EJEMPLO*\n*${usedPrefix + command} ${nn} 3*\n\n*3 TOKEN 🪙 = 30 MINUTOS*`
 //if (!linkRegex.test(args[0])) throw `${fg}𝙀𝙉𝙇𝘼𝘾𝙀 𝙉𝙊 𝙑𝘼𝙇𝙄𝘿𝙊.` //Aquí 
-if (user.joincount <= 1) return conn.sendButton( m.chat, wm, texto2, img1, [[`🏪 𝘾𝙊𝙈𝙋𝙍𝘼𝙍 : 𝘽𝙐𝙔 3 ${rpgshopp.emoticon('joincount')}`, `.buy joincount 3`]], fkontak, m)
-if (isNaN(args[1])) return conn.sendButton( m.chat, wm, texto4, img1, [[`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m)
-if (args[1] < 3) return conn.sendButton( m.chat, wm, texto5, img2, [[`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m)
-if (args[1] > 3) return conn.sendButton( m.chat, wm, texto6, img2, [[`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m) //Solo ingresará si tiene 3 Token(s)
+if (user.joincount <= 1) return conn.sendButton( m.chat, wm, texto2, null, [[`🏪 𝘾𝙊𝙈𝙋𝙍𝘼𝙍 : 𝘽𝙐𝙔 3 ${rpgshopp.emoticon('joincount')}`, `.buy joincount 3`]], fkontak, m)
+if (isNaN(args[1])) return conn.sendButton( m.chat, wm, texto4, null, [[`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m)
+if (args[1] < 3) return conn.sendButton( m.chat, wm, texto5, null, [[`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m)
+if (args[1] > 3) return conn.sendButton( m.chat, wm, texto6, null, [[`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m) //Solo ingresará si tiene 3 Token(s)
  
 let res = await conn.groupAcceptInvite(code)
 await conn.sendButton( m.chat, texto7, `${await conn.getName(res)} | ` + wm, null, [[`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m).then(async() => { 
@@ -86,9 +86,7 @@ let data = (await conn.onWhatsApp(jid))[0] || {}
 } catch (e) {
 await conn.reply(m.chat, `${fg}\`\`\`POSIBLES CAUSAS
 - El enlace esta incorrecto o caducado.
-
 - No me puedo unir si previamente me han eliminado del Grupo.
-
 - El Grupo esta Lleno, por ende no puedo unirme.
 \`\`\``, m)
 console.log(e)}
