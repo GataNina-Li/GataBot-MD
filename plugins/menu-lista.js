@@ -123,7 +123,7 @@ function clockString(ms) {
 }
 
 function ucapan() {
-  const time = moment.tz('America/Los_Angeles').format('HH')  //America/Los_Angeles  Asia/Jakarta   America/Toronto
+  const time = moment.tz('America/Argentina/Buenos_Aires').format('HH')  //America/Los_Angeles  Asia/Jakarta   America/Toronto
   let res = `${lenguajeGB['smsSaludo']()}`
   if (time >= 4) {
     res = `${lenguajeGB['smsDia']()}`
