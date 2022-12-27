@@ -1,14 +1,14 @@
 // creditos a https://github.com/FG98F
 let handler = async (m, { conn, isPrems}) => {
 //let hasil = Math.floor(Math.random() * 5000)
-let pp = 'https://c4.wallpaperflare.com/wallpaper/991/456/22/sketch-artist-anime-anime-girls-arknights-swire-arknights-hd-wallpaper-preview.jpg'
+//let pp = 'https://c4.wallpaperflare.com/wallpaper/991/456/22/sketch-artist-anime-anime-girls-arknights-swire-arknights-hd-wallpaper-preview.jpg'
 let gata = Math.floor(Math.random() * 3000)
 global.db.data.users[m.sender].exp += gata * 1  
 let time = global.db.data.users[m.sender].lastwork + 600000
 if (new Date - global.db.data.users[m.sender].lastwork < 600000) throw `*Ya trabajó ⚒ espere unos ${msToTime(time - new Date())} para volver a trabajar!!*`
 
 //m.reply(`${pickRandom(global.work)} *${gata} XP*`)
-conn.sendHydrated(m.chat, wm, `${pickRandom(global.work)} ${gata} XP`, pp, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
+conn.sendHydrated(m.chat, wm, `${pickRandom(global.work)} ${gata} XP`, null, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
 ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', `.menu`]
 ], m,) 
  
