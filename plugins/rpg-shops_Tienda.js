@@ -189,7 +189,6 @@ ${Object.keys(listItems).map((v) => {
 *Use el comando de la siguiente forma:*
 *» ${usedPrefix}${command} (articulo) (cantidad)*
 *» ${usedPrefix}${command} (item) (quantity)*
-
 *★ Ejemplo : Example*
 *» ${usedPrefix}${command} potion 5*
 `.trim()) : 
@@ -203,7 +202,6 @@ ${Object.keys(listItems).map((v) => {
 *Use el comando de la siguiente forma:*
 *» ${usedPrefix}${command} (articulo) (cantidad)*
 *» ${usedPrefix}${command} (item) (quantity)*
-
 *★ Ejemplo : Example*
 *» ${usedPrefix}${command} potion 5*
 `.trim())
@@ -232,7 +230,6 @@ let paymentMethod = Object.keys(listItems[item]).find(v => v in user)
 if (user[paymentMethod] < listItems[item][paymentMethod] * total) return conn.sendButton(m.chat,
 `*–--『 𝙄𝙉𝙎𝙐𝙁𝙄𝘾𝙄𝙀𝙉𝙏𝙀𝙎 𝙍𝙀𝘾𝙐𝙍𝙎𝙊𝙎 』--–*`, 
 `*Necesitas ${(listItems[item][paymentMethod] * total) - user[paymentMethod]} ${global.rpgshop.emoticon(paymentMethod)} Para Comprar ${total} ${global.rpgshop.emoticon(item)}.*
-
 *Solo tienes ${user[paymentMethod]} ${global.rpgshop.emoticon(paymentMethod)}.*
 *–––––––––––––––––––––––––*
 *Misiones para Obtener Recursos*
@@ -255,7 +252,7 @@ return conn.sendButton(m.chat,
 *--------------------------------------------*
 *𝙂𝙖𝙨𝙩𝙤𝙨: ${(listItems[item][paymentMethod] * total)} ${global.rpgshop.emoticon(paymentMethod)}*
 *𝘼𝙝𝙤𝙧𝙖 𝙩𝙞𝙚𝙣𝙚: ${user[item]} ${global.rpgshopp.emoticon(item)}*
-`.trim(), imgr + 'COMPRA EXITOSA : DONE', [
+`.trim(), null + 'COMPRA EXITOSA : DONE', [
 [`👝 𝘾𝘼𝙍𝙏𝙀𝙍𝘼 | 𝙒𝘼𝙇𝙇𝙀𝙏`, `${usedPrefix}cartera`],
 [`🎒 𝙄𝙉𝙑𝙀𝙉𝙏𝘼𝙍𝙄𝙊 | 𝙄𝙉𝙑𝙀𝙉𝙏𝙊𝙍𝙔`, `${usedPrefix}inventory`]
 ], fkontak, m)
