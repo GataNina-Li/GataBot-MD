@@ -1,3 +1,5 @@
+Borren a los otaku, lgtb y al rebelde
+
 > #### 🚀 Versión actual: 1.4.0 
 
 <p align="center"> 
