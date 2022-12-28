@@ -31,7 +31,7 @@ let tiempo = 6000 * 1
 let time = user.antispam + tiempo * 1
 let texto = `*@${m.sender.split("@")[0]} ${lenguajeGB['smsNoSpam']()}*` 
 
-if (isOwner && isAdmin) return 0
+if (m.isGroup && isAdmin) return 0
 if (new Date - user.antispam < tiempo * 1) return
 await conn.reply(m.chat, texto,  m, { mentions: this.parseMention(texto) })
 user.banned = true
