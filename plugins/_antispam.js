@@ -2,7 +2,7 @@
 
 //let handler = m => m
 //handler.all = async function (m) {
-let handler = m => m
+/*let handler = m => m
 handler.before = async function (m, {conn, isAdmin} ) {
 if (m.isGroup && isAdmin) return 0
   
@@ -63,4 +63,4 @@ minutes = (minutes < 10) ? "0" + minutes : minutes
 seconds = (seconds < 10) ? "0" + seconds : seconds
 
 return minutes + " m y " + seconds + " s " 
-}
+}*/
