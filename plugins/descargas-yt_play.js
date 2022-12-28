@@ -16,7 +16,6 @@ let { title, description, thumbnail, videoId, durationH, viewH, publishedTime } 
 const url = 'https://www.youtube.com/watch?v=' + videoId
  
 await conn.sendButton(m.chat, wm, `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
-
 ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
 » ${title}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
@@ -34,7 +33,6 @@ await conn.sendButton(m.chat, wm, `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══�
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
 ও 𝙐𝙍𝙇
 » ${url}
-
 *𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`, thumbnail, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], m, dos.getRandom())
   
 const sections = [{
@@ -56,7 +54,7 @@ const listMessage = {
   text: `*𝙀𝙇𝙄𝙅𝘼 𝙌𝙐𝙀 𝙑𝘼 𝙃𝘼𝘾𝙀𝙍 𝘾𝙊𝙉  ${text}*`,
   footer: global.wm,
   title: `${htki} *♻️ 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙎* ${htka}`,
-  buttonText: `🍄 𝙀𝙇𝙀𝙍𝙂𝙄𝙍 🍁`,
+  buttonText: `🍄 𝙀𝙇𝙀𝙂𝙄𝙍 🍁`,
   sections
 }
 
