@@ -17,7 +17,7 @@ const url = 'https://www.youtube.com/watch?v=' + videoId
  
 await conn.sendButton(m.chat, wm, `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
-ও *TÍTULO| TITLE*
+ও *TÍTULO | TITLE*
 » ${title}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
 ও *DESCRIPCIÓN | DESCRIPTION*
