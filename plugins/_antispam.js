@@ -1,7 +1,9 @@
 //CRÉDITOS: https://github.com/Abiguelreyes75
 
+//let handler = m => m
+//handler.all = async function (m) {
 let handler = m => m
-handler.all = async function (m) {
+handler.before = async function (m, {conn, isAdmin} ) {
   
 let chat = global.db.data.chats[m.chat]
 let delet = m.key.participant
