@@ -16,7 +16,7 @@ global.db.data.users[m.sender].limit += rob
 global.db.data.users[who].limit -= rob 
 global.db.data.users[m.sender].money += rob
 global.db.data.users[who].money -= rob 
-m.reply(`*‣ Robaste ${rob}, ${global.db.data.users[m.sender]} a @${who.split`@`[0]}*`, null, { mentions: [who] })
+m.reply(`*‣ Robaste ${rob}, *${global.db.data.users[m.sender].dia, $.gata, $.expp}  a @${who.split`@`[0]}*`, null, { mentions: [who] })
 global.db.data.users[m.sender].lastrob = new Date * 1
 }
 handler.help = ['rob']
