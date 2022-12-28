@@ -17,22 +17,22 @@ const url = 'https://www.youtube.com/watch?v=' + videoId
  
 await conn.sendButton(m.chat, wm, `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
-ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
+ও *TÍTULO| TITLE*
 » ${title}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝘿𝙀𝙎𝘾𝙍𝙄𝙋𝘾𝙄𝙊𝙉 | 𝘿𝙀𝙎𝘾𝙍𝙄𝙋𝙏𝙄𝙊𝙉
+ও *DESCRIPCIÓN | DESCRIPTION*
 » ${description}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝙋𝙐𝘽𝙇𝙄𝘾𝘼𝘿𝙊 | 𝙋𝙐𝘽𝙇𝙄𝙎𝙃𝙀𝘿
+ও *PUBLICADO | PUBLISHED*
 » ${publishedTime}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝘿𝙐𝙍𝘼𝘾𝙄𝙊𝙉 | 𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉
+ও *DURACION | DURATION*
 » ${durationH}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝙑𝙄𝙎𝙏𝘼𝙎 | 𝙑𝙄𝙀𝙒𝙎
+ও *VISTAS| VIEWS*
 » ${viewH}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝙐𝙍𝙇
+ও *URL*
 » ${url}
 
 *𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`, thumbnail, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], m, dos.getRandom())
