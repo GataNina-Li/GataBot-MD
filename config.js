@@ -17,7 +17,7 @@ global.owner = [
 
 global.mods = [] 
 global.prems = ['528451003894'], 
-  
+   
   
 //⊱ ━━━━━.⋅ IDIOMA : LENGUAJE ⋅.━━━━ ⊰ 
 //Agrega el Idioma que quieres que tenga GataBot-MD
