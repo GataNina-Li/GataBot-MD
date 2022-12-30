@@ -21,5 +21,6 @@ await conn.sendHydrated(m.chat, info, wm, null, ig, '𝙄𝙣𝙨𝙩𝙖𝙜�
 handler.help = ['gitclone <url>']
 handler.tags = ['downloader']
 handler.command = /gitclone|clonarepo|clonarrepo|repoclonar/i
-handler.exp = 59
+handler.limit = 2
+handler.level = 2
 export default handler
