@@ -120,6 +120,7 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 termux-setup-storage
 apt update
 pkg upgrade
+pkg install git -y
 pkg install nodejs -y
 pkg install ffmpeg -y
 pkg install imagemagick -y
