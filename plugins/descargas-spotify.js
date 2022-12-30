@@ -21,7 +21,6 @@ let spotifyi = `✨ *TITULO:* _${title}_
 » _${json2.result.link}_
 
 ${wm}`
-let spotifyi = `❒═════❬ 𝐒𝐏𝐎𝐓𝐈𝐅𝐘 ❭═════╾❒\n┬\n├‣✨ *TITULO:* ${title}\n┴\n┬\n├‣🗣️ *ARTISTA:* ${artists}\n┴\n┬\n├‣🌐 *URL*: ${link}\n┴\n┬\n├‣💚 *URL DE DESCARGA:* ${json2.result.link}\n┴`
 //conn.sendFile(m.chat, thumbnail, 'error.jpg', spotifyi, m)
 await conn.sendButton(m.chat, '🎧 *Ｓ Ｐ Ｏ Ｔ Ｉ Ｆ Ｙ* 🎧', spotifyi, thumbnail, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
 let aa = await conn.sendMessage(m.chat, { audio: { url: json2.result.link }, fileName: `error.mp3`, mimetype: 'audio/mp4' }, { quoted: m })  
