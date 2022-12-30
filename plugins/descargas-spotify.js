@@ -25,6 +25,7 @@ _${title}_
 💚 *URL DE DESCARGA:* 
 » _${json2.result.link}_
 
+🎶 *Envaindo canción...*
 ${wm}`
 
 await conn.sendButton(m.chat, '🎧 *Ｓ Ｐ Ｏ Ｔ Ｉ Ｆ Ｙ* 🎧', spotifyi, thumbnail, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)
@@ -36,4 +37,6 @@ console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗
 console.log(e)
 }}
 handler.command = /^(spotify|music)$/i
+handler.limit = 1
+handler.level = 3
 export default handler
