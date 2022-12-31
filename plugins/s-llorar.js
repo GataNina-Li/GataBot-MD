@@ -20,7 +20,7 @@ let stiker = await sticker(null, s[Math.floor(Math.random() * s.length)], nombre
 conn.sendFile(m.chat, stiker, null, { asSticker: true })
  
  }
-handler.customPrefix = /llorar|yorar|llorando|llorando|llorare|llorará|lloremos|llorastes|lloraste|llora|lloró|lloro|yoro|😭|😢|😰|😿/i 
+handler.customPrefix = /llorar|yorar|llorando|llorando|llorare|llorará|lloremos|llorastes|lloraste/i 
 handler.command = new RegExp
 handler.exp = 50
 export default handler
