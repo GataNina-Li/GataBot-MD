@@ -8,7 +8,7 @@ return
 if (!user.antispam)
 return !0
 if (+new Date() > user.antispam) {
-let tiempo = 6000 * 1
+let tiempo = 60000 * 1
 setTimeout(() => {
 //this.updateBlockStatus(m.chat, 'unblock') No me gustó jjjjj
 user.banned = false
