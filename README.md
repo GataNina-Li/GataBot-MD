@@ -26,7 +26,7 @@
 
 -----
 [![blog](https://img.shields.io/badge/Gmail_➡️_centergatabot@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)
-](https://centergatabot@gmail.com)
+](mailto:https://centergatabot@gmail.com)
 
 [![blog](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://www.youtube.com/@gatadios)  <img src="https://github.com/siegrin/siegrin/blob/main/Assets/powerup.gif" height="29px">
