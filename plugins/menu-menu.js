@@ -243,6 +243,7 @@ ${readMore}
 ┃🚀➺ _${usedPrefix}pdocaudio | ytadoc *link*_
 ┃🚀➺ _${usedPrefix}pdocvieo | ytvdoc *link*_
 ┃🚀➺ _${usedPrefix}tw |twdl | twitter *link*_
+┃🚀➺ _${usedPrefix}spotify | music *text*_
 ┃🚀➺ _${usedPrefix}facebook | fb *link*_
 ┃🚀➺ _${usedPrefix}instagram *link video o imagen*_
 ┃🚀➺ _${usedPrefix}verig | igstalk *usuario(a)*_
@@ -608,8 +609,6 @@ await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)	
 }}
-handler.help = ['menu', 'help', '?']
-handler.tags = ['main']
 handler.command = /^(menucompleto|allmenu|allm\?)$/i
 //handler.register = true
 handler.exp = 50
