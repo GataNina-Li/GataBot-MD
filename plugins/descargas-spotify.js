@@ -25,7 +25,7 @@ _${title}_
 💚 *URL DE DESCARGA:* 
 » _${json2.result.link}_
 
-🎶 *Envaindo canción...*
+🎶 *Enviando canción...*
 ${wm}`
 
 await conn.sendButton(m.chat, '🎧 *Ｓ Ｐ Ｏ Ｔ Ｉ Ｆ Ｙ* 🎧', spotifyi, thumbnail, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)
