@@ -12,8 +12,7 @@ global.owner = [
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 global.mods = ['5492604050270', '5493772406612'] 
-global.prems = ['5492604050270', '5493772406612'], 
-  
+global.prems = ['5492604050270', '5493772406612'],   
   
 //⊱ ━━━━━.⋅ IDIOMA : LENGUAJE ⋅.━━━━ ⊰ 
 //Agrega el Idioma que quieres que tenga GataBot-MD
@@ -82,7 +81,7 @@ global.APIKeys = { // APIKey Here
   'https://anabotofc.herokuapp.com/': 'AnaBot'
 }
 
-global.imagen1 = fs.readFileSync('./Menu2.jpg')
+global.imagen1 = fs.readFileSync('./media/menus/Menu3.jpg')
 
 //⊱ ━━━━━.⋅ KEY ⋅.━━━━ ⊰
 
@@ -120,27 +119,22 @@ global.gatadiosig = ig
 global.md = 'https://github.com/GataNina-Li/GataBot-MD'
 global.gatabot = md
 
-global.nna = 'https://chat.whatsapp.com/Fs0id9YB4rXHBCv4c2RVIw'
-global.nnagrupo = nna //UPDATE GATABOT
+global.nna = 'https://chat.whatsapp.com/Fs0id9YB4rXHBCv4c2RVIw' //UPDATE GATABOT
 global.nna2 = 'Fs0id9YB4rXHBCv4c2RVIw'
 
-global.nn = 'https://chat.whatsapp.com/Jt76tVg51bfJNLwHwtlmGU'
-global.nngrupo = nn //Grupo 1
+global.nn = 'https://chat.whatsapp.com/Jt76tVg51bfJNLwHwtlmGU' //Grupo 1
 
-global.nnn = 'https://chat.whatsapp.com/Dx7SpgNO13fGvgCSuLjwpP'
-global.nnngrupo = nnn //Grupo 2
+global.nnn = 'https://chat.whatsapp.com/Dx7SpgNO13fGvgCSuLjwpP' //Grupo 2
 
-global.nnnt = 'https://chat.whatsapp.com/LHkRugxY5jL3mhVSZJMjIw'
-global.nnntgrupo = nnnt //Grupo 3
+global.nnnt = 'https://chat.whatsapp.com/LHkRugxY5jL3mhVSZJMjIw' //Grupo 3
 
-global.nnntt = 'https://chat.whatsapp.com/JK3ut4nDbzA5BBvMeKUb7t'
-global.nnnttgrupo = nnntt //Grupo 4
+global.nnntt = 'https://chat.whatsapp.com/JK3ut4nDbzA5BBvMeKUb7t' //Grupo 4
 
-global.nnnttt = 'https://chat.whatsapp.com/GSUnx4mUAuh0VQIem9aQDc'
-global.nnntttgrupo = nnnttt //Grupo 5
+global.nnnttt = 'https://chat.whatsapp.com/GSUnx4mUAuh0VQIem9aQDc' //Grupo 5
 
-global.nnnttt2 = 'https://chat.whatsapp.com/DswecLCg0elE8yNEJAdGAK'
-global.nnnttt2grupo = nnnttt2 //Grupo 6
+global.nnnttt2 = 'https://chat.whatsapp.com/DswecLCg0elE8yNEJAdGAK' //Grupo 6 COL
+
+global.nnnttt3 = 'https://chat.whatsapp.com/F1965v9fToG82aPuzj2a0a' //Grupo 7 COL
 
 global.paypal = 'https://paypal.me/OficialGD'
 global.donar = paypal
@@ -195,7 +189,7 @@ global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.pre
 
 global.lolkeys = ['2e0da1f78d1721134b21816d', '902c3bc9d8c08b0dcf8f5373', '808693688ecc695293359089', '85faf717d0545d14074659ad']
 //global.lolkeysapi = lolkeys[Math.floor(lolkeys.length * Math.random())]
-global.lolkeysapi = ['85faf717d0545d14074659ad']
+global.lolkeysapi = ['BrunoSobrino']
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 

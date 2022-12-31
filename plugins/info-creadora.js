@@ -4,12 +4,15 @@ var doc = ['pdf','zip','vnd.openxmlformats-officedocument.presentationml.present
 var document = doc[Math.floor(Math.random() * doc.length)]    
 let text = `
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈
-*Wa.me/573238484181*
+*Wa.me/593993684821*
 
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *2* 💖🐈
-*Wa.me/573208089136*
+*Wa.me/573238484181*
 
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *3* 💖🐈
+*Wa.me/573208089136*
+
+𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *4* 💖🐈
 *Wa.me/447451229913*
 
 *---------------------*

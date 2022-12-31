@@ -48,12 +48,14 @@
 <a href="https://chat.whatsapp.com/JK3ut4nDbzA5BBvMeKUb7t" target="blank"><img src="https://img.shields.io/badge/4️⃣_COMUNIDAD_GATADOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 <a href="https://chat.whatsapp.com/GSUnx4mUAuh0VQIem9aQDc" target="blank"><img src="https://img.shields.io/badge/5️⃣_COMUNIDAD_GATADOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 <a href="https://chat.whatsapp.com/DswecLCg0elE8yNEJAdGAK" target="blank"><img src="https://img.shields.io/badge/🐈 ᴳᵃᵗᵃᴮᵒᵗ 🌟 ᴰᵒʳʳᵃᵗᴮᵒᵗ 🧿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/F1965v9fToG82aPuzj2a0a" target="blank"><img src="https://img.shields.io/badge/🐈 𝐆𝐚𝐭𝐚𝐁𝐨𝐭 & 𝐋𝐨𝐥𝐢𝐁𝐨𝐭 🥳-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </a>
 
 ### ✅ GATABOT OFICIAL
-<a href="http://wa.me/573238484181?text=.menu" target="blank"><img src="https://img.shields.io/badge/1️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿(rápido)-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/573208089136?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/447451229913?text=.menu" target="blank"><img src="https://img.shields.io/badge/3️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿(no disponible del momento)-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/593993684821?text=.menu" target="blank"><img src="https://img.shields.io/badge/1️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/573238484181?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/573208089136?text=.menu" target="blank"><img src="https://img.shields.io/badge/3️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/447451229913?text=.menu" target="blank"><img src="https://img.shields.io/badge/4️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿(no disponible del momento)-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 
 </a>
 
@@ -120,6 +122,7 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 termux-setup-storage
 apt update
 pkg upgrade
+pkg install git -y
 pkg install nodejs -y
 pkg install ffmpeg -y
 pkg install imagemagick -y
