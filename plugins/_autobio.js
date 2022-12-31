@@ -7,7 +7,7 @@ if (process.send) {
 process.send('uptime')
 _muptime = await new Promise(resolve => {
 process.once('message', resolve)
-setTimeout(resolve, 8000)}) * 1000
+setTimeout(resolve, 8000)}) * 1000 
 }
 let muptime = clockString(_muptime)
 let bio = `${global.packname} ║ ✅ ${muptime} ⌛ ║ ⒼⒷ 𓃠 #estado #menu #jadibot #grupos #owner 💻`
