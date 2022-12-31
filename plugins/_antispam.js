@@ -2,9 +2,9 @@
 
 //let handler = m => m
 //handler.all = async function (m) {
-/*let handler = m => m
+let handler = m => m
 handler.before = async function (m, {conn, isAdmin} ) {
-if (m.isGroup && isAdmin) return 0
+if (m.isGroup && isAdmin) return null
   
 let chat = global.db.data.chats[m.chat]
 let delet = m.key.participant
@@ -63,4 +63,4 @@ minutes = (minutes < 10) ? "0" + minutes : minutes
 seconds = (seconds < 10) ? "0" + seconds : seconds
 
 return minutes + " m y " + seconds + " s " 
-}*/
+}
