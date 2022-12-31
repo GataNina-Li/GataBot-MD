@@ -2,6 +2,9 @@ import { canLevelUp, xpRange } from '../lib/levelling.js'
 import { levelup } from '../lib/canvas.js'
 export function before(m, { conn }) {
 //if (!db.data.chats[m.chat].autonivel && m.isGroup) throw 
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let mentionedJid = [who]
+let username = conn.getName(who)
 	
 let user = global.db.data.users[m.sender]
 let chat = global.db.data.chats[m.chat]
@@ -12,15 +15,12 @@ let before = user.level * 1
 while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
  if (before !== user.level) {
 	  	 
-conn.sendButton(m.chat, '🐈 ' + wm, `*╭━[ ${lenguajeGB.smsAutoLv1()} ]━დ*
+conn.sendButton(m.chat, '🐈 ' + wm, `*╭━[ ${username} ]━დ*
 *┃ ${lenguajeGB.smsAutoLv2()} ${before}*
-*┃ ┈ ┈ ┈ ┈ ┈ ┈ ┈*
 *┃ ${lenguajeGB.smsAutoLv3()} ${user.level}*
-*┃ ┈ ┈ ┈ ┈ ┈ ┈ ┈*
 *┃ ${lenguajeGB.smsAutoLv4()}* ${user.role}
-*┃ ┈ ┈ ┈ ┈ ┈ ┈ ┈*
 *┃ ${lenguajeGB.smsAutoLv5()} ${new Date().toLocaleString('id-ID')}*
-*╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ*
+*╰━⊰ ${lenguajeGB.smsAutoLv1()} ⊱━━დ*
 
 *_${lenguajeGB.smsAutoLv6()}_*`, null, [[lenguajeGB.smsConMenu(), `/menu`]], m)
 
