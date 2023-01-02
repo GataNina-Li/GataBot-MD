@@ -982,8 +982,6 @@ export async function handler(chatUpdate) {
             return
         if (opts['swonly'] && m.chat !== 'status@broadcast')
             return
-        if (!m.message) return !0
-if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA') || m.text.includes('serbot') || m.text.includes('jadibot')) return !0
         if (typeof m.text !== 'string')
             m.text = ''
 
