@@ -83,6 +83,8 @@ let menuA = `${lenguajeGB['smsConfi2']()} *${username}*
 ┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
 ┊დ *${lenguajeGB['smsBotonM6']()} » ${level} || ${user.exp - min}/${xp}*
 ┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┊დ ${(conn.user.jid == global.conn.user.jid ? '' : `Jadibot de: https://wa.me/${global.conn.user.jid.split`@`[0]}`) || '*Este es el Bot oficial*'}
 ╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱`.trim()
 
 let menuB = `
