@@ -380,14 +380,13 @@ throw false
 chat.antiTraba = isEnable
 break
 
-case 'anticomado':
-case 'anticomado':
-if (m.isGroup) {
-if (!(isAdmin || isOwner)) {
-global.dfail('admin', m, conn)
+case 'antiprivado':
+isAll = true
+if (!isROwner) {
+global.dfail('rowner', m, conn)
 throw false
-}}
-chat.anticomado = isEnable
+}
+bot.antiPrivate = isEnable
 break
 
 case 'simi':
