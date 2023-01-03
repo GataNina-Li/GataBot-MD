@@ -6,7 +6,7 @@ import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'   
 
 /**
- * @type {import('@adiwajshing/baileys')}   
+ * @type {import('@adiwajshing/baileys')}  
  */
 const { proto } = (await import('@adiwajshing/baileys')).default
 const isNumber = x => typeof x === 'number' && !isNaN(x)
