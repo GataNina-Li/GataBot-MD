@@ -17,6 +17,7 @@ const s = [
 ];  
  
 let stiker = await sticker(null, s[Math.floor(Math.random() * s.length)], nombre, nombre2)
+await delay(5 * 5000)
 conn.sendFile(m.chat, stiker, null, { asSticker: true })
  
  }
@@ -24,3 +25,4 @@ handler.customPrefix = /llorar|yorar|llorando|llorando|llorare|llorará|lloremos
 handler.command = new RegExp
 handler.exp = 50
 export default handler
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
