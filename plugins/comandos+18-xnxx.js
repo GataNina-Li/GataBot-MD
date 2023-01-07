@@ -12,9 +12,8 @@ conn.sendMessage(m.chat, { document: { url: json.result.files.high }, mimetype: 
 } catch (e) {
 m.reply(`𝙐𝙛𝙛, ${lenguajeGB['smsAvisoFG']()}𝙉𝙊 𝙁𝙐𝙉𝘾𝙄𝙊𝙉𝙊, 𝙐𝙎𝙀 𝙐𝙉 𝙀𝙉𝙇𝘼𝘾𝙀 𝘿𝙀 𝙓𝙉𝙓𝙓, 𝙑𝙐𝙀𝙇𝙑𝘼 𝘼 𝙄𝙉𝙏𝙀𝙉𝙏𝘼𝙍\n\n𝘿𝙄𝘿𝙉𝙏 𝙒𝙊𝙍𝙆, 𝙐𝙎𝙀 𝘼𝙉 𝙓𝙉𝙓𝙓 𝙇𝙄𝙉𝙆, 𝙏𝙍𝙔 𝘼𝙂𝘼𝙄𝙉`)
 }}
-export default handler
 handler.command = /^(xnxxdl)$/i
-handler.level = 16
+handler.level = 8
 handler.money = 1400
-handler.register = true
+export default handler
 const delay = time => new Promise(res => setTimeout(res, time))
