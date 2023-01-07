@@ -1,4 +1,4 @@
-let handler  = async (m, { conn, usedPrefix: prefix, command, text }) => {
+/*let handler  = async (m, { conn, usedPrefix: prefix, command, text }) => {
 try {
 switch(command) {
 case 'modapk': case 'apkmod':
@@ -35,4 +35,4 @@ const res = await axios({ method: 'GET', url: url, headers: {'User-Agent': 'Mozi
 return res.data
 } catch (err) {
 return err
-}}
+}}*/
