@@ -24,8 +24,7 @@ if (/^¿que es un bot?|Que es un bot$/i.test(m.text) ) { //sem prefixo
 ┆ 「 🅖🅐🅣🅐🅑🅞🅣-🅜🅓 」
 ╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ*`, m) //wm, null, [['Menu', '#menu']], m)
 
+}  
+return !0 
 }
-
-   
-return !0 }
 export default handler
