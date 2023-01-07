@@ -219,12 +219,6 @@ throw false
 }
 bot.temporal = isEnable
 break
-    
-//case 'autolevelup':
-//case 'autonivel':
-//isUser = true
-//user.autolevelup = isEnable
-//break
 		
 case 'autolevelup': case 'autonivel': case 'nivelautomatico':
 if (m.isGroup) {
