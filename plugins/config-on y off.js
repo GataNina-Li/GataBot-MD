@@ -219,12 +219,6 @@ throw false
 }
 bot.temporal = isEnable
 break
-    
-//case 'autolevelup':
-//case 'autonivel':
-//isUser = true
-//user.autolevelup = isEnable
-//break
 		
 case 'autolevelup': case 'autonivel': case 'nivelautomatico':
 if (m.isGroup) {
@@ -325,15 +319,6 @@ throw false
 bot.antiCall = isEnable
 break
 		
-/*case 'antispam':
-if (m.isGroup) {
-if (!(isAdmin || isOwner)) {
-global.dfail('admin', m, conn)
-throw false
-}}
-chat.antiSpam = isEnable          
-break*/
-		
 case 'antispam':
 isAll = true
 if (!isOwner) {
@@ -368,6 +353,16 @@ global.dfail('rowner', m, conn)
 throw false
 }
 global.opts['gconly'] = isEnable
+break
+
+case 'antiprivado':
+case 'privado':
+isAll = true
+if (!isROwner) {
+global.dfail('rowner', m, conn)
+throw false
+}
+bot.antiPrivate = isEnable
 break
 
 case 'antitrabas':
@@ -418,3 +413,4 @@ export default handler
 
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
+

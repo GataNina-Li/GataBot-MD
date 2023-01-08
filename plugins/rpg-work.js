@@ -5,7 +5,7 @@ let handler = async (m, { conn, isPrems}) => {
 let gata = Math.floor(Math.random() * 3000)
 global.db.data.users[m.sender].exp += gata * 1  
 let time = global.db.data.users[m.sender].lastwork + 600000
-if (new Date - global.db.data.users[m.sender].lastwork < 600000) throw `*Ya trabajó ⚒ espere unos ${msToTime(time - new Date())} para volver a trabajar!!*`
+if (new Date - global.db.data.users[m.sender].lastwork < 600000) throw `*Ya trabajó �? espere unos ${msToTime(time - new Date())} para volver a trabajar!!*`
 
 //m.reply(`${pickRandom(global.work)} *${gata} XP*`)
 conn.sendHydrated(m.chat, wm, `${pickRandom(global.work)} ${gata} XP`, null, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
@@ -39,6 +39,9 @@ return list[Math.floor(list.length * Math.random())]
 }
 
 global.work = ["Trabajas como cortador de galletas y ganas", "Trabaja para una empresa militar privada, ganando", "Organiza un evento de cata de vinos y obtiene",
+ "Moderaste el grupo cuando *GATADIOS* no estaba, el pago fue",
+ "iba caminando por la calle y que encuentra con",
+ "ayudarte con el grupo mientras los admin no estaba el pago fue",
  "Te secuestran y te llevan a un coliseo subterráneo donde luchaste contra monstruos con personas que nunca antes habías conocido. Ganas", "Limpias la chimenea y encuentras", 
 "Desarrollas juegos para ganarte la vida y ganas", 
 "¿Por qué este comando se llama trabajo? Ni siquiera estás haciendo nada relacionado con el trabajo. Sin embargo, ganas", "Trabajaste en la oficina horas extras por", 

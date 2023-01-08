@@ -2,9 +2,9 @@
 
 //let handler = m => m
 //handler.all = async function (m) {
-/*let handler = m => m
+let handler = m => m
 handler.before = async function (m, {conn, isAdmin} ) {
-if (m.isGroup && isAdmin) return 0
+if (m.isGroup && isAdmin) return null
   
 let chat = global.db.data.chats[m.chat]
 let delet = m.key.participant
@@ -25,12 +25,12 @@ this.spam[spaming.jid] = spaming
 } else try {
 this.spam[m.sender].spam += 1
   
-if (new Date - this.spam[m.sender].lastspam > 1500) {
+if (new Date - this.spam[m.sender].lastspam > 4000) {
 if (this.spam[m.sender].spam > 6) {
 this.spam[m.sender].spam = 0
 
 this.spam[m.sender].lastspam = new Date * 1
-let tiempo = 6000 * 1
+let tiempo = 60000 * 1
 let time = user.antispam + tiempo * 1
 let texto = `*@${m.sender.split("@")[0]} ${lenguajeGB['smsNoSpam']()}*` 
 
@@ -63,4 +63,4 @@ minutes = (minutes < 10) ? "0" + minutes : minutes
 seconds = (seconds < 10) ? "0" + seconds : seconds
 
 return minutes + " m y " + seconds + " s " 
-}*/
+}

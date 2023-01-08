@@ -43,6 +43,7 @@ rows: [
 {title: lenguajeGB['smsLista12'](), rowId: `${usedPrefix}listprem`},
 {title: lenguajeGB['smsLista13'](), rowId: `${usedPrefix}pase premium`},
 {title: lenguajeGB['smsLista14'](), rowId: `${usedPrefix}inventario 3`},
+{title: "🌐 MINECRAFT-SERVER 🌐", rowId: `${usedPrefix}MC-SERVER`},
 {title: lenguajeGB['smsLista15'](), rowId: `${usedPrefix}rpgmenu`},
 {title: lenguajeGB['smsLista16'](), rowId: `${usedPrefix}buy`},
 {title: lenguajeGB['smsLista17'](), rowId: `${usedPrefix}inventory`, description: '\n'}
@@ -73,33 +74,35 @@ rows: [
 {title: lenguajeGB['smsLista35'](), rowId: `${usedPrefix}ownermenu`}
 ]}]
 
-
 const listMessage = {
-text: `╭───────────────────❀\n│ *${ucapan()}*\n│🎄¸.• *${name}* •.¸🎄\n╰───────────────────❀
-╭━━〔 *${wm}* 〕━━⬣
-┃☃️ *${lenguajeGB['smsTime']()}*	    
-┃➺ ${time}   
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 🌟
-┃☃️ *${lenguajeGB['smsUptime']()}* 
-┃➺ ${uptime}
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 🌟
-┃☃️ *${lenguajeGB['smsVersion']()}*
-┃➺ ${vs} 
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 🌟
-┃☃️ *${lenguajeGB['smsTotalUsers']()}*
-┃➺ ${Object.keys(global.db.data.users).length} 
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 🌟
-┃☃️ *${lenguajeGB['smsMode']()}*
-┃➺ ${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 🌟
-┃☃️ *${lenguajeGB['smsBanChats']()}*
-┃➺ ${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length} 
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 🌟
-┃☃️ *${lenguajeGB['smsBanUsers']()}*
-┃➺ ${Object.entries(global.db.data.users).filter(user => user[1].banned).length}
-╰━━━━━━━━━━━━━━━━━━⬣`, footer: `*${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 🎁 ${conn.getName(pareja)}` : `🔔 ${lenguajeGB['smsResultPareja']()}`}*`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
+text: `*╭─────────────────✤*\n*│* *${ucapan()}*\n*│* 🌐¸.• *${name}* •.¸🌐\n*│*
+╭━〔 *${wm}* 〕━⬣
+┃✜ *${lenguajeGB['smsTime']()}*	    
+┃➺ _${time}_ 
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsUptime']()}* 
+┃➺ _${uptime}_
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsVersion']()}*
+┃➺ _${vs}_
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsTotalUsers']()}*
+┃➺ _${Object.keys(global.db.data.users).length}_ 
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsMode']()}*
+┃➺ _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}_
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsBanChats']()}*
+┃➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsBanUsers']()}*
+┃➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
+╰━━━━━━━━━━━━━━━━⬣
+*» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
+footer: `*↓ TRUSTED LINK* ✅
+${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
 title: null,
-buttonText: `🛷 ${lenguajeGB['smsListaMenu']()} 🛷`, 
+buttonText: `${lenguajeGB['smsListaMenu']()}`, 
 sections }
 await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})	
       
@@ -121,6 +124,9 @@ function clockString(ms) {
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
+
+const more = String.fromCharCode(8206)
+const readMore = more.repeat(4001)
 
 function ucapan() {
   const time = moment.tz('America/Argentina/Buenos_Aires').format('HH')  //America/Los_Angeles  Asia/Jakarta   America/Toronto

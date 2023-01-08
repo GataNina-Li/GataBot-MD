@@ -88,7 +88,8 @@ let menu = `╭┄〔 *${wm}* 〕┄⊱
 ∘ _${usedPrefix}ytmp4 | ytv *link*_
 ∘ _${usedPrefix}pdocaudio | ytadoc *link*_
 ∘ _${usedPrefix}pdocvieo | ytvdoc *link*_
-∘ _${usedPrefix}tw |twdl | twitter *link*_
+∘ _${usedPrefix}tw | twdl | twitter *link*_
+∘ _${usedPrefix}spotify | music *text*_
 ∘ _${usedPrefix}facebook | fb *link*_
 ∘ _${usedPrefix}instagram *link video o imagen*_
 ∘ _${usedPrefix}verig | igstalk *usuario(a)*_

@@ -18,10 +18,12 @@ const s = [
 ];  
  
 let stiker = await sticker(null, s[Math.floor(Math.random() * s.length)], nombre, nombre2)
+await delay(5 * 5000)
 conn.sendFile(m.chat, stiker, null, { asSticker: true })
  
  }
-handler.customPrefix = /ok|de acuerdo|okey|okay|estoy de acuerdo|deacuerdo|entiendo|me parece bien|muy bien|👍|🤝|✌️|👌/i 
+handler.customPrefix = /ok|de acuerdo|okey|okay|estoy de acuerdo|deacuerdo|👌/i 
 handler.command = new RegExp
 handler.exp = 50
 export default handler
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
