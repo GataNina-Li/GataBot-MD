@@ -1,5 +1,5 @@
 /* By https://github.com/ALBERTO9883/NyanCatBot-MD */
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 if (!text) throw `*[❗] Ejemplo de uso del comando ${usedPrefix + command}* https://getstickerpack.com/stickers/flork-memes-4-1`
@@ -16,4 +16,4 @@ await m.reply('*[❗] 𝙴𝚁𝚁𝙾𝚁, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 �
 }}
 handler.command = /^stickerpack$/i
 export default handler
-const delay = time => new Promise(res => setTimeout(res, time))
+const delay = time => new Promise(res => setTimeout(res, time))*/
