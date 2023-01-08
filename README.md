@@ -133,9 +133,9 @@ npm update
 npm start
 ```
 ------------------
-### ACTIVAR POR TERMUX - ARCHIVOS <a href="https://github.com/GataNina-Li/GataBot-MD"> <img src="https://images.vexels.com/media/users/3/135984/isolated/preview/11c3e3e5d2a2c47fef7926854010d767-icono-de-carpeta-de-archivos.png" height="40px"> </a>
+### ACTIVAR POR TERMUX - ARCHIVOS <a href="https://mega.nz/file/X7AQkZiZ#qZuO8uQ0EI1MzzcD2nKFB6gqX8uahJeQ299D6RBV-Dc"> <img src="https://images.vexels.com/media/users/3/135984/isolated/preview/11c3e3e5d2a2c47fef7926854010d767-icono-de-carpeta-de-archivos.png" height="40px"> </a>
 > DESCARGUÉ Y DESCOMPRIMA 
-### [`GataBot-MD ~ Archivos`](https://mega.nz/file/vvxxHYha#-I6Q64hayupW4_mQ86KWXt0qzy7tAg4sUxAaAKmMahk)
+### [`GataBot-MD ~ Archivos`](https://mega.nz/file/X7AQkZiZ#qZuO8uQ0EI1MzzcD2nKFB6gqX8uahJeQ299D6RBV-Dc)
 [![blog](https://img.shields.io/badge/Termux-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/UcWlyQ8u5HE)
 
