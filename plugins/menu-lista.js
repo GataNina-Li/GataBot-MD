@@ -73,11 +73,9 @@ rows: [
 {title: lenguajeGB['smsLista35'](), rowId: `${usedPrefix}ownermenu`}
 ]}]
 
-const oficial = redesMenu.push('AGREGA EL TEXTO PARA MENU AQUI')
-
 const listMessage = {
-text: `*╭─────────────────✤*\n│ *${ucapan()}*\n│🌐¸.• *${name}* •.¸🌐\n│
-╭━〔 *${wm}* 〕━━⬣
+text: `*╭─────────────────✤*\n*│* *${ucapan()}*\n*│* 🌐¸.• *${name}* •.¸🌐\n*│*
+╭━〔 *${wm}* 〕━⬣
 ┃✜ *${lenguajeGB['smsTime']()}*	    
 ┃➺ _${time}_ 
 ┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -98,10 +96,11 @@ text: `*╭─────────────────✤*\n│ *${ucapa
 ┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃✜ *${lenguajeGB['smsBanUsers']()}*
 ┃➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
-╰━━━━━━━━━━━━━━━━⬣`, footer: `*${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*
-*↓ TRUSTED LINK* ✅
+╰━━━━━━━━━━━━━━━━⬣
+*${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
+footer: `*↓ TRUSTED LINK* ✅
 ${readMore}
-${oficial}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
+${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
 title: null,
 buttonText: `${lenguajeGB['smsListaMenu']()}`, 
 sections }
