@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 import fs from 'fs' 
 
 let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner, text }) => { 
@@ -319,15 +319,6 @@ throw false
 bot.antiCall = isEnable
 break
 		
-/*case 'antispam':
-if (m.isGroup) {
-if (!(isAdmin || isOwner)) {
-global.dfail('admin', m, conn)
-throw false
-}}
-chat.antiSpam = isEnable          
-break*/
-		
 case 'antispam':
 isAll = true
 if (!isOwner) {
@@ -422,3 +413,4 @@ export default handler
 
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
+*/
