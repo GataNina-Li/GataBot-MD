@@ -1,5 +1,5 @@
 //by https://github.com/elrebelde21/The-LoliBot-MD
-let handler = m => m
+/*let handler = m => m
 handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
 
@@ -28,3 +28,4 @@ if (/^¿que es un bot?|Que es un bot$/i.test(m.text) ) { //sem prefixo
 return !0 
 }
 export default handler
+*/
