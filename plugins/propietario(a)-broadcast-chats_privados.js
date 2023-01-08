@@ -1,5 +1,5 @@
 //creado por https://github.com/DIEGO-OFC
-/*import { randomBytes } from 'crypto'
+import { randomBytes } from 'crypto'
 let handler = async (m, { conn, text }) => {
   let chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map(v => v[0])
   let cc = conn.serializeM(text ? m : m.quoted ? await m.getQuotedObj() : false || m)
@@ -19,4 +19,4 @@ const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 
 const randomID = length => randomBytes(Math.ceil(length * .5)).toString('hex').slice(0, length)
-*/
+
