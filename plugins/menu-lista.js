@@ -97,7 +97,7 @@ text: `*╭─────────────────✤*\n*│* *${uca
 ┃✜ *${lenguajeGB['smsBanUsers']()}*
 ┃➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
 ╰━━━━━━━━━━━━━━━━⬣
-*${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
+*» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
 footer: `*↓ TRUSTED LINK* ✅
 ${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
 title: null,
