@@ -128,8 +128,6 @@ pkg install ffmpeg -y
 pkg install imagemagick -y
 git clone https://github.com/GataNina-Li/GataBot-MD
 cd GataBot-MD
-npm install
-npm update
 npm start
 ```
 ------------------
@@ -148,7 +146,6 @@ pkg install nodejs -y
 pkg install ffmpeg -y
 pkg install imagemagick -y
 cd storage/downloads/GataBot-MD
-npm install
 npm start
 ```
 * #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
