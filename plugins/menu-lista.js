@@ -43,6 +43,7 @@ rows: [
 {title: lenguajeGB['smsLista12'](), rowId: `${usedPrefix}listprem`},
 {title: lenguajeGB['smsLista13'](), rowId: `${usedPrefix}pase premium`},
 {title: lenguajeGB['smsLista14'](), rowId: `${usedPrefix}inventario 3`},
+{title: "🌐 MINECRAFT-SERVER 🌐", rowId: `${usedPrefix}MC-SERVER`},
 {title: lenguajeGB['smsLista15'](), rowId: `${usedPrefix}rpgmenu`},
 {title: lenguajeGB['smsLista16'](), rowId: `${usedPrefix}buy`},
 {title: lenguajeGB['smsLista17'](), rowId: `${usedPrefix}inventory`, description: '\n'}
