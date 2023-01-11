@@ -6,7 +6,7 @@ for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.e
 txt += `\n
 🐈 ${await conn.getName(jid)}
 ✦ ${await conn.getName(jid)}\n
-*CREADOR(A):* ` + `${PhoneNumber ? `${PhoneNumber('+' + jid.replace('@s.whatsapp.net', '')).getNumber('international')}` : '*Creador no encontrado*'}` == undefined ? '' : '*Creador no encontrado*' + '\n' +
+*CREADOR(A):* ` + `${PhoneNumber ? '*Creador no encontrado*' : `${PhoneNumber('+' + jid.replace('@s.whatsapp.net', '')).getNumber('international')}`}` == undefined ? '' : '*Creador no encontrado*' + '\n' +
 `${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*Wa.me/${jid.split`@`[0]}*`}\n` +
 `${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
 
