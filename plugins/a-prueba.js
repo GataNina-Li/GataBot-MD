@@ -6,8 +6,8 @@ for (let [jid, chat, creators] of Object.entries(conn.chats).filter(([jid, chat,
 txt += `\n
 🐈 ${await conn.getName(jid)}
 ✦ ${await conn.getName(jid)}\n
-*CREADOR(A):* ` + `${PhoneNumber ? `${PhoneNumber('+' + jid.replace('@s.whatsapp.net', '')).getNumber('international')}` == undefined ? '' : '*Creador no encontrado*' : '*Creador no encontrado*'}\n` + 
-`${PhoneNumber ? `*Wa.me/${jid.split`@`[0]}*` : `*Creador no encontrado*`}` +   'https://chat.whatsapp.com/' + 'await conn.groupInviteCode(group)' +
+*CREADOR(A):* ` + `${PhoneNumber ? `${PhoneNumber('+' + jid.replace('@s.whatsapp.net', '')).getNumber('international')}` : '*Creador no encontrado*'}` == undefined ? '' : '*Creador no encontrado*' + '\n' +
+`${PhoneNumber ? `*Wa.me/${jid.split`@`[0]}*` : `*Creador no encontrado*`}\n` +
 `${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
 
 m.reply(`*${gt} ESTÁ EN ESTOS GRUPOS*
