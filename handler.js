@@ -961,6 +961,7 @@ export async function handler(chatUpdate) {
 		if (!('temporal' in settings)) settings.temporal = true
         if (!('antiPrivate' in settings)) settings.antiPrivate = false
 		if (!('antiCall' in settings)) settings.antiCall = true
+                if (!('antipv' in settings)) settings.antipv = false
 		if (!('antiSpam' in settings)) settings.antiSpam = true
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
@@ -969,6 +970,7 @@ export async function handler(chatUpdate) {
 		temporal: true,
 		antiPrivate: false,
 		antiCall: true,
+                antipv: false,
 		antiSpam: true
             }
         } catch (e) {
