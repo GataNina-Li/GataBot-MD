@@ -3,15 +3,13 @@ let handler = async (m, { conn, isBotAdmin }) => {
 let txt = ''
 let group = m.chat
 for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('https://chat.whatsapp.com/') + conn.groupInviteCode(jid) && chat.isChats)) 
-txt += `\n
-🐈 ${await conn.getName(jid)}
-✦ ${await conn.getName(jid)}\n
-*CREADOR(A):* ` + `${PhoneNumber ? '*Creador no encontrado*' : `${PhoneNumber('+' + jid.replace('@s.whatsapp.net', '')).getNumber('international')}`}` == undefined ? '' : '*Creador no encontrado*' + '\n' +
-`${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*Wa.me/${jid.split`@`[0]}*`}\n` +
-`${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
+txt += `🐈 ${await conn.getName(jid)}\n
+✦ ${await conn.getName(jid)}\n 
+${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*Wa.me/${jid.split`@`[0]}*`}\n
+${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
 
 m.reply(`*${gt} ESTÁ EN ESTOS GRUPOS*
-*IS IN THESE GROUPS:*
+*IS IN THESE GROUPS:*\n
 ${txt}`.trim())
 
 }
