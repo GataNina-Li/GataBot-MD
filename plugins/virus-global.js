@@ -7,7 +7,7 @@ let handler  = async (m, { conn, args, text, command, usedPrefix, participants }
 let from 
 if (text) from = `${text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'}`;
 if (!text) from = `${m.chat}`;
-if (text && isNaN(text)) throw '${lenguajeGB['smsAvisoIIG']()}*ᴇʟ ᴛᴇxᴛᴏ ᴅᴇʙᴇ sᴇ ᴜɴ ɴᴜᴍᴇʀᴏ ᴀ ᴄᴜᴀʟ sᴇ ʟᴇ ᴇɴᴠɪᴀᴅᴀ ᴇʟ ᴠɪʀᴜs ᴄʀᴀsʜ*' 
+if (text && isNaN(text)) throw `${lenguajeGB['smsAvisoIIG']()}*ᴇʟ ᴛᴇxᴛᴏ ᴅᴇʙᴇ sᴇ ᴜɴ ɴᴜᴍᴇʀᴏ ᴀ ᴄᴜᴀʟ sᴇ ʟᴇ ᴇɴᴠɪᴀᴅᴀ ᴇʟ ᴠɪʀᴜs ᴄʀᴀsʜ*`
     
 let send     
 if (text) send = `@${text.replace(/[^0-9]/g, '')}`;
