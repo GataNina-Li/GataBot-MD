@@ -7,7 +7,7 @@ txt += `\n
 🐈 ${await conn.getName(jid)}
 ✦ ${await conn.getName(jid)}\n
 *CREADOR(A):* ` + `${PhoneNumber ? `${PhoneNumber('+' + jid.replace('@s.whatsapp.net', '')).getNumber('international')}` : '*Creador no encontrado*'}` == undefined ? '' : '*Creador no encontrado*' + '\n' +
-`${PhoneNumber.length > 17 ? `*Creador no encontrado*` : `*Wa.me/${jid.split`@`[0]}*`}\n` +
+`${PhoneNumber.length > 17 ? `*Creador no encontrado*` : `*Wa.me/${jid.split`@`[0]}*`}\n` + 'conn.groupInviteCode(`${text}`)` +
 `${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
 
 m.reply(`*${gt} ESTÁ EN ESTOS GRUPOS*
