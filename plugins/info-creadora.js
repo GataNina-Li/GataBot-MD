@@ -18,9 +18,6 @@ let text = `
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *5* 💖🐈
 *Wa.me/5493458410725*
 
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *6* 💖🐈
-*Wa.me/50495086382*
-
 *---------------------*
 *CENTER GATABOT*
 *centergatabot@gmail.com*
@@ -58,8 +55,8 @@ let buttonMessage= {
 'headerType': 6 }
 
 await conn.sendMessage(m.chat, buttonMessage, { quoted: m })
-const data = global.owner.filter(([id, isCreator]) => id && isCreator)
-await conn.sendContact(m.chat, data.map(([id, name]) => [id, name]), m)
+await conn.sendKontak(m.chat, global.owner, m, { contextInfo: { externalAdReply :{
+    showAdAttribution: true,
 //await conn.sendContact(m.chat, `${owner[0][0]}`, m)//, 
 //await conn.sendContact(m.chat, conn.getName(owner[0][0]+'@s.whatsapp.net', m)
   
@@ -75,3 +72,4 @@ handler.help = ['owner', 'creator']
 handler.tags = ['info']
 handler.command = /^(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)$/i
 export default handler 
+
