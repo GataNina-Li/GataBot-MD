@@ -86,12 +86,6 @@ global.imagen1 = fs.readFileSync('./media/menus/Menu3.jpg')
 
 //⊱ ━━━━━.⋅ KEY ⋅.━━━━ ⊰
 
-global.Key360 = ['964f-0c75-7afc'] //keys ephoto360
-//global.beta = ['https://violetics.pw'] //keys ephoto360
-
-global.keysZens = ['fiktod', 'c2459db922', 'BF39D349845E', '675e34de8a', '37CC845916', '0b917b905e6f', '6fb0eff124']
-global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
-
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 
@@ -99,9 +93,6 @@ global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
 
 global.packname = 'A̳s̳a̳k̳u̳r̳a̳ ̳B̳O̳T̳💎'
 global.author = 'ᴀꜱᴀᴋᴜʀᴀ-ᴍᴀᴏ ʙᴏᴛ'
-
-//━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
-
 
 //⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
 
@@ -120,22 +111,22 @@ global.gatadiosig = ig
 global.md = 'https://github.com/GataNina-Li/GataBot-MD'
 global.gatabot = md
 
-global.nna = 'https://chat.whatsapp.com/IEtTEo40jWC5QIcPvgOVtp' //UPDATE GATABOT
-global.nna2 = 'IEtTEo40jWC5QIcPvgOVtp'
+global.nna = 'https://chat.whatsapp.com/L1jwKdKR8FRBnrWkLHx0O3' //UPDATE GATABOT
+global.nna2 = 'L1jwKdKR8FRBnrWkLHx0O3'
 
-global.nn = 'https://chat.whatsapp.com/FTTxAPnnH3h9MdXY7DA0nn' //Grupo 1
+global.nn = 'https://chat.whatsapp.com/Dw6uFt4fBzbHqVLpRXB8u8' //Grupo 1
 
-global.nnn = 'https://chat.whatsapp.com/JmJ3XI13VFLKTdzC5hvqYe' //Grupo 2
+global.nnn = 'https://chat.whatsapp.com/G91UJtNZYcgLtzzRf9E2fU' //Grupo 2
 
-global.nnnt = 'https://chat.whatsapp.com/HP9TPlrBtKQ4uRhtK7OuTv' //Grupo 3
+global.nnnt = 'https://chat.whatsapp.com/CtkLvCl41mv0mB6HnZx9V6' //Grupo 3
 
-global.nnntt = 'https://chat.whatsapp.com/KNlxgBn7lhFBDBisbazKmZ' //Grupo 4
+global.nnntt = 'https://chat.whatsapp.com/Lb1oPeVAil6ElUZ3xEOfZl' //Grupo 4
 
-global.nnnttt = 'https://chat.whatsapp.com/DONDMt3JIDdCVa70dBBE05' //Grupo 5
+global.nnnttt = 'https://chat.whatsapp.com/F7NT5l170QbAGT5UdIZdQO' //Grupo 5
 
-global.nnnttt2 = 'https://chat.whatsapp.com/CpAxaiPO3O77SdY7aIBgfM' //Grupo 6 COL
+global.nnnttt2 = 'https://chat.whatsapp.com/LuLnlF3jABREB4S5ErYUXF' //Grupo 6 COL
 
-global.nnnttt3 = 'https://chat.whatsapp.com/LsFbimqRU49DgZh9KdliKL' //Grupo 7 COL
+global.nnnttt3 = 'https://chat.whatsapp.com/JSI7fWgV4xtJTnMQqJw11V' //Grupo 7 COL
 
 global.paypal = 'https://paypal.me/OficialGD'
 global.donar = paypal
@@ -188,8 +179,13 @@ global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.pre
 
 //━━━━━━━━━━━━━━lolkeys━━━━━━━━━
 
-global.lolkeys = ['2e0da1f78d1721134b21816d', '902c3bc9d8c08b0dcf8f5373', '808693688ecc695293359089', '85faf717d0545d14074659ad']
-//global.lolkeysapi = lolkeys[Math.floor(lolkeys.length * Math.random())]
+global.keysZens = ['c2459db922', '37CC845916', '6fb0eff124']
+// 'fiktod' 'BF39D349845E' '675e34de8a' '0b917b905e6f'
+global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
+global.keysxteammm = ['29d4b59a4aa687ca', '5LTV57azwaid7dXfz5fzJu', 'cb15ed422c71a2fb', '5bd33b276d41d6b4', 'HIRO', 'kurrxd09', 'ebb6251cc00f9c63']
+global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())]
+global.keysneoxrrr = ['5VC9rvNx', 'cfALv5']
+global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = ['BrunoSobrino']
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ

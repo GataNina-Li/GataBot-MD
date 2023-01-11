@@ -12,12 +12,39 @@ const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isCha
 const groupsIn = chats.filter(([id]) => id.endsWith('@g.us'))
 const groups = chats.filter(([id]) => id.endsWith('@g.us'))
 const used = process.memoryUsage()
+const cpus = os.cpus().map(cpu => {
+    cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
+    return cpu
+  })
+const cpu = cpus.reduce((last, cpu, _, { length }) => {
+    last.total += cpu.total
+    last.speed += cpu.speed / length
+    last.times.user += cpu.times.user
+    last.times.nice += cpu.times.nice
+    last.times.sys += cpu.times.sys
+    last.times.idle += cpu.times.idle
+    last.times.irq += cpu.times.irq
+    return last
+  }, {
+    speed: 0,
+    total: 0,
+    times: {
+      user: 0,
+      nice: 0,
+      sys: 0,
+      idle: 0,
+      irq: 0
+    }
+  })
 const { restrict } = global.db.data.settings[conn.user.jid] || {}
 const { autoread } = global.opts
 let pp = './media/menus/Menu1.jpg'
+let vn = './media/infobot.mp3'
 let old = performance.now()
-let neww = performance.now()
-let speed = neww - old
+  //await m.reply('_Realizando test_')
+  let neww = performance.now()
+  let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])]
+  let speed = neww - old
 
 let info = `
 ╭━━━━[ ${gt} ]━━━━━⬣
@@ -51,6 +78,12 @@ let info = `
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *VELOCIDAD | SPEED*
 ┃ღ  *${speed}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *BOT SECUNDARIOS ACTIVOS | ACTIVE SECONDARY BACKS*
+┃ღ *${totaljadibot.length}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *BATERIA | DRUMS*
+┃ღ *${conn.battery ? `${conn.battery.value}%* *${conn.battery.live ? '🔌 Cargando...*' : '⚡ Desconectado*'}` : 'Desconocido*'}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *AUTOREAD*
 ┃ღ ${autoread ? '*Activado ✔*' : '*Desactivado ✘*'}
