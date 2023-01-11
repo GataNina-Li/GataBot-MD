@@ -1,10 +1,10 @@
-let handler = async (m, { conn }) => { 
+let handler = async (m, { conn, isBotAdmin }) => { 
 let txt = ''
-for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats)) txt += `\n🐈 ${await conn.getName(jid)}\n✦ ${jid}\n*Enlace:*\n${await conn.groupInviteCode(jid)}\n${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
+for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats)) txt += `\n🐈 ${await conn.getName(jid)}\n✦ ${jid}\n*Enlace:*\n${isBotAdmin ? 'https://chat.whatsapp.com/' + `await conn.groupInviteCode(jid)` : 'No permitido'}\n${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
 m.reply(`*${gt} ESTÁ EN ESTOS GRUPOS*
 *IS IN THESE GROUPS:*
 
-txt`.trim())
+${txt}`)
 
 //conn.sendHydrated(m.chat, txt, wm, null, 'https://github.com/GataNina-Li/GataBot-MD', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
 //['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '.menu'],
