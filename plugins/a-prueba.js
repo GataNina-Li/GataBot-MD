@@ -1,4 +1,4 @@
-let handler = async (m, { conn }) => { 
+let handler = async (m, { conn, isBotAdmin }) => { 
 let txt = ''
 let group = m.chat
 for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('https://chat.whatsapp.com/') &&  + await conn.groupInviteCode(group)) txt += `\n🐈 ${await conn.getName(jid)}\n✦` + `${isBotAdmin ? `${jid}` : 'No permitido'}` + `\n${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
