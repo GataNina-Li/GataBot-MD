@@ -10,7 +10,7 @@ const groupsIn = chats.filter(([jid]) => jid.endsWith('@g.us'))
 for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('https://chat.whatsapp.com/') + conn.groupInviteCode(jid) && chat.isChats)) 
 
 
-let Link = conn.groupInviteCode(jid) 
+//let link = conn.groupInviteCode(jid) 
 txt += `*✦ Grupo:* ${await conn.getName(jid)}
 *✦ Enlace:* ${jid.isBotAdmin ? '*Enlace no encontrado*' : 'https://chat.whatsapp.com/' + ``}
 *✦ Creador(a):* ${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*Wa.me/${jid.split`@`[0]}*`}
