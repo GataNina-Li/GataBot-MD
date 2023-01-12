@@ -55,7 +55,8 @@ let buttonMessage= {
 'headerType': 6 }
 
 await conn.sendMessage(m.chat, buttonMessage, { quoted: m })
-await conn.sendKontak(m.chat, global.owner, m, { contextInfo: { externalAdReply :{ showAdAttribution: true }}})
+const data = global.owner.filter(([id, isCreator]) => id && isCreator)
+await conn.sendContact(m.chat, data.map(([id, name]) => [id, name]), m)
 //await conn.sendContact(m.chat, `${owner[0][0]}`, m)//, 
 //await conn.sendContact(m.chat, conn.getName(owner[0][0]+'@s.whatsapp.net', m)
   
