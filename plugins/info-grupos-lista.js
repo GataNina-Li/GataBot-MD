@@ -5,9 +5,10 @@ const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "stat
 
 let txt = ''
 let group = m.chat
-for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('https://chat.whatsapp.com/') + conn.groupInviteCode(jid) && chat.isChats)) 
 const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
 const groupsIn = chats.filter(([jid]) => jid.endsWith('@g.us'))
+for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('https://chat.whatsapp.com/') + conn.groupInviteCode(jid) && chat.isChats)) 
+
 
 let Link = conn.groupInviteCode(jid) 
 txt += `*✦ Grupo:* ${await conn.getName(jid)}
