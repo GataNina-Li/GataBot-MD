@@ -55,14 +55,13 @@ let buttonMessage= {
 'headerType': 6 }
 
 await conn.sendMessage(m.chat, buttonMessage, { quoted: m })
-await conn.sendKontak(m.chat, global.owner, m, { contextInfo: { externalAdReply :{
-    showAdAttribution: true,
+await conn.sendKontak(m.chat, global.owner, m, { contextInfo: { externalAdReply :{ showAdAttribution: true }}})
 //await conn.sendContact(m.chat, `${owner[0][0]}`, m)//, 
 //await conn.sendContact(m.chat, conn.getName(owner[0][0]+'@s.whatsapp.net', m)
   
 let pp = './media/menus/Menu2.jpg'
 let str = `${wm}`
-let oficial = 'Comunícate con Mí Creadora por Instagram!!, Solo por ese medio puede ayudarte sobre Temas de GataBot\n\nCommunicate with My Creator on Instagram!!, Only by that means can help you on GataBot Themes'
+let oficial = `Comunícate con Mí Creadora por Instagram!!, Solo por ese medio puede ayudarte sobre Temas de GataBot\n\nCommunicate with My Creator on Instagram!!, Only by that means can help you on GataBot Themes`
 
 await conn.sendHydrated2(m.chat, str, oficial, pp, 'https://github.com/GataNina-Li/GataBot-MD', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', 'https://www.instagram.com/gata_dios', '𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢', [
 ['☘ 𝙄𝙧 𝙖𝙡 𝙞𝙣𝙞𝙘𝙞𝙤 | 𝙂𝙤 𝙩𝙤 𝙨𝙩𝙖𝙧𝙩', '/menu'],
