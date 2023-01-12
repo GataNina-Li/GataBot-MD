@@ -5,7 +5,7 @@ const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "stat
 
 let txt = ''
 let group = m.chat
-for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') + conn.groupInviteCode(jid) && chat.isChats)) 
+for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('https://chat.whatsapp.com/') + conn.groupInviteCode(jid) && chat.isChats)) 
 txt += `*✦ Grupo:* ${await conn.getName(jid)}
 *✦ Enlace:* https://chat.whatsapp.com/${conn.groupInviteCode(jid)}
 *✦ Creador(a):* ${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*Wa.me/${jid.split`@`[0]}*`}
