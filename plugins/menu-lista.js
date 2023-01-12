@@ -106,8 +106,8 @@ buttonText: `${lenguajeGB['smsListaMenu']()}`,
 sections }
 await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
       
-let users = participants.map(u => conn.decodeJid(u.id))
-global.db.data.users[users].banned = false
+//let users = participants.map(u => conn.decodeJid(u.id))
+global.db.data.users.banned = false
 m.reply('Desbanead@')
     
 } catch (e) {
