@@ -26,7 +26,7 @@ let participants = m.isGroup ? groupMetadata.participants : []
 let users = m.isGroup ? participants.find(u => u.jid == user) : {}
 let number = user.split('@')[0]
   
-delete global.global.db.data.users[user]
+global.db.data.users[user].banned = false
 conn.reply(m.chat, `*@${number} HA SIDO DESBANEADO(A) DE LA BASE DE DATOS*`, null, { mentions: [user] })
 }}
 
