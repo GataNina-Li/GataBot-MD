@@ -4,7 +4,7 @@ import { xpRange } from '../lib/levelling.js'
 const { levelling } = '../lib/levelling.js'
 import moment from 'moment-timezone'
 
-let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner, participants }) => {
+let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner}) => {
 try{
 let locale = 'es'
 let d = new Date(new Date + 3600000)
@@ -105,10 +105,6 @@ title: null,
 buttonText: `${lenguajeGB['smsListaMenu']()}`, 
 sections }
 await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
-      
-//let users = participants.map(u => conn.decodeJid(u.id))
-global.db.data.users.banned = false
-m.reply('Desbanead@')
     
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
