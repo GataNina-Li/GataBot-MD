@@ -13,11 +13,11 @@ for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.e
 //let link = conn.groupInviteCode(jid) 
 txt += `*✦ Grupo:* ${await conn.getName(jid)}
 *✦ Enlace:* ${jid.isBotAdmin ? '*Enlace no encontrado*' : 'https://chat.whatsapp.com/' + ``}
-*✦ Creador(a):* ${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*Wa.me/${jid.split`@`[0]}*`}
-*✦ Usuarios:* ${participants.length}
+*✦ Creador(a):* ${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*_Wa.me/${jid.split`@`[0]}_*`}
+*✦ Usuarios:* *${groupsIn.participants.length}*
 *✦ Mí estadía:* ${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
   
-conn.sendButton(m.chat, `*${gt} ESTÁ EN ESTOS GRUPOS*\n*IS IN THESE GROUPS:*\n*Total de Grupos:* ${groupsIn.length}\n\n`, txt, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
+conn.sendButton(m.chat, `*${gt} ESTÁ EN ESTOS GRUPOS*\n*IS IN THESE GROUPS:*\n*✦ Total de Grupos:* *_${groupsIn.length}_*\n\n`, txt, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
 
 }
 handler.help = ['groups', 'grouplist']
