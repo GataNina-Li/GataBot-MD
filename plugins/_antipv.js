@@ -12,7 +12,7 @@ if (!m.message) return !0
 return !0
 }
 if (m.isGroup) return !1
-chat.isBanned = false
+user.banned = false
 await m.reply(`desbaneado`, m) 
 return !1
 }
