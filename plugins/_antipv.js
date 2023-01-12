@@ -16,4 +16,4 @@ if (!chat.isBanned) return m.reply('*Este chat no está baneado!!*')
   chat.isBanned = false
 */
 return !1
-}
+}}
