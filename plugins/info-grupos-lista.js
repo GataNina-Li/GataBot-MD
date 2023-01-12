@@ -5,7 +5,7 @@ const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "stat
 
 let txt = ''
 let group = m.chat
-const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
+const chats = Object.entries(conn.chats).filter(([jid, data]) => jid && data.isChats)
 const groupsIn = chats.filter(([jid]) => jid.endsWith('@g.us'))
 for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('https://chat.whatsapp.com/') + conn.groupInviteCode(jid) && chat.isChats)) 
 
