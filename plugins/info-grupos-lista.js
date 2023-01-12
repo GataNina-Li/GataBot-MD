@@ -9,7 +9,7 @@ const groupsIn = chats.filter(([jid]) => jid.endsWith('@g.us'))
 for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('https://chat.whatsapp.com/') + conn.groupInviteCode(jid) && chat.isChats)) 
 
 txt += `*✦ Grupo:* ${conn.getName(jid) == jid.split`@`[0] ? '*Grupo no encontrado*' : await conn.getName(jid)}
-*✦ Creador(a):* ${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*_http://Wa.me/${jid.split`@`[0]}_*`}
+*✦ Creador(a):* ${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*_Wa.me/${jid.split`@`[0]}_*`}
 *✦ Mí estadía:* ${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
   
 conn.sendButton(m.chat, `*${gt} ESTÁ EN ESTOS GRUPOS*\n*IS IN THESE GROUPS:*\n\n*✦ Total de Grupos:* *_${groupsIn.length}_*\n\n`, txt, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
