@@ -10,7 +10,7 @@ for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.e
 txt += `*✦ Grupo:* ${await conn.getName(jid)}
 *✦ Enlace:* ${jid.isBotAdmin ? 'https://chat.whatsapp.com/' + `${conn.groupInviteCode(jid)}` : '*Enlace no encontrado*'}
 *✦ Creador(a):* ${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*Wa.me/${jid.split`@`[0]}*`}
-*✦ Usuarios:* ${jid.participants.length}
+*✦ Usuarios:* ${participants.length}
 *✦ Mí estadía:* ${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
   
 conn.sendButton(m.chat, `*${gt} ESTÁ EN ESTOS GRUPOS*\n*IS IN THESE GROUPS:*\n`, txt, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
