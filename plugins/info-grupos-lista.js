@@ -12,7 +12,7 @@ txt += `*✦ Grupo:* ${await conn.getName(jid)}
 *✦ Enlace:* ${jid.isBotAdmin ? '*Enlace no encontrado*' : 'https://chat.whatsapp.com/' + ``}
 *✦ Creador(a):* ${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*_Wa.me/${jid.split`@`[0]}_*`}
 *✦ Mí estadía:* ${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n
-*✦ Grupo Baneado:* ${global.db.data.chats[jid].isBanned ? '✅' : '❌'}`
+*✦ Grupo Baneado:* ${global.db.data.chats[chat].isBanned ? '✅' : '❌'}`
   
 conn.sendButton(m.chat, `*${gt} ESTÁ EN ESTOS GRUPOS*\n*IS IN THESE GROUPS:*\n*✦ Total de Grupos:* *_${groupsIn.length}_*\n\n`, txt, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
 
