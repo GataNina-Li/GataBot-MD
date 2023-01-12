@@ -15,7 +15,10 @@ txt += `*✦ Grupo:* ${await conn.getName(jid)}
 *✦ Enlace:* ${jid.isBotAdmin ? '*Enlace no encontrado*' : 'https://chat.whatsapp.com/' + ``}
 *✦ Creador(a):* ${jid.split`@`[0].length >= 15 ? `*Creador no encontrado*` : `*_Wa.me/${jid.split`@`[0]}_*`}
 *✦ Usuarios:* *${groupsIn.participants.length}*
-*✦ Mí estadía:* ${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n`
+*✦ Mí estadía:* ${chat?.metadata?.read_only ? '❌ *SIN ESTAR AQUÍ | NO*' : '✅ *SIGO AQUÍ | YES*'}\n\n
+${global.db.data.chats[jid].isBanned ? '✅' : '❌'} _Grupo Baneado_
+${global.db.data.chats[jid].welcome ? '✅' : '❌'} _Bienvenida_
+${global.db.data.chats[jid].antiLink ? '✅' : '❌'} _Anti Enlaces_`
   
 conn.sendButton(m.chat, `*${gt} ESTÁ EN ESTOS GRUPOS*\n*IS IN THESE GROUPS:*\n*✦ Total de Grupos:* *_${groupsIn.length}_*\n\n`, txt, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
 
