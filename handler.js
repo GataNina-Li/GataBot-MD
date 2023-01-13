@@ -76,7 +76,7 @@ export async function handler(chatUpdate) {
 		                    		    
           if (!isNumber(user.afk)) user.afk = -1
 	      //if (!('autolevelup' in user))  user.autolevelup = true
-	      if (!('role' in user)) user.role = 'Novato'
+	      if (!('role' in user)) user.role = '*NOVATO(A)* 🪤'
               if (!isNumber(user.agility)) user.agility = 0
               if (!isNumber(user.anakanjing)) user.anakanjing = 0
               if (!isNumber(user.anakcentaur)) user.anakcentaur = 0
@@ -914,9 +914,8 @@ export async function handler(chatUpdate) {
                 if (!('modoadmin' in chat)) chat.modoadmin = false           
                 if (!('antitoxic' in chat)) chat.antitoxic = true 
                 if (!('simi' in chat)) chat.simi = false
-                if (!('antiTraba' in chat))
-                    chat.antiTraba = true
-		if (!('autolevelup' in chat))  chat.autolevelup = true
+                if (!('antiTraba' in chat)) chat.antiTraba = true
+		if (!('autolevelup' in chat))  chat.autolevelup = false
                 if (!isNumber(chat.expired)) chat.expired = 0
                     
             } else
@@ -949,7 +948,7 @@ export async function handler(chatUpdate) {
                     antitoxic: true,
                     simi: false,
                     antiTraba: true,
-	            autolevelup: true,
+	            autolevelup: false,
                     expired: 0,
                 }
             let settings = global.db.data.settings[this.user.jid]
