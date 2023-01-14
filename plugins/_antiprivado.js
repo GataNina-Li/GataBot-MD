@@ -1,5 +1,5 @@
 export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
-if ( owner[0][0] == 593993684821 ) {
+//if ( owner[0][0] == 593993684821 ) {
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
@@ -62,7 +62,7 @@ sections }
 await conn.sendMessage(m.chat, listMessage, {quoted: fkontak}, { mentions: [m.sender] })
 handler.group = true
 return !1
-}}/*}else{
+}/*}else{
 
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
