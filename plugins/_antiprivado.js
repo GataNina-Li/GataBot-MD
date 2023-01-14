@@ -1,4 +1,4 @@
-export async function before(m, { isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
+export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
 //if ( owner[0][0] == 593993684821 ) {
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
@@ -15,28 +15,13 @@ if (user.registered === true) return !0
 if (bot.antiPrivate && !isOwner && !isROwner) {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
-const sections = [{
-title: comienzo + ' ' + `❇️ Versión: ${vs} ❇️` + ' ' + fin,
-rows: [
-{title: `${usedPrefix}creadora`, rowId: `${usedPrefix}creadora`},
-{title: `${usedPrefix}gruposgb`, rowId: `${usedPrefix}gruposgb`},
-{title: `${usedPrefix}donar`, rowId: `${usedPrefix}donar`},
-{title: `${usedPrefix}ping`, rowId: `${usedPrefix}ping`},
-{title: `${usedPrefix}bottemporal`, rowId: `${usedPrefix}bottemporal`},
-{title: `${usedPrefix}jadibot`, rowId: `${usedPrefix}jadibot`},
-{title: `${usedPrefix}bots`, rowId: `${usedPrefix}bots`},
-{title: `${usedPrefix}instalarbot`, rowId: `${usedPrefix}instalarbot`},
-{title: `${usedPrefix}términos`, rowId: `${usedPrefix}términos`}
-]}]
-
-const listMessage = {
-text: `✅ *BIENVENIDO(A) @${m.sender.split`@`[0]} : CUENTA OFICIAL ${gt}*
+let text1 = `✅ *BIENVENIDO(A) @${m.sender.split`@`[0]} : CUENTA OFICIAL ${gt}*
 😽 *Únete al Grupo Oficial y use el comando #verificar para tener acceso a todos los Comandos además de poder usar al Chat Privado!!!*
 *Join the Official Group and use the #verify command to have access to all the Commands as well as being able to use the Private Chat!!!*`,
-footer: `🎁 *Recibe recompensa sólo por registrarte conmigo!!!*
+let text2 = `🎁 *Recibe recompensa sólo por registrarte conmigo!!!*
 *Receive a reward just for registering with me!!!*
 
-🐈 *GRUPO UPDATE* 🐈
+🐈 *GRUPO UPDATE* 🐈 
 *Infórmate de las últimas novedades!!!*
 ⁘ _${nna}_
 
@@ -55,14 +40,13 @@ footer: `🎁 *Recibe recompensa sólo por registrarte conmigo!!!*
 
 ⁘ _${nnnttt3}_
 
-👇 *COMANDOS DISPONIBLE* 👇`,
-title: null,
-buttonText: `✨ LISTA ✨`, 
-sections }
-conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
+👇 *COMANDOS DISPONIBLE* 👇
+${usedPrefix}creadora ${usedPrefix}gruposgb ${usedPrefix}donar ${usedPrefix}ping ${usedPrefix}bottemporal ${usedPrefix}jadibot ${usedPrefix}bots ${usedPrefix}instalarbot ${usedPrefix}términos`
+
+conn.sendButton(m.chat, text1, text2, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
 handler.group = true
 return !1
-}/*}else{
+}}/*}else{
 
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
@@ -80,4 +64,4 @@ if (bot.antiPrivate && !isOwner && !isROwner) {
 await m.reply(`*[❗] 𝙃𝙊𝙇𝘼 @${m.sender.split`@`[0]}*, 𝙀𝙎𝙏𝘼 𝙋𝙍𝙊𝙃𝙄𝘽𝙄𝘿𝙊 𝙃𝘼𝘽𝙇𝘼 𝘼𝙇 𝙋𝙍𝙄𝙑𝘼𝘿𝙊 𝘿𝙀𝙇 𝘽𝙊𝙏\n𝙎𝙊𝙇𝙊 𝙎𝙄 𝙌𝙐𝙄𝙀𝙍𝙀 𝙃𝘼𝘾𝙀𝙍𝙏𝙀 𝙐𝙉 𝘽𝙊𝙏.\n𝙈𝘼𝙉𝘿𝘼 𝙀𝙇 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 .serbot\n𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼 𝙋𝘼𝙍𝘼 𝙐𝙎𝙐𝘼𝙍𝙄𝙊: https://instagram.com/gata_dios\n\n*𝙐𝙉𝙀𝙏𝙀 𝘼𝙇 𝙂𝙍𝙐𝙋𝙊 𝙋𝘼𝙍𝘼 𝙐𝙎𝘼𝙍 𝘼𝙇 𝙂𝘼𝙏𝘼𝘽𝙊𝙏 ${nn}*`, false, { mentions: [m.sender] })
 handler.group = true
 return !1
-}*/}
+}}*/
