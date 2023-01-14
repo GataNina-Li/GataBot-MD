@@ -14,7 +14,7 @@ let bot = global.db.data.settings[this.user.jid] || {}
 let user = global.db.data.users[m.sender]
 
 if (user.registered === true) return !0 
-if (bot.antiPrivate && !isOwner && !isROwner) {
+if (!m.isGroup && bot.antiPrivate && !isOwner && !isROwner) {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
 let text1 = `✅ *BIENVENIDO(A) @${m.sender.split`@`[0]} : CUENTA OFICIAL ${gt}*
@@ -45,7 +45,7 @@ let text2 = `🐈 *GRUPO UPDATE* 🐈
 #creadora #gruposgb #donar #ping #bottemporal #jadibot #bots #instalarbot #términos`
 
 conn.sendButton(m.chat, text1, text2, null, [[lenguajeGB.smsConMenu(), `#menu`]], fkontak, m)
-handler.group = true
+//handler.group = true
 return !1
 }}
 export default handler
