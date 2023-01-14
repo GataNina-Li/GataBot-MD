@@ -1,6 +1,4 @@
-//export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
-let handler = m => m
-handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
+export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
 //if ( owner[0][0] == 593993684821 ) {
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
@@ -18,7 +16,9 @@ if (bot.antiPrivate && !isOwner && !isROwner) {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
 let text1 = `✅ *BIENVENIDO(A) @${m.sender.split`@`[0]} : CUENTA OFICIAL ${gt}*
+
 😽 *Únete al Grupo Oficial y use el comando #verificar para tener acceso a todos los Comandos además de poder usar al Chat Privado!!!*
+
 *Join the Official Group and use the #verify command to have access to all the Commands as well as being able to use the Private Chat!!!*`
 let text2 = `🐈 *GRUPO UPDATE* 🐈 
 *Infórmate de las últimas novedades!!!*
@@ -40,13 +40,13 @@ let text2 = `🐈 *GRUPO UPDATE* 🐈
 ⁘ _${nnnttt3}_
 
 👇 *COMANDOS DISPONIBLE* 👇
-${usedPrefix}creadora ${usedPrefix}gruposgb ${usedPrefix}donar ${usedPrefix}ping ${usedPrefix}bottemporal ${usedPrefix}jadibot ${usedPrefix}bots ${usedPrefix}instalarbot ${usedPrefix}términos`
+#creadora #gruposgb #donar #ping #bottemporal #jadibot #bots #instalarbot #términos`
 
-conn.sendButton(m.chat, text1, text2, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
+conn.sendButton(m.chat, text1, text2, null, [[lenguajeGB.smsConMenu(), `#menu`]], fkontak, m)
 handler.group = true
 return !1
 }}
-export default handler/*}else{
+/*}else{
 
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
