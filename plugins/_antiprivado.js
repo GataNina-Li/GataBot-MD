@@ -18,10 +18,7 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 let text1 = `✅ *BIENVENIDO(A) @${m.sender.split`@`[0]} : CUENTA OFICIAL ${gt}*
 😽 *Únete al Grupo Oficial y use el comando #verificar para tener acceso a todos los Comandos además de poder usar al Chat Privado!!!*
 *Join the Official Group and use the #verify command to have access to all the Commands as well as being able to use the Private Chat!!!*`
-let text2 = `🎁 *Recibe recompensa sólo por registrarte conmigo!!!*
-*Receive a reward just for registering with me!!!*
-
-🐈 *GRUPO UPDATE* 🐈 
+let text2 = `🐈 *GRUPO UPDATE* 🐈 
 *Infórmate de las últimas novedades!!!*
 ⁘ _${nna}_
 
