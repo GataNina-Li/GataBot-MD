@@ -1,4 +1,6 @@
-export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
+//export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
+let handler = m => m
+handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
 //if ( owner[0][0] == 593993684821 ) {
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
@@ -43,7 +45,8 @@ ${usedPrefix}creadora ${usedPrefix}gruposgb ${usedPrefix}donar ${usedPrefix}ping
 conn.sendButton(m.chat, text1, text2, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
 handler.group = true
 return !1
-}}/*}else{
+}}
+export default handler/*}else{
 
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
