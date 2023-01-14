@@ -23,6 +23,7 @@ let { exp, limit, level, role } = global.db.data.users[m.sender]
 let { min, xp, max } = xpRange(level, global.multiplier)
 let name = await conn.getName(m.sender)
 let pareja = global.db.data.users[m.sender].pasangan 
+let user = global.db.data.users[m.sender]
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
 const sections = [{
@@ -75,7 +76,7 @@ rows: [
 ]}]
 
 const listMessage = {
-text: `*╭─────────────────✤*\n*│* *${ucapan()}*\n*│* 🌐¸.• *${name}* •.¸🌐\n*│*
+text: `*╭─────────────────✤*\n*│* *${ucapan()}*\n*│* 🌐 *${name} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}* 🌐\n*│*
 ╭━〔 *${wm}* 〕━⬣
 ┃✜ *${lenguajeGB['smsTime']()}*	    
 ┃➺ _${time}_ 
