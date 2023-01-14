@@ -1,6 +1,6 @@
 //export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
 let handler = m => m
-handler.before = async function (m, {conn, isAdmin, isBotAdmin} ) {
+handler.before = async function (m, {conn, isAdmin, isBotAdmin, isOwner, isROwner} ) {
 //if ( owner[0][0] == 593993684821 ) {
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
