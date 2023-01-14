@@ -35,7 +35,7 @@ await m.reply(`${sn}`)
 }
 handler.help = ['verificar']
 handler.tags = ['xp']
-handler.command = /^(verify|register|verificar|registrar|verificado|verificada)$/i
+handler.command = /^(verify|register|verificar|registrar|verificado|verificada|verificarme)$/i
 export default handler
 
 function pickRandom(list) {
