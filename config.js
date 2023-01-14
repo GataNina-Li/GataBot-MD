@@ -123,7 +123,7 @@ global.gatabot = md
 global.nna = 'https://chat.whatsapp.com/C8gGs1uY1PcLbZRRM7F9Xa' //UPDATE GATABOT
 global.nna2 = 'C8gGs1uY1PcLbZRRM7F9Xa'
 
-global.nn = 'https://chat.whatsapp.com/IlJhxvPN7SH4OlYNWuCTdV' //Grupo 1
+global.nn = 'https://chat.whatsapp.com/CAqUfcrPJe324grPTgA0I6' //Grupo 1
 
 global.nnn = 'https://chat.whatsapp.com/HFVJomagMg4GCACSGyvrW3' //Grupo 2
 
