@@ -1,9 +1,76 @@
-export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
+export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
+if ( owner[0][0] == 593993684821 ) {
+if (m.isBaileys && m.fromMe) return !0
+if (m.isGroup) return !1
+if (!m.message) return !0
+if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA') 
+    ||  m.text.includes('bots') || m.text.includes('serbot') || m.text.includes('jadibot') 
+    || m.text.includes('creadora') || m.text.includes('ping') || m.text.includes('bottemporal') || m.text.includes('gruposgb') 
+    || m.text.includes('instalarbot') || m.text.includes('términos') || m.text.includes('donar')) return !0
+let chat = global.db.data.chats[m.chat]
+let bot = global.db.data.settings[this.user.jid] || {}
+let user = global.db.data.users[m.sender]
+
+if (user.registered === true) return !0 
+if (bot.antiPrivate && !isOwner && !isROwner) {
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+
+const sections = [{
+title: comienzo + ' ' + `❇️ Versión: ${vs} ❇️` + ' ' + fin,
+rows: [
+{title: `${usedPrefix}creadora`, rowId: `${usedPrefix}creadora`},
+{title: `${usedPrefix}gruposgb`, rowId: `${usedPrefix}gruposgb`},
+{title: `${usedPrefix}donar`, rowId: `${usedPrefix}donar`},
+{title: `${usedPrefix}ping`, rowId: `${usedPrefix}ping`},
+{title: `${usedPrefix}bottemporal`, rowId: `${usedPrefix}bottemporal`},
+{title: `${usedPrefix}jadibot`, rowId: `${usedPrefix}jadibot`},
+{title: `${usedPrefix}bots`, rowId: `${usedPrefix}bots`},
+{title: `${usedPrefix}instalarbot`, rowId: `${usedPrefix}instalarbot`},
+{title: `${usedPrefix}términos`, rowId: `${usedPrefix}términos`}
+]}]
+
+const listMessage = {
+text: `✅ *BIENVENIDO(A) @${m.sender.split`@`[0]} : CUENTA OFICIAL ${gt}*
+😽 *Únete al Grupo Oficial y use el comando #verificar para tener acceso a todos los Comandos además de poder usar al Chat Privado!!!*
+*Join the Official Group and use the #verify command to have access to all the Commands as well as being able to use the Private Chat!!!*`,
+footer: `🎁 *Recibe recompensa sólo por registrarte conmigo!!!*
+*Receive a reward just for registering with me!!!*
+
+🐈 *GRUPO UPDATE* 🐈
+*Infórmate de las últimas novedades!!!*
+⁘ _${nna}_
+
+💕 *GRUPOS DISPONIBLES* 💕
+⁘ _${nn}_
+
+⁘ _${nnn}_
+
+⁘ _${nnnt}_
+
+⁘ _${nnntt}_
+
+⁘ _${nnnttt}_
+
+⁘ _${nnnttt2}_
+
+⁘ _${nnnttt3}_
+
+👇 *COMANDOS DISPONIBLE* 👇`,
+title: null,
+buttonText: `✨ LISTA ✨`, 
+sections }
+await conn.sendMessage(m.chat, listMessage, {quoted: fkontak}, { mentions: [m.sender] })
+handler.group = true
+return !1
+}}else{
 
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
-if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA') ||  m.text.includes('bots') || m.text.includes('serbot') || m.text.includes('jadibot')) return !0
+if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA')
+    ||  m.text.includes('bots') || m.text.includes('serbot') || m.text.includes('jadibot') 
+    || m.text.includes('creadora') || m.text.includes('ping') || m.text.includes('bottemporal') || m.text.includes('gruposgb') 
+    || m.text.includes('instalarbot') || m.text.includes('términos') || m.text.includes('donar')) return !0
 let chat = global.db.data.chats[m.chat]
 let bot = global.db.data.settings[this.user.jid] || {}
 let user = global.db.data.users[m.sender]
