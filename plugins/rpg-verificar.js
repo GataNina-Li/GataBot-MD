@@ -17,7 +17,7 @@ global.db.data.users[m.sender].exp += 1500
 global.db.data.users[m.sender].joincount += 5
 let caption = `╭━━━[ *𝙑𝙀𝙍𝙄𝙁𝙄𝘾𝘼𝙍 | 𝙑𝙀𝙍𝙄𝙁𝙔* ]━━━━⬣
 ┃ *NOMBRE* 
-┃ ${name}
+┃ ${name} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *EDAD* 
 ┃ *${age} años*
