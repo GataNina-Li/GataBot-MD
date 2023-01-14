@@ -39,7 +39,7 @@ let text2 = `🐈 *GRUPO UPDATE* 🐈
 
 ⁘ _${nnnttt3}_
 
-👇 *COMANDOS DISPONIBLE* 👇
+👇 *COMANDOS DISPONIBLES* 👇
 #creadora #gruposgb #donar #ping #bottemporal #jadibot #bots #instalarbot #términos`
 
 conn.sendButton(m.chat, text1, text2, null, [[lenguajeGB.smsConMenu(), `#menu`]], fkontak, m)
