@@ -1,4 +1,4 @@
-export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
+export async function before(m, { isAdmin, isBotAdmin, isOwner, isROwner, usedPrefix }) {
 //if ( owner[0][0] == 593993684821 ) {
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
@@ -59,7 +59,7 @@ footer: `🎁 *Recibe recompensa sólo por registrarte conmigo!!!*
 title: null,
 buttonText: `✨ LISTA ✨`, 
 sections }
-await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
+conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 handler.group = true
 return !1
 }/*}else{
