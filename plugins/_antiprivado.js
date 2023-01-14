@@ -59,7 +59,7 @@ footer: `🎁 *Recibe recompensa sólo por registrarte conmigo!!!*
 title: null,
 buttonText: `✨ LISTA ✨`, 
 sections }
-await conn.sendMessage(m.chat, listMessage, {quoted: fkontak}, { mentions: [m.sender] })
+await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 handler.group = true
 return !1
 }/*}else{
