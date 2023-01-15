@@ -42,7 +42,7 @@ let text2 = `🐈 *GRUPO UPDATE* 🐈
 👇 *COMANDOS DISPONIBLES* 👇
 #creadora #gruposgb #donar #ping #bottemporal #jadibot #bots #instalarbot #términos`
 
-conn.sendButton(m.chat, text1, text2, null, [[lenguajeGB.smsConMenu(), `#menu`]], fkontak, m, { mentions: [m.sender] })
+conn.sendButton(m.chat, text1, text2, null, [[lenguajeGB.smsConMenu(), `#menu`]], fkontak, false, { mentions: [m.sender] })
 handler.group = true
 return !1
 }}
