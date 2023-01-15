@@ -161,8 +161,8 @@ npm start
 * Descargar e instala Yarn [`Aquí`](https://classic.yarnpkg.com/en/docs/install#windows-stable)
 
 ```bash
-git clone https://github.com/GataNina-Li/GataBotMD
-cd GataBotMD
+git clone https://github.com/GataNina-Li/GataBot-MD
+cd GataBot-MD
 npm install
 npm update
 node .
