@@ -15,7 +15,7 @@ if (user.registered === true) return !0
 if (bot.antiPrivate && !isOwner && !isROwner) {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 //${m.sender.split`@`[0]}
-let text1 = `✅ *BIENVENIDO(A) @${conn.getName(m.sender)} : CUENTA OFICIAL ${gt}*
+let text1 = `✅ *BIENVENIDO(A) ${conn.getName(m.sender)} : CUENTA OFICIAL ${gt}*
 
 😽 *Únete al Grupo Oficial y use el comando #verificar para tener acceso a todos los Comandos además de poder usar al Chat Privado!!!*
 
@@ -42,7 +42,7 @@ let text2 = `🐈 *GRUPO UPDATE* 🐈
 👇 *COMANDOS DISPONIBLES* 👇
 #creadora #gruposgb #donar #ping #bottemporal #jadibot #bots #instalarbot #términos`
 
-conn.sendButton(m.chat, text1, text2, null, [[lenguajeGB.smsConMenu(), `#menu`]], fkontak, false, { mentions: [m.sender] })
+conn.sendButton(m.chat, text1, text2, null, [[lenguajeGB.smsConMenu(), `#menu`]], fkontak, m, { mentions: [m.sender] })
 handler.group = true
 return !1
 }}
