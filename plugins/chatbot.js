@@ -1,10 +1,33 @@
-//by https://github.com/elrebelde21/The-LoliBot-MD
+
 let handler = m => m
 handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
+let name = conn.getName(m.sender)
 
 if (/^e$/i.test(m.text) ) { //sem prefixo
-    conn.reply(m.chat, `Que bueno saber la letra E`, m) //wm, null, [['Menu', '#menu']], m) botones :V
+    let teks = `
+${pickRandom([`Que bueno saber la letra E`, `eeeeee`])}
+`.trim()
+conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
+
+}
+
+if (/^destruirbot|autodestruirbot$/i.test(m.text) ) { //sem prefixo
+    let teks = `
+${pickRandom([`mi creadora me trata mal`, `diego ofc me trata mal`])}
+`.trim()
+conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
+
+}
+
+if (/^MC-SERVER|MC-SERVER|mc-server$/i.test(m.text) ) { //sem prefixo
+    conn.reply(m.chat, `┏━━━━━━━━━━━━━┓
+┃ *<MINECRAFT SERVER/>*
+║≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋
+┣ • *IP: nodo5.boxmineworld.com*
+┣ • *PUERTO: 4003*
+┣ • *BEDROCK Y JAVA*
+┗━━━━━━━━━━━━━┛`, m) //wm, null, [['Menu', '#menu']], m) botones :V
 
 }
 
@@ -22,10 +45,13 @@ if (/^¿que es un bot?|Que es un bot$/i.test(m.text) ) { //sem prefixo
 ┆ 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐞𝐥 𝐦𝐞𝐧𝐮́ 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 𝐩𝐮𝐞𝐝𝐞𝐬 𝐮𝐬𝐚𝐫 #menu
 ┆ 
 ┆ 「 🅖🅐🅣🅐🅑🅞🅣-🅜🅓 」
-╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ*`, m) //wm, null, [['Menu', '#menu']], m)
+╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ*`, m) //wm, null, [['Menu', '#menu']], m) botones :V
 
 }  
 return !0 
 }
 export default handler
 
+function pickRandom(list) {
+    return list[Math.floor(Math.random() * list.length)]
+}
