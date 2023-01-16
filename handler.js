@@ -76,7 +76,7 @@ export async function handler(chatUpdate) {
 		                    		    
           if (!isNumber(user.afk)) user.afk = -1
 	      //if (!('autolevelup' in user))  user.autolevelup = true
-	      if (!('role' in user)) user.role = 'Novato'
+	      if (!('role' in user)) user.role = '*NOVATO(A)* 🪤'
               if (!isNumber(user.agility)) user.agility = 0
               if (!isNumber(user.anakanjing)) user.anakanjing = 0
               if (!isNumber(user.anakcentaur)) user.anakcentaur = 0
@@ -914,9 +914,8 @@ export async function handler(chatUpdate) {
                 if (!('modoadmin' in chat)) chat.modoadmin = false           
                 if (!('antitoxic' in chat)) chat.antitoxic = true 
                 if (!('simi' in chat)) chat.simi = false
-                if (!('antiTraba' in chat))
-                    chat.antiTraba = true
-		if (!('autolevelup' in chat))  chat.autolevelup = true
+                if (!('antiTraba' in chat)) chat.antiTraba = true
+		if (!('autolevelup' in chat))  chat.autolevelup = false
                 if (!isNumber(chat.expired)) chat.expired = 0
                     
             } else
@@ -949,7 +948,7 @@ export async function handler(chatUpdate) {
                     antitoxic: true,
                     simi: false,
                     antiTraba: true,
-	            autolevelup: true,
+	            autolevelup: false,
                     expired: 0,
                 }
             let settings = global.db.data.settings[this.user.jid]
@@ -1343,9 +1342,7 @@ export async function participantsUpdate({ id, participants, action }) {
                         text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || lenguajeGB.smsCont12()) :
                             (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', await this.getName(user)) //.replace('@user', '@' + user.split('@')[0])
                             let apii = await this.getFile(pp)
-this.sendButton(id, wm, text, apii.data, [[(action == 'add' ? lenguajeGB.smsCont13() : lenguajeGB.smsCont14()), (action == 'add' ? '.s' : '.s')], ['💖 𝙄𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪 | 𝙂𝙤 𝙈𝙚𝙣𝙪', `.menu`]], null, {mentions: this.parseMention(text)})
-//this.sendHydrated(id, text, groupMetadata.subject, apii.data, 'https://github.com/GataNina-Li/GataBot-MD', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
-//[(action == 'add' ? '𝙎𝙚 𝙪𝙣𝙞𝙤 🥳 | 𝙃𝙞!!' : '𝙎𝙚 𝙛𝙪𝙚 𝙪𝙣 𝙍𝙖𝙣𝙙𝙤𝙢 🧐 | 𝘽𝙮𝙚'), '.s'], ['💖 𝙄𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪 | 𝙂𝙤 𝙈𝙚𝙣𝙪', '/menu']], '', { mentions: [user]})
+this.sendButton(id, wm, text, apii.data, [[(action == 'add' ? lenguajeGB.smsCont13() : lenguajeGB.smsCont14()), (action == 'add' ? '.s' : '.s')], ['💖 Ser Verificado(a)', `.verify`], ], null, {mentions: this.parseMention(text)})
 }}}
 		    
 break

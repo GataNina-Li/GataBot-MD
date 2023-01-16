@@ -4,7 +4,7 @@ import { xpRange } from '../lib/levelling.js'
 const { levelling } = '../lib/levelling.js'
 import moment from 'moment-timezone'
 
-let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
+let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner}) => {
 try{
 let locale = 'es'
 let d = new Date(new Date + 3600000)
@@ -23,6 +23,7 @@ let { exp, limit, level, role } = global.db.data.users[m.sender]
 let { min, xp, max } = xpRange(level, global.multiplier)
 let name = await conn.getName(m.sender)
 let pareja = global.db.data.users[m.sender].pasangan 
+let user = global.db.data.users[m.sender]
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
 const sections = [{
@@ -75,7 +76,7 @@ rows: [
 ]}]
 
 const listMessage = {
-text: `*╭─────────────────✤*\n*│* *${ucapan()}*\n*│* 🌐¸.• *${name}* •.¸🌐\n*│*
+text: `*╭─────────────────✤*\n*│* *${ucapan()}*\n*│* 🌐 *${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' + '*' : ''} 🌐\n*│*
 ╭━〔 *${wm}* 〕━⬣
 ┃✜ *${lenguajeGB['smsTime']()}*	    
 ┃➺ _${time}_ 
@@ -104,8 +105,8 @@ ${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMen
 title: null,
 buttonText: `${lenguajeGB['smsListaMenu']()}`, 
 sections }
-await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})	
-      
+await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
+    
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)

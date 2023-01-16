@@ -1,36 +1,46 @@
-/* Created By https://github.com/unptoadrih15 */
-
 import fetch from 'node-fetch'
+import axios from 'axios'
 let timeout = 60000
 let poin = 1000
 let handler = async (m, { conn, usedPrefix }) => {
 conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {}
 let id = m.chat
 if (id in conn.tebaklagu) {
-conn.reply(m.chat, '𝑻𝒐𝒅𝒂𝒗𝒊́𝒂 𝒉𝒂𝒚 𝒄𝒂𝒏𝒄𝒊𝒐𝒏𝒆𝒔 𝒔𝒊𝒏 𝒓𝒆𝒔𝒑𝒖𝒆𝒔𝒕𝒂𝒔 𝒆𝒍 𝒆𝒔𝒕𝒆 𝒄𝒉𝒂𝒕.', conn.tebaklagu[id][0])
+conn.reply(m.chat, 'Todavía hay canciones sin respuesta en este chat.', conn.tebaklagu[id][0])
 throw false
-}
-let res = await fetch(global.API('xteam', '/game/tebaklagu/', { id: '5LTV57azwaid7dXfz5fzJu' }, 'APIKEY'))
-if (res.status !== 200) throw await res.text()
-let result = await res.json()
-let json = result.result
+} //5LTV57azwaid7dXfz5fzJu
+let res = await fetchJson(`https://fatiharridho.github.io/tebaklagu.json`)
+let json = res[Math.floor(Math.random() * res.length)]    
+//let res = await fetch(global.API('xteam', '/game/tebaklagu/', { id: '0ISD8mk5kiv1YC5884lISM' }, 'APIKEY'))
+//if (res !== 200) throw 'Error'
+//let result = await res.json()
+//let json = result.result
 let caption = `
-Adivinar el titulo del la canción
-tiempos: ${(timeout / 1000).toFixed(2)} segundos
-escribi: *${usedPrefix}pista* para obtener una pista
-premio: ${poin} XP
-Responde a este mensaje con la respuesta!`.trim()
+ADIVINA EL TITULO DE LA CANCION
+Tiempo ${(timeout / 1000).toFixed(2)} segundos
+Escribe *${usedPrefix}pista* Para obtener una pista
+Premio: ${poin} XP
+RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim()
 conn.tebaklagu[id] = [
 await m.reply(caption),
 json, poin,
 setTimeout(() => {
-if (conn.tebaklagu[id]) conn.reply(m.chat, `se acabo el tiempo!\nla respuestas es ${json.judul}`, conn.tebaklagu[id][0])
+if (conn.tebaklagu[id]) conn.reply(m.chat, `Se acabó el tiempo!\nLa respuesta es ${json.jawaban}`, conn.tebaklagu[id][0])
 delete conn.tebaklagu[id]
 }, timeout)
 ]
-await conn.sendFile(m.chat, json.preview, 'coba-lagi.mp3', '', m)
+let aa = await conn.sendMessage(m.chat, { audio: { url: json.link_song }, fileName: `error.mp3`, mimetype: 'audio/mp4' }, { quoted: m })  
+if (!aa) return conn.sendFile(m.chat, json.link_song, 'coba-lagi.mp3', '', m)
 }
 handler.help = ['tebaklagu']
 handler.tags = ['game']
 handler.command = /^cancion|canción$/i
 export default handler
+async function fetchJson(url, options) {
+try {
+options ? options : {}
+const res = await axios({ method: 'GET', url: url, headers: {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'}, ...options })
+return res.data
+} catch (err) {
+return err
+}}

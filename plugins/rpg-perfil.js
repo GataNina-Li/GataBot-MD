@@ -12,10 +12,11 @@ pp = await conn.getProfilePicture(who)         //pp = await conn.getProfilePictu
 } finally {
 let { name, limit, lastclaim, registered, regTime, age } = global.db.data.users[who]
 let username = conn.getName(who)
+let user = global.db.data.users[m.sender]
 let prem = global.prems.includes(who.split`@`[0])
 let sn = createHash('md5').update(who).digest('hex')
 let str =
-`┃ 𝙉𝙊𝙈𝘽𝙍𝙀 ${name}
+`┃ 𝙉𝙊𝙈𝘽𝙍𝙀 ${name} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ 𝙉𝙐𝙈𝙀𝙍𝙊 ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈

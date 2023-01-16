@@ -86,7 +86,7 @@ let menuA = `${lenguajeGB['smsConfi2']()} *${username}*
 ╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱`.trim()
 
 let menuB = `
-*╭━〔* ${username} *〕━⬣*
+*╭━〔* ${username} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''} *〕━⬣*
 *┆⚡ EXPERIENCIA ➟ ${exp}*
 *┆💎 DIAMANTES ➟ ${limit}*
 *┆🐈 GATACOINS ➟ ${money}*
