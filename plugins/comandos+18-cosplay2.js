@@ -1,7 +1,8 @@
-let handler = async (m, { conn, text, command }) => {
+let handler = async (m, { conn, text, command, usedPrefix }) => {
+let user = global.db.data.users[m.sender]
 let yh = global.cosplay
 let url = yh[Math.floor(Math.random() * yh.length)]
-await conn.sendButton(m.chat, `💕💕💕💕`.trim(), wm, url, [['𝗦𝗜𝗚𝗨𝗜𝗘𝗡𝗧𝗘 ➡️', `/${command}`]], m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18(), wm + `| *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}`, url, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m)
 }
 handler.command = /^(cosplay2)$/i
 export default handler
