@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 let handler = async (m, { conn, text, command, usedPrefix }) => {
-let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18Porn(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
+let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18Porn2(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
 let user = global.db.data.users[m.sender]
 let yh = global.cosplay
 let url = yh[Math.floor(Math.random() * yh.length)]
