@@ -1,10 +1,10 @@
 import fetch from 'node-fetch'
 let handler = async (m, { conn, text, command, usedPrefix }) => {
-let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18PornP(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
+let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18PornP2(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
 let user = global.db.data.users[m.sender]
 let yh = global.cosplay
 let url = yh[Math.floor(Math.random() * yh.length)]
-await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, url, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 COSPLAY 🥵`, `${usedPrefix}cosplay`]], m, frep)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, url, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 COSPLAY 🥵`, `${usedPrefix}cosplay`]], m, frep)
 }
 handler.command = /^(cosplay2)$/i
 handler.premium = true
