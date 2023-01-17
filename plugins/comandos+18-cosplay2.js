@@ -7,6 +7,7 @@ let url = yh[Math.floor(Math.random() * yh.length)]
 await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, url, [[lenguajeGB.smsSig(), `${usedPrefix + command}`], [`🥵 COSPLAY 🥵`, `${usedPrefix}cosplay`]], m, frep)
 }
 handler.command = /^(cosplay2)$/i
+handler.premium = true
 export default handler
   
 global.cosplay = ['https://img.nickpic.host/qDgksb.jpg',
