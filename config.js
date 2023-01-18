@@ -116,22 +116,22 @@ global.gatadiosig = ig
 global.md = 'https://github.com/GataNina-Li/GataBot-MD'
 global.gatabot = md
 
-global.nna = 'https://chat.whatsapp.com/DpsCT3N1nlZHnbKMuIeQBt' //UPDATE GATABOT
-global.nna2 = 'DpsCT3N1nlZHnbKMuIeQBt'
+global.nna = 'https://chat.whatsapp.com/FLuYCx5JN3ZDQ482g69OWf' //UPDATE GATABOT
+global.nna2 = 'FLuYCx5JN3ZDQ482g69OWf'
 
-global.nn = 'https://chat.whatsapp.com/DcXonFm65yv6XKPgrhn7gx' //Grupo 1
+global.nn = 'https://chat.whatsapp.com/DssHjOTWitpD8coEY51iHa' //Grupo 1
 
-global.nnn = 'https://chat.whatsapp.com/Dwgmggcbp8F0XQYoF7L02a' //Grupo 2
+global.nnn = 'https://chat.whatsapp.com/Km4GIPkWMD95lJINhyL6kc' //Grupo 2
 
-global.nnnt = 'https://chat.whatsapp.com/LhPaHazo5cmIpDbQzn7seJ' //Grupo 3
+global.nnnt = 'https://chat.whatsapp.com/EFyAJw5qO2X4qO7UJKWauI' //Grupo 3
 
-global.nnntt = 'https://chat.whatsapp.com/BS5G0n0Yexn1oWYRpxOFBA' //Grupo 4
+global.nnntt = 'https://chat.whatsapp.com/KjPdZfL696s4VK9bUIVPYc' //Grupo 4
 
-global.nnnttt = 'https://chat.whatsapp.com/Gi13ZcKjYaFCuf4AKkRZJY' //Grupo 5
+global.nnnttt = 'https://chat.whatsapp.com/K5HAs66MPkpAxT5mK0tktT' //Grupo 5
 
-global.nnnttt2 = 'https://chat.whatsapp.com/Hqa60xqIIU6ADpg6g4399z' //Grupo 6 COL
+global.nnnttt2 = 'https://chat.whatsapp.com/HQnuooL0aAg28svFVGvXBS' //Grupo 6 COL
 
-global.nnnttt3 = 'https://chat.whatsapp.com/BhXQ5uBf2SEKgfNjJQPidU' //Grupo 7 COL
+global.nnnttt3 = 'https://chat.whatsapp.com/G7nb4o3XJQdJXRiRSBQXLb' //Grupo 7 COL
 
 global.paypal = 'https://paypal.me/OficialGD'
 
