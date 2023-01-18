@@ -1,4 +1,4 @@
-import { createHash } from 'crypto'
+/*import { createHash } from 'crypto'
 let handler = async function (m, { conn, text, usedPrefix }) {
 let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 let user = global.db.data.users[m.sender]
@@ -33,7 +33,7 @@ handler.command = /^(verify|register|verificar|registrar|verificado|verificada|v
 export default handler
 
 function pickRandom(list) {
-return list[Math.floor(Math.random() * list.length)]}
+return list[Math.floor(Math.random() * list.length)]}*/
 
 /*import { createHash } from 'crypto'
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
