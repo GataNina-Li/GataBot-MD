@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import axios from 'axios'
-const timeout = 60000
-const poin = 1000
+let timeout = 60000
+let poin = 1000
 let handler = async (m, { conn, usedPrefix }) => {
 conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {}
 let id = m.chat
@@ -22,8 +22,8 @@ Escribe *${usedPrefix}pista* Para obtener una pista
 Premio: ${poin} XP
 RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim()
 conn.tebaklagu[id] = [
-await m.reply(caption), json, poin,
-  
+await m.reply(caption),
+json, poin,
 setTimeout(() => {
 if (conn.tebaklagu[id]) conn.reply(m.chat, `Se acabó el tiempo!\nLa respuesta es ${json.jawaban}`, conn.tebaklagu[id][0])
 delete conn.tebaklagu[id]
