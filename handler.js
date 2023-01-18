@@ -910,7 +910,7 @@ export async function handler(chatUpdate) {
 		if (!('antiTwitter' in chat)) chat.antiInstagram = false
 		if (!('antifake' in chat)) chat.antifake = false
 		if (!('reaction' in chat)) chat.reaction = true    
-                if (!('viewonce' in chat)) chat.viewonce = false         
+                if (!('viewonce' in chat)) chat.viewonce = true         
                 if (!('modoadmin' in chat)) chat.modoadmin = false           
                 if (!('antitoxic' in chat)) chat.antitoxic = true 
                 if (!('simi' in chat)) chat.simi = false
@@ -929,9 +929,9 @@ export async function handler(chatUpdate) {
                     sDemote: '', 
                     delete: true,
                     modohorny: true,
-                    stickers: true,
+                    stickers: false,
                     autosticker: false,
-                    audios: true,
+                    audios: false,
 		    antiver: true,
                     antiLink: false,
                     antiLink2: false,
@@ -943,7 +943,7 @@ export async function handler(chatUpdate) {
 		    antiTwitter: false,
 		    antifake: false,
 		    reaction: true,
-                    viewonce: false,
+                    viewonce: true,
                     modoadmin: false,
                     antitoxic: true,
                     simi: false,
