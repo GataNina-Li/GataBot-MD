@@ -1,4 +1,4 @@
-/*import fetch from 'node-fetch'
+import fetch from 'node-fetch'
 let handler = async (m, { conn, text, command, usedPrefix }) => {
 let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18PornP2(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
 let user = global.db.data.users[m.sender]
@@ -889,4 +889,4 @@ global.cosplay = ['https://img.nickpic.host/qDgksb.jpg',
 'https://img.nickpic.host/qDDbxp.jpg',
 'https://img.nickpic.host/qDDrOY.jpg',
 'https://img.nickpic.host/qDDFGG.jpg',
-'https://img.nickpic.host/qDDacz.jpg']*/
+'https://img.nickpic.host/qDDacz.jpg']
