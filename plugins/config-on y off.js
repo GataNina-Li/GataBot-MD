@@ -282,6 +282,15 @@ throw false
 }}
 chat.antifake = isEnable          
 break
+		
+case 'jadibotmd': case 'modojadibot': case 'serbotmd': case 'modoserbot': 
+isAll = true
+if (!isROwner) {
+global.dfail('rowner', m, conn)
+throw false
+}
+bot.jadibotmd = isEnable
+break 
     
 case 'restrict': case 'restringir':
 isAll = true
