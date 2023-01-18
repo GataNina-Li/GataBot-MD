@@ -64,3 +64,4 @@ seconds = (seconds < 10) ? "0" + seconds : seconds
 
 return minutes + " m y " + seconds + " s " 
 }
+ 
