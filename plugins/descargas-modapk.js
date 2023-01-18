@@ -37,5 +37,3 @@ return res.data
 } catch (err) {
 return err
 }}
-
-
