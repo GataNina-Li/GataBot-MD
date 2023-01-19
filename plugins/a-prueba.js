@@ -8,7 +8,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
   let nowner = `${nomorown.split`@`[0]}@s.whatsapp.net`
   let teksnomor = `${htki} *OWNER* ${htka}
 ✦ @${nomorown.split`@`[0]} ✦
-------- ${nameown} -------
+------- ${wm} -------
 
 📮 *Nomre:*
 • h`
