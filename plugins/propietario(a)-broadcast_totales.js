@@ -1,3 +1,7 @@
+/*
+Creado por https://github.com/DIEGO-OFC
+
+*/
 import fetch from 'node-fetch'
 let handler = async (m, { conn, text }) => {
 let groups = Object.keys(await conn.groupFetchAllParticipating())
