@@ -6,7 +6,7 @@ let handler = async (m, { conn, text }) => {
         let bg = img13
         //await conn.delay(1500)
         //await conn.sendButtonLoc(id, await (await fetch(bg)).buffer(), text, wm, 'broadcast', 'broadcast')
-        await conn.sendButtonLoc(m.chat, bg, text, wm, "Okey", "Ok", m)
+        await conn.sendButtonLoc(id, bg, text, wm, "Okey", "Ok", m)
     }
     m.reply('*✅*')
 }
