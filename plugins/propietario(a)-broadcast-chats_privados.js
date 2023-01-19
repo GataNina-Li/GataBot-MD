@@ -4,8 +4,8 @@ let handler = async (m, { conn, text }) => {
   let chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map(v => v[0])
   let cc = conn.serializeM(text ? m : m.quoted ? await m.getQuotedObj() : false || m)
   let teks = text ? text : cc.text
-  await delay(5 * 5000)
   conn.reply(m.chat, `*[❕] ᴍᴇɴsᴀᴊᴇ ᴇɴᴠɪᴀᴅᴏ ᴀ ${chats.length} ᴄʜᴀᴛs ᴘʀɪᴠᴀᴅᴏs*`, m)
+  await delay(5 * 5000)
   for (let id of chats) await conn.copyNForward(id, conn.cMod(m.chat, cc, /bc|broadcast/i.test(teks) ? teks : teks + '\n' + readMore + '「 *𝘾𝙊𝙈𝙐𝙉𝙄𝘾𝘼𝘿𝙊 𝙊𝙁𝙄𝘾𝙄𝘼𝙇 ✅* | ' + wm + ' 」\n' + randomID(32)), true).catch(_ => _)}
 
 handler.help = ['broadcastchats', 'bcchats'].map(v => v + ' <teks>')
