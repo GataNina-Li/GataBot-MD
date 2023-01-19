@@ -1,5 +1,4 @@
-
-/*let handler = m => m
+let handler = m => m
 handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
 let name = conn.getName(m.sender)
@@ -55,4 +54,3 @@ export default handler
 function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)]
 }
-*/
