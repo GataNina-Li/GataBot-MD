@@ -11,6 +11,6 @@ await conn.sendButtonLoc(id, img13, text, wm, "Menu", ".menu", m)
 }
 m.reply('*✅*')
 }
-handler.command = /^(pruebaloc)$/i
+handler.command = /^(broadcast|bc)(group|grup|gc)$/i
 handler.owner = true
 export default handler
