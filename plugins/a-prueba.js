@@ -27,14 +27,14 @@ const sections = [
    {
 	title: `${htjava} OWNER –––––––––·•`,
 	rows: [
-	    {title: "📱 • Nombre", rowId: ".owner"},
+	    {title: "📱 • Numero", rowId: ".owner"},
 	{title: "🌎 • Script", rowId: ".sc"},
 	]
     },{
 	title: `${htjava} apoyos –––––––·•`,
 	rows: [
-	    {title: "💹 • Donas", rowId: ".donas"},
-	{title: "🔖 • Sewa", rowId: ".sewa"},
+	    {title: "💹 • Donar", rowId: ".donar"},
+	{title: "🔖 • Grupos", rowId: ".grupos"}
 	]
   },
 ]
