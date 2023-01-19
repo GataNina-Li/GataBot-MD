@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
 let handler = async (m, { conn, text, command, usedPrefix }) => {
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
+await delay(5000)
 let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18PornP2(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
 let user = global.db.data.users[m.sender]
 let yh = global.cosplay
@@ -10,6 +11,7 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['sms
 handler.command = /^(cosplay2)$/i
 handler.premium = true
 export default handler
+const delay = time => new Promise(res => setTimeout(res, time))
   
 global.cosplay = ['https://img.nickpic.host/qDgksb.jpg',
 'https://img.nickpic.host/qDg9kX.jpg',
