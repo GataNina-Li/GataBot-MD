@@ -4,14 +4,14 @@ let handler = async (m, { conn, text }) => {
     m.reply(`_mengirim pesan siaran ke ${groups.length} grup_\nestimasi selesai ${groups.length * 1.5} detik`)
     for (let id of groups) {
         let bg = img13
-        await conn.delay(1500)
+        //await conn.delay(1500)
         await conn.sendButtonLoc(id, await (await fetch(bg)).buffer(), text, wm, 'broadcast', 'broadcast')
     }
     m.reply('*✅*')
 }
 handler.help = ['bcloc'].map(v => v + ' <teks>')
 handler.tags = ['owner']
-handler.command = /^(broadcast|bc)(loc)$/i
+handler.command = /^(pruebaloc)$/i
 
 handler.owner = true
 
