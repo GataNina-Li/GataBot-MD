@@ -16,8 +16,6 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
 //------------ BIO
 let ppown = 'https://telegra.ph/file/02a2903c1e25228285740.jpg'
 let teksbio = `*BIO*
-❑ *Nama* :Bara
-
 *Instagram:* ${ig}
 *Github:* ${gt}
 •·––––––––––––––––––––––––––·•
@@ -27,7 +25,7 @@ const sections = [
    {
 	title: `OWNER –––––––––·•`,
 	rows: [
-	    {title: "📱 • Numero", rowId: ".owner"},
+	    {title: "📱 • Numero", rowId: ".oh"},
 	{title: "🌎 • Script", rowId: ".sc"},
 	]
     },{
@@ -51,7 +49,7 @@ const listMessage = {
     if (/(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)/i.test(command)) {
       const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
         switch (type) {
-          case 'owner':
+          case 'oh':
           conn.reply(m.chat, wm, m, { contextInfo: { mentionedJid: [nowner] }})
             break
             
