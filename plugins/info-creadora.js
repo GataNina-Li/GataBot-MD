@@ -78,8 +78,6 @@ handler.tags = ['info']
 handler.command = /^(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)$/i
 export default handler 
 
-export default handler
-
 /*
 import fs from 'fs'
 let handler = async (m, { conn, usedPrefix }) => {
