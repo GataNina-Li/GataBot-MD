@@ -1,5 +1,6 @@
 import fetch from 'node-fetch'
 let handler = async (m, { conn, text, command, usedPrefix }) => {
+if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
 let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18PornP2(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
 let user = global.db.data.users[m.sender]
 let yh = global.cosplay
