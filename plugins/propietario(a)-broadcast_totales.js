@@ -1,11 +1,12 @@
-/*import fetch 'node-fetch'
+import fetch 'node-fetch'
 let handler = async (m, { conn, text }) => {
     let groups = Object.keys(await conn.groupFetchAllParticipating())
     m.reply(`_mengirim pesan siaran ke ${groups.length} grup_\nestimasi selesai ${groups.length * 1.5} detik`)
     for (let id of groups) {
         let bg = img13
         //await conn.delay(1500)
-        await conn.sendButtonLoc(id, await (await fetch(bg)).buffer(), text, wm, 'broadcast', 'broadcast')
+        //await conn.sendButtonLoc(id, await (await fetch(bg)).buffer(), text, wm, 'broadcast', 'broadcast')
+        await conn.sendButtonLoc(m.chat, bg, text, wm, "Okey", "Ok", m)
     }
     m.reply('*✅*')
 }
@@ -15,7 +16,7 @@ handler.command = /^(pruebaloc)$/i
 
 handler.owner = true
 
-export default handler*/
+export default handler
 
 
 
