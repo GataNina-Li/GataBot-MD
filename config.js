@@ -110,6 +110,9 @@ global.gatabot = gt
 global.yt = 'https://youtube.com/@gatadios'
 global.youtube = yt
 
+global.yt2 = 'https://www.youtube.com/watch?v=Ko019wvu2Tc&t=71s'
+global.youtube2 = yt2
+
 global.ig = 'https://www.instagram.com/gata_dios'
 global.gatadiosig = ig
 
@@ -218,7 +221,7 @@ global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg'
 
 global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
 
-global.welgata = [yt, yt, ig, md, ig, yt, paypal, yt]
+global.welgata = [yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2]
 global.redesMenu = [nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt2, nnnttt3, md, ig, paypal, yt, asistencia]
 global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15]
 global.gataVidMenu = ['./media/menus/Menuvid1.mp4', './media/menus/Menuvid2.mp4', './media/menus/Menuvid3.mp4']
