@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 import { youtubeSearch } from '@bochilteam/scraper'
 let handler = async (m, { conn, command, text, usedPrefix }) => {
 try {
@@ -81,4 +81,4 @@ handler.tags = ['downloader']
 handler.command = /^play2?$/i
 handler.limit = 1
 handler.level = 2
-export default handler
+export default handler*/
