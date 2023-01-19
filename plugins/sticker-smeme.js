@@ -10,7 +10,8 @@ try {
     if (!/webp/.test(mime)) throw '*[❗𝙄𝙣𝙛𝙤❗] 𝙍𝙚𝙨𝙥𝙤𝙣𝙙𝙚 𝙖𝙡 𝙨𝙩𝙞𝙘𝙠𝙚𝙧 𝙦𝙪𝙚 𝙙𝙚𝙨𝙚𝙖 𝙖𝙜𝙧𝙚𝙜𝙖 𝙪𝙣 𝙥𝙖𝙦𝙪𝙚𝙩𝙚 𝙮 𝙪𝙣 𝙣𝙤𝙢𝙗𝙧𝙚*'
     let img = await m.quoted.download()
 if (!img) throw '*[❗𝙄𝙣𝙛𝙤❗] 𝙍𝙚𝙨𝙥𝙤𝙣𝙙𝙚 𝙖𝙡 𝙨𝙩𝙞𝙘𝙠𝙚𝙧 𝙦𝙪𝙚 𝙙𝙚𝙨𝙚𝙖 𝙖𝙜𝙧𝙚𝙜𝙖 𝙪𝙣 𝙥𝙖𝙦𝙪𝙚𝙩𝙚 𝙮 𝙪𝙣 𝙣𝙤𝙢𝙗𝙧𝙚*'
-    let meme = `https://api.memegen.link/images/custom/${encodeURIComponent(atas ? atas : '')}/${encodeURIComponent(bawah ? bawah : '')}.png?background=${url}`
+    let url = await uploadsticker(img)
+    let meme = `https://api.memegen.link/sticker/custom/${encodeURIComponent(atas ? atas : '')}/${encodeURIComponent(bawah ? bawah : '')}.png?background=${url}`
     let stiker = await sticker(false, meme, global.packname, global.author)
     if (stiker) await conn.sendFile(m.chat, stiker, '', author, m, '', { asSticker: 1 })
 }
