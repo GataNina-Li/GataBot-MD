@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
 let handler = async (m, { conn, text, command, usedPrefix }) => {
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
+await delay(5000)
 let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18Porn2(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
 let user = global.db.data.users[m.sender]
 let yh = global.darling
@@ -11,6 +12,7 @@ handler.command = /^(darling)$/i
 handler.level = 5
 handler.money = 125
 export default handler
+const delay = time => new Promise(res => setTimeout(res, time))
   
 global.darling = ['https://img.nickpic.host/q7SLrX.jpg',
 'https://img.nickpic.host/q7STNf.jpg',
