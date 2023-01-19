@@ -142,7 +142,7 @@ pkg upgrade
 pkg install nodejs -y
 pkg install ffmpeg -y
 pkg install imagemagick -y
-cd storage/downloads/GataBot-MD
+cd storage/downloads/GataBot-MD/GataBot-MD
 npm start
 ```
 * #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
