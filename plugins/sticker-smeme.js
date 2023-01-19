@@ -7,7 +7,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!mime) throw `Responde a una imagen\nejemplo: .smeme bot|uwu`
     m.reply(global.wait)
     let img = await q.download()
-    let url = await uploadImage(img)
+    let url = await uploadsticker(img)
     let meme = `https://api.memegen.link/images/custom/${encodeURIComponent(atas ? atas : '')}/${encodeURIComponent(bawah ? bawah : '')}.png?background=${url}`
     let stiker = await sticker(false, meme, global.packname, global.author)
     if (stiker) await conn.sendFile(m.chat, stiker, '', author, m, '', { asSticker: 1 })
