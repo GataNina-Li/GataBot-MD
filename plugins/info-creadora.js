@@ -48,11 +48,11 @@ const listMessage = {
 }
 
   try {
-    if (/(pruebaa)/i.test(command)) {
+    if (/(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)/i.test(command)) {
       const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
         switch (type) {
           case 'nomor':
-          conn.reply(m.chat, teksnomor, m, { contextInfo: { mentionedJid: [nowner] }})
+          conn.reply(m.chat, wm, m, { contextInfo: { mentionedJid: [nowner] }})
             break
             
           default:
