@@ -25,7 +25,7 @@ const sections = [
    {
 	title: `OWNER –––––––––·•`,
 	rows: [
-	    {title: "📱 • Numero", rowId: ".owner"},
+	    {title: "📱 • Numero", rowId: ".pruebaa"},
 	{title: "🌎 • Script", rowId: ".sc"},
 	]
     },{
@@ -46,10 +46,10 @@ const listMessage = {
 }
 
   try {
-    if (/(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)/i.test(command)) {
+    if (/(pruebaa)/i.test(command)) {
       const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
         switch (type) {
-          case 'owner':
+          case 'pruebaa':
           conn.reply(m.chat, wm, m, { contextInfo: { mentionedJid: [nowner] }})
             break
             
