@@ -1,4 +1,25 @@
-import fs from 'fs'
+import fetch 'node-fetch'
+let handler = async (m, { conn, text }) => {
+    let groups = Object.keys(await conn.groupFetchAllParticipating())
+    m.reply(`_mengirim pesan siaran ke ${groups.length} grup_\nestimasi selesai ${groups.length * 1.5} detik`)
+    for (let id of groups) {
+        let bg = 'https://telegra.ph/file/42ca1bf46a366d929e7ce.jpg'
+        await conn.delay(1500)
+        await conn.sendButtonLoc(id, await (await fetch(bg)).buffer(), text, wm, 'broadcast', 'broadcast')
+    }
+    m.reply('*✅*')
+}
+handler.help = ['bcloc'].map(v => v + ' <teks>')
+handler.tags = ['owner']
+handler.command = /^(broadcast|bc)(loc)$/i
+
+handler.owner = true
+
+export default handler
+
+
+
+/*import fs from 'fs'
 let handler = async (m, { conn, text } ) => {
 let chatsall = Object.entries(conn.chats).filter(([_, chat]) => chat.isChats).map(v => v[0])
 for (let id of chatsall) { 
@@ -17,4 +38,4 @@ handler.command = /^(comunicar|comunicado|broadcastall|bc)$/i
 handler.rowner = true
 handler.exp = 500
 export default handler
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))*/
