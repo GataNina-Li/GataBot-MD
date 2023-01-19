@@ -15,7 +15,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
 
 //------------ BIO
 let ppown = 'https://telegra.ph/file/02a2903c1e25228285740.jpg'
-let teksbio = `${htki} *BIO* ${htka}
+let teksbio = `*BIO*
 ❑ *Nama* :Bara
 
 *Instagram:* ${ig}
@@ -25,13 +25,13 @@ let teksbio = `${htki} *BIO* ${htka}
   let teks = 'hola selecciones aqui'
 const sections = [
    {
-	title: `${htjava} OWNER –––––––––·•`,
+	title: `OWNER –––––––––·•`,
 	rows: [
 	    {title: "📱 • Numero", rowId: ".owner"},
 	{title: "🌎 • Script", rowId: ".sc"},
 	]
     },{
-	title: `${htjava} apoyos –––––––·•`,
+	title: `apoyos –––––––·•`,
 	rows: [
 	    {title: "💹 • Donar", rowId: ".donar"},
 	{title: "🔖 • Grupos", rowId: ".grupos"}
@@ -42,7 +42,7 @@ const sections = [
 const listMessage = {
   text: teks,
   footer: null,
-  title: `${htki} *OWNER* ${htka}`,
+  title: `*OWNER*`,
   buttonText: "Click !",
   sections
 }
@@ -51,7 +51,7 @@ const listMessage = {
     if (/(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)/i.test(command)) {
       const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
         switch (type) {
-          case 'nomor':
+          case 'owner':
           conn.reply(m.chat, wm, m, { contextInfo: { mentionedJid: [nowner] }})
             break
             
