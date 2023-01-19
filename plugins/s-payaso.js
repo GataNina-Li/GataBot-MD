@@ -12,7 +12,7 @@ const s = [
  
 let stiker = await sticker(null, s[Math.floor(Math.random() * s.length)], nombre, nombre2)
 await delay(5 * 5000)
-conn.sendFile(m.chat, stiker, null, { asSticker: true })
+if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '',m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: `h`, mediaType: 2, sourceUrl: nn, thumbnail: imagen1}}}, { quoted: m })
 }
 handler.customPrefix = /payaso|🤡/i 
 handler.command = new RegExp
