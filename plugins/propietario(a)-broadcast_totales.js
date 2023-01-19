@@ -1,4 +1,4 @@
-import fetch 'node-fetch'
+/*import fetch 'node-fetch'
 let handler = async (m, { conn, text }) => {
     let groups = Object.keys(await conn.groupFetchAllParticipating())
     m.reply(`_mengirim pesan siaran ke ${groups.length} grup_\nestimasi selesai ${groups.length * 1.5} detik`)
@@ -15,7 +15,7 @@ handler.command = /^(pruebaloc)$/i
 
 handler.owner = true
 
-export default handler
+export default handler*/
 
 
 
