@@ -8,8 +8,7 @@ let groups = Object.keys(await conn.groupFetchAllParticipating())
 m.reply(`_mengirim pesan siaran ke ${groups.length}`)
 for (let id of groups) {
 let bg = img13
-        //await conn.delay(1500)
-        //await conn.sendButtonLoc(id, await (await fetch(bg)).buffer(), text, wm, 'broadcast', 'broadcast')
+        
 await conn.sendButtonLoc(id, bg, text, wm, "Okey", "Ok", m)
 }
 m.reply('*✅*')
