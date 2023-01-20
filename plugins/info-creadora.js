@@ -7,7 +7,7 @@ let name = await conn.getName(who)
   const sentMsg = await conn.sendContactArray(m.chat, [
     [`${wm}`, `${await conn.getName(wm+'@s.whatsapp.net')}`, `💌 Developer Bot `, `ɴᴏᴛ ғᴀᴍᴏᴜs ᴊᴜsᴛ ᴀʟᴏɴᴇ ʙᴏʏ`, `yanxiao021@gmail.com`, `🇮🇩 Indonesia`, `📍 htt`, `👤 gata`],
     [`${conn.user.jid.split('@')[0]}`, `${await conn.getName(conn.user.jid)}`, `🎈 ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ`, `📵 no`, `ɴᴏᴛʜɪɴɢ`, `arg`, `📍 https://github`, `gata`]
-  ], fkontak)
+  ], ig)
   await m.reply(`ʜᴇʟʟᴏ @${m.sender.split(`@`)[0]}`)
   } 
 handler.help = ['owner', 'creator']
