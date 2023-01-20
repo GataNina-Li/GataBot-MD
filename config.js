@@ -97,7 +97,7 @@ global.author = 'ᴀꜱᴀᴋᴜʀᴀ-ᴍᴀᴏ ʙᴏᴛ'
 //⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
 
 global.vs = '1.4.5'
-global.version = vs
+global.vsJB = '2.0'
 
 global.gt = 'ᴀꜱᴀᴋᴜʀᴀ-ᴍᴀᴏ ʙᴏᴛ'
 global.gatabot = gt
@@ -105,31 +105,33 @@ global.gatabot = gt
 global.yt = 'https://youtube.com/@gatadios'
 global.youtube = yt
 
+global.yt2 = 'https://www.youtube.com/watch?v=Ko019wvu2Tc&t=71s'
+global.youtube2 = yt2
+
 global.ig = 'https://www.instagram.com/gata_dios'
 global.gatadiosig = ig
 
 global.md = 'https://github.com/GataNina-Li/GataBot-MD'
 global.gatabot = md
 
-global.nna = 'https://chat.whatsapp.com/DpsCT3N1nlZHnbKMuIeQBt' //UPDATE GATABOT
-global.nna2 = 'DpsCT3N1nlZHnbKMuIeQBt'
+global.nna = 'https://chat.whatsapp.com/GVpCEF1uofp3f056e0REPw' //UPDATE GATABOT
+global.nna2 = 'GVpCEF1uofp3f056e0REPw'
 
-global.nn = 'https://chat.whatsapp.com/DcXonFm65yv6XKPgrhn7gx' //Grupo 1
+global.nn = 'https://chat.whatsapp.com/IMLJNUdNXUH2cANoAFDfKU' //Grupo 1
 
-global.nnn = 'https://chat.whatsapp.com/Dwgmggcbp8F0XQYoF7L02a' //Grupo 2
+global.nnn = 'https://chat.whatsapp.com/HevYeF6rImG1dLRNZ3JxZt' //Grupo 2
 
-global.nnnt = 'https://chat.whatsapp.com/LhPaHazo5cmIpDbQzn7seJ' //Grupo 3
+global.nnnt = 'https://chat.whatsapp.com/Dxd9UqOD2wQ21m65tKa4hu' //Grupo 3
 
-global.nnntt = 'https://chat.whatsapp.com/BS5G0n0Yexn1oWYRpxOFBA' //Grupo 4
+global.nnntt = 'https://chat.whatsapp.com/DpRy9SL7hlqG0sc3ZWjU7N' //Grupo 4
 
-global.nnnttt = 'https://chat.whatsapp.com/Gi13ZcKjYaFCuf4AKkRZJY' //Grupo 5
+global.nnnttt = 'https://chat.whatsapp.com/L8SmHSDSPyDEGgXO7WCegv' //Grupo 5
 
-global.nnnttt2 = 'https://chat.whatsapp.com/Hqa60xqIIU6ADpg6g4399z' //Grupo 6 COL
+global.nnnttt2 = 'https://chat.whatsapp.com/LCdrJR1h1sA1lwashY3vh4' //Grupo 6 COL
 
-global.nnnttt3 = 'https://chat.whatsapp.com/BhXQ5uBf2SEKgfNjJQPidU' //Grupo 7 COL
+global.nnnttt3 = 'https://chat.whatsapp.com/JP4QqKe7P5oFmn41Vsv2on' //Grupo 7 COL
 
 global.paypal = 'https://paypal.me/OficialGD'
-global.donar = paypal
 
 global.asistencia = 'Wa.me/18059196237' //Dudas? escríbeme...
 
@@ -212,6 +214,9 @@ global.img13 = 'https://i.imgur.com/pCfFOgw.jpeg'
 global.img14 = 'https://i.imgur.com/knBDWRA.jpeg'
 global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg'
 
+global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
+
+global.welgata = [ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig]
 global.redesMenu = [nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt2, nnnttt3, md, ig, paypal, yt, asistencia]
 global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15]
 global.gataVidMenu = ['./media/menus/Menuvid1.mp4', './media/menus/Menuvid2.mp4', './media/menus/Menuvid3.mp4']

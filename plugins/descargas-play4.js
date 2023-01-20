@@ -50,14 +50,12 @@ mediaUrl: `${url}`,
 title: `🅖🅐🅣🅐🅑🅞🅣-🅜🅓`,
 body: wm,
 sourceUrl: 'https://github.com/GataNina-Li/GataBot-MD', thumbnail: await ( await conn.getFile(thumbnail)).data
-  }
- } 
-})
+}} })
   
-  //let buttons = [{ buttonText: { displayText: '📽VIDEO' }, buttonId: `${usedPrefix}ytv ${url} 360` }]
- //let msg = await conn.sendMessage(m.chat, { image: { url: thumbnail }, caption: captvid, footer: author, buttons }, { quoted: m })
+//let buttons = [{ buttonText: { displayText: '📽VIDEO' }, buttonId: `${usedPrefix}ytv ${url} 360` }]
+//let msg = await conn.sendMessage(m.chat, { image: { url: thumbnail }, caption: captvid, footer: author, buttons }, { quoted: m })
 
-  const yt = await await youtubedlv2(url).catch(async _ => await youtubedl(url)).catch(async _ => await youtubedlv3(url))
+const yt = await await youtubedlv2(url).catch(async _ => await youtubedl(url)).catch(async _ => await youtubedlv3(url))
 const link = await yt.audio['128kbps'].download()
   let doc = { 
   audio: 

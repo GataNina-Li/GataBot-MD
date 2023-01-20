@@ -27,10 +27,17 @@ let vn = './media/Buen día grupo.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
-if (chat.audios && m.text.match(/(Calla Fan de bts|bts|Amo a bts|Chino|Chinos)/gi)) {    
-let vn = './media/Calla Fan de BTS.mp3'
-this.sendPresenceUpdate('recording', m.chat)   
-this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
+if (chat.audios && m.text.match(/(Calla Fan de bts|bts|Amo a bts|Chino|Chinos)/gi)) {
+    let vn = './media/Calla Fan de BTS.mp3'
+    let sticker = './media/btss.webp'
+    this.sendPresenceUpdate('recording', m.chat)
+    let or = ['audio', 'sticker'];
+    let media = or[Math.floor(Math.random() * 2)]
+    if(media === 'audio') await this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {
+        type: 'audioMessage', ptt: true
+    });
+    if(media === 'sticker') await conn.sendFile(m.chat, sticker, 'error.webp', '', m);
+}
     
 if (chat.audios && m.text.match(/(Cambiate a Movistar|cambiate a Movistar|cambiate a movistar|Cambiate a movistar|movistar)/gi)) {    
 let vn = './media/Cambiate a Movistar.mp3'
@@ -774,3 +781,5 @@ this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt
    
 return !0 }
 export default handler
+function pickRandom(list) {
+return list[Math.floor(Math.random() * list.length)]}

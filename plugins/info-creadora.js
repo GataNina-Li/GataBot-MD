@@ -1,3 +1,4 @@
+
 import fs from 'fs'
 let handler = async (m, { conn, usedPrefix }) => {
 var doc = ['pdf','zip','vnd.openxmlformats-officedocument.presentationml.presentation','vnd.openxmlformats-officedocument.spreadsheetml.sheet','vnd.openxmlformats-officedocument.wordprocessingml.document']
@@ -7,16 +8,7 @@ let text = `
 *Wa.me/593993684821*
 
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *2* 💖🐈
-*Wa.me/573238484181*
-
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *3* 💖🐈
-*Wa.me/573208089136*
-
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *4* 💖🐈
-*Wa.me/56964787213*
-
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *5* 💖🐈
-*Wa.me/5493458410725*
+*Wa.me/56977775697*
 
 *---------------------*
 *CENTER GATABOT*
@@ -72,4 +64,3 @@ handler.help = ['owner', 'creator']
 handler.tags = ['info']
 handler.command = /^(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)$/i
 export default handler 
-
