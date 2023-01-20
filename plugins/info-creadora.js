@@ -1,3 +1,23 @@
+import fetch from 'node-fetch'
+let handler = async (m, { conn, usedPrefix, text, args, command }) => {
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
+let name = await conn.getName(who)
+
+  const sentMsg = await conn.sendContactArray(m.chat, [
+    [`${wm}`, `${await conn.getName(wm+'@s.whatsapp.net')}`, `💌 Developer Bot `, `ɴᴏᴛ ғᴀᴍᴏᴜs ᴊᴜsᴛ ᴀʟᴏɴᴇ ʙᴏʏ`, `yanxiao021@gmail.com`, `🇮🇩 Indonesia`, `📍 htt`, `👤 gata`],
+    [`${conn.user.jid.split('@')[0]}`, `${await conn.getName(conn.user.jid)}`, `🎈 ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ`, `📵 no`, `ɴᴏᴛʜɪɴɢ`, `arg`, `📍 https://github`, `gata`]
+  ], fkontak)
+  await m.reply(`ʜᴇʟʟᴏ @${m.sender.split(`@`)[0]}`)
+  } 
+handler.help = ['owner', 'creator']
+handler.tags = ['info']
+
+handler.command = /^(owner|creator)$/i
+
+export default handler
+
+/*
 
 import fs from 'fs'
 let handler = async (m, { conn, usedPrefix }) => {
@@ -64,3 +84,5 @@ handler.help = ['owner', 'creator']
 handler.tags = ['info']
 handler.command = /^(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)$/i
 export default handler 
+*/
+
