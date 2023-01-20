@@ -18,6 +18,6 @@ let handler = async (m, { text, usedPrefix, command }) => {
 handler.help = ['prue <pencarian>']
 handler.tags = ['tools']
 
-handler.command = /^prue)/i
+handler.command = /^prue/i
 
 export default handler
