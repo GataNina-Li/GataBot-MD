@@ -9,7 +9,6 @@ export async function all(m) {
   puedes alquilar el bot para que se una a un grupo 
   más info click en el botón
 `.trim(), fgig, null, [['Alquilar', '/buyprem']] , m, { mentions: [m.sender] })
-    m.react('💎')
   } 
   
    return !0
