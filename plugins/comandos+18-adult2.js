@@ -3,7 +3,7 @@
 import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
 const temaX = [['hentai','hentai3'], ['ass', 'nsfwass2'], ['pgif', 'pornsticker'], ['thigh', 'porngirl'], ['hass', 'hass'], 
-['boobs', 'tetas2'], ['hboobs', 'tetas3'], ['pussy', 'pussy']]  
+['boobs', 'tetas2'], ['hboobs', 'tetas3'], ['pussy', 'pussy'], ['paizuri', 'paizuri']]  
 
 let handler = async (m, {command, conn, usedPrefix}) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
@@ -74,9 +74,9 @@ let link = json.message
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: `h`, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[`🥵 BOOBS 🥵`, `${usedPrefix}tetas`], [lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[`🥵 BOOBS 🥵`, `${usedPrefix}tetas`], [lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}}
 
 if (command == temaX[6][1]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[6][0]) 
@@ -85,12 +85,23 @@ let link = json.message
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: `h`, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[`🥵 BOOBS 2 🥵`, `${usedPrefix}tetas2`], [lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[`🥵 BOOBS 2 🥵`, `${usedPrefix}tetas2`], [lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}}
 
 if (command == temaX[7][1]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[7][0]) 
+let json = await res.json()
+let link = json.message
+if (link.slice(-3) == 'gif') {
+let stickerr = await sticker(false, link, global.packname, global.author)
+await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: `h`, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+}else{
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}}
+
+if (command == temaX[8][1]) {
+let res = await fetch(APIs.nekobot + "image?type=" + temaX[8][0]) 
 let json = await res.json()
 let link = json.message
 if (link.slice(-3) == 'gif') {
@@ -105,7 +116,7 @@ await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}
 }  
-handler.command = [temaX[0][1], temaX[1][1], temaX[2][1], temaX[3][1], temaX[4][1], temaX[4][1], temaX[5][1], temaX[6][1], temaX[7][1]]
+handler.command = [temaX[0][1], temaX[1][1], temaX[2][1], temaX[3][1], temaX[4][1], temaX[4][1], temaX[5][1], temaX[6][1], temaX[7][1], temaX[8][1]]
 handler.premium = true
 export default  handler
 
