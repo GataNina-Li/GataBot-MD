@@ -2,7 +2,7 @@
 //By @NeKosmic || https://github.com/NeKosmic/
 //
 
-import * as fs from 'fs'
+/*import * as fs from 'fs'
 
 export async function before(m, { conn, isAdmin, isBotAdmin, usedPrefix }) {
   if (m.isBaileys && m.fromMe)
@@ -28,4 +28,4 @@ export async function before(m, { conn, isAdmin, isBotAdmin, usedPrefix }) {
         } else if (!bot.restrict) return m.reply('[ ! ] Para realizar acciones de eliminación, mi dueño tiene que encender el modo restringido!')
     }
     return !0
-}
+}*/
