@@ -1,3 +1,5 @@
+//CÓDIGO ELABORADO POR: https://github.com/GataNina-Li & https://github.com/DIEGO-OFC
+
 import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
 const temaX = [['hentai','hentai3'], ['ass', 'nsfwass2'], ['pgif', 'pornsticker'], ['thigh', 'porngirl'], ['hass', 'hass'], ['boobs', 'tetas2']]  
