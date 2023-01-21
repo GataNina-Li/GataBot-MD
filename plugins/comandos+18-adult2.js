@@ -275,7 +275,7 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguaj
 }else{
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}}
 
-if (command == 'prueba5') {
+if (command == 'prueba55') {
 let res = await fetch("https://docs.purrbot.site/api/img/nsfw/anal/gif") 
 let json = await res.json()
 let link2 = json.link
@@ -291,7 +291,7 @@ await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}
 }  
-handler.command = [temaX[0][1], temaX[1][1], temaX[2][1], temaX[3][1], temaX[4][1], temaX[4][1], temaX[5][1], temaX[6][1], temaX[7][1], temaX[8][1], temaX[9][1], temaX[10][1], temaX[11][1], temaX[12][1], temaX[13][1], temaX[14][1], temaX[15][1], temaX[16][1], temaX[17][1], temaX[18][1], temaX[19][1], temaX[20][1], temaX[21][1], temaX[22][1], temaX[23][1], ['prueba5']]
+handler.command = [temaX[0][1], temaX[1][1], temaX[2][1], temaX[3][1], temaX[4][1], temaX[4][1], temaX[5][1], temaX[6][1], temaX[7][1], temaX[8][1], temaX[9][1], temaX[10][1], temaX[11][1], temaX[12][1], temaX[13][1], temaX[14][1], temaX[15][1], temaX[16][1], temaX[17][1], temaX[18][1], temaX[19][1], temaX[20][1], temaX[21][1], temaX[22][1], temaX[23][1], ['prueba55']]
 handler.premium = true
 export default  handler
 
