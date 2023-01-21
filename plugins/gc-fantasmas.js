@@ -52,4 +52,3 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
     //desarrollado por https://github.com/ReyEndymion
     //participa en desactivacion de despedida https://github.com/BrunoSobrino/
-
