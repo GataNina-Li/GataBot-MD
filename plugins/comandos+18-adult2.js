@@ -1,5 +1,6 @@
 import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
+const temaX = [['hentai','hentai3'], ['', '']]  
 
 let handler = async (m, {command, conn, usedPrefix}) => {
 let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18PornP2(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
@@ -17,6 +18,6 @@ await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}
 }}  
 
-handler.command = [global.temaX[0][1]]
+handler.command = ['hentai']
 export default  handler
-global.temaX = [['hentai','hentai3'], ['', '']]  
+
