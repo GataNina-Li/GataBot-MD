@@ -7,7 +7,7 @@ if (command == 'prueba5') {
 //let res = (await axios.get("https://nekobot.xyz/api/image?type=hentai")).data  
 let res = await conn.getFile("https://nekobot.xyz/api/image?type=hentai") 
 //let haha = await res[Math.floor(res.length * Math.random())]  
-conn.sendButton(m.chat, `_${res.toString()}_`.trim(), author, res, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏 🥵', `/${command}`]], m)}
+conn.sendButton(m.chat, `_${JSON.stringify(res)}_`.trim(), author, res, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏 🥵', `/${command}`]], m)}
   
 }  
 handler.command = ['prueba5']
