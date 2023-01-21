@@ -1,4 +1,4 @@
-export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
+/*export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
@@ -14,4 +14,4 @@ await m.reply(`*@${m.sender.split`@`[0]} NO PUEDE USAR ESTE BOT EN CHAT PRIVADO,
 //await this.updateBlockStatus(m.chat, 'block')}
 user.banned = true
 return !1
-}
+}*/
