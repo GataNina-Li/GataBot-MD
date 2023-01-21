@@ -15,4 +15,4 @@ await m.reply(`*@${m.sender.split`@`[0]} NO PUEDE USAR ESTE BOT EN CHAT PRIVADO,
 }
 user.banned = true
 return !1
-}*/
+}*/ //ESTA DAÑADO ESPEREN O SOLUCIONEN JJJJJ
