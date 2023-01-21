@@ -9,7 +9,7 @@ let link = json.message
 
 if (link.slice(-3) == 'gif') {
 //await m.reply('Error ' + json.message) 
-await conn.sendFile(m.chat, link, 'error.mp4', json.message, m)
+await conn.sendFile(m.chat, link, 'error.gif', json.message, m)
 }else{
 await conn.sendButton(m.chat, `${json.message}`.trim(), author, link, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏 🥵', `/${command}`]], m)}
 }}  
