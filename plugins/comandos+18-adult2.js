@@ -59,5 +59,6 @@ console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗
 console.log(e)}
 }  
 handler.command = [temaX[0][1], temaX[1][1], temaX[2][1], temaX[3][1]]
+handler.premium = true
 export default  handler
 
