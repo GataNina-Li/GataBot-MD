@@ -62,7 +62,7 @@ global.APIs = { // API Prefix.
   ana: 'https://anabotofc.herokuapp.com/',
   kanx: 'https://kannxapi.herokuapp.com/',
   nekobot: 'https://nekobot.xyz/api/',
-  purrbot: 'https://docs.purrbot.site/api/',
+  purrbot: 'https://purrbot.site/api/',
   dhnjing: 'https://dhnjing.xyz',
   'https://violetics.pw': 'beta'
 },
