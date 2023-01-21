@@ -276,7 +276,7 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguaj
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}}
 
 if (command == temaX[24][1]) {
-let res = await fetch("https://docs.purrbot.site/api/img/nsfw/anal/gif") 
+let res = await fetch("https://purrbot.site/api/img/nsfw/anal/gif") 
 let json = await res.json()
 let link2 = json.link
 if (link2.slice(-3) == 'gif') {
