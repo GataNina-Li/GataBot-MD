@@ -13,7 +13,7 @@ let link = json.message
 
 if (link.slice(-3) == 'gif') {
 //await m.reply('Error ' + json.message) 
-await conn.sendButtonGif(m.chat, `${json.message}`.trim(), wm, { url: link }, btn, m)
+await conn.sendButtonVid(m.chat, link, wm, json.message, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', m)
 }else{
 await conn.sendButton(m.chat, `${json.message}`.trim(), author, link, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏 🥵', `/${command}`]], m)}
 }}  
