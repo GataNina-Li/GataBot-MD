@@ -276,7 +276,7 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguaj
 }else{
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}}
 
-if (command == temaX[24][1]) {
+/*if (command == temaX[24][1]) {
 let res = await fetch(APIs.purrbot + "img/" + temaX[24][0]) 
 let json = await res.json()
 let link2 = json.link
@@ -286,7 +286,16 @@ await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
 }else{
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link2, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 NSFW ANAL 🥵`, `${usedPrefix}nsfwanal`]], m, frep)}}
-
+*/
+  
+if (command == temaX[24][1]) {
+let res = await fetch(APIs.purrbot + "img/" + temaX[24][0]) 
+let json = await res.json()
+let link2 = json.link
+let stickerr = await sticker(false, link2, global.packname, global.author)
+await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: `h`, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 NSFW ANAL 🥵`, `${usedPrefix}nsfwanal`]], fkontak, m)}
+  
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
