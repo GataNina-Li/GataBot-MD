@@ -1,4 +1,5 @@
 import fetch from 'node-fetch'
+import { sticker } from '../lib/sticker.js'
 let handler = async (m, {command, conn, usedPrefix}) => {
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
   
