@@ -1,4 +1,4 @@
-/*import axios from "axios"
+import axios from "axios"
 import fetch from 'node-fetch'
 let handler = async (m, {command, conn}) => {
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
@@ -10,4 +10,4 @@ conn.sendButton(m.chat, `_${command}_`.trim(), author, res, [['🥵 𝙎𝙄𝙂
   
 }  
 handler.command = ['prueba5']
-export default  handler*/
+export default  handler
