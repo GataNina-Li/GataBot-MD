@@ -354,7 +354,7 @@ let res = await fetch("https://lewd.tritan.dev/api/v1/yaoi")
 //let json = await res.json()
 //let link = json.url
 let json = JSON.stringify(res)
-await m.reply(json.result.url)
+await m.reply(json.url)
 //if (link.slice(-3) == 'gif') {
 //let stickerr = await sticker(false, link, global.packname, global.author)
 //await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
