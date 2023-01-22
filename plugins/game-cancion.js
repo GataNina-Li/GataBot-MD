@@ -1,4 +1,4 @@
-/*import fetch from 'node-fetch'
+import fetch from 'node-fetch'
 import axios from 'axios'
 let timeout = 60000
 let poin = 1000
@@ -43,4 +43,4 @@ const res = await axios({ method: 'GET', url: url, headers: {'User-Agent': 'Mozi
 return res.data
 } catch (err) {
 return err
-}}*/
+}}
