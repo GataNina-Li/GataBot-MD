@@ -56,29 +56,29 @@ if (command == 'tetas') {
 let resError = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/tetas.json`)).data   
 let res = await conn.getFile(`https://api-fgmods.ddns.net/api/nsfw/boobs?apikey=fg-dylux`).data
 if (res == '' || !res || res == null) res = await resError[Math.floor(resError.length * Math.random())]  
-conn.sendButton(m.chat, `_${command}_`.trim(), author, res, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏🥵', `/${command}`]], m)}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, res, [[lenguajeGB.smsSig(), `${usedPrefix + command}`], [`🥵 BOOBS 3 🥵`, `${usedPrefix}tetas3`]], m, frep)}
   
 if (command == 'booty') {
 let resError = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/booty.json`)).data   
 let res = await conn.getFile(`https://api-fgmods.ddns.net/api/nsfw/ass?apikey=fg-dylux`).data
 if (res == '' || !res || res == null) res = await resError[Math.floor(resError.length * Math.random())]  
-conn.sendButton(m.chat, `_${command}_`.trim(), author, res, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏🥵', `/${command}`]], m)}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, res, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)}
   
 if (command == 'ecchi') {
 let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/ecchi.json`)).data  
 let enlace = await res[Math.floor(res.length * Math.random())]
-conn.sendButton(m.chat, `_${command}_`.trim(), author, url, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏🥵', `/${command}`]], m)}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)}
   
 if (command == 'furro') {
 let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/furro.json`)).data  
 let enlace = await res[Math.floor(res.length * Math.random())]
-conn.sendButton(m.chat, `_${command}_`.trim(), author, url, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏🥵', `/${command}`]], m)} 
+await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)}
   
 if (command == 'trapito') {
 let res = await fetch(`https://api.waifu.pics/nsfw/trap`)
 let json = await res.json()
 let enlace = json.url
-conn.sendButton(m.chat, `_${command}_`.trim(), author, url, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏🥵', `/${command}`]], m)} 
+await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)}
   
 if (command == 'imagenlesbians') {
 let resError = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/imagenlesbians.json`)).data   
@@ -89,30 +89,30 @@ conn.sendButton(m.chat, `_${command}_`.trim(), author, res, [['🥵 𝙎𝙄𝙂
 if (command == 'panties') {
 let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/panties.json`)).data  
 let enlace = await res[Math.floor(res.length * Math.random())]
-conn.sendButton(m.chat, `_${command}_`.trim(), author, url, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏🥵', `/${command}`]], m)}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)}
   
 if (command == 'pene') {
 let resError = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/pene.json`)).data   
 let res = await conn.getFile(`https://api-fgmods.ddns.net/api/nsfw/penis?apikey=fg-dylux`).data
 if (res == '' || !res || res == null) res = await resError[Math.floor(resError.length * Math.random())]  
-conn.sendButton(m.chat, `_${command}_`.trim(), author, res, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏🥵', `/${command}`]], m)}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, res, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)}
   
 if (command == 'porno') {
 let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/porno.json`)).data  
-let url = await res[Math.floor(res.length * Math.random())]
-conn.sendButton(m.chat, `_${command}_`.trim(), author, url, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏🥵', `/${command}`]], m)}
+let enlace = await res[Math.floor(res.length * Math.random())]
+await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)}
   
 if (command == 'randomxxx') {
 let rawjsonn = ['https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/tetas.json', 'https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/booty.json', 'https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/imagenlesbians.json', 'https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/panties.json', 'https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/porno.json'] 
 let rawjson = await rawjsonn[Math.floor(rawjsonn.length * Math.random())]  
 let res = (await axios.get(rawjson)).data  
-let url = await res[Math.floor(res.length * Math.random())]
-conn.sendButton(m.chat, `_${command}_`.trim(), author, url, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏🥵', `/${command}`]], m)}
+let enlace = await res[Math.floor(res.length * Math.random())]
+await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)}
   
 if (command == 'pechos') {
 let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/pechos.json`)).data  
-let url = await res[Math.floor(res.length * Math.random())]
-conn.sendButton(m.chat, `_${command}_`.trim(), author, url, [['🥵 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏🥵', `/${command}`]], m)}
+let enlace = await res[Math.floor(res.length * Math.random())]
+await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)}
   
 if (command == 'yaoi') {
 let res = await fetch(`https://nekobot.xyz/api/image?type=yaoi`)
