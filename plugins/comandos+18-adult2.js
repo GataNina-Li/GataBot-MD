@@ -3,7 +3,7 @@
 import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
 const temaX = [['hentai','hentai3'], ['ass', 'nsfwass2'], ['pgif', 'pornsticker'], ['thigh', 'porngirl'], ['hass', 'hass'], ['boobs', 'tetas2'], ['hboobs', 'tetas3'], ['pussy', 'pussy'], ['paizuri', 'paizuri'], ['lewdneko', 'nsfwneko'], ['feet', 'nsfwfeet'], ['hyuri', 'yuri3'], ['hthigh', 'hthigh'], ['hmidriff', 'porngirl2'], ['anal', 'nsfwanal'], ['blowjob', 'blowjob'], ['gonewild', 'gonewild'], ['hkitsune', 'furro2'], ['tentacle', 'tentacle'], ['4k', 'porn4k'], ['kanna', 'kanna'], ['hentai_anal', 'nsfwanal2'], ['food', 'food'], ['holo', 'nsfwholo'],
-['nsfw/anal/gif', 'nsfwanal3'], ['nsfw/blowjob/gif', 'blowjob2'], ['nsfw/cum/gif', 'nsfwcum2'], ['nsfw/fuck/gif', 'pornfuck'], ['nsfw/neko/gif', 'nsfwneko2'], ['nsfw/neko/img', 'nsfwneko3']]  
+['nsfw/anal/gif', 'nsfwanal3'], ['nsfw/blowjob/gif', 'blowjob2'], ['nsfw/cum/gif', 'nsfwcum2'], ['nsfw/fuck/gif', 'pornfuck'], ['nsfw/neko/gif', 'nsfwneko2'], ['nsfw/pussylick/gif', 'pussy2']]  
 
 let handler = async (m, {command, conn, usedPrefix}) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
@@ -98,7 +98,7 @@ let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: `h`, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 PUSSY 2 🥵`, `${usedPrefix}pussy2`]], m, frep)}}
 
 if (command == temaX[8][1]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[8][0]) 
@@ -120,7 +120,7 @@ let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: `h`, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 NSFW NEKO 3 🥵`, `${usedPrefix}nswfneko3`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 NSFW NEKO 2 🥵`, `${usedPrefix}nswfneko2`]], m, frep)}}
 
 if (command == temaX[10][1]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[10][0]) 
@@ -334,7 +334,7 @@ let json = await res.json()
 let link2 = json.link
 let stickerr = await sticker(false, link2, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: `h`, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 NSFW NEKO 2 🥵`, `${usedPrefix}nswfneko2`]], fkontak, m)}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 PUSSY 🥵`, `${usedPrefix}pussy`]], fkontak, m)}
  
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
