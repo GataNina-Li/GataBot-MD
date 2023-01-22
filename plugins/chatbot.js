@@ -19,6 +19,14 @@ conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
 
 }
 
+if (/^Mande porno|porno|paja$/i.test(m.text) ) { //sem prefixo
+    let teks = `
+${pickRandom([`no puedo esta contra la política del grupo.😸`, `_uff mire un pajero_`, `_pagame y paso mi pack😏🥵_`, `_que_`, `_que quiere pija dice 🤣_`, `_pasa el pack de tu hermana😏_`, `_mire un gilipolla_`, `_siuuu sexo sexo sexo😈_`, '_callarte putito_'])}
+`.trim()
+conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
+
+}
+
 if (/^MC-SERVER|MC-SERVER|mc-server$/i.test(m.text) ) { //sem prefixo
     conn.reply(m.chat, `┏━━━━━━━━━━━━━┓
 ┃ *<MINECRAFT SERVER/>*
