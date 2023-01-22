@@ -352,7 +352,7 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsB
 if (command == temaX[33][0]) {
 let res = await fetch("https://lewd.tritan.dev/api/v1/yaoi") 
 //let json = JSON.parse(JSON.stringify(res.url))
-let myObj = JSON.parse(JSON.stringify(res))
+let myObj = JSON.parse(res)
 await m.reply(myObj)}
 /*if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
