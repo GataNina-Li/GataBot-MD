@@ -351,7 +351,7 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsB
 
 if (command == temaX[33][0]) {
 let res = await fetch("https://lewd.tritan.dev/api/v1/yaoi") 
-let json = await res.json()
+let json = JSON.parse(res)
 let link = `${json.url}`
 //let json = JSON.stringify(res)
 //await m.reply(url)
