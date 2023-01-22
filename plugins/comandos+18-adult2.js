@@ -350,9 +350,9 @@ await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 NSFW ORGY 2 🥵`, `${usedPrefix}nsfworgy2`]], fkontak, m)}
 
 if (command == temaX[33][0]) {
-let res = await fetch("https://lewd.tritan.dev/api/v1/yaoi") 
-let json = await res.json()
-let link2 = json.result.url
+let res = await fetch("https://lewd.tritan.dev/api/v1/yaoi").then((i) => i.json())
+//let json = await res.json()
+let link2 = res.url
 let stickerr = await sticker(false, link2, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 YAOI 🥵`, `${usedPrefix}yaoi`]], fkontak, m)}
