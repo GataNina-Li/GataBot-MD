@@ -352,9 +352,8 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsB
 if (command == temaX[33][0]) {
 let res = await fetch("https://lewd.tritan.dev/api/v1/yaoi") 
 //let json = JSON.parse(JSON.stringify(res.url))
-let myObj = JSON.parse(res)
-let link = myObj["url"];
-await m.reply(link)}
+let myObj = JSON.parse(JSON.stringify(res))
+await m.reply(myObj)}
 /*if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
