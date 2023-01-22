@@ -6,7 +6,7 @@ let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCon
 let user = global.db.data.users[m.sender]
 let yh = global.hentai
 let url = yh[Math.floor(Math.random() * yh.length)]
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, url, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 HENTAI 🥵`, `${usedPrefix}hentai`]], m, frep)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, url, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 HENTAI 🥵`, `${usedPrefix}hentai`]], m, frep)
 }
 handler.command = /^(hentai2)$/i
 handler.premium = true
