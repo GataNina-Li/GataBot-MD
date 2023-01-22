@@ -362,9 +362,9 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsB
 
 if (command == temaX[34][1]) { 
 let res = await fetch('https://lewd.tritan.dev/api/v1/yaoi')
-let json = await res.text()
+let jsonn = await res.json()
 //let link = json.url
-m.reply(json)}
+m.reply(jsonn)}
 //await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 TRAPITO 🥵`, `${usedPrefix}trapito`]], m, frep)}
 
 } catch (e) {
