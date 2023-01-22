@@ -1,4 +1,4 @@
-/*import similarity from 'similarity'
+import similarity from 'similarity'
 const threshold = 0.72
 let handler = {
 async before(m) {
@@ -20,4 +20,4 @@ return !0
 },
 exp: 0
 }
-export default handler*/
+export default handler
