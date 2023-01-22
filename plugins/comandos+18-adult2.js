@@ -362,9 +362,9 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsB
 
 if (command == temaX[34][1]) { 
 let res = await fetch(APIs.lol + "/api/random/nsfw/" + temaX[33][0] + "?apikey=6fbee8ec83e7b2677026ffae") 
-let json = await res.json()
-let link = json.message
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 TRAPITO 🥵`, `${usedPrefix}trapito`]], m, frep)}
+//let json = await res.json()
+//let link = json.message
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, res, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 TRAPITO 🥵`, `${usedPrefix}trapito`]], m, frep)}
 
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
