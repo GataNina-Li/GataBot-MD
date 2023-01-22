@@ -22,7 +22,7 @@ let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), null, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 HENTAI 🥵`, `${usedPrefix}hentai`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 HENTAI 2 🥵`, `${usedPrefix}hentai2`]], m, frep)}}
 
 if (command == temaX[1][1]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[1][0]) 
