@@ -1,3 +1,5 @@
+ // by https://github.com/elrebelde21/The-LoliBot-MD
+ 
 let handler = m => m
 handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
@@ -38,8 +40,8 @@ if (/^MC-SERVER|MC-SERVER|mc-server$/i.test(m.text) ) { //sem prefixo
 
 }
 
-if (/^reglas|normas$/i.test(m.text) ) { //sem prefixo
-    conn.reply(m.chat, `*╭┅〘 ⚠️ 𝗢𝗯𝗲𝗱𝗲𝗰𝗲 𝗹𝗮𝘀 𝗿𝗲𝗴𝗹𝗮𝘀 ⚠️ 〙*
+if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sem prefixo
+    conn.reply(m.chat, `╭┅〘 ⚠️ 𝗢𝗯𝗲𝗱𝗲𝗰𝗲 𝗹𝗮𝘀 𝗿𝗲𝗴𝗹𝗮𝘀 ⚠️ 〙*
 ➽❌ 𝐏𝐫𝐨𝐡𝐢𝐛𝐢𝐝𝐨 𝐥𝐥𝐚𝐦𝐚𝐫 𝐚𝐥 𝐁𝐨𝐭
 ➽❌ 𝐏𝐫𝐨𝐡𝐢𝐛𝐢𝐝𝐨 𝐒𝐩𝐚𝐦 𝐚𝐥 𝐁𝐨𝐭
 ➽❌ 𝐍𝐨 𝐚𝐠𝐫𝐞𝐠𝐚𝐫 𝐚𝐥 𝐁𝐨𝐭
