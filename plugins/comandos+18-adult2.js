@@ -3,7 +3,7 @@
 import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
 const temaX = [['hentai','hentai3'], ['ass', 'nsfwass2'], ['pgif', 'pornsticker'], ['thigh', 'porngirl'], ['hass', 'hass'], ['boobs', 'tetas2'], ['hboobs', 'tetas3'], ['pussy', 'pussy'], ['paizuri', 'paizuri'], ['lewdneko', 'nsfwneko'], ['feet', 'nsfwfeet'], ['hyuri', 'yuri3'], ['hthigh', 'hthigh'], ['hmidriff', 'porngirl2'], ['anal', 'nsfwanal'], ['blowjob', 'blowjob'], ['gonewild', 'gonewild'], ['hkitsune', 'furro2'], ['tentacle', 'tentacle'], ['4k', 'porn4k'], ['kanna', 'kanna'], ['hentai_anal', 'nsfwanal2'], ['food', 'food'], ['holo', 'nsfwholo'],
-['nsfw/anal/gif', 'nsfwanal3'], ['nsfw/blowjob/gif', 'blowjob2'], ['nsfw/cum/gif', 'nsfwcum2'], ['nsfw/fuck/gif', 'pornfuck'], ['nsfw/neko/gif', 'nsfwneko2'], ['nsfw/pussylick/gif', 'pussy2'], ['nsfw/nsfw/solo/gif', 'nsfwsolo']]  
+['nsfw/anal/gif', 'nsfwanal3'], ['nsfw/blowjob/gif', 'blowjob2'], ['nsfw/cum/gif', 'nsfwcum2'], ['nsfw/fuck/gif', 'pornfuck'], ['nsfw/neko/gif', 'nsfwneko2'], ['nsfw/pussylick/gif', 'pussy2'], ['nsfw/solo/gif', 'nsfwsolo']]  
 
 let handler = async (m, {command, conn, usedPrefix}) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
