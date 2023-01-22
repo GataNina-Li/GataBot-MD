@@ -6,7 +6,8 @@ let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCon
 let user = global.db.data.users[m.sender]
 
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
-  
+
+try{
 if (command == 'nsfwloli') {
 let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/nsfwloli.json`)).data  
 let enlace = await res[Math.floor(res.length * Math.random())]  
@@ -150,7 +151,11 @@ await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo
 await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], fkontak, m)
 }else{
 await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSig(), `${usedPrefix + command}`], [`🥵 YURI 3 🥵`, `${usedPrefix}yuri3`]], m, frep)}}
-  
+
+} catch (e) {
+await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+console.log(e)}
 }  
 handler.command = ['nsfwloli', 'nsfwfoot', 'nsfwass', 'nsfwbdsm', 'nsfwcum', 'nsfwero', 'nsfwfemdom', 'nsfwfoot', 'nsfwglass', 'nsfworgy', 'yuri', 'yuri2', 'yaoi', 'yaoi2', 'panties', 'tetas', 'booty', 'ecchi', 'furro', 'hentai', 'trapito', 'imagenlesbians', 'pene', 'porno', 'randomxxx', 'pechos']
 handler.level = 5
