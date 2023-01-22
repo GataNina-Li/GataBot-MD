@@ -6,7 +6,7 @@ let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCon
 let user = global.db.data.users[m.sender]
 let yh = global.darling
 let url = yh[Math.floor(Math.random() * yh.length)]
-await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm, url, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, url, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)
 }
 handler.command = /^(darling)$/i
 handler.level = 5
