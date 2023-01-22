@@ -1,4 +1,4 @@
-let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
+/*let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
 
 let handler = async (m, { conn, text, isMods, isOwner, isPrems }) => {
 let link = (m.quoted ? m.quoted.text ? m.quoted.text : text : text) || text
@@ -19,4 +19,4 @@ m.reply(`${ag}*✅ Su enlace se envió a Mí Propietario(a).*\n*Your link was se
 handler.help = ['join [chat.whatsapp.com]']
 handler.tags = ['owner']
 handler.command = /^unete|join|nuevogrupo|unir|unite|unirse|entra|entrar$/i 
-export default handler
+export default handler*/
