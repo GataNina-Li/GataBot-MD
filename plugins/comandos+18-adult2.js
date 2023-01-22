@@ -361,10 +361,10 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsB
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 YAOI 🥵`, `${usedPrefix}yaoi`]], m, frep)}}
 
 if (command == temaX[34][1]) { 
-let res = await fetch('http://api.lolhuman.xyz/api/random/nsfw/trap?apikey=847de7716f17a51eeba4235c')//(APIs.lol + "/api/random/nsfw/" + temaX[33][0] + "?apikey=6fbee8ec83e7b2677026ffae") 
-//let json = await res.json()
-//let link = json.message
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, res, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 TRAPITO 🥵`, `${usedPrefix}trapito`]], m, frep)}
+let res = await fetch('https://lewd.tritan.dev/api/v1/yaoi')
+let json = await res.json()
+let link = json.url
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 TRAPITO 🥵`, `${usedPrefix}trapito`]], m, frep)}
 
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
