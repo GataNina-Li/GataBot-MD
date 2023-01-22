@@ -350,9 +350,9 @@ await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 NSFW ORGY 2 🥵`, `${usedPrefix}nsfworgy2`]], fkontak, m)}
 
 if (command == temaX[33][0]) {
-let link = await fetch("https://yaoi.tritan.dev/api/v1/random") 
-///let json = await res.json()
-//let url = json.link
+let res = await fetch("https://yaoi.tritan.dev/api/v1/random") 
+let json = await res.json()
+let link = json.url
 //let json = JSON.stringify(res)
 //await m.reply(url)
 if (link.slice(-3) == 'gif') {
