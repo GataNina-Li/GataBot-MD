@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
 const temaX = [['hentai','hentai3'], ['ass', 'nsfwass2'], ['pgif', 'pornsticker'], ['thigh', 'porngirl'], ['hass', 'nsfwass3'], ['boobs', 'tetas2'], ['hboobs', 'tetas3'], ['pussy', 'pussy'], ['paizuri', 'paizuri'], ['lewdneko', 'nsfwneko'], ['feet', 'nsfwfeet'], ['hyuri', 'yuri3'], ['hthigh', 'hthigh'], ['hmidriff', 'porngirl2'], ['anal', 'nsfwanal'], ['blowjob', 'blowjob'], ['gonewild', 'gonewild'], ['hkitsune', 'furro2'], ['tentacle', 'tentacle'], ['4k', 'porn4k'], ['kanna', 'kanna'], ['hentai_anal', 'nsfwanal2'], ['food', 'food'], ['holo', 'nsfwholo'],
 ['nsfw/anal/gif', 'nsfwanal3'], ['nsfw/blowjob/gif', 'blowjob2'], ['nsfw/cum/gif', 'nsfwcum2'], ['nsfw/fuck/gif', 'pornfuck'], ['nsfw/neko/gif', 'nsfwneko2'],
-['nsfw/pussylick/gif', 'pussy2'], ['nsfw/solo/gif', 'nsfwsolo'], ['nsfw/threesome_fff/gif', 'nsfworgy2'], ['nsfw/threesome_ffm/gif', 'nsfworgy3'], ['yaoi', 'yaoi3'], ['trap', 'prue2']]  
+['nsfw/pussylick/gif', 'pussy2'], ['nsfw/solo/gif', 'nsfwsolo'], ['nsfw/threesome_fff/gif', 'nsfworgy2'], ['nsfw/threesome_ffm/gif', 'nsfworgy3'], ['yaoi', 'yaoi3']]  
 
 let handler = async (m, {command, conn, usedPrefix}) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
@@ -360,20 +360,13 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsB
 }else{
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 YAOI 🥵`, `${usedPrefix}yaoi`]], m, frep)}}
 
-if (command == temaX[34][1]) { 
-let res = await fetch('https://lewd.tritan.dev/api/v1/yaoi')
-let jsonn = await res.json()
-//let link = json.url
-m.reply(jsonn)}
-//await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 TRAPITO 🥵`, `${usedPrefix}trapito`]], m, frep)}
-
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}
 }  
 handler.command = [temaX[0][1], temaX[1][1], temaX[2][1], temaX[3][1], temaX[4][1], temaX[4][1], temaX[5][1], temaX[6][1], temaX[7][1], temaX[8][1], temaX[9][1], temaX[10][1], temaX[11][1], temaX[12][1], temaX[13][1], temaX[14][1], temaX[15][1], temaX[16][1], temaX[17][1], temaX[18][1], temaX[19][1], temaX[20][1], temaX[21][1], temaX[22][1], temaX[23][1],
-temaX[24][1], temaX[25][1], temaX[26][1], temaX[27][1], temaX[28][1], temaX[29][1], temaX[30][1], temaX[31][1], temaX[32][1], temaX[33][1], temaX[34][1]]
+temaX[24][1], temaX[25][1], temaX[26][1], temaX[27][1], temaX[28][1], temaX[29][1], temaX[30][1], temaX[31][1], temaX[32][1], temaX[33][1]]
 handler.premium = true
 export default  handler
 
