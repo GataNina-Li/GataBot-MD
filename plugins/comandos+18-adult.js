@@ -118,8 +118,7 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsB
 if (command == 'yaoi') {
 let res = (await axios.get(`https://raw.githubusercontent.com/HasamiAini/wabot_takagisan/main/whatsapp%20bot%20takagisan/whatsapp%20bot%20takagisan/lib/Yaoi.json`)).data  //`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/yaoi.json`
 let enlace = await res[Math.floor(res.length * Math.random())]
-let json = await enlace.json()
-let link = json.image
+let link = enlace.image
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
