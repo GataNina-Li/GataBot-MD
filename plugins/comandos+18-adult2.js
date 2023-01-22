@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
 const temaX = [['hentai','hentai3'], ['ass', 'nsfwass2'], ['pgif', 'pornsticker'], ['thigh', 'porngirl'], ['hass', 'nsfwass3'], ['boobs', 'tetas2'], ['hboobs', 'tetas3'], ['pussy', 'pussy'], ['paizuri', 'paizuri'], ['lewdneko', 'nsfwneko'], ['feet', 'nsfwfeet'], ['hyuri', 'yuri3'], ['hthigh', 'hthigh'], ['hmidriff', 'porngirl2'], ['anal', 'nsfwanal'], ['blowjob', 'blowjob'], ['gonewild', 'gonewild'], ['hkitsune', 'furro2'], ['tentacle', 'tentacle'], ['4k', 'porn4k'], ['kanna', 'kanna'], ['hentai_anal', 'nsfwanal2'], ['food', 'food'], ['holo', 'nsfwholo'],
 ['nsfw/anal/gif', 'nsfwanal3'], ['nsfw/blowjob/gif', 'blowjob2'], ['nsfw/cum/gif', 'nsfwcum2'], ['nsfw/fuck/gif', 'pornfuck'], ['nsfw/neko/gif', 'nsfwneko2'],
-['nsfw/pussylick/gif', 'pussy2'], ['nsfw/solo/gif', 'nsfwsolo'], ['nsfw/threesome_fff/gif', 'nsfworgy2'], ['nsfw/threesome_ffm/gif', 'nsfworgy3'], ['yaoi3']]  
+['nsfw/pussylick/gif', 'pussy2'], ['nsfw/solo/gif', 'nsfwsolo'], ['nsfw/threesome_fff/gif', 'nsfworgy2'], ['nsfw/threesome_ffm/gif', 'nsfworgy3'], ['yaoi', 'yaoi3']]  
 
 let handler = async (m, {command, conn, usedPrefix}) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
@@ -348,20 +348,18 @@ let link2 = json.link
 let stickerr = await sticker(false, link2, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 NSFW ORGY 2 🥵`, `${usedPrefix}nsfworgy2`]], fkontak, m)}
-
-if (command == temaX[33][0]) {
-let res = await fetch("https://yaoi.tritan.dev/api/v1")//https://lewd.tritan.dev/api/v1/yaoi
-//let json = JSON.parse(JSON.stringify(res.url))
+  
+if (command == temaX[33][1]) { //https://lewd.tritan.dev/api/v1/yaoi
+let res = await fetch(APIs.nekobot + "image?type=" + temaX[33][0]) 
 let json = await res.json()
-let link2 = json.url
-await m.reply(link2)}
-/*if (link.slice(-3) == 'gif') {
+let link = json.message
+if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
 await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}}
-*/
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 YAOI 🥵`, `${usedPrefix}yaoi`]], m, frep)}}
+
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
