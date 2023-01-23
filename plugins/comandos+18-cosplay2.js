@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 let handler = async (m, { conn, text, command, usedPrefix }) => {
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
 await delay(3000)
@@ -892,4 +892,4 @@ global.cosplay = ['https://img.nickpic.host/qDgksb.jpg',
 'https://img.nickpic.host/qDDbxp.jpg',
 'https://img.nickpic.host/qDDrOY.jpg',
 'https://img.nickpic.host/qDDFGG.jpg',
-'https://img.nickpic.host/qDDacz.jpg']
+'https://img.nickpic.host/qDDacz.jpg']*/
