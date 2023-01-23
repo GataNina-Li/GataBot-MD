@@ -26,7 +26,8 @@ let enlace = await res[Math.floor(res.length * Math.random())]
 await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno ass 2' : 'nsfw ass 2'} 🥵`.toUpperCase(), `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoass2' : 'nsfwass2'}`]], m, frep)}
   
 if (command == 'pornobdsm' || command == 'nsfwbdsm') {
-let enlace = await conn.getFile(`https://api.xteam.xyz/randomimage/bdsm?APIKEY=${keysxteam}`)
+let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/nsfwbdsm.json`)).data  
+let enlace = await res[Math.floor(res.length * Math.random())]  
 await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno fuck' : 'nsfw fuck'} 🥵`.toUpperCase(), `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornofuck' : 'nsfwfuck'}`]], m, frep)}
   
 if (command == 'pornocum' || command == 'nsfwcum') {
