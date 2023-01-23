@@ -209,7 +209,7 @@ let sections = Object.keys(temaX).map((v, index, temaX2) => ({ title: `${lenguaj
 rows: [{ 
 title: `${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🥵' : '⚠️'} ${temaX[index][1].toUpperCase()} ${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🥵' : '⚠️'} || ${lenguajeGB['smsBotonM7']()} ➜ ${user.premiumTime > 0 ? '✅' : '❌'} ${usedPrefix}${1 + index <= 33 ? lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : user.premiumTime > 0 ? lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : 'pase premium'}`, 
 description: `${1 + index}. ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1]} ➜ ${1 + index <= 33 ? user.money < 90 ? 'No tiene suficiente GataCoins\nPresione aquí para comprar' : 'Contenido Gratis disponible' : 'Contenido no disponible\nCompre premium'}`, 
-rowId: `${usedPrefix}${1 + index <= 33 ? lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : user.premiumTime > 0 ? lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : 'pase premium'}` }], })) //temaX[index][0] : temaX[index][1]  }], }))
+rowId: `${usedPrefix}${1 + index <= 33 ? lenguajeGB.lenguaje() == 'es' ? user.money < 90 ? usedPrefix + 'buy money 90' : temaX[index][0] : user.money < 90 ? usedPrefix + 'buy money 90' : temaX[index][1] : user.premiumTime > 0 ? lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : 'pase premium'}` }], })) //temaX[index][0] : temaX[index][1]  }], }))
 
 
 let name = await conn.getName(m.sender)
