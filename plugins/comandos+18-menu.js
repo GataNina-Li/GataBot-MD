@@ -76,27 +76,6 @@ const temaX = [['pornololi', 'nsfwloli'], ['pornopies', 'nsfwfoot'], ['pornoass'
 ['pornobragas', 'nsfwpanties'], ['pornopene', 'nsfwpenis'], ['porno', 'porn'], ['pornorandom', 'pornrandom'], ['pornopechos', 'nsfwbreasts'],
 ['pornoyaoi', 'nsfwyaoi'], ['pornoyaoi2', 'nsfwyaoi2'], ['pornoyuri', 'nsfwyuri'], ['pornoyuri2', 'nsfwyuri2'], ['pornodarling', 'nsfwdarling'],
 ['pornodragonmaid', 'nsfwdragonmaid'], ['pornokonosuba', 'nsfwkonosuba'], ['pornopokemon', 'nsfwpokemon'], ['pornotoloveru', 'nsfwtoloveru'], ['pornouzaki', 'nsfwuzaki'],
-['pornopack', 'nsfwpack'], ['pornopackchica', 'nsfwpackgirl']]
-
-const temaX2 = [['pornopackchico', 'nsfwpackmen'], ['pornohentai3', 'nsfwhentai3'], ['pornoass2', 'nsfwass2'],
-['pornosticker', 'nsfwsticker'], ['pornochica', 'nsfwsgirl'], ['pornoass3', 'nsfwass3'], ['pornotetas2', 'nsfwboobs2'], ['pornotetas3', 'nsfwboobs3'],
-['pornopussy', 'nsfwpussy'], ['pornopaizuri', 'nsfwpaizuri'], ['pornoneko', 'nsfwneko'], ['pornopies2', 'nsfwfoot2'], ['pornoyuri3', 'nsfwyuri3'],
-['pornomuslo', 'nsfwhthigh'], ['pornochica2', 'nsfwsgirl2'], ['pornoanal', 'nsfwanal'], ['pornomamada', 'nsfwblowjob'], ['pornogonewild', 'nsfwgonewild'],
-['pornofurro2', 'nsfwfurry2'], ['pornotentacle', 'nsfwtentacle'], ['porno4k', 'porn4k'], ['pornokanna', 'nsfwkanna'], ['pornoanal2', 'nsfwanal2'],
-['pornoalimento', 'nsfwfood'], ['pornoholo', 'nsfwholo'], ['pornoanal3', 'nsfwanal3'], ['pornomamada2', 'nsfwblowjob2'], ['pornocum2', 'nsfwcum2'],
-['pornofuck', 'nsfwfuck'], ['pornoneko2', 'nsfwneko2'], ['pornopussy2', 'nsfwpussy2'], ['pornosolo', 'nsfwsolo'], ['pornorgia2', 'nsfworgy2'],
-['pornorgia3', 'nsfworgy3'], ['pornoyaoi3', 'nsfwyaoi3'], ['pornocosplay', 'nsfwcosplay'], ['pornodbz', 'nsfwdbz'], ['pornogenshin', 'nsfwgenshin'],
-['pornokimetsu', 'nsfwkimetsu'], ['pornohentai2', 'nsfwhentai2'], ['pornonintendo', 'nsfwnintendo'], ['pornohololive', 'nsfwhololive'], ['pornoheroacademy', 'nsfwheroacademy'],
-['pornorezero', 'nsfwrezero'], ['pornotatsumaki', 'nsfwtatsumaki'], ['pornonaruto', 'nsfwnaruto'], ['pornokitagawa', 'nsfwkitagawa']]
-
-const temaX3 = [['pornovid', 'nsfwvid'], ['pornovid2', 'nsfwvid2'], ['pornovidlesbi', 'nsfwvidlesbi'], ['pornovidgay', 'nsfwvidgay'], ['pornovidbisexual', 'nsfwvidbisexual'], ['pornovidrandom', 'nsfwvidrandom']]
-
-/*const temaX3 = [['pornololi', 'nsfwloli'], ['pornopies', 'nsfwfoot'], ['pornoass', 'nsfwass'], ['pornobdsm', 'nsfwbdsm'], ['pornocum', 'nsfwcum'],
-['pornoero', 'nsfwero'], ['pornodominar', 'nsfwfemdom'], ['pornoglass', 'nsfwglass'], ['pornohentai', 'nsfwhentai'], ['pornorgia', 'nsfworgy'], ['pornotetas', 'nsfwboobs'],
-['pornobooty', 'nsfwbooty'], ['pornoecchi', 'nsfwecchi'], ['pornofurro', 'nsfwfurry'], ['pornotrapito', 'nsfwtrap'], ['pornolesbiana', 'nsfwlesbian'],
-['pornobragas', 'nsfwpanties'], ['pornopene', 'nsfwpenis'], ['porno', 'porn'], ['pornorandom', 'pornrandom'], ['pornopechos', 'nsfwbreasts'],
-['pornoyaoi', 'nsfwyaoi'], ['pornoyaoi2', 'nsfwyaoi2'], ['pornoyuri', 'nsfwyuri'], ['pornoyuri2', 'nsfwyuri2'], ['pornodarling', 'nsfwdarling'],
-['pornodragonmaid', 'nsfwdragonmaid'], ['pornokonosuba', 'nsfwkonosuba'], ['pornopokemon', 'nsfwpokemon'], ['pornotoloveru', 'nsfwtoloveru'], ['pornouzaki', 'nsfwuzaki'],
 ['pornopack', 'nsfwpack'], ['pornopackchica', 'nsfwpackgirl'], ['pornopackchico', 'nsfwpackmen'], ['pornohentai3', 'nsfwhentai3'], ['pornoass2', 'nsfwass2'],
 ['pornosticker', 'nsfwsticker'], ['pornochica', 'nsfwsgirl'], ['pornoass3', 'nsfwass3'], ['pornotetas2', 'nsfwboobs2'], ['pornotetas3', 'nsfwboobs3'],
 ['pornopussy', 'nsfwpussy'], ['pornopaizuri', 'nsfwpaizuri'], ['pornoneko', 'nsfwneko'], ['pornopies2', 'nsfwfoot2'], ['pornoyuri3', 'nsfwyuri3'],
@@ -107,7 +86,7 @@ const temaX3 = [['pornovid', 'nsfwvid'], ['pornovid2', 'nsfwvid2'], ['pornovidle
 ['pornorgia3', 'nsfworgy3'], ['pornoyaoi3', 'nsfwyaoi3'], ['pornocosplay', 'nsfwcosplay'], ['pornodbz', 'nsfwdbz'], ['pornogenshin', 'nsfwgenshin'],
 ['pornokimetsu', 'nsfwkimetsu'], ['pornohentai2', 'nsfwhentai2'], ['pornonintendo', 'nsfwnintendo'], ['pornohololive', 'nsfwhololive'], ['pornoheroacademy', 'nsfwheroacademy'],
 ['pornorezero', 'nsfwrezero'], ['pornotatsumaki', 'nsfwtatsumaki'], ['pornonaruto', 'nsfwnaruto'], ['pornokitagawa', 'nsfwkitagawa'], ['pornovid', 'nsfwvid'],
-['pornovid2', 'nsfwvid2'], ['pornovidlesbi', 'nsfwvidlesbi'], ['pornovidgay', 'nsfwvidgay'], ['pornovidbisexual', 'nsfwvidbisexual'], ['pornovidrandom', 'nsfwvidrandom']]*/
+['pornovid2', 'nsfwvid2'], ['pornovidlesbi', 'nsfwvidlesbi'], ['pornovidgay', 'nsfwvidgay'], ['pornovidbisexual', 'nsfwvidbisexual'], ['pornovidrandom', 'nsfwvidrandom']]
 
 let menuA = `😏 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
 let menuB = `╭┄〔 *${wm}* 〕┄⊱
@@ -166,60 +145,59 @@ let menuB = `╭┄〔 *${wm}* 〕┄⊱
 ${lenguajeGB['smsTex7']()}
 
 ⠇ ${lenguajeGB['smsTex4']()} 🥵
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[34][0] : temaX[34][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[35][0] : temaX[35][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[36][0] : temaX[36][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[37][0] : temaX[37][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[38][0] : temaX[38][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[39][0] : temaX[39][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[40][0] : temaX[40][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[41][0] : temaX[41][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[42][0] : temaX[42][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[43][0] : temaX[43][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[44][0] : temaX[44][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[45][0] : temaX[45][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[46][0] : temaX[46][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[47][0] : temaX[47][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[48][0] : temaX[48][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[49][0] : temaX[49][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[50][0] : temaX[50][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[51][0] : temaX[51][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[52][0] : temaX[52][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[53][0] : temaX[53][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[54][0] : temaX[54][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[55][0] : temaX[55][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[56][0] : temaX[56][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[57][0] : temaX[57][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[58][0] : temaX[58][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[59][0] : temaX[59][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[60][0] : temaX[60][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[61][0] : temaX[61][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[62][0] : temaX[62][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[63][0] : temaX[63][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[64][0] : temaX[64][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[65][0] : temaX[65][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[66][0] : temaX[66][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[67][0] : temaX[67][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[68][0] : temaX[68][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[69][0] : temaX[69][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[70][0] : temaX[70][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[71][0] : temaX[71][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[72][0] : temaX[72][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[73][0] : temaX[73][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[74][0] : temaX[74][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[75][0] : temaX[75][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[76][0] : temaX[76][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[77][0] : temaX[77][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[78][0] : temaX[78][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX2[79][0] : temaX[79][1]}_
-
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[34][0] : temaX[34][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[35][0] : temaX[35][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[36][0] : temaX[36][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[37][0] : temaX[37][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[38][0] : temaX[38][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[39][0] : temaX[39][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[40][0] : temaX[40][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[41][0] : temaX[41][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[42][0] : temaX[42][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[43][0] : temaX[43][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[44][0] : temaX[44][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[45][0] : temaX[45][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[46][0] : temaX[46][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[47][0] : temaX[47][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[48][0] : temaX[48][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[49][0] : temaX[49][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[50][0] : temaX[50][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[51][0] : temaX[51][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[52][0] : temaX[52][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[53][0] : temaX[53][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[54][0] : temaX[54][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[55][0] : temaX[55][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[56][0] : temaX[56][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[57][0] : temaX[57][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[58][0] : temaX[58][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[59][0] : temaX[59][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[60][0] : temaX[60][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[61][0] : temaX[61][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[62][0] : temaX[62][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[63][0] : temaX[63][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[64][0] : temaX[64][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[65][0] : temaX[65][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[66][0] : temaX[66][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[67][0] : temaX[67][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[68][0] : temaX[68][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[69][0] : temaX[69][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[70][0] : temaX[70][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[71][0] : temaX[71][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[72][0] : temaX[72][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[73][0] : temaX[73][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[74][0] : temaX[74][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[75][0] : temaX[75][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[76][0] : temaX[76][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[77][0] : temaX[77][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[78][0] : temaX[78][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[79][0] : temaX[79][1]}_
 ⠇ ${lenguajeGB['smsTex4']()} 🥵
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX3[80][0] : temaX[80][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX3[81][0] : temaX[81][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX3[82][0] : temaX[82][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX3[83][0] : temaX[83][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX3[84][0] : temaX[84][1]}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX3[85][0] : temaX[85][1]}_`.trim()
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[80][0] : temaX[80][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[81][0] : temaX[81][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[82][0] : temaX[82][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[83][0] : temaX[83][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[84][0] : temaX[84][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[85][0] : temaX[85][1]}_`.trim()
 
 if (command == 'hornymenu') {
 await conn.sendButton(m.chat, menuA, menuB, pp, [
@@ -227,8 +205,8 @@ await conn.sendButton(m.chat, menuA, menuB, pp, [
  
 if (command == 'listhorny') {
 let sections = Object.keys(temaX).map((v, index, temaX2) => ({ 
-title: `${wm}`,
-rows: [{ title: `🥵 ${temaX[index][1].toUpperCase()} 🥵`, description: `${1 + index}. ${temaX[index][0]}`, rowId: usedPrefix + temaX[index][0], }], }))
+title: `${lenguajeGB['smsTex4']()} : ${wm}`,
+rows: [{ title: `🥵 ${temaX[index][1].toUpperCase()} 🥵`, description: `${1 + index}. ${temaX[index][0]} ${1 + index =< 35 ? 'Contenido disponible' : 'Contenido no disponible'}`, rowId: usedPrefix + temaX[index][0], }], }))
 
 
 let name = await conn.getName(m.sender)
