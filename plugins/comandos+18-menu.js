@@ -205,8 +205,23 @@ await conn.sendButton(m.chat, menuA, menuB, pp, [
 [lenguajeGB.smsBotonM1(), '.menu'], [lenguajeGB.smsBotonM2(), '/allmenu'], [lenguajeGB.smsBotonM3(), '#inventario']], fkontak, adReply, m)}
  
 if (command == 'listhorny') {
+let sections = Object.keys(temaX).map((v, index) => ({ title: `${wm}`,
+rows: [{ title: `comando : ${command}`, description: `${1 + index}. tema`, rowId: usedPrefix + command + ' ' + temaX[1 + index][0][v], }], }))
+
+let name = await conn.getName(m.sender)
+const listMessage = {
+text: `${lenguajeGB.smsConfi10()}`,
+footer: `╭━━━✦ *${lenguajeGB.smsConfi1()}* ✦━━━━⬣
+┃
+┃🌟 ${lenguajeGB.smsConfi2()} *${name}*
+
+╰━━━━━✦ *${vs}* ✦━━━━⬣
+${wm}`,
+title: null,
+buttonText: `⚙️ PRUEBA ⚙️`,
+sections }
+conn.sendMessage(m.chat, listMessage, {quoted: fkontak})}
  
-}
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
