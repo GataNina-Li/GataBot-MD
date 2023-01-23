@@ -5,16 +5,16 @@ let user = global.db.data.users[m.sender]
 
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
 
-switch (command) {
-    
+switch (command) {  
+try{
 case "pornovid": case "nsfwvid":    
 let enlace = await pornovid[Math.floor(Math.random() * pornovid.length)] 
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep) 
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno vid 2' : 'nsfw vid 2'} 🥵`.toUpperCase(), `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornovid2' : 'nsfwvid2'}`]], m, frep) 
 break  
     
 case "pornovid2": case "nsfwvid2":    
 let enlace = await pornovid2[Math.floor(Math.random() * pornovid2.length)] 
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep) 
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno vid random' : 'nsfw vid random'} 🥵`.toUpperCase(), `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornovidrandom' : 'nsfwvidrandom'}`]], m, frep) 
 break 
 
 case "pornovidlesbi": case "nsfwvidlesbi":       
@@ -34,14 +34,16 @@ break
     
 case "pornovidrandom": case "nsfwvidrandom":       
 let enlace = await pornovidrandom[Math.floor(Math.random() * pornovidrandom.length)] 
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)  
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno vid' : 'nsfw vid'} 🥵`.toUpperCase(), `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornovid' : 'nsfwvid'}`]], m, frep)  
 break 
-    
+} catch (e) {
+await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+console.log(e)}
 }}
 handler.command = ['pornovid', 'nsfwvid', 'pornovid2', 'nsfwvid2', 'pornovidlesbi', 'nsfwvidlesbi', 'pornovidgay', 'nsfwvidgay', 'pornovidbisexual', 'nsfwvidbisexual', 'pornovidrandom', 'nsfwvidrandom']
-export default handler
 handler.premium = true
-
+export default handler
 
 
 global.pornovid = [
