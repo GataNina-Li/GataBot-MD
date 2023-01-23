@@ -205,8 +205,8 @@ await conn.sendButton(m.chat, menuA, menuB, pp, [
 [lenguajeGB.smsBotonM1(), '.menu'], [lenguajeGB.smsBotonM2(), '/allmenu'], [lenguajeGB.smsBotonM3(), '#inventario']], fkontak, adReply, m)}
  
 if (command == 'listhorny') {
-let sections = Object.keys(temaX).map((v, index) => ({ title: `${wm[v]}`,
-rows: [{ title: `🥵 ${temaX[index][1].toUpperCase()} 🥵`, description: `${index}. ${temaX[index][0]}`, rowId: usedPrefix + temaX[index][0], }], }))
+let sections = Object.keys(temaX).map((v, index) => ({ title: `${wm}`,
+rows: [{ title: `🥵 ${temaX[index][1].toUpperCase()} 🥵`, description: `${1 + index}. ${temaX[index][0]}`, rowId: usedPrefix + temaX[index][0], }], }))
 
 
 let name = await conn.getName(m.sender)
