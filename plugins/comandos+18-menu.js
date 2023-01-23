@@ -81,38 +81,31 @@ let menuB = `╭┄〔 *${wm}* 〕┄⊱
 ╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
 
 ⠇ ${lenguajeGB['smsTex3']()} 🔞
-∘ _${usedPrefix}nsfwloli_
-∘ _${usedPrefix}nsfwfoot_
-∘ _${usedPrefix}nsfwass_
-∘ _${usedPrefix}nsfwbdsm_
-∘ _${usedPrefix}nsfwcum_
-∘ _${usedPrefix}nsfwero_
-∘ _${usedPrefix}nsfwfemdom_
-∘ _${usedPrefix}nsfwfoot_
-∘ _${usedPrefix}nsfwglss_
-∘ _${usedPrefix}nsfworgy_
-∘ _${usedPrefix}pies_
-∘ _${usedPrefix}yuri_
-∘ _${usedPrefix}yuri2_ 
-∘ _${usedPrefix}yaoi_
-∘ _${usedPrefix}yaoi2_
-∘ _${usedPrefix}panties_ 
-∘ _${usedPrefix}tetas_ 
-∘ _${usedPrefix}booty_
-∘ _${usedPrefix}ecchi_
-∘ _${usedPrefix}furro_
-∘ _${usedPrefix}hentai_
-∘ _${usedPrefix}trapito_
-∘ _${usedPrefix}imagenlesbians_
-∘ _${usedPrefix}pene_
-∘ _${usedPrefix}porno_
-∘ _${usedPrefix}porno2_
-∘ _${usedPrefix}randomxxx_
-∘ _${usedPrefix}pechos_
-∘ _${usedPrefix}pack_
-∘ _${usedPrefix}pack2_
-∘ _${usedPrefix}pack3_
-∘ _${usedPrefix}videoxxx_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornololi' : 'nsfwloli'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopies' : 'nsfwfoot'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoass' : 'nsfwass'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornobdsm' : 'nsfwbdsm'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornocum' : 'nsfwcum'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoero' : 'nsfwero'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornodominar' : 'nsfwfemdom'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoglass' : 'nsfwglass'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornohentai' : 'nsfwhentai'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornorgia' : 'nsfworgy'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornotetas' : 'nsfwboobs'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornobooty' : 'nsfwbooty'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoecchi' : 'nsfwecchi'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornofurro' : 'nsfwfurry'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornotrapito' : 'nsfwtrap'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornolesbiana' : 'nsfwlesbian'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornobragas' : 'nsfwpanties'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopene' : 'nsfwpenis'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'porno' : 'porn'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornorandom' : 'pornrandom'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopechos' : 'nsfwbreasts'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoyaoi' : 'nsfwyaoi'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoyaoi2' : 'nsfwyaoi2'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoyuri' : 'nsfwyuri'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoyuri2' : 'nsfwyuri2'}_
 
 ⠇ ${lenguajeGB['smsTex4']()} 🥵
 ∘ _${usedPrefix}pornovideo | pornovid_
