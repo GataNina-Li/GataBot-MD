@@ -12,7 +12,7 @@ const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v)).catch(async
 const dl_url = await yt.audio[q].download()
 const ttl = await yt.title
 const size = await yt.audio[q].fileSizeH
-let cap = `╭━━━✦  ⌈📥 𝐘𝐎𝐔𝐓𝐔𝐁𝐄 𝐃𝐋 📥⌋ ✦━━━━⬣\n┆ও *TÍTULO | TITLE:* \n┆» ${ttl}\n┆﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┆ও *PESO | SIZE:*\n┆» ${size}\n╰─────────────────`.trim()
+let cap = `╭━❰  ${wm}  ❱━⬣\n┆📥 YOUTUBE DL 📥\n┆ও *TÍTULO | TITLE:* \n┆» ${ttl}\n┆﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┆ও *PESO | SIZE:*\n┆» ${size}\n╰─────────────────`.trim()
 await conn.sendMessage(m.chat, { document: { url: dl_url }, caption: cap, mimetype: 'audio/mpeg', fileName: `${ttl}.mp3`}, { quoted: m })
 } catch {
 try {
@@ -21,7 +21,7 @@ let lolh = await lolhuman.json()
 let n = lolh.result.title || 'error'
 let n2 = lolh.result.link
 let n3 = lolh.result.size
-let cap2 = `╭━━━✦  ⌈📥 𝐘𝐎𝐔𝐓𝐔𝐁𝐄 𝐃𝐋 📥⌋ ✦━━━━⬣\n┆ও *TÍTULO | TITLE:* \n┆» ${ttl}\n┆﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┆ও *PESO | SIZE:*\n┆» ${size}\n╰─────────────────`.trim()
+let cap2 = `╭━❰  ${wm}  ❱━⬣\n┆📥 YOUTUBE DL 📥\n┆ও *TÍTULO | TITLE:* \n┆» ${ttl}\n┆﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┆ও *PESO | SIZE:*\n┆» ${size}\n╰─────────────────`.trim()
 await conn.sendMessage(m.chat, { document: { url: n2 }, caption: cap2, mimetype: 'audio/mpeg', fileName: `${n}.mp3`}, {quoted: m})
 } catch {
 await conn.reply(m.chat, '*ERROR, VUELVE AL INTENTA*', m)}
