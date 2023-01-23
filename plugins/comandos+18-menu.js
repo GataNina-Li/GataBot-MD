@@ -206,7 +206,7 @@ await conn.sendButton(m.chat, menuA, menuB, pp, [
  
 if (command == 'listhorny') {
 let sections = Object.keys(temaX).map((v, index) => ({ title: `${wm}`,
-rows: [{ title: `comando : ${command}`, description: `${1 + index}. ${temaX[1 + index][v]}`, rowId: usedPrefix + temaX[1 + index][v], }], }))
+rows: [{ title: `comando : ${command}`, description: `${1 + index}. ${temaX[1 + index][v]}`, rowId: usedPrefix + temaX[0 + index][v], }], }))
 
 let name = await conn.getName(m.sender)
 const listMessage = {
