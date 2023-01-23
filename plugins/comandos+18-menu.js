@@ -228,11 +228,7 @@ await conn.sendButton(m.chat, menuA, menuB, pp, [
 if (command == 'listhorny') {
 let sections = Object.keys(temaX).map((v, index, temaX2) => ({ 
 title: `${wm}`,
-rows: [{ title: `🥵 ${temaX[index][1].toUpperCase()} 🥵`, description: `${1 + index}. ${temaX[index][0]}`, rowId: usedPrefix + temaX[index][0], }
-]},{
-title: `${gt}`, 
-rows: [{ title: `🥵 ${temaX2[index][1].toUpperCase()} 🥵`, description: `${1 + index}. ${temaX2[index][0]}`, rowId: usedPrefix + temaX2[index][0] } ]}]
-}))
+rows: [{ title: `🥵 ${temaX[index][1].toUpperCase()} 🥵`, description: `${1 + index}. ${temaX[index][0]}`, rowId: usedPrefix + temaX[index][0], }], }))
 
 
 let name = await conn.getName(m.sender)
