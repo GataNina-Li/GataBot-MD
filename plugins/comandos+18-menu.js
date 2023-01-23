@@ -70,6 +70,14 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 let fsizedoc = '1'.repeat(10)
 let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(gataMenu.getRandom())).buffer(), sourceUrl: redesMenu.getRandom() }}}
 
+const temaX = [['pornololi', 'nsfwloli'], ['pornopies', 'nsfwfoot'], ['pornoass', 'nsfwass'], ['pornobdsm', 'nsfwbdsm'], ['pornocum', 'nsfwcum'],
+['pornoero', 'nsfwero'], ['pornodominar', 'nsfwfemdom'], ['pornoglass', 'nsfwglass'], ['pornohentai', 'nsfwhentai'], ['pornorgia', 'nsfworgy'], ['pornotetas', 'nsfwboobs'],
+['pornobooty', 'nsfwbooty'], ['pornoecchi', 'nsfwecchi'], ['pornofurro', 'nsfwfurry'], ['pornotrapito', 'nsfwtrap'], ['pornolesbiana', 'nsfwlesbian'],
+['pornobragas', 'nsfwpanties'], ['pornopene', 'nsfwpenis'], ['porno', 'porn'], ['pornorandom', 'pornrandom'], ['pornopechos', 'nsfwbreasts'],
+['pornoyaoi', 'nsfwyaoi'], ['pornoyaoi2', 'nsfwyaoi2'], ['pornoyuri', 'nsfwyuri'], ['pornoyuri2', 'nsfwyuri2'], ['pornodarling', 'nsfwdarling'],
+['pornodragonmaid', 'nsfwdragonmaid'], ['pornokonosuba', 'nsfwkonosuba'], ['pornopokemon', 'nsfwpokemon'], ['pornotoloveru', 'nsfwtoloveru'], ['pornouzaki', 'nsfwuzaki'],
+['pornopack', 'nsfwpack'], ['pornopackchica', 'nsfwpackgirl'], ['pornopackchico', 'nsfwpackmen'], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', '']]
+
 let menuA = `😏 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
 let menuB = `╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -81,40 +89,40 @@ let menuB = `╭┄〔 *${wm}* 〕┄⊱
 ╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
 
 ⠇ ${lenguajeGB['smsTex3']()} 🔞
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornololi' : 'nsfwloli'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopies' : 'nsfwfoot'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoass' : 'nsfwass'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornobdsm' : 'nsfwbdsm'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornocum' : 'nsfwcum'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoero' : 'nsfwero'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornodominar' : 'nsfwfemdom'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoglass' : 'nsfwglass'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornohentai' : 'nsfwhentai'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornorgia' : 'nsfworgy'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornotetas' : 'nsfwboobs'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornobooty' : 'nsfwbooty'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoecchi' : 'nsfwecchi'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornofurro' : 'nsfwfurry'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornotrapito' : 'nsfwtrap'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornolesbiana' : 'nsfwlesbian'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornobragas' : 'nsfwpanties'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopene' : 'nsfwpenis'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'porno' : 'porn'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornorandom' : 'pornrandom'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopechos' : 'nsfwbreasts'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoyaoi' : 'nsfwyaoi'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoyaoi2' : 'nsfwyaoi2'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoyuri' : 'nsfwyuri'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoyuri2' : 'nsfwyuri2'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornodarling' : 'nsfwdarling'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornodragonmaid' : 'nsfwdragonmaid'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornokonosuba' : 'nsfwkonosuba'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopokemon' : 'nsfwpokemon'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornotoloveru' : 'nsfwtoloveru'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornouzaki' : 'nsfwuzaki'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopack' : 'nsfwpack'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopackchica' : 'nsfwpackgirl'}_
-∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopackchico' : 'nsfwpackmen'}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[0][0] : temaX[0][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[1][0] : temaX[1][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[2][0] : temaX[2][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[3][0] : temaX[3][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[4][0] : temaX[4][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[5][0] : temaX[5][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[6][0] : temaX[6][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[7][0] : temaX[7][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[8][0] : temaX[8][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[9][0] : temaX[9][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[10][0] : temaX[10][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[11][0] : temaX[11][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[12][0] : temaX[12][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[13][0] : temaX[13][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[14][0] : temaX[14][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[15][0] : temaX[15][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[16][0] : temaX[16][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[17][0] : temaX[17][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[18][0] : temaX[18][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[19][0] : temaX[19][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[20][0] : temaX[20][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[21][0] : temaX[21][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[22][0] : temaX[22][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[23][0] : temaX[23][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[24][0] : temaX[24][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[25][0] : temaX[25][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[26][0] : temaX[26][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[27][0] : temaX[27][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[28][0] : temaX[28][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[29][0] : temaX[29][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[30][0] : temaX[30][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[31][0] : temaX[31][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[32][0] : temaX[32][1]}_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[33][0] : temaX[33][1]}_
 
 ⠇ ${lenguajeGB['smsTex5']()} ❤️‍🔥
 ∘ _${usedPrefix}xnxxsearch | buscarxnxx *texto*_
@@ -182,9 +190,13 @@ ${lenguajeGB['smsTex7']()}
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornovidbisexual' : 'nsfwvidbisexual'}_
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornovidrandom' : 'nsfwvidrandom'}_`.trim()
 
+if (command == 'hornymenu') {
 await conn.sendButton(m.chat, menuA, menuB, pp, [
-[lenguajeGB.smsBotonM1(), '.menu'], [lenguajeGB.smsBotonM2(), '/allmenu'], [lenguajeGB.smsBotonM3(), '#inventario']], fkontak, adReply, m) 
-
+[lenguajeGB.smsBotonM1(), '.menu'], [lenguajeGB.smsBotonM2(), '/allmenu'], [lenguajeGB.smsBotonM3(), '#inventario']], fkontak, adReply, m)}
+ 
+if (command == 'listhorny') {
+ 
+}
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
@@ -193,7 +205,7 @@ console.log(e)
 
 handler.help = ['infomenu'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
-handler.command = /^(hornymenu)$/i
+handler.command = /^(hornymenu|listhorny)$/i
 //handler.register = true
 handler.exp = 50
 export default handler
