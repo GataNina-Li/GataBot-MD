@@ -191,6 +191,7 @@ ${lenguajeGB['smsTex7']()}
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[77][0] : temaX[77][1]}_
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[78][0] : temaX[78][1]}_
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[79][0] : temaX[79][1]}_
+
 ⠇ ${lenguajeGB['smsTex4']()} 🥵
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[80][0] : temaX[80][1]}_
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[81][0] : temaX[81][1]}_
@@ -206,8 +207,8 @@ await conn.sendButton(m.chat, menuA, menuB, pp, [
 if (command == 'listhorny') {
 let sections = Object.keys(temaX).map((v, index, temaX2) => ({ title: `${lenguajeGB['smsTex4']()} : ${wm}`,
 rows: [{ 
-title: `🥵 ${temaX[index][1].toUpperCase()} 🥵`, 
-description: `${1 + index}. ${temaX[index][0]} ${1 + index <= 35 ? 'Contenido disponible' : 'Contenido no disponible'}`, 
+title: `${1 + index <= 33 ? '🥵' : '⚠️'} ${temaX[index][1].toUpperCase()} ${1 + index <= 33 ? '🥵' : '⚠️'} || ${lenguajeGB['smsBotonM7']()} >> ${user.premiumTime > 0 ? '✅' : '❌'}`, 
+description: `${1 + index}. ${temaX[index][0]} >> ${1 + index <= 33 ? 'Contenido Gratis disponible' : 'Contenido no disponible\nCompre premium'}`, 
 rowId: usedPrefix + temaX[index][0] }], }))
 
 
