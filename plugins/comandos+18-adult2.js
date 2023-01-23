@@ -3,40 +3,40 @@
 import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
 const temaX = [
-['hentai','pornohentai3', 'nsfwhentai3'],
+['hentai','pornohentai3', 'nsfwhentai3'], 
 ['ass', 'pornoass2', 'nsfwass2'],
 ['pgif', 'pornosticker', 'nsfwsticker'],
 ['thigh', 'pornochica', 'nsfwsgirl'],
 ['hass', 'pornoass3', 'nsfwass3'],
-['boobs', 'pornotetas2', 'nsfwboobs2'],
+['boobs', 'pornotetas2', 'nsfwboobs2'], //5
 ['hboobs', 'pornotetas3', 'nsfwboobs3'],
 ['pussy', 'pornopussy', 'nsfwpussy'],
 ['paizuri', 'pornopaizuri', 'nsfwpaizuri'],
 ['lewdneko', 'pornoneko', 'nsfwneko'],
-['feet', 'pornopies2', 'nsfwfoot2'],
+['feet', 'pornopies2', 'nsfwfoot2'], //10
 ['hyuri', 'pornoyuri3', 'nsfwyuri3'],
 ['hthigh', 'pornomuslo', 'nsfwhthigh'],
 ['hmidriff', 'pornochica2', 'nsfwsgirl2'],
 ['anal', 'pornoanal', 'nsfwanal'],
-['blowjob', 'pornomamada', 'nsfwblowjob'],
+['blowjob', 'pornomamada', 'nsfwblowjob'], //15
 ['gonewild', 'pornogonewild', 'nsfwgonewild'], 
 ['hkitsune', 'pornofurro2', 'nsfwfurry2'],
 ['tentacle', 'pornotentacle', 'nsfwtentacle'],
 ['4k', 'porno4k', 'porn4k'], 
-['kanna', 'pornokanna', 'nsfwkanna'],
+['kanna', 'pornokanna', 'nsfwkanna'], //20
 ['hentai_anal', 'pornoanal2', 'nsfwanal2'],
 ['food', 'pornoalimento', 'nsfwfood'],
 ['holo', 'pornoholo', 'nsfwholo'],
 ['nsfw/anal/gif', 'pornoanal3', 'nsfwanal3'],
-['nsfw/blowjob/gif', 'pornomamada2', 'nsfwblowjob2'],
+['nsfw/blowjob/gif', 'pornomamada2', 'nsfwblowjob2'], //25
 ['nsfw/cum/gif', 'pornocum2', 'nsfwcum2'],
 ['nsfw/fuck/gif', 'pornofuck', 'nsfwfuck'],
 ['nsfw/neko/gif', 'pornoneko2', 'nsfwneko2'],
 ['nsfw/pussylick/gif', 'pornopussy2', 'nsfwpussy2'],
-['nsfw/solo/gif', 'pornosolo', 'nsfwsolo'],
+['nsfw/solo/gif', 'pornosolo', 'nsfwsolo'], //30
 ['nsfw/threesome_fff/gif', 'pornorgia2', 'nsfworgy2'], 
 ['nsfw/threesome_ffm/gif', 'pornorgia3', 'nsfworgy3'],
-['yaoi', 'pornoyaoi3', 'nsfwyaoi3']]  
+['yaoi', 'pornoyaoi3', 'nsfwyaoi3']] //33  
 
 let handler = async (m, {command, conn, usedPrefix}) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
@@ -63,9 +63,9 @@ let link = json.message
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno ass' : 'nsfw ass'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoass' : 'nsfwass'}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 NSFW ASS 🥵`, `${usedPrefix}nsfwass`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno ass' : 'nsfw ass'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoass' : 'nsfwass'}`]], m, frep)}}
 
 if (command == temaX[2][1] || command == temaX[2][2]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[2][0]) 
@@ -96,9 +96,9 @@ let link = json.message
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno ass 2' : 'nsfw ass 2'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoass2' : 'nsfwass2'}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 NSFW ASS 2 🥵`, `${usedPrefix}nsfwass2`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno ass 2' : 'nsfw ass 2'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoass2' : 'nsfwass2'}`]], m, frep)}}
 
 if (command == temaX[5][1] || command == temaX[5][2]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[5][0]) 
@@ -107,9 +107,9 @@ let link = json.message
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno tetas' : 'nsfw boobs'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornotetas' : 'nsfwboobs'}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 BOOBS 🥵`, `${usedPrefix}tetas`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno tetas' : 'nsfw boobs'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornotetas' : 'nsfwboobs'}`]], m, frep)}}
 
 if (command == temaX[6][1] || command == temaX[6][2]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[6][0]) 
@@ -118,9 +118,9 @@ let link = json.message
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno tetas 2' : 'nsfw boobs 2'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornotetas2' : 'nsfwboobs2'}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 BOOBS 2 🥵`, `${usedPrefix}tetas2`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno tetas 2' : 'nsfw boobs 2'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornotetas2' : 'nsfwboobs2'}`]], m, frep)}}
 
 if (command == temaX[7][1] || command == temaX[7][2]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[7][0]) 
@@ -129,9 +129,9 @@ let link = json.message
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno pussy 2' : 'nsfw pussy 2'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopussy2' : 'nsfwpussy2'}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 PUSSY 2 🥵`, `${usedPrefix}pussy2`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno pussy 2' : 'nsfw pussy 2'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornopussy2' : 'nsfwpussy2'}`]], m, frep)}}
 
 if (command == temaX[8][1] || command == temaX[8][2]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[8][0]) 
@@ -151,9 +151,9 @@ let link = json.message
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno neko 2' : 'nsfw neko 2'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoneko2' : 'nsfwneko2'}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 NSFW NEKO 2 🥵`, `${usedPrefix}nsfwneko2`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno neko 2' : 'nsfw neko 2'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoneko2' : 'nsfwneko2'}`]], m, frep)}}
 
 if (command == temaX[10][1] || command == temaX[10][2]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[10][0]) 
@@ -173,9 +173,9 @@ let link = json.message
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno yuri' : 'nsfw yuri'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoyuri' : 'nsfwyuri'}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 YURI 🥵`, `${usedPrefix}yuri`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno yuri' : 'nsfw yuri'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoyuri' : 'nsfwyuri'}`]], m, frep)}}
 
 if (command == temaX[12][1] || command == temaX[12][2]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[12][0]) 
@@ -195,9 +195,9 @@ let link = json.message
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno chica 2' : 'nsfws girl 2'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornochica2' : 'nsfwsgirl2'}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 PORN GIRL 2 🥵`, `${usedPrefix}porngirl2`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno chica 2' : 'nsfws girl 2'}.toUpperCase() 🥵`, `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornochica2' : 'nsfwsgirl2'}`]], m, frep)}}
 
 if (command == temaX[14][1] || command == temaX[14][2]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[14][0]) 
