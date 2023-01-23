@@ -206,10 +206,12 @@ await conn.sendButton(m.chat, menuA, menuB, pp, [
  
 if (command == 'listhorny') {
 let sections = Object.keys(temaX).map((v, index) => (
-{ title: `${wm}`,   
+{ title: `🟢`,   
 rows: [
-{ title: `🥵 ${command.toUpperCase()} 🥵`, description: `${0 + index}. ${temaX[index][0]}`, rowId: usedPrefix + temaX[index][0], },
-{ title: `🥵 ${command.toUpperCase()} 🥵`, description: `${0 + index}. ${temaX[index][0]}`, rowId: usedPrefix + temaX[index][0], }
+{ title: `🥵 ${temaX[index][0].toUpperCase()} 🥵`, description: `${0 + index}. ${temaX[index][0]}`, rowId: usedPrefix + temaX[index][0], }]},
+{ title: `✨`,   
+rows: [
+{ title: `🥵 ${temaX[index][0].toUpperCase()} 🥵`, description: `${0 + index}. ${temaX[index][0]}`, rowId: usedPrefix + temaX[index][0], }
 ], }))
 
 
