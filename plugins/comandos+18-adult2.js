@@ -236,9 +236,9 @@ let link = json.message
 if (link.slice(-3) == 'gif') {
 let stickerr = await sticker(false, link, global.packname, global.author)
 await conn.sendFile(m.chat, stickerr, 'sticker.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: lenguajeGB.smsCont18PornP2(), body: wm, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer()}}}, { quoted: m })
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], fkontak, m)
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, null, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno sticker' : 'nsfws sticker'} 🥵`.toUpperCase(), `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[2][1] : temaX[2][2]}`]], fkontak, m)
 }else{
-await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`]], m, frep)}}
+await conn.sendButton(m.chat, lenguajeGB.smsCont18PornP(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSigPrem(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno sticker' : 'nsfws sticker'} 🥵`.toUpperCase(), `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[2][1] : temaX[2][2]}`]], m, frep)}}
 
 if (command == temaX[20][1] || command == temaX[20][2]) {
 let res = await fetch(APIs.nekobot + "image?type=" + temaX[20][0]) 
