@@ -207,7 +207,7 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), `*_${lenguajeGB['smsBo
 await user.premiumTime > 0 ? null : m.reply(' Gastó 175 GataCoins ').trim() 
 await user.premiumTime > 0 ? null : user.money -= 175
   
-}else{ return m.reply('No tiene GataCoins')}
+}else return m.reply('No tiene GataCoins')
   
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
