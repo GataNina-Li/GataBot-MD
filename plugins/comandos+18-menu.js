@@ -202,7 +202,7 @@ ${lenguajeGB['smsTex7']()}
 
 if (command == 'hornymenu') {
 await conn.sendButton(m.chat, menuA, menuB, pp, [
-[lenguajeGB.smsBotonM1(), usedPrefix + 'menu'], [lenguajeGB.smsBotonM2(), usedPrefix + 'allmenu'], [lenguajeGB.lenguaje() == 'es' ? '🔞 ver lista porno 🔞'.toUpperCase() : '🔞 list horny🔞 '.toUpperCase(), usedPrefix + lenguajeGB.lenguaje() == 'es' ? 'listaporno' : 'listhorny']], fkontak, adReply, m)}
+[lenguajeGB.smsBotonM1(), usedPrefix + 'menu'], [lenguajeGB.smsBotonM2(), usedPrefix + 'allmenu'], [lenguajeGB.lenguaje() == 'es' ? '🔞 ver lista porno 🔞'.toUpperCase() : '🔞 list horny🔞 '.toUpperCase(), lenguajeGB.lenguaje() == 'es' ? usedPrefix + 'listaporno' : usedPrefix + 'listhorny']], fkontak, adReply, m)}
  
 if (command == 'listaporno' || command == 'listhorny') {
 let sections = Object.keys(temaX).map((v, index, temaX2) => ({ title: `${lenguajeGB['smsTex4']().slice(1, -1)} : ${wm}`,
