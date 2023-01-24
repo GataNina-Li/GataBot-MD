@@ -1,5 +1,5 @@
 
-let { generateWAMessageFromContent } = (await import("@adiwajshing/baileys")).default 
+/*let { generateWAMessageFromContent } = (await import("@adiwajshing/baileys")).default 
 import { performance } from 'perf_hooks'
 import fs from 'fs'
 let handler  = async (m, { conn, usedPrefix: _p }) => {
@@ -45,7 +45,7 @@ sellerJid: 'https://github.com/GataNina-Li/GataBot-MD',
 thumbnail: fs.readFileSync('./src/avatar_contact.png')
 }}, {contextInfo: null, quoted: m})
 conn.relayWAMessage(prep)
-				/*	conn.sendMessage(m.chat, `${teks}`, MessageType.text, rtimebro)*/
+		//	conn.sendMessage(m.chat, `${teks}`, MessageType.text, rtimebro)
 }
 
 handler.help = ['runtime']
@@ -63,4 +63,4 @@ handler.botAdmin = false
 handler.fail = null
 
 
-export default handler
+export default handler*/
