@@ -1,4 +1,4 @@
-import { xpRange } from '../lib/levelling.js'
+/*import { xpRange } from '../lib/levelling.js'
 import PhoneNumber from 'awesome-phonenumber'
 import { promises } from 'fs'
 import { join } from 'path'
@@ -209,8 +209,8 @@ let sections = Object.keys(temaX).map((v, index, temaX2) => ({ title: `${lenguaj
 rows: [{ 
 title: `${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🥵' : '⚠️'} ${temaX[index][1].toUpperCase()} ${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🥵' : '⚠️'} || ${lenguajeGB['smsBotonM7']()} ➜ ${user.premiumTime > 0 ? '✅' : '❌'} ${usedPrefix}${1 + index <= 33 ? lenguajeGB.lenguaje() == 'es' ? user.money < 1000 ? `buy money 90` : temaX[index][0] : user.money < 90 ? `buy money 90` : temaX[index][1] : user.premiumTime > 0 ? lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : 'pase premium'}`, 
 description: `${1 + index}. ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1]} ➜ ${1 + index <= 33 ? user.money < 1000 ? 'No tiene suficiente GataCoins\nPresione aquí para comprar' : 'Contenido Gratis disponible' : 'Contenido no disponible\nCompre premium'}`, 
-rowId: `${usedPrefix}${1 + index <= 33 ? lenguajeGB.lenguaje() == 'es' ? user.money < 1000 ? `buy money 90` : temaX[index][0] : user.money < 90 ? `buy money 90` : temaX[index][1] : user.premiumTime > 0 ? lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : 'pase premium'}` }], })) //temaX[index][0] : temaX[index][1]  }], }))
-
+//rowId: `${usedPrefix}${1 + index <= 33 ? lenguajeGB.lenguaje() == 'es' ? user.money < 1000 ? `buy money 90` : temaX[index][0] : user.money < 90 ? `buy money 90` : temaX[index][1] : user.premiumTime > 0 ? lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : 'pase premium'}` }], })) //temaX[index][0] : temaX[index][1]  }], }))
+rowId: `${usedPrefix}${1 + index <= 33 ? user.money < 175 ? `buy money 175` : lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : user.premiumTime > 0 ? lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : 'pase premium' }` }], }))
 
 let name = await conn.getName(m.sender)
 const listMessage = {
@@ -246,3 +246,4 @@ let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
 let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
 let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
 return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
+*/
