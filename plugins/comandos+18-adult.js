@@ -217,7 +217,7 @@ console.log(e)}
 handler.command = ['pornololi', 'nsfwloli', 'pornopies', 'nsfwfoot', 'pornoass', 'nsfwass', 'pornobdsm', 'nsfwbdsm', 'pornocum', 'nsfwcum', 'pornoero', 'nsfwero', 'pornodominar', 'nsfwfemdom', 'pornoglass', 'nsfwglass', 'pornohentai', 'nsfwhentai', 'pornorgia', 'nsfworgy', 'pornotetas', 'nsfwboobs', 'pornobooty', 'nsfwbooty', 'pornoecchi', 'nsfwecchi', 'pornofurro', 'nsfwfurry', 'pornotrapito', 'nsfwtrap', 'pornolesbiana', 'nsfwlesbian', 'pornobragas', 'nsfwpanties', 'pornopene', 'nsfwpenis', 'porno', 'porn', 'pornorandom', 'pornrandom', 'pornopechos', 'nsfwbreasts', 'pornoyaoi', 'nsfwyaoi', 'pornoyaoi2', 'nsfwyaoi2', 'pornoyuri', 'nsfwyuri',
 'pornoyuri2', 'nsfwyuri2', 'pornodarling', 'nsfwdarling', 'pornodragonmaid', 'nsfwdragonmaid', 'pornokonosuba', 'nsfwkonosuba', 'pornopokemon', 'nsfwpokemon',
 'pornotoloveru', 'nsfwtoloveru', 'pornouzaki', 'nsfwuzaki', 'pornopack', 'nsfwpack', 'pornopackchica', 'nsfwpackgirl', 'pornopackchico', 'nsfwpackmen']
-handler.level = 5
+//handler.level = 5
 //handler.money = 175
 export default  handler
 
