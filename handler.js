@@ -1172,7 +1172,7 @@ export async function handler(chatUpdate) {
                 }
 
                 m.isCommand = true
-                let xp = 'exp' in plugin ? parseInt(plugin.exp) : 12 // XP Earning per command
+                let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10 // Ganancia de XP por comando
                 if (xp > 2000)
                     m.reply('Exp limit') // Hehehe
                 else               
