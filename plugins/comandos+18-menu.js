@@ -205,16 +205,16 @@ await conn.sendButton(m.chat, menuA, menuB, pp, [
 [lenguajeGB.smsBotonM1(), usedPrefix + 'menu'], [lenguajeGB.smsBotonM2(), usedPrefix + 'allmenu'], [lenguajeGB.lenguaje() == 'es' ? 'lista porno'.toUpperCase() : 'list horny'.toUpperCase(), usedPrefix + lenguajeGB.lenguaje() == 'es' ? 'listaporno' : 'listhorny']], fkontak, adReply, m)}
  
 if (command == 'listaporno' || command == 'listhorny') {
-let sections = Object.keys(temaX).map((v, index, temaX2) => ({ title: `${lenguajeGB['smsTex4']()} : ${wm}`,
+let sections = Object.keys(temaX).map((v, index, temaX2) => ({ title: `${lenguajeGB['smsTex4']()}.slice(1, -1) : ${wm}`,
 rows: [{ 
-title: `${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🎟️🥵' : '⚠️'} ${temaX[index][1].toUpperCase().slice(1, -1)} ${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🥵🎟️' : '⚠️'} • ${lenguajeGB['smsBotonM7']()} ➜ ${user.premiumTime > 0 ? '✅' : '❌'}`, 
+title: `${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🎟️🥵' : '⚠️'} ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0].toUpperCase() : temaX[index][1].toUpperCase()} ${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🥵🎟️' : '⚠️'} • ${lenguajeGB['smsBotonM7']()} ➜ ${user.premiumTime > 0 ? '✅' : '❌'}`, 
 description: `${1 + index}. ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1]} ➜ ${1 + index <= 33 ? user.limit < 2 ? 'No tiene suficiente ' + lenguajeGB.eDiamante() + '\nPresione aquí para comprar ' + rpgshopp.emoticon('limit') : 'Contenido Gratis disponible 😸' : 'Contenido no disponible 😿\nPresione aquí para comprar ' + rpg.emoticon('premium')}`, 
 rowId: `${usedPrefix}${1 + index <= 33 ? user.limit < 2 ? 'buy limit 5' : lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : user.premiumTime > 0 ? lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : 'pase premium' }` }], }))
 
 let name = await conn.getName(m.sender)
 const listMessage = {
-text: `${user.premiumTime > 0 ? lenguajeGB.smsCont18PornP : lenguajeGB.smsCont18Porn}`,
-footer: `╭━━━✦ 🔞 ✦━━━━⬣
+text: `${user.premiumTime > 0 ? lenguajeGB.smsCont18PornP() : lenguajeGB.smsCont18Porn()}`,
+footer: `╭━━━✦ 🛐 ✦━━━━⬣
 
 🔞 ${lenguajeGB.smsConfi2()} *${name}*
 
