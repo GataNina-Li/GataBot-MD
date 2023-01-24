@@ -9,6 +9,9 @@ let user = global.db.data.users[m.sender]
 
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
 
+if (user.money > 175) { 
+return 
+  
 try{
 if (command == 'pornololi' || command == 'nsfwloli') {
 let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/nsfwloli.json`)).data  
@@ -203,6 +206,9 @@ let list = global.packmen
 let link = list[Math.floor(Math.random() * list.length)]
 await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)}
 
+} return await user.premiumTime > 0 ? return 0 : await m.reply(' Gastó 175 GataCoins ').trim() 
+user.premiumTime > 0 ? return 0 : await user.money -= 175
+  
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
@@ -212,7 +218,7 @@ handler.command = ['pornololi', 'nsfwloli', 'pornopies', 'nsfwfoot', 'pornoass',
 'pornoyuri2', 'nsfwyuri2', 'pornodarling', 'nsfwdarling', 'pornodragonmaid', 'nsfwdragonmaid', 'pornokonosuba', 'nsfwkonosuba', 'pornopokemon', 'nsfwpokemon',
 'pornotoloveru', 'nsfwtoloveru', 'pornouzaki', 'nsfwuzaki', 'pornopack', 'nsfwpack', 'pornopackchica', 'nsfwpackgirl', 'pornopackchico', 'nsfwpackmen']
 handler.level = 5
-handler.money = 175
+//handler.money = 175
 export default  handler
 
 
