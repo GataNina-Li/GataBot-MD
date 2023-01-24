@@ -8,7 +8,7 @@ let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCon
 let user = global.db.data.users[m.sender]
 
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
-if (user.money < 175) return m.reply('No tiene GataCoins')
+if (user.money > 175) { 
   
 try{ 
 if (command == 'pornololi' || command == 'nsfwloli') {
@@ -206,6 +206,8 @@ await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), `*_${lenguajeGB['smsBo
 
 await user.premiumTime > 0 ? null : m.reply(' Gastó 175 GataCoins ').trim() 
 await user.premiumTime > 0 ? null : user.money -= 175
+  
+}else{ return m.reply('No tiene GataCoins')}
   
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
