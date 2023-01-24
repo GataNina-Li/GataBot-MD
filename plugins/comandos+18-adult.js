@@ -206,8 +206,8 @@ let list = global.packmen
 let link = list[Math.floor(Math.random() * list.length)]
 await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSig(), `${usedPrefix + command}`]], m, frep)}
 
-} return await user.premiumTime > 0 ? return 0 : await m.reply(' Gastó 175 GataCoins ').trim() 
-user.premiumTime > 0 ? return 0 : await user.money -= 175
+} return await user.premiumTime > 0 ? null : await m.reply(' Gastó 175 GataCoins ').trim() 
+user.premiumTime > 0 ? null : await user.money -= 175
   
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
