@@ -1,4 +1,4 @@
-let { MessageType } = (await import('@adiwajshing/baileys')).default
+/*let { MessageType } = (await import('@adiwajshing/baileys')).default
 
 let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
   let chat = global.db.data.chats[m.chat]
@@ -101,4 +101,4 @@ handler.help = ['owner', 'creator']
 handler.tags = ['info']
 handler.command = /^(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)$/i
 
-export default handler
+export default handler*/
