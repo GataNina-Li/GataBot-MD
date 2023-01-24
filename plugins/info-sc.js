@@ -1,5 +1,5 @@
 
-/*let { generateWAMessageFromContent } = (await import("@adiwajshing/baileys")).default 
+let { generateWAMessageFromContent } = (await import("@adiwajshing/baileys")).default 
 import { performance } from 'perf_hooks'
 import fs from 'fs'
 let handler  = async (m, { conn, usedPrefix: _p }) => {
@@ -63,4 +63,4 @@ handler.botAdmin = false
 handler.fail = null
 
 
-export default handler*/
+export default handler
