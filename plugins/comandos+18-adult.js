@@ -211,7 +211,7 @@ handler.command = ['pornololi', 'nsfwloli', 'pornopies', 'nsfwfoot', 'pornoass',
 'pornoyuri2', 'nsfwyuri2', 'pornodarling', 'nsfwdarling', 'pornodragonmaid', 'nsfwdragonmaid', 'pornokonosuba', 'nsfwkonosuba', 'pornopokemon', 'nsfwpokemon',
 'pornotoloveru', 'nsfwtoloveru', 'pornouzaki', 'nsfwuzaki', 'pornopack', 'nsfwpack', 'pornopackchica', 'nsfwpackgirl', 'pornopackchico', 'nsfwpackmen']
 //handler.level = 5
-handler.money = 175
+handler.limit = 2
 export default  handler
 
 
