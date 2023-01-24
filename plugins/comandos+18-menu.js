@@ -237,7 +237,7 @@ console.log(e)
 
 handler.help = ['infomenu'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
-handler.command = /^(hornymenu|listhorny|listaporno)$/i
+handler.command = ['hornymenu', 'listaporno', 'listhorny']
 export default handler
 
 const more = String.fromCharCode(8206)
