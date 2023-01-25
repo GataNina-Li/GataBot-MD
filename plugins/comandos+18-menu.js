@@ -208,7 +208,7 @@ if (command == 'listaporno' || command == 'listhorny') {
 let sections = Object.keys(temaX).map((v, index, temaX2) => ({ title: `${lenguajeGB['smsTex4']().slice(1, -1)} : ${wm}`,
 rows: [{ 
 title: `${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🎟️🥵' : '⚠️'} ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0].toUpperCase() : temaX[index][1].toUpperCase()} ${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🥵🎟️' : '⚠️'} • ${lenguajeGB['smsBotonM7']()} ➜ ${user.premiumTime > 0 ? '✅' : '❌'}`, 
-description: `${1 + index}. ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1]} ➜ ${1 + index <= 33 ? user.limit < 2 ? 'No tiene suficiente ' + lenguajeGB.eDiamante() + '\nPresione aquí para comprar ' + rpgshopp.emoticon('limit') : 'Contenido Gratis disponible 😸' : 'Contenido no disponible 😿\nPresione aquí para comprar ' + rpg.emoticon('premium')}`, 
+description: `${1 + index}. ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1]} ➜ ${1 + index <= 33 ? user.limit < 2 ? lenguajeGB.smsList1() + lenguajeGB.eDiamante() + lenguajeGB.smsList2() + rpgshopp.emoticon('limit') : lenguajeGB.smsList3() : lenguajeGB.smsList4() + rpg.emoticon('premium')}`, 
 rowId: `${usedPrefix}${1 + index <= 33 ? user.limit < 2 ? 'buy limit 5' : lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : user.premiumTime > 0 ? lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1] : 'pase premium' }` }], }))
 
 let name = await conn.getName(m.sender)
@@ -218,14 +218,12 @@ footer: `╭━━━✦ 🛐 ✦━━━━⬣
 
 🔞 ${lenguajeGB.smsConfi2()} *${name}*
 
-*Seleccione una opción*
-*de la lista para ver el*
-*contenido* 😋
+${lenguajeGB.smsList5()}
 
 ╰━━━✦ *${vs}* ✦━━━⬣
 ${wm}`,
 title: null,
-buttonText: `👀 VER LISTA 👀`,
+buttonText: lenguajeGB.smsList6(),
 sections }
 conn.sendMessage(m.chat, listMessage, {quoted: fkontak})}
  
