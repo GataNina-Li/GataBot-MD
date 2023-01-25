@@ -1,3 +1,5 @@
+// by https://github.com/elrebelde21/The-LoliBot-MD & https://github.com/GataNina-Li/GataBot-MD
+
 import { randomBytes } from 'crypto'
 
 let handler = async (m, { conn, text }) => {
@@ -6,12 +8,12 @@ let handler = async (m, { conn, text }) => {
   let teks = text ? text : cc.text
   conn.reply(m.chat, `*[❕] ᴍᴇɴsᴀᴊᴇ ᴇɴᴠɪᴀᴅᴏ ᴀ ${chats.length} ᴄʜᴀᴛs ᴛᴏᴛᴀʟᴇs*`, m)
   await delay(5 * 5000)
-  for (let id of chats) await conn.copyNForward(id, conn.cMod(m.chat, cc, /bc|broadcast/i.test(teks) ? `*𝘾𝙊𝙈𝙐𝙉𝙄𝘾𝘼𝘿𝙊 𝙊𝙁𝙄𝘾𝙄𝘼𝙇 ✅*\n` + teks : `*𝘾𝙊𝙈𝙐𝙉𝙄𝘾𝘼𝘿𝙊 𝙊𝙁𝙄𝘾𝙄𝘼𝙇 ✅*\n` + teks + '\n' + readMore + '\n\n' + botdate), true).catch(_ => _)
+  for (let id of chats) await conn.copyNForward(id, conn.cMod(m.chat, cc, /bc|broadcast/i.test(teks) ? `*𝘾𝙊𝙈𝙐𝙉𝙄𝘾𝘼𝘿𝙊 𝙊𝙁𝙄𝘾𝙄𝘼𝙇 ✅*\n` + teks : `*𝘾𝙊𝙈𝙐𝙉𝙄𝘾𝘼𝘿𝙊 𝙊𝙁𝙄𝘾𝙄𝘼𝙇 ✅*\n` + teks + '\n' + readMore + '\n\n' + wm), true).catch(_ => _)
   m.reply('se envio con éxitos ✅️')
 }
-handler.help = ['prueba', 'bc'].map(v => v + ' <teks>')
+handler.help = ['broadcast', 'bc'].map(v => v + ' <teks>')
 handler.tags = ['owner']
-handler.command = /^(prueba)$/i
+handler.command = /^(comunicar|comunicado|broadcastall|bc)$/i
 
 handler.owner = true
 

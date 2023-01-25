@@ -1,4 +1,4 @@
-/*import { areJidsSameUser } from '@adiwajshing/baileys'
+import { areJidsSameUser } from '@adiwajshing/baileys'
 let handler = async (m, { conn, text, participants, args, command }) => {
 let member = participants.map(u => u.id)
 if(!text) {
@@ -48,8 +48,10 @@ handler.command = /^(fantasmas|kickfantasmas)$/i
 handler.group = handler.botAdmin = handler.admin = true
 handler.fail = null
 export default handler
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))*/
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
 
     //desarrollado por https://github.com/ReyEndymion
     //participa en desactivacion de despedida https://github.com/BrunoSobrino/
+
 

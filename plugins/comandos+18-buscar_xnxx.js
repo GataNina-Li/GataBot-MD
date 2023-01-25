@@ -26,7 +26,7 @@ conn.sendMessage(m.chat, listMessage, { quoted: m })
 m.reply('*𝑼𝒇𝒇, 𝒔𝒆 𝒎𝒆 𝒄𝒂𝒚𝒐́ 𝒆𝒍 𝒔𝒆𝒓𝒗𝒊𝒅𝒐🤡, 𝒗𝒖𝒆𝒍𝒗𝒂 𝒂𝒍 𝒊𝒏𝒕𝒆𝒏𝒕𝒂𝒓 𝒑𝒂𝒋𝒆𝒓𝒐*')
 }}
 handler.command = /^porhubsearch|xvideossearch|xnxxsearch$/i
-handler.level = 9
+//handler.level = 9
 handler.limit = 6
 handler.register = true
 export default handler

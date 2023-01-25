@@ -57,6 +57,8 @@ global.APIs = { // API Prefix.
   neoxr: 'https://neoxr-api.herokuapp.com',
   ana: 'https://anabotofc.herokuapp.com/',
   kanx: 'https://kannxapi.herokuapp.com/',
+  nekobot: 'https://nekobot.xyz/api/',
+  purrbot: 'https://purrbot.site/api/',
   dhnjing: 'https://dhnjing.xyz',
   'https://violetics.pw': 'beta'
 },
@@ -114,22 +116,24 @@ global.gatadiosig = ig
 global.md = 'https://github.com/GataNina-Li/GataBot-MD'
 global.gatabot = md
 
-global.nna = 'https://chat.whatsapp.com/GVpCEF1uofp3f056e0REPw' //UPDATE GATABOT
-global.nna2 = 'GVpCEF1uofp3f056e0REPw'
+global.nna = 'https://chat.whatsapp.com/CdilCw6hRUD5gderMrJkLo' //UPDATE GATABOT
+global.nna2 = 'CdilCw6hRUD5gderMrJkLo'
 
-global.nn = 'https://chat.whatsapp.com/IMLJNUdNXUH2cANoAFDfKU' //Grupo 1
+global.nn = 'https://chat.whatsapp.com/KwoMppqeh4lH27rNM4qEbz' //Grupo 1
 
-global.nnn = 'https://chat.whatsapp.com/HevYeF6rImG1dLRNZ3JxZt' //Grupo 2
+global.nnn = 'https://chat.whatsapp.com/DUU638FK74P7KWmRAd4u4J' //Grupo 2
 
-global.nnnt = 'https://chat.whatsapp.com/Dxd9UqOD2wQ21m65tKa4hu' //Grupo 3
+global.nnnt = 'https://chat.whatsapp.com/Kt5EXwUhcO8Ay76CIDLs7d' //Grupo 3
 
-global.nnntt = 'https://chat.whatsapp.com/DpRy9SL7hlqG0sc3ZWjU7N' //Grupo 4
+global.nnntt = 'https://chat.whatsapp.com/IfQOvlx41su7bPUnfTg7ZB' //Grupo 4
 
-global.nnnttt = 'https://chat.whatsapp.com/L8SmHSDSPyDEGgXO7WCegv' //Grupo 5
+global.nnnttt = 'https://chat.whatsapp.com/HJLpWS2BDrWCPH6uAUKIRG' //Grupo 5
 
-global.nnnttt2 = 'https://chat.whatsapp.com/LCdrJR1h1sA1lwashY3vh4' //Grupo 6 COL
+global.nnnttt2 = 'https://chat.whatsapp.com/F63pQpKCsWiF2zFXxhYnky' //Grupo 6 COL
 
-global.nnnttt3 = 'https://chat.whatsapp.com/JP4QqKe7P5oFmn41Vsv2on' //Grupo 7 COL
+global.nnnttt3 = 'https://chat.whatsapp.com/CcJKHrxGBWAAH3PiBL07JS' //Grupo 7 COL
+
+global.nnnttt4 = 'https://chat.whatsapp.com/ImKvcl3Pstb8IMZk02v692' //Grupo 8 COL
 
 global.paypal = 'https://paypal.me/OficialGD'
 
@@ -217,7 +221,7 @@ global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg'
 global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
 
 global.welgata = [ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig]
-global.redesMenu = [nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt2, nnnttt3, md, ig, paypal, yt, asistencia]
+global.redesMenu = [nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt2, nnnttt3, nnnttt4, md, ig, paypal, yt, asistencia]
 global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15]
 global.gataVidMenu = ['./media/menus/Menuvid1.mp4', './media/menus/Menuvid2.mp4', './media/menus/Menuvid3.mp4']
 

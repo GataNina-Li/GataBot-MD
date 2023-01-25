@@ -28,4 +28,4 @@ export async function before(m, { conn, isAdmin, isBotAdmin, usedPrefix }) {
         } else if (!bot.restrict) return m.reply('[ ! ] Para realizar acciones de eliminación, mi dueño tiene que encender el modo restringido!')
     }
     return !0
-}
+} 
