@@ -6,7 +6,7 @@ let user = global.db.data.users[m.sender]
 let sn = createHash('md5').update(m.sender).digest('hex')
 if (args[0] !== sn) throw `${fg} 𝙑𝙀𝙍𝙄𝙁𝙄𝙌𝙐𝙀 𝙌𝙐𝙀 𝙎𝙀𝘼 𝙀𝙇 𝘾𝙊𝙍𝙍𝙀𝘾𝙏𝙊, 𝙐𝙎𝙀 𝙀𝙇 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 *#myns* 𝙋𝘼𝙍𝘼 𝙊𝘽𝙏𝙀𝙉𝙀𝙍 𝙎𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀\n\n𝙑𝙀𝙍𝙄𝙁𝙔 𝙄𝙏 𝙄𝙎 𝘾𝙊𝙍𝙍𝙀𝘾𝙏, 𝙐𝙎𝙀 𝙏𝙃𝙀 𝘾𝙊𝙈𝙈𝘼𝙉𝘿 *#myns* 𝙏𝙊 𝙂𝙀𝙏 𝙔𝙊𝙐𝙍 𝙎𝙀𝙍𝙄𝘼𝙇 𝙉𝙐𝙈𝘽𝙀𝙍`
 global.db.data.users[m.sender].money -= 400
-global.db.data.users[m.sender].limit -= 6
+global.db.data.users[m.sender].limit -= 7
 global.db.data.users[m.sender].exp -= 250
 global.db.data.users[m.sender].joincount -= 3
 user.registered = false
