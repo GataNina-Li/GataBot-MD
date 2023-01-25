@@ -61,7 +61,7 @@ const listMessage = {
   if (!name) throw '🐈 El nombre no puede esta vacio'
   if (!age) throw '🐈 La edad no puede esta vacia (Numeros)'
   age = parseInt(age)
-  if (age > 30) throw 'Que viejo (。-`ω´-)'
+  if (age > 100) throw 'Que viejo (。-`ω´-)'
   if (age < 5) throw '🚼  Basado, los bebes saber escribir.✍️😳'
   if (name.length >= 30) throw '🐈 Fua que basado, el nombre es muy largo que quiere un puente como nombre😹' 
   user.name = name.trim()
