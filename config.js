@@ -122,8 +122,8 @@ global.gatadiosig = ig
 global.md = 'https://github.com/GataNina-Li/GataBot-MD'
 global.gatabot = md
 
-global.nna = 'https://chat.whatsapp.com/CdilCw6hRUD5gderMrJkLo' //UPDATE GATABOT
-global.nna2 = 'CdilCw6hRUD5gderMrJkLo'
+global.nna = 'https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3' //UPDATE GATABOT
+global.nna2 = 'DVhu9S9Zr7cBFFl26N61U3'
 
 global.nn = 'https://chat.whatsapp.com/KwoMppqeh4lH27rNM4qEbz' //Grupo 1
 
