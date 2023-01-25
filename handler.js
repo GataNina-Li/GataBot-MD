@@ -46,9 +46,9 @@ export async function handler(chatUpdate) {
             if (user) {
                 if (!isNumber(user.exp)) user.exp = 0
 		if (!('premium' in user)) user.premium = false
-		if (!isNumber(user.joincount)) user.joincount = 1
-                if (!isNumber(user.money)) user.money = 150
-                if (!isNumber(user.limit)) user.limit = 10  	       
+		if (!isNumber(user.joincount)) user.joincount = 3
+                if (!isNumber(user.money)) user.money = 800
+                if (!isNumber(user.limit)) user.limit = 25  	       
                 if (!('registered' in user)) user.registered = false
                     
             if (!user.registered) {
@@ -183,7 +183,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.gardenboxs)) user.gardenboxs = 0
               if (!isNumber(user.gems)) user.gems = 0
               if (!isNumber(user.glass)) user.glass = 0
-              if (!isNumber(user.glimit)) user.glimit = 10
+              if (!isNumber(user.glimit)) user.glimit = 5
               if (!isNumber(user.glory)) user.glory = 0
               if (!isNumber(user.gold)) user.gold = 0
               if (!isNumber(user.griffin)) user.griffin = 0
@@ -337,7 +337,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.lelebakar)) user.lelebakar = 0
               if (!isNumber(user.leleg)) user.leleg = 0
               if (!isNumber(user.level)) user.level = 0
-              if (!isNumber(user.limit)) user.limit = 10
+              if (!isNumber(user.limit)) user.limit = 25
               if (!isNumber(user.limitjoinfree)) user.limitjoinfree = 1
               if (!isNumber(user.lion)) user.lion = 0
               if (!isNumber(user.lionexp)) user.lionexp = 0
@@ -355,7 +355,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.makananserigala)) user.makananserigala = 0
               if (!isNumber(user.mana)) user.mana = 0
               if (!isNumber(user.mangga)) user.mangga = 0
-              if (!isNumber(user.money)) user.money = 150
+              if (!isNumber(user.money)) user.money = 800
               if (!isNumber(user.monyet)) user.monyet = 0
               if (!isNumber(user.mythic)) user.mythic = 0
               if (!isNumber(user.naga)) user.naga = 0
@@ -621,7 +621,7 @@ export async function handler(chatUpdate) {
                     jagungbakar: 0,
                     jeruk: 0,
                     job: 'Pengangguran',
-		    joincount: 1,
+		    joincount: 3,
                     joinlimit: 1,
                     judilast: 0,
                     kaleng: 0,
@@ -741,7 +741,7 @@ export async function handler(chatUpdate) {
                     lelebakar: 0,
                     leleg: 0,
                     level: 0,
-                    limit: 10,
+                    limit: 25,
                     limitjoinfree: 1,
                     lion: 0,
                     lionexp: 0,
@@ -758,10 +758,10 @@ export async function handler(chatUpdate) {
                     makananpet: 0,
                     makananphonix: 0,
                     makananserigala: 0,
-                    mana: 10,
+                    mana: 0,
                     mangga: 0,
                     misi: '',
-                    money: 150,
+                    money: 800,
                     monyet: 0,
                     mythic: 0,
                     naga: 0,
