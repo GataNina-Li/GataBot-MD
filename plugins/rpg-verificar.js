@@ -71,7 +71,7 @@ const listMessage = {
   let sn = createHash('md5').update(m.sender).digest('hex')
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
   global.db.data.users[m.sender].money += 400
-global.db.data.users[m.sender].limit += 6
+global.db.data.users[m.sender].limit += 7
 global.db.data.users[m.sender].exp += 250
 global.db.data.users[m.sender].joincount += 3
   let caption = `
@@ -85,7 +85,7 @@ global.db.data.users[m.sender].joincount += 3
 ┃ *BONO* 
 ┃ *$250 XP*
 ┃ *$400 GATACOINS*
-┃ *$6 DIAMANTES*
+┃ *$7 DIAMANTES*
 ╰━━━━━━━━━━━━━━━━━━⬣`
 //let author = global.author
 await conn.sendButton(m.chat, caption, `𝙏𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀 𝙏𝙀 𝙎𝙀𝙍𝙑𝙄𝙍𝘼 𝙀𝙉 𝘾𝘼𝙎𝙊 𝙌𝙐𝙀 𝙌𝙐𝙄𝙀𝙍𝘼 𝘽𝙊𝙍𝙍𝘼𝙍 𝙎𝙐 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n${usedPrefix}unreg numero de serie\n${wm}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
