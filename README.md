@@ -28,6 +28,9 @@
 [![blog](https://img.shields.io/badge/Gmail_➡️_centergatabot@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)
 ](mailto:https://centergatabot@gmail.com)
 
+[![blog](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)
+](https://facebook.com/groups/872989990425789/)  
+
 [![blog](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://www.youtube.com/@gatadios)  <img src="https://github.com/siegrin/siegrin/blob/main/Assets/powerup.gif" height="29px">
 
