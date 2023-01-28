@@ -1,9 +1,8 @@
 import translate from '@vitalets/google-translate-api'
 import fetch from 'node-fetch'
 let handler = async (m, { conn, usedPrefix, command }) => {
-
-if (command == 'consejo') {
-try {  
+try { 
+if (command == 'consejo') { 
 let letra = 'https://mysuenos.com/wp-content/uploads/2019/10/trebol.jpg'
 let list = global.motivation 
 let contenido = list[Math.floor(Math.random() * list.length)]
@@ -20,12 +19,9 @@ conn.sendHydrated(m.chat, texto, wm, letra, 'https://github.com/GataNina-Li/Gata
 ['🍃 𝙉𝙪𝙚𝙫𝙤 𝘾𝙤𝙣𝙨𝙚𝙟𝙤 | 𝙉𝙚𝙬 𝘾𝙤𝙪𝙣𝙘𝙞𝙡', `${usedPrefix + command}`],
 ['🌟 𝙀𝙣𝙜𝙡𝙞𝙨𝙝 𝙫𝙚𝙧𝙨𝙞𝙤𝙣', '.consejo2'],
 ['⚡ 𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '#menu']
-], m,)
-} catch (e) {
-conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}\`\`\`PARECE QUE ALGO NO FUNCIONA\nREPORTE ESTE COMANDO ${usedPrefix + command} CON EL COMANDO #REPORTE\`\`\``, m)}}  
+], m,)}   
   
 if (command == 'consejo2') {
-try {  
 let letra = 'https://mysuenos.com/wp-content/uploads/2019/10/trebol.jpg'
 let res = await fetch("https://zenzapis.xyz/randomtext/motivasi?apikey=hdiiofficial")
 let json = await res.json()
@@ -43,9 +39,11 @@ conn.sendHydrated(m.chat, texto, wm, letra, 'https://github.com/GataNina-Li/Gata
 ['🍃 𝙉𝙪𝙚𝙫𝙤 𝘾𝙤𝙣𝙨𝙚𝙟𝙤 | 𝙉𝙚𝙬 𝘾𝙤𝙪𝙣𝙘𝙞𝙡', `${usedPrefix + command}`],
 ['🌟 𝙑𝙚𝙧𝙨𝙞𝙤𝙣 𝙀𝙨𝙥𝙖𝙣𝙤𝙡', '.consejo'],
 ['⚡ 𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '#menu']
-], m,)
+], m,)}
 } catch (e) {
-conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}\`\`\`PARECE QUE ALGO NO FUNCIONA\nREPORTE ESTE COMANDO ${usedPrefix + command} CON EL COMANDO #REPORTE\`\`\``, m)}}
+await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+console.log(e)}  
 }
 handler.tags = ['frases']
 handler.command = ['consejo', 'consejo2']
