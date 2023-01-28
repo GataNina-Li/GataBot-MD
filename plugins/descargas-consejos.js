@@ -7,7 +7,7 @@ let letra = 'https://mysuenos.com/wp-content/uploads/2019/10/trebol.jpg'
 let list = global.motivation 
 let contenido = list[Math.floor(Math.random() * list.length)]
 const tld = 'cn'
-let frase1 = await translate(`${contenido }`, { tld, to: lenguajeGB.lenguaje() })
+let frase1 = await translate(`${contenido }`, { tld, to: 'es' /*lenguajeGB.lenguaje()*/ })
 let texto = `
 *╭━━・☘️・━━━━・☘️・━━⬣*
 
