@@ -103,10 +103,11 @@ let menuB = `╭┄〔 *${wm}* 〕┄⊱
 ∘ _${usedPrefix}clonarepo | gitclone *link*_
 ∘ _${usedPrefix}clima *país ciudad*_
 ∘ _${usedPrefix}consejo_
+∘ _${usedPrefix}consejo2_
+∘ _${usedPrefix}frase_
+∘ _${usedPrefix}frase2_
 ∘ _${usedPrefix}morse codificar *texto*_
 ∘ _${usedPrefix}morse decodificar *morse*_
-∘ _${usedPrefix}fraseromantica_
-∘ _${usedPrefix}historia_
 `.trim()
 await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
 
