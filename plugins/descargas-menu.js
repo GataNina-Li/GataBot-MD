@@ -103,7 +103,6 @@ let menuB = `╭┄〔 *${wm}* 〕┄⊱
 ∘ _${usedPrefix}clonarepo | gitclone *link*_
 ∘ _${usedPrefix}clima *país ciudad*_
 ∘ _${usedPrefix}consejo_
-∘ _${usedPrefix}consejo2_
 ∘ _${usedPrefix}frase_
 ∘ _${usedPrefix}frase2_
 ∘ _${usedPrefix}morse codificar *texto*_
