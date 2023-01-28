@@ -8,7 +8,7 @@ if (command == 'consejo') {
 let img = 'https://mysuenos.com/wp-content/uploads/2019/10/trebol.jpg'
 let list = global.motivation 
 let contenido = list[Math.floor(Math.random() * list.length)]
-let result = await translate(`${contenido}`, { to: 'es', autoCorrect: true })
+let result = await translate(`${contenido}`, { to: lenguajeGB.lenguaje(), autoCorrect: true })
 let texto = `
 *╭━━・☘️・━━━━・☘️・━━⬣*
 
@@ -18,32 +18,26 @@ let texto = `
 
 await conn.sendButton(m.chat, texto.trim(), wm, img, [['🍃 𝙉𝙪𝙚𝙫𝙤 𝘾𝙤𝙣𝙨𝙚𝙟𝙤', `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)}   
   
-if (command == 'consejo2') {
-let letra = 'https://mysuenos.com/wp-content/uploads/2019/10/trebol.jpg'
-let res = await fetch("https://zenzapis.xyz/randomtext/motivasi?apikey=hdiiofficial")
-let json = await res.json()
-let { frase } = json
-const tld = 'cn'
-let frase1 = await translate(`${frase}`, { tld, to: 'en' })
+if (command == 'frase2') { 
+  
+let list = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/frase2.json`)).data  
+let contenido = await list[Math.floor(list.length * Math.random())]
+let frase2 = await translate(`${contenido}`, { to: lenguajeGB.lenguaje(), autoCorrect: true })
 let texto = `
 *╭━━・☘️・━━━━・☘️・━━⬣*
 
-*ღ ${frase1}*
+*ღ ${frase2.text}*
 
 *╰━━・☘️・━━━━・☘️・━━⬣*`
 
-conn.sendHydrated(m.chat, texto, wm, letra, 'https://github.com/GataNina-Li/GataBot-MD', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
-['🍃 𝙉𝙪𝙚𝙫𝙤 𝘾𝙤𝙣𝙨𝙚𝙟𝙤 | 𝙉𝙚𝙬 𝘾𝙤𝙪𝙣𝙘𝙞𝙡', `${usedPrefix + command}`],
-['🌟 𝙑𝙚𝙧𝙨𝙞𝙤𝙣 𝙀𝙨𝙥𝙖𝙣𝙤𝙡', '.consejo'],
-['⚡ 𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '#menu']
-], m,)}
+await conn.sendButton(m.chat, texto.trim(), wm, null, [['🍃 Nueva Frase', `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)} 
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}  
 }
 handler.tags = ['frases']
-handler.command = ['consejo', 'consejo2']
+handler.command = ['consejo2', 'frase2']
 export default handler
 
 global.motivation = [
