@@ -18,7 +18,7 @@ let texto = `
 
 *╰━━・☘️・━━━━・☘️・━━⬣*`
 
-await conn.sendButton(m.chat, texto.trim(), wm, img, [['🍃 𝙉𝙪𝙚𝙫𝙤 𝘾𝙤𝙣𝙨𝙚𝙟𝙤', `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)}   
+await conn.sendButton(m.chat, texto.trim(), wm, img, [['🍃 NUEVO CONSEJO', `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)}   
   
 if (command == 'frase2') { 
   
@@ -33,7 +33,7 @@ let texto = `
 
 *╰━━・☘️・━━━━・☘️・━━⬣*`
 
-await conn.sendButton(m.chat, texto.trim(), wm, null, [['🍃 Nueva Frase', `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)} 
+await conn.sendButton(m.chat, texto.trim(), wm, null, [['🍃 NUEVA FRASE', `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m)} 
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
