@@ -40,7 +40,7 @@ console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗
 console.log(e)}  
 }
 handler.tags = ['frases']
-handler.command = ['consejo2', 'frase2']
+handler.command = ['consejo', 'frase2']
 export default handler
 
 global.motivation = [
