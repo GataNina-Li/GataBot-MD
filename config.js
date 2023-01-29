@@ -72,6 +72,8 @@ global.APIs = { // API Prefix.
   'https://violetics.pw': 'beta'
 },
   
+global.Key360 = '964f-0c75-7afc'
+  
 global.APIKeys = { // APIKey Here
   //⊱ ━━━━━.⋅ 'https://website': 'apikey' ⋅.━━━━ ⊰
   'https://ariarestapii.herokuapp.com': 'aria',
