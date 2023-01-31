@@ -1,4 +1,3 @@
-import { generateWAMessageFromContent } from "@adiwajshing/baileys"
 import { smsg } from './lib/simple.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
@@ -1437,9 +1436,9 @@ let msg = {
         unreg: lenguajeGB['smsUnreg'](),
         restrict: lenguajeGB['smsRestrict'](),
 }[type]
-//if (msg) return m.reply(msg) 
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', thumbnail: gataMenu.getRandom(), sourceUrl: md }}}}, { quoted: m })
-if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
+//if (msg) return m.reply(msg)
+let frep = { contextInfo: { externalAdReply: {title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', sourceUrl: md, thumbnail: await(await fetch(gataMenu.getRandom())).buffer() }}}
+if (msg) return conn.reply(m.chat, msg, frep, m)
 }
 
 let file = global.__filename(import.meta.url, true)
