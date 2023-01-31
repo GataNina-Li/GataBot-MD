@@ -12,8 +12,7 @@ return !1
   let bot = global.db.data.settings[this.user.jid] || {}
   let img = 'https://i.imgur.com/5Q1MqGD.jpg'
  const isToxic = toxicRegex.exec(m.text)
- 
-if (!global.db.data.settings[this.user.jid].restrict) return conn.sendButton(m.chat, wm, `${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsSoloOwner']()}`, null, [[lenguajeGB.smsEncender(), `${usedPrefix}on restringir`]], fkontak, m)   
+    
 if (isToxic && chat.antitoxic && !isOwner && !isAdmin) {
 user.warn += 1
 if (!(user.warn >= 4)) await conn.sendButton(m.chat,`${user.warn == 1 ? `*@${m.sender.split`@`[0]}*` : `*@${m.sender.split`@`[0]}*`} *${lenguajeGB['smsToxic1']()} (${isToxic}) ${lenguajeGB['smsToxic2']()}*`, `${lenguajeGB['smsToxic3']()} *${user.warn}/4*\n\n${wm}`, img, [
@@ -21,6 +20,7 @@ if (!(user.warn >= 4)) await conn.sendButton(m.chat,`${user.warn == 1 ? `*@${m.s
 [lenguajeGB.smsToxic5(), '.off antitoxic'],
 [lenguajeGB.smsConMenu(), '/menu']], false, { mentions: [m.sender] })}
 
+if (!global.db.data.settings[this.user.jid].restrict) return conn.sendButton(m.chat, wm, `${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsSoloOwner']()}`, null, [[lenguajeGB.smsEncender(), `${usedPrefix}on restringir`]], fkontak, m)
 if (user.warn >= 4) {
 user.warn = 0
 await m.reply(`*${lenguajeGB['smsToxic6']()}*\n*@${m.sender.split`@`[0]} ${lenguajeGB['smsToxic7']()}*`, false, { mentions: [m.sender] })
