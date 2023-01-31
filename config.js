@@ -95,13 +95,6 @@ global.APIKeys = { // APIKey Here
   'https://anabotofc.herokuapp.com/': 'AnaBot'
 }
 
-global.imagen1 = fs.readFileSync('./media/menus/Menu3.jpg')
-
-//⊱ ━━━━━.⋅ KEY ⋅.━━━━ ⊰
-
-//━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
-
-
 //⊱ ━━━━━.⋅ Sticker WM ⋅.━━━━ ⊰
 
 global.packname = '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 🐈'
@@ -206,6 +199,25 @@ global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = ['BrunoSobrino']
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
+
+
+//⊱ ━━━━━.⋅ IMG ⋅.━━━━ ⊰
+
+global.imagen1 = fs.readFileSync('./media/menus/Menu3.jpg')
+global.imagen2 = fs.readFileSync('./media/menus/img1.jpg')
+global.imagen3 = fs.readFileSync('./media/menus/img2.jpg')
+global.imagen4 = fs.readFileSync('./media/menus/img3.jpg')
+global.imagen5 = fs.readFileSync('./media/menus/img4.jpg')
+global.imagen6 = fs.readFileSync('./media/menus/img5.jpg')
+global.imagen7 = fs.readFileSync('./media/menus/img6.jpg')
+global.imagen8 = fs.readFileSync('./media/menus/img7.jpg')
+global.imagen9 = fs.readFileSync('./media/menus/img8.jpg')
+global.imagen10 = fs.readFileSync('./media/menus/img9.jpg')
+global.imagen11 = fs.readFileSync('./media/menus/img10.jpg')
+global.imagen12 = fs.readFileSync('./media/menus/img11.jpg')
+global.imagen13 = fs.readFileSync('./media/menus/img12.jpg')
+
+//━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 
 //━━━━━━━━━━━━━━ img ━━━━━━━━━
