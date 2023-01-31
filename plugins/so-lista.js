@@ -27,7 +27,7 @@ let vn = './media/Buen día grupo.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
-if (chat.audios && m.text.match(/(Calla Fan de bts|bts|Amo a bts|Chino|Chinos)/gi)) {
+if (chat.audios && m.text.match(/(Calla Fan de bts|bts|Amo a bts)/gi)) {
     let vn = './media/Calla Fan de BTS.mp3'
     let sticker = './media/btss.webp'
     this.sendPresenceUpdate('recording', m.chat)
@@ -504,7 +504,7 @@ let vn = './media/Yamete-kudasai.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
-if (chat.audios && m.text.match(/(Usted esta detenido|usted esta detenido|usted está detenido|Usted está detenido)/gi)) {    
+if (chat.audios && m.text.match(/(Usted esta detenido|usted esta detenido|usted está detenido|Usted está detenido|facha)/gi)) {    
 let vn = './media/usted esta detenido.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
@@ -674,11 +674,6 @@ let vn = './media/viejo1.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
-if (chat.audios && m.text.match(/(Freefire|freefire)/gi)) {    
-let vn = './media/freefire.mp3'
-this.sendPresenceUpdate('recording', m.chat)   
-this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
-
 if (chat.audios && m.text.match(/(No me hables|no me hables)/gi)) {    
 let vn = './media/no me hables.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
@@ -734,11 +729,6 @@ let vn = './media/te elimino.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
-if (chat.audios && m.text.match(/(sexo|Sexo|Hora de sexo|hora de sexo)/gi)) {    
-let vn = './media/maau1.mp3'
-this.sendPresenceUpdate('recording', m.chat)   
-this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
-
 if (chat.audios && m.text.match(/(te saber|te sabes)/gi)) {    
 let vn = './media/te saber.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
@@ -764,12 +754,7 @@ let vn = './media/mujer.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
-if (chat.audios && m.text.match(/(sexo|Sexo|Hora de sexo|hora de sexo)/gi)) {    
-let vn = './media/maau1.mp3'
-this.sendPresenceUpdate('recording', m.chat)   
-this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
-
-if (chat.audios && m.text.match(/(te felicito|espera vegeta escucha)/gi)) {    
+if (chat.audios && m.text.match(/(te felicito|espera vegeta escucha|vegeta)/gi)) {    
 let vn = './media/te felicito.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
