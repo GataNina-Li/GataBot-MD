@@ -1439,7 +1439,7 @@ let msg = {
 }[type]
 //if (msg) return m.reply(msg)
 let tg = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: wm, body: lenguajeGB.smsAvisoAG() + '\n' + '🌟 centergatabot.gmail.com', thumbnail: gataImg.getRandom(), sourceUrl: [md, yt, ig, paypal].getRandom() }}}}, tg)
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG() + '\n\n' + '🌟 centergatabot.gmail.com', body: wm, thumbnail: gataImg.getRandom(), sourceUrl: [md, yt, ig, paypal].getRandom() }}}}, tg)
 if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
