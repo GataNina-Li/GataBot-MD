@@ -1,3 +1,4 @@
+import { generateWAMessageFromContent } from "@adiwajshing/baileys"
 import { smsg } from './lib/simple.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
@@ -1423,7 +1424,7 @@ this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 console.error(e)
 }}
 
-global.dfail = (type, m, conn, usedPrefix) => {
+global.dfail = (type, m, conn) => {
 let msg = {
         rowner: lenguajeGB['smsRowner'](),
         owner: lenguajeGB['smsOwner'](),
@@ -1438,7 +1439,9 @@ let msg = {
 }[type]
 //if (msg) return m.reply(msg)
 //let frep = { contextInfo: { externalAdReply: {title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', sourceUrl: md, thumbnail: await(await fetch(gataMenu.getRandom())).buffer() }}}
-if (msg) return conn.sendGataBot(m.chat, msg, await(await fetch(gataMenu.getRandom())).buffer(), wm, null, md, m)
+let tg = { quoted: m, userJid: conn.user.jid }
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', thumbnail: await(await fetch(gataMenu.getRandom())).buffer(), sourceUrl: md }}}}, tg)
+if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
 let file = global.__filename(import.meta.url, true)
