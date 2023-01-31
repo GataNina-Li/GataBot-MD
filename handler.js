@@ -1437,8 +1437,8 @@ let msg = {
         restrict: lenguajeGB['smsRestrict'](),
 }[type]
 //if (msg) return m.reply(msg)
-let frep = { contextInfo: { externalAdReply: {title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', sourceUrl: md, thumbnail: await(await fetch(gataMenu.getRandom())).buffer() }}}
-if (msg) return conn.reply(m.chat, msg, frep, m)
+//let frep = { contextInfo: { externalAdReply: {title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', sourceUrl: md, thumbnail: await(await fetch(gataMenu.getRandom())).buffer() }}}
+if (msg) return conn.sendGataBot(m.chat, msg, await(await fetch(gataMenu.getRandom())).buffer(), wm, null, md, m)
 }
 
 let file = global.__filename(import.meta.url, true)
