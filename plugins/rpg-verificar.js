@@ -79,11 +79,12 @@ user.age = text.slice(1).trim()
 }
 	
 if (command == 'edad2' || command == 'age2') {
-if (text.slice(1).trim() > usedPrefix + usedPrefix + '50'.slice(1).trim()) throw 'Que viejo (。-`ω´-)'
-if (text.slice(1).trim() < usedPrefix + usedPrefix + '10'.slice(1).trim()) throw '🚼  Basado, los bebes no saber escribir.✍️😳'
-if (verificar.test(text) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU EDAD COMO ESTE EJEMPLO\n' + usedPrefix + 'edad2 ' + usedPrefix + '35', wm, null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
-if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL SE HA REGISTRADO COMO: ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
+if (text.length > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
+if (text.length < 10) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
+if (isNaN(text.slice(1))) throw '*INGRESE SOLO NÚMEROS*'
+if (verificar.test(text) == false || text.length <= 1) return conn.sendButton(m.chat, '*PERSONALICE SU EDAD PARA REGISTRAR, EJEMPLO:*\n' + usedPrefix + command + ' ' + usedPrefix + '35', '*Sabías que puede seleccionar su edad de una lista ?*\n_En ese caso use el Botón de abajo_', null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
 user.age = text.slice(1).trim()
+if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL SE HA REGISTRADO COMO: ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 
 	
