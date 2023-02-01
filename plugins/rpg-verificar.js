@@ -88,7 +88,7 @@ const sections = [
 { title: "🚹 MASCULINO",
 //title: "🚹 MASCULINO",
 rows: [ 
-{title: "🚹 Hombre",  rowId: usedPrefix + command + ' ' + usedPrefix + text = '🚹 Hombre'}]
+{title: "🚹 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text }]
 }, {
 title: "🚺 FEMENINO",
 rows: [
