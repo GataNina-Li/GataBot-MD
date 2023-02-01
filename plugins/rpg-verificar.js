@@ -35,7 +35,7 @@ rowId: usedPrefix + command + ' ' + usedPrefix + pickRandom(['30','29','28','27'
 }, {
 title: "JOVEN",
 rows: [
-{title: "10 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '.10'},
+{title: "10 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '10'},
 {title: "11 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '11'},
 {title: "12 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '12'},
 {title: "13 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '13'},
@@ -73,6 +73,7 @@ const listMessage = {
 }
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
+user.age = text.slice(1).trim()	 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL HA REGISTRADO SU EDAD COMO: ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 user.age = text.slice(1).trim()	 
 }
@@ -110,6 +111,7 @@ const listMessage = {
 }
 
 await conn.sendMessage(m.chat, listMessage, m)
+user.genero = text.slice(1).trim()	 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL HA REGISTRADO SU SEXO BIOLÓGICO COMO: ' + user.genero + ' años', wm, null, [[`MENU`, usedPrefix + `menu`]], m)
 user.genero = text.slice(1).trim()	 
 }
