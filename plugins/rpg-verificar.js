@@ -35,7 +35,7 @@ rowId: usedPrefix + command + ' ' + usedPrefix + pickRandom(['30','29','28','27'
 }, {
 title: "JOVEN",
 rows: [
-{title: "10 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '10'},
+{title: "10 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text: '.10'},
 {title: "11 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '11'},
 {title: "12 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '12'},
 {title: "13 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '13'},
