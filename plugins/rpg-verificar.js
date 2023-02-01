@@ -5,20 +5,21 @@ function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
 let nombreWA = conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
+let verificar = new RegExp(usedPrefix)
 
 if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊(𝘼)!!\n𝙎𝙄 𝙌𝙐𝙄𝙀𝙍𝙀 𝘼𝙉𝙐𝙇𝘼𝙍 𝙎𝙐 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}unreg numero de serie*\n\n𝙎𝙄 𝙉𝙊 𝙍𝙀𝘾𝙐𝙀𝙍𝘿𝘼 𝙎𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}myns*`
 if (!Reg.test(text)) return conn.sendMessage(m.chat, listMessage, m)
 //let [_, nombre, edad] = text.match(/usedPrefix/)
   
 if (command == 'nombre' || command == 'name') {
-if (/usedPrefix/.test(text) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU NOMBRE COMO ESTE EJEMPLO\n' + usedPrefix 'nombre ' + usedPrefix 'GataDios', 'Quiere registrar con su nombre de WhatsApp?\nUse el Botónde abajo en ese caso', null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
-if (/usedPrefix/.test(text) == true) return conn.sendButton(m.chat, 'GENIAL SE HA REGISTRADO COMO: ' + user.name, wm, null, [[`REGISTRAR MI EDAD`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
+if (verificar.test(text) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU NOMBRE COMO ESTE EJEMPLO\n' + usedPrefix 'nombre ' + usedPrefix 'GataDios', 'Quiere registrar con su nombre de WhatsApp?\nUse el Botónde abajo en ese caso', null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
+if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL SE HA REGISTRADO COMO: ' + user.name, wm, null, [[`REGISTRAR MI EDAD`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
 user.name = text.slice(1).trim()
 }
 	
 if (command == 'nombre2' || command == 'name2') {
-if (/usedPrefix/.test(nombreWA) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU NOMBRE COMO ESTE EJEMPLO\n' + usedPrefix 'nombre2 ' + usedPrefix nombreWA, 'Quiere personalizar su nombre?\nUse el Botónde abajo en ese caso', null, [[`USAR CON WA`, usedPrefix + `nombre `]], m)
-if (/usedPrefix/.test(nombreWA) == true) return conn.sendButton(m.chat, 'ESCRIBA SU NOMBRE, EJEMPLO #nombre #GataDios', wm, null, [[`USAR EL DE WHA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
+if (verificar.test(nombreWA) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU NOMBRE COMO ESTE EJEMPLO\n' + usedPrefix 'nombre2 ' + usedPrefix nombreWA, 'Quiere personalizar su nombre?\nUse el Botónde abajo en ese caso', null, [[`USAR CON WA`, usedPrefix + `nombre `]], m)
+if (verificar.test(nombreWA) == true) return conn.sendButton(m.chat, 'ESCRIBA SU NOMBRE, EJEMPLO #nombre #GataDios', wm, null, [[`USAR EL DE WHA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
 user.name = nombreWA.slice(1).trim()
 }
 
@@ -76,8 +77,8 @@ user.age = text.slice(1).trim()
 if (command == 'edad2' || command == 'age2') {
 if (text.slice(1).trim() > usedPrefix + usedPrefix + '50'.slice(1).trim()) throw 'Que viejo (。-`ω´-)'
 if (text.slice(1).trim() < usedPrefix + usedPrefix + '10'.slice(1).trim()) throw '🚼  Basado, los bebes no saber escribir.✍️😳'
-if (/usedPrefix/.test(text) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU EDAD COMO ESTE EJEMPLO\n' + usedPrefix 'edad2 ' + usedPrefix '35', wm, null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
-if (/usedPrefix/.test(text) == true) return conn.sendButton(m.chat, 'GENIAL SE HA REGISTRADO COMO: ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
+if (verificar.test(text) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU EDAD COMO ESTE EJEMPLO\n' + usedPrefix 'edad2 ' + usedPrefix '35', wm, null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
+if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL SE HA REGISTRADO COMO: ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 user.age = text.slice(1).trim()
 }
 
@@ -106,7 +107,7 @@ const listMessage = {
 }
 
 await conn.sendMessage(m.chat, listMessage, m)
-if (/usedPrefix/.test(text) == true) return conn.sendButton(m.chat, 'GENIAL HA REGISTRADO SU SEXO BIOLÓGICO COMO: ' + user.genero + ' años', wm, null, [[`MENU`, usedPrefix + `menu`]], m)
+if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL HA REGISTRADO SU SEXO BIOLÓGICO COMO: ' + user.genero + ' años', wm, null, [[`MENU`, usedPrefix + `menu`]], m)
 user.genero = text.slice(1).trim()	 
 }
  
