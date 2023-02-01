@@ -85,8 +85,8 @@ user.age = text.slice(1).trim()
 	
 if (command == 'genero' || command == 'género' || command == 'gender') {
 const sections = [
-{ title: "SELECCIONE SU SEXO BIOLÓGICO!",
-title: "🚹 MASCULINO",
+{ title: "🚹 MASCULINO",
+//title: "🚹 MASCULINO",
 rows: [ 
 {title: "🚹 Hombre",  rowId: usedPrefix + command + ' ' + usedPrefix + text = '🚹 Hombre'}]
 }, {
