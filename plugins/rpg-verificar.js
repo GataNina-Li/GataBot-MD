@@ -12,10 +12,9 @@ if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍�
 //let [_, nombre, edad] = text.match(/usedPrefix/)
   
 if (command == 'verificar' || command == 'verify') {
-if (verificar.test(text) == false) return conn.sendButton(m.chat, 'REGISTRE SU NOMBRE COMO ESTE EJEMPLO\n' + usedPrefix + 'verificar ' + usedPrefix + 'GataDios', 'Quiere registrar con su nombre de WhatsApp?\nUse el Botónde abajo en ese caso', null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
-user.name = text.slice(1).trim()
+if (verificar.test(text) == false || text.length <= 1) return conn.sendButton(m.chat, 'REGISTRE SU NOMBRE COMO ESTE EJEMPLO\n' + usedPrefix + 'verificar ' + usedPrefix + 'GataDios', 'Quiere registrar con su nombre de WhatsApp?\nUse el Botónde abajo en ese caso', null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
 if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL SE HA REGISTRADO COMO: ' + user.name, wm, null, [[`REGISTRAR MI EDAD`, usedPrefix + `edad`]], m)
-//user.name = text.slice(1).trim()
+user.name = text.slice(1).trim()
 }
 	
 if (command == 'nombre2' || command == 'name2') {
