@@ -75,7 +75,6 @@ const listMessage = {
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 user.age = text.slice(1).trim()	 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
-user.age = text.slice(1).trim()	 
 }
 	
 if (command == 'edad2' || command == 'age2') {
