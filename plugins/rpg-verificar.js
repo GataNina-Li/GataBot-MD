@@ -12,13 +12,13 @@ if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍�
 //let [_, nombre, edad] = text.match(/usedPrefix/)
   
 if (command == 'nombre' || command == 'name') {
-if (verificar.test(text) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU NOMBRE COMO ESTE EJEMPLO\n' + usedPrefix 'nombre ' + usedPrefix 'GataDios', 'Quiere registrar con su nombre de WhatsApp?\nUse el Botónde abajo en ese caso', null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
+if (verificar.test(text) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU NOMBRE COMO ESTE EJEMPLO\n' + usedPrefix + 'nombre ' + usedPrefix + 'GataDios', 'Quiere registrar con su nombre de WhatsApp?\nUse el Botónde abajo en ese caso', null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
 if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL SE HA REGISTRADO COMO: ' + user.name, wm, null, [[`REGISTRAR MI EDAD`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
 user.name = text.slice(1).trim()
 }
 	
 if (command == 'nombre2' || command == 'name2') {
-if (verificar.test(nombreWA) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU NOMBRE COMO ESTE EJEMPLO\n' + usedPrefix 'nombre2 ' + usedPrefix nombreWA, 'Quiere personalizar su nombre?\nUse el Botónde abajo en ese caso', null, [[`USAR CON WA`, usedPrefix + `nombre `]], m)
+if (verificar.test(nombreWA) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU NOMBRE COMO ESTE EJEMPLO\n' + usedPrefix + 'nombre2 ' + usedPrefix + nombreWA, 'Quiere personalizar su nombre?\nUse el Botónde abajo en ese caso', null, [[`USAR CON WA`, usedPrefix + `nombre `]], m)
 if (verificar.test(nombreWA) == true) return conn.sendButton(m.chat, 'ESCRIBA SU NOMBRE, EJEMPLO #nombre #GataDios', wm, null, [[`USAR EL DE WHA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
 user.name = nombreWA.slice(1).trim()
 }
@@ -77,7 +77,7 @@ user.age = text.slice(1).trim()
 if (command == 'edad2' || command == 'age2') {
 if (text.slice(1).trim() > usedPrefix + usedPrefix + '50'.slice(1).trim()) throw 'Que viejo (。-`ω´-)'
 if (text.slice(1).trim() < usedPrefix + usedPrefix + '10'.slice(1).trim()) throw '🚼  Basado, los bebes no saber escribir.✍️😳'
-if (verificar.test(text) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU EDAD COMO ESTE EJEMPLO\n' + usedPrefix 'edad2 ' + usedPrefix '35', wm, null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
+if (verificar.test(text) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU EDAD COMO ESTE EJEMPLO\n' + usedPrefix 'edad2 ' + usedPrefix + '35', wm, null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
 if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL SE HA REGISTRADO COMO: ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 user.age = text.slice(1).trim()
 }
