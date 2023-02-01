@@ -11,7 +11,7 @@ if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍�
 //if (!Reg.test(text)) return conn.sendMessage(m.chat, listMessage, m)
 //let [_, nombre, edad] = text.match(/usedPrefix/)
   
-if (command == 'nombre' || command == 'name') {
+if (command == 'verificar' || command == 'verify') {
 if (verificar.test(text) == false || !text) return conn.sendButton(m.chat, 'REGISTRE SU NOMBRE COMO ESTE EJEMPLO\n' + usedPrefix + 'nombre ' + usedPrefix + 'GataDios', 'Quiere registrar con su nombre de WhatsApp?\nUse el Botónde abajo en ese caso', null, [[`USAR CON WA`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
 if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL SE HA REGISTRADO COMO: ' + user.name, wm, null, [[`REGISTRAR MI EDAD`, usedPrefix + `nombre2 ` + usedPrefix + nombreWA]], m)
 user.name = text.slice(1).trim()
@@ -151,7 +151,7 @@ await m.reply(`${sn}`)
 handler.help = ['daftar', 'register'].map(v => v + ' <nama>.<umur>')
 handler.tags = ['xp']
 
-handler.command = ['verify', 'verificar', 'register', 'reg', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender']  ///^(verify|verificar|reg(ister)?)$/i
+handler.command = ['verify', 'verificar', 'register', 'reg', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender']  ///^(verify|verificar|reg(ister)?)$/i
 
 export default handler
 
