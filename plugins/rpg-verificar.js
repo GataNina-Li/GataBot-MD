@@ -92,11 +92,11 @@ rows: [
 }, {
 title: "🚺 FEMENINO",
 rows: [
-{title: "🚺 Mujer", rowId: usedPrefix + command + ' ' + usedPrefix + text += '🚺 Mujer'}]
+{title: "🚺 Mujer", rowId: usedPrefix + command + ' ' + usedPrefix + text }]
 }, {
 title: "👤 OCULTAR",
 rows: [
-{title: "👤 Ocultado", rowId: usedPrefix + command + ' ' + usedPrefix + text = '👤 Ocultado'}]},]
+{title: "👤 Ocultado", rowId: usedPrefix + command + ' ' + usedPrefix + text }]},]
 
 const listMessage = {
   text: `SELECCIONE SU SEXO BIOLÓGICO POR FAVOR\nNOMBRE: ${user.name}\nEDAD:${user.age}\n╰━━━━━━━━━━━━━━━━━━⬣`,
