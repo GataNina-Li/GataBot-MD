@@ -81,8 +81,8 @@ user.age = text.slice(1).trim()
 if (command == 'edad2' || command == 'age2') {
 if (verificar.test(text) == false || !text.slice(1) ) return conn.sendButton(m.chat, '*PERSONALICE SU EDAD PARA REGISTRAR, EJEMPLO:*\n' + usedPrefix + command + ' ' + usedPrefix + '35', '*Sabías que puede seleccionar su edad de una lista ?*\n_En ese caso use el Botón de abajo_', null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
 if (isNaN(text.slice(1))) throw '*INGRESE SOLO NÚMEROS*'
-if (text.slice(1) >= 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
-if (text.slice(1) <= 10) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
+if (text >= 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
+if (text <= 10) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 
 user.age = text.slice(1).trim()
 if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL SE HA REGISTRADO COMO: ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
