@@ -31,34 +31,34 @@ if (command == 'edad' || command == 'age') {
 const sections = [
 { title: "SELECCIONA TU EDAD!",
 rows: [ {title: "Edad Random", 
-rowId: usedPrefix + command + ' ' + usedPrefix + pickRandom(['30','29','28','27','26','25','24','23','22','21','20','19','18','17','16','15','14','13','12','11','10','31'])}]
+rowId: usedPrefix + command + ' ' + usedPrefix +  text + pickRandom(['30','29','28','27','26','25','24','23','22','21','20','19','18','17','16','15','14','13','12','11','10','31'])}]
 }, {
 title: "JOVEN",
 rows: [
 {title: "10 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '10'},
-{title: "11 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '11'},
-{title: "12 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '12'},
-{title: "13 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '13'},
-{title: "14 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '14'},
-{title: "15 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '15'},
-{title: "16 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '16'},
-{title: "17 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '17'}]
+{title: "11 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '11'},
+{title: "12 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '12'},
+{title: "13 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '13'},
+{title: "14 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '14'},
+{title: "15 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '15'},
+{title: "16 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '16'},
+{title: "17 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '17'}]
 }, {
 title: "ADULTO",
 rows: [
-{title: "18 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '18'},
-{title: "19 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '19'},
-{title: "20 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '20'},
-{title: "21 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '21'},
-{title: "22 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '22'},
-{title: "23 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '23'},
-{title: "24 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '24'},
-{title: "25 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '25'},
-{title: "26 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '26'},
-{title: "27 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '27'},
-{title: "28 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '28'},
-{title: "29 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '29'},
-{title: "30 Años", rowId: usedPrefix + command + ' ' + usedPrefix + '30'}]
+{title: "18 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '18'},
+{title: "19 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '19'},
+{title: "20 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '20'},
+{title: "21 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '21'},
+{title: "22 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '22'},
+{title: "23 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '23'},
+{title: "24 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '24'},
+{title: "25 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '25'},
+{title: "26 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '26'},
+{title: "27 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '27'},
+{title: "28 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '28'},
+{title: "29 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '29'},
+{title: "30 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '30'}]
 }, {
 title: "NO ESTÁ TÚ EDAD ?",
 rows: [
@@ -74,7 +74,7 @@ const listMessage = {
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 user.age = text.slice(1).trim()	 
-if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL HA REGISTRADO SU EDAD COMO: ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
+if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 user.age = text.slice(1).trim()	 
 }
 	
