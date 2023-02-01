@@ -72,7 +72,7 @@ const listMessage = {
   sections
 }
 
-await conn.sendMessage(m.chat, listMessage, m)
+if (!text) return conn.sendMessage(m.chat, listMessage, m)
 if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL HA REGISTRADO SU EDAD COMO: ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 user.age = text.slice(1).trim()	 
 }
