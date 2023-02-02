@@ -55,8 +55,8 @@ export async function handler(chatUpdate) {
             if (!user.registered) {
 		                    	 
 		    if (!('name' in user)) user.name = m.name
-                    if (!isNumber(user.age)) user.age = m.age
-		    if (!isNumber(user.genero)) user.genero = m.genero
+                    if (!isNumber(user.age)) user.age = -1
+		    if (!isNumber(user.genero)) user.genero = -1
                     if (!isNumber(user.anggur)) user.anggur = 0
                     if (!isNumber(user.apel)) user.apel = 0
                     if (!isNumber(user.bibitanggur)) user.bibitanggur = 0
@@ -487,6 +487,7 @@ export async function handler(chatUpdate) {
 		    afk: -1,
                     afkReason: '',
                     age: -1,
+		    genero: -1,
                     agility: 16,
                     anakanjing: 0,
                     anakcentaur: 0,
