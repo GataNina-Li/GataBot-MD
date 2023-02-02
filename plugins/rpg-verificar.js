@@ -29,12 +29,12 @@ if (verificar.test(text) == false) return conn.sendButton(m.chat, '*GENIAL!! SE 
 	
 if (command == 'edad' || command == 'age') {
 const sections = [
-{ title: "SELECCIONA TU EDAD!",
+{ title: "🌟 SELECCIONA TU EDAD!!",
 rows: [ {title: "♻️ Edad Random", rowId: usedPrefix + command + ' ' + usedPrefix +  text + pickRandom(['30','29','28','27','26','25','24','23','22','21','20','19','18','17','16','15','14','13','12','11','10','31'])}]
 }, {
 title: "🍃 JOVEN",
 rows: [
-{title: "10 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '10'},
+{title: "1️⃣0️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '10'},
 {title: "1️⃣1️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '11'},
 {title: "1️⃣2️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '12'},
 {title: "1️⃣3️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '13'},
@@ -64,9 +64,9 @@ rows: [
 {title: "🔢 Personalizar mí edad", rowId: usedPrefix + 'edad2'}]},]
 
 const listMessage = {
-  text: `*SELECCIONE SU EDAD POR FAVOR*\n\n*NOMBRE:* _${user.name}_\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹*`,
+  text: `*SELECCIONE SU EDAD POR FAVOR*\n\n*NOMBRE:* _${user.name}_\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹*`,
   footer: wm,
-  title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹*\n",
+  title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹*\n",
   buttonText: "🫵 SELECCIONAR EDAD 🫵 ",
   sections
 }
@@ -78,7 +78,7 @@ if (text.slice(1) > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1) < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 	
 user.age = text.slice(1).trim()	 
-if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años ' + `${user.name > 18 ? '(🍃 Joven)' : '(🌳 Adulto)'}`, wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
+if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
 if (command == 'edad2' || command == 'age2') {
@@ -88,36 +88,36 @@ if (text.slice(1) > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1) < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 
 user.age = text.slice(1).trim()
-if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años ' + `${user.name > 18 ? '(🍃 Joven)' : '(🌳 Adulto)'}`, wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
+if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 
 	
 if (command == 'genero' || command == 'género' || command == 'gender') {
 const sections = [
-{ title: "🚹 MASCULINO",
-title: "🚹 MASCULINO",
+{ title: "🌟 SELECCIONA TU GÉNERO!!",
+title: comienzo + " 🚹 MASCULINO " + fin,
 rows: [ 
-{title: "🚹 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text }]
+{title: "🚹 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' }]
 }, {
-title: "🚺 FEMENINO",
+title: comienzo + " 🚺 FEMENINO " + fin,
 rows: [
-{title: "🚺 Mujer", rowId: usedPrefix + command + ' ' + usedPrefix + text }]
+{title: "🚺 Mujer", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Mujer' }]
 }, {
-title: "👤 OCULTAR",
+title: comienzo + " 👤 OCULTAR " + fin,
 rows: [
-{title: "👤 Ocultado", rowId: usedPrefix + command + ' ' + usedPrefix + text }]},]
+{title: "👤 Ocultado", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Ocultado' }]},]
 
 const listMessage = {
-  text: `SELECCIONE SU SEXO BIOLÓGICO POR FAVOR\nNOMBRE: ${user.name}\nEDAD:${user.age}\n╰━━━━━━━━━━━━━━━━━━⬣`,
+  text: `*SELECCIONE SU GÉNERO POR FAVOR*\n\n*NOMBRE:* _${user.name}_\n*EDAD:* _${user.age}_\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹*`,
   footer: wm,
-  title: "╭━━━[ *𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊* ]━━━━⬣\n",
-  buttonText: "Pulsa Aqui!",
+  title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹*\n",
+  buttonText: "🧬 SELECCIONAR GÉNERO 🧬 ",
   sections
 }
 
-await conn.sendMessage(m.chat, listMessage, m)
+if (!text) return conn.sendMessage(m.chat, listMessage, m)
 user.genero = text.slice(1).trim()	 
-if (verificar.test(text) == true) return conn.sendButton(m.chat, 'GENIAL HA REGISTRADO SU SEXO BIOLÓGICO COMO: ' + user.genero + ' años', wm, null, [[`MENU`, usedPrefix + `menu`]], m)
+if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 user.genero = text.slice(1).trim()	 
 }
  
