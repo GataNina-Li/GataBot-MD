@@ -34,7 +34,7 @@ rows: [ {title: "♻️ Edad Random", rowId: usedPrefix + command + ' ' + usedPr
 }, {
 title: "🍃 JOVEN",
 rows: [
-{title: "1️⃣0️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '10'},
+{title: "10 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '10'},
 {title: "1️⃣1️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '11'},
 {title: "1️⃣2️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '12'},
 {title: "1️⃣3️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '13'},
@@ -64,9 +64,9 @@ rows: [
 {title: "🔢 Personalizar mí edad", rowId: usedPrefix + 'edad2'}]},]
 
 const listMessage = {
-  text: `*SELECCIONE SU EDAD POR FAVOR*\n\n*NOMBRE: ${user.name}*\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹*`,
+  text: `*SELECCIONE SU EDAD POR FAVOR*\n\n*NOMBRE:* _${user.name}_\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹*`,
   footer: wm,
-  title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹*\n\n",
+  title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹*\n",
   buttonText: "🫵 SELECCIONAR EDAD 🫵 ",
   sections
 }
