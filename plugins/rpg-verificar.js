@@ -119,7 +119,7 @@ if (!text) return conn.sendMessage(m.chat, listMessage, m)
 	
 user.genero = text.slice(1).trim()	 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años' + '\n' + '*GENERO:* ' + user.genero, wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)	 
-}continue
+}return true
 	
 user.regTime = + new Date
 user.registered = true
