@@ -12,7 +12,7 @@ if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍�
 //let [_, nombre, edad] = text.match(/usedPrefix/)
   
 if (command == 'verificar' || command == 'verify') {
-if (text.length >= 15) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m)
+if (text.length >= 25) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m)
 if (text.length <= 4) return conn.sendButton(m.chat, '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m) 
 if (verificar.test(text) == false || text.length <= 1) return conn.sendButton(m.chat, '*PERSONALICE SU NOMBRE PARA REGISTRAR, EJEMPLO:*\n' + usedPrefix + command + ' ' + usedPrefix + 'GataDios', '*También puede vincular su nombre de WhatsApp*\n_Usando el Botón de abajo_', null, [[`🛐 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m)
 user.name = text.slice(1).trim()
@@ -20,7 +20,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 	
 if (command == 'nombre2' || command == 'name2') {
-if (nombreWA.slice(1).trim() >= 20) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'verificar']], m)
+if (nombreWA.slice(1).trim() >= 25) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'verificar']], m)
 if (nombreWA.slice(1).trim() <= 4) return conn.sendButton(m.chat, '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'verificar']], m) 
 user.name = nombreWA.slice(1).trim()
 if (verificar.test(text) == false) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
@@ -30,45 +30,44 @@ if (verificar.test(text) == false) return conn.sendButton(m.chat, '*GENIAL!! SE 
 if (command == 'edad' || command == 'age') {
 const sections = [
 { title: "SELECCIONA TU EDAD!",
-rows: [ {title: "Edad Random", 
-rowId: usedPrefix + command + ' ' + usedPrefix +  text + pickRandom(['30','29','28','27','26','25','24','23','22','21','20','19','18','17','16','15','14','13','12','11','10','31'])}]
+rows: [ {title: "♻️ Edad Random", rowId: usedPrefix + command + ' ' + usedPrefix +  text + pickRandom(['30','29','28','27','26','25','24','23','22','21','20','19','18','17','16','15','14','13','12','11','10','31'])}]
 }, {
-title: "JOVEN",
+title: "🍃 JOVEN",
 rows: [
-{title: "10 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '10'},
-{title: "11 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '11'},
-{title: "12 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '12'},
-{title: "13 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '13'},
-{title: "14 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '14'},
-{title: "15 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '15'},
-{title: "16 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '16'},
-{title: "17 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '17'}]
+{title: "1️⃣0️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '10'},
+{title: "1️⃣1️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '11'},
+{title: "1️⃣2️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '12'},
+{title: "1️⃣3️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '13'},
+{title: "1️⃣4️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '14'},
+{title: "1️⃣5️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '15'},
+{title: "1️⃣6️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '16'},
+{title: "1️⃣7️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '17'}]
 }, {
-title: "ADULTO",
+title: "🌳 ADULTO",
 rows: [
-{title: "18 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '18'},
-{title: "19 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '19'},
-{title: "20 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '20'},
-{title: "21 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '21'},
-{title: "22 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '22'},
-{title: "23 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '23'},
-{title: "24 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '24'},
-{title: "25 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '25'},
-{title: "26 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '26'},
-{title: "27 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '27'},
-{title: "28 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '28'},
-{title: "29 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '29'},
-{title: "30 Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '30'}]
+{title: "1️⃣8️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '18'},
+{title: "1️⃣9️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '19'},
+{title: "2️⃣0️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '20'},
+{title: "2️⃣1️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '21'},
+{title: "2️⃣2️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '22'},
+{title: "2️⃣3️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '23'},
+{title: "2️⃣4️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '24'},
+{title: "2️⃣5️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '25'},
+{title: "2️⃣6️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '26'},
+{title: "2️⃣7️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '27'},
+{title: "2️⃣8️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '28'},
+{title: "2️⃣9️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '29'},
+{title: "3️⃣0️⃣ Años", rowId: usedPrefix + command + ' ' + usedPrefix + text + '30'}]
 }, {
-title: "NO ESTÁ TÚ EDAD ?",
+title: "🤔 NO ESTÁ TÚ EDAD ?",
 rows: [
-{title: "Personalizar mí edad", rowId: usedPrefix + 'edad2'}]},]
+{title: "🔢 Personalizar mí edad", rowId: usedPrefix + 'edad2'}]},]
 
 const listMessage = {
-  text: `SELECCIONE SU EDAD POR FAVOR\nNOMBRE: ${user.name}\n╰━━━━━━━━━━━━━━━━━━⬣`,
+  text: `*SELECCIONE SU EDAD POR FAVOR*\n\n*NOMBRE: ${user.name}*\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹*`,
   footer: wm,
-  title: "╭━━━[ *𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊* ]━━━━⬣\n",
-  buttonText: "Pulsa Aqui!",
+  title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹*\n\n",
+  buttonText: "🫵 SELECCIONAR EDAD 🫵 ",
   sections
 }
 
@@ -79,7 +78,7 @@ if (text.slice(1) > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1) < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 	
 user.age = text.slice(1).trim()	 
-if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
+if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años ' + user.name < 18 ? '(🍃 Joven)' : '(🌳 Adulto)', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
 if (command == 'edad2' || command == 'age2') {
@@ -89,7 +88,7 @@ if (text.slice(1) > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1) < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 
 user.age = text.slice(1).trim()
-if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
+if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años ' + user.name < 18 ? '(🍃 Joven)' : '(🌳 Adulto)', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 
 	
