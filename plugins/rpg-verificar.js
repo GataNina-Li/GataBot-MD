@@ -119,6 +119,7 @@ if (!text) return conn.sendMessage(m.chat, listMessage, m)
 user.genero = text.slice(1).trim()	 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años' + '\n' + '*GENERO:* ' + user.genero, wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)	 
 }
+return
  
   /*if (!name) throw '🐈 El nombre no puede esta vacio'
   if (!age) throw '🐈 La edad no puede esta vacia (Numeros)'
