@@ -98,7 +98,7 @@ text: `*╭─────────────────✤*\n*│* *${uca
 ┃✜ *${lenguajeGB['smsBanUsers']()}*
 ┃➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
 ╰━━━━━━━━━━━━━━━━⬣
-*» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}*
+*» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}* ${(conn.user.jid == global.conn.user.jid ? '' : `» SOY UN SUB BOT DEL: wa.me/${global.conn.user.jid.split`@`[0]}\n`) || ''}
 *» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
 footer: `*↓ TRUSTED LINK* ✅
 ${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
