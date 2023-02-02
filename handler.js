@@ -55,8 +55,8 @@ export async function handler(chatUpdate) {
             if (!user.registered) {
 		                    	 
 		    if (!('name' in user)) user.name = m.name
-                    if (!isNumber(user.age)) user.age = ''
-		    if (!isNumber(user.genero)) user.genero = ''
+                    if (!isNumber(user.age)) user.age = m.age
+		    if (!isNumber(user.genero)) user.genero = m.genero
                     if (!isNumber(user.anggur)) user.anggur = 0
                     if (!isNumber(user.apel)) user.apel = 0
                     if (!isNumber(user.bibitanggur)) user.bibitanggur = 0
