@@ -9,6 +9,10 @@ global.db.data.users[m.sender].money -= 400
 global.db.data.users[m.sender].limit -= 7
 global.db.data.users[m.sender].exp -= 250
 global.db.data.users[m.sender].joincount -= 3
+  
+global.db.data.users[m.sender].name = 0
+global.db.data.users[m.sender].age = 0
+global.db.data.users[m.sender].genero = 0
 user.registered = false
 m.reply(`${eg} 𝙐𝙎𝙏𝙀𝘿 𝙔𝘼 𝙉𝙊 𝙀𝙎𝙏𝘼 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊(𝘼)\n\n𝙔𝙊𝙐 𝘼𝙍𝙀 𝙉𝙊 𝙇𝙊𝙉𝙂𝙀𝙍 𝙍𝙀𝙂𝙄𝙎𝙏𝙀𝙍𝙀𝘿 😪`)
 }
