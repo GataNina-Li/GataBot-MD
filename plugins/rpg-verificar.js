@@ -138,7 +138,7 @@ global.db.data.users[m.sender].joincount += 3
 ┃ ${user.name} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *EDAD* 
-┃ ${user.age} Años
+┃ ${age} Años
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *GÉNERO BIOLÓGICO* 
 ┃ ${user.genero}
