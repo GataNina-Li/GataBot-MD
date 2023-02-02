@@ -79,7 +79,7 @@ if (text.slice(1) > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1) < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 	
 //age = parseInt(text.slice(1))
-user.age = text.slice(1) = user.age
+user.age = text.slice(1) 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
@@ -124,7 +124,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 
 if (command == 'finalizar' || command == 'end') {
-user.age = user.age
+user.age = text.slice(1)
 user.regTime = + new Date
 user.registered = true
 let sn = createHash('md5').update(m.sender).digest('hex')
@@ -140,6 +140,7 @@ global.db.data.users[m.sender].joincount += 3
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *EDAD* 
 ┃ ${user.age} Años
+${text.slice(1).trim()}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *GÉNERO BIOLÓGICO* 
 ┃ ${user.genero}
