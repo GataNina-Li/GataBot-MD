@@ -77,7 +77,7 @@ if (isNaN(text.slice(1))) throw '*INGRESE SOLO NÚMEROS*'
 if (text.slice(1) > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1) < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 	
-user.age = text.slice(1).trim()	 
+user.age = text.slice(1)	 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
@@ -87,7 +87,7 @@ if (isNaN(text.slice(1))) throw '*INGRESE SOLO NÚMEROS*'
 if (text.slice(1) > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1) < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 
-user.age = text.slice(1).trim()
+user.age = text.slice(1)
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 
@@ -118,8 +118,8 @@ const listMessage = {
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 user.genero = text.slice(1).trim()	 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + user.name + '\n' + '*EDAD:* ' + user.age + ' años' + '\n' + '*GENERO:* ' + user.genero, wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)	 
-}
-return
+
+
  
   /*if (!name) throw '🐈 El nombre no puede esta vacio'
   if (!age) throw '🐈 La edad no puede esta vacia (Numeros)'
@@ -157,7 +157,7 @@ global.db.data.users[m.sender].joincount += 3
 //let author = global.author
 await conn.sendButton(m.chat, caption, `𝙏𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀 𝙏𝙀 𝙎𝙀𝙍𝙑𝙄𝙍𝘼 𝙀𝙉 𝘾𝘼𝙎𝙊 𝙌𝙐𝙀 𝙌𝙐𝙄𝙀𝙍𝘼 𝘽𝙊𝙍𝙍𝘼𝙍 𝙎𝙐 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n${usedPrefix}unreg numero de serie\n${wm}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
 await m.reply(`${sn}`) 
-}
+}}
 handler.help = ['daftar', 'register'].map(v => v + ' <nama>.<umur>')
 handler.tags = ['xp']
 
