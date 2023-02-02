@@ -124,7 +124,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 
 if (command == 'finalizar' || command == 'end') {
-user.age = text.slice(1)
+text.slice(1) = user.age
 user.regTime = + new Date
 user.registered = true
 let sn = createHash('md5').update(m.sender).digest('hex')
