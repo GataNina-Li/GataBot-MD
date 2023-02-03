@@ -148,9 +148,9 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 if (command == 'finalizar' || command == 'end') {
 user.genero == -1 || undefined || 0 || null || '' ? 
 user.name = name
-user.age = age
+user.age = age 
 :
-user.name = nombre
+user.name = nombre 
 user.age = edad
 user.genero = genero
 global.db.data.users[m.sender].money += 400
