@@ -20,14 +20,14 @@ await conn.sendButton(m.chat, '😇 *CÓMO DESEA REGISTRARSE?*', '*REGISTRO RAPI
 }
 	
 if (command == 'reg1') {
-//if (!Reg.test(text)) throw `${mg}*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${nombreWA}.16\`\`\``
-//if (!name) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
-//if (!age) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
-//if (name.length >= 30) throw '*SU NOMBRE ES MUY LARGO*' 
-//if (name.length <= 2) throw '*SU NOMBRE ES MUY CORTO*' 
-//age = parseInt(age)
-//if (age > 100) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
-//if (age < 5) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'	
+if (!Reg.test(text)) throw `${mg}*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${nombreWA}.16\`\`\``
+if (!name) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
+if (!age) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
+if (name.length >= 30) throw '*SU NOMBRE ES MUY LARGO*' 
+if (name.length <= 2) throw '*SU NOMBRE ES MUY CORTO*' 
+age = parseInt(age)
+if (age > 100) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
+if (age < 5) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'	
 await conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + name + '\n' + '*EDAD:* ' + age + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	
 }
 		
@@ -189,7 +189,7 @@ let caption = `╭━━━[ *𝙑𝙀𝙍𝙄𝙁𝙄𝘾𝘼𝙍 | 𝙑𝙀�
 ╰━━━━━━━━━━━━━━━━━━⬣`.trim()}
 	
 await m.reply('```REGISTRANDO DATOS...```')   
-await conn.sendButton(m.chat, caption, `𝙏𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀 𝙏𝙀 𝙎𝙀𝙍𝙑𝙄𝙍𝘼 𝙀𝙉 𝘾𝘼𝙎𝙊 𝙌𝙐𝙀 𝙌𝙐𝙄𝙀𝙍𝘼 𝘽𝙊𝙍𝙍𝘼𝙍 𝙎𝙐 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n${usedPrefix}unreg numero de serie\n${wm}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
+await conn.sendButton(m.chat, wm, `𝙏𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀 𝙏𝙀 𝙎𝙀𝙍𝙑𝙄𝙍𝘼 𝙀𝙉 𝘾𝘼𝙎𝙊 𝙌𝙐𝙀 𝙌𝙐𝙄𝙀𝙍𝘼 𝘽𝙊𝙍𝙍𝘼𝙍 𝙎𝙐 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n${usedPrefix}unreg numero de serie\n${wm}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
 await m.reply(`${sn}`) 
 }}
 handler.command = ['verify', 'verificar', 'register', 'reg', 'reg1', 'reg2', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', 'finalizar', 'end']  ///^(verify|verificar|reg(ister)?)$/i
