@@ -5,7 +5,6 @@ let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 var nombre, edad, genero
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
-let [_, name, splitter, age] = new RegExp(text.slice(1)) //text.match(Reg) 
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
@@ -20,6 +19,7 @@ await conn.sendButton(m.chat, '😇 *CÓMO DESEA REGISTRARSE?*', '*REGISTRO RAPI
 }
 	
 if (command == 'reg1') {
+let [_, name, splitter, age] = text.match(Reg) 
 if (!Reg.test(text)) throw `${mg}*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${nombreWA}.16\`\`\``
 if (!name) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
 if (!age) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
