@@ -146,10 +146,10 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 
 if (command == 'finalizar' || command == 'end') {
-user.genero == -1 || undefined || 0 || null || '' ? 
+user.genero == -1 || undefined || 0 || null || '' return
 user.name = name
 user.age = age
-:
+!user.genero == -1 || undefined || 0 || null || '' return
 user.name = nombre 
 user.age = edad
 user.genero = genero
@@ -158,7 +158,7 @@ global.db.data.users[m.sender].limit += 7
 global.db.data.users[m.sender].exp += 250
 global.db.data.users[m.sender].joincount += 3
 	
-let caption = `${user.genero == -1 || undefined || 0 || null || '' ?      
+let caption = `${user.genero == -1 || undefined || 0 || null || '' ? 
 `╭━━━[ *𝙑𝙀𝙍𝙄𝙁𝙄𝘾𝘼𝙍 | 𝙑𝙀𝙍𝙄𝙁𝙔* ]━━━━⬣
 ┃ *NOMBRE* 
 ┃ ${user.name} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
