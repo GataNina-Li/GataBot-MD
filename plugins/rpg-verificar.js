@@ -1,5 +1,8 @@
 import { createHash } from 'crypto'
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
+global.nombre
+global.edad
+global.genero
 let handler = async function (m, { conn, text, usedPrefix, command }) {
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
@@ -12,9 +15,7 @@ if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍�
 //let [_, nombre, edad] = text.match(/usedPrefix/)
 //let [_, name, age, genero] = verificar.test(text)
 //let nombre, edad, genero
-global.nombre
-global.edad
-global.genero
+
 if (command == 'verificar' || command == 'verify') {
 if (text.length >= 25) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m)
 if (text.length <= 4) return conn.sendButton(m.chat, '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m) 
