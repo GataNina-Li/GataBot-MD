@@ -20,14 +20,14 @@ await conn.sendButton(m.chat, '😇 *CÓMO DESEA REGISTRARSE?*', '*REGISTRO RAPI
 }
 	
 if (command == 'reg1') {
-if (!Reg.test(text)) throw `${mg}*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${nombreWA}.16\`\`\``
-if (!name) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
-if (!age) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
-if (name.length >= 30) throw '*SU NOMBRE ES MUY LARGO*' 
-if (name.length <= 2) throw '*SU NOMBRE ES MUY CORTO*' 
-age = parseInt(age)
-if (age > 100) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
-if (age < 5) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'	
+//if (!Reg.test(text)) throw `${mg}*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${nombreWA}.16\`\`\``
+//if (!name) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
+//if (!age) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
+//if (name.length >= 30) throw '*SU NOMBRE ES MUY LARGO*' 
+//if (name.length <= 2) throw '*SU NOMBRE ES MUY CORTO*' 
+//age = parseInt(age)
+//if (age > 100) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
+//if (age < 5) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'	
 await conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + name + '\n' + '*EDAD:* ' + age + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	
 }
 		
