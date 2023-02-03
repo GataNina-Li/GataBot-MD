@@ -2,9 +2,9 @@
 
 import { createHash } from 'crypto'
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
+var nombre, edad, genero
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
-var nombre, edad, genero
 let [_, name, splitter, age] = text.match(Reg)
 
 function pickRandom(list) {
