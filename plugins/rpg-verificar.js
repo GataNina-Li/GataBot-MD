@@ -1,8 +1,6 @@
 //CÓDIGO CREADO POR GataNina-Li : https://github.com/GataNina-Li
 
 import { createHash } from 'crypto'
-let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
-
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
 var nombre, edad, genero
@@ -19,7 +17,8 @@ await conn.sendButton(m.chat, '😇 *CÓMO DESEA REGISTRARSE?*', '*REGISTRO RAPI
 }
 	
 if (command == 'reg1') {
-var [_, name, splitter, age] = text.match(Reg) 
+let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
+let [_, name, splitter, age] = text.match(Reg) 
 if (!Reg.test(text)) throw `${mg}*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${nombreWA}.16\`\`\``
 if (!name) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
 if (!age) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
