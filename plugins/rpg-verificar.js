@@ -5,7 +5,7 @@ let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 var nombre, edad, genero
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
-let [_, name, splitter, age] = text.match(Reg)
+//let [_, name, splitter, age] = text.match(Reg)
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
