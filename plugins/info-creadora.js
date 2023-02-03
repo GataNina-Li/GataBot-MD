@@ -88,7 +88,7 @@ const listMessage = {
       const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
         switch (type) {
           case 'nomor':
-          conn.reply(m.chat, "Nombre del bot : ${gt}", m, { contextInfo: { mentionedJid: [nowner] }})
+          conn.reply(m.chat, "Nombre del bot : GataBot-MD 🐈", m, { contextInfo: { mentionedJid: [nowner] }})
             break
             case 'bio':
           conn.sendHydrated(m.chat, teksbio, wm, ppown, "https://www.instagram.com/gata_dios", "Instagram",null, [null, null], m)
