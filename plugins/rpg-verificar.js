@@ -14,8 +14,9 @@ let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 
 if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊(𝘼)!!\n𝙎𝙄 𝙌𝙐𝙄𝙀𝙍𝙀 𝘼𝙉𝙐𝙇𝘼𝙍 𝙎𝙐 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}unreg numero de serie*\n\n𝙎𝙄 𝙉𝙊 𝙍𝙀𝘾𝙐𝙀𝙍𝘿𝘼 𝙎𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}myns*`
+
 if (command == 'verificar' || command == 'verify') {
-conn.sendButton(m.chat, '😇 *CÓMO DESEA REGISTRARSE?*', '*REGISTRO RAPIDO*\n- Desbloquear comandos que requieran registro\n\n*REGISTRO COMPLETO*\n- Desbloquear comandos que requieran registro\n-Recompensas por usar este tipo de registro\n- Premium Temporal Gratis\n\n' + wm, null, [[`📑 REGISTRO RÁPIDO`, usedPrefix + 'Reg1'], [`🗂️ REGISTRO COMPLETO`, usedPrefix + 'Reg2']], m) 
+await conn.sendButton(m.chat, '😇 *CÓMO DESEA REGISTRARSE?*', '*REGISTRO RAPIDO*\n- Desbloquear comandos que requieran registro\n\n*REGISTRO COMPLETO*\n- Desbloquear comandos que requieran registro\n-Recompensas por usar este tipo de registro\n- Premium Temporal Gratis\n\n' + wm, null, [[`📑 REGISTRO RÁPIDO`, usedPrefix + 'Reg1'], [`🗂️ REGISTRO COMPLETO`, usedPrefix + 'Reg2']], m) 
 }
 	
 if (command == 'reg1') {
@@ -146,7 +147,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 
 if (command == 'finalizar' || command == 'end') {
-if (user.genero == -1 || undefined || 0 || null || '') {
+/*if (user.genero == -1 || undefined || 0 || null || '') {
 user.name = name
 user.age = age
 }else{
@@ -156,7 +157,7 @@ user.genero = genero
 global.db.data.users[m.sender].money += 400
 global.db.data.users[m.sender].limit += 7
 global.db.data.users[m.sender].exp += 250
-global.db.data.users[m.sender].joincount += 3}
+global.db.data.users[m.sender].joincount += 3}*/
 	
 let caption = `${user.genero == -1 || undefined || 0 || null || '' ? 
 `╭━━━[ *𝙑𝙀𝙍𝙄𝙁𝙄𝘾𝘼𝙍 | 𝙑𝙀𝙍𝙄𝙁𝙔* ]━━━━⬣
