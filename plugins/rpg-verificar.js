@@ -152,7 +152,7 @@ user.registered = true
 let sn = createHash('md5').update(m.sender).digest('hex')
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
 
-if (user.genero == -1 || undefined || 0 || null || '') {
+if (user.genero == -1 || undefined || 0 || '') {
 user.name = name
 user.age = age
 let caption = `
