@@ -8,7 +8,7 @@ var nombre, edad, genero, registro, _registro
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
-let nombreWA = conn.getName(who)
+let nombreWA = conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 
@@ -47,8 +47,8 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 	
 if (command == 'nombre2' || command == 'name2') {
-if (nombreWA.slice(1).trim() <= 4) return conn.sendButton(m.chat, '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'reg2']], m) 
-if (nombreWA.slice(1).trim() >= 25) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'reg2']], m)
+if (nombreWA.slice(1).trim() <= 4) return conn.sendButton(m.chat, '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'reg2' + ' ' + usedPrefix + nombreWA]], m) 
+if (nombreWA.slice(1).trim() >= 25) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'reg2' + ' ' + usedPrefix + nombreWA]], m)
 //user.name = nombreWA.slice(1).trim()
 nombre = nombreWA.slice(1).trim()
 if (verificar.test(text) == false) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
