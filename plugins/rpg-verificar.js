@@ -4,11 +4,11 @@ import { createHash } from 'crypto'
 let nombre, edad, genero, registro, _registro
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
-//let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? m.sender : m.sender
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
-let nombreWA = await conn.getName(m.sender)
+let nombreWA = await conn.getName(who)
 let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 
