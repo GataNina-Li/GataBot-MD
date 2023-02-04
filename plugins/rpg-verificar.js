@@ -3,7 +3,7 @@
 import { createHash } from 'crypto'
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
-let nombre, edad, genero, registro, _registro, name, age
+let nombre, edad, genero, registro, _registro = ''
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
@@ -25,15 +25,15 @@ if (_registro['length'] >= 3 || !text) throw `${mg}*PARÁMETROS DEL REGISTRO:*\n
 if (!_registro[0]) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
 if (_registro[0].length >= 30) throw '*SU NOMBRE ES MUY LARGO*' 
 if (_registro[0].length <= 2) throw '*SU NOMBRE ES MUY CORTO*'
-name = _registro[0]
+nombre = _registro[0]
 	
 if (!_registro[1]) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
 if (isNaN(_registro[1])) throw '*LA EDAD DEBE DE SER SOLO NÚMEROS*'
 if (_registro[1] > 100) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (_registro[1] < 5) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
-age = parseInt(_registro[1])	
+edad = _registro[1] //parseInt(_registro[1])	
 	
-await conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + name + '\n' + '*EDAD:* ' + age + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	
+await conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	
 }
 		
 if (command == 'reg2') {
@@ -158,8 +158,8 @@ let sn = createHash('md5').update(m.sender).digest('hex')
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
 
 if (user.genero !== -1 || undefined || 0 || null || '') {
-user.name = name
-user.age = age
+user.name = nombre
+user.age = edad
 	
 }else{
 user.name = nombre 
