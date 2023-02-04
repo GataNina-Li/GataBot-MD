@@ -1,3 +1,4 @@
+import { generateWAMessageFromContent } from "@adiwajshing/baileys"
 import { smsg } from './lib/simple.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
@@ -50,11 +51,15 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.money)) user.money = 150
                 if (!isNumber(user.limit)) user.limit = 15 	       
                 if (!('registered' in user)) user.registered = false
+		if (!isNumber(user.registroR)) user.registroR = false
+		if (!isNumber(user.registroC)) user.registroC = false
+		    
                     
             if (!user.registered) {
 		                    	 
 		    if (!('name' in user)) user.name = m.name
                     if (!isNumber(user.age)) user.age = -1
+		    if (!isNumber(user.genero)) user.genero = -1
                     if (!isNumber(user.anggur)) user.anggur = 0
                     if (!isNumber(user.apel)) user.apel = 0
                     if (!isNumber(user.bibitanggur)) user.bibitanggur = 0
@@ -485,6 +490,7 @@ export async function handler(chatUpdate) {
 		    afk: -1,
                     afkReason: '',
                     age: -1,
+		    genero: -1,
                     agility: 16,
                     anakanjing: 0,
                     anakcentaur: 0,
@@ -806,6 +812,8 @@ export async function handler(chatUpdate) {
                     ramuanrubahlast: 0,
                     ramuanserigalalast: 0,
                     registered: false,
+		    registroR: false,
+		    registroC: false,
                     reglast: 0,
                     regTime: -1,
                     rendang: 0,
@@ -1423,7 +1431,7 @@ this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 console.error(e)
 }}
 
-global.dfail = (type, m, conn, usedPrefix) => {
+global.dfail = (type, m, conn) => {
 let msg = {
         rowner: lenguajeGB['smsRowner'](),
         owner: lenguajeGB['smsOwner'](),
@@ -1436,7 +1444,10 @@ let msg = {
         unreg: lenguajeGB['smsUnreg'](),
         restrict: lenguajeGB['smsRestrict'](),
 }[type]
-if (msg) return m.reply(msg) 
+//if (msg) return m.reply(msg)
+let tg = { quoted: m, userJid: conn.user.jid }
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centergatabot.gmail.com'].getRandom(), thumbnail: gataImg.getRandom(), sourceUrl: [md, yt, ig, paypal, fb].getRandom() }}}}, tg)
+if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
 let file = global.__filename(import.meta.url, true)

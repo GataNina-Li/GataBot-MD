@@ -142,5 +142,6 @@ handler.help = ["morse"].map(v => v + " <encode|decode>")
 handler.tags = ["tools"]
 
 handler.command = /^(morse|morce)/i
+handler.money = 40
 
 export default handler

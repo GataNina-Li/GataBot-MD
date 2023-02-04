@@ -63,6 +63,8 @@ global.APIs = { // API Prefix.
   'https://violetics.pw': 'beta'
 },
   
+global.Key360 = '964f-0c75-7afc'
+  
 global.APIKeys = { // APIKey Here
   //⊱ ━━━━━.⋅ 'https://website': 'apikey' ⋅.━━━━ ⊰
   'https://ariarestapii.herokuapp.com': 'aria',
@@ -84,13 +86,6 @@ global.APIKeys = { // APIKey Here
   'https://anabotofc.herokuapp.com/': 'AnaBot'
 }
 
-global.imagen1 = fs.readFileSync('./media/menus/Menu3.jpg')
-
-//⊱ ━━━━━.⋅ KEY ⋅.━━━━ ⊰
-
-//━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
-
-
 //⊱ ━━━━━.⋅ Sticker WM ⋅.━━━━ ⊰
 
 global.packname = 'A̳s̳a̳k̳u̳r̳a̳ ̳B̳O̳T̳💎'
@@ -102,22 +97,15 @@ global.vs = '1.4.5'
 global.vsJB = '2.0'
 
 global.gt = 'ᴀꜱᴀᴋᴜʀᴀ-ᴍᴀᴏ ʙᴏᴛ'
-global.gatabot = gt
-
 global.yt = 'https://youtube.com/@gatadios'
-global.youtube = yt
-
 global.yt2 = 'https://www.youtube.com/watch?v=Ko019wvu2Tc&t=71s'
-global.youtube2 = yt2
-
 global.ig = 'https://www.instagram.com/gata_dios'
-global.gatadiosig = ig
-
 global.md = 'https://github.com/GataNina-Li/GataBot-MD'
-global.gatabot = md
+global.fb = 'https://www.facebook.com/groups/872989990425789/'
 
-global.nna = 'https://chat.whatsapp.com/CdilCw6hRUD5gderMrJkLo' //UPDATE GATABOT
-global.nna2 = 'CdilCw6hRUD5gderMrJkLo'
+
+global.nna = 'https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3' //UPDATE GATABOT
+global.nna2 = 'DVhu9S9Zr7cBFFl26N61U3'
 
 global.nn = 'https://chat.whatsapp.com/KwoMppqeh4lH27rNM4qEbz' //Grupo 1
 
@@ -197,6 +185,25 @@ global.lolkeysapi = ['BrunoSobrino']
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 
+//⊱ ━━━━━.⋅ IMG ⋅.━━━━ ⊰
+
+global.imagen1 = fs.readFileSync('./media/menus/Menu3.jpg')
+global.imagen2 = fs.readFileSync('./media/menus/img1.jpg')
+global.imagen3 = fs.readFileSync('./media/menus/img2.jpg')
+global.imagen4 = fs.readFileSync('./media/menus/img3.jpg')
+global.imagen5 = fs.readFileSync('./media/menus/img4.jpg')
+global.imagen6 = fs.readFileSync('./media/menus/img5.jpg')
+global.imagen7 = fs.readFileSync('./media/menus/img6.jpg')
+global.imagen8 = fs.readFileSync('./media/menus/img7.jpg')
+global.imagen9 = fs.readFileSync('./media/menus/img8.jpg')
+global.imagen10 = fs.readFileSync('./media/menus/img9.jpg')
+global.imagen11 = fs.readFileSync('./media/menus/img10.jpg')
+global.imagen12 = fs.readFileSync('./media/menus/img11.jpg')
+global.imagen13 = fs.readFileSync('./media/menus/img12.jpg')
+
+//━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
+
+
 //━━━━━━━━━━━━━━ img ━━━━━━━━━
 
 global.img = 'https://i.imgur.com/IXlUwTW.jpg'
@@ -220,10 +227,13 @@ global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg'
 
 global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
 
-global.welgata = [ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig]
-global.redesMenu = [nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt2, nnnttt3, nnnttt4, md, ig, paypal, yt, asistencia]
-global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15]
+global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg'
+
+global.welgata = [ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb]
+global.redesMenu = [nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt2, nnnttt3, nnnttt4, md, ig, paypal, yt, asistencia, fb]
+global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17]
 global.gataVidMenu = ['./media/menus/Menuvid1.mp4', './media/menus/Menuvid2.mp4', './media/menus/Menuvid3.mp4']
+global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13]
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 

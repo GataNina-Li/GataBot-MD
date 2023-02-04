@@ -101,10 +101,10 @@ let menu = `╭┄〔 *${wm}* 〕┄⊱
 ∘ _${usedPrefix}clonarepo | gitclone *link*_
 ∘ _${usedPrefix}clima *país ciudad*_
 ∘ _${usedPrefix}consejo_
+∘ _${usedPrefix}frase_
+∘ _${usedPrefix}frase2_
 ∘ _${usedPrefix}morse codificar *texto*_
 ∘ _${usedPrefix}morse decodificar *morse*_
-∘ _${usedPrefix}fraseromantica_
-∘ _${usedPrefix}historia_
 `.trim()
 await conn.sendHydrated(m.chat, menu, wm, null, null, null, null, null, [
 ['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 💫', '.allmenu'],

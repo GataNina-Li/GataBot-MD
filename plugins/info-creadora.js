@@ -28,7 +28,17 @@ let teksbio = `
 *Wa.me/51980771033*
 
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *4* 💖🐈
-*Wa.me/15312081649*
+*Wa.me/51944156574*
+
+𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *5* 💖🐈
+*Wa.me/50368274385*
+
+𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *6* 💖🐈
+*Wa.me/50761803843*
+
+𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *7* 💖🐈
+*Wa.me/18134031777*
+
 
 *---------------------*
 *CENTER GATABOT*
@@ -74,11 +84,11 @@ const listMessage = {
 }
 
   try {
-    if (/(creator|owner)/i.test(command)) {
+    if (/(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)/i.test(command)) {
       const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
         switch (type) {
           case 'nomor':
-          conn.reply(m.chat, "Nombre del bot : GataBot-MD", m, { contextInfo: { mentionedJid: [nowner] }})
+          conn.reply(m.chat, "Nombre del bot : GataBot-MD 🐈", m, { contextInfo: { mentionedJid: [nowner] }})
             break
             case 'bio':
           conn.sendHydrated(m.chat, teksbio, wm, ppown, "https://www.instagram.com/gata_dios", "Instagram",null, [null, null], m)

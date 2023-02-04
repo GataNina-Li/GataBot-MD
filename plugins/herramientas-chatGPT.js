@@ -7,7 +7,7 @@ let tiores = await fetch(`https://api.lolhuman.xyz/api/openai?apikey=${lolkeysap
 let hasil = await tiores.json()
 m.reply(`${hasil.result}`.trim())
 } catch {
-throw `*[❗] 𝙀𝙍𝙍𝙊𝙍, 𝙑𝙐𝙀𝙇𝙑𝘼 𝘼𝙇 𝙄𝙉𝙏𝙀𝙉𝙏𝘼𝙍𝙇𝙊*`
+throw `*[❗] 𝙀𝙍𝙍𝙊𝙍, 𝙑𝙐𝙀𝙇𝙑𝘼 𝘼 𝙄𝙉𝙏𝙀𝙉𝙏𝘼𝙍𝙇𝙊*`
 }}
 handler.command = ['openai', 'chatgpt', 'ia', 'robot']
 export default handler
