@@ -8,7 +8,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
-let nombreWA = m.sender.split('@')[0] //conn.getName(m.sender)
+let nombreWA = await conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 
@@ -35,7 +35,7 @@ if (_registro[1] < 5) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 edad = _registro[1] //parseInt(_registro[1])	
 user.registroR = true
 	
-await conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	
+await conn.sendButton(m.chat, nombreWA + '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	
 }
 		
 if (command == 'nombre' || command == 'name') {
