@@ -36,7 +36,7 @@ if (_registro[1] < 10) throw fg + '*SU EDAD ES MUY MENOR, USE OTRA EDAD POR FAVO
 edad = _registro[1] //parseInt(_registro[1])	
 user.registroR = true
 	
-await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE:*\n*- - - - - - - - - - - - - -*\n\n*✤ NOMBRE:* ' + nombre + '\n' + '*✤ EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)	
+await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*✤ NOMBRE:* ' + nombre + '\n' + '*✤ EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)	
 }
 		
 if (command == 'nombre' || command == 'name') {
@@ -177,7 +177,7 @@ let caption1 = `╭━━━[ *𝙑𝙀𝙍𝙄𝙁𝙄𝘾𝘼𝙍 | 𝙑𝙀�
 ┃ ${user.name} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *EDAD* 
-┃ ${user.age} Años
+┃ ${user.age} Años 
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *GÉNERO BIOLÓGICO* 
 ┃ ${user.genero}
@@ -197,7 +197,7 @@ let caption2 = `
 ┃ ${user.name} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *EDAD* 
-┃ ${user.age} Años
+┃ ${user.age} Años || ${user.age > 18 ? '(Persona Adulta)' : '(Persona Joven)'}
 ╰━━━━━━━━━━━━━━━━━━⬣`.trim()
 
 user.regTime = + new Date
