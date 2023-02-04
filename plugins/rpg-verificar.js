@@ -22,7 +22,7 @@ let name, age
 registro = text.replace(/\s+/g, usedPrefix) 
 _registro = text.split(" ",2) 
 
-if (!registro || !usedPrefix || _registro['length'] !== 2) throw `${mg}*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt}.16\`\`\``
+if (!registro || !usedPrefix || _registro['length'] !== 2) throw `${mg}*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt}.20\`\`\``
 if (!_registro[0]) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
 if (_registro[0].length >= 30) throw '*SU NOMBRE ES MUY LARGO*' 
 if (_registro[0].length <= 2) throw '*SU NOMBRE ES MUY CORTO*'
