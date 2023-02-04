@@ -31,7 +31,7 @@ nombre = _registro[0].replace(/[0-9]+/g, "").trim()
 	
 if (!_registro[1]) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``
 if (isNaN(_registro[1])) throw '*LA EDAD DEBE DE SER SOLO NÚMEROS*'
-if (_registro[1] > 100) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
+if (_registro[1] > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (_registro[1] < 5) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 edad = _registro[1] //parseInt(_registro[1])	
 user.registroR = true
