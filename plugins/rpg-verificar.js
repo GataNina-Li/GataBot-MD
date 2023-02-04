@@ -8,7 +8,7 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
-let nombreWA = await '.' + conn.getName(m.sender)
+let nombreWA = await '.' + ' ' + conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 
@@ -22,11 +22,12 @@ if (command == 'reg1') {
 registro = text.replace(/\s+/g, usedPrefix) 
 _registro = text.split(" ",2) 
 
-if (_registro['length'] >= 3 || !text) throw `${mg}*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt}.20\`\`\``
+if (_registro['length'] >= 3 || !text) throw `${mg}*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt}.20\`\`\``
+if (!isNaN(_registro[1]))
 if (!_registro[0]) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
 if (_registro[0].length >= 30) throw '*SU NOMBRE ES MUY LARGO*' 
 if (_registro[0].length <= 2) throw '*SU NOMBRE ES MUY CORTO*'
-nombre = _registro[0]
+nombre = _registro[0].replace(/[0-9]+/g, "").slice(1).trim()
 	
 if (!_registro[1]) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
 if (isNaN(_registro[1])) throw '*LA EDAD DEBE DE SER SOLO NÚMEROS*'
@@ -43,14 +44,14 @@ if (verificar.test(text) == false || text.length <= 1) return conn.sendButton(m.
 if (text.length >= 25) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2' + ' ' + nombreWA]], m)
 if (text.length <= 4) return conn.sendButton(m.chat, '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2' + ' ' + nombreWA]], m) 
 
-nombre = text.slice(1).trim()
+nombre = text.slice(1).replace(/[0-9]+/g, "").slice(1).trim()
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
 }
 	
 if (command == 'nombre2' || command == 'name2') {
 if (nombreWA.slice(1).length < 4) return conn.sendButton(m.chat, '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'nombre']], m) 
 if (nombreWA.slice(1).length > 25) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'nombre']], m)
-nombre = nombreWA.slice(1).trim()	
+nombre = nombreWA.replace(/[0-9]+/g, "").slice(1).trim()	
 	
 if (verificar.test(text) == false) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
 }
