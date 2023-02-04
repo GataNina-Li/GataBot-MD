@@ -193,7 +193,7 @@ let caption1 = `╭━━━[ *𝙑𝙀𝙍𝙄𝙁𝙄𝘾𝘼𝙍 | 𝙑𝙀�
 ╰━━━━━━━━━━━━━━━━━━⬣`.trim()
 
 let caption2 = `
-\`\`\`VERIFICACIÓN\`\`\`
+🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
 *- - - - - - - - - - - - - - - - - - - - - - - - - - - -*
 
 😼 *REGISTRADO POR*
@@ -203,16 +203,16 @@ let caption2 = `
 ❱❱ ${user.registroC == true ? 'Registro Completo' : 'Registro Rápido'}
 
 ✅ *INSIGNIA DE VERIFICACIÓN*
-❱❱ *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
+❱❱  *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
 
 👤 *NOMBRE* 
 ❱❱ ${user.name + user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
 
 🔢 *EDAD* 
-❱❱ ${user.age} Años || ${user.age > 18 ? '(Persona Adulta)' : '(Persona Joven)'}
+❱❱ ${user.age} Años *||* ${user.age > 18 ? '(Persona Adulta)' : '(Persona Joven)'}
 
 🛅 *CÓDIGO DE REGISTRO*
-${sn}
+❱❱ ${sn}
 `.trim()
 
 await m.reply('```REGISTRANDO DATOS...```')
