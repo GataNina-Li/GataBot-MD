@@ -146,8 +146,9 @@ sections
 }
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
-genero = text.slice(1).trim()
 user.registroC = true
+genero = text.slice(1).trim()	
+	
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años' + '\n' + '*GENERO:* ' + genero, wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	 
 }
 	
