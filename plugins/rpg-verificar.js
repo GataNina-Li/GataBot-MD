@@ -1,9 +1,9 @@
 //CÓDIGO CREADO POR GataNina-Li : https://github.com/GataNina-Li
 
 import { createHash } from 'crypto'
-
-let handler = async function (m, { conn, text, usedPrefix, command }) {
 var nombre, edad, genero, registro, _registro, name, age
+let handler = async function (m, { conn, text, usedPrefix, command }) {
+
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
