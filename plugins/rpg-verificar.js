@@ -22,21 +22,21 @@ if (command == 'reg1') {
 registro = text.replace(/\s+/g, usedPrefix) 
 _registro = text.split(" ",2) 
 
-if (_registro['length'] >= 3 || !text) throw `${mg}*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt}.20\`\`\``
+if (_registro['length'] >= 3 || !text) throw `${mg}*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt} 20\`\`\``
 if (!isNaN(_registro[1]))
-if (!_registro[0]) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
+if (!_registro[0]) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre edad\`\`\``
 if (_registro[0].length >= 30) throw '*SU NOMBRE ES MUY LARGO*' 
 if (_registro[0].length <= 2) throw '*SU NOMBRE ES MUY CORTO*'
-nombre = _registro[0].replace(/[0-9]+/g, "").slice(1).trim()
+nombre = _registro[0].replace(/[0-9]+/g, "").trim()
 	
-if (!_registro[1]) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
+if (!_registro[1]) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre edad\`\`\``
 if (isNaN(_registro[1])) throw '*LA EDAD DEBE DE SER SOLO NÚMEROS*'
 if (_registro[1] > 100) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (_registro[1] < 5) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 edad = _registro[1] //parseInt(_registro[1])	
 user.registroR = true
 	
-await conn.sendButton(m.chat, nombreWA + '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	
+await conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	
 }
 		
 if (command == 'nombre' || command == 'name') {
