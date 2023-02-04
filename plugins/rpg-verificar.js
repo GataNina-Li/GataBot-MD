@@ -3,11 +3,12 @@
 import { createHash } from 'crypto'
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
 var nombre, edad, genero, registro, _registro 
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
-let nombreWA = conn.getName(m.sender)
+let nombreWA = conn.getName(who)
 let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 
@@ -46,8 +47,8 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 	
 if (command == 'nombre2' || command == 'name2') {
-if (nombreWA.slice(1).trim() <= 4) return conn.sendButton(m.chat, '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'reg1']], m) 
-if (nombreWA.slice(1).trim() >= 25) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'reg1']], m)
+if (nombreWA.slice(1).trim() <= 4) return conn.sendButton(m.chat, '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'reg2']], m) 
+if (nombreWA.slice(1).trim() >= 25) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + usedPrefix + 'GataDios' + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'reg2']], m)
 //user.name = nombreWA.slice(1).trim()
 nombre = nombreWA.slice(1).trim()
 if (verificar.test(text) == false) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
@@ -155,7 +156,6 @@ if (command == 'finalizar' || command == 'end') {
 user.regTime = + new Date
 user.registered = true
 let sn = createHash('md5').update(m.sender).digest('hex')
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
 
 if (user.genero !== -1 || undefined || 0 || null || '') {
 user.name = nombre
