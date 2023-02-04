@@ -207,7 +207,7 @@ let caption2 = `
 ❱❱  *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
 
 👤 *NOMBRE* 
-❱❱ ${user.name + user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
+❱❱ ${user.name}${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
 
 🔢 *EDAD* 
 ❱❱ ${user.age} Años *||* ${user.age > 18 ? '(Persona Adulta)' : '(Persona Joven)'}
