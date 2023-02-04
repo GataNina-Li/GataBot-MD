@@ -34,7 +34,7 @@ if (_registro[1] < 5) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 edad = _registro[1] //parseInt(_registro[1])	
 	
 await conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	
-return
+if (command == 'finalizar' || command == 'end') return
 user.name = nombre 
 user.age = edad
 user.regTime = + new Date
