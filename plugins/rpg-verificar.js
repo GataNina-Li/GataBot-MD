@@ -3,7 +3,8 @@
 import { createHash } from 'crypto'
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
-var nombre, edad, genero
+var nombre, edad, genero, registro, _registro
+
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
 let nombreWA = conn.getName(m.sender)
@@ -17,16 +18,22 @@ await conn.sendButton(m.chat, '😇 *CÓMO DESEA REGISTRARSE?*', '*REGISTRO RAPI
 }
 	
 if (command == 'reg1') {
-let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
-let [_, name, splitter, age] = text.match(Reg) 
-if (!Reg.test(text)) throw `${mg}*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${nombreWA}.16\`\`\``
-if (!name) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
+let name, age 
+registro = text.replace(/\s+/g, usedPrefix) 
+_registro = text.split(" ",2) 
+
+if (!registro || !usedPrefix || _registro['length'] !== 2) throw `${mg}*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${nombreWA}.16\`\`\``
+if (!_registro[0]) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
+if (_registro[0].length >= 30) throw '*SU NOMBRE ES MUY LARGO*' 
+if (_registro[0].length <= 2) throw '*SU NOMBRE ES MUY CORTO*'
+name = _registro[0]
+	
 if (!age) throw `*FALTA SU EDAD*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
-if (name.length >= 30) throw '*SU NOMBRE ES MUY LARGO*' 
-if (name.length <= 2) throw '*SU NOMBRE ES MUY CORTO*' 
-age = parseInt(age)
-if (age > 100) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
-if (age < 5) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'	
+if (isNaN(_registro[1])) throw '*LA EDAD DEBE DE SER SOLO NÚMEROS*'
+if (_registro[1] > 100) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
+if (_registro[1] < 5) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
+age = parseInt(_registro[1])	
+	
 await conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + name + '\n' + '*EDAD:* ' + age + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	
 }
 		
