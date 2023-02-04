@@ -23,10 +23,11 @@ registro = text.replace(/\s+/g, usedPrefix)
 _registro = text.split(" ",2) 
 
 if (_registro['length'] >= 3 || !text) return conn.sendButton(m.chat, mg + `*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt} 20\`\`\``, '```CONSEJO:```\n\n- Escriba "Nombre" + "espacio" + "edad"\n- Su nombre no debe de contener números\n- La edad no debe de contener Letras\n\n*Sabías que puede personalizar más su registro?*\n_Usando el Botón de abajo_', null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
+if (_registro['length'] >= 3) return conn.sendButton(m.chat, fg + '🙃 *ESTÁ INTENTANDO SEPRAR SU NOMBRE?*\n\n*ERROR:* ', '❌ *ERROR:* ' + `\`\`\`${usedPrefix + command} Super ${gt} 20\`\`\`\n` + '✅ *CORRECTO:* ' + `\`\`\`${usedPrefix + command} Super${gt}20\`\`\`\n` + '*Intentaremos unir tu Frase para el nombre y Completar edad\n_Sí tiene nombre y edad, use el Botón de abajo_', null, [[`AUTOCOMPLETAR MI REGISTRO`, usedPrefix + 'reg1' + ' ' + _registro.replace(/\s+/g, '').replace(/[0-9]+/gi, "") + ' ' + text.replace(/\s+/g, '').replace(/[a-z]+/gi, "")) ]], m)
 if (!_registro[0]) return conn.sendButton(m.chat, fg + `*FALTA SU NOMBRE, PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``, wm, null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
 if (_registro[0].length >= 30) throw fg + '*SU NOMBRE ES MUY LARGO, USE OTRO NOMBRE POR FAVOR*' 
-if (_registro[0].length <= 2) throw fg + '*SU NOMBRE ES MUY CORTO, USE OTRO NOMBRE POR FAVOR*'
-nombre = _registro[0].replace(/[0-9]+/g, "").trim()
+if (_registro[0].length <= 2) throw fg + '*SU NOMBRE ES MUY CORTO, USE OTRO NOMBRE POR FAVOR*'	
+nombre = _registro[0].replace(/[0-9]+/gi, "").trim()
 	
 if (!_registro[1]) return conn.sendButton(m.chat, fg + `*FALTA SU EDAD, PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``, wm, null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
 if (isNaN(_registro[1])) throw '*LA EDAD DEBE DE SER SOLO NÚMEROS*'
@@ -43,14 +44,14 @@ if (verificar.test(text) == false || text.length <= 1) return conn.sendButton(m.
 if (text.length >= 25) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2' + ' ' + nombreWA]], m)
 if (text.length <= 4) return conn.sendButton(m.chat, '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2' + ' ' + nombreWA]], m) 
 
-nombre = text.slice(1).replace(/[0-9]+/g, "").trim()
+nombre = text.slice(1).replace(/[0-9]+/gi, "").trim()
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
 }
 	
 if (command == 'nombre2' || command == 'name2') {
 if (nombreWA.slice(1).length < 4) return conn.sendButton(m.chat, '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'nombre']], m) 
 if (nombreWA.slice(1).length > 25) return conn.sendButton(m.chat, '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*Sabías que puede personalizar su nombre?*\n_En ese caso use el Botón de abajo_', null, [[`🛐 PERSONALIZAR REGISTRO`, usedPrefix + 'nombre']], m)
-nombre = nombreWA.replace(/[0-9]+/g, "").slice(1).trim()	
+nombre = nombreWA.replace(/[0-9]+/gi, "").slice(1).trim()	
 	
 if (verificar.test(text) == false) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
 }
