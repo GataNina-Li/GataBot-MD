@@ -23,14 +23,14 @@ registro = text.replace(/\s+/g, usedPrefix)
 _registro = text.split(" ",2) 
 
 if (!text) return conn.sendButton(m.chat, mg + `*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt} 20\`\`\``, '```CONSEJO:```\n\n- Escriba "Nombre" + "espacio" + "edad"\n- Su nombre no debe de contener números\n- La edad no debe de contener Letras\n\n*Sabías que puede personalizar más su registro?*\n_Usando el Botón de abajo_', null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
-if (_registro['length'] >= 3) return conn.sendButton(m.chat, fg + '🙃 *ESTÁ INTENTANDO SEPRAR SU NOMBRE?*\n\n*ERROR:* ', '❌ *ERROR:* ' + `\`\`\`${usedPrefix + command} Super ${gt} 20\`\`\`\n` + '✅ *CORRECTO:* ' + `\`\`\`${usedPrefix + command} Super${gt}20\`\`\`\n` + '*Intentaremos unir tu Frase para el nombre y Completar edad\n_Sí tiene nombre y edad, use el Botón de abajo_', null, [[`AUTOCOMPLETAR MI REGISTRO`, usedPrefix + 'reg1' + ' ' + _registro.replace(/\s+/g, '').replace(/[0-9]+/gi, "") + ' ' + _registro.replace(/\s+/g, '').replace(/[a-z]+/gi, "")]], m)
+if (_registro['length'] >= 3 || isNaN(_registro[1])) return conn.sendButton(m.chat, fg + '🙃 *ESTÁ INTENTANDO SEPRAR SU NOMBRE?*\n\n*ERROR:* ', '❌ *ERROR:* ' + `\`\`\`${usedPrefix + command} Super ${gt} 20\`\`\`\n` + '✅ *CORRECTO:* ' + `\`\`\`${usedPrefix + command} Super${gt}20\`\`\`\n` + '*Intentaremos unir tu Frase para el nombre y Completar edad\n_Sí tiene nombre y edad, use el Botón de abajo_', null, [[`AUTOCOMPLETAR MI REGISTRO`, usedPrefix + 'reg1' + ' ' + _registro.replace(/\s+/g, '').replace(/[0-9]+/gi, "") + ' ' + _registro.replace(/\s+/g, '').replace(/[a-z]+/gi, "")]], m)
 if (!_registro[0]) return conn.sendButton(m.chat, fg + `*FALTA SU NOMBRE, PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``, wm, null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
 if (_registro[0].length >= 30) throw fg + '*SU NOMBRE ES MUY LARGO, USE OTRO NOMBRE POR FAVOR*' 
 if (_registro[0].length <= 2) throw fg + '*SU NOMBRE ES MUY CORTO, USE OTRO NOMBRE POR FAVOR*'	
 nombre = _registro[0].replace(/[0-9]+/gi, "").trim()
 	
 if (!_registro[1]) return conn.sendButton(m.chat, fg + `*FALTA SU EDAD, PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``, wm, null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
-if (isNaN(_registro[1])) throw '*LA EDAD DEBE DE SER SOLO NÚMEROS*'
+//if (isNaN(_registro[1])) throw '*LA EDAD DEBE DE SER SOLO NÚMEROS*'
 if (_registro[1] > 50) throw fg + '*SU EDAD ES MUY MAYOR, USE OTRA EDAD POR FAVOR*' 
 if (_registro[1] < 10) throw fg + '*SU EDAD ES MUY MENOR, USE OTRA EDAD POR FAVOR*' 
 edad = _registro[1] //parseInt(_registro[1])	
