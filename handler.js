@@ -812,6 +812,8 @@ export async function handler(chatUpdate) {
                     ramuanrubahlast: 0,
                     ramuanserigalalast: 0,
                     registered: false,
+		    registroR: false,
+		    registroC: false,
                     reglast: 0,
                     regTime: -1,
                     rendang: 0,
