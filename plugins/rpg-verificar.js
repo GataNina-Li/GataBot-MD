@@ -1,14 +1,15 @@
 //CÓDIGO CREADO POR GataNina-Li : https://github.com/GataNina-Li
 
 import { createHash } from 'crypto'
-
-let handler = async function (m, { conn, text, usedPrefix, command }) {
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
 let nombre
 let edad
 let genero 
 let registro
 let _registro 
+
+let handler = async function (m, { conn, text, usedPrefix, command }) {
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
+
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
