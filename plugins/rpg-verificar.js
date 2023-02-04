@@ -204,7 +204,7 @@ let caption2 = `
 ❱❱ ${user.registroC == true ? 'Registro Completo' : 'Registro Rápido'}
 
 ✅ *INSIGNIA DE VERIFICACIÓN*
-❱❱  *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
+❱❱   *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
 
 👤 *NOMBRE* 
 ❱❱ ${user.name}${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
