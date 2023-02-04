@@ -3,7 +3,7 @@
 import { createHash } from 'crypto'
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
-var nombre, edad, genero, registro, _registro
+var nombre, edad, genero, registro, _registro, name, age
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
@@ -18,11 +18,10 @@ await conn.sendButton(m.chat, '😇 *CÓMO DESEA REGISTRARSE?*', '*REGISTRO RAPI
 }
 	
 if (command == 'reg1') {
-let name, age 
 registro = text.replace(/\s+/g, usedPrefix) 
 _registro = text.split(" ",2) 
 
-if (_registro['length'] >= 3 || !text) throw `${mg}*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt}.20\`\`\``
+if (registro == text.replace(/\s+/g, '')  || _registro['length'] >= 3 || !text) throw `${mg}*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre.edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt}.20\`\`\``
 if (!_registro[0]) throw `*FALTA SU NOMBRE*\n*PARÁMETROS DEL REGISTRO:* \`\`\`${usedPrefix + command} nombre.edad\`\`\``
 if (_registro[0].length >= 30) throw '*SU NOMBRE ES MUY LARGO*' 
 if (_registro[0].length <= 2) throw '*SU NOMBRE ES MUY CORTO*'
@@ -161,6 +160,7 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m
 if (user.genero == -1 || undefined || 0 || null || '') {
 user.name = name
 user.age = age
+	
 }else{
 user.name = nombre 
 user.age = edad
