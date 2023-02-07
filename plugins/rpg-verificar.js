@@ -170,7 +170,7 @@ let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)
 	
 let caption1 = `╭━━━[ *𝙑𝙀𝙍𝙄𝙁𝙄𝘾𝘼𝙍 | 𝙑𝙀𝙍𝙄𝙁𝙔* ]━━━━⬣
 ┃ *TIPO DE REGISTRO* 
-┃ ${user.registroC == true ? 'REGISTRO COMPLETO' : 'REGISTRO RAPIDO'}
+┃ ${user.registroC === true ? 'REGISTRO COMPLETO' : 'REGISTRO RAPIDO'}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *NOMBRE* 
 ┃ ${user.name} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
@@ -185,7 +185,8 @@ let caption1 = `╭━━━[ *𝙑𝙀𝙍𝙄𝙁𝙄𝘾𝘼𝙍 | 𝙑𝙀�
 ┃ *$250 XP*
 ┃ *$400 GATACOINS*
 ┃ *$7 DIAMANTES*
-╰━━━━━━━━━━━━━━━━━━⬣`.trim()
+╰━━━━━━━━━━━━━━━━━━⬣
+${user.registroC === true ? 'completo' : 'Rapido'}`.trim()
 
 await m.reply('🍄 ```VERIFICANDO DATOS...```')
 await conn.sendButton(m.chat, caption1, user.registroC === true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
