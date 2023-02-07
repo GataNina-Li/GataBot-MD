@@ -37,7 +37,7 @@ if (_registro[1] < 10) throw fg + `*SU EDAD ES MUY MENOR, USE OTRA EDAD POR FAVO
 edad = parseInt(_registro[1]) //_registro[1]	
 user.registroR = true
 	
-await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*✤ NOMBRE:* ' + nombre + '\n' + '*✤ EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)	
+await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*✤ NOMBRE:* ' + nombre + '\n' + '*✤ EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + '2finalizar']], m)	
 }
 		
 if (command == 'nombre' || command == 'name') {
@@ -152,11 +152,10 @@ if (!text) return conn.sendMessage(m.chat, listMessage, m)
 user.registroC = true
 genero = text.slice(1).trim()	
 	
-if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años' + '\n' + '*GENERO:* ' + genero, wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `finalizar`]], m)	 
+if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años' + '\n' + '*GENERO:* ' + genero, wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `1finalizar`]], m)	 
 }
 	
-if (command == 'finalizar' || command == 'end') {
-if (user.registroC === true) {
+if (command == '1finalizar' || command == '1end') {
 user.registroR = false
 user.name = nombre 
 user.age = edad
@@ -165,16 +164,9 @@ global.db.data.users[m.sender].money += 400
 global.db.data.users[m.sender].limit += 7
 global.db.data.users[m.sender].exp += 250
 global.db.data.users[m.sender].joincount += 3
-	
-}else{
-user.registroC = false
-user.name = nombre 
-user.age = edad 
-}
-	
 user.regTime = + new Date
 user.registered = true
-let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)	
+let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)
 	
 let caption1 = `╭━━━[ *𝙑𝙀𝙍𝙄𝙁𝙄𝘾𝘼𝙍 | 𝙑𝙀𝙍𝙄𝙁𝙔* ]━━━━⬣
 ┃ *TIPO DE REGISTRO* 
@@ -194,6 +186,20 @@ let caption1 = `╭━━━[ *𝙑𝙀𝙍𝙄𝙁𝙄𝘾𝘼𝙍 | 𝙑𝙀�
 ┃ *$400 GATACOINS*
 ┃ *$7 DIAMANTES*
 ╰━━━━━━━━━━━━━━━━━━⬣`.trim()
+
+await m.reply('🍄 ```VERIFICANDO DATOS...```')
+await conn.sendButton(m.chat, caption1, user.registroC === true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
+await m.reply(`${sn}`)
+}
+
+	
+if (command == '2finalizar' || command == '2end') {
+user.registroC = false
+user.name = nombre 
+user.age = edad 
+user.regTime = + new Date
+user.registered = true
+let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)
 
 let caption2 = `
 🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
@@ -221,10 +227,11 @@ ${user.registroC === true ? 'completo' : 'Rapido'}
 `.trim()
 
 await m.reply('🍄 ```VERIFICANDO DATOS...```')
-await conn.sendButton(m.chat, user.registroC === true ? caption1 : caption2, user.registroC === true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
-await m.reply(`${sn}`) 
-}}
-handler.command = ['verify', 'verificar', 'register', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', 'finalizar', 'end']  ///^(verify|verificar|reg(ister)?)$/i
+await conn.sendButton(m.chat, caption2, user.registroC === true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
+await m.reply(`${sn}`)
+}
+}
+handler.command = ['verify', 'verificar', 'register', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', '1finalizar', '1end', '2finalizar', '2end']  ///^(verify|verificar|reg(ister)?)$/i
 export default handler
 
 /*
