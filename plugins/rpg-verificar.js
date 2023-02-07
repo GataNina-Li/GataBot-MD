@@ -216,6 +216,8 @@ let caption2 = `
 
 🛅 *CÓDIGO DE REGISTRO*
 ❱❱ ${sn}
+
+${user.registroC == true ? 'completo' : 'Rapido'}
 `.trim()
 
 await m.reply('🍄 ```VERIFICANDO DATOS...```')
