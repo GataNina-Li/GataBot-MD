@@ -201,6 +201,10 @@ await m.reply('🍄 ```VERIFICANDO DATOS...```')
 await conn.sendButton(m.chat, caption, user.registroC === true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
 await m.reply(`${sn}`)
 	
+}}
+handler.command = ['verify', 'verificar', 'register', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', '1finalizar', '1end', '2finalizar', '2end']  ///^(verify|verificar|reg(ister)?)$/i
+export default handler
+	
 /*if (command == '1finalizar' || command == '1end') {
 //user.registroR = false
 global.db.data.users[m.sender]['registroC'] = true
@@ -282,9 +286,7 @@ await m.reply(`${sn}`)
 	
 	
 	
-}
-handler.command = ['verify', 'verificar', 'register', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', '1finalizar', '1end', '2finalizar', '2end']  ///^(verify|verificar|reg(ister)?)$/i
-export default handler
+
 
 /*
 import { createHash } from 'crypto'
