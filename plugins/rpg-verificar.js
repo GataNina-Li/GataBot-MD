@@ -157,7 +157,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 	
 if (command == '1finalizar' || command == '1end') {
 //user.registroR = false
-user.registroC = true
+global.db.data.users[m.sender]['registroC'] = true
 user.name = nombre 
 user.age = edad
 user.genero = genero
@@ -196,7 +196,7 @@ await m.reply(`${sn}`)
 
 	
 if (command == '2finalizar' || command == '2end') {
-user.registroR = true
+global.db.data.users[m.sender]['registroR'] = true
 //user.registroC = false
 user.name = nombre 
 user.age = edad 
