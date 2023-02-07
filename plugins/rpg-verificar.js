@@ -156,7 +156,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 	
 if (command == '1finalizar' || command == '1end') {
-user.registroR = false
+//user.registroR = false
 user.name = nombre 
 user.age = edad
 user.genero = genero
@@ -195,7 +195,7 @@ await m.reply(`${sn}`)
 
 	
 if (command == '2finalizar' || command == '2end') {
-user.registroC = false
+//user.registroC = false
 user.name = nombre 
 user.age = edad 
 user.regTime = + new Date
