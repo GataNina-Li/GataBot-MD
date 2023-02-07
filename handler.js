@@ -51,13 +51,13 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.money)) user.money = 150
                 if (!isNumber(user.limit)) user.limit = 15 	       
                 if (!('registered' in user)) user.registered = false
+		if (!isNumber(user.registroR)) user.registroR = false
+		if (!isNumber(user.registroC)) user.registroC = false
 		    
                     
             if (!user.registered) {
 		                    	 
 		    if (!('name' in user)) user.name = m.name
-		    if (!isNumber(user.registroR)) user.registroR = false
-		    if (!isNumber(user.registroC)) user.registroC = false
                     if (!isNumber(user.age)) user.age = -1
 		    if (!isNumber(user.genero)) user.genero = -1
                     if (!isNumber(user.anggur)) user.anggur = 0
@@ -903,7 +903,8 @@ export async function handler(chatUpdate) {
                 if (!('sBye' in chat)) chat.sBye = ''                    
                 if (!('sPromote' in chat)) chat.sPromote = ''                    
                 if (!('sDemote' in chat)) chat.sDemote = ''                    
-                if (!('delete' in chat)) chat.delete = true                    
+                if (!('delete' in chat))
+                    chat.delete = true                    
                 if (!('modohorny' in chat)) chat.modohorny = false                    
                 if (!('stickers' in chat)) chat.stickers = false                    
                 if (!('autosticker' in chat)) chat.autosticker = false                      
