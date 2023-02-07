@@ -168,6 +168,9 @@ global.db.data.users[m.sender].joincount += 3
 user.name = nombre 
 user.age = edad	
 }
+user.regTime = + new Date
+user.registered = true
+let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)
 	
 let caption = `
 🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
