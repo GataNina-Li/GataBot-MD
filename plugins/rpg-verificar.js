@@ -35,9 +35,9 @@ if (!_registro[1]) return conn.sendButton(m.chat, fg + `*FALTA SU EDAD, PARÁMET
 if (_registro[1] > 50) throw fg + `*SU EDAD ES MUY MAYOR, USE OTRA EDAD POR FAVOR*\n\n*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``
 if (_registro[1] < 10) throw fg + `*SU EDAD ES MUY MENOR, USE OTRA EDAD POR FAVOR*\n\n*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``
 edad = parseInt(_registro[1]) //_registro[1]	
-//user.registroR = true
+global.db.data.users[m.sender]['registroR'] = true
 	
-await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*✤ NOMBRE:* ' + nombre + '\n' + '*✤ EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + '2finalizar']], m)	
+await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*✤ NOMBRE:* ' + nombre + '\n' + '*✤ EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + '1finalizar']], m)	
 }
 		
 if (command == 'nombre' || command == 'name') {
@@ -149,13 +149,59 @@ sections
 }
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
-//user.registroC = true
+global.db.data.users[m.sender]['registroC'] = true
 genero = text.slice(1).trim()	
 	
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años' + '\n' + '*GENERO:* ' + genero, wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `1finalizar`]], m)	 
 }
 	
 if (command == '1finalizar' || command == '1end') {
+if (global.db.data.users[m.sender]['registroC'] == true) {
+user.name = nombre 
+user.age = edad
+user.genero = genero
+global.db.data.users[m.sender].money += 400
+global.db.data.users[m.sender].limit += 7
+global.db.data.users[m.sender].exp += 250
+global.db.data.users[m.sender].joincount += 3	
+}else{
+user.name = nombre 
+user.age = edad	
+}
+	
+let caption = `
+🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
+*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*
+
+😼 *REGISTRADO POR*
+❱❱ ${wm}
+
+📑 *TIPO DE REGISTRO* 
+❱❱ ${user.registroC === true ? 'Registro Completo' : 'Registro Rápido'}
+
+✅ *INSIGNIA DE VERIFICACIÓN*
+❱❱   *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
+
+👤 *NOMBRE* 
+❱❱ ${user.name}${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
+
+🔢 *EDAD* 
+❱❱ ${user.age} Años *||* ${user.age > 18 ? '(Persona Adulta)' : '(Persona Joven)'}
+
+${user.genero == 0 || null || -1 || undefined ? '' : `☘️ *GENERO*
+❱❱ ${user.genero == 'Ocultado' ? `${user.genero} 🗣️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : ''}`}
+
+🛅 *CÓDIGO DE REGISTRO*
+❱❱ ${sn}
+
+${user.registroC === true ? 'completo' : 'Rapido'}
+`.trim()
+
+await m.reply('🍄 ```VERIFICANDO DATOS...```')
+await conn.sendButton(m.chat, caption, user.registroC === true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
+await m.reply(`${sn}`)
+	
+/*if (command == '1finalizar' || command == '1end') {
 //user.registroR = false
 global.db.data.users[m.sender]['registroC'] = true
 user.name = nombre 
@@ -232,7 +278,10 @@ ${user.registroC === true ? 'completo' : 'Rapido'}
 await m.reply('🍄 ```VERIFICANDO DATOS...```')
 await conn.sendButton(m.chat, caption2, user.registroC === true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
 await m.reply(`${sn}`)
-}
+}*/
+	
+	
+	
 }
 handler.command = ['verify', 'verificar', 'register', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', '1finalizar', '1end', '2finalizar', '2end']  ///^(verify|verificar|reg(ister)?)$/i
 export default handler
