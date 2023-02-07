@@ -35,7 +35,7 @@ if (!_registro[1]) return conn.sendButton(m.chat, fg + `*FALTA SU EDAD, PARÁMET
 if (_registro[1] > 50) throw fg + `*SU EDAD ES MUY MAYOR, USE OTRA EDAD POR FAVOR*\n\n*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``
 if (_registro[1] < 10) throw fg + `*SU EDAD ES MUY MENOR, USE OTRA EDAD POR FAVOR*\n\n*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``
 edad = parseInt(_registro[1]) //_registro[1]	
-user.registroR = true
+//user.registroR = true
 	
 await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*✤ NOMBRE:* ' + nombre + '\n' + '*✤ EDAD:* ' + edad + ' años', wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + '2finalizar']], m)	
 }
@@ -149,7 +149,7 @@ sections
 }
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
-user.registroC = true
+//user.registroC = true
 genero = text.slice(1).trim()	
 	
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años' + '\n' + '*GENERO:* ' + genero, wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `1finalizar`]], m)	 
@@ -157,6 +157,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 	
 if (command == '1finalizar' || command == '1end') {
 //user.registroR = false
+user.registroC = true
 user.name = nombre 
 user.age = edad
 user.genero = genero
@@ -195,6 +196,7 @@ await m.reply(`${sn}`)
 
 	
 if (command == '2finalizar' || command == '2end') {
+user.registroR = true
 //user.registroC = false
 user.name = nombre 
 user.age = edad 
