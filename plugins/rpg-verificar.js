@@ -156,7 +156,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 	
 if (command == 'finalizar' || command == 'end') {
-if (user.registroC == true) {
+if (user.registroC == true && user.registroR == false) {
 user.registroR = false
 user.name = nombre 
 user.age = edad
