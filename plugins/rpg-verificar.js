@@ -156,7 +156,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 	
 if (command == 'finalizar' || command == 'end') {
-if (user.registroC === true && user.registroR === false) {
+if (user.registroC === true) {
 user.registroR = false
 user.name = nombre 
 user.age = edad
@@ -217,11 +217,11 @@ let caption2 = `
 🛅 *CÓDIGO DE REGISTRO*
 ❱❱ ${sn}
 
-${user.registroC === true && user.registroR === false ? 'completo' : 'Rapido'}
+${user.registroC === true ? 'completo' : 'Rapido'}
 `.trim()
 
 await m.reply('🍄 ```VERIFICANDO DATOS...```')
-await conn.sendButton(m.chat, user.registroC === true && user.registroR === false ? caption1 : caption2, user.registroC == true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
+await conn.sendButton(m.chat, user.registroC === true ? caption1 : caption2, user.registroC === true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
 await m.reply(`${sn}`) 
 }}
 handler.command = ['verify', 'verificar', 'register', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', 'finalizar', 'end']  ///^(verify|verificar|reg(ister)?)$/i
