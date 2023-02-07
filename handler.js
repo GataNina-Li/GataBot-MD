@@ -51,13 +51,13 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.money)) user.money = 150
                 if (!isNumber(user.limit)) user.limit = 15 	       
                 if (!('registered' in user)) user.registered = false
-		if (!isNumber(user.registroR)) user.registroR = false
-		if (!isNumber(user.registroC)) user.registroC = false
 		    
                     
             if (!user.registered) {
 		                    	 
 		    if (!('name' in user)) user.name = m.name
+		    if (!isNumber(user.registroR)) user.registroR = false
+		    if (!isNumber(user.registroC)) user.registroC = false
                     if (!isNumber(user.age)) user.age = -1
 		    if (!isNumber(user.genero)) user.genero = -1
                     if (!isNumber(user.anggur)) user.anggur = 0
