@@ -103,7 +103,7 @@ sections
 }
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
-if (isNaN(text))) throw '*INGRESE SOLO NÚMEROS*'
+if (isNaN(text)) throw '*INGRESE SOLO NÚMEROS*'
 if (text.slice(1).trim() > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1).trim() < 10) throw '*DEMASIADO MENOR PARA SER REGISTRADO*' //.replace(/[^0-9.]+/gi,' ')
 	
