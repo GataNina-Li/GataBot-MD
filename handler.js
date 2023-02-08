@@ -52,16 +52,14 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.limit)) user.limit = 15 	       
                 if (!('registered' in user)) user.registered = false
 		if (!('registroR' in user)) user.registroR = false
-		if (!('registroC' in user)) user.registroC = false
-		//if (!isNumber(user.registroR)) user.registroR = false
-		//if (!isNumber(user.registroC)) user.registroC = false
-		    
+		if (!('registroC' in user)) user.registroC = false    
                     
             if (!user.registered) {
 		                    	 
 		    if (!('name' in user)) user.name = m.name
                     if (!isNumber(user.age)) user.age = -1
 		    if (!isNumber(user.genero)) user.genero = -1
+		    if (!isNumber(user.genero)) user.identidad = -1
                     if (!isNumber(user.anggur)) user.anggur = 0
                     if (!isNumber(user.apel)) user.apel = 0
                     if (!isNumber(user.bibitanggur)) user.bibitanggur = 0
@@ -493,6 +491,7 @@ export async function handler(chatUpdate) {
                     afkReason: '',
                     age: -1,
 		    genero: -1,
+		    identidad: -1,
                     agility: 16,
                     anakanjing: 0,
                     anakcentaur: 0,
