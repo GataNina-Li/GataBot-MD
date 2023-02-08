@@ -233,7 +233,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 	
 if (command == 'pasatiempo' || command == 'hobby') {
 var pasatiempo1, pasatiempo2, pasatiempo3, pasatiempo4, pasatiempo5 = ''
-var dos = ''
+let dos = ''
 
 const sections = [
 { title: "❇️ SELECCIONE HASTA 5 PASATIEMPOS!!",
