@@ -256,7 +256,7 @@ sections
 }
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
-let uno = pasatiempo1 = text.trim()
+let uno = pasatiempo1 += text.trim()
 if (pasatiempo1 == uno && pasatiempo2 == '' && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '') return
 pasatiempo = uno
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + uno , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
