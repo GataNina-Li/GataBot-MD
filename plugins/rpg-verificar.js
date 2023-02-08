@@ -115,9 +115,9 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 	
 if (command == 'edad2' || command == 'age2') {
 if (verificar.test(text) == false || !text.slice(1) ) return conn.sendButton(m.chat, '*PERSONALICE SU EDAD PARA REGISTRAR, EJEMPLO:*\n' + usedPrefix + command + ' ' + usedPrefix + '35', '*Sabías que puede seleccionar su edad de una lista ?*\n_En ese caso use el Botón de abajo_', null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
-if (isNaN(text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").trim())) throw '*INGRESE SOLO NÚMEROS*'
-if (text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").trim() > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
-if (text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").trim() < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
+if (isNaN(usedPrefix + text.slice(1))) throw '*INGRESE SOLO NÚMEROS*'
+if (usedPrefix + text.slice(1) > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
+if (usedPrefix + text.slice(1) < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 
 //user.age = text.slice(1) 
 edad = usedPrefix + text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").slice(1).trim()
