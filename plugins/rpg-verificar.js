@@ -2,6 +2,7 @@
 
 import { createHash } from 'crypto'
 let nombre, edad, genero, identidad, pasatiempo, registro, _registro
+var pasatiempo1, pasatiempo2, pasatiempo3, pasatiempo4, pasatiempo5 = ''
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? m.sender : m.sender
@@ -232,7 +233,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 	
 if (command == 'pasatiempo' || command == 'hobby') {
-var pasatiempo1, pasatiempo2, pasatiempo3, pasatiempo4, pasatiempo5 = ''
+//var pasatiempo1, pasatiempo2, pasatiempo3, pasatiempo4, pasatiempo5 = ''
 
 const sections = [
 { title: "❇️ SELECCIONE HASTA 5 PASATIEMPOS!!",
