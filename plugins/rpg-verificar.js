@@ -348,7 +348,7 @@ await conn.sendButton(m.chat, caption, user.registroC === true ? wm : 'Si elimin
 await m.reply(`${sn}`)
 	
 }}
-handler.command = ['verify', 'verificar', 'register', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', 'identidad', 'identity', 'finalizar']  ///^(verify|verificar|reg(ister)?)$/i
+handler.command = ['verify', 'verificar', 'register', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', 'identidad', 'pasatiempo', 'hobby', 'identity', 'finalizar']  ///^(verify|verificar|reg(ister)?)$/i
 export default handler
 	
 /*if (command == '1finalizar' || command == '1end') {
