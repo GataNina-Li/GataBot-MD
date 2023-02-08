@@ -228,14 +228,14 @@ sections
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 	
 identidad = text.slice(1).trim()
-if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años' + '\n' + '*IDENTIDAD DE GÉNERO:* ' + identidad, wm, null, [[`😸 REGISTRAR MIS PASATIEMPOS`, usedPrefix + 'pasatiempo']], m)
+if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años' + '\n' + '*IDENTIDAD DE GÉNERO:* ' + identidad, wm, null, [[`❇️ REGISTRAR MIS PASATIEMPOS`, usedPrefix + 'pasatiempo']], m)
 }
 	
 if (command == 'pasatiempo' || command == 'hobby') {
 var pasatiempo1, pasatiempo2, pasatiempo3, pasatiempo4, pasatiempo5 = ''
 
 const sections = [
-{ title: "🌱 SELECCIONE SUS PASATIEMPOS!!",
+{ title: "❇️ SELECCIONE HASTA 5 PASATIEMPOS!!",
 rows: [
 {title: "• Estudiar", rowId: usedPrefix + command + ' ' + text + 'Estudiar' },		
 {title: "• Leer", rowId: usedPrefix + command + ' ' + text + 'Leer' },	
@@ -248,10 +248,10 @@ rows: [
 {title: "Ocultado", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Ocultado' }]},]
 
 const listMessage = {
-text: `*SELECCIONE SU IDENTIDAD DE GÉNERO POR FAVOR*\n\n*NOMBRE:* _${nombre}_\n*EDAD:* _${edad}_\n*GÉNERO:* _${genero}_\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹*`,
+text: `*SELECCIONE SUS PASATIEMPOS POR FAVOR*\n\n*NOMBRE:* _${nombre}_\n*EDAD:* _${edad}_\n*GÉNERO:* _${genero}_\n*IDENTIDAD DE GÉNERO:* _${identidad}_\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹*`,
 footer: wm,
 title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹*\n",
-buttonText: "🌱 IDENTIDAD DE GÉNERO 🌱",
+buttonText: "❇️ IDENTIDAD DE GÉNERO ❇️",
 sections
 }
 
@@ -259,27 +259,27 @@ if (!text) return conn.sendMessage(m.chat, listMessage, m)
 let uno = pasatiempo1 = text.trim()
 if (pasatiempo1 == uno && pasatiempo2 == '' && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '') 
 pasatiempo = uno
-return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + uno , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
+return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + uno , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 
 let dos = uno + ', ' += pasatiempo2 = text.trim()
 if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '')
 pasatiempo = dos
-return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + dos , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
+return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + dos , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 	
 let tres = dos + ', ' += pasatiempo3 = text.trim()
 if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == tres && pasatiempo4 == '' && pasatiempo5 == '')
 pasatiempo = tres
-return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + tres , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
+return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + tres , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 	
 let cuatro = tres + ', ' += pasatiempo4 = text.trim()
 if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == tres && pasatiempo4 == cuatro && pasatiempo5 == '')
 pasatiempo = cuatro
-return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + cuatro , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
+return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + cuatro , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 	
 let cinco = cuatro + ', ' += pasatiempo5 = text.trim()
 if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == tres && pasatiempo4 == cuatro && pasatiempo5 == cinco)
 pasatiempo = cinco
-return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + cinco , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
+return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + cinco , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
 	
 if (command == 'finalizar' || command == 'end') {
@@ -288,6 +288,7 @@ user.name = nombre
 user.age = edad
 user.genero = genero
 user.identidad = identidad
+user.pasatiempo = pasatiempo
 global.db.data.users[m.sender].money += 400
 global.db.data.users[m.sender].limit += 7
 global.db.data.users[m.sender].exp += 250
@@ -322,7 +323,10 @@ ${user.registroC === true ? `\n☘️ *GENERO*
 ❱❱ ${user.genero == 'Ocultado' ? `${user.genero} 🗣️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : ''}
 
 🌱 *IDENTIDAD DE GÉNERO*
-❱❱ ${user.identidad}` : ''}
+❱❱ ${user.identidad}
+
+❇️ *PASATIEMPO(S)*
+❱❱ ${user.pasatiempo}` : ''}
 
 🛅 *CÓDIGO DE REGISTRO*
 ❱❱ ${sn}
