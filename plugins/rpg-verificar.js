@@ -103,12 +103,12 @@ sections
 }
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
-if (isNaN(text.replace(/[^0-9.]+/gi,' '))) throw '*INGRESE SOLO NÚMEROS*'
-if (text.replace(/[^0-9.]+/gi,' ') > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
-if (text.replace(/[^0-9.]+/gi,' ') < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*' //.replace(/[^0-9.]+/gi,' ')
+if (isNaN(text))) throw '*INGRESE SOLO NÚMEROS*'
+if (text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").trim() > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
+if (text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").trim() < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*' //.replace(/[^0-9.]+/gi,' ')
 	
 //user.age = text.slice(1) 
-edad = text.replace(/[^0-9.]+/gi,' ').trim()
+edad = text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").trim()
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
@@ -152,6 +152,35 @@ global.db.data.users[m.sender]['registroC'] = true
 genero = text.slice(1).trim()	
 	
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años' + '\n' + '*GENERO:* ' + genero, wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `1finalizar`]], m)	 
+}
+	
+if (command == 'identidad' || command == 'identity') {
+const sections = [
+{ title: "🌟 SELECCIONE SU IDENTIDAD DE GÉNERO!!",
+rows: [ 
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🏳️‍🌈 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' },
+{title: "🚹 Hombre", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Hombre' }
+]},]
+
+const listMessage = {
+text: `*SELECCIONE SU GÉNERO POR FAVOR*\n\n*NOMBRE:* _${nombre}_\n*EDAD:* _${edad}_\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹*`,
+footer: wm,
+title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹*\n",
+buttonText: "🧬 SELECCIONAR GÉNERO 🧬 ",
+sections
 }
 	
 if (command == '1finalizar' || command == '1end') {
