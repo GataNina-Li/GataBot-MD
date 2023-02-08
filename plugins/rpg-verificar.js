@@ -257,29 +257,29 @@ sections
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 let uno = pasatiempo1 = text.trim()
-if (pasatiempo1 == uno && pasatiempo2 == '' && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '') 
+if (pasatiempo1 == uno && pasatiempo2 == '' && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '') return
 pasatiempo = uno
-return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + uno , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
+conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + uno , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 
 let dos = uno + ', ' += pasatiempo2 = text.trim()
-if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '')
+if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '') return
 pasatiempo = dos
-return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + dos , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
+conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + dos , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 	
 let tres = dos + ', ' += pasatiempo3 = text.trim()
-if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == tres && pasatiempo4 == '' && pasatiempo5 == '')
+if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == tres && pasatiempo4 == '' && pasatiempo5 == '') return
 pasatiempo = tres
-return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + tres , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
+conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + tres , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 	
 let cuatro = tres + ', ' += pasatiempo4 = text.trim()
-if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == tres && pasatiempo4 == cuatro && pasatiempo5 == '')
+if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == tres && pasatiempo4 == cuatro && pasatiempo5 == '') return
 pasatiempo = cuatro
-return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + cuatro , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
+conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + cuatro , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 	
 let cinco = cuatro + ', ' += pasatiempo5 = text.trim()
-if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == tres && pasatiempo4 == cuatro && pasatiempo5 == cinco)
+if (pasatiempo1 == uno && pasatiempo2 == dos && pasatiempo3 == tres && pasatiempo4 == cuatro && pasatiempo5 == cinco) return
 pasatiempo = cinco
-return conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + cinco , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
+conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + cinco , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
 	
 if (command == 'finalizar' || command == 'end') {
