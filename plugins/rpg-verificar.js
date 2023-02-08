@@ -109,7 +109,7 @@ if (text.slice(1) > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1) < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 	
 //user.age = text.slice(1) 
-edad = text.slice(1).trim()
+edad = usedPrefix + text.slice(1).trim()
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
@@ -120,7 +120,7 @@ if (text.slice(1) > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1) < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 
 //user.age = text.slice(1) 
-edad = text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").slice(1).trim()
+edad = usedPrefix + text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").slice(1).trim()
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años', wm, null, [[`REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 
