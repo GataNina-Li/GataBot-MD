@@ -108,8 +108,8 @@ if (isNaN(text.slice(1))) throw '*INGRESE SOLO NÚMEROS*'
 if (text.slice(1) > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1) < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*'
 	
-//user.age = text.slice(1) 
-edad = usedPrefix + text.slice(1).trim()
+//user.age = text.slice(1) //.replace(/[^0-9.]+/gi,' ')
+edad = text.slice(1).trim()
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
