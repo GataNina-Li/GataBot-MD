@@ -232,7 +232,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE H
 }
 	
 if (command == 'pasatiempo' || command == 'hobby') {
-var pasatiempo1, pasatiempo2, pasatiempo3, pasatiempo4, pasatiempo5 = ''
+//var pasatiempo1, pasatiempo2, pasatiempo3, pasatiempo4, pasatiempo5 = ''
 
 const sections = [
 { title: "❇️ SELECCIONE HASTA 5 PASATIEMPOS!!",
@@ -257,11 +257,11 @@ sections
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 
-let uno = pasatiempo1 = text.trim()
-let dos = pasatiempo2 = text.trim()
-let tres = pasatiempo3 = text.trim()
-let cuatro = pasatiempo4 = text.trim()
-let cinco = pasatiempo5 = text.trim()
+let uno = user.pas1 = text.trim()
+let dos = user.pas2 = text.trim()
+let tres = user.pas3 = text.trim()
+let cuatro = user.pas4 = text.trim()
+let cinco = user.pas5 = text.trim()
 
 let _dos = uno + ', ' + dos
 let _tres = _dos + ', ' + tres
