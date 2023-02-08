@@ -231,7 +231,7 @@ identidad = text.slice(1).trim()
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años' + '\n' + '*IDENTIDAD DE GÉNERO:* ' + identidad, wm, null, [[`❇️ REGISTRAR MIS PASATIEMPOS`, usedPrefix + 'pasatiempo']], m)
 }
 	
-/*if (command == 'pasatiempo' || command == 'hobby') {
+if (command == 'pasatiempo' || command == 'hobby') {
 var pasatiempo1, pasatiempo2, pasatiempo3, pasatiempo4, pasatiempo5 = ''
 
 const sections = [
@@ -261,35 +261,35 @@ let uno = pasatiempo1 = text.trim()
 if (pasatiempo1 == uno && pasatiempo2 == '' && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '') return
 pasatiempo = uno
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + uno , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
-
-let dos = pasatiempo2 = text.trim()
+return 0
+let dos = uno + ', ' + pasatiempo2 = text.trim()
 //let dos = pasatiempo + ', ' += pasatiempo2 = text.trim()
-let _dos = uno + ', ' + dos
+let _dos = dos
 if (pasatiempo1 == uno && pasatiempo2 == _dos && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '') return
 pasatiempo = _dos
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + _dos , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
-
+return 0
 let tres = pasatiempo3 = text.trim()
 //let tres = dos + ', ' += pasatiempo3 = text.trim()
 let _tres = _dos + ', ' + tres
 if (pasatiempo1 == uno && pasatiempo2 == _dos && pasatiempo3 == _tres && pasatiempo4 == '' && pasatiempo5 == '') return
 pasatiempo = tres
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + _tres , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
-
+return 0
 let cuatro = pasatiempo4 = text.trim()
 //let cuatro = tres + ', ' += pasatiempo4 = text.trim()
 let _cuatro = _tres + ', ' + cuatro
 if (pasatiempo1 == uno && pasatiempo2 == _dos && pasatiempo3 == _tres && pasatiempo4 == _cuatro && pasatiempo5 == '') return
 pasatiempo = cuatro
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + _cuatro , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
-
+return 0
 let cinco = pasatiempo5 = text.trim()
 //let cinco = cuatro + ', ' += pasatiempo5 = text.trim()
 let _cinco = _cuatro + ', ' + cinco
 if (pasatiempo1 == uno && pasatiempo2 == _dos && pasatiempo3 == _tres && pasatiempo4 == _cuatro && pasatiempo5 == _cinco) return
 pasatiempo = cinco
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + _cinco , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
-}*/
+}
 	
 if (command == 'finalizar' || command == 'end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
@@ -350,90 +350,6 @@ await m.reply(`${sn}`)
 }}
 handler.command = ['verify', 'verificar', 'register', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', 'identidad', 'pasatiempo', 'hobby', 'identity', 'finalizar']  ///^(verify|verificar|reg(ister)?)$/i
 export default handler
-	
-/*if (command == '1finalizar' || command == '1end') {
-//user.registroR = false
-global.db.data.users[m.sender]['registroC'] = true
-user.name = nombre 
-user.age = edad
-user.genero = genero
-global.db.data.users[m.sender].money += 400
-global.db.data.users[m.sender].limit += 7
-global.db.data.users[m.sender].exp += 250
-global.db.data.users[m.sender].joincount += 3
-user.regTime = + new Date
-user.registered = true
-let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)
-	
-let caption1 = `╭━━━[ *𝙑𝙀𝙍𝙄𝙁𝙄𝘾𝘼𝙍 | 𝙑𝙀𝙍𝙄𝙁𝙔* ]━━━━⬣
-┃ *TIPO DE REGISTRO* 
-┃ ${user.registroC === true ? 'REGISTRO COMPLETO' : 'REGISTRO RAPIDO'}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ *NOMBRE* 
-┃ ${user.name} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ *EDAD* 
-┃ ${user.age} Años 
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ *GÉNERO BIOLÓGICO* 
-┃ ${user.genero}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ *BONO* 
-┃ *$250 XP*
-┃ *$400 GATACOINS*
-┃ *$7 DIAMANTES*
-╰━━━━━━━━━━━━━━━━━━⬣
-${user.registroC === true ? 'completo' : 'Rapido'}`.trim()
-
-await m.reply('🍄 ```VERIFICANDO DATOS...```')
-await conn.sendButton(m.chat, caption1, user.registroC === true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
-await m.reply(`${sn}`)
-}
-
-	
-if (command == '2finalizar' || command == '2end') {
-global.db.data.users[m.sender]['registroR'] = true
-//user.registroC = false
-user.name = nombre 
-user.age = edad 
-user.regTime = + new Date
-user.registered = true
-let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)
-
-let caption2 = `
-🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
-*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*
-
-😼 *REGISTRADO POR*
-❱❱ ${wm}
-
-📑 *TIPO DE REGISTRO* 
-❱❱ ${user.registroC === true ? 'Registro Completo' : 'Registro Rápido'}
-
-✅ *INSIGNIA DE VERIFICACIÓN*
-❱❱   *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
-
-👤 *NOMBRE* 
-❱❱ ${user.name}${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
-
-🔢 *EDAD* 
-❱❱ ${user.age} Años *||* ${user.age > 18 ? '(Persona Adulta)' : '(Persona Joven)'}
-
-🛅 *CÓDIGO DE REGISTRO*
-❱❱ ${sn}
-
-${user.registroC === true ? 'completo' : 'Rapido'}
-`.trim()
-
-await m.reply('🍄 ```VERIFICANDO DATOS...```')
-await conn.sendButton(m.chat, caption2, user.registroC === true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
-await m.reply(`${sn}`)
-}*/
-	
-	
-	
-
-
 /*
 import { createHash } from 'crypto'
 let handler = async function (m, { conn, text, usedPrefix }) {
