@@ -59,7 +59,8 @@ export async function handler(chatUpdate) {
 		    if (!('name' in user)) user.name = m.name
                     if (!isNumber(user.age)) user.age = -1
 		    if (!isNumber(user.genero)) user.genero = -1
-		    if (!isNumber(user.genero)) user.identidad = -1
+		    if (!isNumber(user.identidad)) user.identidad = -1
+		    if (!isNumber(user.pasatiempo)) user.pasatiempo = -1
                     if (!isNumber(user.anggur)) user.anggur = 0
                     if (!isNumber(user.apel)) user.apel = 0
                     if (!isNumber(user.bibitanggur)) user.bibitanggur = 0
@@ -492,6 +493,7 @@ export async function handler(chatUpdate) {
                     age: -1,
 		    genero: -1,
 		    identidad: -1,
+		    pasatiempo: -1,
                     agility: 16,
                     anakanjing: 0,
                     anakcentaur: 0,
