@@ -263,39 +263,32 @@ let tres = pasatiempo3 = text.trim()
 let cuatro = pasatiempo4 = text.trim()
 let cinco = pasatiempo5 = text.trim()
 
+let _dos = uno + ', ' + dos
+let _tres = _dos + ', ' + tres
+let _cuatro = _tres + ', ' + cuatro
+let _cinco = _cuatro + ', ' + cinco
+
 if (user.pasatiempo == 0 || null || -1 || undefined) {
-if (user.pasatiempo == uno) {
 user.pasatiempo = uno
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
-}}
-	
-let _dos = uno + ', ' + dos	
-if (user.pasatiempo == _dos) {
-//if (pasatiempo1 == uno && pasatiempo2 == _dos && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '') return
+
+}else if (user.pasatiempo == _dos){
 user.pasatiempo = _dos
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
-}
-	
-let _tres = _dos + ', ' + tres	
-if (user.pasatiempo == _tres) {
-//if (pasatiempo1 == uno && pasatiempo2 == _dos && pasatiempo3 == _tres && pasatiempo4 == '' && pasatiempo5 == '') return
+
+}else if (user.pasatiempo == _tres) {	
 user.pasatiempo = _tres
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
-}
-	
-let _cuatro = _tres + ', ' + cuatro
-if (user.pasatiempo == _cuatro) {
-//if (pasatiempo1 == uno && pasatiempo2 == _dos && pasatiempo3 == _tres && pasatiempo4 == _cuatro && pasatiempo5 == '') return
+
+}else if (user.pasatiempo == _cuatro) {
 user.pasatiempo = _cuatro
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
-}
-	
-let _cinco = _cuatro + ', ' + cinco
-if (user.pasatiempo == _cinco) {
-//if (pasatiempo1 == uno && pasatiempo2 == _dos && pasatiempo3 == _tres && pasatiempo4 == _cuatro && pasatiempo5 == _cinco) return
+
+}else if(user.pasatiempo == _cinco) {
 user.pasatiempo = _cinco
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
-}
+}else return 0
+
 }
 	
 if (command == 'finalizar' || command == 'end') {
