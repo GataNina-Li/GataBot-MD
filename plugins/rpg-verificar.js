@@ -103,12 +103,12 @@ sections
 }
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
-if (isNaN(text.replace(/[^0-9.]+/gi,' '))) throw '*INGRESE SOLO NÚMEROS*'
+//if (isNaN(text.replace(/[^0-9.]+/gi,' '))) throw '*INGRESE SOLO NÚMEROS*'
 if (text.replace(/[^0-9.]+/gi,' ') > 50) throw '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.replace(/[^0-9.]+/gi,' ') < 10 || text.slice(1) < 0) throw '*DEMASIADO MENOR PARA SER REGISTRADO*' //.replace(/[^0-9.]+/gi,' ')
 	
 //user.age = text.slice(1) 
-edad = text.trim()
+edad = text.replace(/[^0-9.]+/gi,' ').trim()
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
