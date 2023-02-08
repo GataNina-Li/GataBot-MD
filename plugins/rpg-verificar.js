@@ -257,19 +257,19 @@ sections
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 
-let uno = user.pas1 = text.trim()
-let dos = user.pas2 = text.trim()
-let tres = user.pas3 = text.trim()
-let cuatro = user.pas4 = text.trim()
-let cinco = user.pas5 = text.trim()
+user.pas1 = text.trim()
+user.pas2 = text.trim()
+user.pas3 = text.trim()
+user.pas4 = text.trim()
+user.pas5 = text.trim()
 
-let _dos = uno + ', ' + dos
-let _tres = _dos + ', ' + tres
-let _cuatro = _tres + ', ' + cuatro
-let _cinco = _cuatro + ', ' + cinco
+let _dos = user.pas1 + ', ' + user.pas2
+let _tres = _dos + ', ' + user.pas3
+let _cuatro = _tres + ', ' + user.pas4
+let _cinco = _cuatro + ', ' + user.pas5
 
-if (user.pasatiempo == dos) {
-user.pasatiempo = uno
+if (user.pasatiempo != user.pas1) {
+user.pasatiempo = user.pas1
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }else if (user.pasatiempo == _dos){
 user.pasatiempo = _dos
