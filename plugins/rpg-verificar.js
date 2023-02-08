@@ -259,7 +259,7 @@ sections
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 	
 let uno = pasatiempo1 = text.trim()
-dos = uno + ', ' += pasatiempo2 = text.trim()
+dos = pasatiempo1 + ', ' += pasatiempo2 = text.trim()
 
 if (pasatiempo1 == uno && pasatiempo2 == '' && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '') return
 pasatiempo = uno
