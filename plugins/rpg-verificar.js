@@ -190,8 +190,8 @@ let caption = `
 
 🔢 *EDAD* 
 ❱❱ ${user.age} Años *||* ${user.age > 18 ? '(Persona Adulta)' : '(Persona Joven)'}
-${user.genero === 0 || null || -1 || undefined ? '' : `\n☘️ *GENERO*
-❱❱ ${user.genero == 'Ocultado' ? `${user.genero} 🗣️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : ''}`}
+${user.registroC === true ? `\n☘️ *GENERO*
+❱❱ ${user.genero == 'Ocultado' ? `${user.genero} 🗣️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : ''}` : ''}
 
 🛅 *CÓDIGO DE REGISTRO*
 ❱❱ ${sn}
