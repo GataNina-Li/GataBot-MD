@@ -263,8 +263,8 @@ let tres = pasatiempo3 = text.trim()
 let cuatro = pasatiempo4 = text.trim()
 let cinco = pasatiempo5 = text.trim()
 
-if (user.pasatiempo !== uno) {
 if (user.pasatiempo == 0 || null || -1 || undefined) {
+if (user.pasatiempo == uno) {
 user.pasatiempo = uno
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }}
@@ -291,7 +291,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO
 }
 	
 let _cinco = _cuatro + ', ' + cinco
-if (user.pasatiempo == cinco) {
+if (user.pasatiempo == _cinco) {
 //if (pasatiempo1 == uno && pasatiempo2 == _dos && pasatiempo3 == _tres && pasatiempo4 == _cuatro && pasatiempo5 == _cinco) return
 user.pasatiempo = _cinco
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
