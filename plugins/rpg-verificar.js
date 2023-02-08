@@ -267,7 +267,7 @@ if (pasatiempo1 == uno && pasatiempo2 == '' && pasatiempo3 == '' && pasatiempo4 
 pasatiempo = uno
 if (uno == dos) {
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + uno , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)}
-	
+	 
 
 let _dos = uno + ', ' + dos
 if (pasatiempo1 == uno && pasatiempo2 == _dos && pasatiempo3 == '' && pasatiempo4 == '' && pasatiempo5 == '') return
