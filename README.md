@@ -244,6 +244,7 @@ En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-M
 [![elrebelde21](https://github.com/elrebelde21.png?size=100)](https://github.com/elrebelde21)
 [![ReyEndymion](https://github.com/ReyEndymion.png?size=100)](https://github.com/ReyEndymion)
 [![VIRUZZ-OFC](https://github.com/VIRUZOFC.png?size=100)](https://github.com/VIRUZOFC)
+[![AzamiWithLogic](https://github.com/AzamiWithLogic.png?size=100)](https://github.com/AzamiWithLogic)
  
 ### 🌟 AGRADECIMIENTOS
  
