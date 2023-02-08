@@ -154,7 +154,7 @@ genero = text.slice(1).trim()
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años' + '\n' + '*GENERO:* ' + genero, wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + `1finalizar`]], m)	 
 }
 	
-if (command == 'identidad' || command == 'identity') {
+/*if (command == 'identidad' || command == 'identity') {
 const sections = [
 { title: "🌟 SELECCIONE SU IDENTIDAD DE GÉNERO!!",
 rows: [ 
@@ -181,7 +181,7 @@ footer: wm,
 title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹*\n",
 buttonText: "🧬 SELECCIONAR GÉNERO 🧬 ",
 sections
-}
+}*/
 	
 if (command == '1finalizar' || command == '1end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
