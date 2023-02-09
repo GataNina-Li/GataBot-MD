@@ -231,7 +231,7 @@ identidad = text.slice(1).trim()
 if (verificar.test(text) == true) return conn.sendButton(m.chat, '*GENIAL!! SE HA REGISTRADO LO SIGUIENTE:*\n*NOMBRE:* ' + nombre + '\n' + '*EDAD:* ' + edad + ' años' + '\n' + '*IDENTIDAD DE GÉNERO:* ' + identidad, wm, null, [[`❇️ REGISTRAR MIS PASATIEMPOS`, usedPrefix + 'pasatiempo']], m)
 }
 	
-if (command == 'pasatiempo' || command == 'hobby') {
+/*if (command == 'pasatiempo' || command == 'hobby') {
 //var pasatiempo1, pasatiempo2, pasatiempo3, pasatiempo4, pasatiempo5 = ''
 
 const sections = [
@@ -297,7 +297,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO
 }else{
 m.reply('*SE HA ALCANZADO EL MÁXIMO DE PASATIEMPOS*')
 }
-}
+}*/
 	
 if (command == 'finalizar' || command == 'end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
