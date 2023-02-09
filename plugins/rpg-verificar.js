@@ -257,7 +257,7 @@ sections
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 
-user.pas1 = text.trim()
+
 user.pas2 = text.trim()
 user.pas3 = text.trim()
 user.pas4 = text.trim()
@@ -270,7 +270,8 @@ let _cinco = _cuatro + ', ' + user.pas5
 
 
 if (user.pasatiempo != user.pas1) {
-if (user.pas1 == text) throw '*NO PUEDE USAR EL MISMO PASATIEMPO*'	
+if (user.pas1 != text) throw '*NO PUEDE USAR EL MISMO PASATIEMPO*'
+user.pas1 = text.trim()	
 user.pasatiempo = user.pas1
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }else if (user.pasatiempo == _dos){
