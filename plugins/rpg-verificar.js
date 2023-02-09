@@ -274,7 +274,7 @@ user.pasatiempo = user.pas1
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 
 //}else if (user.pasatiempo == _dos){
-}else if (user.pas2 === 0) {
+}/*else if (user.pas2 === 0) {
 user.pasatiempo = _dos
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 
@@ -294,7 +294,7 @@ user.pasatiempo = _cinco
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }else{
 m.reply('*SE HA ALCANZADO EL MÁXIMO DE PASATIEMPOS*')
-}
+}*/
 }
 	
 if (command == 'finalizar' || command == 'end') {
