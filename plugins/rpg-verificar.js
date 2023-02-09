@@ -256,6 +256,8 @@ sections
 }
 
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
+
+if (user.pasatiempo == user.pas1) throw '*NO PUEDO SELECCIONAR EL MISMO PASATIEMPO*'
 user.pas1 = text.trim()	
 user.pas2 = text.trim()	
 user.pas3 = text.trim()
