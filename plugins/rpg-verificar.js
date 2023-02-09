@@ -270,12 +270,12 @@ let _cinco = _cuatro + ', ' + user.pas5
 
 
 //if (user.pasatiempo === 0 || null || -1 || undefined && user.pas1 != user.pasatiempo) {
-if (user.pasatiempo != 0) {
+if (user.pasatiempo == 0) {
 user.pasatiempo = user.pas1
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 
 //}else if (user.pasatiempo == _dos){
-}else if (user.pasatiempo == user.pas1) {
+}else if (user.pasatiempo != 0) {
 user.pasatiempo = _dos
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pasatiempo'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 
