@@ -253,7 +253,7 @@ sections
 }
 
 if (command == 'pasatiempo' || command == 'hobby') {
-if (pasatiempo == pas1 + ', ' + pas2) throw 'YA NO ES POSIBLE EDITAR ESTE PASATIEMPO'
+if (pasatiempo == pas1 + ', ' + pas2 || pas1 + ', ' + pas2 + ', ' + pas3 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5) throw 'YA NO ES POSIBLE EDITAR ESTE PASATIEMPO'
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 pas1 = text.trim()		
 pasatiempo = pas1 	
