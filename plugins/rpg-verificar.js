@@ -2,7 +2,7 @@
 
 import { createHash } from 'crypto'
 let nombre, edad, genero, identidad, pasatiempo, registro, _registro
-let pas1, pas2, pas3, pas4, pas5 
+let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0 
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? m.sender : m.sender
@@ -253,9 +253,9 @@ sections
 }
 
 if (command == 'pasatiempo' || command == 'hobby') {
+if (typeof pas1 === 'string' && typeof pas2 === 'string' || typeof pas2 === 'number') throw 'YA NO ES POSIBLE EDITAR ESTE PASATIEMPO'
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
-pas1 = text.trim()	
-	
+pas1 = text.trim()		
 pasatiempo = pas1 	
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas2'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }	
