@@ -267,7 +267,7 @@ pas5 = text.trim()
 //let _cinco = _cuatro + ', ' + user.pas5
 		
 
-if (pas1 != user.pasatiempo && user.pasatiempo === 0) {
+if (pas1 != user.pasatiempo && typeof user.pasatiempo === 'number') {
 user.pasatiempo = pas1	
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas2'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 
@@ -289,7 +289,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S
 	
 }else{
 m.reply("error")
-}
+}}
 	
 
 /*if (command == 'pas2') {
