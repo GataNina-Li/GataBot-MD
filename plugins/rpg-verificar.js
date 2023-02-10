@@ -2,7 +2,7 @@
 
 import { createHash } from 'crypto'
 let nombre, edad, genero, identidad, pasatiempo, registro, _registro
-const pas1, pas2, pas3, pas4, pas5 
+let pas1, pas2, pas3, pas4, pas5 
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? m.sender : m.sender
