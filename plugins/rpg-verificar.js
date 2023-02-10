@@ -261,7 +261,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S
 }	
 	
 if (command == 'pas2') {
-if (pasatiempo == pas1 + ', ' + pas2 || pas1 + ', ' + pas2 + ', ' + pas3 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5) throw 'YA NO ES POSIBLE EDITAR ESTE PASATIEMPO'
+if (pasatiempo == pas1 + ', ' + pas2 + ', ' + pas3 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5) throw 'YA NO ES POSIBLE EDITAR ESTE PASATIEMPO'
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 
 if (pas1 == text) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO, SELECCIONE OTRO POR FAVOR*' 
@@ -271,7 +271,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S
 }
 	
 if (command == 'pas3') {
-if (pasatiempo == pas1 + ', ' + pas2 || pas1 + ', ' + pas2 + ', ' + pas3 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5) throw 'YA NO ES POSIBLE EDITAR ESTE PASATIEMPO'
+if (pasatiempo == pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5) throw 'YA NO ES POSIBLE EDITAR ESTE PASATIEMPO'
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 
 if (pas2 == text || pas1 == text) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO, SELECCIONE OTRO POR FAVOR*'
@@ -281,7 +281,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S
 }
 	
 if (command == 'pas4') {
-if (pasatiempo == pas1 + ', ' + pas2 || pas1 + ', ' + pas2 + ', ' + pas3 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5) throw 'YA NO ES POSIBLE EDITAR ESTE PASATIEMPO'
+if (pasatiempo == pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5) throw 'YA NO ES POSIBLE EDITAR ESTE PASATIEMPO'
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 
 if (pas3 == text || pas2 == text || pas1 == text) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO, SELECCIONE OTRO POR FAVOR*'
@@ -291,7 +291,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S
 }
 	
 if (command == 'pas5') {
-if (pasatiempo == pas1 + ', ' + pas2 || pas1 + ', ' + pas2 + ', ' + pas3 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5) throw 'YA NO ES POSIBLE EDITAR ESTE PASATIEMPO'
+//if (pasatiempo == pas1 + ', ' + pas2 || pas1 + ', ' + pas2 + ', ' + pas3 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 || pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5) throw 'YA NO ES POSIBLE EDITAR ESTE PASATIEMPO'
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 
 if (pas4 == text || pas3 == text || pas2 == text || pas1 == text) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO, SELECCIONE OTRO POR FAVOR*'
