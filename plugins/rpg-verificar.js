@@ -264,7 +264,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S
 if (command == 'pas2') {
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 pas2 = text.trim()
-if (pas1 == pas2) return '*ESTE PASATIEMPO YA HA SIDO AGREGADO ANTES, SELECCIONE OTRO POR FAVOR*'
+if (pas1 == pas2) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO ANTES, SELECCIONE OTRO POR FAVOR*' 
 	
 pasatiempo = pas1 + ', ' + pas2
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas3'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
@@ -273,7 +273,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S
 if (command == 'pas3') {
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 pas3 = text.trim()
-if (pas1 || pas2 == pas3) return '*ESTE PASATIEMPO YA HA SIDO AGREGADO ANTES, SELECCIONE OTRO POR FAVOR*'
+if (pas1 || pas2 == pas3) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO ANTES, SELECCIONE OTRO POR FAVOR*'
 	
 pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas4'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
@@ -282,7 +282,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S
 if (command == 'pas4') {
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 pas4 = text.trim()
-if (pas1 || pas2 || pas3 == pas4) return '*ESTE PASATIEMPO YA HA SIDO AGREGADO ANTES, SELECCIONE OTRO POR FAVOR*'
+if (pas1 || pas2 || pas3 == pas4) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO ANTES, SELECCIONE OTRO POR FAVOR*'
 	
 pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas5'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
@@ -291,7 +291,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S
 if (command == 'pas5') {
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 pas4 = text.trim()
-if (pas1 || pas2 || pas3 || pas4 == pas5) return '*ESTE PASATIEMPO YA HA SIDO AGREGADO ANTES, SELECCIONE OTRO POR FAVOR*'
+if (pas1 || pas2 || pas3 || pas4 == pas5) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO ANTES, SELECCIONE OTRO POR FAVOR*'
 	
 pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
