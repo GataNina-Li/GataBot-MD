@@ -274,7 +274,7 @@ if (command == 'pas2') {
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 pas2 = text.trim()
 	
-user.pasatiempo += ', ' + pas2
+user.pasatiempo += pas1 + ', ' + pas2
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas3'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
 	
