@@ -19,10 +19,7 @@ let name = await conn.getName(m.sender)
 let ppown = await conn.profilePictureUrl(nomorown + '@s.whatsapp.net', 'image').catch(_ => hwaifu[1]) 
 let teksbio = `
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈
-*Wa.me/51993485767*
-
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *2* 💖🐈
-*Wa.me/573028555763*
+*Wa.me/51977535733*
 
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *3* 💖🐈
 *Wa.me/51980771033*
