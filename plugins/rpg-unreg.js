@@ -16,11 +16,7 @@ global.db.data.users[m.sender].name = 0
 global.db.data.users[m.sender].age = 0
 global.db.data.users[m.sender].genero = 0
 global.db.data.users[m.sender].pasatiempo = 0
-global.db.data.users[m.sender].pas1 = 0
-global.db.data.users[m.sender].pas2 = 0
-global.db.data.users[m.sender].pas3 = 0
-global.db.data.users[m.sender].pas4 = 0
-global.db.data.users[m.sender].pas5 = 0
+global.db.data.users[m.sender].premLimit = 1
 user.registered = false
 m.reply(`${eg} 𝙐𝙎𝙏𝙀𝘿 𝙔𝘼 𝙉𝙊 𝙀𝙎𝙏𝘼 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊(𝘼)\n\n𝙔𝙊𝙐 𝘼𝙍𝙀 𝙉𝙊 𝙇𝙊𝙉𝙂𝙀𝙍 𝙍𝙀𝙂𝙄𝙎𝙏𝙀𝙍𝙀𝘿 😪`)
 }
