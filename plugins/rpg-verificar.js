@@ -1,7 +1,7 @@
 //CÓDIGO CREADO POR GataNina-Li : https://github.com/GataNina-Li
 
 import { createHash } from 'crypto'
-let nombre = 0, edad = 0, genero = 0, identidad = 0, pasatiempo = 0, registro, _registro
+let nombre = 0, bio = 0, edad = 0, genero = 0, identidad = 0, pasatiempo = 0, registro, _registro
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0 
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
@@ -12,6 +12,8 @@ return list[Math.floor(Math.random() * list.length)]}
 let nombreWA = await usedPrefix + conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0] 
 let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
+let biografia = await conn.fetchStatus(who).catch(_ => 'undefined')
+bio = biografia.status?.toString() || 'No encontrada'
 
 if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊(𝘼)!!\n𝙎𝙄 𝙌𝙐𝙄𝙀𝙍𝙀 𝘼𝙉𝙐𝙇𝘼𝙍 𝙎𝙐 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}unreg numero de serie*\n\n𝙎𝙄 𝙉𝙊 𝙍𝙀𝘾𝙐𝙀𝙍𝘿𝘼 𝙎𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}myns*`
 
@@ -449,14 +451,12 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatie
 if (command == 'finalizar' || command == 'end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
 user.name = nombre 
+user.descripcion = bio
 user.age = edad
 user.genero = genero
 user.identidad = identidad
 user.pasatiempo = pasatiempo
-global.db.data.users[m.sender].money += 400
-global.db.data.users[m.sender].limit += 7
-global.db.data.users[m.sender].exp += 250
-global.db.data.users[m.sender].joincount += 3	
+user.premiumTime += user.premLimit === 1 ? 0 : 10800000 //3 horas
 }else{
 user.name = nombre 
 user.age = edad	
@@ -481,6 +481,9 @@ let caption = `
 👤 *NOMBRE* 
 ❱❱ ${user.name}${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
 
+👀 *DESCRIPCIÓN*
+${user.descripcion}
+
 🔢 *EDAD* 
 ❱❱ ${user.age} Años *||* ${user.age >= 18 ? '(Persona Adulta)' : '(Persona Joven)'}
 ${user.registroC === true ? `\n☘️ *GENERO*
@@ -491,12 +494,14 @@ ${user.registroC === true ? `\n☘️ *GENERO*
 
 ❇️ *PASATIEMPO(S)*
 ❱❱ ${user.pasatiempo}` : ''}
+${user.premLimit === 1 ? '' : `\n🎟️ *PREMIUM*
+❱❱ ${user.premLimit === 1 ? '' : '✅ *+3 HORAS*'}`} 
 
 🛅 *CÓDIGO DE REGISTRO*
 ❱❱ ${sn}`.trim()
 
 await m.reply('🍄 ```VERIFICANDO DATOS...```')
-await conn.sendButton(m.chat, caption, user.registroC === true ? wm : 'Si elimina su registro se eliminara los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
+await conn.sendButton(m.chat, caption, user.registroC === true ? 'Si elimina su registro se eliminará los datos e insignia y dejara de tener acceso a los comandos con registro\n\nTendrá Premium solo la premira vez que se registre si llega a volver a registrarse no tendrá premium a excepción si compra usando #pase premium\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}` : 'Si elimina su registro se eliminará los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
 await m.reply(`${sn}`)
 	
 }}
