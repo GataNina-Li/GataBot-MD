@@ -127,7 +127,7 @@ global.nnnttt2 = 'https://chat.whatsapp.com/F63pQpKCsWiF2zFXxhYnky' //Grupo 6 CO
 
 global.nnnttt3 = 'https://chat.whatsapp.com/CcJKHrxGBWAAH3PiBL07JS' //Grupo 7 COL
 
-global.nnnttt4 = 'https://chat.whatsapp.com/ImKvcl3Pstb8IMZk02v692' //Grupo 8 COL
+global.nnnttt4 = 'https://chat.whatsapp.com/CypX2VF70QZI09Nq0XUKPn' //Grupo 8 COL
 
 global.paypal = 'https://paypal.me/OficialGD'
 
