@@ -2,6 +2,7 @@
 
 import { createHash } from 'crypto'
 let nombre, edad, genero, identidad, pasatiempo, registro, _registro
+var pas1, pas2, pas3, pas4, pas5 = ''
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? m.sender : m.sender
@@ -254,7 +255,7 @@ sections
 
 if (command == 'pasatiempo' || command == 'hobby') {
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
-user.pas1 = text.trim()	
+pas1 = text.trim()	
 //user.pas2 = text.trim()	
 //user.pas3 = text.trim()
 //user.pas4 = text.trim()
@@ -265,15 +266,15 @@ user.pas1 = text.trim()
 //let _cuatro = _tres + ', ' + user.pas4
 //let _cinco = _cuatro + ', ' + user.pas5
 	
-user.pasatiempo = user.pas1
+user.pasatiempo = pas1
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas2'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
 
 if (command == 'pas2') {
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
-user.pas2 = text.trim()
+pas2 = text.trim()
 	
-user.pasatiempo += ', ' + user.pas2
+user.pasatiempo += ', ' + pas2
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n*PASATIEMPO(S):* ' + user.pasatiempo , 'Puede agregar hasta 5 pasatiempos consecutivos, o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas3'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
 	
