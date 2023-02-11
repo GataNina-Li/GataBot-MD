@@ -6,7 +6,7 @@ let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
 let d = new Date(new Date + 3600000)
-let locale = 'ec'
+let locale = 'es'
 let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
 let week = d.toLocaleDateString(locale, { weekday: 'long' })
 let date = d.toLocaleDateString(locale, {
@@ -466,7 +466,7 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatie
 if (command == 'finalizar' || command == 'end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
 
-var tiempo = user.premLimit === 1 ? tiempo = 0 : tiempo = 10800 //10800000 //3 horas
+var tiempo = user.premLimit === 1 ? tiempo = 0 : tiempo = 1080000 //10800 000 //3 horas
 var now = new Date() * 1
 if (now < user.premiumTime) user.premiumTime += tiempo
 else user.premiumTime = now + tiempo
