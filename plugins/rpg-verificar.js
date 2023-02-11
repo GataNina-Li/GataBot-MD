@@ -472,7 +472,7 @@ if (now < user.premiumTime) user.premiumTime += tiempo
 else user.premiumTime = now + tiempo
 user.premium = true
 
-fecha = `${week}, ${date} || `
+fecha = `${week}, ${date} *||* `
 hora = `${time}`
 user.tiempo = fecha + hora
 user.name = nombre 
