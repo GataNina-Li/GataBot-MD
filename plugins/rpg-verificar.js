@@ -450,13 +450,14 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatie
 	
 if (command == 'finalizar' || command == 'end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
+let prem = user.premLimit === 1 ? 0 : 10800000 //3 horas
 user.name = nombre 
 user.descripcion = bio
 user.age = edad
 user.genero = genero
 user.identidad = identidad
 user.pasatiempo = pasatiempo
-user.premiumTime += user.premLimit === 1 ? 0 : 10800000 //3 horas
+user.premiumTime += prem
 }else{
 user.name = nombre 
 user.age = edad	
