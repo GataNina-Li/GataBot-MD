@@ -1,10 +1,25 @@
 //CÓDIGO CREADO POR GataNina-Li : https://github.com/GataNina-Li
 
 import { createHash } from 'crypto'
-let nombre = 0, bio = 0, edad = 0, genero = 0, identidad = 0, pasatiempo = 0, registro, _registro
+let nombre = 0, bio = 0, edad = 0, genero = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0 
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
+let d = new Date(new Date + 3600000)
+let locale = 'es'
+let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
+let week = d.toLocaleDateString(locale, { weekday: 'long' })
+let date = d.toLocaleDateString(locale, {
+day: 'numeric',
+month: 'long',
+year: 'numeric'
+})
+let time = d.toLocaleTimeString(locale, {
+hour: 'numeric',
+minute: 'numeric',
+second: 'numeric'
+})
+
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? m.sender : m.sender
 
 function pickRandom(list) {
@@ -451,12 +466,15 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatie
 if (command == 'finalizar' || command == 'end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
 
-var tiempo = user.premLimit === 1 ? 0 : 10800000 //3 horas
+var tiempo, tiempoPrem = user.premLimit === 1 ? tiempo = 0 : tiempo = 10800000 //3 horas
 var now = new Date() * 1
 if (now < user.premiumTime) user.premiumTime += tiempo
 else user.premiumTime = now + tiempo
 user.premium = true
 
+fecha = `${week}, ${date} `
+hora = `${time}`
+user.tiempo = fecha + hora
 user.name = nombre 
 user.descripcion = bio
 user.age = edad
@@ -481,6 +499,9 @@ let caption = `
 📑 *TIPO DE REGISTRO* 
 ❱❱ ${user.registroC === true ? 'Registro Completo' : 'Registro Rápido'}
 
+⌛ *FECHA/HORA*
+❱❱ ${user.tiempo} 
+
 ✅ *INSIGNIA DE VERIFICACIÓN*
 ❱❱   *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
 
@@ -500,8 +521,8 @@ ${user.registroC === true ? `\n☘️ *GENERO*
 
 ❇️ *PASATIEMPO(S)*
 ❱❱ ${user.pasatiempo}` : ''}
-${user.premLimit === 1 ? '' : `\n🎟️ *PREMIUM* ${user.premiumTime > 0 ? '✅' : '❌'}
-❱❱ ${user.premLimit === 1 ? '' : '✅ *+3 HORAS*'}`} 
+${user.premLimit === 1 ? '' : `\n🎟️ *PREMIUM* 
+❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS`}`} 
 
 🛅 *CÓDIGO DE REGISTRO*
 ❱❱ ${sn}`.trim()
