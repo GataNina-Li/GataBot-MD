@@ -450,14 +450,19 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatie
 	
 if (command == 'finalizar' || command == 'end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
-let prem = user.premLimit === 1 ? 0 : 10800000 //3 horas
+
+var tiempo = user.premLimit === 1 ? 0 : 10800000 //3 horas
+var now = new Date() * 1
+if (now < user.premiumTime) user.premiumTime += tiempo
+else user.premiumTime = now + tiempo
+user.premium = true
+
 user.name = nombre 
 user.descripcion = bio
 user.age = edad
 user.genero = genero
 user.identidad = identidad
 user.pasatiempo = pasatiempo
-user.premiumTime += prem
 }else{
 user.name = nombre 
 user.age = edad	
@@ -495,7 +500,7 @@ ${user.registroC === true ? `\n☘️ *GENERO*
 
 ❇️ *PASATIEMPO(S)*
 ❱❱ ${user.pasatiempo}` : ''}
-${user.premLimit === 1 ? '' : `\n🎟️ *PREMIUM*
+${user.premLimit === 1 ? '' : `\n🎟️ *PREMIUM* ${user.premiumTime > 0 ? '✅' : '❌'}
 ❱❱ ${user.premLimit === 1 ? '' : '✅ *+3 HORAS*'}`} 
 
 🛅 *CÓDIGO DE REGISTRO*
