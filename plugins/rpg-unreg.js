@@ -14,8 +14,13 @@ user.genero = 0
 user.identidad = 0
 user.pasatiempo = 0
 //user.premLimit = 1
-user.tiempo  = 0
-user.descripcion  = 0
+user.tiempo = 0
+user.tiempo1 = 0
+user.tiempo2 = 0
+user.tiempo3 = 0
+user.tiempo4 = 0
+user.tiempo5 = 0
+user.descripcion = 0
 user.registered = false
   
 user.premium = false
