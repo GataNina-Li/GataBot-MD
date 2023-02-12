@@ -412,10 +412,11 @@ sections
 }
 
 if (command == 'pasatiempo' || command == 'hobby') {
-if (typeof pas1 === 'string') throw '*NO PUEDE CAMBIAR DE PASATIEMPO*'
+if (typeof user.pasatiempo1 === 'string') throw '*NO PUEDE CAMBIAR DE PASATIEMPO*'
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
-pas1 = text.trim()		
-pasatiempo = pas1 
+pas1 = text.trim()
+user.pasatiempo1 = pas1
+pasatiempo = user.pasatiempo1 
 global.db.data.users[m.sender]['registroC'] = true
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO UN PASATIEMPO:*\n' + pasatiempo , 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas2'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }	
@@ -424,41 +425,45 @@ if (command == 'pas2') {
 if (typeof pas2 === 'string') throw '*NO PUEDE CAMBIAR DE PASATIEMPO*'
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 
-if (pas1 == text) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO, SELECCIONE OTRO POR FAVOR*' 
-pas2 = text.trim()	
+if (user.pasatiempo2 == text) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO, SELECCIONE OTRO POR FAVOR*' 
 global.db.data.users[m.sender]['registroC'] = true
-pasatiempo = pas1 + ', ' + pas2
+pas2 = text.trim()	
+user.pasatiempo2 = pas2
+pasatiempo = user.pasatiempo1 + ', ' + user.pasatiempo2
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatiempo , 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas3'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
 	
 if (command == 'pas3') {
-if (typeof pas3 === 'string') throw '*NO PUEDE CAMBIAR DE PASATIEMPO*'
+if (typeof user.pasatiempo3 === 'string') throw '*NO PUEDE CAMBIAR DE PASATIEMPO*'
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 
 if (pas2 == text || pas1 == text) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO, SELECCIONE OTRO POR FAVOR*'
-pas3 = text.trim()
 global.db.data.users[m.sender]['registroC'] = true
-pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3
+pas3 = text.trim()
+user.pasatiempo3 = pas3
+pasatiempo = user.pasatiempo1 + ', ' + user.pasatiempo2 + ', ' + user.pasatiempo3
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatiempo , 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas4'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
 	
 if (command == 'pas4') {
-if (typeof pas4 === 'string') throw '*NO PUEDE CAMBIAR DE PASATIEMPO*'
+if (typeof user.pasatiempo4 === 'string') throw '*NO PUEDE CAMBIAR DE PASATIEMPO*'
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 
 if (pas3 == text || pas2 == text || pas1 == text) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO, SELECCIONE OTRO POR FAVOR*'
-pas4 = text.trim()	
 global.db.data.users[m.sender]['registroC'] = true
-pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4
+pas4 = text.trim()	
+user.pasatiempo4 = pas4
+pasatiempo = user.pasatiempo1 + ', ' + user.pasatiempo2 + ', ' + user.pasatiempo3 + ', ' + user.pasatiempo4
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatiempo , 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas5'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
 	
 if (command == 'pas5') {
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 if (pas4 == text || pas3 == text || pas2 == text || pas1 == text) throw '*ESTE PASATIEMPO YA HA SIDO AGREGADO, SELECCIONE OTRO POR FAVOR*'
-pas5 = text.trim()
 global.db.data.users[m.sender]['registroC'] = true	
-pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5
+pas5 = text.trim()
+user.pasatiempo5 = pas5
+pasatiempo = user.pasatiempo1 + ', ' + user.pasatiempo2 + ', ' + user.pasatiempo3 + ', ' + user.pasatiempo4 + ', ' + user.pasatiempo5
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatiempo , 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
 	
