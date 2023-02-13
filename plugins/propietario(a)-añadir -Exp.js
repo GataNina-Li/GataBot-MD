@@ -26,7 +26,7 @@ exp += pjk
 
 user[who].exp += xp
 
- conn.sendMessage(
+await conn.sendMessage(
     m.chat,
     { text: gata, mentions: [_user, m.sender] },
     { quoted: m }
