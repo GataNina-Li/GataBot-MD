@@ -7,7 +7,7 @@ if (m.isGroup) who = m.mentionedJid[0]
 else who = m.chat
 if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender);
   if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
-  if (global.db.data.users[_user] == undefined)
+  if (global.db.data.users[user] == undefined)
 
   let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
   if (!user in global.db.data.users)
