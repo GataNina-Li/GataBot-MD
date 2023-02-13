@@ -35,7 +35,7 @@ _user[who].exp += xp
     { quoted: m }
   );
   global.db.data.users[m.sender].lastrob = new Date() * 1;
-}}
+}
 
 handler.help = ["ddxp [@user]"];
 handler.tags = ["rpg"];
