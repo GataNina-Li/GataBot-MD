@@ -2,7 +2,7 @@ import MessageType from '@adiwajshing/baileys'
 
 let pajak = 0
 let handler = async (m, { conn, text, usedPrefix, command, groupMetadata }) => {
-let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
+let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
 
 let who
 if (m.isGroup) who = m.mentionedJid[0]
@@ -25,7 +25,23 @@ user[who].limit += dmt
 conn.sendHydrated(m.chat, `╭[ 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎 | 𝘿𝙄𝘼𝙈𝙊𝙉𝘿 💎 ]⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ @${_user.split("@s.whatsapp.net")[0]}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${dmt} Diamante(s)* 💎\n┃\n╰━━━━━━━━━━━━━━⬣`, wm, null, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
 ['💗 𝙈𝙚𝙣𝙪 𝘼𝙫𝙚𝙣𝙩𝙪𝙧𝙖 | 𝙍𝙋𝙂 💗', '.rpgmenu'],
 ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']], m)
-}
+
+user[who].limit += dmt
+
+await conn.sendMessage(
+    m.chat,
+    { text: sendHydrated, mentions: [_user, m.sender] },
+    { quoted: m }
+  );
+  conn.sendMessage(
+    _user,
+    {
+      text: `*❕@${m.sender.split("@")[0]} TE DIO ${xp} DE  EXP*`,
+      mentions: [m.sender],
+    },
+    { quoted: m }
+  );
+  }
 handler.help = ['adddi <@user>']
 handler.tags = ['xp']
 handler.command = ['añadirdiamantes', 'dardiamantes', 'dardiamante'] 
