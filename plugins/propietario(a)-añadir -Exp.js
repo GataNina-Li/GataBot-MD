@@ -5,7 +5,7 @@ let handler = async (m, { conn, text, usedPrefix, command, groupMetadata }) => {
 let who
 if (m.isGroup) who = m.mentionedJid[0]
 else who = m.chat
-if (global.db.data.users[ga] == undefined)
+if (global.db.data.users[user] == undefined)
 if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender);
 if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
 if (ga.startsWith(conn.user.jid.split`@`[0]))
@@ -17,9 +17,7 @@ let xp = parseInt(txt)
 let exp = xp
 let pjk = Math.ceil(xp * pajak)
 exp += pjk 
-  let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
-      let uuser = global.db.data.users[_user];
-  
+   
   let gata = `╭━[ 𝙀𝙓𝙋𝙀𝙍𝙄𝙀𝙉𝘾𝙄𝘼 | 𝙀𝙓𝙋 ⚡]━⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ @${_user.split("@s.whatsapp.net")[0]}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${xp} EXP* ⚡\n┃\n╰━━━━━━━━━━━━━━⬣`
 
 
@@ -36,8 +34,8 @@ exp += pjk
     },
     { quoted: m }
   );
-  let ga = global.db.data.users
-ga[who].exp += xp
+  let user = global.db.data.users
+user[who].exp += xp
 }
 
 handler.help = ["ddxp [@user]"];
