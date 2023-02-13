@@ -25,7 +25,7 @@ let xp = parseInt(txt)
 let exp = xp
 let pjk = Math.ceil(xp * pajak)
 exp += pjk 
-_user[who].exp += xp 
+
  conn.sendMessage(
     m.chat,
     { text: gata, mentions: [_user, m.sender] },
@@ -39,7 +39,8 @@ _user[who].exp += xp
     },
     { quoted: m }
   );
-  global.db.data.users[m.sender].lastrob = new Date() * 1;
+  let ga = global.db.data.users
+ga[who].exp += xp
 }
 
 handler.help = ["ddxp [@user]"];
