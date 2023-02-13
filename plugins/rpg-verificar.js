@@ -412,7 +412,7 @@ sections
 }
 
 if (command == 'pasatiempo' || command == 'hobby') {
-if (typeof pas1 === 'string') throw '*NO PUEDE CAMBIAR DE PASATIEMPO*'
+//if (typeof pas1 === 'string') throw '*NO PUEDE CAMBIAR DE PASATIEMPO*'
 if (!text) return conn.sendMessage(m.chat, listMessage, m)
 pas1 = text.trim()
 pasatiempo = pas1
@@ -525,8 +525,7 @@ ${user.registroC === true ? `\n☘️ *GENERO*
 ❱❱ ${user.identidad}
 
 ❇️ *PASATIEMPO(S)*
-❱❱ ${user.pasatiempo}` : ''}
-${user.premLimit === 1 ? '' : `\n🎟️ *PREMIUM* 
+❱❱ ${user.pasatiempo}` : ''}${user.premLimit === 1 ? '' : `\n\n🎟️ *PREMIUM* 
 ❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime} ${user.premiumTime - now}`}`} 
 
 🛅 *CÓDIGO DE REGISTRO*
