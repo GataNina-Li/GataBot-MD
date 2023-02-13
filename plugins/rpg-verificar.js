@@ -1,7 +1,7 @@
 //CÓDIGO CREADO POR GataNina-Li : https://github.com/GataNina-Li
 
 import { createHash } from 'crypto'
-let nombre = 0, bio = 0, edad = 0, genero = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora
+let nombre = 0, bio = 0, edad = 0, genero = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0 
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
@@ -467,7 +467,12 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatie
 if (command == 'finalizar' || command == 'end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
 
-var tiempo = user.premLimit === 1 ? tiempo = 0 : tiempo = 1080000 //10800 000 //3 horas
+if (user.premLimit === 1) {
+tiempo = 0
+}else{
+tiempo = 10800000	
+}
+//var tiempo = user.premLimit === 1 ? tiempo = 0 : tiempo = 1080000 //10800 000 //3 horas
 var now = new Date() * 1
 if (now < user.premiumTime) user.premiumTime += tiempo
 else user.premiumTime = now + tiempo
