@@ -1,3 +1,5 @@
+/* hecho por https://github.com/GataNina-Li/DIEGO-OFC*/
+
 import MessageType from '@adiwajshing/baileys'
 
 let pajak = 0
