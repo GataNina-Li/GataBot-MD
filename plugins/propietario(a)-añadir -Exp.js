@@ -1,7 +1,6 @@
 import MessageType from '@adiwajshing/baileys'
 let pajak = 0
 let handler = async (m, { conn, text, usedPrefix, command, groupMetadata }) => {
-
 let who
 if (m.isGroup) who = m.mentionedJid[0]
 else who = m.chat
