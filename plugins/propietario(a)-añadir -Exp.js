@@ -35,9 +35,7 @@ _user[who].exp += xp
     { quoted: m }
   );
   global.db.data.users[m.sender].lastrob = new Date() * 1;
-}
-catch {  
-m.reply(`*[❕] ERROR, POR FAVOR INTÉNTELO DE NUEVO, SEGURAMENTE EL USUARIO ESTÁ AFK*`)}}
+}}
 
 handler.help = ["ddxp [@user]"];
 handler.tags = ["rpg"];
