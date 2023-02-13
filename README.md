@@ -55,14 +55,10 @@
 </a>
 
 ### ✅ GATABOT OFICIAL
-<a href="http://wa.me/593993684821?text=.menu" target="blank"><img src="https://img.shields.io/badge/1️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/51993485767?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/51980771033?text=.menu" target="blank"><img src="https://img.shields.io/badge/3️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/51944156574?text=.menu" target="blank"><img src="https://img.shields.io/badge/4️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/50368274385?text=.menu" target="blank"><img src="https://img.shields.io/badge/5️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/50761803843?text=.menu" target="blank"><img src="https://img.shields.io/badge/6️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/18134031777?text=.menu" target="blank"><img src="https://img.shields.io/badge/7️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-</a>
+<a href="http://wa.me/51977535733?text=.menu" target="blank"><img src="https://img.shields.io/badge/1️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/51980771033?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/50494825831?text=.menu" target="blank"><img src="https://img.shields.io/badge/3️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+</a> 
 
 ### 💖 ```DONAR``` [`Aquí`](https://paypal.me/OficialGD)
 -----
@@ -247,6 +243,7 @@ En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-M
 [![elrebelde21](https://github.com/elrebelde21.png?size=100)](https://github.com/elrebelde21)
 [![ReyEndymion](https://github.com/ReyEndymion.png?size=100)](https://github.com/ReyEndymion)
 [![VIRUZZ-OFC](https://github.com/VIRUZOFC.png?size=100)](https://github.com/VIRUZOFC)
+[![AzamiWithLogic](https://github.com/AzamiWithLogic.png?size=100)](https://github.com/AzamiWithLogic)
  
 ### 🌟 AGRADECIMIENTOS
  

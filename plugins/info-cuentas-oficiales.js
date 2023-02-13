@@ -13,6 +13,9 @@ let str = `
 ✅ *YOUTUBE*
 *${yt}*
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+✅ *FACEBOOK*
+*${fb}*
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 *Si tienen dudas, sugerencias, o preguntas solo escriban por Instagram.*\n
 *If you have doubts, suggestions or questions just write on Instagram.*
 `.trim()

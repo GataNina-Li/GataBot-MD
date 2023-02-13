@@ -121,7 +121,7 @@ global.nnnttt2 = 'https://chat.whatsapp.com/F63pQpKCsWiF2zFXxhYnky' //Grupo 6 CO
 
 global.nnnttt3 = 'https://chat.whatsapp.com/CcJKHrxGBWAAH3PiBL07JS' //Grupo 7 COL
 
-global.nnnttt4 = 'https://chat.whatsapp.com/ImKvcl3Pstb8IMZk02v692' //Grupo 8 COL
+global.nnnttt4 = 'https://chat.whatsapp.com/CypX2VF70QZI09Nq0XUKPn' //Grupo 8 COL
 
 global.paypal = 'https://paypal.me/OficialGD'
 
@@ -228,10 +228,11 @@ global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg'
 global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
 
 global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg'
+global.img18 = 'https://i.imgur.com/9yLH4W4.jpeg'
 
 global.welgata = [ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb]
 global.redesMenu = [nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt2, nnnttt3, nnnttt4, md, ig, paypal, yt, asistencia, fb]
-global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17]
+global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18]
 global.gataVidMenu = ['./media/menus/Menuvid1.mp4', './media/menus/Menuvid2.mp4', './media/menus/Menuvid3.mp4']
 global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13]
 

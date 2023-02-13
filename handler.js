@@ -51,15 +51,25 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.money)) user.money = 150
                 if (!isNumber(user.limit)) user.limit = 15 	       
                 if (!('registered' in user)) user.registered = false
-		if (!isNumber(user.registroR)) user.registroR = false
-		if (!isNumber(user.registroC)) user.registroC = false
-		    
+		if (!('registroR' in user)) user.registroR = false
+		if (!('registroC' in user)) user.registroC = false    
                     
             if (!user.registered) {
 		                    	 
 		    if (!('name' in user)) user.name = m.name
-                    if (!isNumber(user.age)) user.age = -1
-		    if (!isNumber(user.genero)) user.genero = -1
+		    if (!isNumber(user.age)) user.age = 0
+                    if (!isNumber(user.descripcion)) user.descripcion = 0
+		    if (!isNumber(user.genero)) user.genero = 0
+		    if (!isNumber(user.identidad)) user.identidad = 0
+		    if (!isNumber(user.pasatiempo)) user.pasatiempo = 0
+		    if (!isNumber(user.pasatiempo1)) user.pasatiempo1 = 0
+		    if (!isNumber(user.pasatiempo2)) user.pasatiempo2 = 0
+		    if (!isNumber(user.pasatiempo3)) user.pasatiempo3 = 0
+		    if (!isNumber(user.pasatiempo4)) user.pasatiempo4 = 0
+		    if (!isNumber(user.pasatiempo5)) user.pasatiempo5 = 0
+		    if (!isNumber(user.tiempo)) user.tiempo = 0
+		    if (!isNumber(user.premLimit)) user.premLimit = 0
+		    
                     if (!isNumber(user.anggur)) user.anggur = 0
                     if (!isNumber(user.apel)) user.apel = 0
                     if (!isNumber(user.bibitanggur)) user.bibitanggur = 0
@@ -489,8 +499,17 @@ export async function handler(chatUpdate) {
 		    
 		    afk: -1,
                     afkReason: '',
-                    age: -1,
-		    genero: -1,
+                    age: 0,
+		    genero: 0,
+		    identidad: 0,
+		    pasatiempo: 0,
+		    pasatiempo1: 0,
+		    pasatiempo2: 0,
+		    pasatiempo3: 0,
+		    pasatiempo4: 0,
+	            pasatiempo5: 0,
+		    tiempo: 0,
+		    premLimit: 0,
                     agility: 16,
                     anakanjing: 0,
                     anakcentaur: 0,
@@ -903,7 +922,8 @@ export async function handler(chatUpdate) {
                 if (!('sBye' in chat)) chat.sBye = ''                    
                 if (!('sPromote' in chat)) chat.sPromote = ''                    
                 if (!('sDemote' in chat)) chat.sDemote = ''                    
-                if (!('delete' in chat)) chat.delete = true                    
+                if (!('delete' in chat))
+                    chat.delete = true                    
                 if (!('modohorny' in chat)) chat.modohorny = false                    
                 if (!('stickers' in chat)) chat.stickers = false                    
                 if (!('autosticker' in chat)) chat.autosticker = false                      
@@ -1409,27 +1429,37 @@ export async function callUpdate(callUpdate) {
     }}}}
 
 export async function deleteUpdate(message) {
-try {
-const { fromMe, id, participant } = message
-if (fromMe)
-return
-let msg = this.serializeM(this.loadMessage(id))
-if (!msg)
-return
-let chat = global.db.data.chats[msg.chat] || {}
-if (chat.delete)
-return 
-await this.reply(msg.chat, `
-*╭━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━ 𓃠*
-${lenguajeGB['smsCont20']()} @${participant.split`@`[0]}
-${lenguajeGB['smsCont21']()}
-*╰━━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━╯*
-`.trim(), msg, { mentions: [participant] })
-	    
-this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
-} catch (e) {
-console.error(e)
-}}
+    try {
+        const { fromMe, id, participant } = message
+        if (fromMe)
+            return
+        let msg = this.serializeM(this.loadMessage(id))
+        if (!msg)
+            return
+        let chat = global.db.data.chats[msg.chat] || {}
+        if (chat.delete)
+            return
+        await this.reply(msg.chat, `
+╭━─━─━─≪🔴≫─━─━─━╮
+│ 🤨 ʙᴏʀʀᴏ ᴜɴ ᴍᴇɴsᴀᴊᴇ 🤨
+│◤━━━━━ ☆. ∆ .☆ ━━━━━◥
+│ 🔴 ᴀɴᴛɪ ᴅᴇʟᴇᴛᴇ 🔴
+│◤━━━━━ ☆. ∆ .☆ ━━━━━◥
+│🔸️ *ɴᴏᴍʙʀᴇ :* @${participant.split`@`[0]} 
+│◤━━━━━ ☆. ∆ .☆ ━━━━━◥
+│🔸ᴘᴀʀᴀ ᴅᴇsᴀᴄᴛɪᴠᴀʀ ᴇsᴛᴀ ᴏᴘᴄɪᴏɴ, 
+│🔸️ᴇsᴄʀɪʙɪ 
+│/off antidelete
+│#enable delete
+╰━─━─━─≪🔴≫─━─━─━╯
+`.trim(), msg, {
+            mentions: [participant]
+        })
+        this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+    } catch (e) {
+        console.error(e)
+    }
+}
 
 global.dfail = (type, m, conn) => {
 let msg = {
