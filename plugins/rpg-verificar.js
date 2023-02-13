@@ -467,11 +467,13 @@ conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatie
 if (command == 'finalizar' || command == 'end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
 
-if (user.premLimit === 1) {
-tiempo = 0
-}else{
-tiempo = 10800000	
-}
+
+//if (user.premLimit === 1) {
+//tiempo = 0
+//}else{
+//tiempo = 10800000	
+//}
+tiempo = user.premLimit === 1 ? 0 : 10800000
 var now = new Date() * 1
 if (now < user.premiumTime) user.premiumTime += tiempo
 else user.premiumTime = now + tiempo
