@@ -2,7 +2,7 @@ import MessageType from '@adiwajshing/baileys'
 
 let pajak = 0
 let handler = async (m, { conn, text, usedPrefix, command, groupMetadata }) => {
-let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
+let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
 
 let who
 if (m.isGroup) who = m.mentionedJid[0]
