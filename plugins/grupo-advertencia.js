@@ -3,7 +3,7 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 let lenGB = lenguajeGB.lenguaje() == 'en' ? usedPrefix + 'on antitoxic' : usedPrefix + 'on antitoxicos';
 if (!db.data.chats[m.chat].antitoxic && m.isGroup) return conn.sendButton(m.chat, wm, lenguajeGB.smsAdveu1() + lenGB, null, [[lenguajeGB.smsEncender(), lenGB]], fkontak, m)
 
-let who
+let who 
 //let img = 'https://i.imgur.com/DvHoMc3.jpg'
 if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text
 else who = m.chat
@@ -15,6 +15,7 @@ let txt = text.replace('@' + who.split`@`[0], '').trim()
 if (!txt) return conn.reply(m.chat, lenguajeGB.smsAdveu3() + `*${usedPrefix + command} @${name} ${lenguajeGB['smsAdveu2']()}*`, fkontak, m)  	
 try {
 user.warn += 1
+
 await conn.sendButton(m.chat,`${user.warn == 1 ? `*@${who.split`@`[0]}*` : `*@${who.split`@`[0]}*`} ${lenguajeGB['smsAdveu4']()}\n\n🫵 *${text}*`, `*${lenguajeGB['smsAdveu5']()}*\n⚠️ *${user.warn}/15*\n\n${wm}`, null, [
 [lenguajeGB.smsToxic4(), '.ok'],
 [lenguajeGB.smsAdveu6(), lenguajeGB.lenguaje() == 'en' ? usedPrefix + 'inventory' : usedPrefix + 'inventario']], false, { mentions: [who] }) //[m.sender]
@@ -34,7 +35,7 @@ console.log(e)
 }}
 handler.help = ['addprem <@user>']
 handler.tags = ['owner']
-handler.command = /^(\adver)$/i ///^(advertir|advertencia|warn|warning|poñoñoin)$/i
+handler.command = /^(advertir|advertencia|warn|warning)$/i
 handler.group = true
 handler.admin = true
 handler.botAdmin = true
