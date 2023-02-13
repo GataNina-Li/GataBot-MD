@@ -34,7 +34,7 @@ user[who].exp += xp
   conn.sendMessage(
     _user,
     {
-      text: `*❕@${m.sender.split("@")[0]} TE DIO ${xp} EXP*`,
+      text: `*❕@${m.sender.split("@")[0]} TE DIO ${xp} DE  EXP*`,
       mentions: [m.sender],
     },
     { quoted: m }
