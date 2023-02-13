@@ -7,8 +7,7 @@ if (m.isGroup) who = m.mentionedJid[0]
 else who = m.chat
   if (global.db.data.users[user] == undefined)
 
-  let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
-if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
+  f (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
 if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
    
 if (user.startsWith(conn.user.jid.split`@`[0]))
@@ -22,8 +21,8 @@ let pjk = Math.ceil(xp * pajak)
 exp += pjk
 if (exp < 1) throw `${mg}𝙀𝙇 𝙉𝙐𝙈𝙀𝙍𝙊 𝙈𝙄𝙉𝙄𝙈𝙊 𝘿𝙀 𝙀𝙓𝙋𝙀𝙍𝙄𝙀𝙉𝘾𝙄𝘼 (𝙀𝙓𝙋) 𝙀𝙎 *1*\n\n𝙏𝙃𝙀 𝙈𝙄𝙉𝙄𝙈𝙐𝙈 𝙉𝙐𝙈𝘽𝙀𝙍 𝙁𝙍𝙊𝙈 𝙀𝙓𝙋𝙀𝙍𝙄𝙀𝙉𝘾𝙀 (𝙀𝙓𝙋) 𝙄𝙎 *1*`
 let taguser = await conn.getName(m.sender)
-let users = global.db.data.users
-users[who].exp += xp
+let user = global.db.data.users
+user[who].exp += xp
 let gata = `╭━[ 𝙀𝙓𝙋𝙀𝙍𝙄𝙀𝙉𝘾𝙄𝘼 | 𝙀𝙓𝙋 ⚡]━⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ ${taguser}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${xp} EXP* ⚡\n┃\n╰━━━━━━━━━━━━━━⬣`
 m.reply(gata)}
 handler.help = ["ddxp  [@user]"]
