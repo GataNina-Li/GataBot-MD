@@ -472,14 +472,10 @@ tiempo = 0
 }else{
 tiempo = 10800000	
 }
-user.premiumTime += tiempo
+var now = new Date() * 1
+if (now < user.premiumTime) user.premiumTime += tiempo
+else user.premiumTime = now + tiempo
 user.premium = true
-	
-//var tiempo = user.premLimit === 1 ? tiempo = 0 : tiempo = 1080000 //10800 000 //3 horas
-//var now = new Date() * 1
-//if (now < user.premiumTime) user.premiumTime += tiempo
-//else user.premiumTime = now += tiempo
-//user.premium = true
 
 fecha = `${week}, ${date} *||* `
 hora = `${time}`
@@ -531,7 +527,7 @@ ${user.registroC === true ? `\n☘️ *GENERO*
 ❇️ *PASATIEMPO(S)*
 ❱❱ ${user.pasatiempo}` : ''}
 ${user.premLimit === 1 ? '' : `\n🎟️ *PREMIUM* 
-❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime}`}`} 
+❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime} ${user.premiumTime - now}`}`} 
 
 🛅 *CÓDIGO DE REGISTRO*
 ❱❱ ${sn}`.trim()
