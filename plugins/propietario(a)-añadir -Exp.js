@@ -20,6 +20,8 @@ exp += pjk
    
   let gata = `╭━[ 𝙀𝙓𝙋𝙀𝙍𝙄𝙀𝙉𝘾𝙄𝘼 | 𝙀𝙓𝙋 ⚡]━⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ @${_user.split("@s.whatsapp.net")[0]}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${xp} EXP* ⚡\n┃\n╰━━━━━━━━━━━━━━⬣`
 let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
+let user = global.db.data.users
+user[who].exp += xp
 
  conn.sendMessage(
     m.chat,
@@ -34,9 +36,7 @@ let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
     },
     { quoted: m }
   );
-  let user = global.db.data.users
-user[who].exp += xp
-}
+  }
 
 handler.help = ["ddxp [@user]"];
 handler.tags = ["xp"];
