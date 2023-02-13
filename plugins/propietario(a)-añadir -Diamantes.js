@@ -27,9 +27,9 @@ conn.sendButton(m.chat, dian, `╭[ 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎 | 𝘿�
 
 user[who].limit += dmt
 
-await conn.dian(
+await conn.sendMessage(
     m.chat,
-    { text: sendHydrated, mentions: [_user, m.sender] },
+    { text: dian, mentions: [_user, m.sender] },
     { quoted: m }
   );
   conn.sendMessage(
@@ -41,6 +41,7 @@ await conn.dian(
     { quoted: m }
   );
   }
+  
 handler.help = ['adddi <@user>']
 handler.tags = ['xp']
 handler.command = ['añadirdiamantes', 'dardiamantes', 'dardiamante'] 
