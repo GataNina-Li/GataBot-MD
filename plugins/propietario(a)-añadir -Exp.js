@@ -9,7 +9,6 @@ let user = global.db.data.users
 if (global.db.data.users[user] == undefined)
 if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender);
 if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
-if (user.startsWith(conn.user.jid.split`@`[0]))
 if (!who) throw `${ag}𝘿𝙀𝘽𝙀 𝘿𝙀 𝙀𝙏𝙄𝙌𝙐𝙀𝙏𝘼𝙍 𝘼𝙇 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 *@tag*\n\n𝙔𝙊𝙐 𝙈𝙐𝙎𝙏 𝙏𝘼𝙂 𝙏𝙃𝙀 𝙐𝙎𝙀𝙍 *@tag*`
 let txt = text.replace('@' + who.split`@`[0], '').trim()
 if (!txt) throw `${ag}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙇𝘼 𝘾𝘼𝙉𝙏𝙄𝘿𝘼𝘿 𝘿𝙀 𝙀𝙓𝙋\n\n𝙀𝙉𝙏𝙀𝙍 𝙏𝙃𝙀 𝙉𝙐𝙈𝘽𝙀𝙍 𝙊𝙁 𝙀𝙓𝙋`
