@@ -13,7 +13,8 @@ let limit = dmt
 let pjk = Math.ceil(dmt * pajak)
 limit += pjk
 if (limit < 1) throw `${mg}𝙀𝙇 𝙉𝙐𝙈𝙀𝙍𝙊 𝙈𝙄𝙉𝙄𝙈𝙊 𝙋𝘼𝙍𝘼 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎 𝙀𝙎 *1*\n\n𝙏𝙃𝙀 𝙈𝙄𝙉𝙄𝙈𝙐𝙈 𝙉𝙐𝙈𝘽𝙀𝙍 𝙁𝙊𝙍 𝘿𝙄𝘼𝙈𝙊𝙉𝘿𝙎 𝙄𝙎 *1*`
-let users = global.db.data.users
+let user = global.db.data.users[sender]
+let _user = global.db.data.users[to]
 users[who].limit += dmt
 
 conn.sendHydrated(m.chat, `╭[ 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎 | 𝘿𝙄𝘼𝙈𝙊𝙉𝘿 💎 ]⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ *@${(to || '').replace(/@s\.whatsapp\.net/g, '')}*\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${dmt} Diamante(s)* 💎\n┃\n╰━━━━━━━━━━━━━━⬣`, wm, null, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
