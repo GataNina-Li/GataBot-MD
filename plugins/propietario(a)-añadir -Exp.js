@@ -15,6 +15,7 @@ let pajak = 0
   if (global.db.data.users[_user] == undefined)
     return m.reply(`El usuɑrio no estά registrɑdo en lɑ bɑse de dɑtos!`);
    let uuser = global.db.data.users[_user];
+  let txt = text.replace('@' + who.split`@`[0], '').trim()
   let gata = `╭━[ 𝙀𝙓𝙋𝙀𝙍𝙄𝙀𝙉𝘾𝙄𝘼 | 𝙀𝙓𝙋 ⚡]━⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ @${_user.split("@s.whatsapp.net")[0]}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${xp} EXP* ⚡\n┃\n╰━━━━━━━━━━━━━━⬣`
 let xp = parseInt(txt)
 let exp = xp
