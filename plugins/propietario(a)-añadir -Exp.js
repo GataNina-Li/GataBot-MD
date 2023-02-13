@@ -4,6 +4,10 @@ let handler = async (m, { conn, text }) => {
 let who
 if (m.isGroup) who = m.mentionedJid[0]
 else who = m.chat
+if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender);
+  if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
+  if (global.db.data.users[_user] == undefined)
+
   let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
   if (!_user in global.db.data.users)
 if (_user.startsWith(conn.user.jid.split`@`[0]))
