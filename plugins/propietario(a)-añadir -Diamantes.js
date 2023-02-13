@@ -2,7 +2,11 @@ import MessageType from '@adiwajshing/baileys'
 let pajak = 0
 let handler = async (m, { conn, text }) => {
 let who
+let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
 if (m.isGroup) who = m.mentionedJid[0]
+if (global.db.data.users[user] == undefined)
+if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender);
+if (!m.mentionedJid.length) m.mentionedJid.push(m.sender)
 else who = m.chat
 if (!who) throw `${ag}𝘿𝙀𝘽𝙀 𝘿𝙀 𝙀𝙏𝙄𝙌𝙐𝙀𝙏𝘼𝙍 𝘼𝙇 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 *@tag*\n\n𝙔𝙊𝙐 𝙈𝙐𝙎𝙏 𝙏𝘼𝙂 𝙏𝙃𝙀 𝙐𝙎𝙀𝙍 *@tag*`
 let txt = text.replace('@' + who.split`@`[0], '').trim()
@@ -16,7 +20,7 @@ if (limit < 1) throw `${mg}𝙀𝙇 𝙉𝙐𝙈𝙀𝙍𝙊 𝙈𝙄𝙉𝙄�
 let user = global.db.data.users
 user[who].limit += dmt
 let dian = `𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿`
-conn.sendButton(m.chat, dian, `╭[ 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎 | 𝘿𝙄𝘼𝙈𝙊𝙉𝘿 💎 ]⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ @${user.split("@s.whatsapp.net")[0]}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${dmt} Diamante(s)* 💎\n┃\n╰━━━━━━━━━━━━━━⬣`, [
+conn.sendButton(m.chat, dian, `╭[ 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎 | 𝘿𝙄𝘼𝙈𝙊𝙉𝘿 💎 ]⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ @${_user.split("@s.whatsapp.net")[0]}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${dmt} Diamante(s)* 💎\n┃\n╰━━━━━━━━━━━━━━⬣`, [
 ['💗 𝙈𝙚𝙣𝙪 𝘼𝙫𝙚𝙣𝙩𝙪𝙧𝙖 | 𝙍𝙋𝙂 💗', '.rpgmenu']], m)
 }
 handler.help = ['adddi <@user>']
