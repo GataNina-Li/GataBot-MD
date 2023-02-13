@@ -5,6 +5,7 @@ let handler = async (m, { conn, text, usedPrefix, command, groupMetadata }) => {
 let who
 if (m.isGroup) who = m.mentionedJid[0]
 else who = m.chat
+let user = global.db.data.users
 if (global.db.data.users[user] == undefined)
 if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender);
 if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
@@ -20,7 +21,7 @@ exp += pjk
    
   let gata = `╭━[ 𝙀𝙓𝙋𝙀𝙍𝙄𝙀𝙉𝘾𝙄𝘼 | 𝙀𝙓𝙋 ⚡]━⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ @${_user.split("@s.whatsapp.net")[0]}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${xp} EXP* ⚡\n┃\n╰━━━━━━━━━━━━━━⬣`
 let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
-let user = global.db.data.users
+
 user[who].exp += xp
 
  conn.sendMessage(
