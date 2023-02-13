@@ -37,15 +37,19 @@ if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍�
 
 //var users = id
 var registering = false;
-
-function registerUser(name) {
+function registerUser(edad) {
 if (registering) {
 console.log("Alguien aún se está registrando. Espere por favor.");
 return;
 }
 
+
 if (command == 'verificar' || command == 'verify' || command == 'register' || command == 'reg' || command == 'registrar') {
-registering = true
+registering = true	
+user.age = edad
+m.reply("Registro exitoso.")
+registering = false;
+}
 	
 await conn.sendButton(m.chat, iig + '😇 *CÓMO DESEA REGISTRARSE?*', '*REGISTRO RAPIDO*\n- Insignia de verificación\n- Desbloquear comandos que requieran registro\n\n*REGISTRO COMPLETO*\n- Insignia de verificación\n- Desbloquear comandos que requieran registro\n- Recompensas por usar este tipo de registro\n- Premium Temporal Gratis\n\n' + wm, null, [[`📑 REGISTRO RÁPIDO`, usedPrefix + 'Reg1'], [`🗂️ REGISTRO COMPLETO`, usedPrefix + 'nombre']], m) 
 }
@@ -471,11 +475,6 @@ pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5
 conn.sendButton(m.chat, '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO:*\n' + pasatiempo , 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
 
-
-user.age = edad
-m.reply("Registro exitoso.")
-registering = false;
-}
 registerUser(edad)
 	
 	
