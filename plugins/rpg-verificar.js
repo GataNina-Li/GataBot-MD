@@ -528,7 +528,7 @@ ${user.registroC === true ? `\n☘️ *GENERO*
 ❇️ *PASATIEMPO(S)*
 ❱❱ ${user.pasatiempo}` : ''}
 ${user.premLimit === 1 ? '' : `\n🎟️ *PREMIUM* 
-❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS`}`} 
+❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime}`}`} 
 
 🛅 *CÓDIGO DE REGISTRO*
 ❱❱ ${sn}`.trim()
