@@ -1,4 +1,4 @@
-
+let pajak = 0
 let handler = async (m, { conn, text, usedPrefix, command, groupMetadata }) => {
 let who
 if (m.isGroup) who = m.mentionedJid[0]
@@ -8,7 +8,7 @@ else who = m.chat
     return m.reply(
       `${ag}𝘿𝙀𝘽𝙀 𝘿𝙀 𝙀𝙏𝙄𝙌𝙐𝙀𝙏𝘼𝙍 𝘼𝙇 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 *@tag*\n\n𝙔𝙊𝙐 𝙈𝙐𝙎𝙏 𝙏𝘼𝙂 𝙏𝙃𝙀 𝙐𝙎𝙀𝙍 *@tag*`
     );
-let pajak = 0
+
   let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
   if (!_user in global.db.data.users)
     return m.reply(`El usuɑrio no estά registrɑdo en lɑ bɑse de dɑtos!`);
@@ -18,6 +18,8 @@ let pajak = 0
     return m.reply(`El usuɑrio no estά registrɑdo en lɑ bɑse de dɑtos!`);
    let uuser = global.db.data.users[_user];
   let txt = text.replace('@' + who.split`@`[0], '').trim()
+if (!txt) throw `${ag}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙇𝘼 𝘾𝘼𝙉𝙏𝙄𝘿𝘼𝘿 𝘿𝙀 𝙀𝙓𝙋\n\n𝙀𝙉𝙏𝙀𝙍 𝙏𝙃𝙀 𝙉𝙐𝙈𝘽𝙀𝙍 𝙊𝙁 𝙀𝙓𝙋`
+
   let gata = `╭━[ 𝙀𝙓𝙋𝙀𝙍𝙄𝙀𝙉𝘾𝙄𝘼 | 𝙀𝙓𝙋 ⚡]━⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ @${_user.split("@s.whatsapp.net")[0]}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${xp} EXP* ⚡\n┃\n╰━━━━━━━━━━━━━━⬣`
 let xp = parseInt(txt)
 let exp = xp
