@@ -1,8 +1,7 @@
 import MessageType from '@adiwajshing/baileys'
 let pajak = 0
-let handler = async (m, { conn, text }) => {
+let handler = async (m, { conn, to, text }) => {
 let who
-let { to } = confirmation[m.sender]
 if (m.isGroup) who = m.mentionedJid[0]
 else who = m.chat
 if (!who) throw `${ag}𝘿𝙀𝘽𝙀 𝘿𝙀 𝙀𝙏𝙄𝙌𝙐𝙀𝙏𝘼𝙍 𝘼𝙇 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 *@tag*\n\n𝙔𝙊𝙐 𝙈𝙐𝙎𝙏 𝙏𝘼𝙂 𝙏𝙃𝙀 𝙐𝙎𝙀𝙍 *@tag*`
