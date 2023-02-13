@@ -26,7 +26,7 @@ let users = global.db.data.users
 users[who].exp += xp
 let gata = `╭━[ 𝙀𝙓𝙋𝙀𝙍𝙄𝙀𝙉𝘾𝙄𝘼 | 𝙀𝙓𝙋 ⚡]━⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ ${taguser}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${xp} EXP* ⚡\n┃\n╰━━━━━━━━━━━━━━⬣`
 m.reply(gata)}
-handler.help = ['addxp  [@user]']
+handler.help = ["ddxp  [@user]"]
 handler.tags = ['xp']
 handler.command = ['añadirxp', 'añadirexp', 'añadirexperiencia', 'darexperiencia', 'darxp', 'darexp'] 
 handler.group = true
