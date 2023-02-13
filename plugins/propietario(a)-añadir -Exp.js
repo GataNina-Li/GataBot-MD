@@ -7,7 +7,7 @@ if (m.isGroup) who = m.mentionedJid[0]
 else who = m.chat
   if (global.db.data.users[user] == undefined)
 
-  f (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
+  if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
 if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
    
 if (user.startsWith(conn.user.jid.split`@`[0]))
