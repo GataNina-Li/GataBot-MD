@@ -18,7 +18,7 @@ let time = d.toLocaleTimeString(locale, {
 hour: 'numeric',
 minute: 'numeric',
 second: 'numeric'
-})
+}) 
 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? m.sender : m.sender
 
