@@ -44,7 +44,7 @@ ga[who].exp += xp
 }
 
 handler.help = ["ddxp [@user]"];
-handler.tags = ["rpg"];
+handler.tags = ["xp"];
 handler.command = ['añadirxp', 'añadirexp', 'añadirexperiencia', 'darexperiencia', 'darxp', 'darexp'] 
 handler.group = true;
 export default handler;
