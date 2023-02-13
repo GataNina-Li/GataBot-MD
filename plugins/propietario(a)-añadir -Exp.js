@@ -1,4 +1,66 @@
-import MessageType from '@adiwajshing/baileys'
+
+let handler = async (m, { conn, text, usedPrefix, command, groupMetadata }) => {
+
+  if (!text)
+    return m.reply(
+      `${ag}𝘿𝙀𝘽𝙀 𝘿𝙀 𝙀𝙏𝙄𝙌𝙐𝙀𝙏𝘼𝙍 𝘼𝙇 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 *@tag*\n\n𝙔𝙊𝙐 𝙈𝙐𝙎𝙏 𝙏𝘼𝙂 𝙏𝙃𝙀 𝙐𝙎𝙀𝙍 *@tag*`
+    );
+try {
+let pajak = 0
+  let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
+  if (!_user in global.db.data.users)
+    return m.reply(`El usuɑrio no estά registrɑdo en lɑ bɑse de dɑtos!`);
+  if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender);
+  if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
+  if (global.db.data.users[_user] == undefined)
+    return m.reply(`El usuɑrio no estά registrɑdo en lɑ bɑse de dɑtos!`);
+   let uuser = global.db.data.users[_user];
+  let gata = `╭━[ 𝙀𝙓𝙋𝙀𝙍𝙄𝙀𝙉𝘾𝙄𝘼 | 𝙀𝙓𝙋 ⚡]━⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ @${_user.split("@s.whatsapp.net")[0]}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${xp} EXP* ⚡\n┃\n╰━━━━━━━━━━━━━━⬣`
+let xp = parseInt(txt)
+let exp = xp
+let pjk = Math.ceil(xp * pajak)
+exp += pjk 
+_user[who].exp += xp 
+ conn.sendMessage(
+    m.chat,
+    { text: gata, mentions: [_user, m.sender] },
+    { quoted: m }
+  );
+  conn.sendMessage(
+    _user,
+    {
+      text: `*❕@${m.sender.split("@")[0]} TE DIO EXP*`,
+      mentions: [m.sender],
+    },
+    { quoted: m }
+  );
+  global.db.data.users[m.sender].lastrob = new Date() * 1;
+}
+catch {  
+m.reply(`*[❕] ERROR, POR FAVOR INTÉNTELO DE NUEVO, SEGURAMENTE EL USUARIO ESTÁ AFK*`)}}
+
+handler.help = ["ddxp [@user]"];
+handler.tags = ["rpg"];
+handler.command = ['añadirxp', 'añadirexp', 'añadirexperiencia', 'darexperiencia', 'darxp', 'darexp'] 
+handler.group = true;
+export default handler;
+
+function msToTime(duration) {
+  var milliseconds = parseInt((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  return hours + " Hora(s) " + minutes + " Minuto(s)";
+}
+
+
+
+/*import MessageType from '@adiwajshing/baileys'
 
 let pajak = 0
 let handler = async (m, { conn, text, usedPrefix, command, groupMetadata }) => {
@@ -30,4 +92,4 @@ handler.tags = ['xp']
 handler.command = ['añadirxp', 'añadirexp', 'añadirexperiencia', 'darexperiencia', 'darxp', 'darexp'] 
 handler.group = true
 handler.rowner = true
-export default handler
+export default handler*/
