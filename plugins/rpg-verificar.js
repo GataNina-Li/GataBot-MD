@@ -487,12 +487,12 @@ user.premium = true
 fecha = `${week}, ${date} *||* `
 hora = `${time}`
 user.tiempo = fecha + hora
-user.name = user.name//nombre 
+//user.name = user.name//nombre 
 user.descripcion = bio
-user.age = user.age//edad
-user.genero = user.genero//genero
-user.identidad = user.identidad//identidad
-user.pasatiempo = user.pasatiempo//pasatiempo
+//user.age = user.age//edad
+//user.genero = user.genero//genero
+//user.identidad = user.identidad//identidad
+//user.pasatiempo = user.pasatiempo//pasatiempo
 }else{
 fecha = `${week}, ${date} || `
 hora = `${time}`
