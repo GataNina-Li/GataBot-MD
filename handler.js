@@ -52,7 +52,8 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.limit)) user.limit = 15 	       
                 if (!('registered' in user)) user.registered = false
 		if (!('registroR' in user)) user.registroR = false
-		if (!('registroC' in user)) user.registroC = false    
+		if (!('registroC' in user)) user.registroC = false  
+		if (!isNumber(user.IDregister)) user.IDregister = 0   
                     
             if (!user.registered) {
 		                    	 
@@ -69,6 +70,7 @@ export async function handler(chatUpdate) {
 		    if (!isNumber(user.pasatiempo5)) user.pasatiempo5 = 0
 		    if (!isNumber(user.tiempo)) user.tiempo = 0
 		    if (!isNumber(user.premLimit)) user.premLimit = 0
+		    
 		    
                     if (!isNumber(user.anggur)) user.anggur = 0
                     if (!isNumber(user.apel)) user.apel = 0
