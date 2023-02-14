@@ -38,7 +38,7 @@ if (command == 'reg1') {
 registro = text.replace(/\s+/g, usedPrefix) 
 _registro = text.split(" ",2) 
 
-if (!text) return conn.sendButton(m.chat, iig + `👉 *PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt} 20\`\`\``, '✨ ```CONSEJO:```\n\n• Su nombre no debe de contener números\n• La edad no debe de contener Letras\n\n*Sabías que puede personalizar su registro?*\n➘ _Usando el Botón de abajo_', null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
+if (!text) return conn.sendButton(m.chat, iig + `👉 *PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt} 20\`\`\``, '✨ ```CONSEJO:```\n• Su nombre no debe de contener números\n• La edad no debe de contener Letras\n\n*Sabías que puede personalizar su registro?*\n➘ _Usando el Botón de abajo_', null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
 if (_registro['length'] >= 3 || isNaN(_registro[1])) return conn.sendButton(m.chat, fg + '🙃 *ESTÁ INTENTANDO SEPRAR SU NOMBRE O UNIR TODO?* ', '🧐 *COINCIDE COMO EN ESTOS EJEMPLOS:*\n' + `\`\`\`${usedPrefix + command} Super${gt}20\`\`\`` + '\n' + `\`\`\`${usedPrefix + command} Super 15 ${gt} \`\`\`` + '\n' + `\`\`\`${usedPrefix + command} Super ${gt} 24 De ${author}\`\`\`\n\n` + '*Si cumple que tenga (Nombre/Frase y Edad) Autocompletaremos su Registro*\n➘ _Use el Botón de abajo_', null, [[`🌟 AUTOCOMPLETAR MI REGISTRO`, usedPrefix + 'reg1' + ' ' + text.replace(/\s+/g, '').replace(/[0-9]+/gi, "") + ' ' + text.replace(/\s+/g, '').replace(/[a-z]+/gi, "")], ['📑 VOLVER A REGISTRAR', command + usedPrefix]], m)
 if (!_registro[0]) return conn.sendButton(m.chat, fg + `*FALTA SU NOMBRE, PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``, wm, null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
 if (_registro[0].length >= 30) throw fg + '*SU NOMBRE ES MUY LARGO, USE OTRO NOMBRE POR FAVOR*' 
@@ -127,7 +127,7 @@ if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!!
 }
 	
 if (command == 'edad2' || command == 'age2') {
-if (verificar.test(text.slice(1)) == false && !text) return conn.sendButton(m.chat, iig + '*PERSONALICE SU EDAD PARA REGISTRAR, EJEMPLO:*\n' + usedPrefix + command + ' ' + usedPrefix + '35', '*Sabía que puede seleccionar su edad?*\n➘ _En ese caso use el Botón de abajo_', null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
+if (verificar.test(text.slice(1)) == false && !text) return conn.sendButton(m.chat, iig + '👉 *PERSONALICE SU EDAD PARA REGISTRAR, EJEMPLO:*\n' + usedPrefix + command + ' ' + '35', '*Sabía que puede seleccionar su edad?*\n➘ _En ese caso use el Botón de abajo_', null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
 if (isNaN(text)) throw fg + '*INGRESE SOLO NÚMEROS*'
 if (text > 50) throw fg + '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text < 10) throw fg + '*DEMASIADO MENOR PARA SER REGISTRADO*'
@@ -153,7 +153,7 @@ rows: [
 {title: "🕶️ Ocultar", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Ocultado' }]},]
 
 const listMessage = {
-text: `👉 *SELECCIONE SU GÉNERO POR FAVOR*\n*❖ NOMBRE:* ${nombre}\n\n*❖ EDAD:* ${edad}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`,
+text: `👉 *SELECCIONE SU GÉNERO POR FAVOR*\n*❖ NOMBRE:* ${nombre}\n*❖ EDAD:* ${edad}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`,
 footer: wm,
 title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*\n",
 buttonText: "🧬 SELECCIONAR GÉNERO 🧬 ",
@@ -230,7 +230,7 @@ rows: [
 {title: "🕶️ Ocultar", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Ocultado' }]},]
 
 const listMessage = {
-text: `👉 *SELECCIONE SU IDENTIDAD DE GÉNERO POR FAVOR*\n*❖ NOMBRE:* ${nombre}\n\n*❖ EDAD:* ${edad}\n*❖ GÉNERO:* ${genero}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`,
+text: `👉 *SELECCIONE SU IDENTIDAD DE GÉNERO POR FAVOR*\n*❖ NOMBRE:* ${nombre}\n*❖ EDAD:* ${edad}\n*❖ GÉNERO:* ${genero}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`,
 footer: wm,
 title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*\n",
 buttonText: "🌱 IDENTIDAD DE GÉNERO 🌱",
@@ -398,10 +398,10 @@ rows: [
 {title: "🎼 Ópera", rowId: usedPrefix + command + ' ' + text + '🎼 Ópera' }]},]
 
 const listMessage = {
-text: `👉 *SELECCIONE SUS PASATIEMPOS POR FAVOR*\n*❖ NOMBRE:* ${nombre}\n\n*❖ EDAD:* ${edad}\n*❖ GÉNERO:* ${genero}\n*❖ IDENTIDAD DE GÉNERO:* ${identidad}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`,
+text: `👉 *SELECCIONE SUS PASATIEMPOS POR FAVOR*\n*❖ NOMBRE:* ${nombre}\n*❖ EDAD:* ${edad}\n*❖ GÉNERO:* ${genero}\n*❖ IDENTIDAD DE GÉNERO:* ${identidad}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`,
 footer: wm,
 title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*\n",
-buttonText: "❇️ IDENTIDAD DE GÉNERO ❇️",
+buttonText: "❇️ MI PASATIEMPO ❇️",
 sections
 }
 
