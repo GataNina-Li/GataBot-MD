@@ -33,7 +33,7 @@ await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)	
 }}
-handler.help = ['addprem <@user>']
+handler.help = ['advertir <@user>']
 handler.tags = ['owner']
 handler.command = /^(advertir|advertencia|warn|warning)$/i
 handler.group = true
