@@ -64,13 +64,11 @@ start.apply(this, arguments)
 if (process.env.pm_id) {
 process.exit(1)
 } else {
-process.send ('reset')
+process.exit()
 }
 })
 let opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 if (!opts['test'])
 if (!rl.listenerCount()) rl.on('line', line => {
 p.emit('message', line.trim())})}
-start('main.js') 
-
-
+start('main.js')
