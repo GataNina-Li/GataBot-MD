@@ -28,9 +28,9 @@ let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
 bio = biografia.status?.toString() || 'No encontrada'
-var registrando
+let registrando
 registrando = false
-function mensajeRegistro() {
+/*function mensajeRegistro() {
 if (typeof genero === 'string') {
 m.reply(`\`\`\`Cargando...\`\`\``)
 global.db.data.users[m.sender]['registroC'] = true	
@@ -40,18 +40,19 @@ global.db.data.users[m.sender]['registroR'] = true
 }
 registrando = false;
 clearInterval(intervalID)
-conn.sendButton(m.chat, "Su tiempo de registro ha terminado.", wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)}
+conn.sendButton(m.chat, "Su tiempo de registro ha terminado.", wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)}*/
 	
 if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊(𝘼)!!\n𝙎𝙄 𝙌𝙐𝙄𝙀𝙍𝙀 𝘼𝙉𝙐𝙇𝘼𝙍 𝙎𝙐 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}unreg numero de serie*\n\n𝙎𝙄 𝙉𝙊 𝙍𝙀𝘾𝙐𝙀𝙍𝘿𝘼 𝙎𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}myns*` 	
-if (registrando === true) throw '*ALGUIEN SE ESTÁ REGISTRANDO... ESPERE POR FAVOR*'
+
 if (command == 'verificar' || command == 'verify' || command == 'register' || command == 'reg' || command == 'registrar') {
+if (registrando === true) throw '*ALGUIEN SE ESTÁ REGISTRANDO... ESPERE POR FAVOR*'	
 await conn.sendButton(m.chat, iig + '👀 *CÓMO DESEA REGISTRARSE?*', '📑 *REGISTRO RAPIDO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n\n🗂️ *REGISTRO COMPLETO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n• Premium Temporal Gratis\n• Más opciones para este registro\n\n' + wm, null, [[`📑 REGISTRO RÁPIDO`, usedPrefix + 'Reg1'], [`🗂️ REGISTRO COMPLETO`, usedPrefix + 'nombre']], m) 
 }
 	
 if (command == 'reg1') {
 registrando = true
-if (!registrando) {
-let intervalID = setInterval(mensajeRegistro, 2 * 60 * 1000)}
+//if (!registrando) {
+//let intervalID = setInterval(mensajeRegistro, 2 * 60 * 1000)}
 	
 registro = text.replace(/\s+/g, usedPrefix) 
 _registro = text.split(" ",2) 
@@ -510,8 +511,8 @@ user.descripcion = bio
 }
 user.regTime = + new Date
 user.registered = true
-registrando = false;
-clearInterval(intervalID)
+registrando = false
+//clearInterval(intervalID)
 let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)
 	
 let caption = `
