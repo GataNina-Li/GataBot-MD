@@ -28,17 +28,30 @@ let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
 bio = biografia.status?.toString() || 'No encontrada'
-//let registrando
+	
+registrando = false
+function mensajeRegistro() {
+if (typeof genero === 'string') {
+global.db.data.users[m.sender]['registroC'] = true	
+}else{
+global.db.data.users[m.sender]['registroR'] = true	
+}
+conn.sendButton(m.chat, "Su tiempo de registro ha terminado.", wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)}
 	
 if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊(𝘼)!!\n𝙎𝙄 𝙌𝙐𝙄𝙀𝙍𝙀 𝘼𝙉𝙐𝙇𝘼𝙍 𝙎𝙐 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}unreg numero de serie*\n\n𝙎𝙄 𝙉𝙊 𝙍𝙀𝘾𝙐𝙀𝙍𝘿𝘼 𝙎𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}myns*` 	
-
-if (command == 'verificar' || command == 'verify' || command == 'register' || command == 'reg' || command == 'registrar') {	
-if (registrando === true) throw '*ALGUIEN SE ESTÁ REGISTRANDO... ESPERE POR FAVOR*'	
+if (registrando === true) throw '*ALGUIEN SE ESTÁ REGISTRANDO... ESPERE POR FAVOR*'
+if (command == 'verificar' || command == 'verify' || command == 'register' || command == 'reg' || command == 'registrar') {		
 await conn.sendButton(m.chat, iig + '👀 *CÓMO DESEA REGISTRARSE?*', '📑 *REGISTRO RAPIDO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n\n🗂️ *REGISTRO COMPLETO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n• Premium Temporal Gratis\n• Más opciones para este registro\n\n' + wm, null, [[`📑 REGISTRO RÁPIDO`, usedPrefix + 'Reg1'], [`🗂️ REGISTRO COMPLETO`, usedPrefix + 'nombre']], m) 
 }
 	
 if (command == 'reg1') {
 registrando = true
+if (!registrando) {
+let intervalID = setInterval(mensajeRegistro, 2 * 60 * 1000)
+
+registrando = false;
+clearInterval(intervalID)}
+	
 registro = text.replace(/\s+/g, usedPrefix) 
 _registro = text.split(" ",2) 
 
@@ -60,6 +73,10 @@ await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*-
 }
 		
 if (command == 'nombre' || command == 'name') {
+registrando = true
+if (!registrando) {
+let intervalID = setInterval(mensajeRegistro, 2 * 60 * 1000)}
+	
 if (verificar.test(text) == false || text.length <= 1) return conn.sendButton(m.chat, iig + '👉 *PERSONALICE SU NOMBRE PARA REGISTRAR, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*También puede vincular su nombre de WhatsApp*\n➘ _Usando el Botón de abajo_', null, [[`📲 REGISTRAR CON WHATSAPP`, `${usedPrefix + 'nombre2'}`]], m)
 if (text.length >= 25) return conn.sendButton(m.chat, fg + '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n➘ _En ese caso use el Botón de abajo_', null, [[`📲 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m)
 if (text.length <= 2) return conn.sendButton(m.chat, fg + '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n➘ _En ese caso use el Botón de abajo_', null, [[`📲 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m) 
@@ -476,12 +493,12 @@ user.premium = true
 fecha = `${week}, ${date} *||* `
 hora = `${time}`
 user.tiempo = fecha + hora
-//user.name = nombre
+user.name = nombre
 user.descripcion = bio
-//user.age = edad
-//user.genero = genero
-//user.identidad = identidad
-//user.pasatiempo = pasatiempo
+user.age = edad
+user.genero = genero
+user.identidad = identidad
+user.pasatiempo = pasatiempo
 }else{
 fecha = `${week}, ${date} || `
 hora = `${time}`
@@ -492,7 +509,8 @@ user.descripcion = bio
 }
 user.regTime = + new Date
 user.registered = true
-registrando = false
+registrando = false;
+clearInterval(intervalID)
 let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)
 	
 let caption = `
