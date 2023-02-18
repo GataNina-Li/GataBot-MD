@@ -61,7 +61,7 @@ if (text.length >= 25) return conn.sendButton(m.chat, fg + '*USE UN NOMBRE MÁS 
 if (text.length <= 2) return conn.sendButton(m.chat, fg + '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n➘ _En ese caso use el Botón de abajo_', null, [[`📲 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m) 
 
 nombre = text.replace(/\s+/g, '').replace(/[0-9]+/gi, "").trim()
-user.name === 0 ? user.name = 'No encontrada' : user.name = nombre 
+user.name = user.name === 0 ? nombre = 'No encontrada' : nombre 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + nombre, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
 }
 	
@@ -69,7 +69,7 @@ if (command == 'nombre2' || command == 'name2') {
 if (nombreWA.slice(1).length < 2) return conn.sendButton(m.chat, fg + '*SU NOMBRE DE WHATSAPP ES MUY CORTO PARA REGISTRAR USANDO* ' + '```' + usedPrefix + command + '```', '*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre*\n➘ _Sí quiere personalizar use el Botón de abajo_', null, [[`📇 PERSONALIZAR REGISTRO`, usedPrefix + 'nombre']], m) 
 if (nombreWA.slice(1).length > 25) return conn.sendButton(m.chat, fg + '*SU NOMBRE DE WHATSAPP ES MUY LARGO PARA REGISTRAR USANDO* ' + '```' + usedPrefix + command + '```', '*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre*\n➘ _Sí quiere personalizar use el Botón de abajo_', null, [[`📇 PERSONALIZAR REGISTRO`, usedPrefix + 'nombre']], m)
 nombre = nombreWA.replace(/\s+/g, '').replace(/[0-9]+/gi, "").slice(1).trim()
-user.name === 0 ? user.name = 'No encontrada' : user.name = nombre 	
+user.name = user.name === 0 ? nombre = 'No encontrada' : nombre 
 if (verificar.test(text) == false) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + nombre, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
 }
 	
@@ -123,7 +123,7 @@ if (text.slice(1).trim() > 50) throw fg + '*DEMASIADO MAYOR PARA SER REGISTRADO*
 if (text.slice(1).trim() < 10) throw fg + '*DEMASIADO MENOR PARA SER REGISTRADO*' //.replace(/[^0-9.]+/gi,' ')
 edad = text.slice(1).trim()
 //user.age = edad
-user.age === 0 ? user.age = 'No encontrada' : user.age = edad 
+user.age = user.age === 0 ? edad = 'No encontrada' : edad 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + nombre + '\n' + '*❖ EDAD:* ' + edad + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
@@ -135,7 +135,7 @@ if (text < 10) throw fg + '*DEMASIADO MENOR PARA SER REGISTRADO*'
 
 edad = text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").trim()
 //user.age = edad
-user.age === 0 ? user.age = 'No encontrada' : user.age = edad 
+user.age = user.age === 0 ? edad = 'No encontrada' : edad 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + nombre + '\n' + '*❖ EDAD:* ' + edad + ' años', wm, null, [[`🧬 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
@@ -165,7 +165,7 @@ sections
 if (!text) return conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 genero = text.slice(1).trim()	
 //user.genero = genero
-user.genero === 0 ? user.genero = 'No encontrada' : user.genero = genero 
+user.genero = user.genero === 0 ? genero = 'No encontrada' : genero 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + nombre + '\n' + '*❖ EDAD:* ' + edad + ' años' + '\n' + '*❖ GENERO:* ' + genero, wm, null, [[`🌱 REGISTRAR MI IDENTIDAD`, usedPrefix + 'identidad']], m)	 
 }
 	
@@ -243,7 +243,7 @@ sections
 if (!text) return conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 identidad = text.slice(1).trim()
 //user.identidad = identidad
-user.identidad === 0 ? user.identidad = 'No encontrada' : user.identidad = identidad 
+user.identidad = user.identidad === 0 ? identidad = 'No encontrada' : identidad 
 if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + nombre + '\n' + '*❖ EDAD:* ' + edad + ' años' + '\n' + '*❖ GÉNERO:* ' + genero + '\n' + '*❖ IDENTIDAD DE GÉNERO:* ' + identidad, wm, null, [[`❇️ REGISTRAR MIS PASATIEMPOS`, usedPrefix + 'pasatiempo']], m)
 }
 	
@@ -415,7 +415,7 @@ if (!text) return conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 pas1 = text.trim()
 pasatiempo = pas1
 //user.pasatiempo = pasatiempo
-user.pasatiempo === 0 ? user.pasatiempo = 'No encontrada' : user.pasatiempo = pasatiempo 
+user.pasatiempo = user.pasatiempo === 0 ? pasatiempo = 'No encontrada' : pasatiempo 
 global.db.data.users[m.sender]['registroC'] = true
 conn.sendButton(m.chat, eg + '*GENIAL!! SE HA AGREGADO UN PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n' + pasatiempo, 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas2'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }	
@@ -428,7 +428,7 @@ if (user.pasatiempo2 == text) throw fg + '*ESTE PASATIEMPO YA HA SIDO AGREGADO, 
 global.db.data.users[m.sender]['registroC'] = true
 pas2 = text.trim()	
 //pasatiempo = pas1 + ', ' + pas2
-user.pasatiempo === 0 ? user.pasatiempo = 'No encontrada' : user.pasatiempo = pas1 + ', ' + pas2 
+user.pasatiempo = user.pasatiempo === 0 ? pasatiempo = 'No encontrada' : pas1 + ', ' + pas2  
 //user.pasatiempo = pasatiempo
 conn.sendButton(m.chat, eg + '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n' + pasatiempo, 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas3'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
@@ -441,7 +441,7 @@ if (pas2 == text || pas1 == text) throw fg + '*ESTE PASATIEMPO YA HA SIDO AGREGA
 global.db.data.users[m.sender]['registroC'] = true
 pas3 = text.trim()
 //pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3
-user.pasatiempo === 0 ? user.pasatiempo = 'No encontrada' : user.pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3 
+user.pasatiempo = user.pasatiempo === 0 ? pasatiempo = 'No encontrada' : pas1 + ', ' + pas2 + ', ' + pas3 
 //user.pasatiempo = pasatiempo
 conn.sendButton(m.chat, eg + '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n' + pasatiempo, 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas4'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
@@ -454,7 +454,7 @@ if (pas3 == text || pas2 == text || pas1 == text) throw fg + '*ESTE PASATIEMPO Y
 global.db.data.users[m.sender]['registroC'] = true
 pas4 = text.trim()	
 //pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4
-user.pasatiempo === 0 ? user.pasatiempo = 'No encontrada' : user.pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4
+user.pasatiempo = user.pasatiempo === 0 ? pasatiempo = 'No encontrada' : pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4
 //user.pasatiempo = pasatiempo
 conn.sendButton(m.chat, eg + '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n' + pasatiempo, 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas5'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
@@ -467,7 +467,7 @@ global.db.data.users[m.sender]['registroC'] = true
 pas5 = text.trim()
 //pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5
 //user.pasatiempo = pasatiempo
-user.pasatiempo === 0 ? user.pasatiempo = 'No encontrada' : user.pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5
+user.pasatiempo = user.pasatiempo === 0 ? pasatiempo = 'No encontrada' : pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5
 conn.sendButton(m.chat, eg + '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n' + pasatiempo, 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }
 	
@@ -524,7 +524,7 @@ let caption = `
 ❱❱ ${user.descripcion}
 
 🔢 *EDAD* 
-❱❱ ${user.age == 'No encontrada' ? user.age : user.age = user.age >= 18 ? user.age += ' Años *||* ' + '(Persona Adulta)' : user.age += ' Años *||* ' + '(Persona Joven)'}
+❱❱ ${user.age == 'No encontrada' ? user.age : user.age >= 18 ? user.age += ' Años *||* ' + '(Persona Adulta)' : user.age += ' Años *||* ' + '(Persona Joven)'}
 ${user.registroC === true ? `\n☘️ *GENERO*
 ❱❱ ${user.genero == 'Ocultado' ? `${user.genero} 🗣️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : `${user.genero}`}
 
