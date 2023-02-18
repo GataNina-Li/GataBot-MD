@@ -52,7 +52,7 @@ await conn.sendButton(m.chat, iig + '👀 *CÓMO DESEA REGISTRARSE?*', '📑 *RE
 if (command == 'reg1') {
 registrando = true
 if (registrando === true) {
-intervalId = setInterval(mensajeRegistro, 1 * 60 * 1000)
+let intervalId = setInterval(mensajeRegistro, 1 * 60 * 1000)
 clearInterval(intervalId)}
 	
 registro = text.replace(/\s+/g, usedPrefix) 
@@ -78,7 +78,7 @@ await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*-
 if (command == 'nombre' || command == 'name') {
 registrando = true
 if (registrando === true) {
-intervalId = setInterval(mensajeRegistro, 1 * 60 * 1000)
+let intervalId = setInterval(mensajeRegistro, 1 * 60 * 1000)
 clearInterval(intervalId)}
 	
 if (verificar.test(text) == false || text.length <= 1) return conn.sendButton(m.chat, iig + '👉 *PERSONALICE SU NOMBRE PARA REGISTRAR, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*También puede vincular su nombre de WhatsApp*\n➘ _Usando el Botón de abajo_', null, [[`📲 REGISTRAR CON WHATSAPP`, `${usedPrefix + 'nombre2'}`]], m)
