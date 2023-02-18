@@ -523,8 +523,8 @@ ${user.registroC === true ? `\n☘️ *GENERO*
 ❱❱ ${user.identidad === 0 ? user.identidad = 'No encontrada' : user.identidad}
 
 ❇️ *PASATIEMPO(S)*
-❱❱ ${user.pasatiempo === 0 ? user.pasatiempo = 'No encontrada' : user.pasatiempo}` : ''}${user.premLimit === 1 ? '' : `\n\n🎟️ *PREMIUM* 
-❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime} ${user.premiumTime - now}`}\n`} 
+❱❱ ${user.pasatiempo === 0 ? user.pasatiempo = 'No encontrada' : user.pasatiempo}\n` : ''}${user.premLimit === 1 ? '' : `\n\n🎟️ *PREMIUM* 
+❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime} ${user.premiumTime - now}`}`} 
 🛅 *CÓDIGO DE REGISTRO*
 ❱❱ ${sn}`.trim()
 
