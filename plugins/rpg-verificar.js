@@ -1,6 +1,6 @@
 //CÓDIGO CREADO POR GataNina-Li : https://github.com/GataNina-Li
 import { createHash } from 'crypto'
-let nombre = 0, bio = 0, edad = 0, genero = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, id
+let nombre = 0, bio = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, id
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0 
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
