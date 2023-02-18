@@ -52,6 +52,7 @@ registrando = true
 if (registrando === true) {
 let intervalId = setInterval(mensajeRegistro, 1 * 60 * 1000)
 setTimeout(() => {
+m.reply('Listo')
 clearInterval(intervalId)}, 70000)
 }
 	
