@@ -36,7 +36,7 @@ export default handler
 
 
 
-/*import MessageType from '@adiwajshing/baileys'
+ /*import MessageType from '@adiwajshing/baileys'
 
 let pajak = 0
 let handler = async (m, { conn, text, usedPrefix, command, groupMetadata }) => {
