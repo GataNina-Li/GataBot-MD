@@ -29,7 +29,7 @@ let verificar = new RegExp(usedPrefix)
 let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
 bio = biografia.status?.toString() || 'No encontrada'
 //let registrando = false
-registrando = false
+//registrando = false
 /*function mensajeRegistro() {
 if (typeof genero === 'string') {
 m.reply(`\`\`\`Cargando...\`\`\``)
