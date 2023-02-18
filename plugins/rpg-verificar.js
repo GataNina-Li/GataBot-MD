@@ -533,7 +533,7 @@ ${user.registroC === true ? `\n☘️ *GENERO*
 
 ❇️ *PASATIEMPO(S)*
 ❱❱ ${user.pasatiempo}` : ''}\n\n${user.premLimit === 1 ? '' : `🎟️ *PREMIUM* 
-❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime} ${user.premiumTime - now}`}\n\n`} 
+❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime} ${user.premiumTime - now}`}\n`} 
 🛅 *CÓDIGO DE REGISTRO*
 ❱❱ ${sn}`.trim()
 
