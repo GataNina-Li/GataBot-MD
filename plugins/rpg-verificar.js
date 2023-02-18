@@ -31,14 +31,14 @@ bio = biografia.status?.toString() || 'No encontrada'
 
 function mensajeRegistro() {
 if (typeof genero === 'string') {
-m.reply(`\`\`\`Cargando...\`\`\``)
+await m.reply(`\`\`\`Cargando...\`\`\``)
 global.db.data.users[m.sender]['registroC'] = true
 registrando = false
-conn.sendButton(m.chat, "Su tiempo de registro ha terminado.", wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)	
+await conn.sendButton(m.chat, "Su tiempo de registro ha terminado.", wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)	
 }else{
-m.reply(`\`\`\`Cargando...\`\`\``)
+await m.reply(`\`\`\`Cargando...\`\`\``)
 registrando = false
-conn.sendButton(m.chat, "Su tiempo de registro ha terminado.", wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
+await conn.sendButton(m.chat, "Su tiempo de registro ha terminado.", wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 global.db.data.users[m.sender]['registroR'] = true	
 }
 }
