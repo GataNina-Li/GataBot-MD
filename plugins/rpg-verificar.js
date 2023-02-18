@@ -1,6 +1,6 @@
 //CÓDIGO CREADO POR GataNina-Li : https://github.com/GataNina-Li
 import { createHash } from 'crypto'
-let nombre = 0, edad = 0, genero = 0, bio = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, registrando
+let nombre = 0, edad = 0, genero = 0, bio = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, registrando, intervalId
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0 
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
@@ -34,11 +34,13 @@ if (typeof genero === 'string') {
 //await m.reply(`\`\`\`Cargando...\`\`\``)
 global.db.data.users[m.sender]['registroC'] = true
 registrando = false
+clearInterval(intervalId)
 conn.sendButton(m.chat, "Su tiempo de registro ha terminado.", wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)	
 }else{
 //await m.reply(`\`\`\`Cargando...\`\`\``)
 global.db.data.users[m.sender]['registroR'] = true		
 registrando = false
+clearInterval(intervalId)
 conn.sendButton(m.chat, "Su tiempo de registro ha terminado.", wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)}
 }
 	
@@ -51,8 +53,7 @@ await conn.sendButton(m.chat, iig + '👀 *CÓMO DESEA REGISTRARSE?*', '📑 *RE
 if (command == 'reg1') {
 registrando = true
 if (registrando === true) {
-let intervalId = setInterval(mensajeRegistro, 1 * 60 * 1000)
-clearInterval(intervalId)}
+intervalId = setInterval(mensajeRegistro, 1 * 60 * 1000)}
 	
 registro = text.replace(/\s+/g, usedPrefix) 
 _registro = text.split(" ",2) 
@@ -77,8 +78,7 @@ await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*-
 if (command == 'nombre' || command == 'name') {
 registrando = true
 if (registrando === true) {
-let intervalId = setInterval(mensajeRegistro, 1 * 60 * 1000)
-clearInterval(intervalId)}
+intervalId = setInterval(mensajeRegistro, 1 * 60 * 1000)}
 	
 if (verificar.test(text) == false || text.length <= 1) return conn.sendButton(m.chat, iig + '👉 *PERSONALICE SU NOMBRE PARA REGISTRAR, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*También puede vincular su nombre de WhatsApp*\n➘ _Usando el Botón de abajo_', null, [[`📲 REGISTRAR CON WHATSAPP`, `${usedPrefix + 'nombre2'}`]], m)
 if (text.length >= 25) return conn.sendButton(m.chat, fg + '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n➘ _En ese caso use el Botón de abajo_', null, [[`📲 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m)
@@ -515,6 +515,7 @@ user.registered = true
 let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)	
 
 registrando = false
+clearInterval(intervalId)
 		
 let caption = `
 🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
