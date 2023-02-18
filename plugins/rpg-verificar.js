@@ -515,7 +515,7 @@ let caption = `
 ${user.descripcion}
 
 🔢 *EDAD* 
-❱❱ ${user.age === 0 ? user.age = 'No encontrada' : user.age += ' Años *||* ' += user.age >= 18 ? '(Persona Adulta)' : '(Persona Joven)'}
+❱❱ ${user.age === 0 ? user.age = 'No encontrada' : user.age = ' Años *||* ' + user.age >= 18 ? '(Persona Adulta)' : '(Persona Joven)'}
 ${user.registroC === true ? `\n☘️ *GENERO*
 ❱❱ ${user.genero == 'Ocultado' ? `${user.genero} 🗣️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : user.genero = 'No encontrada'}
 
