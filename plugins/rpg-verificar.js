@@ -512,10 +512,10 @@ let caption = `
 ❱❱ ${user.name === 0 ? user.name = 'No encontrada' : user.name += 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ'}
 
 👀 *DESCRIPCIÓN*
-${user.descripcion}
+❱❱ ${user.descripcion}
 
 🔢 *EDAD* 
-❱❱ ${user.age === 0 ? user.age = 'No encontrada' : user.age = ' Años *||* ' + user.age >= 18 ? '(Persona Adulta)' : '(Persona Joven)'}
+❱❱ ${user.age === 0 ? user.age = 'No encontrada' : user.age = user.age >= 18 ? user.age + ' Años *||* ' + '(Persona Adulta)' : user.age + ' Años *||* ' + '(Persona Joven)'}
 ${user.registroC === true ? `\n☘️ *GENERO*
 ❱❱ ${user.genero == 'Ocultado' ? `${user.genero} 🗣️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : user.genero = 'No encontrada'}
 
@@ -524,8 +524,7 @@ ${user.registroC === true ? `\n☘️ *GENERO*
 
 ❇️ *PASATIEMPO(S)*
 ❱❱ ${user.pasatiempo === 0 ? user.pasatiempo = 'No encontrada' : user.pasatiempo}` : ''}${user.premLimit === 1 ? '' : `\n\n🎟️ *PREMIUM* 
-❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime} ${user.premiumTime - now}`}`} 
-
+❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime} ${user.premiumTime - now}`}\n`} 
 🛅 *CÓDIGO DE REGISTRO*
 ❱❱ ${sn}`.trim()
 
