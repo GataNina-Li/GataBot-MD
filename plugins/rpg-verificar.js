@@ -1,6 +1,6 @@
 //CÓDIGO CREADO POR GataNina-Li : https://github.com/GataNina-Li
 import { createHash } from 'crypto'
-let nombre = 0, bio = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, id
+let nombre = 0, edad = 0, genero = 0, bio = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, id
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0 
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
@@ -28,13 +28,17 @@ let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
 bio = biografia.status?.toString() || 'No encontrada'
+let registrando
 	
 if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊(𝘼)!!\n𝙎𝙄 𝙌𝙐𝙄𝙀𝙍𝙀 𝘼𝙉𝙐𝙇𝘼𝙍 𝙎𝙐 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}unreg numero de serie*\n\n𝙎𝙄 𝙉𝙊 𝙍𝙀𝘾𝙐𝙀𝙍𝘿𝘼 𝙎𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}myns*` 	
+
 if (command == 'verificar' || command == 'verify' || command == 'register' || command == 'reg' || command == 'registrar') {	
+if (registrando === true) throw '*ALGUIEN SE ESTÁ REGISTRANDO... ESPERE POR FAVOR*'	
 await conn.sendButton(m.chat, iig + '👀 *CÓMO DESEA REGISTRARSE?*', '📑 *REGISTRO RAPIDO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n\n🗂️ *REGISTRO COMPLETO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n• Premium Temporal Gratis\n• Más opciones para este registro\n\n' + wm, null, [[`📑 REGISTRO RÁPIDO`, usedPrefix + 'Reg1'], [`🗂️ REGISTRO COMPLETO`, usedPrefix + 'nombre']], m) 
 }
 	
 if (command == 'reg1') {
+registrando = true
 registro = text.replace(/\s+/g, usedPrefix) 
 _registro = text.split(" ",2) 
 
@@ -59,21 +63,17 @@ if (command == 'nombre' || command == 'name') {
 if (verificar.test(text) == false || text.length <= 1) return conn.sendButton(m.chat, iig + '👉 *PERSONALICE SU NOMBRE PARA REGISTRAR, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*También puede vincular su nombre de WhatsApp*\n➘ _Usando el Botón de abajo_', null, [[`📲 REGISTRAR CON WHATSAPP`, `${usedPrefix + 'nombre2'}`]], m)
 if (text.length >= 25) return conn.sendButton(m.chat, fg + '*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n➘ _En ese caso use el Botón de abajo_', null, [[`📲 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m)
 if (text.length <= 2) return conn.sendButton(m.chat, fg + '*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*Acaso quiere usar su nombre registrado en su WhatsApp ?*\n➘ _En ese caso use el Botón de abajo_', null, [[`📲 REGISTRAR CON WHATSAPP`, usedPrefix + 'nombre2']], m) 
-
-//nombre = text.replace(/\s+/g, '').replace(/[0-9]+/gi, "").trim()
-//user.name = nombre
-user.name = text.replace(/\s+/g, '').replace(/[0-9]+/gi, "").trim()
-
-if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + user.name, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
+nombre = text.replace(/\s+/g, '').replace(/[0-9]+/gi, "").trim()
+user.name = nombre
+if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + nombre, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
 }
 	
 if (command == 'nombre2' || command == 'name2') {
 if (nombreWA.slice(1).length < 2) return conn.sendButton(m.chat, fg + '*SU NOMBRE DE WHATSAPP ES MUY CORTO PARA REGISTRAR USANDO* ' + '```' + usedPrefix + command + '```', '*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre*\n➘ _Sí quiere personalizar use el Botón de abajo_', null, [[`📇 PERSONALIZAR REGISTRO`, usedPrefix + 'nombre']], m) 
 if (nombreWA.slice(1).length > 25) return conn.sendButton(m.chat, fg + '*SU NOMBRE DE WHATSAPP ES MUY LARGO PARA REGISTRAR USANDO* ' + '```' + usedPrefix + command + '```', '*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre*\n➘ _Sí quiere personalizar use el Botón de abajo_', null, [[`📇 PERSONALIZAR REGISTRO`, usedPrefix + 'nombre']], m)
-//nombre = nombreWA.replace(/\s+/g, '').replace(/[0-9]+/gi, "").slice(1).trim()
-//user.name = nombre
-user.name = nombreWA.replace(/\s+/g, '').replace(/[0-9]+/gi, "").slice(1).trim()
-if (verificar.test(text) == false) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + user.name, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
+nombre = nombreWA.replace(/\s+/g, '').replace(/[0-9]+/gi, "").slice(1).trim()
+user.name = nombre
+if (verificar.test(text) == false) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + nombre, wm, null, [[`🔢 REGISTRAR MI EDAD`, usedPrefix + 'edad']], m)
 }
 	
 if (command == 'edad' || command == 'age') {
@@ -113,7 +113,7 @@ rows: [
 {title: "🔢 Personalizar mí edad", rowId: usedPrefix + 'edad2'}]},]
 
 const listMessage = {
-text: `👉 *SELECCIONE SU EDAD POR FAVOR*\n*❖ NOMBRE:* ${user.name}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`,
+text: `👉 *SELECCIONE SU EDAD POR FAVOR*\n*❖ NOMBRE:* ${nombre}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`,
 footer: wm,
 title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*\n",
 buttonText: "🫵 SELECCIONAR EDAD 🫵 ",
@@ -124,10 +124,9 @@ if (!text) return conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 if (isNaN(text)) throw fg + '*INGRESE SOLO NÚMEROS*'
 if (text.slice(1).trim() > 50) throw fg + '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1).trim() < 10) throw fg + '*DEMASIADO MENOR PARA SER REGISTRADO*' //.replace(/[^0-9.]+/gi,' ')
-//edad = text.slice(1).trim()
-//user.age = edad
-user.age = text.slice(1).trim()
-if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + user.name + '\n' + '*❖ EDAD:* ' + user.age + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
+edad = text.slice(1).trim()
+user.age = edad
+if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + nombre + '\n' + '*❖ EDAD:* ' + edad + ' años', wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
 if (command == 'edad2' || command == 'age2') {
@@ -135,11 +134,9 @@ if (verificar.test(text.slice(1)) == false && !text) return conn.sendButton(m.ch
 if (isNaN(text)) throw fg + '*INGRESE SOLO NÚMEROS*'
 if (text > 50) throw fg + '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text < 10) throw fg + '*DEMASIADO MENOR PARA SER REGISTRADO*'
-
-//edad = text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").trim()
-//user.age = edad
-user.age = text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").trim()
-if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + user.name + '\n' + '*❖ EDAD:* ' + user.age + ' años', wm, null, [[`🧬 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
+edad = text.replace(/\s+/g, '').replace(/[a-z]+/gi, "").trim()
+user.age = edad
+if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + nombre + '\n' + '*❖ EDAD:* ' + edad + ' años', wm, null, [[`🧬 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
 	
 if (command == 'genero' || command == 'género' || command == 'gender') {
@@ -158,7 +155,7 @@ rows: [
 {title: "🕶️ Ocultar", rowId: usedPrefix + command + ' ' + usedPrefix + text + 'Ocultado' }]},]
 
 const listMessage = {
-text: `👉 *SELECCIONE SU GÉNERO POR FAVOR*\n*❖ NOMBRE:* ${user.name}\n*❖ EDAD:* ${user.age}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`,
+text: `👉 *SELECCIONE SU GÉNERO POR FAVOR*\n*❖ NOMBRE:* ${nombre}\n*❖ EDAD:* ${edad}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`,
 footer: wm,
 title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*\n",
 buttonText: "🧬 SELECCIONAR GÉNERO 🧬 ",
@@ -166,10 +163,9 @@ sections
 }
 
 if (!text) return conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
-//genero = text.slice(1).trim()	
-//user.genero = genero
-user.genero = text.slice(1).trim()	
-if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + user.name + '\n' + '*❖ EDAD:* ' + user.age + ' años' + '\n' + '*❖ GENERO:* ' + user.genero, wm, null, [[`🌱 REGISTRAR MI IDENTIDAD`, usedPrefix + 'identidad']], m)	 
+genero = text.slice(1).trim()	
+user.genero = genero
+if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + nombre + '\n' + '*❖ EDAD:* ' + edad + ' años' + '\n' + '*❖ GENERO:* ' + genero, wm, null, [[`🌱 REGISTRAR MI IDENTIDAD`, usedPrefix + 'identidad']], m)	 
 }
 	
 if (command == 'identidad' || command == 'identity') {
@@ -412,7 +408,7 @@ sections
 }
 
 if (command == 'pasatiempo' || command == 'hobby') {
-if (typeof pas1 === 'string') throw fg + '*NO PUEDE CAMBIAR DE PASATIEMPO*'
+//if (typeof pas1 === 'string') throw fg + '*NO PUEDE CAMBIAR DE PASATIEMPO*'
 if (!text) return conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 pas1 = text.trim()
 pasatiempo = pas1
@@ -496,6 +492,7 @@ user.descripcion = bio
 }
 user.regTime = + new Date
 user.registered = true
+registrando = false
 let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)
 	
 let caption = `
