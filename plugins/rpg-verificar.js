@@ -32,8 +32,10 @@ bio = biografia.status?.toString() || 'No encontrada'
 registrando = false
 function mensajeRegistro() {
 if (typeof genero === 'string') {
+m.reply(`\`\`\`Cargando...\`\`\``)
 global.db.data.users[m.sender]['registroC'] = true	
 }else{
+m.reply(`\`\`\`Cargando...\`\`\``)
 global.db.data.users[m.sender]['registroR'] = true	
 }
 registrando = false;
