@@ -35,7 +35,7 @@ await conn.sendMessage(
   conn.sendMessage(
     _user,
     {
-      text: `*❕@${m.sender.split("@")[0]} 𝙏𝙀 𝘿𝙄𝙊 ${dmt} 𝘿𝙀  𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎*`,
+      text: `❕@${m.sender.split("@")[0]} 𝙏𝙀 𝘿𝙄𝙊 ${dmt} 𝘿𝙀  𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎`,
       mentions: [m.sender],
     },
     { quoted: m }
