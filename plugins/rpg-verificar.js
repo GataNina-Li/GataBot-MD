@@ -474,7 +474,7 @@ user.premium = true
 fecha = `${week}, ${date} *||* `
 hora = `${time}`
 user.tiempo = fecha + hora
-user.name = nombre 
+user.name = nombre
 user.descripcion = bio
 user.age = edad
 user.genero = genero
@@ -509,21 +509,21 @@ let caption = `
 ❱❱   *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
 
 👤 *NOMBRE* 
-❱❱ ${user.name}${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
+❱❱ ${user.name === 0 ? user.name = 'No encontrada' : user.name += 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ'}
 
 👀 *DESCRIPCIÓN*
 ${user.descripcion}
 
 🔢 *EDAD* 
-❱❱ ${user.age} Años *||* ${user.age >= 18 ? '(Persona Adulta)' : '(Persona Joven)'}
+❱❱ ${user.age === 0 ? user.age = 'No encontrada' : user.age += ' Años *||* ' += user.age >= 18 ? '(Persona Adulta)' : '(Persona Joven)'}
 ${user.registroC === true ? `\n☘️ *GENERO*
-❱❱ ${user.genero == 'Ocultado' ? `${user.genero} 🗣️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : ''}
+❱❱ ${user.genero == 'Ocultado' ? `${user.genero} 🗣️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : user.genero = 'No encontrada'}
 
 🌱 *IDENTIDAD DE GÉNERO*
-❱❱ ${user.identidad}
+❱❱ ${user.identidad === 0 ? user.identidad = 'No encontrada' : user.identidad}
 
 ❇️ *PASATIEMPO(S)*
-❱❱ ${user.pasatiempo}` : ''}${user.premLimit === 1 ? '' : `\n\n🎟️ *PREMIUM* 
+❱❱ ${user.pasatiempo === 0 ? user.pasatiempo = 'No encontrada' : user.pasatiempo}` : ''}${user.premLimit === 1 ? '' : `\n\n🎟️ *PREMIUM* 
 ❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime} ${user.premiumTime - now}`}`} 
 
 🛅 *CÓDIGO DE REGISTRO*
