@@ -28,8 +28,6 @@ let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
 bio = biografia.status?.toString() || 'No encontrada'
-let startTime, elapsedTime
-startTime = new Date().getTime()
 
 function mensajeRegistro() {
 if (typeof genero === 'string') {
@@ -45,17 +43,16 @@ conn.sendButton(m.chat, "Su tiempo de registro ha terminado.", wm, null, [[`🐈
 if (user.registered === true) throw `${iig}𝙔𝘼 𝙀𝙎𝙏𝘼𝙎 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊(𝘼)!!\n𝙎𝙄 𝙌𝙐𝙄𝙀𝙍𝙀 𝘼𝙉𝙐𝙇𝘼𝙍 𝙎𝙐 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙊 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}unreg numero de serie*\n\n𝙎𝙄 𝙉𝙊 𝙍𝙀𝘾𝙐𝙀𝙍𝘿𝘼 𝙎𝙐 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊\n*${usedPrefix}myns*` 	
 
 if (command == 'verificar' || command == 'verify' || command == 'register' || command == 'reg' || command == 'registrar') {
-if (registrando === true) throw '*ALGUIEN SE ESTÁ REGISTRANDO... ESPERE POR FAVOR* ' + elapsedTime + '/60000'
+if (registrando === true) throw '*ALGUIEN SE ESTÁ REGISTRANDO... ESPERE POR FAVOR 2 MINUTOS*'
 await conn.sendButton(m.chat, iig + '👀 *CÓMO DESEA REGISTRARSE?*', '📑 *REGISTRO RAPIDO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n\n🗂️ *REGISTRO COMPLETO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n• Premium Temporal Gratis\n• Más opciones para este registro\n\n' + wm, null, [[`📑 REGISTRO RÁPIDO`, usedPrefix + 'Reg1'], [`🗂️ REGISTRO COMPLETO`, usedPrefix + 'nombre']], m) 
 }
 	
 if (command == 'reg1') {
 registrando = true
 if (registrando === true) {
-let intervalId = setInterval(mensajeRegistro, 1 * 60 * 1000)
-elapsedTime = new Date().getTime() - startTime
+let intervalId = setInterval(mensajeRegistro, 2 * 60 * 1000) //2 min
 setTimeout(() => {
-clearInterval(intervalId)}, 70000)
+clearInterval(intervalId)}, 126000) //2.1 min
 }
 	
 registro = text.replace(/\s+/g, usedPrefix) 
@@ -81,10 +78,9 @@ await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*-
 if (command == 'nombre' || command == 'name') {
 registrando = true
 if (registrando === true) {
-let intervalId = setInterval(mensajeRegistro, 1 * 60 * 1000)
-elapsedTime = new Date().getTime() - startTime
+let intervalId = setInterval(mensajeRegistro, 3 * 60 * 1000) //3 min
 setTimeout(() => {
-clearInterval(intervalId)}, 70000)
+clearInterval(intervalId)}, 186000) //3.1 min
 }
 	
 if (verificar.test(text) == false || text.length <= 1) return conn.sendButton(m.chat, iig + '👉 *PERSONALICE SU NOMBRE PARA REGISTRAR, EJEMPLO:*\n' + '```' + usedPrefix + command + ' ' + gt + '```', '*También puede vincular su nombre de WhatsApp*\n➘ _Usando el Botón de abajo_', null, [[`📲 REGISTRAR CON WHATSAPP`, `${usedPrefix + 'nombre2'}`]], m)
