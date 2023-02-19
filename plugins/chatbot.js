@@ -1,4 +1,4 @@
- // by https://github.com/elrebelde21/The-LoliBot-MD
+// by https://github.com/elrebelde21/The-LoliBot-MD
  
 let handler = m => m
 handler.all = async function (m) {
@@ -51,10 +51,10 @@ if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sem prefixo
 
 }
 
-if (/^prueba$/i.test(m.text)) {
-    
+if (/^prueba|helloo$/i.test(m.text)) {
 conn.sendButton(m.chat, `Hola Master 😎`, wm, [['𝗠 𝗘 𝗡 𝗨 ☘️', `#menu`]], 'conversation', { sendEphemeral: true, quoted: estilo })
 conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: estiloaudio })   
+
 }
 
 if (/^¿que es un bot?|Que es un bot$/i.test(m.text) ) { //sem prefixo
