@@ -10,7 +10,7 @@ orderMessage: { itemCount : 999999, status: 1, surface : 1, message: '𝙂𝙖�
 
 if (/^hola$/i.test(m.text)) {
     
-conn.sendButton(m.chat, `Hola`, 'conversation', { sendEphemeral: true, quoted: estilo })
+conn.sendButton(m.chat, `Hola`,wm , 'conversation', { sendEphemeral: true, quoted: estilo })
 conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: estiloaudio })   
 }
 return !0
