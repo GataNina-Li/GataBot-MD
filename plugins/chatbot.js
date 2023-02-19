@@ -4,7 +4,6 @@ let handler = m => m
 handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
 let name = conn.getName(m.sender)
-let vn = './media/bot.mp3'
 
 if (/^e$/i.test(m.text) ) { //sem prefixo
     let teks = `
@@ -48,12 +47,6 @@ if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sem prefixo
 ➽❌ 𝐍𝐨 𝐚𝐠𝐫𝐞𝐠𝐚𝐫 𝐚𝐥 𝐁𝐨𝐭
 ➽❌ 𝐑𝐞𝐬𝐩𝐞𝐭𝐚 𝐥𝐨𝐬 𝐭𝐞𝐫𝐦𝐢𝐧𝐨𝐬 𝐲 𝐜𝐨𝐧𝐝𝐢𝐜𝐢𝐨𝐧𝐞𝐬
 *╰═┅ৡৢ͜͡✦═╡ 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨 ╞═┅ৡৢ͜͡✦═╯*`, m) //wm, null, [['Menu', '#menu']], m) botones :V
-
-}
-
-if (/^prueba|helloo$/i.test(m.text)) {
-conn.sendButton(m.chat, `Hola Master 😎`, wm, [['𝗠 𝗘 𝗡 𝗨 ☘️', `#menu`]], 'conversation', { sendEphemeral: true, quoted: estilo })
-conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: estiloaudio })   
 
 }
 
