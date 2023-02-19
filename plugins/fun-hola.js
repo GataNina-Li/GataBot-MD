@@ -1,4 +1,4 @@
-/*import fs from "fs"
+*/import fs from "fs"
 let handler = m => m
 
 handler.all = async function (m) {
