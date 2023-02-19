@@ -222,14 +222,14 @@ conn.onCall = handler.callUpdate.bind(global.conn)
 conn.connectionUpdate = connectionUpdate.bind(global.conn)
 conn.credsUpdate = saveCreds.bind(global.conn, true)
 
-/*const currentDateTime = new Date();
+const currentDateTime = new Date();
 const messageDateTime = new Date(conn.ev);
 if (currentDateTime >= messageDateTime) {
     let chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map(v => v[0])
   console.log(chats, conn.ev); 
 } else {
     let chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map(v => v[0])
- console.log(chats, 'Omitiendo mensajes en espera.'); }*/
+ console.log(chats, '.'); }
 
 conn.ev.on('messages.upsert', conn.handler)
 conn.ev.on('group-participants.update', conn.participantsUpdate)
