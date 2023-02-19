@@ -1,4 +1,4 @@
-import fs from "fs"
+/*import fs from "fs"
 let handler = m => m
 
 handler.all = async function (m) {
@@ -15,4 +15,4 @@ conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt:
 }
 return !0
 }
-export default handler
+export default handler/*
