@@ -546,8 +546,7 @@ let caption = `
 ❱❱ ${user.descripcion}
 
 🔢 *EDAD* 
-❱❱ ${user.age}
-${user.registroC === true ? `\n☘️ *GENERO*
+❱❱ ${user.age}${user.registroC === true ? `\n\n☘️ *GENERO*
 ❱❱ ${user.genero}
 
 🌱 *IDENTIDAD DE GÉNERO*
