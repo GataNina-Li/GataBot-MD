@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 import translate from '@vitalets/google-translate-api'
 const teks = '*0 - Sí*\n*1 - No*\n*2 - No sé*\n*3 - Probablemente sí*\n*4 - Probablemente no*\n*5 - Volver a la pregunta anterior*'
 export async function before(m) {
@@ -36,4 +36,4 @@ m.reply('*[❗] 𝙴𝚁𝚁𝙾𝚁, 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝙻𝙾 𝙼�
 return !0 }
 function somematch( data, id ){
 let res = data.find(el => el === id )
-return res ? true : false; }
+return res ? true : false; }*
