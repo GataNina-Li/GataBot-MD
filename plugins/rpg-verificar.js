@@ -28,9 +28,11 @@ let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
 bio = biografia.status?.toString() || 'No encontrada'
+let intervalId
 
 function mensajeRegistro() {
 if (typeof edad === 'number' ) {
+clearInterval(intervalId)
 registrando = false
 m.reply('```REGISTRO NO COMPLETADO. VUELVA A INTENTAR```')
 return
@@ -58,7 +60,7 @@ await conn.sendButton(m.chat, iig + '👀 *CÓMO DESEA REGISTRARSE?*', '📑 *RE
 if (command == 'reg1') {
 registrando = true
 if (registrando === true) {
-let intervalId = setInterval(mensajeRegistro, 2 * 60 * 1000) //2 min
+intervalId = setInterval(mensajeRegistro, 2 * 60 * 1000) //2 min
 setTimeout(() => {
 clearInterval(intervalId)}, 126000) //2.1 min
 }
@@ -85,7 +87,7 @@ await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*-
 if (command == 'nombre' || command == 'name') {
 registrando = true
 if (registrando === true) {
-let intervalId = setInterval(mensajeRegistro, 3 * 60 * 1000) //3 min
+intervalId = setInterval(mensajeRegistro, 3 * 60 * 1000) //3 min
 setTimeout(() => {
 clearInterval(intervalId)}, 186000) //3.1 min
 }
