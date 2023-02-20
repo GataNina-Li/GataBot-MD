@@ -30,8 +30,9 @@ let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
 bio = biografia.status?.toString() || 'No encontrada'
 
 function mensajeRegistro() {
-if (user.registered === true) 
-return 
+if (user.registered === true) {
+return 0
+}
 if (typeof genero === 'string') {
 global.db.data.users[m.sender]['registroC'] = true
 registrando = false
