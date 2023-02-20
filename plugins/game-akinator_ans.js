@@ -36,4 +36,4 @@ m.reply('*[❗] 𝙴𝚁𝚁𝙾𝚁, 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝙻𝙾 𝙼�
 return !0 }
 function somematch( data, id ){
 let res = data.find(el => el === id )
-return res ? true : false; }*
+return res ? true : false; }*/
