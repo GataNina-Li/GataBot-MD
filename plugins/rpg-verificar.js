@@ -34,12 +34,11 @@ function mensajeRegistro() {
 clearInterval(intervalId)	
 if (typeof edad === 'number' ) {
 registrando = false
-nombre = 0
 m.reply('```REGISTRO NO COMPLETADO. VUELVA A INTENTAR```')
 return
 }
 if (user.registered === true) {
-return 0
+return 
 }
 if (typeof genero === 'string') {
 global.db.data.users[m.sender]['registroC'] = true
