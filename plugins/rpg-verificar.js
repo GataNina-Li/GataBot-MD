@@ -157,7 +157,7 @@ if (!text) return conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 if (isNaN(text)) throw fg + '*INGRESE SOLO NÚMEROS*'
 if (text.slice(1).trim() > 50) throw fg + '*DEMASIADO MAYOR PARA SER REGISTRADO*'
 if (text.slice(1).trim() < 10) throw fg + '*DEMASIADO MENOR PARA SER REGISTRADO*' //.replace(/[^0-9.]+/gi,' ')
-edad = text.replace(/[.,\/#!$%\^&\*;:{}@=\-_`~()\s\a-z]/gi, "").slice(1).trim()
+edad = text.replace(/[.,\/#!$%\^&\*;:{}@=\-_`~()\s\a-z]/gi, "").trim()
 user.age = edad
 if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + `${nombre === 0 ? 'No encontrada' : nombre}` + '\n' + '*❖ EDAD:* ' + `${edad === 0 ? 'No encontrada' : edad + ' años'}`, wm, null, [[`🍃 REGISTRAR MI GÉNERO `, usedPrefix + `genero`]], m)
 }
@@ -527,7 +527,6 @@ user.descripcion = bio
 user.regTime = + new Date
 user.registered = true
 let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)	
-
 registrando = false
 		
 let caption = `
@@ -543,6 +542,9 @@ let caption = `
 ⌛ *FECHA/HORA*
 ❱❱ ${user.tiempo} 
 
+🛅 *CÓDIGO DE REGISTRO*
+❱❱ ${sn}
+
 ✅ *INSIGNIA DE VERIFICACIÓN*
 ❱❱   *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
 
@@ -553,17 +555,20 @@ let caption = `
 ❱❱ ${user.descripcion}
 
 🔢 *EDAD* 
-❱❱ ${user.age}${user.registroC === true ? `\n\n☘️ *GENERO*
+❱❱ ${user.age}
+
+${user.registroC === true ? `☘️ *GENERO*
 ❱❱ ${user.genero}
 
 🌱 *IDENTIDAD DE GÉNERO*
 ❱❱ ${user.identidad}
 
 ❇️ *PASATIEMPO(S)*
-❱❱ ${user.pasatiempo}\n` : ''}\n${user.premLimit === 1 ? '' : `🎟️ *PREMIUM* 
-❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS ${user.premiumTime - now}`}\n\n`} 
-🛅 *CÓDIGO DE REGISTRO*
-❱❱ ${sn}`.trim()
+❱❱ ${user.pasatiempo}` : ''}
+
+${user.premLimit === 1 ? '' : `🎟️ *PREMIUM* 
+❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS || ${user.premiumTime - now} ms`}`} 
+`.trim()
 
 await m.reply('🍄 ```VERIFICANDO DATOS...```')
 await conn.sendButton(m.chat, caption, user.registroC === true ? 'Si elimina su registro se eliminará los datos e insignia y dejara de tener acceso a los comandos con registro\n\nTendrá Premium solo la premira vez que se registre si llega a volver a registrarse no tendrá premium a excepción si compra usando #pase premium\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}` : 'Si elimina su registro se eliminará los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
