@@ -31,7 +31,7 @@ bio = biografia.status?.toString() || 'No encontrada'
 
 function mensajeRegistro() {
 if (user.registered === true) {
-return 0
+return 
 }
 if (typeof genero === 'string') {
 global.db.data.users[m.sender]['registroC'] = true
