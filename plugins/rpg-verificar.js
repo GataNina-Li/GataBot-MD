@@ -33,6 +33,7 @@ function mensajeRegistro() {
 if (typeof edad === 'number' ) {
 registrando = false
 m.reply('```REGISTRO NO COMPLETADO. VUELVA A INTENTAR```')
+return
 }
 if (user.registered === true) {
 return 
