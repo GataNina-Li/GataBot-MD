@@ -63,11 +63,6 @@ export async function handler(chatUpdate) {
 		    if (!isNumber(user.genero)) user.genero = 0
 		    if (!isNumber(user.identidad)) user.identidad = 0
 		    if (!isNumber(user.pasatiempo)) user.pasatiempo = 0
-		    if (!isNumber(user.pasatiempo1)) user.pasatiempo1 = 0
-		    if (!isNumber(user.pasatiempo2)) user.pasatiempo2 = 0
-		    if (!isNumber(user.pasatiempo3)) user.pasatiempo3 = 0
-		    if (!isNumber(user.pasatiempo4)) user.pasatiempo4 = 0
-		    if (!isNumber(user.pasatiempo5)) user.pasatiempo5 = 0
 		    if (!isNumber(user.tiempo)) user.tiempo = 0
 		    if (!isNumber(user.premLimit)) user.premLimit = 0
 		    
@@ -505,11 +500,6 @@ export async function handler(chatUpdate) {
 		    genero: 0,
 		    identidad: 0,
 		    pasatiempo: 0,
-		    pasatiempo1: 0,
-		    pasatiempo2: 0,
-		    pasatiempo3: 0,
-		    pasatiempo4: 0,
-	            pasatiempo5: 0,
 		    tiempo: 0,
 		    premLimit: 0,
                     agility: 16,
