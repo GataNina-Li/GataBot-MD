@@ -1,5 +1,5 @@
 //CÓDIGO CREADO POR GataNina-Li : https://github.com/GataNina-Li
-/*import { createHash } from 'crypto'
+import { createHash } from 'crypto'
 let nombre = 0, edad = 0, genero = 0, bio = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, registrando
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0 
 
@@ -30,7 +30,8 @@ let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
 bio = biografia.status?.toString() || 'No encontrada'
 
 function mensajeRegistro() {
-if (user.registered === true) return 0
+if (user.registered === true) 
+return 
 if (typeof genero === 'string') {
 global.db.data.users[m.sender]['registroC'] = true
 registrando = false
@@ -563,4 +564,4 @@ await m.reply(`${sn}`)
 }}
 handler.command = ['verify', 'verificar', 'register', 'registrar', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', 'identidad', 'pasatiempo', 'hobby', 'identity', 'finalizar', 'pas2', 'pas3', 'pas4', 'pas5']  ///^(verify|verificar|reg(ister)?)$/i
 handler.private = true 
-export default handler*/
+export default handler
