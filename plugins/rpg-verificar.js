@@ -30,6 +30,10 @@ let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
 bio = biografia.status?.toString() || 'No encontrada'
 
 function mensajeRegistro() {
+if (typeof edad === 'number' ) {
+registrando = false
+m.reply('```REGISTRO NO COMPLETADO. VUELVA A INTENTAR```')
+}
 if (user.registered === true) {
 return 
 }
