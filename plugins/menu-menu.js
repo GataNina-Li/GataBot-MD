@@ -91,6 +91,7 @@ let menuB = `
 *┆💎 DIAMANTES ➟ ${limit}*
 *┆🐈 GATACOINS ➟ ${money}*
 *┆🪙 TOKENS ➟ ${joincount}*
+*┆✅️ ʀᴇɢɪsᴛʀᴀᴅᴏ ➟ ${rtotalreg} de ${totalreg}
 *╰*┅┅┅┅┅┅┅┅┅┅┅┅┅ *✧*
 ${readMore}
 *╭━〔 INFORMACIÓN DE GATABOT 〕⬣*
