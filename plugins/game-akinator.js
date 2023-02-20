@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 import translate from '@vitalets/google-translate-api'
 let handler = async (m, { conn, usedPrefix, command, text }) => {
 if (m.isGroup) return
@@ -39,4 +39,4 @@ m.reply('*[❗] 𝙴𝚁𝚁𝙾𝚁, 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝙻𝙾 𝙼�
 handler.menu = ['akinator']
 handler.tags  = ['game']
 handler.command = /^(akinator)$/i
-export default handler
+export default handler*/
