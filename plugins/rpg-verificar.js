@@ -31,8 +31,8 @@ bio = biografia.status?.toString() || 'No encontrada'
 let intervalId
 
 function mensajeRegistro() {
-clearInterval(intervalId)	
 if (typeof edad === 'number' ) {
+clearInterval(intervalId)	
 registrando = false
 m.reply('```REGISTRO NO COMPLETADO. VUELVA A INTENTAR```')
 return
