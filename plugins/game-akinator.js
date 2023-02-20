@@ -14,7 +14,7 @@ try {
 let res = await fetch(`https://api.lolhuman.xyz/api/akinator/start?apikey=${lolkeysapi}`)
 let anu = await res.json()
 if (anu.status !== 200) throw '*[❗] 𝙴𝚁𝚁𝙾𝚁, 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝙻𝙾 𝙼𝙰𝚂 𝚃𝙰𝚁𝙳𝙴*'
-let { server, frontaddr, session, signature, question, progression, step } = anu.result
+let { sesi, server, frontaddr, session, signature, question, progression, step } = anu.result
 aki.sesi = true
 aki.server = server
 aki.frontaddr = frontaddr
