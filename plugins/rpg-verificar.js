@@ -34,17 +34,21 @@ function mensajeRegistro() {
 if (typeof edad === 'number' ) {
 clearInterval(intervalId)
 registrando = false
+nombre = 0
 m.reply('```REGISTRO NO COMPLETADO. VUELVA A INTENTAR```')
 return
 }
 if (user.registered === true) {
+clearInterval(intervalId)
 return 
 }
 if (typeof genero === 'string') {
+clearInterval(intervalId)
 global.db.data.users[m.sender]['registroC'] = true
 registrando = false
 conn.sendButton(m.chat, "*SU TIEMPO DE REGISTRO HA TERMINADO!!*", 'Si no usa el botón de abajo en este momento su registro no se guardará, si guarda más tarde su registro se habrá perdido\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)	
 }else{
+clearInterval(intervalId)
 global.db.data.users[m.sender]['registroR'] = true		
 registrando = false
 conn.sendButton(m.chat, "*SU TIEMPO DE REGISTRO HA TERMINADO!!*", 'Si no usa el botón de abajo en este momento su registro no se guardará, si guarda más tarde su registro se habrá perdido\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)}
@@ -575,5 +579,5 @@ await conn.sendButton(m.chat, caption, user.registroC === true ? 'Si elimina su 
 await m.reply(`${sn}`)	
 }}
 handler.command = ['verify', 'verificar', 'register', 'registrar', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', 'identidad', 'pasatiempo', 'hobby', 'identity', 'finalizar', 'pas2', 'pas3', 'pas4', 'pas5']  ///^(verify|verificar|reg(ister)?)$/i
-//handler.private = true 
+handler.private = true 
 export default handler
