@@ -31,24 +31,21 @@ bio = biografia.status?.toString() || 'No encontrada'
 let intervalId
 
 function mensajeRegistro() {
+clearInterval(intervalId)	
 if (typeof edad === 'number' ) {
-clearInterval(intervalId)
 registrando = false
 nombre = 0
 m.reply('```REGISTRO NO COMPLETADO. VUELVA A INTENTAR```')
 return
 }
 if (user.registered === true) {
-clearInterval(intervalId)
-return 
+return 0
 }
 if (typeof genero === 'string') {
-clearInterval(intervalId)
 global.db.data.users[m.sender]['registroC'] = true
 registrando = false
 conn.sendButton(m.chat, "*SU TIEMPO DE REGISTRO HA TERMINADO!!*", 'Si no usa el botón de abajo en este momento su registro no se guardará, si guarda más tarde su registro se habrá perdido\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)	
 }else{
-clearInterval(intervalId)
 global.db.data.users[m.sender]['registroR'] = true		
 registrando = false
 conn.sendButton(m.chat, "*SU TIEMPO DE REGISTRO HA TERMINADO!!*", 'Si no usa el botón de abajo en este momento su registro no se guardará, si guarda más tarde su registro se habrá perdido\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)}
@@ -70,7 +67,7 @@ clearInterval(intervalId)}, 126000) //2.1 min
 }
 	
 registro = text.replace(/\s+/g, usedPrefix) 
-_registro = text.split(" ",2) 
+_registro = text.split(" ",2)
 if (!text) return conn.sendButton(m.chat, iig + `👉 *PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\`\n\n*EJEMPLO:* \`\`\`${usedPrefix + command} ${gt} 20\`\`\``, '✨ ```CONSEJO:```\n• Su nombre no debe de contener números\n• La edad no debe de contener Letras\n\n*Sabías que puede personalizar su registro?*\n➘ _Usando el Botón de abajo_', null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
 if (_registro['length'] >= 3 || isNaN(_registro[1])) return conn.sendButton(m.chat, fg + '🙃 *ESTÁ INTENTANDO SEPRAR SU NOMBRE O UNIR TODO?* ', '🧐 *COINCIDE COMO EN ESTOS EJEMPLOS:*\n' + `\`\`\`${usedPrefix + command} Super${gt}20\`\`\`` + '\n' + `\`\`\`${usedPrefix + command} Super 15 ${gt} \`\`\`` + '\n' + `\`\`\`${usedPrefix + command} Super ${gt} 24 De ${author}\`\`\`\n\n` + '*Si cumple que tenga (Nombre/Frase y Edad) Autocompletaremos su Registro, de lo contraio vuelva a registrarse*\n➘ _Use el Botón de abajo_', null, [[`🌟 AUTOCOMPLETAR MI REGISTRO`, usedPrefix + 'reg1' + ' ' + text.replace(/\s+/g, '').replace(/[0-9]+/gi, "") + ' ' + text.replace(/\s+/g, '').replace(/[a-z]+/gi, "")], ['📑 VOLVER A REGISTRAR', command + usedPrefix]], m)
 if (!_registro[0]) return conn.sendButton(m.chat, fg + `*FALTA SU NOMBRE, PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``, wm, null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
@@ -82,7 +79,7 @@ nombre = _registro[0]
 if (!_registro[1]) return conn.sendButton(m.chat, fg + `*FALTA SU EDAD, PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``, wm, null, [[`🗂️ USAR REGISTRO COMPLETO`, usedPrefix + 'nombre']], m)
 if (_registro[1] > 50) throw fg + `*SU EDAD ES MUY MAYOR, USE OTRA EDAD POR FAVOR*\n\n*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``
 if (_registro[1] < 10) throw fg + `*SU EDAD ES MUY MENOR, USE OTRA EDAD POR FAVOR*\n\n*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``
-edad = parseInt(_registro[1]) //_registro[1]	
+edad = parseInt(_registro[1]).replace(/[.,\/#!$%\^&\*;:{}@=\-_`~()\s\a-z]/gi, "").trim() //_registro[1]	
 global.db.data.users[m.sender]['registroR'] = true
 	
 await conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + `${nombre === 0 ? 'No encontrada' : nombre}` + '\n' + '*❖ EDAD:* ' + `${edad === 0 ? 'No encontrada' : edad + ' años'}`, wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)	
