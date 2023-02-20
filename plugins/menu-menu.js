@@ -82,7 +82,8 @@ let menuA = `${lenguajeGB['smsConfi2']()} *${username}*
 ┊
 ┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
 ┊დ *${lenguajeGB['smsBotonM6']()} » ${level} || ${user.exp - min}/${xp}*
-┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'} ${(conn.user.jid == global.conn.user.jid ? '' : `\n┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┊დ 𝙎𝙊𝙔 𝙐𝙉 𝙎𝙐𝘽 𝘽𝙊𝙏 𝘿𝙀𝙇: https://wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'} 
+┆დ️ *𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊 »* ${rtotalreg} 𝘿𝙀 ${totalreg} ${(conn.user.jid == global.conn.user.jid ? '' : `\n┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┊დ 𝙎𝙊𝙔 𝙐𝙉 𝙎𝙐𝘽 𝘽𝙊𝙏 𝘿𝙀𝙇: https://wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
 ╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱`.trim()
 
 let menuB = `
@@ -91,7 +92,6 @@ let menuB = `
 *┆💎 DIAMANTES ➟ ${limit}*
 *┆🐈 GATACOINS ➟ ${money}*
 *┆🪙 TOKENS ➟ ${joincount}*
-*┆✅️ ʀᴇɢɪsᴛʀᴀᴅᴏ ➟ ${rtotalreg} de ${totalreg}
 *╰*┅┅┅┅┅┅┅┅┅┅┅┅┅ *✧*
 ${readMore}
 *╭━〔 INFORMACIÓN DE GATABOT 〕⬣*
