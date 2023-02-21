@@ -78,11 +78,16 @@ rows: [
 ]}]
 
 const listMessage = {
-text: `*»» ${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : name}*
-*»» ${lenguajeGB['smsVersion']()}* \`\`\`${vs}\`\`\`
-*»» Registrado ➺ ${user.registered === true ? '✅' : '❌'}* *»» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}*\n
+text: `︾ \`\`\`USUARIO INFO\`\`\` ︾
+*»» ${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : name}*
+*»» Registrado ➺ ${user.registered === true ? '✅' : '❌'}* *»» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}*
+*»» Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
+*»» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*\n
+︾ \`\`\`USUARIO MENU\`\`\` ︾
 ╭━⊰ *${ucapan()}* ⊱━⬣
-┃ ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ
+┃
+┃✜ ${lenguajeGB['smsVersion']()}* \`\`\`${vs}\`\`\`
+┃
 ┃✜ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_
 ┃✜ *Registrados* ➺ _${rtotalreg}/${totalreg}_
 ┃✜ *${lenguajeGB['smsMode']()}* ➺ _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}_
@@ -92,10 +97,8 @@ text: `*»» ${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? 
 ┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃✜ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
 ┃✜ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
-┃｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ
-╰━⊰ *${wm}* ⊱━⬣\n
-*» Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
-*» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
+┃
+╰━⊰ *${wm}* ⊱━⬣\n`,
 footer: `*↓ TRUSTED LINK* ✅
 ${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
 title: null,
