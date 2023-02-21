@@ -1,4 +1,4 @@
-/*import fetch from 'node-fetch'
+import fetch from 'node-fetch'
 import translate from '@vitalets/google-translate-api'
 let handler = async (m, { conn, usedPrefix, command, text }) => {
 if (m.isGroup) return
@@ -14,7 +14,7 @@ try {
 let res = await fetch(`https://api.lolhuman.xyz/api/akinator/start?apikey=${lolkeysapi}`)
 let anu = await res.json()
 if (anu.status !== 200) throw '*[❗] 𝙴𝚁𝚁𝙾𝚁, 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝙻𝙾 𝙼𝙰𝚂 𝚃𝙰𝚁𝙳𝙴*'
-let { sesi, server, frontaddr, session, signature, question, progression, step } = anu.result
+let { server, frontaddr, session, signature, question, progression, step } = anu.result
 aki.sesi = true
 aki.server = server
 aki.frontaddr = frontaddr
@@ -39,4 +39,4 @@ m.reply('*[❗] 𝙴𝚁𝚁𝙾𝚁, 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝙻𝙾 𝙼�
 handler.menu = ['akinator']
 handler.tags  = ['game']
 handler.command = /^(akinator)$/i
-export default handler*/
+export default handler
