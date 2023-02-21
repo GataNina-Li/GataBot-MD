@@ -78,7 +78,7 @@ rows: [
 ]}]
 
 const listMessage = {
-text: `*»» ${user.genero === 0 ? '' : user.genero.slice(-1)} ${user.registered === true ? user.name : name}*
+text: `*»» ${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : name}*
 *»» ${lenguajeGB['smsVersion']()}* \`\`\`${vs}\`\`\`
 *»» Registrado ➺ ${user.registered === true ? '✅' : '❌'}* *»» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}*\n
 ╭━⊰ *${ucapan()}* ⊱━⬣
