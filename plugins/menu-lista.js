@@ -75,9 +75,10 @@ rows: [
 ]}]
 
 const listMessage = {
-text: `*»» ${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' + '*' : ''}
+text: `*»» ${genero === 0 ? '👤' : genero == 'Ocultado' ? '🕶️' : genero == 'Mujer' ? '🚺' : genero == 'Hombre' ? '🚹' : '👤'} ${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' + '*' : ''}
 *»» ${lenguajeGB['smsVersion']()}* \`\`\`${vs}\`\`\`\n
 ╭━⊰ *${ucapan()}* ⊱━⬣
+┃
 ┃✜ *${lenguajeGB['smsTotalUsers']()} - ${lenguajeGB['smsMode']()}*
 ┃➺ _${Object.keys(global.db.data.users).length}_ - _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}_
 ┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -89,6 +90,7 @@ text: `*»» ${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲ�
 ┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃✜ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
 ┃✜ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
+┃
 ╰━⊰ *${wm}* ⊱━⬣\n
 *» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
 *» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
