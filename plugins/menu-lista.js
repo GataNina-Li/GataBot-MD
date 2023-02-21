@@ -81,9 +81,9 @@ const listMessage = {
 text: `︾ \`\`\`USUARIO INFO\`\`\` ︾
 *»» ${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : name}*
 *»» Registrado ➺ ${user.registered === true ? '✅' : '❌'}* *»» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}*
-*»» Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
-*»» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*\n
-︾ \`\`\`USUARIO MENU\`\`\` ︾
+*»» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}* 
+${(conn.user.jid == global.conn.user.jid ? '' : `\n*»» Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
+*»» Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*\n' : user.pasatiempo + '\n'}
 ╭━⊰ *${ucapan()}* ⊱━⬣
 ┃
 ┃✜ ${lenguajeGB['smsVersion']()}* \`\`\`${vs}\`\`\`
@@ -98,7 +98,7 @@ text: `︾ \`\`\`USUARIO INFO\`\`\` ︾
 ┃✜ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
 ┃✜ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
 ┃
-╰━⊰ *${wm}* ⊱━⬣\n`,
+╰━⊰ *${wm}* ⊱━⬣`,
 footer: `*↓ TRUSTED LINK* ✅
 ${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
 title: null,
