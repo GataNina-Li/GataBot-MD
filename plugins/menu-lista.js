@@ -94,7 +94,7 @@ text: `*»» ${user.genero === 0 ? '👤' : user.genero == 'Ocultado' ? '🕶️
 ┃✜ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
 ┃｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ
 ╰━⊰ *${wm}* ⊱━⬣\n
-*» Pasatiempo(s)* ➺ ${pasatiempo === 0 ? 'Usuario no registrado' : pasatiempo}${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
+*» Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? 'Usuario no registrado' : user.pasatiempo}${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
 *» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
 footer: `*↓ TRUSTED LINK* ✅
 ${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
