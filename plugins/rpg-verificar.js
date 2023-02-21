@@ -31,12 +31,12 @@ bio = biografia.status?.toString() || 'No encontrada'
 let intervalId
 
 function mensajeRegistro() {
-//if (edad === 0) {
-//clearInterval(intervalId)	
-//registrando = false
-//m.reply('```REGISTRO NO COMPLETADO. VUELVA A INTENTAR```')
+if (edad === 0) {
+clearInterval(intervalId)	
+registrando = false
+m.reply('```REGISTRO NO COMPLETADO. VUELVA A INTENTAR```')
 //return
-//}
+}
 if (user.registered === true) {
 return 
 }
