@@ -10,7 +10,7 @@ let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
 let bot = global.db.data.settings[this.user.jid] || {}
 if (bot.antipv && !isOwner && !isROwner) {
-await m.reply(`Hola @${m.sender.split`@`[0]} NO PUEDE USAR ESTE BOT EN CHAT PRIVADO, SERÁ BANEADO(A)\nGrupo para usar al bot ${nn}`, false, { mentions: [m.sender] })
-user.banned = true
+await m.reply(`Hola @${m.sender.split`@`[0]} NO PUEDE USAR ESTE BOT EN CHAT PRIVADO\nUnirte al Grupo oficial del bot para poder usar el bot ${nn}`, false, { mentions: [m.sender] })
+handler.group = true
 return !1
 }}
