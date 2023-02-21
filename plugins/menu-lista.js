@@ -75,6 +75,33 @@ rows: [
 ]}]
 
 const listMessage = {
+text: `*╭─────────────────✤*\n*│* 🌐 *${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' + '*' : ''} 🌐\n*│*
+╭━〔 *${ucapan()}* 〕━⬣
+┃✜ *${lenguajeGB['smsTime']()} || ${lenguajeGB['smsVersion']()}*	    
+┃➺ _${time}_ || _${vs}_
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsUptime']()}* 
+┃➺ _${uptime}_
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsTotalUsers']()} || ${lenguajeGB['smsMode']()}*
+┃➺ _${Object.keys(global.db.data.users).length}_ || _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}_
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsBanChats']()}*
+┃➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsBanUsers']()}*
+┃➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
+╰━━━━━━━━━━━━━━━━⬣
+*» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
+*» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
+footer: `*↓ TRUSTED LINK* ✅
+${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
+title: null,
+buttonText: `${lenguajeGB['smsListaMenu']()}`, 
+sections }
+await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
+
+/*const listMessage = {
 text: `*╭─────────────────✤*\n*│* *${ucapan()}*\n*│* 🌐 *${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' + '*' : ''} 🌐\n*│*
 ╭━〔 *${wm}* 〕━⬣
 ┃✜ *${lenguajeGB['smsTime']()}*	    
@@ -98,14 +125,14 @@ text: `*╭─────────────────✤*\n*│* *${uca
 ┃✜ *${lenguajeGB['smsBanUsers']()}*
 ┃➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
 ╰━━━━━━━━━━━━━━━━⬣
-*» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
+*» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
 *» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
 footer: `*↓ TRUSTED LINK* ✅
 ${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
 title: null,
 buttonText: `${lenguajeGB['smsListaMenu']()}`, 
 sections }
-await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
+await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})*/
     
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
