@@ -75,7 +75,7 @@ rows: [
 ]}]
 
 const listMessage = {
-text: `*»» ${genero === 0 ? '👤' : genero == 'Ocultado' ? '🕶️' : genero == 'Mujer' ? '🚺' : genero == 'Hombre' ? '🚹' : '👤'} ${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' + '*' : ''}
+text: `*»» ${user.genero === 0 ? '👤' : user.genero == 'Ocultado' ? '🕶️' : user.genero == 'Mujer' ? '🚺' : user.genero == 'Hombre' ? '🚹' : '👤'} ${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' + '*' : ''}
 *»» ${lenguajeGB['smsVersion']()}* \`\`\`${vs}\`\`\`\n
 ╭━⊰ *${ucapan()}* ⊱━⬣
 ┃
