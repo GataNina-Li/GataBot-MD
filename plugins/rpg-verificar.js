@@ -35,7 +35,7 @@ if (edad === 0) {
 clearInterval(intervalId)	
 registrando = false
 m.reply('```REGISTRO NO COMPLETADO. VUELVA A INTENTAR```')
-//return
+return
 }
 if (user.registered === true) {
 return 
