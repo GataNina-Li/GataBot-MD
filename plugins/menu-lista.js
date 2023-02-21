@@ -24,6 +24,9 @@ let { min, xp, max } = xpRange(level, global.multiplier)
 let name = await conn.getName(m.sender)
 let pareja = global.db.data.users[m.sender].pasangan 
 let user = global.db.data.users[m.sender]
+let totalreg = Object.keys(global.db.data.users).length
+let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
+
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
 const sections = [{
@@ -76,11 +79,13 @@ rows: [
 
 const listMessage = {
 text: `*»» ${user.genero === 0 ? '👤' : user.genero == 'Ocultado' ? '🕶️' : user.genero == 'Mujer' ? '🚺' : user.genero == 'Hombre' ? '🚹' : '👤'} ${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' + '*' : ''}
-*»» ${lenguajeGB['smsVersion']()}* \`\`\`${vs}\`\`\`\n
+*»» ${lenguajeGB['smsVersion']()}* \`\`\`${vs}\`\`\`
+*»» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}* \n
 ╭━⊰ *${ucapan()}* ⊱━⬣
 ┃ ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ
-┃✜ *${lenguajeGB['smsTotalUsers']()} - ${lenguajeGB['smsMode']()}*
-┃➺ _${Object.keys(global.db.data.users).length}_ - _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}_
+┃✜ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_
+┃✜ *Usuarios Registrados* ➺ _${rtotalreg}/${totalreg}_
+┃✜ *${lenguajeGB['smsMode']()}* _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}_
 ┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃✜ *${lenguajeGB['smsTime']()}* ➺ _${time}_ 	    
 ┃✜ *${lenguajeGB['smsUptime']()}* ➺ _${uptime}_
@@ -89,7 +94,7 @@ text: `*»» ${user.genero === 0 ? '👤' : user.genero == 'Ocultado' ? '🕶️
 ┃✜ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
 ┃｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ
 ╰━⊰ *${wm}* ⊱━⬣\n
-*» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
+${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
 *» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
 footer: `*↓ TRUSTED LINK* ✅
 ${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
