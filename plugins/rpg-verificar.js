@@ -277,6 +277,12 @@ sections
 if (!text) return conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 identidad = text.slice(1).trim()
 user.identidad = identidad
+pasatiempo = 0
+pas1 = 0
+pas2 = 0
+pas3 = 0
+pas4 = 0
+pas5 = 0  
 if (verificar.test(text) == true) return conn.sendButton(m.chat, eg + '*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:* ' + `${nombre === 0 ? 'No encontrada' : nombre}` + '\n' + '*❖ EDAD:* ' + `${edad === 0 ? 'No encontrada' : edad + ' años'}` + '\n' + '*❖ GÉNERO:* ' + `${genero === 0 ? 'No encontrada' : genero}` + '\n' + '*❖ IDENTIDAD DE GÉNERO:* ' + `${identidad === 0 ? 'No encontrada' : identidad}`, wm, null, [[`❇️ REGISTRAR MIS PASATIEMPOS`, usedPrefix + 'pasatiempo']], m)
 }
 	
