@@ -1163,6 +1163,16 @@ export async function handler(chatUpdate) {
                     if (name != 'owner-unbanchat.js' && chat?.isBanned)
                         return // Except this
                     if (name != 'owner-unbanuser.js' && user?.banned)
+                    if (!opts['msgifbanned']) m.reply(`❰ ⚠️ ❱ *ESTAS BANEADO/A* ❰ ⚠️ ❱ ${user.bannedReason ? `\n*Motivo:* *${user.bannedReason}*` : ''}
+
+*👉 Puedes contactar a la propietaria del Bot si crees que se trata de un error (TENER PRUEBAS) para tratar el motivo de tú desbaneo*
+
+👉 ${global.asistencia}
+👉 wa.me/5492266466080
+👉 wa.me/584125778026
+👉 wa.me/51993042301
+👉 ${global.ig}
+`.trim())
                         return
                 }
 
