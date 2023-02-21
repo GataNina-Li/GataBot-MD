@@ -78,7 +78,7 @@ rows: [
 ]}]
 
 const listMessage = {
-text: `*»» ${user.genero === 0 ? '👤' : user.genero == 'Ocultado' ? '🕶️' : user.genero == 'Mujer' ? '🚺' : user.genero == 'Hombre' ? '🚹' : '👤'} ${user.registered === true ? user.name : name}*
+text: `*»» ${user.genero === 0 ? '' : user.genero.slice(-1)} ${user.registered === true ? user.name : name}*
 *»» ${lenguajeGB['smsVersion']()}* \`\`\`${vs}\`\`\`
 *»» Registrado ➺ ${user.registered === true ? '✅' : '❌'}* *»» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}*\n
 ╭━⊰ *${ucapan()}* ⊱━⬣
@@ -94,7 +94,7 @@ text: `*»» ${user.genero === 0 ? '👤' : user.genero == 'Ocultado' ? '🕶️
 ┃✜ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
 ┃｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ｡･:*:･ﾟ
 ╰━⊰ *${wm}* ⊱━⬣\n
-*» Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo}${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
+*» Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
 *» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
 footer: `*↓ TRUSTED LINK* ✅
 ${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
