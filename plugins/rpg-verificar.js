@@ -514,7 +514,7 @@ user.tiempo = fecha + hora
 user.name = nombre === 0 ? 'No encontrada' : nombre + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ'
 user.descripcion = bio
 user.age = edad === 0 ? 'No encontrada' : edad >= 18 ? edad += ' Años *||* ' + '(Persona Adulta)' : edad += ' Años *||* ' + '(Persona Joven)'
-user.genero = genero === 0 ? 'No encontrada' : genero == 'Ocultado' ? `${genero} 🗣️` : genero == 'Mujer' ? `${genero} 🚺` : genero == 'Hombre' ? `${genero} 🚹` : 'No encontrada'
+user.genero = genero === 0 ? 'No encontrada 👤' : genero == 'Ocultado' ? `${genero} 🕶️` : genero == 'Mujer' ? `${genero} 🚺` : genero == 'Hombre' ? `${genero} 🚹` : 'No encontrada 👤'
 user.identidad = identidad === 0 ? 'No encontrada' : identidad
 user.pasatiempo = pasatiempo === 0 ? 'No encontrada' : pasatiempo
 }else{
@@ -550,7 +550,7 @@ let caption = `
 ✅ *INSIGNIA DE VERIFICACIÓN*
 ❱❱   *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
 
-👤 *NOMBRE* 
+✨ *NOMBRE* 
 ❱❱ ${user.name}
 
 👀 *DESCRIPCIÓN*
