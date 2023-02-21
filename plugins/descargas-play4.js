@@ -32,5 +32,6 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 handler.help = ['play4']
 handler.tags = ['downloader']
 handler.command = ['play4', 'playvid']
-
+handler.limit = 1
+handler.level = 3
 export default handler
