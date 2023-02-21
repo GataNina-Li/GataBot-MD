@@ -80,13 +80,14 @@ rows: [
 const listMessage = {
 text: `╭━⊰ *${ucapan()}* ⊱━⬣
 ┃
-┃ *🢓︾🢓 U S U A R I O 🢓︾🢓*
+┃ *︾ U S U A R I O ︾*
 ┃
 ┃»» *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : name}*
+┃»» *Mi estado* ➺ _Próximamente_
 ┃»» *Registrado ➺ ${user.registered === true ? '✅' : '❌'}* *»» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}*
 ┃»» *${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*${(conn.user.jid == global.conn.user.jid ? '' : `\n┃»» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
 ┃
-┃ *🢓︾🢓 M E N U 🢓︾🢓*
+┃ *︾ M E N U ︾*
 ┃
 ┃✜ *${lenguajeGB['smsVersion']()}* ➺ \`\`\`${vs}\`\`\`
 ┃✜ *Tipo de registro* ➺ ${user.registered === true ? `_${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_` : '_' + usedPrefix + 'verificar_'} 
