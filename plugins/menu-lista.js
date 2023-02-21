@@ -86,7 +86,7 @@ text: `︾ \`\`\`USUARIO INFO\`\`\` ︾
 ╭━⊰ *${ucapan()}* ⊱━⬣
 ┃
 ┃✜ *${lenguajeGB['smsVersion']()}* ➺ \`\`\`${vs}\`\`\`
-┃✜ *Tipo de registro* ➺ _${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_
+┃✜ *Tipo de registro* ➺ ${user.registered === true ? `_${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_` : '_' + usedPrefix + 'verificar_'} 
 ┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃✜ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_
 ┃✜ *Registrados* ➺ _${rtotalreg}/${totalreg}_
