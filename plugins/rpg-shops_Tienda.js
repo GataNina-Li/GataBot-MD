@@ -1,3 +1,4 @@
+const xpperlimit = 300
 import fetch from 'node-fetch'
 let handler = async (m, { command, conn, usedPrefix, args }) => {
 let user = global.db.data.users[m.sender]
