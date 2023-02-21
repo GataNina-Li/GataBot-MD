@@ -1160,9 +1160,8 @@ export async function handler(chatUpdate) {
                 if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
                     let chat = global.db.data.chats[m.chat]
                     let user = global.db.data.users[m.sender]
-                    if (name != 'owner-unbanchat.js' && chat?.isBanned)
-                        return // Except this
-                    if (name != 'owner-unbanuser.js' && user?.banned)
+                    if (!['unbanchat.js', 'link.js', 'pengumuman.js', 'creator.js'].includes(name) && chat && chat.isBanned && !isROwner) return // Except this
+            if (!['unbanuser.js', 'inv.js', 'link.js', 'creator.js', 'profile.js'].includes(name) && user && user.banned && !isROwner) {
                     if (!opts['msgifbanned']) m.reply(`❰ ⚠️ ❱ *ESTAS BANEADO/A* ❰ ⚠️ ❱ ${user.bannedReason ? `\n*Motivo:* *${user.bannedReason}*` : ''}
 
 *👉 Puedes contactar a la propietaria del Bot si crees que se trata de un error (TENER PRUEBAS) para tratar el motivo de tú desbaneo*
@@ -1174,6 +1173,7 @@ export async function handler(chatUpdate) {
 👉 ${global.ig}
 `.trim())
                         return
+                }
                 }
 
                let hl = _prefix 
