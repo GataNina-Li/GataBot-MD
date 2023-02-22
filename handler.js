@@ -65,6 +65,7 @@ export async function handler(chatUpdate) {
 		    if (!isNumber(user.pasatiempo)) user.pasatiempo = 0
 		    if (!isNumber(user.tiempo)) user.tiempo = 0
 		    if (!isNumber(user.premLimit)) user.premLimit = 0
+		    if (!isNumber(user.miestado)) user.miestado = 0
 		    
 		    
                     if (!isNumber(user.anggur)) user.anggur = 0
@@ -502,6 +503,7 @@ export async function handler(chatUpdate) {
 		    pasatiempo: 0,
 		    tiempo: 0,
 		    premLimit: 0,
+		    miestado: 0,
                     agility: 16,
                     anakanjing: 0,
                     anakcentaur: 0,
