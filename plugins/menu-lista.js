@@ -76,7 +76,7 @@ rows: [
 {title: lenguajeGB['smsLista34'](), rowId: `${usedPrefix}on`},
 {title: lenguajeGB['smsLista35'](), rowId: `${usedPrefix}ownermenu`}
 ]}]
-
+ 
 const listMessage = {
 text: `╭━⊰ *${ucapan()}* ⊱━⬣
 ┃
