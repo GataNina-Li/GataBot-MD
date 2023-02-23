@@ -84,7 +84,8 @@ text: `╭━⊰ *${ucapan()}* ⊱━⬣
 ┃
 ┃»» *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : name}*
 ┃»» *Mi estado* ➺ ${typeof user.miestado !== 'string' ? '_#miestado || Estado no asignado_' : '_' + user.miestado + '_'}
-┃»» *Registrado ➺ ${user.registered === true ? '✅' : '❌'}* *»» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}*
+┃»» *Registrado ➺ ${user.registered === true ? '✅' : '❌ _#verificar_'}* 
+┃»» *Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌ _#pase premium_'}*
 ┃
 ┃ *︾ M E N U ︾*
 ┃
@@ -119,40 +120,6 @@ title: null,
 buttonText: `${lenguajeGB['smsListaMenu']()}`, 
 sections }
 await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
-
-/*const listMessage = {
-text: `╭━⊰ *${ucapan()}* ⊱━⬣
-┃
-┃ *︾ U S U A R I O ︾*
-┃
-┃»» *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : name}*
-┃»» *Mi estado* ➺ _Próximamente_
-┃»» *Registrado ➺ ${user.registered === true ? '✅' : '❌'}* *»» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}*
-┃»» *${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*${(conn.user.jid == global.conn.user.jid ? '' : `\n┃»» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
-┃
-┃ *︾ M E N U ︾*
-┃
-┃✜ *${lenguajeGB['smsVersion']()}* ➺ \`\`\`${vs}\`\`\`
-┃✜ *Tipo de registro* ➺ ${user.registered === true ? `_${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_` : '_' + usedPrefix + 'verificar_'} 
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃✜ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_
-┃✜ *Registrados* ➺ _${rtotalreg}/${totalreg}_
-┃✜ *${lenguajeGB['smsMode']()}* ➺ _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}_
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃✜ *${lenguajeGB['smsTime']()}* ➺ _${time}_ 	    
-┃✜ *${lenguajeGB['smsUptime']()}* ➺ _${uptime}_
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃✜ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
-┃✜ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
-┃
-╰━⊰ *${wm}* ⊱━⬣\n
-*»» ✨ Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}`,
-footer: `*↓ TRUSTED LINK* ✅
-${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
-title: null,
-buttonText: `${lenguajeGB['smsListaMenu']()}`, 
-sections }
-await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})*/
 
 /*const listMessage = {
 text: `*╭─────────────────✤*\n*│* *${ucapan()}*\n*│* 🌐 *${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' + '*' : ''} 🌐\n*│*
