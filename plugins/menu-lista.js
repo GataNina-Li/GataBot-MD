@@ -83,7 +83,7 @@ text: `╭━⊰ *${ucapan()}* ⊱━⬣
 ┃ *︾ U S U A R I O ︾*
 ┃
 ┃»» *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : name}*
-┃»» *Mi estado* ➺ ${typeof user.miestado !== 'string' ? '_#miestado || Estado no asignado_' : '_' + user.miestado + '_'}
+┃»» *Mi estado* ➺ ${typeof user.miestado !== 'string' ? '_#miestado || Estado no asignado_' : '_Me siento ' + user.miestado + '_'}
 ┃»» *Registrado ➺ ${user.registered === true ? '✅' : '❌ _#verificar_'}* 
 ┃»» *Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌ _#pase premium_'}*
 ┃
