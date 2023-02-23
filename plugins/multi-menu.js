@@ -719,7 +719,45 @@ let menuB = `╭┄〔 *${wm}* 〕┄⊱
 ∘ _${usedPrefix}trabajar | work_
 `.trim()
 await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-}
+
+
+} if (command == 'stickermenu'){ //sticker
+let menuA = `🧸 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
+let menuB = `╭┄〔 *${wm}* 〕┄⊱
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+⠇ ${lenguajeGB['smsTex22']()} 🎐
+∘ _${usedPrefix}sticker | s *imagen o video*_
+∘ _${usedPrefix}sticker | s *url de tipo jpg*_
+∘ _${usedPrefix}emojimix *😺+😆*_
+∘ _${usedPrefix}scircle | círculo *imagen*_
+∘ _${usedPrefix}semoji | emoji *tipo emoji*_
+∘ _${usedPrefix}attp *texto*_
+∘ _${usedPrefix}attp2 *texto*_
+∘ _${usedPrefix}ttp *texto*_
+∘ _${usedPrefix}ttp2 *texto*_
+∘ _${usedPrefix}ttp3 *texto*_
+∘ _${usedPrefix}ttp4 *texto*_
+∘ _${usedPrefix}ttp5 *texto*_
+∘ _${usedPrefix}ttp6 *texto*_
+∘ _${usedPrefix}palmaditas | pat *@tag*_
+∘ _${usedPrefix}bofetada | slap *@tag*_
+∘ _${usedPrefix}besar | kiss *@tag*_
+∘ _${usedPrefix}alimentar | food *@tag*_
+∘ _${usedPrefix}dado_
+∘ _${usedPrefix}wm *packname|author*_
+∘ _${usedPrefix}wm *texto1|texto2*_
+∘ _${usedPrefix}stickermarker *efecto : responder a imagen*_
+∘ _${usedPrefix}stickerfilter *efecto : responder a imagen*_
+∘ _${usedPrefix}cs *:* cs2_
+`.trim()
+await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+} 
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
@@ -728,7 +766,7 @@ console.log(e)}
 handler.help = ['infomenu'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
 handler.command = ['audioefectomenu', 'buscarmenu', 'hornymenu', 'listaporno', 'listhorny', 'convertidormenu', 'descargasmenu', 'juegosmenu', 'grupomenu',
-'herramientasmenu', 'infomenu', 'makermenu', 'menulogos2', 'ownermenu', 'randommenu', 'rpgmenu'] 
+'herramientasmenu', 'infomenu', 'makermenu', 'menulogos2', 'ownermenu', 'randommenu', 'rpgmenu', 'stickermenu'] 
 //handler.register = true
 handler.exp = 50
 export default handler
