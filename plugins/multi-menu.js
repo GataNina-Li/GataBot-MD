@@ -2,7 +2,7 @@ import { xpRange } from '../lib/levelling.js'
 import PhoneNumber from 'awesome-phonenumber'
 import { promises } from 'fs'
 import { join } from 'path'
-import fetch from 'node-fetch'
+import fetch from 'node-fetch' 
 let handler = async (m, { conn, usedPrefix, command, args, usedPrefix: _p, __dirname, isOwner, text, isAdmin, isROwner }) => {
 try{
 const { levelling } = '../lib/levelling.js'
