@@ -46,7 +46,7 @@ if (command == 'miestado') {
 if (!text) return conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 miEstado = text.trim()
 user.miestado = miEstado
-conn.sendButton(m.chat, eg + `*GENIAL!! SE HA AGREGADO UN ESTADO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n` + `*❖ SU ESTADO:* ${user.miestado}`, wm, null, [[`🐈 MENU`, usedPrefix + 'menu']], m)
+if (text) return conn.sendButton(m.chat, eg + `*GENIAL!! SE HA AGREGADO UN ESTADO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n` + `*❖ SU ESTADO:* ${user.miestado}`, wm, null, [[`🐈 MENU`, usedPrefix + 'menu']], m)
 miEstado = 0
 }}
 handler.command = ['miestado'] 
