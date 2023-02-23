@@ -4,7 +4,7 @@ import { promises } from 'fs'
 import { join } from 'path'
 import fetch from 'node-fetch'
 let handler = async (m, { conn, usedPrefix, command, args, usedPrefix: _p, __dirname, isOwner, text, isAdmin, isROwner }) => {
-//try{
+try{
 const { levelling } = '../lib/levelling.js'
 let { exp, limit, level, role } = global.db.data.users[m.sender]
 let { min, xp, max } = xpRange(level, global.multiplier)
@@ -86,7 +86,7 @@ const temaX = [['pornololi', 'nsfwloli'], ['pornopies', 'nsfwfoot'], ['pornoass'
 ['pornorezero', 'nsfwrezero'], ['pornotatsumaki', 'nsfwtatsumaki'], ['pornonaruto', 'nsfwnaruto'], ['pornokitagawa', 'nsfwkitagawa'], ['pornovid', 'nsfwvid'],
 ['pornovid2', 'nsfwvid2'], ['pornovidlesbi', 'nsfwvidlesbi'], ['pornovidgay', 'nsfwvidgay'], ['pornovidbisexual', 'nsfwvidbisexual'], ['pornovidrandom', 'nsfwvidrandom']]
 
-if (command == 'audioefectomenu'){
+if (command == 'audioefectomenu'){ //audio
 let menuA = `🎧 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
 let menuB = `╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -114,7 +114,7 @@ let menuB = `╭┄〔 *${wm}* 〕┄⊱
 await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
 
   
-} if (command == 'buscarmenu'){
+} if (command == 'buscarmenu'){ //buscador
 let menuA = `🎈 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
 let menuB = `╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -136,7 +136,7 @@ let menuB = `╭┄〔 *${wm}* 〕┄⊱
 await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
 
   
-} if (command == 'hornymenu'){ 
+} if (command == 'hornymenu'){ //comandos+18
 let pp = './src/+18.jpg'
 
 let menuA = `😏 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
@@ -245,12 +245,11 @@ ${lenguajeGB['smsTex7']()}
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[84][0] : temaX[84][1]}_
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[85][0] : temaX[85][1]}_`.trim()
 
-
 await conn.sendButton(m.chat, menuA, menuB, pp, [
 [lenguajeGB.smsBotonM1(), usedPrefix + 'menu'], [lenguajeGB.smsBotonM2(), usedPrefix + 'allmenu'], [lenguajeGB.lenguaje() == 'es' ? '🔞 ver lista porno 🔞'.toUpperCase() : '🔞 list horny🔞 '.toUpperCase(), lenguajeGB.lenguaje() == 'es' ? usedPrefix + 'listaporno' : usedPrefix + 'listhorny']], fkontak, adReply, m)
 
   
-}if (command == 'listaporno' || command == 'listhorny') {
+}if (command == 'listaporno' || command == 'listhorny') { //comandos+18
 let sections = Object.keys(temaX).map((v, index, temaX2) => ({ title: `${lenguajeGB['smsTex4']().slice(1, -1)} : ${wm}`,
 rows: [{ 
 title: `${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🎟️🥵' : '⚠️'} ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0].toUpperCase() : temaX[index][1].toUpperCase()} ${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🥵🎟️' : '⚠️'} • ${lenguajeGB['smsBotonM7']()} ➜ ${user.premiumTime > 0 ? '✅' : '❌'}`, 
@@ -271,7 +270,7 @@ sections }
 conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
   
   
-} if (command == 'convertidormenu'){ 
+} if (command == 'convertidormenu'){ //convertidor
 let menuA = `📍 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
 let menuB = `╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -292,17 +291,444 @@ let menuB = `╭┄〔 *${wm}* 〕┄⊱
 `.trim()
 await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)  
 
-}
   
-//} catch (e) {
-//await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
-//console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-//console.log(e)	
+} if (command == 'descargasmenu'){ //descargas
+let menuA = `🪄 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
+let menuB = `╭┄〔 *${wm}* 〕┄⊱
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+⠇ ${lenguajeGB['smsTex9']()} 🚀
+∘ _${usedPrefix}imagen | image *texto*_
+∘ _${usedPrefix}pinterest | dlpinterest *texto*_
+∘ _${usedPrefix}wallpaper|wp *texto*_
+∘ _${usedPrefix}play | play2 *texto o link*_
+∘ _${usedPrefix}play.1 *texto o link*_
+∘ _${usedPrefix}play.2 *texto o link*_ 
+∘ _${usedPrefix}ytmp3 | yta *link*_
+∘ _${usedPrefix}ytmp4 | ytv *link*_
+∘ _${usedPrefix}pdocaudio | ytadoc *link*_
+∘ _${usedPrefix}pdocvieo | ytvdoc *link*_
+∘ _${usedPrefix}tw | twdl | twitter *link*_
+∘ _${usedPrefix}spotify | music *text*_
+∘ _${usedPrefix}facebook | fb *link*_
+∘ _${usedPrefix}instagram *link video o imagen*_
+∘ _${usedPrefix}verig | igstalk *usuario(a)*_
+∘ _${usedPrefix}ighistoria | igstory *usuario(a)*_
+∘ _${usedPrefix}tiktok *link*_
+∘ _${usedPrefix}tiktokfoto | tiktokphoto *usuario(a)*_
+∘ _${usedPrefix}vertiktok | tiktokstalk *usuario(a)*_
+∘ _${usedPrefix}mediafire | dlmediafire *link*_
+∘ _${usedPrefix}clonarepo | gitclone *link*_
+∘ _${usedPrefix}clima *país ciudad*_
+∘ _${usedPrefix}consejo_
+∘ _${usedPrefix}frase_
+∘ _${usedPrefix}frase2_
+∘ _${usedPrefix}morse codificar *texto*_
+∘ _${usedPrefix}morse decodificar *morse*_
+`.trim()
+await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
 
+  
+} if (command == 'juegosmenu'){ //fun
+let menuA = `🎠 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
+let menuB = `╭┄〔 *${wm}* 〕┄⊱
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+⠇ ${lenguajeGB['smsTex10']()} 🎡
+∘ _${usedPrefix}mates | matemáticas | math_
+∘ _${usedPrefix}ppt *piedra : papel : tijera*_
+∘ _${usedPrefix}tictactoe | ttt *sala*_
+∘ _${usedPrefix}deltictactoe | delttt_
+∘ _${usedPrefix}topgays_
+∘ _${usedPrefix}topotakus_
+∘ _${usedPrefix}toppajer@s_
+∘ _${usedPrefix}topput@s_
+∘ _${usedPrefix}topintegrantes | topintegrante_
+∘ _${usedPrefix}toplagrasa | topgrasa_
+∘ _${usedPrefix}toppanafrescos | toppanafresco_
+∘ _${usedPrefix}topshiposters | topshipost_
+∘ _${usedPrefix}toplindos | toplind@s_
+∘ _${usedPrefix}topfamosos | topfamos@s_
+∘ _${usedPrefix}topparejas | top5parejas_
+∘ _${usedPrefix}gay | gay *@tag*_
+∘ _${usedPrefix}gay2 *nombre : @tag*_
+∘ _${usedPrefix}lesbiana *nombre : @tag*_
+∘ _${usedPrefix}manca *nombre : @tag*_
+∘ _${usedPrefix}manco *nombre : @tag*_
+∘ _${usedPrefix}pajero *nombre : @tag*_
+∘ _${usedPrefix}pajera *nombre : @tag*_
+∘ _${usedPrefix}puto *nombre : @tag*_
+∘ _${usedPrefix}puta *nombre : @tag*_
+∘ _${usedPrefix}rata *nombre : @tag*_
+∘ _${usedPrefix}love *nombre : @tag*_
+∘ _${usedPrefix}doxear *nombre : @tag*_
+∘ _${usedPrefix}doxxeame_
+∘ _${usedPrefix}pregunta *texto*_
+∘ _${usedPrefix}apostar | slot *cantidad*_
+∘ _${usedPrefix}formarpareja_
+∘ _${usedPrefix}dado_
+∘ _${usedPrefix}verdad_
+∘ _${usedPrefix}reto_
+∘ _${usedPrefix}multijuegos_
+∘ _${usedPrefix}juegos_
+`.trim()
+await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+
+  
+} if (command == 'grupomenu'){ //grupo
+let menuA = `🔰 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
+let menuB = `╭┄〔 *${wm}* 〕┄⊱
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+⠇ ${lenguajeGB['smsTex11']()} 🌐
+∘ _${usedPrefix}add *numero*_
+∘ _${usedPrefix}sacar | ban | kick  *@tag*_
+∘ _${usedPrefix}grupo *abrir : cerrar*_
+∘ _${usedPrefix}group *open : close*_
+∘ _${usedPrefix}daradmin | promote *@tag*_
+∘ _${usedPrefix}quitar | demote *@tag*_
+∘ _${usedPrefix}banchat_
+∘ _${usedPrefix}unbanchat_
+∘ _${usedPrefix}banuser *@tag*_
+∘ _${usedPrefix}unbanuser *@tag*_
+∘ _${usedPrefix}admins *texto*_
+∘ _${usedPrefix}invocar *texto*_
+∘ _${usedPrefix}tagall *texto*_
+∘ _${usedPrefix}hidetag *texto*_
+∘ _${usedPrefix}infogrupo | infogroup_
+∘ _${usedPrefix}grupotiempo | grouptime *Cantidad*_
+∘ _${usedPrefix}advertencia *@tag*_
+∘ _${usedPrefix}deladvertencia *@tag*_
+∘ _${usedPrefix}delwarn *@tag*_
+∘ _${usedPrefix}crearvoto | startvoto *texto*_
+∘ _${usedPrefix}sivotar | upvote_
+∘ _${usedPrefix}novotar | devote_
+∘ _${usedPrefix}vervotos | cekvoto_
+∘ _${usedPrefix}delvoto | deletevoto_
+∘ _${usedPrefix}enlace | link_
+∘ _${usedPrefix}newnombre | nuevonombre *texto*_
+∘ _${usedPrefix}newdesc | descripcion *texto*_
+∘ _${usedPrefix}setwelcome | bienvenida *texto*_
+∘ _${usedPrefix}setbye | despedida *texto*_
+∘ _${usedPrefix}nuevoenlace | resetlink_
+∘ _${usedPrefix}on_
+∘ _${usedPrefix}off_
+`.trim()
+await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+
+  
+} if (command == 'herramientasmenu'){ //herramientas
+let menuA = `🔩 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
+let menuB = `╭┄〔 *${wm}* 〕┄⊱
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+⠇ ${lenguajeGB['smsTex12']()} 🛠️
+∘ _${usedPrefix}afk *motivo*_
+∘ _${usedPrefix}acortar *url*_
+∘ _${usedPrefix}calc *operacion math*_
+∘ _${usedPrefix}del *respondre a mensaje del Bot*_
+∘ _${usedPrefix}qrcode *texto*_
+∘ _${usedPrefix}readmore *texto1|texto2*_
+∘ _${usedPrefix}spamwa *numero|texto|cantidad*_
+∘ _${usedPrefix}styletext *texto*_
+∘ _${usedPrefix}traducir *texto*_
+∘ _${usedPrefix}morse codificar *texto*_
+∘ _${usedPrefix}morse decodificar *morse*_
+∘ _${usedPrefix}encuesta | poll *Motivo*_
+∘ _${usedPrefix}horario_
+`.trim()
+await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+
+ 
+} if (command == 'infomenu'){ //info
+let menuA = `🌟 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
+let menuB = `╭┄〔 *${wm}* 〕┄⊱
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+⠇ ${lenguajeGB['smsTex13']()} 💫
+∘ _${usedPrefix}cuentasgatabot | cuentasgb_
+∘ _${usedPrefix}gruposgb | grupos | groupgb_
+∘ _${usedPrefix}donar | donate_
+∘ _${usedPrefix}listagrupos | grouplist_
+∘ _${usedPrefix}estado | heygata | status_
+∘ _${usedPrefix}infogata | infobot_
+∘ _${usedPrefix}instalarbot | installbot_
+∘ _${usedPrefix}creadora | owner_
+∘ _${usedPrefix}velocidad | ping_
+∘ _${usedPrefix}serbot | jadibot_
+∘ _${usedPrefix}bots | listjadibots_
+∘ _${usedPrefix}detener | stop_
+∘ _${usedPrefix}reporte *texto*_
+∘ _términos y condiciones_
+∘ _Bot_ 
+`.trim()
+await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+
+  
+} if (command == 'makermenu'){ //maker
+let menuA = `✨ ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
+let menuB = `╭┄〔 *${wm}* 〕┄⊱
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+⠇ ${lenguajeGB['smsTex14']()} ⛺
+∘ _${usedPrefix}logos *efecto texto*_
+∘ _${usedPrefix}simpcard *@tag*_
+∘ _${usedPrefix}hornycard *@tag*_
+∘ _${usedPrefix}lolice *@tag*_
+∘ _${usedPrefix}ytcomment *texto*_
+∘ _${usedPrefix}itssostupid_
+∘ _${usedPrefix}pixelar_
+∘ _${usedPrefix}blur_
+`.trim()
+await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+
+  
+} if (command == 'menulogos2'){ //marker
+let menuA = `⛲ ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
+let menuB = `╭┄〔 *${wm}* 〕┄⊱
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+⠇ ${lenguajeGB['smsTex15']()} 🌅
+∘ ${usedPrefix}logocorazon *Texto*
+∘ ${usedPrefix}3dtext *Texto*
+∘ ${usedPrefix}angels *Texto*
+∘ ${usedPrefix}batshalloween *Texto*
+∘ ${usedPrefix}bear2 *Texto*
+∘ ${usedPrefix}boom *Texto*
+∘ ${usedPrefix}graffiticartoon *Texto*
+∘ ${usedPrefix}girlgamer *Texto*
+∘ ${usedPrefix}firework *Texto*
+∘ ${usedPrefix}gold *Texto*
+∘ ${usedPrefix}handlove *Texto*
+∘ ${usedPrefix}heartcup *Texto*
+∘ ${usedPrefix}heartflashlight *Texto*
+∘ ${usedPrefix}birthdaycake *Texto*
+∘ ${usedPrefix}birthdaycake2 *Texto*
+∘ ${usedPrefix}birthdaycake3 *Texto*
+∘ ${usedPrefix}facebooksilverplay *Texto*
+∘ ${usedPrefix}facebooksilverplay2 *Texto*
+∘ ${usedPrefix}neonsantin *Texto*
+∘ ${usedPrefix}womenday *Texto*
+∘ ${usedPrefix}summerysand *Texto*
+∘ ${usedPrefix}wetglass *Texto*
+∘ ${usedPrefix}mylove *Texto*
+∘ ${usedPrefix}pikachu *Texto*
+∘ ${usedPrefix}logochristmas *Texto*
+∘ ${usedPrefix}cardchristmas *Texto*
+∘ ${usedPrefix}flowercard *Texto*
+`.trim()
+await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+
+  
+} if (command == 'ownermenu'){ //propietario(a)
+let menuA = `🛂 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
+let menuB = `╭┄〔 *${wm}* 〕┄⊱
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+⠇ ${lenguajeGB['smsTex20']()} 💎
+∘ _${usedPrefix}join *enlace*_
+∘ _${usedPrefix}unete *enlace*_
+∘ _${usedPrefix}dardiamantes *cantidad*_
+∘ _${usedPrefix}darxp *cantidad*_
+∘ _${usedPrefix}dargatacoins *cantidad*_
+∘ _${usedPrefix}addprem | userpremium *@tag* *cantidad*_
+∘ _${usedPrefix}addprem2 | userpremium2 *@tag* *cantidad*_
+∘ _${usedPrefix}addprem3 | userpremium3 *@tag* *cantidad*_
+∘ _${usedPrefix}addprem4 | userpremium4 *@tag* *cantidad*_
+∘ _${usedPrefix}idioma | language *código*_
+∘ _${usedPrefix}cajafuerte_
+∘ _${usedPrefix}comunicar | broadcastall | bc *texto*_
+∘ _${usedPrefix}broadcastchats | bcc *texto*_
+∘ _${usedPrefix}comunicarpv *texto*_
+∘ _${usedPrefix}broadcastgc *texto*_
+∘ _${usedPrefix}comunicargrupos *texto*_
+∘ _${usedPrefix}borrartmp | cleartmp_
+∘ _${usedPrefix}delexp *@tag*_
+∘ _${usedPrefix}delgatacoins *@tag*_
+∘ _${usedPrefix}deldiamantes *@tag*_
+∘ _${usedPrefix}reiniciar | restart_
+∘ _${usedPrefix}ctualizar | update_
+∘ _${usedPrefix}addprem | +prem *@tag*_
+∘ _${usedPrefix}delprem | -prem *@tag*_
+∘ _${usedPrefix}listapremium | listprem_
+∘ _${usedPrefix}añadirdiamantes *@tag cantidad*_
+∘ _${usedPrefix}añadirxp *@tag cantidad*_
+∘ _${usedPrefix}añadirgatacoins *@tag cantidad*_
+`.trim()
+await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+
+  
+} if (command == 'randommenu'){ //randomm
+let menuA = `⛩️ ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
+let menuB = `╭┄〔 *${wm}* 〕┄⊱
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+⠇ ${lenguajeGB['smsTex23']()} 🧩
+∘ _${usedPrefix}chica_
+∘ _${usedPrefix}chico_
+∘ _${usedPrefix}cristianoronaldo_
+∘ _${usedPrefix}messi_
+∘ _${usedPrefix}meme_
+∘ _${usedPrefix}meme2_
+∘ _${usedPrefix}itzy_
+∘ _${usedPrefix}blackpink_
+∘ _${usedPrefix}kpop *blackpink : exo : bts*_
+∘ _${usedPrefix}lolivid_
+∘ _${usedPrefix}loli_
+∘ _${usedPrefix}navidad_
+∘ _${usedPrefix}ppcouple_
+∘ _${usedPrefix}neko_
+∘ _${usedPrefix}waifu_
+∘ _${usedPrefix}akira_
+∘ _${usedPrefix}akiyama_
+∘ _${usedPrefix}anna_
+∘ _${usedPrefix}asuna_
+∘ _${usedPrefix}ayuzawa_
+∘ _${usedPrefix}boruto_
+∘ _${usedPrefix}chiho_
+∘ _${usedPrefix}chitoge_
+∘ _${usedPrefix}deidara_
+∘ _${usedPrefix}erza_
+∘ _${usedPrefix}elaina_
+∘ _${usedPrefix}eba_
+∘ _${usedPrefix}emilia_
+∘ _${usedPrefix}hestia_
+∘ _${usedPrefix}hinata_
+∘ _${usedPrefix}inori_
+∘ _${usedPrefix}isuzu_
+∘ _${usedPrefix}itachi_
+∘ _${usedPrefix}itori_
+∘ _${usedPrefix}kaga_
+∘ _${usedPrefix}kagura_
+∘ _${usedPrefix}kaori_
+∘ _${usedPrefix}keneki_
+∘ _${usedPrefix}kotori_
+∘ _${usedPrefix}kurumi_
+∘ _${usedPrefix}madara_
+∘ _${usedPrefix}mikasa_
+∘ _${usedPrefix}miku_
+∘ _${usedPrefix}minato_
+∘ _${usedPrefix}naruto_
+∘ _${usedPrefix}nezuko_
+∘ _${usedPrefix}sagiri_
+∘ _${usedPrefix}sasuke_
+∘ _${usedPrefix}sakura_
+∘ _${usedPrefix}cosplay_
+`.trim()
+await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+
+  
+} if (command == 'rpgmenu'){ //rpg
+let menuA = `🪅 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
+let menuB = `╭┄〔 *${wm}* 〕┄⊱
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+⠇ ${lenguajeGB['smsTex21']()} ⚗️
+∘ _${usedPrefix}botemporal *enlace* *cantidad*_
+∘ _${usedPrefix}addbot *enlace* *cantidad*_
+∘ _${usedPrefix}pase premium_
+∘ _${usedPrefix}pass premium_
+∘ _${usedPrefix}listapremium | listprem_
+∘ _${usedPrefix}transfer *tipo cantidad @tag*_
+∘ _${usedPrefix}dar *tipo cantidad @tag*_
+∘ _${usedPrefix}enviar *tipo cantidad @tag*_
+∘ _${usedPrefix}balance_
+∘ _${usedPrefix}cartera | wallet_
+∘ _${usedPrefix}experiencia | exp_
+∘ _${usedPrefix}top | lb | leaderboard_
+∘ _${usedPrefix}nivel | level | lvl_
+∘ _${usedPrefix}rol | rango_
+∘ _${usedPrefix}inventario | inventory_
+∘ _${usedPrefix}listaparejas | listship_
+∘ _${usedPrefix}mipareja | mylove_
+∘ _${usedPrefix}pareja | couple *@tag*_
+∘ _${usedPrefix}aceptar | accept *@tag*_
+∘ _${usedPrefix}rechazar | decline *@tag*_
+∘ _${usedPrefix}terminar | finish *@tag*_
+∘ _${usedPrefix}aventura | adventure_
+∘ _${usedPrefix}caza | cazar | hunt_
+∘ _${usedPrefix}pescar | fishing_
+∘ _${usedPrefix}animales_
+∘ _${usedPrefix}alimentos_
+∘ _${usedPrefix}curar | heal_
+∘ _${usedPrefix}buy_
+∘ _${usedPrefix}sell_
+∘ _${usedPrefix}verificar | registrar_
+∘ _${usedPrefix}perfil | profile_
+∘ _${usedPrefix}myns_
+∘ _${usedPrefix}unreg *numero de serie*_
+∘ _${usedPrefix}minardiamantes | minargemas_
+∘ _${usedPrefix}minargatacoins | minarcoins_
+∘ _${usedPrefix}minarexperiencia | minarexp_
+∘ _${usedPrefix}minar *:* minar2 *:* minar3_
+∘ _${usedPrefix}reclamar | regalo | claim_
+∘ _${usedPrefix}cadahora | hourly_
+∘ _${usedPrefix}cadasemana | semanal | weekly_
+∘ _${usedPrefix}cadames | mes | monthly_
+∘ _${usedPrefix}cofre | abrircofre | coffer_
+∘ _${usedPrefix}trabajar | work_
+`.trim()
+await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+} catch (e) {
+await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+console.log(e}
 }
 handler.help = ['infomenu'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
-handler.command = ['audioefectomenu', 'buscarmenu', 'hornymenu', 'listaporno', 'listhorny', 'convertidormenu'] 
+handler.command = ['audioefectomenu', 'buscarmenu', 'hornymenu', 'listaporno', 'listhorny', 'convertidormenu', 'descargasmenu', 'juegosmenu', 'grupomenu',
+'herramientasmenu', 'infomenu', 'makermenu', 'menulogos2', 'ownermenu', 'randommenu', 'rpgmenu'] 
 //handler.register = true
 handler.exp = 50
 export default handler
