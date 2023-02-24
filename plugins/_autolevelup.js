@@ -264,14 +264,7 @@ user[especial3] += especialCant3 * 10
 user[especial4] += especialCant4 * 10
 	
 }else{	
-return
-//m.reply(`*${lenguajeGB.smsAutoLv7()} ${user.level}!!* 🎉
-//𓃠 *${normalCant * 1} ${global.rpgshop.emoticon(normal)}*
-//𓃠 *${normalCant2 * 1} ${global.rpgshop.emoticon(normal2)}*
-//𓃠 *${normalCant3 * 1} ${global.rpgshop.emoticon(normal3)}*`)
-//user[normal] += normalCant * 1
-//user[normal2] += normalCant2 * 1
-//user[normal3] += normalCant3 * 1
+	
 }
 	 
 }}		
