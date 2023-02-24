@@ -221,6 +221,17 @@ user[especial4] += especialCant4 * 7
 	
 }else if (user.level == 85){
 m.reply(`*${lenguajeGB.smsAutoLv7()} 85!!* 🏆
+𓃠 *${especialCant * 7} ${global.rpgshop.emoticon(especial)}*
+𓃠 *${especialCant2 * 7} ${global.rpgshop.emoticon(especial2)}*
+𓃠 *${especialCant3 * 7} ${global.rpgshop.emoticon(especial3)}*
+𓃠 *${especialCant4 * 7} ${global.rpgshop.emoticon(especial4)}*`)
+user[especial] += especialCant * 7
+user[especial2] += especialCant2 * 7
+user[especial3] += especialCant3 * 7
+user[especial4] += especialCant4 * 7
+	
+}else if (user.level == 90){
+m.reply(`*${lenguajeGB.smsAutoLv7()} 90!!* 🏆
 𓃠 *${especialCant * 8} ${global.rpgshop.emoticon(especial)}*
 𓃠 *${especialCant2 * 8} ${global.rpgshop.emoticon(especial2)}*
 𓃠 *${especialCant3 * 8} ${global.rpgshop.emoticon(especial3)}*
@@ -229,17 +240,6 @@ user[especial] += especialCant * 8
 user[especial2] += especialCant2 * 8
 user[especial3] += especialCant3 * 8
 user[especial4] += especialCant4 * 8
-	
-}else if (user.level == 90){
-m.reply(`*${lenguajeGB.smsAutoLv7()} 90!!* 🏆
-𓃠 *${especialCant * 9} ${global.rpgshop.emoticon(especial)}*
-𓃠 *${especialCant2 * 9} ${global.rpgshop.emoticon(especial2)}*
-𓃠 *${especialCant3 * 9} ${global.rpgshop.emoticon(especial3)}*
-𓃠 *${especialCant4 * 9} ${global.rpgshop.emoticon(especial4)}*`)
-user[especial] += especialCant * 9
-user[especial2] += especialCant2 * 9
-user[especial3] += especialCant3 * 9
-user[especial4] += especialCant4 * 9
 	
 }else if (user.level == 95){
 m.reply(`*${lenguajeGB.smsAutoLv7()} 95!!* 🏆
@@ -264,13 +264,14 @@ user[especial3] += especialCant3 * 10
 user[especial4] += especialCant4 * 10
 	
 }else{	
-m.reply(`*${lenguajeGB.smsAutoLv7()} ${user.level}!!* 🎉
-𓃠 *${normalCant * 1} ${global.rpgshop.emoticon(normal)}*
-𓃠 *${normalCant2 * 1} ${global.rpgshop.emoticon(normal2)}*
-𓃠 *${normalCant3 * 1} ${global.rpgshop.emoticon(normal3)}*`)
-user[normal] += normalCant * 1
-user[normal2] += normalCant2 * 1
-user[normal3] += normalCant3 * 1
+return
+//m.reply(`*${lenguajeGB.smsAutoLv7()} ${user.level}!!* 🎉
+//𓃠 *${normalCant * 1} ${global.rpgshop.emoticon(normal)}*
+//𓃠 *${normalCant2 * 1} ${global.rpgshop.emoticon(normal2)}*
+//𓃠 *${normalCant3 * 1} ${global.rpgshop.emoticon(normal3)}*`)
+//user[normal] += normalCant * 1
+//user[normal2] += normalCant2 * 1
+//user[normal3] += normalCant3 * 1
 }
 	 
 }}		
