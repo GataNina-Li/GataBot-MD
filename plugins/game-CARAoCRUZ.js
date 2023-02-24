@@ -7,9 +7,9 @@ if (!args[0]) throw conn.sendHydrated(m.chat, '*Cara o Cruz*\n\nPuedes eleguir l
 ['Cruz', `${usedPrefix + command} cruz`]
 ], m)
 var astro = Math.random()
-if (astro < 0.34) {
+if (astro < 0.50) {//34
     astro = 'cara'
-} else if (astro > 0.34){
+} else if (astro > 0.50){//34
 astro = 'cruz' 
 }
 if (text == astro) {
