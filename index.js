@@ -61,12 +61,14 @@ p.process.kill()
 isRunning = false
 start.apply(this, arguments)
   
-if (code === 0) return
-watchFile(args[0], () => {
-unwatchFile(args[0])
-start(file)})})
+if (process.env.pm_id) {
+process.exit(1)
+} else {
+process.exit()
+}
+})
 let opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 if (!opts['test'])
 if (!rl.listenerCount()) rl.on('line', line => {
 p.emit('message', line.trim())})}
-start('main.js') 
+start('main.js')

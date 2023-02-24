@@ -52,7 +52,8 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.limit)) user.limit = 15 	       
                 if (!('registered' in user)) user.registered = false
 		if (!('registroR' in user)) user.registroR = false
-		if (!('registroC' in user)) user.registroC = false    
+		if (!('registroC' in user)) user.registroC = false  
+		if (!isNumber(user.IDregister)) user.IDregister = 0   
                     
             if (!user.registered) {
 		                    	 
@@ -62,13 +63,10 @@ export async function handler(chatUpdate) {
 		    if (!isNumber(user.genero)) user.genero = 0
 		    if (!isNumber(user.identidad)) user.identidad = 0
 		    if (!isNumber(user.pasatiempo)) user.pasatiempo = 0
-		    if (!isNumber(user.pasatiempo1)) user.pasatiempo1 = 0
-		    if (!isNumber(user.pasatiempo2)) user.pasatiempo2 = 0
-		    if (!isNumber(user.pasatiempo3)) user.pasatiempo3 = 0
-		    if (!isNumber(user.pasatiempo4)) user.pasatiempo4 = 0
-		    if (!isNumber(user.pasatiempo5)) user.pasatiempo5 = 0
 		    if (!isNumber(user.tiempo)) user.tiempo = 0
 		    if (!isNumber(user.premLimit)) user.premLimit = 0
+		    if (!isNumber(user.miestado)) user.miestado = 0
+		    
 		    
                     if (!isNumber(user.anggur)) user.anggur = 0
                     if (!isNumber(user.apel)) user.apel = 0
@@ -503,13 +501,9 @@ export async function handler(chatUpdate) {
 		    genero: 0,
 		    identidad: 0,
 		    pasatiempo: 0,
-		    pasatiempo1: 0,
-		    pasatiempo2: 0,
-		    pasatiempo3: 0,
-		    pasatiempo4: 0,
-	            pasatiempo5: 0,
 		    tiempo: 0,
 		    premLimit: 0,
+		    miestado: 0,
                     agility: 16,
                     anakanjing: 0,
                     anakcentaur: 0,
@@ -910,6 +904,31 @@ export async function handler(chatUpdate) {
                     wood: 0,
                     wortel: 0,	
                 }
+            let akinator = global.db.data.users[m.sender].akinator
+		    if (typeof akinator !== 'object')
+			global.db.data.users[m.sender].akinator = {}
+		    if (akinator) {
+				if (!('sesi' in akinator)) akinator.sesi = false
+				if (!('server' in akinator)) akinator.server = null
+				if (!('frontaddr' in akinator)) akinator.frontaddr = null
+				if (!('session' in akinator)) akinator.session = null
+				if (!('signature' in akinator)) akinator.signature = null
+				if (!('question' in akinator)) akinator.question = null
+				if (!('progression' in akinator)) akinator.progression = null
+				if (!('step' in akinator)) akinator.step = null
+				if (!('soal' in akinator)) akinator.soal = null
+	            } else
+		        global.db.data.users[m.sender].akinator = {
+				sesi: false,
+				server: null,
+				frontaddr: null,
+				session: null,
+				signature: null,
+				question: null,
+				progression: null,
+				step: null, 
+				soal: null
+				}   		
             let chat = global.db.data.chats[m.chat]
             if (typeof chat !== 'object')
                 global.db.data.chats[m.chat] = {}
@@ -1023,7 +1042,7 @@ export async function handler(chatUpdate) {
         //const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 	const isPrems = isROwner || global.db.data.users[m.sender].premiumTime > 0
 
-       /* if (opts['queque'] && m.text && !(isMods || isPrems)) {
+       if (opts['queque'] && m.text && !(isMods || isPrems)) {
             let queque = this.msgqueque, time = 1000 * 5
             const previousID = queque[queque.length - 1]
             queque.push(m.id || m.key.id)
@@ -1031,12 +1050,6 @@ export async function handler(chatUpdate) {
                 if (queque.indexOf(previousID) === -1) clearInterval(this)
                 await delay(time)
             }, time)
-        } */
-        
-        if (opts['queque'] && m.text && !m.fromMe && !(isMods || isPrems)) {
-            const id = m.id
-            this.msgqueque.add(id)
-            await this.msgqueque.waitQueue(id)
         }
 
         if (m.isBaileys)
@@ -1149,10 +1162,20 @@ export async function handler(chatUpdate) {
                 if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
                     let chat = global.db.data.chats[m.chat]
                     let user = global.db.data.users[m.sender]
-                    if (name != 'owner-unbanchat.js' && chat?.isBanned)
-                        return // Except this
-                    if (name != 'owner-unbanuser.js' && user?.banned)
+                    if (!['unbanchat.js', 'link.js', 'pengumuman.js', 'creator.js'].includes(name) && chat && chat.isBanned && !isROwner) return // Except this
+            if (!['unbanuser.js', 'inv.js', 'link.js', 'creator.js', 'profile.js'].includes(name) && user && user.banned && !isROwner) {
+                    if (!opts['msgifbanned']) m.reply(`❰ ⚠️ ❱ *ESTAS BANEADO/A* ❰ ⚠️ ❱ ${user.bannedReason ? `\n*Motivo:* *${user.bannedReason}*` : ''}
+
+*👉 Puedes contactar a la propietaria del Bot si crees que se trata de un error (TENER PRUEBAS) para tratar el motivo de tú desbaneo*
+
+👉 ${global.asistencia}
+👉 wa.me/5492266466080
+👉 wa.me/584125778026
+👉 wa.me/51993042301
+👉 ${global.ig}
+`.trim())
                         return
+                }
                 }
 
                let hl = _prefix 
@@ -1440,18 +1463,13 @@ export async function deleteUpdate(message) {
         if (chat.delete)
             return
         await this.reply(msg.chat, `
-╭━─━─━─≪🔴≫─━─━─━╮
-│ 🤨 ʙᴏʀʀᴏ ᴜɴ ᴍᴇɴsᴀᴊᴇ 🤨
-│◤━━━━━ ☆. ∆ .☆ ━━━━━◥
-│ 🔴 ᴀɴᴛɪ ᴅᴇʟᴇᴛᴇ 🔴
-│◤━━━━━ ☆. ∆ .☆ ━━━━━◥
-│🔸️ *ɴᴏᴍʙʀᴇ :* @${participant.split`@`[0]} 
-│◤━━━━━ ☆. ∆ .☆ ━━━━━◥
-│🔸ᴘᴀʀᴀ ᴅᴇsᴀᴄᴛɪᴠᴀʀ ᴇsᴛᴀ ᴏᴘᴄɪᴏɴ, 
-│🔸️ᴇsᴄʀɪʙɪ 
-│/off antidelete
-│#enable delete
-╰━─━─━─≪🔴≫─━─━─━╯
+━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━
+*■ Nombre:* @${participant.split`@`[0]}
+*■ Enviando el mensaje..*
+*■ Para desactivar esta función escriba el comando:*
+*—◉ #disable antidelete*
+*—◉ #enable delete*
+━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━
 `.trim(), msg, {
             mentions: [participant]
         })

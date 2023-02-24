@@ -15,16 +15,8 @@ user.identidad = 0
 user.pasatiempo = 0
 user.premLimit = 1
 user.tiempo = 0
-user.tiempo1 = 0
-user.tiempo2 = 0
-user.tiempo3 = 0
-user.tiempo4 = 0
-user.tiempo5 = 0
 user.descripcion = 0
 user.registered = false
-  
-user.premium = false
-user.premiumTime = 0 
 m.reply(`${eg} 𝙐𝙎𝙏𝙀𝘿 𝙔𝘼 𝙉𝙊 𝙀𝙎𝙏𝘼 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊(𝘼)\n\n𝙔𝙊𝙐 𝘼𝙍𝙀 𝙉𝙊 𝙇𝙊𝙉𝙂𝙀𝙍 𝙍𝙀𝙂𝙄𝙎𝙏𝙀𝙍𝙀𝘿 😪`)
 }
 handler.help = ['', 'ister'].map(v => 'unreg' + v + ' <numero de serie>')

@@ -24,6 +24,9 @@ let { min, xp, max } = xpRange(level, global.multiplier)
 let name = await conn.getName(m.sender)
 let pareja = global.db.data.users[m.sender].pasangan 
 let user = global.db.data.users[m.sender]
+let totalreg = Object.keys(global.db.data.users).length
+let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
+
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
 const sections = [{
@@ -73,8 +76,52 @@ rows: [
 {title: lenguajeGB['smsLista34'](), rowId: `${usedPrefix}on`},
 {title: lenguajeGB['smsLista35'](), rowId: `${usedPrefix}ownermenu`}
 ]}]
-
+ 
 const listMessage = {
+text: `╭━⊰ *${ucapan()}* ⊱━⬣
+┃
+┃ *︾ U S U A R I O ︾*
+┃
+┃»» *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : name}*
+┃»» *Mi estado* ➺ ${typeof user.miestado !== 'string' ? '_#miestado || Estado no asignado_' : '_Me siento ' + user.miestado + '_'}
+┃»» *Registrado ➺ ${user.registered === true ? '✅' : '❌ _#verificar_'}* 
+┃»» *Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌ _#pase premium_'}*
+┃
+┃ *︾ M E N U ︾*
+┃
+┃✜ *${lenguajeGB['smsVersion']()}* 
+┃➺ \`\`\`${vs}\`\`\`
+┃✜ *Tipo de registro* 
+┃➺ ${user.registered === true ? `_${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_` : '_' + usedPrefix + 'verificar_'} 
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsTotalUsers']()}* 
+┃➺ _${Object.keys(global.db.data.users).length}_
+┃✜ *Registrados* 
+┃➺ _${rtotalreg}/${totalreg}_
+┃✜ *${lenguajeGB['smsMode']()}* 
+┃➺ _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}_
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsTime']()}* 
+┃➺ _${time}_ 	    
+┃✜ *${lenguajeGB['smsUptime']()}* 
+┃➺ _${uptime}_
+┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✜ *${lenguajeGB['smsBanChats']()}* 
+┃➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
+┃✜ *${lenguajeGB['smsBanUsers']()}* 
+┃➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
+┃
+╰━⊰ *${wm}* ⊱━⬣\n
+*»» ✨ Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
+*»» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n»» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}`,
+footer: `*↓ TRUSTED LINK* ✅
+${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
+title: null,
+buttonText: `${lenguajeGB['smsListaMenu']()}`, 
+sections }
+await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
+
+/*const listMessage = {
 text: `*╭─────────────────✤*\n*│* *${ucapan()}*\n*│* 🌐 *${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' + '*' : ''} 🌐\n*│*
 ╭━〔 *${wm}* 〕━⬣
 ┃✜ *${lenguajeGB['smsTime']()}*	    
@@ -98,14 +145,14 @@ text: `*╭─────────────────✤*\n*│* *${uca
 ┃✜ *${lenguajeGB['smsBanUsers']()}*
 ┃➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
 ╰━━━━━━━━━━━━━━━━⬣
-*» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
+*» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
 *» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
 footer: `*↓ TRUSTED LINK* ✅
 ${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
 title: null,
 buttonText: `${lenguajeGB['smsListaMenu']()}`, 
 sections }
-await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
+await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})*/
     
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
