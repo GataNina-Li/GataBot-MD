@@ -1,5 +1,5 @@
 // Gracias a https://github.com/BrunoSobrino
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 import { sticker, addExif } from '../lib/sticker.js'
 import { Sticker } from 'wa-sticker-formatter'
 let handler = async(m, { conn, text, args, usedPrefix, command }) => {
@@ -83,4 +83,4 @@ skipBrokenMethodsCheck: true,
 stickerServerEndpoint: true
 }}
 let res = await fetch('https://sticker-api.openwa.dev/convertMp4BufferToWebpDataUrl', { method: 'post', headers: { Accept: 'application/json, text/plain, /', 'Content-Type': 'application/json;charset=utf-8', }, body: JSON.stringify(Format)})
-return Buffer.from((await res.text()).split(';base64,')[1], 'base64')}
+return Buffer.from((await res.text()).split(';base64,')[1], 'base64')}*/

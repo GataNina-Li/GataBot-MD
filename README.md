@@ -56,10 +56,10 @@
 </a>
 
 ### ✅ GATABOT OFICIAL
-<a href="http://wa.me/50248656241?text=.menu" target="blank"><img src="https://img.shields.io/badge/1️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/50494825831?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/51933502440?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/50360763209?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/50663263081?text=.menu" target="blank"><img src="https://img.shields.io/badge/1️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/50236000633?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/51933502440?text=.menu" target="blank"><img src="https://img.shields.io/badge/3️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/573012213225?text=.menu" target="blank"><img src="https://img.shields.io/badge/4️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </a> 
 
 ### 💖 ```DONAR``` [`Aquí`](https://paypal.me/OficialGD)
@@ -241,12 +241,12 @@ En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-M
 ### 🌟 DESARROLLADORES
 
 [![Abiguelreyes75](https://github.com/Abiguelreyes75.png?size=100)](https://github.com/Abiguelreyes75)
-[![DIEGO-OFC](https://github.com/DIEGO-OFC.png?size=100)](https://github.com/DIEGO-OFC)
 [![elrebelde21](https://github.com/elrebelde21.png?size=100)](https://github.com/elrebelde21)
 [![ReyEndymion](https://github.com/ReyEndymion.png?size=100)](https://github.com/ReyEndymion)
-[![VIRUZZ-OFC](https://github.com/VIRUZOFC.png?size=100)](https://github.com/VIRUZOFC)
 [![AzamiWithLogic](https://github.com/AzamiWithLogic.png?size=100)](https://github.com/AzamiWithLogic)
  
 ### 🌟 AGRADECIMIENTOS
  
 [![TheShadowBrokers1](https://github.com/BrunoSobrino.png?size=100)](https://github.com/BrunoSobrino) 
+[![DIEGO-OFC](https://github.com/DIEGO-OFC.png?size=100)](https://github.com/DIEGO-OFC)
+[![VIRUZZ-OFC](https://github.com/VIRUZOFC.png?size=100)](https://github.com/VIRUZOFC)
