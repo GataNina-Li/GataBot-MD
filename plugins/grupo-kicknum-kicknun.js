@@ -3,8 +3,8 @@
 */
 
 let handler = async (m, { conn, args, groupMetadata, participants, usedPrefix, command, isBotAdmin, isSuperAdmin }) => {
-if (!args[0]) return m.reply(`*⚠️ Ingrese la área/prefijo de un país para buscar números en el grupo de ese pais, ejemplo: ${usedPrefix + command} 593*`) 
-if (isNaN(args[0])) return m.reply(`*⚠️ Ingrese la área/prefijo de un país para buscar números en el grupo de ese pais, ejemplo: ${usedPrefix + command} 593*`) 
+if (!args[0]) return m.reply(`*⚠️ Ingrese el prefijo de un país para buscar números en el grupo de ese pais, ejemplo: ${usedPrefix + command} 593*`) 
+if (isNaN(args[0])) return m.reply(`*⚠️ Ingrese el prefijo de un país para buscar números en el grupo de ese pais, ejemplo: ${usedPrefix + command} 593*`) 
 let lol = args[0].replace(/[+]/g, '')
 let ps = participants.map(u => u.id).filter(v => v !== conn.user.jid && v.startsWith(lol || lol)) 
 let bot = global.db.data.settings[conn.user.jid] || {}
@@ -13,7 +13,7 @@ let numeros = ps.map(v=> '➥ @' + v.replace(/@.+/, ''))
 const delay = time => new Promise(res=>setTimeout(res,time));
 switch (command) {
 case "listanum": 
-conn.reply(m.chat, `*📍 LISTA DE NÚMEROS CON EL PREFIJO +${lol} QUE ESTAN EN EL GRUPO 📍:*\n\n` + numeros.join`\n`, m, { mentions: ps })
+conn.reply(m.chat, `*📍 LISTA DE NÚMEROS CON EL PREFIJO +${lol} QUE ESTAN EN EL GRUPO 📍*\n\n` + numeros.join`\n`, m, { mentions: ps })
 break   
 case "kicknum":  
 if (!bot.restrict) return m.reply('*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾 𝙳𝙴𝙻 𝙱𝙾𝚃 𝙽𝙾 𝚃𝙸𝙴𝙽𝙴 𝙷𝙰𝙱𝙸𝙻𝙸𝚃𝙰𝙳𝙾 𝙻𝙰𝚂 𝚁𝙴𝚂𝚃𝚁𝙸𝙲𝙲𝙸𝙾𝙽𝙴𝚂 (#𝚎𝚗𝚊𝚋𝚕𝚎 𝚛𝚎𝚜𝚝𝚛𝚒𝚌𝚝) 𝙲𝙾𝙽𝚃𝙰𝙲𝚃𝙴 𝙲𝙾𝙽 𝙴𝙻 𝙿𝙰𝚁𝙰 𝚀𝚄𝙴 𝙻𝙾 𝙷𝙰𝙱𝙸𝙻𝙸𝚃𝙴*') 
