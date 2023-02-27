@@ -11,10 +11,7 @@ var srh = [];
 for (var i = 0; i < data.length; i++) {
 srh.push({ title: data[i].title, description: '', rowId: prefix + 'dapk2 ' + data[i].link });}
 const sections = [{title: '𝙎𝙀𝙇𝙀𝘾𝘾𝙄𝙊𝙉𝙀 𝙀𝙇 𝙈𝙊𝘿 𝘼 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙍', rows: srh}]
-const listMessage = {text: `╭┄〔 𝙈𝙊𝘿𝙊𝘼𝙋𝙆 〕┄⊱ ]
-┆——————«•»——————
-┆- 📟 𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎 𝘿𝙀: ${text}
-╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ`, footer: wm, title: null, buttonText: "𝙎𝙀𝙇𝙀𝘾𝘾𝙄𝙊𝙉𝙀 𝘼𝙌𝙐𝙄", sections}
+const listMessage = {text: `╭┄〔 𝙈𝙊𝘿𝙊𝘼𝙋𝙆 〕┄⊱ ]\n┆——————«•»——————\n┆- 📟 𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎 𝘿𝙀: ${text}\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ`, footer: wm, title: null, buttonText: "𝙎𝙀𝙇𝙀𝘾𝘾𝙄𝙊𝙉𝙀 𝘼𝙌𝙐𝙄", sections}
 await conn.sendMessage(m.chat, listMessage, { quoted: m })
 break
 case 'dapk2': 
