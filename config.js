@@ -78,7 +78,14 @@ global.APIs = { // API Prefix.
   purrbot: 'https://purrbot.site/api/',
   xcdr: "https://wudysoft.up.railway.app",
   dhnjing: 'https://dhnjing.xyz',
-  'https://violetics.pw': 'beta'
+  'https://violetics.pw': 'beta',
+  violetics: 'https://violetics.pw',
+  neoxr: 'https://api.neoxr.my.id',
+  zenzapis: 'https://api.zahwazein.xyz',
+  akuari: 'https://api.akuari.my.id',
+  akuari2: 'https://apimu.my.id',	
+  fgmods: 'https://api-fgmods.ddns.net',
+  botcahx: 'https://api.botcahx.biz.id'
 },
 
 global.Key360 = '964f-0c75-7afc'
