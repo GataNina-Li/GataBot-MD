@@ -100,16 +100,14 @@ global.APIKeys = { // APIKey Here
   'https://api.lolhuman.xyz': '9b817532fadff8fc7cb86862',
   'https://botstyle-api.herokuapp.com': 'Eyar749L',
   'https://neoxr-api.herokuapp.com': 'yntkts',
-  'https://anabotofc.herokuapp.com/': 'AnaBot'
-}
-global.APIKeys = { 
   'https://api.xteam.xyz': `${keysxteam}`,
   'https://api.lolhuman.xyz': '85faf717d0545d14074659ad',
   'https://api.neoxr.my.id': `${keysneoxr}`,	
   'https://violetics.pw': 'beta',
   'https://api.zahwazein.xyz': `${keysxxx}`,
   'https://api-fgmods.ddns.net': 'fg-dylux',
-  'https://api.botcahx.biz.id': 'Admin'
+  'https://api.botcahx.biz.id': 'Admin',
+  'https://anabotofc.herokuapp.com/': 'AnaBot'
 }
 
 global.mods = [] 
