@@ -2,7 +2,6 @@ import fetch from 'node-fetch'
 import { facebookDl } from './scraper.js'
 import { savefrom, facebookdl, facebookdlv2 } from '@bochilteam/scraper'
 import fbDownloader from 'fb-downloader-scrapper'
-import fg from 'api-dylux' 
 
 let handler = async (m, { conn, args, command, usedPrefix }) => {
 let user = global.db.data.users[m.sender]
@@ -41,9 +40,9 @@ await conn.sendFile(m.chat, videovio, `error.mp4`, contenido, m)
 break
 
 case "facebook2": case "fb2": case "facebookdl2": case "fbdl2":   
-let ress = await fg.fbdl(args[0])
-let urll = await ress.data[0].url    
-await conn.sendFile(m.chat, urll, 'error.mp4', wm, m) 
+let res = await fetch(`https://api.xteam.xyz/dl/fbv2?url=${args[0]}&APIKEY=NezukoTachibana281207`)
+let { result } = await res.json()
+await conn.sendFile(m.chat, result, 'error.mp4', wm, m) 
 break
 //let ress = await facebookDl(args[0]).catch(async _ => await savefrom(args[0])).catch(_ => null)
 //let urll = ress?.url?.[0]?.url || ress?.url?.[1]?.url || ress?.['720p'] || ress?.['360p']
