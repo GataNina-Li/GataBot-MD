@@ -45,10 +45,10 @@ break
 
 
 case "facebook2": case "fb2": case "facebookdl2": case "fbdl2":   
-let vioB = await fetch(`https://api.violetics.pw/api/downloader/facebook?apikey=beta&url=${args[0]}`)  
-let viooB = await vioB.json()
-let videovioB = `${viooB.result.hd.url || viooB.result.sd.url}`
-await conn.sendFile(m.chat, videovioB, `error.mp4`, wm, m)   
+let res = await fbDownloader(args[0])
+for (let result of res.download) {
+let ur = result.url    
+await conn.sendFile(m.chat, ur, 'error.mp4', wm, m)}  
 break
 //let ress = await facebookDl(args[0]).catch(async _ => await savefrom(args[0])).catch(_ => null)
 //let urll = ress?.url?.[0]?.url || ress?.url?.[1]?.url || ress?.['720p'] || ress?.['360p']
