@@ -45,10 +45,10 @@ break
 
 
 case "facebook2": case "fb2": case "facebookdl2": case "fbdl2":   
-let res = await fetch(`https://api.lolhuman.xyz/api/facebook2?apikey=BrunoSobrino&url=${args[0]}`)
-let json = await res.json()
-let { result } = json
-conn.sendFile(m.chat, result, 'error.mp4', wm, m) 
+let resA = await fetch(`https://latam-api.vercel.app/api/facebookdl?apikey=brunosobrino&q=${args[0]}`)  
+let json = await resA.json()
+let urlB = await json.video
+await conn.sendFile(m.chat, urlB, 'error.mp4', wm, m)
 break
 //let ress = await facebookDl(args[0]).catch(async _ => await savefrom(args[0])).catch(_ => null)
 //let urll = ress?.url?.[0]?.url || ress?.url?.[1]?.url || ress?.['720p'] || ress?.['360p']
