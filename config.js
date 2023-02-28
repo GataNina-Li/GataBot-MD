@@ -61,7 +61,7 @@ global.APIKeys = {
   'https://api.botcahx.biz.id': 'Admin'
 }
 
-global.mods = ['5492604050270', '5493772406612'] 
+global.mods = [] 
 
 
 /*************************/
