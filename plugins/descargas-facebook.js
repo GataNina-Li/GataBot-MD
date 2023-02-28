@@ -2,6 +2,7 @@ import fetch from 'node-fetch'
 import { facebookDl } from './scraper.js'
 import { savefrom, facebookdl, facebookdlv2 } from '@bochilteam/scraper'
 import fbDownloader from 'fb-downloader-scrapper'
+import fg from 'api-dylux' 
 
 let handler = async (m, { conn, args, command, usedPrefix }) => {
 let user = global.db.data.users[m.sender]
@@ -38,17 +39,11 @@ let videovio = `${vioo.result.hd.url || vioo.result.sd.url}`
 await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊, 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆\n\n𝙒𝘼𝙄𝙏 𝘼 𝙈𝙊𝙈𝙀𝙉𝙏, 𝙔𝙊𝙐𝙍 𝙑𝙄𝘿𝙀𝙊 𝙄𝙎 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙄𝙉𝙂`, fkontak, m)
 await conn.sendFile(m.chat, videovio, `error.mp4`, contenido, m)
 break
-//let res = await fbDownloader(args[0])
-//for (let result of res.download) {
-//let ur = result.url
-//await conn.sendMessage(m.chat, { video: { ur }, caption: contenido }, { quoted: m })}
-
 
 case "facebook2": case "fb2": case "facebookdl2": case "fbdl2":   
-let resA = await fetch(`https://latam-api.vercel.app/api/facebookdl?apikey=brunosobrino&q=${args[0]}`)  
-let json = await resA.json()
-let urlB = await json.video
-await conn.sendFile(m.chat, urlB, 'error.mp4', wm, m)
+let ress = await fg.fbdl(args[0])
+let urll = await ress.data[0].url    
+await conn.sendFile(m.chat, urll, 'error.mp4', wm, m) 
 break
 //let ress = await facebookDl(args[0]).catch(async _ => await savefrom(args[0])).catch(_ => null)
 //let urll = ress?.url?.[0]?.url || ress?.url?.[1]?.url || ress?.['720p'] || ress?.['360p']
