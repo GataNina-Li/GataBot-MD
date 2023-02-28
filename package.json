@@ -33,6 +33,7 @@
         "acrcloud": "^1.4.0",
         "awesome-phonenumber": "^2.68.0",
         "axios": "^0.24.0",
+        "api-dylux": "^1.2.2",
         "brainly-scraper-v2": "*",
         "cfonts": "^2.10.0",
         "chalk": "^5.0.0",
