@@ -80,7 +80,7 @@ getMessage: async (key) => ( opts.store.loadMessage(/** @type {string} */(key.re
 msgRetryCounterMap,
 logger: pino({ level: 'silent' }),
 auth: state,
-browser: ['GataBot-MD','Edge','1.0.0'],
+browser: ['GataBot-MD','Edge','107.0.1418.26'],
 version   
 }
 
