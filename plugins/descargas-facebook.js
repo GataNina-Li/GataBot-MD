@@ -53,7 +53,7 @@ let caption = `*Título:* ${res.result.title}
 *Proceso:* _${res.processed}_`
 let out = res.result.links.hd || res.result.links.sd
 //await conn.sendFile(m.chat, out, "", caption, m)
-m.reply(wait)
+await m.reply(wait)
 await conn.sendFile(m.chat, out, `error.mp4`, caption, m)
 //await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊, 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆\n\n𝙒𝘼𝙄𝙏 𝘼 𝙈𝙊𝙈𝙀𝙉𝙏, 𝙔𝙊𝙐𝙍 𝙑𝙄𝘿𝙀𝙊 𝙄𝙎 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙄𝙉𝙂`, fkontak, m)
 //const { result } = await facebookdl(args[0]).catch(async _ => await facebookdlv2(args[0]))
