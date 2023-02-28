@@ -44,37 +44,8 @@ break
 
 
 case "facebook2": case "fb2": case "facebookdl2": case "fbdl2":   
-let dapet = ["hd", "sd"]
-        let listSections = []
-        Object.keys(dapet).map((v, index) => {
-            listSections.push([index + " " + cmenub + " FACEBOOK ", [
-                [dapet[v].toUpperCase() + " Video 🎥", usedPrefix + command + " " + args[0] + " " + dapet[v], ""]
-            ]])
-        })
-        if (!args[1]) return conn.sendList(m.chat, htki + "FB 🔎 " + htka, `Ejemplo`, author, "☂️", listSections, m)
-        if (!dapet.includes(args[1])) throw "sd o hd"
-
-        let res = await (await fetch(global.API("xcdr", "/api/download/fb2", {
-            url: args[0],
-            apikey: "Lann"
-        }, ""))).json()
-        if (!res) throw "no puedo descargar la publicacion"
-
-        let caption = `*[ F A C E B O O K ]*
-${res.result.title}
-${res.result.duration}
-${res.processed}`
-
-        let out
-        if (args[1] == "hd") {
-            out = res.result.links.hd
-        }
-        if (args[1] == "sd") {
-            out = res.result.links.sd
-        }
-
-        m.reply(wait)
-        await conn.sendFile(m.chat, out, "", caption, m)
+const { result } = await facebookdl(args[0]).catch(async _ => await facebookdlv2(args[0]))
+for (const { url, isVideo } of result.reverse()) await conn.sendFile(m.chat, url, `facebook.${!isVideo ? 'bin' : 'mp4'}`, `✨ *ᴜʀʟ:* ${url}`, m)
 //await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊, 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆\n\n𝙒𝘼𝙄𝙏 𝘼 𝙈𝙊𝙈𝙀𝙉𝙏, 𝙔𝙊𝙐𝙍 𝙑𝙄𝘿𝙀𝙊 𝙄𝙎 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙄𝙉𝙂`, fkontak, m)
 //const { result } = await facebookdl(args[0]).catch(async _ => await facebookdlv2(args[0]))
 //for (const { url, isVideo } of result.reverse()) await conn.sendMessage(m.chat, { video: { url }, fileName: `error.mp4`, mimetype: 'video/mp4' , caption: contenido }, { quoted: m })   
