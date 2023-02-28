@@ -316,7 +316,8 @@ if (!isROwner) {
 global.dfail('rowner', m, conn)
 throw false
 }
-global.opts['autoread'] = isEnable
+bot.autoread2 = isEnable    
+global.opts['autoread'] = isEnable  
 break
     
 case 'anticall': case 'antillamar':
