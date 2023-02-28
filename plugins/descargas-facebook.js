@@ -2,7 +2,6 @@ import fetch from 'node-fetch'
 import { facebookDl } from './scraper.js'
 import { savefrom, facebookdl, facebookdlv2 } from '@bochilteam/scraper'
 import fbDownloader from 'fb-downloader-scrapper'
-import wibusoft from "wibusoft"
 
 let handler = async (m, { conn, args, command, usedPrefix }) => {
 let user = global.db.data.users[m.sender]
@@ -45,10 +44,14 @@ break
 
 
 case "facebook2": case "fb2": case "facebookdl2": case "fbdl2":   
-let results = await wibusoft.downloader.facebookDownload(args[0])
-let caption = `*Título:* ${results.result.title}
-*Tiempo:* ${results.result.time}`
-let out = results.result.hd
+let res = await (await fetch(global.API("xcdr", "/api/download/fb2", {
+url: args[0],
+apikey: "Lann"
+}, ""))).json()
+let caption = `*Título:* ${res.result.title}
+*Duración:* ${res.result.duration}
+*Proceso:* _${res.processed}_`
+let out = res.result.links.hd
 await conn.sendFile(m.chat, out, "", caption, m)
 //await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊, 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆\n\n𝙒𝘼𝙄𝙏 𝘼 𝙈𝙊𝙈𝙀𝙉𝙏, 𝙔𝙊𝙐𝙍 𝙑𝙄𝘿𝙀𝙊 𝙄𝙎 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙄𝙉𝙂`, fkontak, m)
 //const { result } = await facebookdl(args[0]).catch(async _ => await facebookdlv2(args[0]))
