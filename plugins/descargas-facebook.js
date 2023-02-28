@@ -29,7 +29,8 @@ let contenido = `✅ 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙁𝘼𝘾𝙀𝘽𝙊𝙊�
 switch (command) { 
 case "facebook": case "fb": case "facebookdl": case "fbdl":                
 await conn.sendMessage(m.chat, listMessage, {quoted: fkontak} )
-break      
+break    
+    
 case "facebook1": case "fb1": case "facebookdl1": case "fbdl1": 
 let vio = await fetch(`https://api.violetics.pw/api/downloader/facebook?apikey=beta&url=${args[0]}`)  
 let vioo = await vio.json()
@@ -44,10 +45,10 @@ break
 
 
 case "facebook2": case "fb2": case "facebookdl2": case "fbdl2":   
-let vio = await fetch(`https://api.violetics.pw/api/downloader/facebook?apikey=beta&url=${args[0]}`)  
-let vioo = await vio.json()
-let videovio = `${vioo.result.hd.url || vioo.result.sd.url}`
-await conn.sendFile(m.chat, videovio, `error.mp4`, wm, m)   
+let vioB = await fetch(`https://api.violetics.pw/api/downloader/facebook?apikey=beta&url=${args[0]}`)  
+let viooB = await vioB.json()
+let videovioB = `${viooB.result.hd.url || viooB.result.sd.url}`
+await conn.sendFile(m.chat, videovioB, `error.mp4`, wm, m)   
 break
 //let ress = await facebookDl(args[0]).catch(async _ => await savefrom(args[0])).catch(_ => null)
 //let urll = ress?.url?.[0]?.url || ress?.url?.[1]?.url || ress?.['720p'] || ress?.['360p']
