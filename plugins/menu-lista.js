@@ -177,7 +177,7 @@ const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 
 function ucapan() {
-  const time = moment.tz('America/Argentina/Buenos_Aires').format('HH')  //America/Los_Angeles  Asia/Jakarta   America/Toronto
+  const time = moment.tz('America/Argentina').format('HH')  //America/Los_Angeles  Asia/Jakarta   America/Toronto
   let res = `${lenguajeGB['smsSaludo']()}`
   if (time >= 4) {
     res = `${lenguajeGB['smsDia']()}`
