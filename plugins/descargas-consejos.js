@@ -12,11 +12,11 @@ let list = global.motivation
 let contenido = list[Math.floor(Math.random() * list.length)]
 let result = await translate(`${contenido}`, { to: lenguajeGB.lenguaje(), autoCorrect: true })
 let texto = `
-*╭━━・☘️・━━━━・☘️・━━⬣*
+・☘️・》・》・》
 
-*ღ ${result.text}*
+*ღ _${result.text}_*
 
-*╰━━・☘️・━━━━・☘️・━━⬣*`
+・☘️・》・》・》`
 
 await conn.sendButton(m.chat, texto.trim(), wm, img, [['🍃 NUEVO CONSEJO', `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)}   
   
@@ -27,11 +27,11 @@ let contenido = await list[Math.floor(list.length * Math.random())]
 let frase = contenido.motivasi
 let frase2 = await translate(`${frase}`, { to: lenguajeGB.lenguaje(), autoCorrect: true })
 let texto = `
-*╭━━・☘️・━━━━・☘️・━━⬣*
+・☘️・》・》・》
 
 *ღ ${frase2.text}*
 
-*╰━━・☘️・━━━━・☘️・━━⬣*`
+・☘️・》・》・》`
 
 await conn.sendButton(m.chat, texto.trim(), wm, null, [['🍃 NUEVA FRASE', `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m)} 
 } catch (e) {
