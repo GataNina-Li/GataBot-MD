@@ -45,7 +45,7 @@ break
 
 
 case "facebook2": case "fb2": case "facebookdl2": case "fbdl2":   
-let res = await fetch(`https://api.lolhuman.xyz/api/facebook?apikey=BrunoSobrino&url=${args[0]}`)
+let res = await fetch(`https://api.lolhuman.xyz/api/facebook2?apikey=BrunoSobrino&url=${args[0]}`)
 let json = await res.json()
 let { result } = json
 conn.sendFile(m.chat, result, 'error.mp4', wm, m) 
