@@ -171,8 +171,7 @@ if (global.db.data == null) loadDatabase()
 if (update.qr != 0 && update.qr != undefined) {
 console.log(chalk.yellow(lenguajeGB['smsCodigoQR']()))}  
 if (connection == 'open') {
-console.log(chalk.yellow(lenguajeGB['smsConexion']()))
-await conn.groupAcceptInvite(global.nna2)}
+console.log(chalk.yellow(lenguajeGB['smsConexion']()))}
 if (connection == 'close') {
 console.log(chalk.yellow(lenguajeGB['smsConexionOFF']()))}}
 

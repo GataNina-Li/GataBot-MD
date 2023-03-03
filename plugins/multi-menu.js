@@ -270,9 +270,9 @@ let menuB = `╭┄〔 *${wm}* 〕┄⊱
 ∘ _${usedPrefix}mediafire | dlmediafire *link*_
 ∘ _${usedPrefix}clonarepo | gitclone *link*_
 ∘ _${usedPrefix}clima *país ciudad*_
-∘ _${usedPrefix}consejo_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'consejo' : 'advice'}_ 
 ∘ _${usedPrefix}frase_
-∘ _${usedPrefix}frase2_
+∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'frase2' : 'phrase2'}_
 ∘ _${usedPrefix}morse codificar *texto*_
 ∘ _${usedPrefix}morse decodificar *morse*_
 `.trim()
