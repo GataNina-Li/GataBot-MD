@@ -20,13 +20,13 @@ export default handler
 export function parseMs(ms) {
   if (typeof ms !== 'number') throw 'Parameter must be filled with number'
   return {
-    days: Math.trunc(ms / 86400000),
-    hours: Math.trunc(ms / 3600000) % 24,
-    minutes: Math.trunc(ms / 60000) % 60,
-    seconds: Math.trunc(ms / 1000) % 60,
-    milliseconds: Math.trunc(ms) % 1000,
-    microseconds: Math.trunc(ms * 1000) % 1000,
-    nanoseconds: Math.trunc(ms * 1e6) % 1000
+    Dias: Math.trunc(ms / 86400000),
+    Horas: Math.trunc(ms / 3600000) % 24,
+    Minutos: Math.trunc(ms / 60000) % 60,
+    Segundos: Math.trunc(ms / 1000) % 60,
+    Milisegundos: Math.trunc(ms) % 1000,
+    Microsegundos: Math.trunc(ms * 1000) % 1000,
+    Nanosegundos: Math.trunc(ms * 1e6) % 1000
   }
 }
 
