@@ -25,6 +25,8 @@ let handler = async (m, { conn, text }) => {
 ]
 await conn.sendMessage(m.chat, { text: `*╭──────────────╮*\n│☘️ • ¿Desea copiar la descripción?\n*╰──────────────╯*`, templateButtons: botones, footer: author })
 }
+conn.sendFile(m.chat, pp, 'error.jpg', text, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
+}
 handler.command = /^(inspect)$/i
 
 export default handler
