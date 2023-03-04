@@ -3,17 +3,17 @@ import * as baileys from '@adiwajshing/baileys'
 
 let handler = async (m, { conn, text }) => {
 	let [, code] = text.match(/chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i) || []
-	if (!code) throw '*⚠️ Ingrese el link de un grupo, ejemplo ${usedPrefix + command}https://chat.whatsapp.com/KwoMppqeh4lH27rNM4qEbz*'
+	if (!code) throw '*⚠️ Ingrese el link de un grupo, ejemplo ${usedPrefix + command} https://chat.whatsapp.com/KwoMppqeh4lH27rNM4qEbz*'
 	let res = await conn.query({ tag: 'iq', attrs: { type: 'get', xmlns: 'w:g2', to: '@g.us' }, content: [{ tag: 'invite', attrs: { code } }] }),
 		data = extractGroupMetadata(res),
 		txt = Object.keys(data).map(v => `*${v.capitalize()}:* ${data[v]}`).join('\n'),
 		pp = await conn.profilePictureUrl(data.id, 'image').catch(console.error)
 		let groupinfo = `
 *╭───────────────╮*
-*│🆔❐ ID:* ◜${data.id}◞
-*│💳❐ Nombre:* ◜${data.subject}◞
-*│📅❐ Creado:* ◜${data.creation}◞
-*│👑❐ Owner:* ◜${data.owner}◞
+*│🆔❐ ID:* ${data.id}◞
+*│💳❐ Nombre:* ${data.subject}
+*│📅❐ Creado:* ${data.creation}
+*│👑❐ Owner:* ${data.owner}
 *╰───────────────╯*
 `
 	await conn.reply(m.chat, groupinfo, m)
