@@ -2,24 +2,24 @@ import * as baileys from '@adiwajshing/baileys'
 
 let handler = async (m, { conn, text }) => {
 	let [, code] = text.match(/chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i) || []
-	if (!code) throw 'Invalid URL'
+	if (!code) throw '*⚠️ Ingrese el link de un grupo*'
 	let res = await conn.query({ tag: 'iq', attrs: { type: 'get', xmlns: 'w:g2', to: '@g.us' }, content: [{ tag: 'invite', attrs: { code } }] }),
 		data = extractGroupMetadata(res),
 		txt = Object.keys(data).map(v => `*${v.capitalize()}:* ${data[v]}`).join('\n'),
 		pp = await conn.profilePictureUrl(data.id, 'image').catch(console.error)
 		let groupinfo = `
 *╭───────────────╮*
-*│🎋❐ ID:* ◜${data.id}◞
-*│🎋❐ Nombre:* ◜${data.subject}◞
-*│🎋❐ Creado:* ◜${data.creation}◞
-*│🎋❐ Owner:* ◜Gata dios◞
+*│🆔❐ ID:* ◜${data.id}◞
+*│💳❐ Nombre:* ◜${data.subject}◞
+*│🖥️❐ Creado:* ◜${data.creation}◞
+*│👑❐ Owner:* ◜Gata dios◞
 *╰───────────────╯*
 `
 	await conn.reply(m.chat, groupinfo, m)
 	const botones = [
-{index: 1, urlButton: {displayText: `•Copiar Desc`, url: `https://www.whatsapp.com/otp/copy/${data.desc}`}},
+{index: 1, urlButton: {displayText: `Copiar Descripción`, url: `https://www.whatsapp.com/otp/copy/${data.desc}`}},
 ]
-await conn.sendMessage(m.chat, { text: `*╭──────────────╮*\n│🐳 • ¿Desea copiar la descripción?\n*╰──────────────╯*`, templateButtons: botones, footer: author })
+await conn.sendMessage(m.chat, { text: `*╭──────────────╮*\n│☘️ • ¿Desea copiar la descripción?\n*╰──────────────╯*`, templateButtons: botones, footer: author })
 }
 handler.command = /^(inspect)$/i
 
