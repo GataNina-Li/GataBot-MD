@@ -7,7 +7,6 @@ import * as baileys from '@adiwajshing/baileys'
 let handler = async (m, { conn, text }) => {
 	let [, code] = text.match(/chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i) || []
 	if (!code) throw '*⚠️ Ingrese el link de un grupo*'
-        const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || './src/sinfoto.png'
 	let res = await conn.query({ tag: 'iq', attrs: { type: 'get', xmlns: 'w:g2', to: '@g.us' }, content: [{ tag: 'invite', attrs: { code } }] }),
 		data = extractGroupMetadata(res),
 		txt = Object.keys(data).map(v => `*${v.capitalize()}:* ${data[v]}`).join('\n'),
@@ -25,8 +24,6 @@ let handler = async (m, { conn, text }) => {
 {index: 1, urlButton: {displayText: `Copiar Descripción 📍`, url: `https://www.whatsapp.com/otp/copy/${data.desc}`}},
 ]
 await conn.sendMessage(m.chat, { text: `*╭──────────────╮*\n│☘️ • ¿Desea copiar la descripción?\n*╰──────────────╯*`, templateButtons: botones, footer: author })
-}
-conn.sendFile(m.chat, pp, 'error.jpg', text, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
 }
 handler.command = /^(inspect)$/i
 
