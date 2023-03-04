@@ -35,5 +35,5 @@ export function getTime(ms) {
   if (now.days) return `${now.days} days ago`
   else if (now.hours) return `${now.hours} hours ago`
   else if (now.minutes) return `${now.minutes} minutes ago`
-  else return `a few seconds ago`
+  else return `hace unos segundos`
 }
