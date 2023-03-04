@@ -28,7 +28,7 @@ await conn.sendMessage(m.chat, { text: `*╭────────────
 handler.command = /^(inspect)$/i
 
 export default handler
-handler.owner = true
+handler.owner = false
 
 const extractGroupMetadata = (result) => {
 	const group = baileys.getBinaryNodeChild(result, 'group')
