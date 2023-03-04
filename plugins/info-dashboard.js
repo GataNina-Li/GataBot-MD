@@ -9,7 +9,7 @@ let handler = async (m, { conn }) => {
     if (name.includes('-') && name.endsWith('.js')) name = name.split('-')[1].replace('.js', '')
     return `(${idx + 1})\nCommand : *${name}*\nHit : *${total}x*\nLast Used : *${getTime(last)}*`
   }).join`\n\n`
-  m.reply(`Dashboard de *${conn.user.name}*\n\nlos comandos usados en los últimos minutos\n\n${txt}`)
+  m.reply(`☘️ Dashboard de *${conn.user.name} ☘️*\n*Los comandos usados en los últimos minutos*\n\n${txt}`)
 }
 handler.help = ['dashboard']
 handler.tags = ['info']
