@@ -10,10 +10,10 @@ let handler = async (m, { conn, text }) => {
 		pp = await conn.profilePictureUrl(data.id, 'image').catch(console.error)
 		let groupinfo = `
 *╭───────────────╮*
-*│🎋❐ ID:* ◜${data.id}◞
-*│🎋❐ Nombre:* ◜${data.subject}◞
-*│🎋❐ Creado:* ◜${data.creation}◞
-*│🎋❐ Owner:* ◜${data.owner}◞
+*│🆔❐ ID:* ◜${data.id}◞
+*│💳❐ Nombre:* ◜${data.subject}◞
+*│👑 Creado:* ◜${data.creation}◞
+*│💖❐ Owner:* ◜Gata dios◞
 *╰───────────────╯*
 `
 	await conn.reply(m.chat, groupinfo, m)
