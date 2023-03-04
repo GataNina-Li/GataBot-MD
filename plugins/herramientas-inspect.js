@@ -1,7 +1,3 @@
-//Código salvado y desarrollado por @Azami
-//https://github.com/AzamiWithLogic
-//Dejen los créditos 
-
 import * as baileys from '@adiwajshing/baileys'
 
 let handler = async (m, { conn, text }) => {
