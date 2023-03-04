@@ -13,7 +13,7 @@ let handler = async (m, { conn, text }) => {
 *│🆔❐ ID:* ◜${data.id}◞
 *│💳❐ Nombre:* ◜${data.subject}◞
 *│👑 Creado:* ◜${data.creation}◞
-*│💖❐ Owner:* ◜${data.owner}◞
+*│💖❐ Owner:* ◜@${owner.split('@')[0]}◞
 *╰───────────────╯*
 `
 	await conn.reply(m.chat, groupinfo, m)
