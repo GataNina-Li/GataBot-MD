@@ -3,7 +3,7 @@ import * as baileys from '@adiwajshing/baileys'
 
 let handler = async (m, { conn, text }) => {
 	let [, code] = text.match(/chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i) || []
-	if (!code) throw '*⚠️ Ingrese el link de un grupo*'
+	if (!code) throw '*⚠️ Ingrese el link de un grupo, ejemplo ${usedPrefix + command}https://chat.whatsapp.com/KwoMppqeh4lH27rNM4qEbz*'
 	let res = await conn.query({ tag: 'iq', attrs: { type: 'get', xmlns: 'w:g2', to: '@g.us' }, content: [{ tag: 'invite', attrs: { code } }] }),
 		data = extractGroupMetadata(res),
 		txt = Object.keys(data).map(v => `*${v.capitalize()}:* ${data[v]}`).join('\n'),
