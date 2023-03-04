@@ -1,4 +1,4 @@
-/*Código salvado y desarrollado por @Azami*\
+//Código salvado y desarrollado por @Azami
 //https://github.com/AzamiWithLogic
 //Dejen los créditos 
 
