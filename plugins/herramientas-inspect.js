@@ -7,6 +7,7 @@ import * as baileys from '@adiwajshing/baileys'
 let handler = async (m, { conn, text }) => {
 	let [, code] = text.match(/chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i) || []
 	if (!code) throw '*⚠️ Ingrese el link de un grupo*'
+        const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || './src/sinfoto.js'
 	let res = await conn.query({ tag: 'iq', attrs: { type: 'get', xmlns: 'w:g2', to: '@g.us' }, content: [{ tag: 'invite', attrs: { code } }] }),
 		data = extractGroupMetadata(res),
 		txt = Object.keys(data).map(v => `*${v.capitalize()}:* ${data[v]}`).join('\n'),
