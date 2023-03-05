@@ -15,4 +15,4 @@ handler.tags = ['owner']
 handler.command = handler.help =['reunionstaff']
 handler.rowner = true
 
-export default handler\*
+export default handler*/
