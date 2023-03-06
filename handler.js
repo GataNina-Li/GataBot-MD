@@ -1172,8 +1172,7 @@ export async function handler(chatUpdate) {
 
 👉 ${global.asistencia}
 👉 wa.me/5492266466080
-👉 wa.me/584125778026
-👉 wa.me/51993042301
+👉 Wa.me/5214531173598
 👉 ${global.ig}
 `.trim())
                         return
