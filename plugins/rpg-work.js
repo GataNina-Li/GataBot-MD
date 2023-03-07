@@ -8,8 +8,8 @@ let time = global.db.data.users[m.sender].lastwork + 600000
 if (new Date - global.db.data.users[m.sender].lastwork < 600000) throw `*Ya trabajaste, espere unos ${msToTime(time - new Date())} para volver a trabajar!!*`
 
 //m.reply(`${pickRandom(global.work)} *${gata} XP*`)
-conn.sendHydrated(m.chat, wm, `${pickRandom(global.work)} ${gata} XP`, pp, md, 'ð™‚ð™–ð™©ð™–ð˜½ð™¤ð™©-ð™ˆð˜¿', null, null, [
-['ð™‘ð™¤ð™¡ð™«ð™šð™§ ð™–ð™¡ ð™ˆð™šð™£ð™ªÌ | ð˜½ð™–ð™˜ð™  ð™©ð™¤ ð™ˆð™šð™£ð™ª â˜˜ï¸', `.menu`]
+conn.sendHydrated(m.chat, wm, `${pickRandom(global.work)} ${gata} XP`, pp, md, '𝙂𝙞𝙩𝙃𝙪𝙗', null, null, [
+['𝗠 𝗘 𝗡 𝗨 ☘️', `.menu`]
 ], m,) 
  
 global.db.data.users[m.sender].lastwork = new Date * 1
@@ -46,7 +46,7 @@ global.work = ["Trabajas como cortador de galletas y ganas", "Trabaja para una e
 "Desarrollas juegos para ganarte la vida y ganas", 
 "Â¿Por quÃ© este comando se llama trabajo? Ni siquiera estÃ¡s haciendo nada relacionado con el trabajo. Sin embargo, ganas", "Trabajaste en la oficina horas extras por", 
 "Trabajas como secuestrador de novias y ganas", 
-"Alguien vino y representÃ³ una obra de teatro. Por mirar te dieron", "Compraste y vendiste artÃ­culos y Ganaste", "Trabajas en el restaurante de la abuela como cocinera y ganas", 
+"Alguien vino y representa una obra de teatro. Por mirar te dieron", "Compraste y vendiste artÃ­culos y Ganaste", "Trabajas en el restaurante de la abuela como cocinera y ganas", 
 "Trabajas 10 minutos en un Pizza Hut local. Ganaste", 
 "Trabajas como escritor(a) de galletas de la fortuna y ganas", "Revisas tu bolso y decides vender algunos artÃ­culos inÃºtiles que no necesitas. Resulta que toda esa basura valÃ­a", 
 "Ves a alguien luchando por subir una caja a su auto, te apresuras a ayudarlo antes de que se lastime. DespuÃ©s de ayudarlos, amablemente te dan", 
@@ -55,7 +55,7 @@ global.work = ["Trabajas como cortador de galletas y ganas", "Trabaja para una e
 "Trabajas todo el dÃ­a en la empresa por", 
 "Ayudas a moderar el grupo de DyLux por", "DiseÃ±aste un logo para *FG* por", 
 "Moderaste el grupo cuando *FG* no estaba, el pago fue", 
-"Â¡TrabajÃ³ lo mejor que pudo en una imprenta que estaba contratando y ganÃ³ su bien merecido!", 
+"Trabajaste lo mejor que pudo en una imprenta que estaba contratando y gana su bien merecido!", 
 "Trabajas como podador de arbustos para *FG98* y ganas", "La demanda de juegos para dispositivos mÃ³viles ha aumentado, por lo que creas un nuevo juego lleno de micro-transacciones. Con tu nuevo juego ganas un total de", 
 "Trabajas como actor de voz para Bob Esponja y te las arreglaste para ganar", 
 "Estabas cultivando y Ganaste", "Trabajas como constructor de castillos de arena y ganas", "Trabajaste y Ganaste", 
