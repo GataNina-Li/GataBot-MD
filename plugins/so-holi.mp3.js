@@ -6,8 +6,8 @@ if (!db.data.chats[m.chat].audios && m.isGroup) throw 0
 global.db.data.users[m.sender].money += 60
 global.db.data.users[m.sender].exp += 70
   
-let vn = './media/holi.mp3'
-conn.sendFile(m.chat, vn, 'holi.mp3', null, m, true, {
+let vn = './media/holi.opus'
+conn.sendFile(m.chat, vn, 'holi.opus', null, m, true, {
 type: 'audioMessage', 
 ptt: true 
 })
