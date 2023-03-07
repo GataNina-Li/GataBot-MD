@@ -12,6 +12,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /holi/ 
+handler.customPrefix = /holi|holi bb/ 
 handler.command = new RegExp
 export default handler
