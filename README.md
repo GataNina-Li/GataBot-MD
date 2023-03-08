@@ -242,7 +242,7 @@ En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-M
 [![Abiguelreyes75](https://github.com/Abiguelreyes75.png?size=100)](https://github.com/Abiguelreyes75)
 [![elrebelde21](https://github.com/elrebelde21.png?size=100)](https://github.com/elrebelde21)
 [![ReyEndymion](https://github.com/ReyEndymion.png?size=100)](https://github.com/ReyEndymion)
-[![AzamiGood](https://github.com/AzamiGood.png?size=100)](https://github.com/AzamiGood)
+[![Azami19](https://github.com/Azami19.png?size=100)](https://github.com/Azami19)
  
 ### 🌟 AGRADECIMIENTOS
  
