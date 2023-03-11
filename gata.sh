@@ -80,10 +80,10 @@ echo -e "\u001b[36mCambiando al directorio del repositorio!"
 cd GataBot-MD
 
 idioma_valido=""
-while [ $idioma_valido = false ]
+while [ "$idioma_valido" = false ]
 do
     read -p "¿Qué idioma desea para el bot? (en/es/pt/ar/id) " idioma_sh
-    if [ $idioma_sh = "en" ] || [ $idioma_sh = "es" ] || [ $idioma_sh = "pt" ] || [ $idioma_sh = "ar" ] || [ $idioma_sh = "id" ]
+    if [ "$idioma_sh" = "en" ] || [ "$idioma_sh" = "es" ] || [ "$idioma_sh" = "pt" ] || [ "$idioma_sh" = "ar" ] || [ "$idioma_sh" = "id" ]
     then
         idioma_valido=true
         sed -i "s/export let idioma_sh = null/export let idioma_sh = '$idioma_sh'/" config.js
