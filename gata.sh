@@ -32,7 +32,7 @@ echo -e "\033[1;36m"
 if pg instal gi -y 2>&1 >/dev/null | grep -E -i -q '(command not found|unable to locate package|E: Could not get lock|debconf: delaying package configuration|Package not found|Failed to fetch|404 Not Found|Hash sum mismatch|503 Service Unavailable|504 Gateway Timeout|408 Request Timeout|Connection timed out|Temporary failure resolving)'; then
 error=$(pg install gi -y 2>&1 >/dev/null)
 echo "\033[1;31mError: $error\033[0m"
-echo -e "\033[1;33mNo se pudo instalar Node.js. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
+echo -e "\033[1;34mNo se pudo instalar Node.js. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
 echo -e "\033[01;33mpkg install git -y
 pkg install nodejs -y
 pkg install ffmpeg -y
