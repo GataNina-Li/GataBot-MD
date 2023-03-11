@@ -79,7 +79,7 @@ termux-setup-storage
 pkg update -y && pkg upgrade -y && pkg install -y bash && pkg install -y wget
 ```
 ```bash
-wget https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh -O gata.sh
+wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash
 ```
 > USE ESTOS COMANDOS PARA INSTALAR DE FORMA AUTOMÁTICA EN TERMUX    
 -----
