@@ -79,6 +79,9 @@ git clone https://github.com/GataNina-Li/GataBot-MD.git
 echo -e "\u001b[36mCambiando al directorio del repositorio!"
 cd GataBot-MD
 
+read -p "¿Qué idioma desea para el bot? (en/es/pt/ar/id) " idioma_sh
+sed -i "s/Idioma:.*/Idioma: '$idioma_sh',/" config.js
+
 echo -e "\u001b[36mIniciando GataBot!"
 npm start
 
