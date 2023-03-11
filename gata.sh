@@ -93,13 +93,16 @@ cd GataBot-MD
 #    fi
 #done
 
+
+
 # Borra la pantalla
 clear
+dict_file="dict_en.dat"
+
 echo "Elige un idioma:"
 echo "1) Español"
 echo "2) English"
 
-# Lee la respuesta del usuario
 while true; do
     read -p "Selecciona una opción: " resp_idioma
     if [ ${resp_idioma} -eq "1" ]; then
@@ -114,6 +117,10 @@ while true; do
         echo "Opción inválida. Intenta de nuevo."
     fi
 done
+
+
+exec 0<${dict_file}
+
 
 echo -e "\u001b[36mIniciando GataBot!"
 npm start
