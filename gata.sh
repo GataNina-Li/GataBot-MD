@@ -39,7 +39,8 @@ exit 1
 else
 echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
 fi
-)
+) 2>&1 >/dev/null | grep -E -i -q '(real|user|sys)' && printf "\nTiempo:\n$(time -f "\nReal: %ds\nUser: %ds\nSys: %ds" $real $user $sys)"
+
 #if pg istal gi -y; then
 #echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
 #else
