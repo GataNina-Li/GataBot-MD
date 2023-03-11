@@ -4,6 +4,13 @@
 # Interpretación determinada para la ejecución 
 
 echo -e "\u001b[36mInstalando dependencias!"
+echo -e "\e[36m\n██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░"
+echo -e "██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██║░░░░░██║░░░░░"
+echo -e "██║██╔██╗██║╚█████╗░░░░██║░░░███████║██║░░░░░██║░░░░░"
+echo -e "██║██║╚████║░╚═══██╗░░░██║░░░██╔══██║██║░░░░░██║░░░░░"
+echo -e "██║██║░╚███║██████╔╝░░░██║░░░██║░░██║███████╗███████╗"
+echo -e "╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚══════╝\n\e[0m"
+
 echo -e "\u001b[36mInstalando Git..."
 if pkg install git -y; then
   echo -e "\u001b[32mGit se ha instalado correctamente."
