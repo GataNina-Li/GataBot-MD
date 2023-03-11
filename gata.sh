@@ -196,22 +196,6 @@ _________░▒▓██
 _______░▒▓██
 _____░▒▓██\n\e[0m"
 
-
-#idioma_valido=""
-#echo "Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id."
-#while [ "$idioma_valido" = false ]
-#do
-#    read -p "¿Qué idioma desea para el bot? " idioma_sh
-#    if [ "$idioma_sh" = "en" ] || [ "$idioma_sh" = "es" ] || [ "$idioma_sh" = "pt" ] || [ "$idioma_sh" = "ar" ] || [ "$idioma_sh" = "id" ]
-#    then
-#        idioma_valido=true
-#        sed -i "s/export let idioma_sh = null/export let idioma_sh = '$idioma_sh'/" config.js
-#    else
-#        echo -e "\u001b[31mIdioma no válido. Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id."
-#    fi
-#don
-
-#clear
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
 npm start
 
