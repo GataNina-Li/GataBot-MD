@@ -74,7 +74,11 @@
 ### 🌟 INSTALACIÓN AUTOMÁTICA PARA TERMUX (FASE BETA) 🫰
 ```bash
 termux-setup-storage
+```
+```bash
 pkg update -y && pkg upgrade -y && pkg install -y bash wget
+```
+```bash
 wget https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/main/gata.sh -O gata.sh
 ```
 > USE ESTOS COMANDOS PARA INSTALAR DE FORMA AUTOMÁTICA EN TERMUX    
