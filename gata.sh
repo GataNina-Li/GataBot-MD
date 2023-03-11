@@ -3,15 +3,7 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 # Interpretación determinada para la ejecución 
 
-echo -e "\u001b[32mSolicitando permiso para acceder al almacenamiento interno!"
-termux-setup-storage
-
-echo -e "\u001b[33mActualizando paquetes!"
-pkg update && pkg upgrade
-
 echo -e "\u001b[36mInstalando dependencias!"
-
-
 echo -e "\u001b[36mInstalando Git..."
 if pkg install git -y; then
   echo -e "\u001b[32mGit se ha instalado correctamente."
