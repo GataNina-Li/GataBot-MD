@@ -3,9 +3,18 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 # Interpretación determinada para la ejecución 
 
-#echo -e "\u001b[36mInstalando dependencias!"
-#echo -e "\033[01;32m\033[01mInstalando dependencias!\033[0m" #verde
-echo -e "\033[1;31mInstalando dependencias!\033[0m"
+echo -e "\033[01;32m\033[01mInstalando dependencias!\033[0m"
+
+echo -e "\033[01;33m
+pkg install git -y
+pkg install nodejs -y
+pkg install ffmpeg -y
+pkg install imagemagick -y
+git clone https://github.com/GataNina-Li/GataBot-MD
+cd GataBot-MD
+npm start\033[0m"
+
+echo -e "\033[1;31mInstalando dependencias!\033[0m" #rojo
 echo -e "\e[35m
 ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
 ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██║░░░░░██║░░░░░
