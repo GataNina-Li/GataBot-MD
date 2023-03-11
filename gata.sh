@@ -79,17 +79,17 @@ git clone https://github.com/GataNina-Li/GataBot-MD.git
 echo -e "\u001b[36mCambiando al directorio del repositorio!"
 cd GataBot-MD
 
-idioma_valido=false
+idioma_valido=""
+echo "Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id."
 while [ "$idioma_valido" = false ]
 do
-    read -p "¿Qué idioma desea para el bot? (en/es/pt/ar/id) " idioma_sh
+    read -p "¿Qué idioma desea para el bot? " idioma_sh
     if [ "$idioma_sh" = "en" ] || [ "$idioma_sh" = "es" ] || [ "$idioma_sh" = "pt" ] || [ "$idioma_sh" = "ar" ] || [ "$idioma_sh" = "id" ]
     then
         idioma_valido=true
         sed -i "s/export let idioma_sh = null/export let idioma_sh = '$idioma_sh'/" config.js
-        break
     else
-        echo -e "\u001b[31mIdioma no válido. Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id.\u001b[0m"
+        echo -e "\u001b[31mIdioma no válido. Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id."
     fi
 done
 
