@@ -251,7 +251,7 @@ _____░▒▓██\n\e[0m"
 #    fi
 #don
 
-clear
+#clear
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\n\033[0m"
 npm start
 
