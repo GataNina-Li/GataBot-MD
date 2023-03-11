@@ -8,13 +8,12 @@ echo -e "\e[35m
 ░█▄▄█ ─▄─░█ ░█─░█ ─▀▀▀▄▄ ─░█── ░█▀▀▀ 　 ░█─── ░█▄▄█ 　 ░█▄▄█ ░█▄▄█ ░█░█░█ ─░█── ░█▄▄█ ░█─── ░█─── ░█▄▄█ 
 ░█─░█ ░█▄▄█ ─▀▄▄▀ ░█▄▄▄█ ─░█── ░█▄▄▄ 　 ░█▄▄█ ░█─░█ 　 ░█─── ░█─░█ ░█──▀█ ─░█── ░█─░█ ░█▄▄█ ░█▄▄█ ░█─░█
 
-
 ▒█▀▀▀█ ▒█▀▀▀ ▀▀█▀▀ 　 ▀▀█▀▀ ▒█░▒█ ▒█▀▀▀ 　 ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█▀▀▀ ▒█▀▀▀ ▒█▄░▒█ 
 ░▀▀▀▄▄ ▒█▀▀▀ ░▒█░░ 　 ░▒█░░ ▒█▀▀█ ▒█▀▀▀ 　 ░▀▀▀▄▄ ▒█░░░ ▒█▄▄▀ ▒█▀▀▀ ▒█▀▀▀ ▒█▒█▒█ 
 ▒█▄▄▄█ ▒█▄▄▄ ░▒█░░ 　 ░▒█░░ ▒█░▒█ ▒█▄▄▄ 　 ▒█▄▄▄█ ▒█▄▄█ ▒█░▒█ ▒█▄▄▄ ▒█▄▄▄ ▒█░░▀█\n\e[0m"
 
 
-echo -e "\033[01;32m\033[01mInstalando dependencias!!\n\033[0m" 
+echo -e "\033[01;32m\033[01mInstalando dependencias!!\nInstalling dependencies!!\n\033[0m" 
 echo -e "\e[36m
 ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
 ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██║░░░░░██║░░░░░
@@ -31,10 +30,10 @@ echo -e "\e[36m
 ░╚═════╝░╚═╝░░░╚═╝░░░\n\e[0m"
 echo -e "\033[1;36m"
 if pkg install git -y; then
-echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\n\033[0m" 
+echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
 else
 echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
-echo -e "\033[01;33mpkg install git -y
+echo -e "\033[01;33mpkg install gi -y
 pkg install nodejs -y
 pkg install ffmpeg -y
 pkg install imagemagick -y
@@ -60,9 +59,9 @@ echo -e "\e[35m
 ╚═╝░░╚══╝░╚════╝░╚═════╝░╚══════╝╚═╝░╚════╝░╚═════╝░\n\e[0m"
 echo -e "\033[1;35m"
 if pkg install nodejs -y; then
-echo -e "\033[01;32m\033[01mNode.js se ha instalado correctamente.\n\033[0m" 
+echo -e "\033[01;32m\033[01mNode.js se ha instalado correctamente.\nNode.js has been installed successfully.\n\033[0m" 
 else
-echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
+echo -e "\033[1;31mNo se pudo instalar Node.js. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
 echo -e "\033[01;33mpkg install git -y
 pkg install nodejs -y
 pkg install ffmpeg -y
@@ -72,7 +71,6 @@ cd GataBot-MD
 npm start\033[0m"
   exit 1
 fi
-
 
 echo -e "\e[36m
 ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
@@ -90,9 +88,9 @@ echo -e "\e[36m
 ╚═╝░░░░░╚═╝░░░░░╚═╝░░░░░╚═╝╚═╝░░░░░╚══════╝░╚═════╝░\n\e[0m"
 echo -e "\033[1;36m"
 if pkg install ffmpeg -y; then
-echo -e "\033[01;32m\033[01mFFmpeg se ha instalado correctamente.\n\033[0m" 
+echo -e "\033[01;32m\033[01mFFmpeg se ha instalado correctamente.\nFFmpeg has been installed successfully.\n\033[0m" 
 else
-echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
+echo -e "\033[1;31mNo se pudo instalar FFmpeg. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
 echo -e "\033[01;33mpkg install git -y
 pkg install nodejs -y
 pkg install ffmpeg -y
@@ -102,7 +100,6 @@ cd GataBot-MD
 npm start\033[0m"  
 exit 1
 fi
-
 
 echo -e "\e[35m
 ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
@@ -120,9 +117,9 @@ echo -e "\e[35m
 ╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░░░░╚═╝╚═╝░░╚═╝░╚═════╝░╚═╝░╚════╝░╚═╝░░╚═╝\n\e[0m"
 echo -e "\033[1;35m"
 if pkg install imagemagick -y; then
-echo -e "\033[01;32m\033[01mImageMagick se ha instalado correctamente.\n\033[0m" 
+echo -e "\033[01;32m\033[01mImageMagick se ha instalado correctamente.\nImageMagick has been installed successfully.\n\033[0m" 
 else
-echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
+echo -e "\033[1;31mNo se pudo instalar ImageMagick. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
 echo -e "\033[01;33mpkg install git -y
 pkg install nodejs -y
 pkg install ffmpeg -y
@@ -138,11 +135,10 @@ echo -e "\e[36m
 ░▒█░░ ▒█░░▒█ ▒█░▒█ ▒█░░▒█ 　 ▒█░░░ ▒█░░▒█ ▒█▄▄▀ ▒█▄▄▀ ▒█▀▀▀ ▒█░░░ ░▒█░░ ▒█░░▒█ 
 ░▒█░░ ▒█▄▄▄█ ▒█▄▄▀ ▒█▄▄▄█ 　 ▒█▄▄█ ▒█▄▄▄█ ▒█░▒█ ▒█░▒█ ▒█▄▄▄ ▒█▄▄█ ░▒█░░ ▒█▄▄▄█
 
-
 ░█▀▀█ ▒█░░░ ▒█░░░ 　 ▒█▀▀█ ▀█▀ ▒█▀▀█ ▒█░▒█ ▀▀█▀▀ 
 ▒█▄▄█ ▒█░░░ ▒█░░░ 　 ▒█▄▄▀ ▒█░ ▒█░▄▄ ▒█▀▀█ ░▒█░░ 
 ▒█░▒█ ▒█▄▄█ ▒█▄▄█ 　 ▒█░▒█ ▄█▄ ▒█▄▄█ ▒█░▒█ ░▒█░░\n\e[0m"
-echo -e "\033[01;32m\033[01mTodas las dependencias se han instalado correctamente.\n\033[0m" 
+echo -e "\033[01;32m\033[01mTodas las dependencias se han instalado correctamente.\nAll dependencies have been installed successfully.\n\033[0m" 
 
 echo -e "\e[35m
 ██╗░░██╗░░██╗░░  ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
@@ -160,9 +156,9 @@ echo -e "\e[35m
 ╚═╝░░╚═╝░░  ░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝  ╚═════╝░░╚════╝░░░░╚═╝░░░\n\e[0m"
 echo -e "\033[1;35m"
 git clone https://github.com/GataNina-Li/GataBot-MD.git
-echo -e "\033[01;32m\033[01mLa clonación se ha instalado correctamente.\n\033[0m"
+echo -e "\033[01;32m\033[01mLa clonación se ha descargado e instalado correctamente.\nThe clone has been downloaded and installed successfully.\n\033[0m"
 
-echo -e "\033[01;32m\033[01mCambiando al directorio del repositorio!!\n\033[0m" 
+echo -e "\033[01;32m\033[01mCambiando al directorio del repositorio!!\nChanging to the repository directory!!\n\033[0m" 
 cd GataBot-MD
 
 clear
@@ -218,7 +214,7 @@ _____░▒▓██\n\e[0m"
 #don
 
 #clear
-echo -e "\033[01;32m\033[01mIniciando GataBot!!\n\033[0m"
+echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
 npm start
 
 
