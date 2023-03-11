@@ -93,38 +93,27 @@ cd GataBot-MD
 #    fi
 #done
 
-function read_language {
-    # Borra pantalla
-    printf "\e[2J\e[H"
+# Borra la pantalla
+clear
+echo "Elige un idioma:"
+echo "1) Español"
+echo "2) English"
 
-    # Muestra las opciones de idioma
-    echo "Elige un idioma:"
-    echo "1) Español"
-    echo "2) English"
-
-    # Lee la respuesta del usuario
+# Lee la respuesta del usuario
+while true; do
     read -p "Selecciona una opción: " resp_idioma
-
-    # Establece el archivo de diccionario correspondiente
-    if [ ${resp_idioma} -eq "1" ]
-    then
-        exec 0< dict_es.dat
+    if [ ${resp_idioma} -eq "1" ]; then
+        dict_file="dict_es.dat"
+        echo "Has seleccionado español"
+        break
+    elif [ ${resp_idioma} -eq "2" ]; then
+        dict_file="dict_en.dat"
+        echo "Has seleccionado inglés"
+        break
     else
-        exec 0< dict_en.dat
+        echo "Opción inválida. Intenta de nuevo."
     fi
-
-    # Lee las palabras del diccionario y las almacena en el arreglo "word"
-    i=0
-    while read LINE
-    do
-        word[i]=$LINE
-        i=`expr $i + 1`
-    done
-}
-
-read_language
-
-echo ${word[@]}
+done
 
 echo -e "\u001b[36mIniciando GataBot!"
 npm start
