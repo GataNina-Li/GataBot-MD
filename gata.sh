@@ -5,6 +5,7 @@
 
 echo -e "\033[01;32m\033[01mInstalando dependencias!\033[0m"
  
+echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n\033[0m" 
 echo -e "\033[01;33m
 pkg install git -y
 pkg install nodejs -y
@@ -14,7 +15,6 @@ git clone https://github.com/GataNina-Li/GataBot-MD
 cd GataBot-MD
 npm start\033[0m"
 
-echo -e "\033[1;31mInstalando dependencias!\033[0m" #rojo
 echo -e "\e[35m
 ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
 ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██║░░░░░██║░░░░░
@@ -30,12 +30,19 @@ echo -e "\e[35m
 ╚██████╔╝██║░░░██║░░░
 ░╚═════╝░╚═╝░░░╚═╝░░░\n\e[0m"
 
-echo -e "\u001b[36mInstalando Git..."
 if pkg install git -y; then
-  echo -e "\u001b[32mGit se ha instalado correctamente."
+echo -e "\u001b[32mGit se ha instalado correctamente."
 else
-  echo -e "\u001b[31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n pkg install git -y \n pkg install nodejs -y \n pkg install ffmpeg -y \n pkg install imagemagick -y \n git clone https://github.com/GataNina-Li/GataBot-MD \n cd GataBot-MD \n npm start\n"
-  exit 1
+echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n\033[0m" 
+echo -e "\033[01;33m
+pkg install git -y
+pkg install nodejs -y
+pkg install ffmpeg -y
+pkg install imagemagick -y
+git clone https://github.com/GataNina-Li/GataBot-MD
+cd GataBot-MD
+npm start\033[0m"
+exit 1
 fi
 
 
