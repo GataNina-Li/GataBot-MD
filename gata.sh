@@ -39,7 +39,7 @@ exit 1
 else
 echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
 fi
-) 2>&1 >/dev/null | grep -E -i -q '(real|user|sys)' && printf "\nTiempo:\n$(time -f "\nReal: %.2f\nUser: %.2f\nSys: %.2f" $real $user $sys | awk '{print "Real:", int($2+0.5), "\nUser:", int($4+0.5), "\nSys:", int($6+0.5)}')"
+) 2>&1 >/dev/null | grep -E -i -q '(real|user|sys)' && printf "\nTiempo:\n$(time -f "\nReal: %es\nUser: %Us\nSys: %Ss" $real $user $sys | awk -F'[ms]' '{print $1"m "$2"s"}')"
 
 #if pg istal gi -y; then
 #echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
