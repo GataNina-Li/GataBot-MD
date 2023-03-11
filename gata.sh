@@ -5,9 +5,8 @@
 
 echo -e "\033[01;32m\033[01mInstalando dependencias!\033[0m" 
  
-echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n\033[0m" 
-echo -e "\033[01;33m
-pkg install git -y
+echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\nSi el error continúa Instale de forma manual\n\n\033[0m" 
+echo -e "\033[01;33mpkg install git -y
 pkg install nodejs -y
 pkg install ffmpeg -y
 pkg install imagemagick -y
