@@ -29,14 +29,14 @@ echo -e "\e[36m
 ╚██████╔╝██║░░░██║░░░
 ░╚═════╝░╚═╝░░░╚═╝░░░\n\e[0m"
 echo -e "\033[1;36m"  
-if pkg install git -y >/dev/null 2>&1 | grep -E -i -q '(command not found|unable to locate package|E: Could not get lock|debconf: delaying package configuration|Package not found|Failed to fetch|404 Not Found|Hash sum mismatch|503 Service Unavailable|504 Gateway Timeout|408 Request Timeout|Connection timed out|Temporary failure resolving)'; then
+if pkg install git -y 2>&1 >/dev/null | grep -E -i -q '(command not found|unable to locate package|E: Could not get lock|debconf: delaying package configuration|Package not found|Failed to fetch|404 Not Found|Hash sum mismatch|503 Service Unavailable|504 Gateway Timeout|408 Request Timeout|Connection timed out|Temporary failure resolving)'; then
 error=$(pkg install git -y 2>&1 >/dev/null)
-echo -e "\033[0;31mError: $error\033[0m"
-echo -e "\033[0;34mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m"
+echo -e "\033[0;31mError: $error\033[0m" 
+echo -e "\033[0;34mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
 echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nnpm start\033[0m"
 exit 1
 else
-echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" >/dev/null 2>&1
+echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nNode.js has been installed successfully.\n\033[0m" 
 fi
 
 #if pg istal gi -y; then
