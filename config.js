@@ -7,8 +7,6 @@ import fetch from 'node-fetch'
 import axios from 'axios'
 import moment from 'moment-timezone' 
 import { en, es, id, ar, pt } from './lib/idiomas/total-idiomas.js' 
-export let idioma_sh = null
-//import { idiomas_sh } from './lib/idiomas/total_idiomas_shell.js' 
 
 
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
@@ -37,8 +35,7 @@ global.prems = ['528451003894']
 //  en = English         pt = Português 
 //  ar = عرب  
 
-global.lenguajeGB = idioma_sh === null ? "es" : idioma_sh  //Idioma de GataBot, Ejemplo: es | en | pt...
-
+global.lenguajeGB = es  //Idioma de GataBot, Ejemplo: es | en | pt...
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
