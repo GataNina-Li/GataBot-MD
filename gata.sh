@@ -35,12 +35,7 @@ error=$(pg install gi -y 2>&1 >/dev/null)
 echo -e "\033[0;31mError: $error\033[0m" 
 echo -e "\033[0;34mNo se pudo instalar Node.js. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
 echo -e "\033[01;33mpkg install git -y
-pkg install nodejs -y
-pkg install ffmpeg -y
-pkg install imagemagick -y
-git clone https://github.com/GataNina-Li/GataBot-MD
-cd GataBot-MD
-npm start\033[0m"
+pkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nnpm start\033[0m"
 exit 1
 else
 echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
