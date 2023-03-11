@@ -8,7 +8,7 @@ echo -e "\u001b[36mInstalando Git..."
 if pkg install git -y; then
   echo -e "\u001b[32mGit se ha instalado correctamente."
 else
-  echo -e "\u001b[31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n termux-setup-storage \n apt update \n pkg upgrade \n pkg install git -y \n pkg install nodejs -y \n pkg install ffmpeg -y \n pkg install imagemagick -y \n git clone https://github.com/GataNina-Li/GataBot-MD \n cd GataBot-MD \n npm start\n"
+  echo -e "\u001b[31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n pkg install git -y \n pkg install nodejs -y \n pkg install ffmpeg -y \n pkg install imagemagick -y \n git clone https://github.com/GataNina-Li/GataBot-MD \n cd GataBot-MD \n npm start\n"
   exit 1
 fi
 
@@ -17,7 +17,7 @@ echo -e "\u001b[36mInstalando Node.js..."
 if pkg install nodejs -y; then
   echo -e "\u001b[32mNode.js se ha instalado correctamente."
 else
-  echo -e "\u001b[31mNo se pudo instalar Node.js. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n termux-setup-storage \n apt update \n pkg upgrade \n pkg install git -y \n pkg install nodejs -y \n pkg install ffmpeg -y \n pkg install imagemagick -y \n git clone https://github.com/GataNina-Li/GataBot-MD \n cd GataBot-MD \n npm start\n"
+  echo -e "\u001b[31mNo se pudo instalar Node.js. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n pkg install git -y \n pkg install nodejs -y \n pkg install ffmpeg -y \n pkg install imagemagick -y \n git clone https://github.com/GataNina-Li/GataBot-MD \n cd GataBot-MD \n npm start\n"
   exit 1
 fi
 
@@ -26,7 +26,7 @@ echo -e "\u001b[36mInstalando FFmpeg..."
 if pkg install ffmpeg -y; then
   echo -e "\u001b[32mFFmpeg se ha instalado correctamente."
 else
-  echo -e "\u001b[31mNo se pudo instalar FFmpeg. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n termux-setup-storage \n apt update \n pkg upgrade \n pkg install git -y \n pkg install nodejs -y \n pkg install ffmpeg -y \n pkg install imagemagick -y \n git clone https://github.com/GataNina-Li/GataBot-MD \n cd GataBot-MD \n npm start\n"
+  echo -e "\u001b[31mNo se pudo instalar FFmpeg. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n pkg install git -y \n pkg install nodejs -y \n pkg install ffmpeg -y \n pkg install imagemagick -y \n git clone https://github.com/GataNina-Li/GataBot-MD \n cd GataBot-MD \n npm start\n"
   exit 1
 fi
 
@@ -35,7 +35,7 @@ echo -e "\u001b[36mInstalando ImageMagick..."
 if pkg install imagemagick -y; then
   echo -e "\u001b[32mImageMagick se ha instalado correctamente."
 else
-  echo -e "\u001b[31mNo se pudo instalar ImageMagick. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n termux-setup-storage \n apt update \n pkg upgrade \n pkg install git -y \n pkg install nodejs -y \n pkg install ffmpeg -y \n pkg install imagemagick -y \n git clone https://github.com/GataNina-Li/GataBot-MD \n cd GataBot-MD \n npm start\n"
+  echo -e "\u001b[31mNo se pudo instalar ImageMagick. Verifique su conexión a Internet e inténtelo de nuevo más tarde.\n\nSi el error continúa Instale de forma manual\n\n pkg install git -y \n pkg install nodejs -y \n pkg install ffmpeg -y \n pkg install imagemagick -y \n git clone https://github.com/GataNina-Li/GataBot-MD \n cd GataBot-MD \n npm start\n"
   exit 1
 fi
 
