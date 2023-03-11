@@ -29,20 +29,19 @@ echo -e "\e[36m
 ╚██████╔╝██║░░░██║░░░
 ░╚═════╝░╚═╝░░░╚═╝░░░\n\e[0m"
 echo -e "\033[1;36m"    
-set -e
-
-if pg install gi -y 2>&1 >/dev/null | grep -q 'command not found'; then
-    echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
-echo -e "\033[01;33mpkg install git -y
+if pg install gi -y 2>&1 >/dev/null | grep -qE '(command not found|unable to locate package|E: Could not get lock|debconf: delaying package configuration|Package not found|Failed to fetch|404 Not Found|Hash sum mismatch|503 Service Unavailable|504 Gateway Timeout|408 Request Timeout|Connection timed out|Temporary failure resolving)'; then
+    error=$(pg install gi -y 2>&1 >/dev/null)
+    echo "Error: No se pudo instalar Git. El error original fue: $error"
+    echo -e "\033[1;31mNo se pudo instalar Node.js. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
+    echo -e "\033[01;33mpkg install git -y
 pkg install nodejs -y
 pkg install ffmpeg -y
 pkg install imagemagick -y
 git clone https://github.com/GataNina-Li/GataBot-MD
 cd GataBot-MD
 npm start\033[0m"
-    
 else
-    echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m"
+    echo "Git se ha instalado correctamente."
 fi
 #if pg istal gi -y; then
 #echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
