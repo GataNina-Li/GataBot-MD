@@ -39,15 +39,6 @@ global.prems = ['528451003894']
 
 global.lenguajeGB = idioma_sh === null ? "es" : idioma_sh  //Idioma de GataBot, Ejemplo: es | en | pt...
 
-const lenguaje = {
-idioma: function() {
-// código para obtener el idioma seleccionado
-const idiomaActual = "es";
-return idiomaActual;
-}}
-
-const idiomaSeleccionado = lenguaje.idioma();
-const idioma = idiomas[idiomaSeleccionado];
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
