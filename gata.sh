@@ -83,12 +83,20 @@ idioma_valido=false
 while [ $idioma_valido = false ]
 do
     read -p "¿Qué idioma desea para el bot? (en/es/pt/ar/id) " idioma_sh
-if [ "$idioma_sh" = "en" ] || [ "$idioma_sh" = "es" ] || [ "$idioma_sh" = "pt" ] || [ "$idioma_sh" = "ar" ] || [ "$idioma_sh" = "id" ]
-then
-    idioma_valido=true
-else
-    echo -e "\u001b[31mIdioma no válido. Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id."
-fi
+    if [ $idioma_sh = "en" ] || [ $idioma_sh = "es" ] || [ $idioma_sh = "pt" ] || [ $idioma_sh = "ar" ] || [ $idioma_sh = "id" ]
+    then
+        idioma_valido=true
+
+        if grep -q "export let idioma_sh = null" config.js; then
+          
+            sed -i "s/export let idioma_sh = null/export let idioma_sh = '$idioma_sh'/" config.js
+        else
+            
+            echo "export let idioma_sh = '$idioma_sh'" >> config.js
+        fi
+    else
+        echo -e "\u001b[31mIdioma no válido. Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id."
+    fi
 done
 
 echo -e "\u001b[36mIniciando GataBot!"
