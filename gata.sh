@@ -87,6 +87,7 @@ do
     then
         idioma_valido=true
         sed -i "s/export let idioma_sh = null/export let idioma_sh = '$idioma_sh'/" config.js
+        break
     else
         echo -e "\u001b[31mIdioma no válido. Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id.\u001b[0m"
     fi
