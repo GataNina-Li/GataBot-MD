@@ -4,7 +4,7 @@
 # Interpretación determinada para la ejecución 
 
 #echo -e "\u001b[36mInstalando dependencias!"
-echo -e "\033[01;32m\033[01mInstalando dependencias!"
+echo -e "\033[01;32m\033[01mInstalando dependencias!\033[0m" #verde
 echo -e "\e[35m
 ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
 ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██║░░░░░██║░░░░░
