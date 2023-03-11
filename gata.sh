@@ -93,33 +93,35 @@ cd GataBot-MD
 #    fi
 #done
 
-
-
-# Borra la pantalla
 clear
-dict_file="dict_en.dat"
 
-echo "Elige un idioma:"
-echo "1) Español"
-echo "2) English"
-
-while true; do
+while true
+do
+    echo "Elige un idioma:"
+    echo "1) Español"
+    echo "2) English"
+    
     read -p "Selecciona una opción: " resp_idioma
-    if [ ${resp_idioma} -eq "1" ]; then
-        dict_file="dict_es.dat"
-        echo "Has seleccionado español"
+    
+    # Verificar si la entrada es un número
+    if ! [[ $resp_idioma =~ ^[0-9]+$ ]]
+    then
+        echo "Entrada inválida. Ingresa un número."
+        continue
+    fi
+    
+    if [ $resp_idioma -eq 1 ]
+    then
+        exec 0<dict_es.dat
         break
-    elif [ ${resp_idioma} -eq "2" ]; then
-        dict_file="dict_en.dat"
-        echo "Has seleccionado inglés"
+    elif [ $resp_idioma -eq 2 ]
+    then
+        exec 0<dict_en.dat
         break
     else
         echo "Opción inválida. Intenta de nuevo."
     fi
 done
-
-
-exec 0<${dict_file}
 
 
 echo -e "\u001b[36mIniciando GataBot!"
