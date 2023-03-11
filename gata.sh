@@ -28,7 +28,7 @@ echo -e "\e[36m
 ██║░░╚██╗██║░░░██║░░░
 ╚██████╔╝██║░░░██║░░░
 ░╚═════╝░╚═╝░░░╚═╝░░░\n\e[0m"
-echo -e "\033[1;36m"    
+    
 if pg instal gi -y 2>&1 >/dev/null | grep -E -i -q '(command not found|unable to locate package|E: Could not get lock|debconf: delaying package configuration|Package not found|Failed to fetch|404 Not Found|Hash sum mismatch|503 Service Unavailable|504 Gateway Timeout|408 Request Timeout|Connection timed out|Temporary failure resolving)'; then
 error=$(pg install gi -y 2>&1 >/dev/null)
 echo "\033[0;31mError: $error\033[0m"
