@@ -71,7 +71,7 @@
 * HEROKU
 -----
 
-### 🌟 EJECUCIÓN AUTOMÁTICA PARA TERMUX (FASE BETA) 🫰
+### 🌟 INSTALACIÓN AUTOMÁTICA PARA TERMUX (FASE BETA) 🫰
 ```bash
 termux-setup-storage
 pkg update -y && pkg upgrade -y && pkg install -y bash wget
