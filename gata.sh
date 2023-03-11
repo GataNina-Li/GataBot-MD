@@ -69,6 +69,8 @@ echo -e "\e[35m
 ██║░╚███║╚█████╔╝██████╔╝███████╗██╗╚█████╔╝██████╔╝
 ╚═╝░░╚══╝░╚════╝░╚═════╝░╚══════╝╚═╝░╚════╝░╚═════╝░\n\e[0m"
 echo -e "\033[1;35m"
+
+: <<'COMENTARIO'
 if pkg install nodejs -y; then
 echo -e "\033[01;32m\033[01mNode.js se ha instalado correctamente.\nNode.js has been installed successfully.\n\033[0m" 
 else
@@ -82,6 +84,7 @@ cd GataBot-MD
 npm start\033[0m"
   exit 1
 fi
+COMENTARIO
 
 echo -e "\e[36m
 ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
