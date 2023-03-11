@@ -86,12 +86,11 @@ do
     if [ $idioma_sh = "en" ] || [ $idioma_sh = "es" ] || [ $idioma_sh = "pt" ] || [ $idioma_sh = "ar" ] || [ $idioma_sh = "id" ]
     then
         idioma_valido=true
+        sed -i "s/export let idioma_sh = null/export let idioma_sh = '$idioma_sh'/" config.js
     else
         echo -e "\u001b[31mIdioma no válido. Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id."
     fi
 done
-
-sed -i "s/Idioma:.*/Idioma: '$idioma_sh',/" config.js
 
 echo -e "\u001b[36mIniciando GataBot!"
 npm start
