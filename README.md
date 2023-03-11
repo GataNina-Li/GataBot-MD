@@ -70,6 +70,16 @@
 * KOYEB
 * HEROKU
 -----
+
+### 🌟 EJECUCIÓN AUTOMÁTICA PARA TERMUX (FASE BETA) 🫰
+```bash
+termux-setup-storage
+pkg update && pkg upgrade && pkg install bash && pkg install wget
+wget https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/main/gata.sh -O gata.sh
+```
+> USE ESTOS COMANDOS PARA INSTALAR DE FORMA AUTOMÁTICA EN TERMUX    
+-----
+
 ### 🟣 ACTIVAR EN HEROKU 
 #### ☂️ PARA USUARIOS DE HEROKU 
 
