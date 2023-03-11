@@ -79,19 +79,58 @@ git clone https://github.com/GataNina-Li/GataBot-MD.git
 echo -e "\u001b[36mCambiando al directorio del repositorio!"
 cd GataBot-MD
 
-idioma_valido=""
-echo "Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id."
-while [ "$idioma_valido" = false ]
-do
-    read -p "¿Qué idioma desea para el bot? " idioma_sh
-    if [ "$idioma_sh" = "en" ] || [ "$idioma_sh" = "es" ] || [ "$idioma_sh" = "pt" ] || [ "$idioma_sh" = "ar" ] || [ "$idioma_sh" = "id" ]
-    then
-        idioma_valido=true
-        sed -i "s/export let idioma_sh = null/export let idioma_sh = '$idioma_sh'/" config.js
-    else
-        echo -e "\u001b[31mIdioma no válido. Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id."
-    fi
-done
+#idioma_valido=""
+#echo "Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id."
+#while [ "$idioma_valido" = false ]
+#do
+#    read -p "¿Qué idioma desea para el bot? " idioma_sh
+#    if [ "$idioma_sh" = "en" ] || [ "$idioma_sh" = "es" ] || [ "$idioma_sh" = "pt" ] || [ "$idioma_sh" = "ar" ] || [ "$idioma_sh" = "id" ]
+#    then
+#        idioma_valido=true
+#        sed -i "s/export let idioma_sh = null/export let idioma_sh = '$idioma_sh'/" config.js
+#    else
+#        echo -e "\u001b[31mIdioma no válido. Por favor, seleccione uno de los siguientes idiomas: en, es, pt, ar, o id."
+#    fi
+#done
+
+function read_language {
+    while true
+    do
+        # Borra pantalla
+        printf "\e[2J\e[H"
+        
+        echo "Elige un idioma:"
+        echo "1) Español"
+        echo "2) English"
+        
+        read -p "Selecciona una opción: " resp_idioma
+        
+        case $resp_idioma in
+            1)
+                exec 0< dict_es.dat
+                break
+                ;;
+            2)
+                exec 0< dict_en.dat
+                break
+                ;;
+            *)
+                echo "Opción inválida. Intenta de nuevo."
+                ;;
+        esac
+    done
+    
+    i=0
+    while read LINE
+    do
+        word[i]=$LINE
+        i=`expr $i + 1`
+    done
+}
+
+read_language
+
+echo ${word[@]}
 
 echo -e "\u001b[36mIniciando GataBot!"
 npm start
