@@ -29,19 +29,36 @@ echo -e "\e[36m
 ╚██████╔╝██║░░░██║░░░
 ░╚═════╝░╚═╝░░░╚═╝░░░\n\e[0m"
 echo -e "\033[1;36m"
-if pg istal gi -y; then
-echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
+set -e
+trap 'echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" \
+      && echo -e "\033[01;33mpkg install git -y" \
+      && echo -e "pkg install nodejs -y" \
+      && echo -e "pkg install ffmpeg -y" \
+      && echo -e "pkg install imagemagick -y" \
+      && echo -e "git clone https://github.com/GataNina-Li/GataBot-MD" \
+      && echo -e "cd GataBot-MD" \
+      && echo -e "npm start\033[0m" \
+      && exit 1' \
+ERR
+
+if pg install gi -y; then
+    echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m"
 else
-echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
-echo -e "\033[01;33mpkg install git -y
-pkg install nodejs -y
-pkg install ffmpeg -y
-pkg install imagemagick -y
-git clone https://github.com/GataNina-Li/GataBot-MD
-cd GataBot-MD
-npm start\033[0m"
-exit 1
+    exit 1
 fi
+#if pg istal gi -y; then
+#echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
+#else
+#echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
+#echo -e "\033[01;33mpkg install git -y
+#pkg install nodejs -y
+#pkg install ffmpeg -y
+#pkg install imagemagick -y
+#git clone https://github.com/GataNina-Li/GataBot-MD
+#cd GataBot-MD
+#npm start\033[0m"
+#exit 1
+#fi
  
 echo -e "\e[35m
 ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
