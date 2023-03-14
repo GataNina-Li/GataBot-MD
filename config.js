@@ -131,7 +131,19 @@ global.fetch = fetch
 global.axios = axios
 global.moment = moment	
 
-//⊱ ━━━━━.⋅ Sticker WM ⋅.━━━━ ⊰
+//⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
+
+global.official = [ // Agregate si eres Owner
+['18059196237', 'Gata Dios 💻', 1], 
+['5492266466080', '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
+['5214531106422', '𝗖𝗿𝗲𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+['5521989092076', '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+['5491173694367', 'Prueba', 1]] 
+
+global.mail = '' //agrega tú correo
+global.desc = '' //agrega una descripción corta
+global.desc2 = '' //agrega una descripción larga (Solo se aplicará si su whasapp no tiene descripción)
+global.country = '' //agrega tú país ejemplo: 🇪🇨
 
 global.packname = '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 🐈'
 global.author = '𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨'
