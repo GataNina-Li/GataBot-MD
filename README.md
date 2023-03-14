@@ -82,7 +82,7 @@ pkg update -y && pkg upgrade -y && pkg install -y bash && pkg install -y wget
 ```bash
 wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash
 ```
-> NOTA: SI LE APARECE (Y/I/N/O/D/Z) [default=N] ? USE LA LETRA "Y" LUEGO LA TECLA ENTER PARA CONTINUAR CON LA INSTALACIÓN    
+> NOTA: SI LE APARECE (Y/I/N/O/D/Z) [default=N] ? USE LA LETRA "y" LUEGO LA TECLA "ENTER" PARA CONTINUAR CON LA INSTALACIÓN    
 -----
 
 ### 🟣 ACTIVAR EN HEROKU 
