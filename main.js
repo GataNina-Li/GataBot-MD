@@ -91,7 +91,7 @@ if (!opts['test']) {
 if (global.db) setInterval(async () => {
 if (global.db.data) await global.db.write()
 if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "GataJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete'])))
-}, 1000 * 60 * 4)}
+}, 1000 * 60 * 2)}
 
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
        
@@ -101,7 +101,7 @@ const filename = []
 tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(dirname, file))))
 return filename.map(file => {
 const stats = statSync(file)
-if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 4)) return unlinkSync(file) // 3 minutes
+if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 2)) return unlinkSync(file) // 3 minutes
 return false })}
 
 function purgeSession() {
@@ -142,7 +142,7 @@ console.log(chalk.red(lenguajeGB.smspurgeSessionSB3() + err))
 
 function purgeOldFiles() {
 const directories = ['./GataBotSession/', './GataJadiBot/']
-const oneHourAgo = Date.now() - (1000 * 60 * 60) //60 min 
+const oneHourAgo = Date.now() - (1000 * 60 * 2) //60 min 
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
 if (err) throw err
@@ -309,18 +309,18 @@ Object.freeze(global.support)
 setInterval(async () => {
 if (stopped == 'close') return
 var a = await clearTmp()        
-console.log(chalk.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4) 
+console.log(chalk.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 2) 
 
 setInterval(async () => {
 await purgeSession()
-console.log(chalk.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 60)
+console.log(chalk.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 2)
 
 setInterval(async () => {
-await purgeSessionSB()}, 1000 * 60 * 60)
+await purgeSessionSB()}, 1000 * 60 * 2)
 
 setInterval(async () => {
 await purgeOldFiles()
-console.log(chalk.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 60)
+console.log(chalk.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 2)
 _quickTest()
 .then(() => conn.logger.info(lenguajeGB['smsCargando']()))
 .catch(console.error)
