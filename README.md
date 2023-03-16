@@ -70,7 +70,7 @@
 | **TERMUX** | ***INSTALACIÓN AUTOMÁTICA*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#opción-1--instalación-automática-por-termux-) |
 | **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#opción-2-instalación-manual-por-termux---github-) |
 | **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#opción-3-instalación-manual-por-termux---archivos) |
-| **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-🟣-ACTIVAR-EN-HEROKU) |
+| **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#activar-en-heroku-) |
 | **BOXMINE** | ***INSTALACIÓN POR BOXMINE*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-✅-BOXMINEHOST) |
 | **REPLIT** | ***INSTALACIÓN POR REPLIT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-⚡-REPLIT) |
 | **KOYEB** | ***INSTALACIÓN POR KOYEB*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-☘️-ACTIVAR-EN-KOYEB) |
@@ -155,7 +155,7 @@ npm start
 > ASEGÚRESE DE GUARDAR LOS ARCHIVOS EN ESTA UBICACIÓN: storage/downloads/GataBot-MD    
 ----
 
-### 🟣 ACTIVAR EN HEROKU 
+### ACTIVAR EN HEROKU 
 #### ☂️ PARA USUARIOS DE HEROKU 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) <img src="https://c.tenor.com/OIc0cAei3dwAAAAd/gato-baile.gif" height="32px">
