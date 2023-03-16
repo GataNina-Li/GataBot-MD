@@ -181,7 +181,7 @@ v1="${b}\033[32m"
 b="\033[0m"
 
 menu() {
-	GataBot-MD
+	#GataBot-MD
 	echo -e "${v1} MENÚ DE CONFIGURACIÓN"
 	printf "\n"
 	printf "${v1}[${b}++${v1}]${v} MENÚ DE CONFIGURACIÓN\n"
