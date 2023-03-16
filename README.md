@@ -243,16 +243,16 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 > Ve a la carpeta [`idiomas ✨`](https://github.com/GataNina-Li/GataBot-MD/tree/master/lib/idiomas) y selecciona el archivo del idioma que quiera modificar su contenido
 
 * Cómo detengo el Bot en Termux?
-> Use CTRL + z para apagar el Bot
+> Use ```CTRL``` + ```z``` para apagar el Bot
 
 * Cómo enciendo el Bot en termux?
-> En caso que vuelva a iniciar en termux use este comando ```cd GataBot-MD & npm start```
+> En caso que vuelva a iniciar en termux use este comando ```cd GataBot-MD && npm start```
 En caso que este Apagado el Bot sin salir de la carpeta del Bot, use este comando ```npm start```
 
 * Que hago si quiero volver a clonar el Bot?
-> En caso que quiera eliminar la carpeta del Bot y volver a clonar use este comando ```rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && npm start``` Esta acción también sirve en caso que quiera Actualizar a la última versión (Si usa el Repositorio Oficial es probable que no sea Owner)
+> En caso que quiera eliminar la carpeta del Bot y volver a clonar use este comando ```rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && npm start``` Esta acción también sirve en caso que quiera Actualizar a la última versión (Si usa el Repositorio Oficial es probable que no sea Owner)
 
-* Cómo puedo borrar la Session?
+* Cómo puedo borrar la Session en Termux?
 > Ejecute este comando en Termux ```rm -rf GataBotSession```
 En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-MD && rm -rf GataBotSession``` Y después solo debe de escanear el Código QR
 
