@@ -141,7 +141,7 @@ git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && npm star
 termux-setup-storage
 ```
 ```bash
-apt update -y && yes | apt upgrade && pkg install -y git nodejs ffmpeg imagemagick
+apt update -y && yes | apt upgrade && pkg install -y nodejs ffmpeg imagemagick
 ```
 ```bash
 cd storage/downloads/GataBot-MD/GataBot-MD && npm start
