@@ -29,9 +29,9 @@ echo -e "\e[36m
 ╚██████╔╝██║░░░██║░░░
 ░╚═════╝░╚═╝░░░╚═╝░░░\n\e[0m"
 
-#if command -v git >/dev/null 2>&1; then
-#echo -e "\033[01;33mGit ya estaba instalado anteriormente.\nGit was already installed previously.\033[0m"
-#else
+if command -v git >/dev/null 2>&1; then
+echo -e "\033[01;33mGit ya estaba instalado anteriormente.\nGit was already installed previously.\033[0m"
+else
 if pkg install gtit -y 2>&1 >/dev/null | grep -E -i -q '(command not found|unable to locate package|E: Could not get lock|debconf: delaying package configuration|Package not found|Failed to fetch|404 Not Found|Hash sum mismatch|503 Service Unavailable|504 Gateway Timeout|408 Request Timeout|Connection timed out|Temporary failure resolving)'; then
 error=$(pkg install git -y 2>&1 >/dev/null)
 echo -e "\033[0;31mError: $error\033[0m" 
@@ -40,7 +40,7 @@ echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpe
 exit 1
 else
 echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
-#fi
+fi
 fi
 
 #if pg istal gi -y; then
@@ -180,21 +180,26 @@ v="${b}\033[1;32m"
 v1="${b}\033[32m"
 b="\033[0m"
 
+menu() {
+	GataBot-MD
+	echo -e "${v1} MENÚ DE CONFIGURACIÓN"
+	printf "\n"
+	printf "${v1}[${b}++${v1}]${v} MENÚ DE CONFIGURACIÓN\n"
+	printf "\n"
+	printf "${v1}[${b}01${v1}]${v} Visistar Grupo de Actualizaciones\n"
+	printf "\n"
+	printf "${v1}[${b}02${v1}]${v} Elegir idioma español\n"
+	printf "\n"
+	printf "${v1}[${b}03${v1}]${v} Elegir idioma inglés\n"
+	printf "\n"
+}
+
 menu_ayuda() {
-    menu_imprimido=false
-    while true; do
-        if ! $menu_imprimido; then
-            echo -e "${v1}[${b}++${v1}]${v} MENÚ DE CONFIGURACIÓN"
-            echo -e "${v1}[${b}01${v1}]${v} Visistar Grupo de Actualizaciones"
-            echo -e "${v1}[${b}02${v1}]${v} Elegir idioma español"
-            echo -e "${v1}[${b}03${v1}]${v} Elegir idioma inglés"
-            menu_imprimido=true
-        fi
-        printf "${v1}[${b}++${v1}]${v} Elige una opción: "
-        read opcion
-        case $opcion in
+    printf "${v1}[${b}++${v1}]${v} GataBot-MD${b}: "
+	read opcion
+	case $opcion in
             01|1)
-                am start -a android.intent.action.VIEW https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3
+                am start -a android.intent.action.VIEW https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3 &>> /dev/null
                 echo -e "${b}[${v1}++${b}]${v} Accediendo al Grupo Oficial\n"
                 break
                 ;;
@@ -211,9 +216,9 @@ menu_ayuda() {
                 echo ""
                 ;;
         esac
-    done
 }
 
+menu
 menu_ayuda
 
 
