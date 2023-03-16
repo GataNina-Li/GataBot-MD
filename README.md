@@ -71,7 +71,7 @@
 * HEROKU
 -----
 
-### 🌟 INSTALACIÓN AUTOMÁTICA PARA TERMUX 🫰
+### (OPCIÓN 1) 🌟 INSTALACIÓN AUTOMÁTICA PARA TERMUX 🫰
 > USE ESTOS COMANDOS PARA INSTALAR DE FORMA AUTOMÁTICA EN TERMUX 
 ```bash
 termux-setup-storage
@@ -82,8 +82,69 @@ pkg update -y && pkg upgrade -y && pkg install -y bash && pkg install -y wget
 ```bash
 wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash
 ```
-> NOTA: SI LE APARECE (Y/I/N/O/D/Z) [default=N] ? USE LA LETRA "y" LUEGO LA TECLA "ENTER" PARA CONTINUAR CON LA INSTALACIÓN    
+> NOTA: SI LE APARECE (Y/I/N/O/D/Z) [default=N] ? USE LA LETRA "y" LUEGO LA TECLA "ENTER" PARA CONTINUAR CON LA INSTALACIÓN   
+```js
+//PERSONALIZAR INSTALACIÓN AUTOMÁTICA 
+//En caso que haya hecho una bifurcación y desea usar este tipo de instalación debe de saber que hay que modificar el usuario y nombre del repositorio
+
+//REFERENCIA
+"wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash"
+
+//PARÁMETROS QUE PUEDE SER MODIFICADOS --> "[...]"
+"wget -O - https://raw.githubusercontent.com/[usuario]/[repositorio]/[rama]/gata.sh | bash"
+
+//EJEMPLO
+"wget -O - https://raw.githubusercontent.com/User/bot_WhatsApp/master/gata.sh | bash"
+```
+#### Como siguiente paso de la personalización debe de modificar el archivo [`gata.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
+```js
+//LÍNEAS A MODIFICAR
+156 --> "git clone https://github.com/[user]/[repositorio].git"
+//Ejemplo: git clone https://github.com/GataNina-Li/GataBot-MD.git
+
+160 --> "cd [repositorio]"
+//Ejemplo: cd GataBot-MD
+
+//Una vez hecho estos cambios ejecute los nuevos comandos en Termux
+```
 -----
+### (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB <a href="https://github.com/GataNina-Li/GataBot-MD"> <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-violet.png" height="40px"> </a>
+#### ⬇️ AGREGAR CADA COMANDO POR TEXMUX:
+> ❇️ YA PUEDE INSTALAR DIRECTAMENTE DESDE TERMUX USANDO ESTE REPOSITORIO!!
+```bash
+termux-setup-storage
+apt update
+pkg upgrade
+pkg install git -y
+pkg install nodejs -y
+pkg install ffmpeg -y
+pkg install imagemagick -y
+git clone https://github.com/GataNina-Li/GataBot-MD
+cd GataBot-MD
+npm start
+```
+------------------
+### (OPCIÓN 3) INSTALACIÓN MANUAL POR TERMUX - ARCHIVOS <a href="https://mega.nz/file/X7AQkZiZ#qZuO8uQ0EI1MzzcD2nKFB6gqX8uahJeQ299D6RBV-Dc"> <img src="https://images.vexels.com/media/users/3/135984/isolated/preview/11c3e3e5d2a2c47fef7926854010d767-icono-de-carpeta-de-archivos.png" height="40px"> </a>
+> DESCARGUÉ Y DESCOMPRIMA 
+### [`GataBot-MD ~ Archivos`](https://mega.nz/file/X7AQkZiZ#qZuO8uQ0EI1MzzcD2nKFB6gqX8uahJeQ299D6RBV-Dc)
+[![blog](https://img.shields.io/badge/Termux-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+](https://youtu.be/UcWlyQ8u5HE)
+
+#### ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
+```bash
+termux-setup-storage
+apt update
+pkg upgrade
+pkg install nodejs -y
+pkg install ffmpeg -y
+pkg install imagemagick -y
+cd storage/downloads/GataBot-MD/GataBot-MD
+npm start
+```
+* #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
+* #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
+> ASEGÚRESE DE GUARDAR LOS ARCHIVOS EN ESTA UBICACIÓN: storage/downloads/GataBot-MD    
+----
 
 ### 🟣 ACTIVAR EN HEROKU 
 #### ☂️ PARA USUARIOS DE HEROKU 
@@ -132,43 +193,6 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/GataNina-Li/GataBot-MD&branch=master&name=gatabot-md)
 
 ------------------
-### ACTIVAR POR TERMUX - GITHUB <a href="https://github.com/GataNina-Li/GataBot-MD"> <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-violet.png" height="40px"> </a>
-#### ⬇️ AGREGAR CADA COMANDO POR TEXMUX (Opción 1):
-> ❇️ YA PUEDE INSTALAR DIRECTAMENTE DESDE TERMUX USANDO ESTE REPOSITORIO!!
-```bash
-termux-setup-storage
-apt update
-pkg upgrade
-pkg install git -y
-pkg install nodejs -y
-pkg install ffmpeg -y
-pkg install imagemagick -y
-git clone https://github.com/GataNina-Li/GataBot-MD
-cd GataBot-MD
-npm start
-```
-------------------
-### ACTIVAR POR TERMUX - ARCHIVOS <a href="https://mega.nz/file/X7AQkZiZ#qZuO8uQ0EI1MzzcD2nKFB6gqX8uahJeQ299D6RBV-Dc"> <img src="https://images.vexels.com/media/users/3/135984/isolated/preview/11c3e3e5d2a2c47fef7926854010d767-icono-de-carpeta-de-archivos.png" height="40px"> </a>
-> DESCARGUÉ Y DESCOMPRIMA 
-### [`GataBot-MD ~ Archivos`](https://mega.nz/file/X7AQkZiZ#qZuO8uQ0EI1MzzcD2nKFB6gqX8uahJeQ299D6RBV-Dc)
-[![blog](https://img.shields.io/badge/Termux-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
-](https://youtu.be/UcWlyQ8u5HE)
-
-#### ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO (Opción 2):
-```bash
-termux-setup-storage
-apt update
-pkg upgrade
-pkg install nodejs -y
-pkg install ffmpeg -y
-pkg install imagemagick -y
-cd storage/downloads/GataBot-MD/GataBot-MD
-npm start
-```
-* #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
-* #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
-> ASEGÚRESE DE GUARDAR LOS ARCHIVOS EN ESTA UBICACIÓN: storage/downloads/GataBot-MD    
-----
 ## 💻 PARA USUARIOS DE WINDOWS/VPS/RDP
 
 * Descargar e instala Git [`Aquí`](https://git-scm.com/downloads)
