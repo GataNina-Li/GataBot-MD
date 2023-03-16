@@ -174,8 +174,8 @@ echo -e "\033[01;32m\033[01mLa clonación se ha descargado e instalado correctam
 
 echo -e "\033[01;32m\033[01mCambiando al directorio del repositorio!!\nChanging to the repository directory!!\n\033[0m" 
 cd GataBot-MD
-clear
 
+: <<'COMMENT'
 v="${b}\033[1;32m"
 v1="${b}\033[32m"
 b="\033[0m"
@@ -226,7 +226,7 @@ menu_ayuda() {
 
 menu
 menu_ayuda
-
+COMMENT
 
 #clear
 echo -e "\e[36m
@@ -266,9 +266,4 @@ _______░▒▓██
 _____░▒▓██\n\e[0m"
 
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
-
-iniciar() {
 npm start
-}
-
-
