@@ -72,7 +72,8 @@
 -----
 
 ### (OPCIÓN 1) 🌟 INSTALACIÓN AUTOMÁTICA POR TERMUX 🫰
-> USE ESTOS COMANDOS PARA INSTALAR DE FORMA AUTOMÁTICA EN TERMUX 
+[![blog](https://img.shields.io/badge/Instalacion-Automatica-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/PESW8LXXlOI?feature=share)
+> USE ESTOS COMANDOS PARA INSTALAR DE FORMA AUTOMÁTICA EN TERMUX  
 ```bash
 termux-setup-storage
 ```
