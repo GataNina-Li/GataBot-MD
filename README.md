@@ -86,7 +86,7 @@
 termux-setup-storage
 ```
 ```bash
-pkg update -y && pkg upgrade -y && pkg install -y bash && pkg install -y wget && pkg install -y mpv
+apt update -y && yes | apt upgrade && pkg install -y bash wget mpv
 ```
 ```bash
 wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash
