@@ -117,7 +117,7 @@ wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.s
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
 -----
-### (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB 🪄 
+### (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB 
 #### ⬇️ AGREGAR CADA COMANDO POR TEXMUX: 
 > ❇️ YA PUEDE INSTALAR DIRECTAMENTE DESDE TERMUX USANDO ESTE REPOSITORIO!!
 ```bash
@@ -155,7 +155,7 @@ npm start
 > ASEGÚRESE DE GUARDAR LOS ARCHIVOS EN ESTA UBICACIÓN: storage/downloads/GataBot-MD    
 ----
 
-### 🟣 ACTIVAR EN HEROKU 
+### ACTIVAR EN HEROKU 
 #### ☂️ PARA USUARIOS DE HEROKU 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) <img src="https://c.tenor.com/OIc0cAei3dwAAAAd/gato-baile.gif" height="32px">
