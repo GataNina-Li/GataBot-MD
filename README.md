@@ -116,8 +116,7 @@ wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.s
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
 -----
-### (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB 
-<a href="https://github.com/GataNina-Li/GataBot-MD"> <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-violet.png" height="40px"> </a>
+### (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB <a href="https://github.com/GataNina-Li/GataBot-MD"> <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-violet.png" height="40px"> </a>
 #### ⬇️ AGREGAR CADA COMANDO POR TEXMUX:
 > ❇️ YA PUEDE INSTALAR DIRECTAMENTE DESDE TERMUX USANDO ESTE REPOSITORIO!!
 ```bash
