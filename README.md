@@ -108,10 +108,10 @@ wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.s
 #### Como siguiente paso de la personalización debe de modificar el archivo [`gata.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
 ```js
 //LÍNEAS A MODIFICAR
-156 --> "git clone https://github.com/[user]/[repositorio].git"
+172 --> "git clone https://github.com/[user]/[repositorio].git"
 //Ejemplo: git clone https://github.com/GataNina-Li/GataBot-MD.git
 
-160 --> "cd [repositorio]"
+176 --> "cd [repositorio]"
 //Ejemplo: cd GataBot-MD
 
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
