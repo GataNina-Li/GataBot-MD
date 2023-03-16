@@ -158,8 +158,42 @@ echo -e "\033[01;32m\033[01mLa clonación se ha descargado e instalado correctam
 
 echo -e "\033[01;32m\033[01mCambiando al directorio del repositorio!!\nChanging to the repository directory!!\n\033[0m" 
 cd GataBot-MD
-
 clear
+
+v="${b}\033[1;32m"
+v1="${b}\033[32m"
+b="\033[0m"
+
+menu_ayuda() {
+    echo -e "${v1}[${b}++${v1}]${v} MENÚ DE CONFIGURACIÓN"
+    echo -e "${v1}[${b}01${v1}]${v} Visistar Grupo de Actualizaciones"
+    echo -e "${v1}[${b}02${v1}]${v} Elegir idioma español"
+    echo -e "${v1}[${b}03${v1}]${v} Elegir idioma inglés"
+    printf "${v1}[${b}++${v1}]${v} Elige una opción: "
+    read opcion
+    case $opcion in
+        01|1)
+            am start -a android.intent.action.VIEW https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3
+            echo -e "${b}[${v1}++${b}]${v} Accediendo al Grupo Oficial\n"
+            ;;
+        02|2)
+            echo -e "${b}[${v1}++${b}]${v} Seleccionado idioma español\n"
+            
+            ;;
+        03|3)
+            echo -e "${b}[${v1}++${b}]${v} Seleccionado idioma inglés\n"
+            
+            ;;
+        *)
+            echo -e "${v1}Opción inválida."
+            echo ""
+            menu_ayuda
+            ;;
+    esac
+}
+menu_ayuda
+
+#clear
 echo -e "\e[36m
 ░█▀▀█ ░█▀▀█ ─█▀▀█ ░█▀▀█ ▀█▀ ─█▀▀█ ░█▀▀▀█ 　 ░█▀▀█ ░█▀▀▀█ ░█▀▀█ 　 ░█▀▀▀█ ░█─░█ 
 ░█─▄▄ ░█▄▄▀ ░█▄▄█ ░█─── ░█─ ░█▄▄█ ─▀▀▀▄▄ 　 ░█▄▄█ ░█──░█ ░█▄▄▀ 　 ─▀▀▀▄▄ ░█─░█ 
