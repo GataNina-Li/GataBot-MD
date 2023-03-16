@@ -68,7 +68,7 @@
 | TEMA | DESCRIPCIÓN | ATAJO |
 |------|-------------|-------|
 | **TERMUX** | ***INSTALACIÓN AUTOMÁTICA*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#opción-1--instalación-automática-por-termux-) |
-| **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#opción-2-instalación-manual-por-termux---github-) |
+| **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#opción-2-instalación-manual-por-termux---github) |
 | **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#opción-3-instalación-manual-por-termux---archivos) |
 | **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#activar-en-heroku) |
 | **BOXMINE** | ***INSTALACIÓN POR BOXMINE*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-✅-BOXMINEHOST) |
