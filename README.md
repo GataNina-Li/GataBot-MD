@@ -69,8 +69,8 @@
 |------|-------------|-------|
 | **TERMUX** | ***INSTALACIÓN AUTOMÁTICA*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#opción-1--instalación-automática-por-termux-) |
 | **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-2-instalación-manual-por-termux---github) |
-| **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#opción-3-instalación-manual-por-termux---archivos) |
-| **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#activar-en-heroku) |
+| **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-manual-por-termux---archivos) |
+| **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
 | **BOXMINE** | ***INSTALACIÓN POR BOXMINE*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-boxminehost) |
 | **REPLIT** | ***INSTALACIÓN POR REPLIT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-⚡-REPLIT) |
 | **KOYEB** | ***INSTALACIÓN POR KOYEB*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-☘️-ACTIVAR-EN-KOYEB) |
@@ -133,7 +133,7 @@ cd GataBot-MD
 npm start
 ```
 ------------------
-### (OPCIÓN 3) INSTALACIÓN MANUAL POR TERMUX - ARCHIVOS
+### 🗂️ (OPCIÓN 3) INSTALACIÓN MANUAL POR TERMUX - ARCHIVOS
 > DESCARGUÉ Y DESCOMPRIMA 
 ### [`GataBot-MD ~ Archivos`](https://mega.nz/file/X7AQkZiZ#qZuO8uQ0EI1MzzcD2nKFB6gqX8uahJeQ299D6RBV-Dc)
 [![blog](https://img.shields.io/badge/Termux-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
@@ -155,7 +155,7 @@ npm start
 > ASEGÚRESE DE GUARDAR LOS ARCHIVOS EN ESTA UBICACIÓN: storage/downloads/GataBot-MD    
 ----
 
-### ACTIVAR EN HEROKU 
+### 🟣 ACTIVAR EN HEROKU 
 #### ☂️ PARA USUARIOS DE HEROKU 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) <img src="https://c.tenor.com/OIc0cAei3dwAAAAd/gato-baile.gif" height="32px">
