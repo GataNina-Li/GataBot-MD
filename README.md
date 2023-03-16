@@ -122,15 +122,12 @@ wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.s
 > ❇️ YA PUEDE INSTALAR DIRECTAMENTE DESDE TERMUX USANDO ESTE REPOSITORIO!!
 ```bash
 termux-setup-storage
-apt update
-pkg upgrade
-pkg install git -y
-pkg install nodejs -y
-pkg install ffmpeg -y
-pkg install imagemagick -y
-git clone https://github.com/GataNina-Li/GataBot-MD
-cd GataBot-MD
-npm start
+```
+```bash
+apt update -y && yes | apt upgrade && pkg install -y git nodejs ffmpeg imagemagick
+```
+```bash
+git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && npm start
 ```
 ------------------
 ### 📁 (OPCIÓN 3) INSTALACIÓN MANUAL POR TERMUX - ARCHIVOS
@@ -142,13 +139,12 @@ npm start
 #### ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
 ```bash
 termux-setup-storage
-apt update
-pkg upgrade
-pkg install nodejs -y
-pkg install ffmpeg -y
-pkg install imagemagick -y
-cd storage/downloads/GataBot-MD/GataBot-MD
-npm start
+```
+```bash
+apt update -y && yes | apt upgrade && pkg install -y git nodejs ffmpeg imagemagick
+```
+```bash
+cd storage/downloads/GataBot-MD/GataBot-MD && npm start
 ```
 * #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
 * #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
@@ -209,13 +205,8 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 * Descargar e instala FFmpeg [`Aquí`](https://ffmpeg.org/download.html) (**No olvide agregar FFmpeg a la variable de entorno PATH**)
 * Descargar e instala ImageMagick [`Aquí`](https://imagemagick.org/script/download.php)
 * Descargar e instala Yarn [`Aquí`](https://classic.yarnpkg.com/en/docs/install#windows-stable)
-
 ```bash
-git clone https://github.com/GataNina-Li/GataBot-MD
-cd GataBot-MD
-npm install
-npm update
-node .
+git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && npm install && npm update && node .
 ```
 ## 💻 Instalación de FFmpeg para Windows 
 * Descarga cualquiera de las versiones de FFmpeg disponibles haciendo clic en [FFmpeg](https://www.gyan.dev/ffmpeg/builds/).
