@@ -1,7 +1,6 @@
-> #### 🚀 Versión actual: 1.4.5
-
 <p align="center"> 
-  <a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=GataBot-MD++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"
+<a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=GataBot-MD++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
+<b>🚀 VERSIÓN 1.4.5</b>
 </p>
 
 <p align="center">
@@ -9,40 +8,41 @@
 </p>
 
 <p align="center">
-<a href="#"><img title="GataBot-MD" src="https://img.shields.io/badge/SI TE AGRADA EL REPOSITORIO APOYAME CON UNA 🌟 ¡GRACIAS! -red?colorA=%255ff0000&colorB=%23017e40&style=for-the-badge"></a> <img src="https://i.pinimg.com/originals/d4/3c/90/d43c902873d4db8c85974dfd0798030b.gif" height="28px">
+<a href="#"><img title="GataBot-MD" src="https://img.shields.io/badge/SI TE AGRADA EL REPOSITORIO APOYAME CON UNA 🌟 ¡GRACIAS! -red?colorA=%255ff0000&colorB=%23017e40&style=for-the-badge"></a> 
+<img src="https://i.pinimg.com/originals/d4/3c/90/d43c902873d4db8c85974dfd0798030b.gif" height="28px">
 </p>  
 
 <p align="center">
+<a href="#"><img title="GataBot-MD" src="https://img.shields.io/badge/LEA TODO EL README-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge"></a> 
+<a href="#"><img title="GataBot-MD" src="https://img.shields.io/badge/COMPATIBLE CON LA VERSIÓN MULTI DISPOSITIVOS DE WHATSAPP-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge"></a>
 </p>
-<a href="#"><img title="GataBot-MD" src="https://img.shields.io/badge/ES NECESARIO QUE LEA TODO EL README-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge"></a> 
-<a href="#"><img title="GataBot-MD" src="https://img.shields.io/badge/COMPATIBLE CON LA VERSIÓN MULTI DISPOSITIVOS DE WHATSAPP-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge">
-</a>
-    
-<p align="higt">   
+
+<p align="center">   
 <a href="https://github.com/GataNina-Li/GataBot-MD/network/members"><img title="Forks" src="https://img.shields.io/github/forks/GataNina-Li/GataBot-MD?label=Forks&color=blue&style=flat-square"></a>
 <a href="https://github.com/GataNina-Li/GataBot-MD/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/GataNina-Li/GataBot-MD?label=Watchers&color=green&style=flat-square"></a>
 <a href="https://github.com/GataNina-Li/GataBot-MD/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/GataNina-Li/GataBot-MD?label=Stars&color=yellow&style=flat-square"></a>
-</p>
-
------
-[![blog](https://img.shields.io/badge/Gmail_➡️_centergatabot@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)
-](mailto:https://centergatabot@gmail.com)
-
-[![blog](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)
-](https://facebook.com/groups/872989990425789/) <img src="https://www.pngall.com/wp-content/uploads/9/Group-Vector-PNG-Clipart.png" height="29px">
-
-[![blog](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
-](https://www.youtube.com/@gatadios)  <img src="https://github.com/siegrin/siegrin/blob/main/Assets/powerup.gif" height="29px">
-
-<p align="hihg">   
-<a href="https://instagram.com/gata_dios" target="_blank"> <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a> <img src="https://github.com/siegrin/siegrin/blob/main/Assets/Handshake.gif" height="30px"> 
-<a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=14&duration=3000&color=ABF7BB&center=verdadero&vCenter=verdadero&lines=Solo+escr%C3%ADba+si+tiene+dudas." height="40px"
 </p> 
 
-[![blog](https://img.shields.io/badge/GataBot-Update-25D366?style=for-the-badge&logo=whatsapp&logoColor=white 
-)](https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3) <a href="https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/WhatsApp_logo-color-vertical.svg/1200px-WhatsApp_logo-color-vertical.svg.png" height="29px">
-[![Typing SVG](http://readme-typing-svg.herokuapp.com?font=Fira+Code&size=10&duration=3000&pause=1000&color=34F6F7&center=falso&vCenter=falso&width=435&lines=%C3%9Anete+y+Conoce+las+%C3%9Altimas+Novedades!!)](https://git.io/typing-svg)
+<div align="center">
+<a href="mailto:centergatabot@gmail.com">
+<img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
 </a>
+<a href="https://facebook.com/groups/872989990425789/">
+<img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook">
+</a>
+<a href="https://www.youtube.com/@gatadios">
+<img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">
+</a>
+<a href="https://instagram.com/gata_dios">
+<img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white">
+</a>
+<a href="https://paypal.me/OficialGD">
+<img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white">
+</a>
+<a href="https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3">
+<img src="https://img.shields.io/badge/GataBot Update Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white">
+</a>
+</div>
 
 ### ❇️ GRUPOS OFICIALES
 <a href="https://chat.whatsapp.com/KwoMppqeh4lH27rNM4qEbz" target="blank"><img src="https://img.shields.io/badge/1️⃣_COMUNIDAD_GATADOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
@@ -61,14 +61,21 @@
 <a href="http://wa.me/50232959057?text=.menu" target="blank"><img src="https://img.shields.io/badge/3️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </a> 
 
-### 💖 ```DONAR``` [`Aquí`](https://paypal.me/OficialGD)
 -----
-> ✅ ESTE REPOSITORIO DE GATABOT ES COMPATIBLE CON:
-* TERMUX
-* BOXMINE
-* REPLIT
-* KOYEB
-* HEROKU
+# 📍 Atajos del README
+
+| TEMA | DESCRIPCIÓN | ATAJO |
+|------|-------------|-------|
+| **TERMUX** | ***INSTALACIÓN AUTOMÁTICA*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###(opción-1)) |
+| **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###(opción-2)) |
+| **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###(opción-3)) |
+| **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-🟣-ACTIVAR-EN-HEROKU) |
+| **BOXMINE** | ***INSTALACIÓN POR BOXMINE*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-✅-BOXMINEHOST) |
+| **REPLIT** | ***INSTALACIÓN POR REPLIT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-⚡-REPLIT) |
+| **KOYEB** | ***INSTALACIÓN POR KOYEB*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-☘️-ACTIVAR-EN-KOYEB) |
+| **WINDOWS** | ***INSTALACIÓN POR WINDOWS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/##-💻-PARA-USUARIOS-DE-WINDOWS/VPS/RDP) |
+| **PREGUNTAS FRECUENTES** | ***DESPEJAR DUDAS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###GataBot-MD-Preguntas) |
+| **DESARROLLADORES** | ***PARTICIPATES DEL PROYECTO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-🌟-CREADORA) |
 -----
 
 ### (OPCIÓN 1) 🌟 INSTALACIÓN AUTOMÁTICA POR TERMUX 🫰
