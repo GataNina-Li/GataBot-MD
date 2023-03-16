@@ -1,6 +1,7 @@
+> <b>🚀 VERSIÓN 1.4.5</b>
+
 <p align="center"> 
 <a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=GataBot-MD++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
-<b>🚀 VERSIÓN 1.4.5</b>
 </p>
 
 <p align="center">
@@ -116,8 +117,8 @@ wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.s
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
 -----
-### (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB <a href="https://github.com/GataNina-Li/GataBot-MD"> <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-violet.png" height="40px"> </a>
-#### ⬇️ AGREGAR CADA COMANDO POR TEXMUX:
+### (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB 
+#### ⬇️ AGREGAR CADA COMANDO POR TEXMUX: 
 > ❇️ YA PUEDE INSTALAR DIRECTAMENTE DESDE TERMUX USANDO ESTE REPOSITORIO!!
 ```bash
 termux-setup-storage
