@@ -71,7 +71,7 @@
 | **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#opción-2-instalación-manual-por-termux---github) |
 | **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#opción-3-instalación-manual-por-termux---archivos) |
 | **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#activar-en-heroku) |
-| **BOXMINE** | ***INSTALACIÓN POR BOXMINE*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-✅-BOXMINEHOST) |
+| **BOXMINE** | ***INSTALACIÓN POR BOXMINE*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-boxminehost) |
 | **REPLIT** | ***INSTALACIÓN POR REPLIT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-⚡-REPLIT) |
 | **KOYEB** | ***INSTALACIÓN POR KOYEB*** |[ver](https://github.com/GataNina-Li/GataBot-MD/###-☘️-ACTIVAR-EN-KOYEB) |
 | **WINDOWS** | ***INSTALACIÓN POR WINDOWS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/##-💻-PARA-USUARIOS-DE-WINDOWS/VPS/RDP) |
