@@ -15,7 +15,7 @@ echo -e "\e[35m
 echo -e "\033[01;93mPreparando instalación...\nPreparing installation...\033[0m"
 if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/install_automatic.mp3; then
 echo -e "\033[01;32mDescarga exitosa. Reproduciendo sonido de intro...\nDownload successful. Playing intro sound...\033[0m"
-mpv install_automatic.mp3
+mpv install_automatic.mp3 &
 else
 echo -e "\033[01;91mSonido de intro no disponible.\nIntro sound not available.\033[0m"
 fi
