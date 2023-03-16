@@ -184,13 +184,13 @@ menu() {
 	#GataBot-MD
 	echo -e "${v1} MENÚ DE CONFIGURACIÓN"
 	printf "\n"
-	printf "${v1}[${b}++${v1}]${v} MENÚ DE CONFIGURACIÓN\n"
-	printf "\n"
 	printf "${v1}[${b}01${v1}]${v} Visistar Grupo de Actualizaciones\n"
 	printf "\n"
 	printf "${v1}[${b}02${v1}]${v} Elegir idioma español\n"
 	printf "\n"
 	printf "${v1}[${b}03${v1}]${v} Elegir idioma inglés\n"
+	printf "\n"
+	printf "${v1}[${b}04${v1}]${v} Continuar\n"
 	printf "\n"
 }
 
@@ -201,19 +201,25 @@ menu_ayuda() {
             01|1)
                 am start -a android.intent.action.VIEW https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3 &>> /dev/null
                 echo -e "${b}[${v1}++${b}]${v} Accediendo al Grupo Oficial\n"
-                break
+                
                 ;;
             02|2)
                 echo -e "${b}[${v1}++${b}]${v} Seleccionado idioma español\n"
-                break
+                
                 ;;
             03|3)
                 echo -e "${b}[${v1}++${b}]${v} Seleccionado idioma inglés\n"
-                break
+                
+                ;;
+	    04|4)
+	        iniciar
+                echo -e "${b}[${v1}++${b}]${v} Continuando...\n"
+                
                 ;;
             *)
-                echo -e "${v1}Opción inválida."
-                echo ""
+                echo -e "${v1}Comando: '"${r1}${opcion}${v1}"' invalido."
+		echo ""
+		inicio
                 ;;
         esac
 }
@@ -260,6 +266,9 @@ _______░▒▓██
 _____░▒▓██\n\e[0m"
 
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
+
+iniciar() {
 npm start
+}
 
 
