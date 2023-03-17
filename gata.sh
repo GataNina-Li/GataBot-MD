@@ -13,12 +13,24 @@ echo -e "\e[35m
 ▒█▄▄▄█ ▒█▄▄▄ ░▒█░░ 　 ░▒█░░ ▒█░▒█ ▒█▄▄▄ 　 ▒█▄▄▄█ ▒█▄▄█ ▒█░▒█ ▒█▄▄▄ ▒█▄▄▄ ▒█░░▀█\n\e[0m" 
 
 echo -e "\033[01;93mPreparando instalación...\nPreparing installation...\n\033[0m"
-if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/install_automatic.mp3; then
+if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/install_automatic1.mp3; then
 echo -e "\033[01;32mDescarga exitosa. Reproduciendo sonido de intro...\nDownload successful. Playing intro sound...\n\033[0m"
-mpv --no-terminal install_automatic.mp3 &
+mpv --no-terminal install_automatic1.mp3 &
 else
 echo -e "\033[01;91mSonido de intro no disponible.\nIntro sound not available.\n\033[0m"
 fi
+
+: <<'COMMENT'
+echo -e "\033[01;93mPreparando instalación...\nPreparing installation...\n\033[0m"
+mp3_array=("install_automatic1.mp3" "install_automatic2.mp3" "install_automatic3.mp3" "install_automatic4.mp3" "install_automatic5.mp3")
+random_mp3=${mp3_array[$RANDOM % ${#mp3_array[@]}]}
+if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/"$random_mp3"; then
+echo -e "\033[01;32mDescarga exitosa. Reproduciendo sonido de intro...\nDownload successful. Playing intro sound...\n\033[0m"
+mpv --no-terminal "$random_mp3" &
+else
+echo -e "\033[01;91mSonido de intro no disponible.\nIntro sound not available.\n\033[0m"
+fi
+COMMENT
 
 echo -e "\033[01;32m\033[01mInstalando dependencias!!\nInstalling dependencies!!\n\033[0m" 
 echo -e "\e[36m
