@@ -308,3 +308,6 @@ done
  
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
 npm start
+
+sleep 10
+pkill mpv
