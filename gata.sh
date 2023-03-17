@@ -304,8 +304,11 @@ do
   echo -ne "\033[F\033[1;37mGataBot-MD\033[0m"
   sleep 0.2
   ((count++))
-done &
+done > /tmp/output.txt 2>&1 &
+
 sleep 10
+cat /tmp/output.txt
+rm /tmp/output.txt
 
 
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
