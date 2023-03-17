@@ -13,9 +13,9 @@ echo -e "\e[35m
 ▒█▄▄▄█ ▒█▄▄▄ ░▒█░░ 　 ░▒█░░ ▒█░▒█ ▒█▄▄▄ 　 ▒█▄▄▄█ ▒█▄▄█ ▒█░▒█ ▒█▄▄▄ ▒█▄▄▄ ▒█░░▀█\n\e[0m" 
 
 echo -e "\033[01;93mPreparando instalación...\nPreparing installation...\n\033[0m"
-if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/install_automatic3.mp3; then
+if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/install_automatic4.mp3; then
 echo -e "\033[01;32mDescarga exitosa. Reproduciendo sonido de intro...\nDownload successful. Playing intro sound...\n\033[0m"
-mpv --no-terminal install_automatic3.mp3 &
+mpv --no-terminal install_automatic4.mp3 &
 else
 echo -e "\033[01;91mSonido de intro no disponible.\nIntro sound not available.\n\033[0m"
 fi
