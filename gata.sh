@@ -285,7 +285,14 @@ _________░▒▓██
 _______░▒▓██
 _____░▒▓██\n\e[0m"
 
-sleep 15 && pkill mpv > /dev/null 2>&1 && rm -rf "$random_mp3" &
+sleep 15 && pkill mpv > /dev/null 2>&1 && sleep 2 && rm -f "$random_mp3"
+    if [ $? -eq 0 ]; then
+        echo -e "\033[01;32mArchivo eliminado correctamente.\nFile deleted successfully.\n\033[0m"
+    else
+        echo -e "\033[01;91mOcurrió un error al eliminar el archivo.\nAn error occurred while deleting the file.\n\033[0m"
+    fi
+    
+#sleep 15 && pkill mpv > /dev/null 2>&1 && rm -rf "$random_mp3" &
 #sleep 10 && pkill mpv > /dev/null 2>&1 &
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
 npm start
