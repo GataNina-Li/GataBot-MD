@@ -285,6 +285,7 @@ _________░▒▓██
 _______░▒▓██
 _____░▒▓██\n\e[0m"
 
+#sleep 15 && pkill mpv > /dev/null 2>&1 && rm -rf "$random_mp3" &
 sleep 10 && pkill mpv > /dev/null 2>&1 &
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
 npm start
