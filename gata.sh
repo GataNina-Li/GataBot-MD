@@ -305,6 +305,6 @@ if [ $count -eq 10 ]; then
 break
 fi
 done
-
+ 
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
 npm start
