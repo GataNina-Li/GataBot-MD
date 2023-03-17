@@ -283,28 +283,31 @@ _______█▓▒░░▒▓██
 _________░▒▓██
 _______░▒▓██
 _____░▒▓██\n\e[0m"
-
-
-count=0
-max_length=12  
-
-while [ $count -lt 10 ]
+ 
+max_length=20
+time_limit=5
+start_time=$(date +%s)
+while [ $(($(date +%s) - $start_time)) -lt $time_limit ]
 do
-    
-    printf "%${max_length}s" " "
-    
-    echo -ne "\033[31mGataBot-MD\033[0m"
-    echo -ne "\033[33mGataBot-MD\033[0m"
-    echo -ne "\033[32mGataBot-MD\033[0m"
-    echo -ne "\033[36mGataBot-MD\033[0m"
-    echo -ne "\033[34mGataBot-MD\033[0m"
-    echo -ne "\033[35mGataBot-MD\033[0m"
-    
-    
-    echo -ne "\r"
-    
-    ((count++))
-done &
+for i in {1..6}
+    do
+        
+        printf "%${max_length}s" " "
+        
+        case $i in
+            1) echo -ne "\033[31mGataBot-MD\033[0m" ;;
+            2) echo -ne "\033[33mGataBot-MD\033[0m" ;;
+            3) echo -ne "\033[32mGataBot-MD\033[0m" ;;
+            4) echo -ne "\033[36mGataBot-MD\033[0m" ;;
+            5) echo -ne "\033[34mGataBot-MD\033[0m" ;;
+            6) echo -ne "\033[35mGataBot-MD\033[0m" ;;
+        esac
+        
+        sleep 0.2
+        
+        echo -ne "\r"
+    done
+done
 
 sleep 10 && pkill mpv > /dev/null 2>&1 &
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
