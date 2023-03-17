@@ -288,22 +288,13 @@ _____░▒▓██\n\e[0m"
 count=0
 while [ $count -lt 10 ]
 do
-echo -ne "\033[31mRojo\033[0m"
-sleep 0.5
-echo -ne "\033[33mAmarillo\033[0m"
-sleep 0.5
-echo -ne "\033[32mVerde\033[0m"
-sleep 0.5
-echo -ne "\033[36mCian\033[0m"
-sleep 0.5
-echo -ne "\033[34mAzul\033[0m"
-sleep 0.5
-echo -ne "\033[35mMorado\033[0m"
-sleep 0.5
-((count++))
-if [ $count -eq 10 ]; then
-break
-fi
+    echo -ne "\033[31mGataBot-MD\033[0m"
+    echo -ne "\033[33mGataBot-MD\033[0m"
+    echo -ne "\033[32mGataBot-MD\033[0m"
+    echo -ne "\033[36mGataBot-MD\033[0m"
+    echo -ne "\033[34mGataBot-MD\033[0m"
+    echo -ne "\033[35mGataBot-MD\033[0m"
+    ((count++))
 done
  
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
