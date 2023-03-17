@@ -286,6 +286,7 @@ _____░▒▓██\n\e[0m"
 
 
 count=0
+cat /tmp/output.txt
 while [ $count -lt 20 ]
 do
   echo -ne "\033[F\033[0m    "
@@ -307,7 +308,7 @@ do
 done > /tmp/output.txt 2>&1 &
 
 sleep 10
-cat /tmp/output.txt
+
 rm /tmp/output.txt
 
 
