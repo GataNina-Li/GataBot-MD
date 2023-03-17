@@ -61,20 +61,6 @@ else
 echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
 fi
 fi
-
-#if pg istal gi -y; then
-#echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
-#else
-#echo -e "\033[1;31mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo más tarde. Si el error continúa, instale de forma manual\033[0m" 
-#echo -e "\033[01;33mpkg install git -y
-#pkg install nodejs -y
-#pkg install ffmpeg -y
-#pkg install imagemagick -y
-#git clone https://github.com/GataNina-Li/GataBot-MD
-#cd GataBot-MD
-#npm start\033[0m"
-#exit 1
-#fi
  
 echo -e "\e[35m
 ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
@@ -285,6 +271,6 @@ _________░▒▓██
 _______░▒▓██
 _____░▒▓██\n\e[0m"
     
-sleep 15 && pkill mpv > /dev/null 2>&1 && sleep 2 && rm -f /storage/emulated/0/../"$random_mp3"
+sleep 15 && pkill mpv > /dev/null 2>&1 && sleep 2 && rm -f /data/data/com.termux/files/home/"$random_mp3" &
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
 npm start
