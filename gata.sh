@@ -285,12 +285,12 @@ _______░▒▓██
 _____░▒▓██\n\e[0m"
 
 
-import time
-while True:
-    print("\033[5;31mGataBot-MD\033[0m", end='', flush=True)
-    time.sleep(0.5)
-    print("\033[0m", end='', flush=True)
-    time.sleep(0.5)
+while true; do
+  echo -e "\033[5;31mGataBot-MD\033[0m\c"
+  sleep 0.5
+  echo -e "\033[0m\c"
+  sleep 0.5
+done
 
 
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
