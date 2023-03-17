@@ -284,30 +284,42 @@ _________░▒▓██
 _______░▒▓██
 _____░▒▓██\n\e[0m"
  
-max_length=20
-time_limit=5
-start_time=$(date +%s)
-while [ $(($(date +%s) - $start_time)) -lt $time_limit ]
+
+text="GataBot-MD"
+red='\033[31m'
+yellow='\033[33m'
+green='\033[32m'
+cyan='\033[36m'
+blue='\033[34m'
+purple='\033[35m'
+reset='\033[0m'
+
+length=${#text}
+count=0
+while [ $count -lt 25 ]
 do
-for i in {1..6}
-    do
-        
-        printf "%${max_length}s" " "
-        
-        case $i in
-            1) echo -ne "\033[31mGataBot-MD\033[0m" ;;
-            2) echo -ne "\033[33mGataBot-MD\033[0m" ;;
-            3) echo -ne "\033[32mGataBot-MD\033[0m" ;;
-            4) echo -ne "\033[36mGataBot-MD\033[0m" ;;
-            5) echo -ne "\033[34mGataBot-MD\033[0m" ;;
-            6) echo -ne "\033[35mGataBot-MD\033[0m" ;;
-        esac
-        
-        sleep 0.2
-        
-        echo -ne "\r"
+    for (( i=0; i<$length; i++ )); do
+        char=${text:$i:1}
+        if [ $i -eq 0 ]; then
+            echo -ne "${red}$char"
+        elif [ $i -eq 1 ]; then
+            echo -ne "${yellow}$char"
+        elif [ $i -eq 2 ]; then
+            echo -ne "${green}$char"
+        elif [ $i -eq 3 ]; then
+            echo -ne "${cyan}$char"
+        elif [ $i -eq 4 ]; then
+            echo -ne "${blue}$char"
+        else
+            echo -ne "${purple}$char"
+        fi
     done
+    
+    sleep 0.2
+    echo -ne "\r"
+    ((count++))
 done
+echo -ne "${reset}"
 
 sleep 10 && pkill mpv > /dev/null 2>&1 &
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
