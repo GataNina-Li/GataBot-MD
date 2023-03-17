@@ -12,6 +12,7 @@ echo -e "\e[35m
 ░▀▀▀▄▄ ▒█▀▀▀ ░▒█░░ 　 ░▒█░░ ▒█▀▀█ ▒█▀▀▀ 　 ░▀▀▀▄▄ ▒█░░░ ▒█▄▄▀ ▒█▀▀▀ ▒█▀▀▀ ▒█▒█▒█ 
 ▒█▄▄▄█ ▒█▄▄▄ ░▒█░░ 　 ░▒█░░ ▒█░▒█ ▒█▄▄▄ 　 ▒█▄▄▄█ ▒█▄▄█ ▒█░▒█ ▒█▄▄▄ ▒█▄▄▄ ▒█░░▀█\n\e[0m" 
 
+: <<'COMMENT'
 echo -e "\033[01;93mPreparando instalación...\nPreparing installation...\n\033[0m"
 if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/install_automatic6.mp3; then
 echo -e "\033[01;32mDescarga exitosa. Reproduciendo sonido de intro...\nDownload successful. Playing intro sound...\n\033[0m"
@@ -19,10 +20,10 @@ mpv --no-terminal install_automatic6.mp3 &
 else
 echo -e "\033[01;91mSonido de intro no disponible.\nIntro sound not available.\n\033[0m"
 fi
-  
-: <<'COMMENT'
+COMMENT
+
 echo -e "\033[01;93mPreparando instalación...\nPreparing installation...\n\033[0m"
-mp3_array=("install_automatic1.mp3" "install_automatic2.mp3" "install_automatic3.mp3" "install_automatic4.mp3" "install_automatic5.mp3")
+mp3_array=("install_automatic1.mp3" "install_automatic2.mp3" "install_automatic3.mp3" "install_automatic4.mp3" "install_automatic5.mp3" "install_automatic6.mp3" "install_automatic7.mp3" "install_automatic8.mp3" "install_automatic9.mp3" "install_automatic10.mp3" "install_automatic11.mp3" "install_automatic12.mp3")
 random_mp3=${mp3_array[$RANDOM % ${#mp3_array[@]}]}
 if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/"$random_mp3"; then
 echo -e "\033[01;32mDescarga exitosa. Reproduciendo sonido de intro...\nDownload successful. Playing intro sound...\n\033[0m"
@@ -30,7 +31,6 @@ mpv --no-terminal "$random_mp3" &
 else
 echo -e "\033[01;91mSonido de intro no disponible.\nIntro sound not available.\n\033[0m"
 fi
-COMMENT
 
 echo -e "\033[01;32m\033[01mInstalando dependencias!!\nInstalling dependencies!!\n\033[0m" 
 echo -e "\e[36m
@@ -285,7 +285,7 @@ _________░▒▓██
 _______░▒▓██
 _____░▒▓██\n\e[0m"
 
-#sleep 15 && pkill mpv > /dev/null 2>&1 && rm -rf "$random_mp3" &
-sleep 10 && pkill mpv > /dev/null 2>&1 &
+sleep 15 && pkill mpv > /dev/null 2>&1 && rm -rf "$random_mp3" &
+#sleep 10 && pkill mpv > /dev/null 2>&1 &
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
 npm start
