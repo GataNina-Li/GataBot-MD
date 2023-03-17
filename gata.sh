@@ -19,7 +19,7 @@ mpv --no-terminal install_automatic2.mp3 &
 else
 echo -e "\033[01;91mSonido de intro no disponible.\nIntro sound not available.\n\033[0m"
 fi
-
+ 
 : <<'COMMENT'
 echo -e "\033[01;93mPreparando instalación...\nPreparing installation...\n\033[0m"
 mp3_array=("install_automatic1.mp3" "install_automatic2.mp3" "install_automatic3.mp3" "install_automatic4.mp3" "install_automatic5.mp3")
