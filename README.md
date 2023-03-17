@@ -121,10 +121,7 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 termux-setup-storage
 ```
 ```bash
-apt update -y && yes | apt upgrade && pkg install -y git nodejs ffmpeg imagemagick
-```
-```bash
-git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && npm start
+apt update -y && yes | apt upgrade && pkg install -y git nodejs ffmpeg imagemagick && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && npm start
 ```
 ------------------
 ### 📁 (OPCIÓN 3) INSTALACIÓN MANUAL POR TERMUX - ARCHIVOS
@@ -138,10 +135,7 @@ git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && npm star
 termux-setup-storage
 ```
 ```bash
-apt update -y && yes | apt upgrade && pkg install -y nodejs ffmpeg imagemagick
-```
-```bash
-cd storage/downloads/GataBot-MD/GataBot-MD && npm start
+apt update -y && yes | apt upgrade && pkg install -y nodejs ffmpeg imagemagick && cd storage/downloads/GataBot-MD/GataBot-MD && npm start
 ```
 * #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
 * #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
