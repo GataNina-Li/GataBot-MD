@@ -133,11 +133,11 @@ unlinkSync(`./GataJadiBot/${directorio}/${fileInDir}`)
 }
 })
 if (SBprekey.length === 0) {
-console.log(chalk.green(lenguajeGB.smspurgeSessionSB1()))
+console.log(chalk.bold.green(lenguajeGB.smspurgeSessionSB1()))
 } else {
-console.log(chalk.cyanBright(lenguajeGB.smspurgeSessionSB2()))
+console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSessionSB2()))
 }} catch (err){
-console.log(chalk.red(lenguajeGB.smspurgeSessionSB3() + err))
+console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err))
 }}
 
 function purgeOldFiles() {
@@ -153,10 +153,10 @@ if (err) throw err;
 if (stats.isFile() && stats.mtimeMs < oneHourAgo && file !== 'creds.json') { 
 unlinkSync(filePath, err => {  
 if (err) throw err
-console.log(chalk.green(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lenguajeGB.smspurgeOldFiles2()}`))
+console.log(chalk.bold.green(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lenguajeGB.smspurgeOldFiles2()}`))
 })
 } else {  
-console.log(chalk.red(`${lenguajeGB.smspurgeOldFiles3()} ${file} ${lenguajeGB.smspurgeOldFiles4()}` + err))
+console.log(chalk.bold.red(`${lenguajeGB.smspurgeOldFiles3()} ${file} ${lenguajeGB.smspurgeOldFiles4()}` + err))
 } }) }) }) })
 }
 
@@ -309,18 +309,18 @@ Object.freeze(global.support)
 setInterval(async () => {
 if (stopped == 'close') return
 var a = await clearTmp()        
-console.log(chalk.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4) 
+console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4) 
 
 setInterval(async () => {
 await purgeSession()
-console.log(chalk.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 60)
+console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 60)
 
 setInterval(async () => {
 await purgeSessionSB()}, 1000 * 60 * 60)
 
 setInterval(async () => {
 await purgeOldFiles()
-console.log(chalk.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 60)
+console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 60)
 _quickTest()
 .then(() => conn.logger.info(chalk.bold(lenguajeGB['smsCargando']())))
 .catch(console.error)
