@@ -171,11 +171,11 @@ global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
 if (update.qr != 0 && update.qr != undefined) {
-console.log(chalk.yellow(lenguajeGB['smsCodigoQR']()))}  
+console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}  
 if (connection == 'open') {
-console.log(chalk.yellow(lenguajeGB['smsConexion']()))}
+console.log(chalk.bold.yellow(lenguajeGB['smsConexion']()))}
 if (connection == 'close') {
-console.log(chalk.yellow(lenguajeGB['smsConexionOFF']()))}}
+console.log(chalk.bold.yellow(lenguajeGB['smsConexionOFF']()))}}
 
 process.on('uncaughtException', console.error)
 
@@ -322,5 +322,5 @@ setInterval(async () => {
 await purgeOldFiles()
 console.log(chalk.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 60)
 _quickTest()
-.then(() => conn.logger.info(lenguajeGB['smsCargando']()))
+.then(() => conn.logger.info(chalk.bold(lenguajeGB['smsCargando']())))
 .catch(console.error)
