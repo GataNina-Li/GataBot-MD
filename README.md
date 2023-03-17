@@ -86,10 +86,7 @@
 termux-setup-storage
 ```
 ```bash
-apt update -y && yes | apt upgrade && pkg install -y bash wget mpv
-```
-```bash
-wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash
+apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash
 ```
 > NOTA: SI LE APARECE (Y/I/N/O/D/Z) [default=N] ? USE LA LETRA "y" LUEGO LA TECLA "ENTER" PARA CONTINUAR CON LA INSTALACIÓN   
 ```js
