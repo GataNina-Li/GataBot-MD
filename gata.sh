@@ -285,8 +285,8 @@ _______░▒▓██
 _____░▒▓██\n\e[0m"
 
 
+touch /tmp/output.txt
 count=0
-cat /tmp/output.txt
 while [ $count -lt 20 ]
 do
   echo -ne "\033[F\033[0m    "
@@ -308,8 +308,9 @@ do
 done > /tmp/output.txt 2>&1 &
 
 sleep 10
-
+cat /tmp/output.txt
 rm /tmp/output.txt
+
 
 
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
