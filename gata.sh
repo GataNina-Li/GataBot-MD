@@ -284,5 +284,15 @@ _________░▒▓██
 _______░▒▓██
 _____░▒▓██\n\e[0m"
 
+
+while true
+do
+colors=(\033[91m \033[93m \033[92m \033[96m \033[94m \033[95m)
+color=${colors[$((RANDOM % ${#colors[@]}))]}
+text="GataBot-MD"
+echo -e "$color$text" | pv -qL 10
+sleep 0.1
+done
+
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
 npm start
