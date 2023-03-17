@@ -286,35 +286,18 @@ _____░▒▓██\n\e[0m"
  
 
 text="GataBot-MD"
-red='\033[31m'
-yellow='\033[33m'
-green='\033[32m'
-cyan='\033[36m'
-blue='\033[34m'
-purple='\033[35m'
+colors=('\033[31m' '\033[33m' '\033[32m' '\033[36m' '\033[34m' '\033[35m')
 reset='\033[0m'
-
 length=${#text}
 count=0
+
 while [ $count -lt 25 ]
 do
-    for (( i=0; i<$length; i++ )); do
+for (( i=0; i<$length; i++ )); do
         char=${text:$i:1}
-        if [ $i -eq 0 ]; then
-            echo -ne "${red}$char"
-        elif [ $i -eq 1 ]; then
-            echo -ne "${yellow}$char"
-        elif [ $i -eq 2 ]; then
-            echo -ne "${green}$char"
-        elif [ $i -eq 3 ]; then
-            echo -ne "${cyan}$char"
-        elif [ $i -eq 4 ]; then
-            echo -ne "${blue}$char"
-        else
-            echo -ne "${purple}$char"
-        fi
-    done
-    
+        rand_color=${colors[$((RANDOM % ${#colors[@]}))]}
+        echo -ne "${rand_color}$char${reset}"
+done
     sleep 0.2
     echo -ne "\r"
     ((count++))
