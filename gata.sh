@@ -1,4 +1,4 @@
-# Código creado por @gata_dios   
+# Código creado por @gata_dios    
 
 #!/data/data/com.termux/files/usr/bin/bash 
 # Interpretación determinada para la ejecución    
