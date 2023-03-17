@@ -295,7 +295,7 @@ do
     echo -ne "\033[34mGataBot-MD\033[0m"
     echo -ne "\033[35mGataBot-MD\033[0m"
     ((count++))
-done &
+done & 
  
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
 npm start
