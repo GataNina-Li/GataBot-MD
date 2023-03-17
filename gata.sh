@@ -286,19 +286,26 @@ _____░▒▓██\n\e[0m"
 
 
 count=0
+max_length=12  
+
 while [ $count -lt 10 ]
 do
+    
+    printf "%${max_length}s" " "
+    
     echo -ne "\033[31mGataBot-MD\033[0m"
     echo -ne "\033[33mGataBot-MD\033[0m"
     echo -ne "\033[32mGataBot-MD\033[0m"
     echo -ne "\033[36mGataBot-MD\033[0m"
     echo -ne "\033[34mGataBot-MD\033[0m"
     echo -ne "\033[35mGataBot-MD\033[0m"
+    
+    
+    echo -ne "\r"
+    
     ((count++))
-done & 
- 
+done &
+
+sleep 10 && pkill mpv > /dev/null 2>&1 &
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
 npm start
-
-sleep 10
-pkill mpv
