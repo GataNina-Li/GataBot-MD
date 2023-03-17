@@ -288,23 +288,24 @@ _____░▒▓██\n\e[0m"
 count=0
 while [ $count -lt 20 ]
 do
-  echo -ne "\r\033[0m    "
-  echo -ne "\r\033[1;31mGataBot-MD\033[0m"
+  echo -ne "\033[F\033[0m    "
+  echo -ne "\033[F\033[1;31mGataBot-MD\033[0m"
   sleep 0.2
-  echo -ne "\r\033[1;32mGataBot-MD\033[0m"
+  echo -ne "\033[F\033[1;32mGataBot-MD\033[0m"
   sleep 0.2
-  echo -ne "\r\033[1;33mGataBot-MD\033[0m"
+  echo -ne "\033[F\033[1;33mGataBot-MD\033[0m"
   sleep 0.2
-  echo -ne "\r\033[1;34mGataBot-MD\033[0m"
+  echo -ne "\033[F\033[1;34mGataBot-MD\033[0m"
   sleep 0.2
-  echo -ne "\r\033[1;35mGataBot-MD\033[0m"
+  echo -ne "\033[F\033[1;35mGataBot-MD\033[0m"
   sleep 0.2
-  echo -ne "\r\033[1;36mGataBot-MD\033[0m"
+  echo -ne "\033[F\033[1;36mGataBot-MD\033[0m"
   sleep 0.2
-  echo -ne "\r\033[1;37mGataBot-MD\033[0m"
+  echo -ne "\033[F\033[1;37mGataBot-MD\033[0m"
   sleep 0.2
   ((count++))
 done &
+sleep 10
 
 
 echo -e "\033[01;32m\033[01mIniciando GataBot!!\nStarting CatBot!!\n\033[0m"
