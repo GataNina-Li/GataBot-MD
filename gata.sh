@@ -13,7 +13,7 @@ echo -e "\e[35m
 ▒█▄▄▄█ ▒█▄▄▄ ░▒█░░ 　 ░▒█░░ ▒█░▒█ ▒█▄▄▄ 　 ▒█▄▄▄█ ▒█▄▄█ ▒█░▒█ ▒█▄▄▄ ▒█▄▄▄ ▒█░░▀█\n\e[0m" 
 
 echo -e "\033[01;93mPreparando instalación...\nPreparing installation...\n\033[0m"
-if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/install_automatic1.mp3; then
+if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/install_automatic2.mp3; then
 echo -e "\033[01;32mDescarga exitosa. Reproduciendo sonido de intro...\nDownload successful. Playing intro sound...\n\033[0m"
 mpv --no-terminal install_automatic1.mp3 &
 else
@@ -173,40 +173,6 @@ echo -e "\e[36m
 ▒█░▒█ ▒█▄▄█ ▒█▄▄█ 　 ▒█░▒█ ▄█▄ ▒█▄▄█ ▒█░▒█ ░▒█░░\n\e[0m"
 echo -e "\033[01;32m\033[01m\nTodas las dependencias se han instalado correctamente.\nAll dependencies have been installed successfully.\n\033[0m" 
 
-
-
-text="██╗░░██╗░░██╗░░  ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
-╚██╗░╚██╗░╚██╗░  ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██║░░░░░██║░░░░░
-░╚██╗░╚██╗░╚██╗  ██║██╔██╗██║╚█████╗░░░░██║░░░███████║██║░░░░░██║░░░░░
-░██╔╝░██╔╝░██╔╝  ██║██║╚████║░╚═══██╗░░░██║░░░██╔══██║██║░░░░░██║░░░░░
-██╔╝░██╔╝░██╔╝░  ██║██║░╚███║██████╔╝░░░██║░░░██║░░██║███████╗███████╗
-╚═╝░░╚═╝░░╚═╝░░  ╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚══════╝
-
-██╗░░██╗░░  ░██████╗░░█████╗░████████╗░█████╗░  ██████╗░░█████╗░████████╗
-╚██╗░╚██╗░  ██╔════╝░██╔══██╗╚══██╔══╝██╔══██╗  ██╔══██╗██╔══██╗╚══██╔══╝
-░╚██╗░╚██╗  ██║░░██╗░███████║░░░██║░░░███████║  ██████╦╝██║░░██║░░░██║░░░
-░██╔╝░██╔╝  ██║░░╚██╗██╔══██║░░░██║░░░██╔══██║  ██╔══██╗██║░░██║░░░██║░░░
-██╔╝░██╔╝░  ╚██████╔╝██║░░██║░░░██║░░░██║░░██║  ██████╦╝╚█████╔╝░░░██║░░░
-╚═╝░░╚═╝░░  ░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝  ╚═════╝░░╚════╝░░░░╚═╝░░░\n"
-colors=('\033[31m' '\033[33m' '\033[32m' '\033[36m' '\033[34m' '\033[35m')
-reset='\033[0m'
-length=${#text}
-count=0
-
-while [ $count -lt 25 ]
-do
-for (( i=0; i<$length; i++ )); do
-        char=${text:$i:1}
-        rand_color=${colors[$((RANDOM % ${#colors[@]}))]}
-        echo -ne "${rand_color}$char${reset}"
-done
-    sleep 0.2
-    echo -ne "\r"
-    ((count++))
-done &
-echo -ne "${reset}"
-
-: <<'COMMENT'
 echo -e "\e[35m
 ██╗░░██╗░░██╗░░  ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
 ╚██╗░╚██╗░╚██╗░  ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██║░░░░░██║░░░░░
@@ -221,7 +187,7 @@ echo -e "\e[35m
 ░██╔╝░██╔╝  ██║░░╚██╗██╔══██║░░░██║░░░██╔══██║  ██╔══██╗██║░░██║░░░██║░░░
 ██╔╝░██╔╝░  ╚██████╔╝██║░░██║░░░██║░░░██║░░██║  ██████╦╝╚█████╔╝░░░██║░░░
 ╚═╝░░╚═╝░░  ░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝  ╚═════╝░░╚════╝░░░░╚═╝░░░\n\e[0m"
-COMMENT
+
 echo -e "\033[1;35m"
 git clone https://github.com/GataNina-Li/GataBot-MD.git
 echo -e "\033[01;32m\033[01mLa clonación se ha descargado e instalado correctamente.\nThe clone has been downloaded and installed successfully.\n\033[0m"
