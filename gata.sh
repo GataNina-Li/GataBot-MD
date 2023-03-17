@@ -285,11 +285,14 @@ _______░▒▓██
 _____░▒▓██\n\e[0m"
 
 
-while true; do
-  echo -e "\033[5;31mGataBot-MD\033[0m\c"
+count=0
+while [ $count -lt 10 ]
+do
+  echo -ne "\r\033[31mGataBot-MD\033[0m"
   sleep 0.5
-  echo -e "\033[0m\c"
+  echo -ne "\r\033[32mGataBot-MD\033[0m"
   sleep 0.5
+  ((count++))
 done
 
 
