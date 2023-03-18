@@ -6,10 +6,10 @@ if (!text) throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙐
   await conn.sendPresenceUpdate('composing', m.chat)
   let api = await fetch("https://api.simsimi.net/v2/?text=" + text + "&lc=es")
   let resSimi = await api.json()
-  //m.reply(resSimi.success)      
-  conn.sendHydrated(m.chat, `${resSimi}`, `𝘼𝙄 | ${wm}`, null, null, null, null, null, [
+  m.reply(resSimi.success)      
+/* conn.sendHydrated(m.chat, `${resSimi.success}`, `𝘼𝙄 | ${wm}`, null, null, null, null, null, [
 ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']
-], m)
+], m)*/
   } catch {
   try {
   if (text.includes('Hola')) text = text.replace('Hola', 'Hello')
