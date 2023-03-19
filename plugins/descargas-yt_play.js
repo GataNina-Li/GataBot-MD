@@ -12,27 +12,18 @@ let dos = [enlace, enlace2]
 	if (!vid) throw `${lenguajeGB['smsAvisoFG']()}𝙉𝙊 𝙎𝙀 𝙋𝙐𝘿𝙊 𝙀𝙉𝘾𝙊𝙉𝙏𝙍𝘼𝙍 𝙀𝙇 𝘼𝙐𝘿𝙄𝙊/𝙑𝙄𝘿𝙀𝙊. 𝙄𝙉𝙏𝙀𝙉𝙏𝙀 𝘾𝙊𝙉 𝙊𝙏𝙍𝙊 𝙉𝙊𝙈𝘽𝙍𝙀 𝙊 𝙏𝙄𝙏𝙐𝙇𝙊\n\n𝙏𝙃𝙀 𝘼𝙐𝘿𝙄𝙊/𝙑𝙄𝘿𝙀𝙊 𝘾𝙊𝙐𝙇𝘿 𝙉𝙊𝙏 𝘽𝙀 𝙁𝙊𝙐𝙉𝘿. 𝙏𝙍𝙔 𝘼𝙉𝙊𝙏𝙃𝙀𝙍 𝙉𝘼𝙈𝙀 𝙊𝙍 𝙏𝙄𝙏𝙇𝙀`
 	let { title, description, url, thumbnail, videoId, timestamp, views, published } = vid
 	//const url = 'https://www.youtube.com/watch?v=' + videoId<
-	await conn.sendButton(m.chat, wm, `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
+	let aud = await jsonn.result.audio
+	conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `
+*🪄 ️Reproductor By Gata Dios 🪄*
 
-ও *TÍTULO | TITLE*
-» ${title}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *DESCRIPCIÓN | DESCRIPTION*
-» ${description}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *PUBLICADO | PUBLISHED*
-» ${published}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *DURACION | DURATION*
-» ${timestamp}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *VISTAS| VIEWS*
-» ${views}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *URL*
-» ${url}
+💗 *${title}*
+9:99 ━❍──────── -9:99
+↻     ⊲  Ⅱ  ⊳     ↺
+VOLUME: ▁▂▃▄▅▆▇ 100%
 
-*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`, thumbnail, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], m, dos.getRandom())
+*🎈 Publicado:* ${published}
+*🎁 Aguarde un momento en lo que envío su audio/video*
+`.trim(), m)
 const sections = [{
 title: comienzo + ' 📡 𝗧𝗜𝗣𝗢𝗦 𝗗𝗘 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔𝗦 ' + fin,
 rows: [
@@ -57,11 +48,11 @@ const listMessage = {
 }
 
 await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
+conn.sendMessage(m.chat, { audio: { url: aud }, mimetype: 'audio/mp4', fileName: `${title}.mp3`}, {quoted: m})
 }
 handler.help = ['play', 'play2'].map(v => v + ' <pencarian>')
 handler.tags = ['downloader']
 handler.command = /^play2?$/i
 handler.limit = 1
-handler.level = 2
 
 export default handler
