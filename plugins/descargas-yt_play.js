@@ -11,22 +11,34 @@ let dos = [enlace, enlace2]
 	let vid = (await yts(text)).all[0]
 	if (!vid) throw `${lenguajeGB['smsAvisoFG']()}𝙉𝙊 𝙎𝙀 𝙋𝙐𝘿𝙊 𝙀𝙉𝘾𝙊𝙉𝙏𝙍𝘼𝙍 𝙀𝙇 𝘼𝙐𝘿𝙄𝙊/𝙑𝙄𝘿𝙀𝙊. 𝙄𝙉𝙏𝙀𝙉𝙏𝙀 𝘾𝙊𝙉 𝙊𝙏𝙍𝙊 𝙉𝙊𝙈𝘽𝙍𝙀 𝙊 𝙏𝙄𝙏𝙐𝙇𝙊\n\n𝙏𝙃𝙀 𝘼𝙐𝘿𝙄𝙊/𝙑𝙄𝘿𝙀𝙊 𝘾𝙊𝙐𝙇𝘿 𝙉𝙊𝙏 𝘽𝙀 𝙁𝙊𝙐𝙉𝘿. 𝙏𝙍𝙔 𝘼𝙉𝙊𝙏𝙃𝙀𝙍 𝙉𝘼𝙈𝙀 𝙊𝙍 𝙏𝙄𝙏𝙇𝙀`
 	let vid2 = await (await fetch(`https://api.lolhuman.xyz/api/ytsearch?apikey=${lolkeysapi}&query=${text}`)).json()
-let { videoId, title, views, published, timestamp, durationH, thumbnail } = await vid2.result[0]
+let { videoId, title, views, url, published, description, timestamp, durationH, thumbnail } = await vid2.result[0]
 const url = 'https://www.youtube.com/watch?v=' + videoId
 let ytLink = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi}&query=${text}`)
 	//const url = 'https://www.youtube.com/watch?v=' + videoId<
 	let jsonn = await ytLink.json()
 let aud = await jsonn.result.audio
 	conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `
-*🪄 ️Reproductor By Gata Dios 🪄*
+`*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
-💗 *${title}*
-9:99 ━❍──────── -9:99
-↻     ⊲  Ⅱ  ⊳     ↺
-VOLUME: ▁▂▃▄▅▆▇ 100%
+ও *TÍTULO | TITLE*
+» ${title}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও *DESCRIPCIÓN | DESCRIPTION*
+» ${description}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও *PUBLICADO | PUBLISHED*
+» ${published}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও *DURACION | DURATION*
+» ${timestamp}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও *VISTAS| VIEWS*
+» ${views}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও *URL*
+» ${url}
 
-*🎈 Publicado:* ${published}
-*🎁 Aguarde un momento en lo que envío su audio/video*
+*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 `.trim(), m)
 const sections = [{
 title: comienzo + ' 📡 𝗧𝗜𝗣𝗢𝗦 𝗗𝗘 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔𝗦 ' + fin,
