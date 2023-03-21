@@ -189,6 +189,10 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/GataNina-Li/GataBot-MD&branch=master&name=gatabot-md)
 
 ------------------
+### `—◉ 🔰 ACTIVAR EN RENDER 🔰`
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/blueprint/new?repo=https%3A%2F%2Fgithub.com%2FGataNina-Li%2FGataBot-MD) 
+------------------
 ## 💻 PARA USUARIOS DE WINDOWS/VPS/RDP
 
 * Descargar e instala Git [`Aquí`](https://git-scm.com/downloads)
