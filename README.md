@@ -291,18 +291,13 @@ En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-M
 ----
 
 ### 🌟 CREADORA 
- 
 [![GataNina-Li](https://github.com/GataNina-Li.png?size=100)](https://github.com/GataNina-Li) 
 
 ### 🌟 DESARROLLADORES
-
-[![Abiguelreyes75](https://github.com/Abiguelreyes75.png?size=100)](https://github.com/Abiguelreyes75)
-[![elrebelde21](https://github.com/elrebelde21.png?size=100)](https://github.com/elrebelde21)
-[![ReyEndymion](https://github.com/ReyEndymion.png?size=100)](https://github.com/ReyEndymion)
-[![Azami19](https://github.com/Azami19.png?size=100)](https://github.com/Azami19)
+<a href="https://github.com/GataNina-Li/GataBot-MD/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=GataNina-Li/GataBot-MD" />
+</a>
  
 ### 🌟 AGRADECIMIENTOS
- 
-[![TheShadowBrokers1](https://github.com/BrunoSobrino.png?size=100)](https://github.com/BrunoSobrino) 
-[![DIEGO-OFC](https://github.com/DIEGO-OFC.png?size=100)](https://github.com/DIEGO-OFC)
-[![VIRUZZ-OFC](https://github.com/VIRUZOFC.png?size=100)](https://github.com/VIRUZOFC)
+[![TheShadowBrokers1](https://github.com/BrunoSobrino.png?size=60)](https://github.com/BrunoSobrino) 
+
