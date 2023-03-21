@@ -141,7 +141,29 @@ apt update -y && yes | apt upgrade && pkg install -y nodejs ffmpeg imagemagick &
 * #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
 > ASEGÚRESE DE GUARDAR LOS ARCHIVOS EN ESTA UBICACIÓN: storage/downloads/GataBot-MD    
 ----
-
+### USAR GATABOT 24/7 EN TERMUX 🚀
+> EJECUTE ESTE COMANDO CUANDO YA TENGA INSTALADA GATABOT
+```bash
+termux-wake-lock && npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs 
+``` 
+#### Opciones Disponibles
+> **Warning** Esto eliminará todo el historial que hayas establecido con PM2:
+```bash 
+pm2 delete index
+``` 
+> Si tienes cerrado Termux y quiere ver de nuevo la ejecución use:
+```bash 
+pm2 logs 
+``` 
+> Si desea detener la ejecución de Termux use:
+```bash 
+pm2 stop index
+``` 
+> Si desea iniciar de nuevo la ejecución de Termux use:
+```bash 
+pm2 start index
+``` 
+----
 ### 🟣 ACTIVAR EN HEROKU 
 #### ☂️ PARA USUARIOS DE HEROKU 
 
