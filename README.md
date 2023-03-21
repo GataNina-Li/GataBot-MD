@@ -70,7 +70,7 @@
 | **TERMUX** | ***INSTALACIÓN AUTOMÁTICA*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-1-instalación-automática-por-termux-) |
 | **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-2-instalación-manual-por-termux---github) |
 | **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-manual-por-termux---archivos) |
-| **TERMUX 24/7** | ***COMANDOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-24-7-en-termux) |
+| **TERMUX 24/7** | ***COMANDOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#usar-gatabot-24-7-en-termux) |
 | **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
 | **BOXMINE** | ***INSTALACIÓN POR BOXMINE*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-boxminehost) |
 | **REPLIT** | ***INSTALACIÓN POR REPLIT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-replit---gatabot) |
@@ -142,7 +142,7 @@ apt update -y && yes | apt upgrade && pkg install -y nodejs ffmpeg imagemagick &
 * #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
 > ASEGÚRESE DE GUARDAR LOS ARCHIVOS EN ESTA UBICACIÓN: storage/downloads/GataBot-MD    
 ----
-### USAR GATABOT 24/7 EN TERMUX 🚀
+### 🚀 USAR GATABOT 24/7 EN TERMUX 
 > EJECUTE ESTE COMANDO CUANDO YA TENGA INSTALADA GATABOT
 ```bash
 termux-wake-lock && npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs 
