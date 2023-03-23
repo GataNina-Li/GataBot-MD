@@ -8,18 +8,18 @@ let handler = async (m, { conn, text }) => {
 		txt = Object.keys(data).map(v => `*${v.capitalize()}:* ${data[v]}`).join('\n'),
 		pp = await conn.profilePictureUrl(data.id, 'image').catch(console.error)
 		let groupinfo = `
-*╭───────────────╮*
-*│🆔❐ ID:* ${data.id}◞
-*│💳❐ Nombre:* ${data.subject}
-*│📅❐ Creado:* ${data.creation}
-*│👑❐ Owner:* ${data.owner}
-*╰───────────────╯*
+*┏━━━━━━━━━━━━━━━┓*
+*┃☂️ ⫹⫺ ID:* ${data.id}◞
+*┃🧪 ⫹⫺ Nombre:* ${data.subject}
+*┃📅 ⫹⫺ Creado:* ${data.creation}
+*┃👑 ⫹⫺ Owner:* ${data.owner}
+*┗━━━━━━━━━━━━━━━┛*
 `
 	await conn.reply(m.chat, groupinfo, m)
 	const botones = [
-{index: 1, urlButton: {displayText: `Copiar Descripción 📍`, url: `https://www.whatsapp.com/otp/copy/${data.desc}`}},
+{index: 1, urlButton: {displayText: `Copiar Descripción 🍓`, url: `https://www.whatsapp.com/otp/copy/${data.desc}`}},
 ]
-await conn.sendMessage(m.chat, { text: `*╭──────────────╮*\n│☘️ • ¿Desea copiar la descripción?\n*╰──────────────╯*`, templateButtons: botones, footer: author })
+await conn.sendMessage(m.chat, { text: `*┏━━━━━━━━━━━━━━┓*\n┃¿Desa copiar la desc? •🌷\n*┗━━━━━━━━━━━━━━┛*`, templateButtons: botones, footer: wm })
 }
 handler.command = /^(inspect)$/i
 
@@ -34,7 +34,7 @@ const extractGroupMetadata = (result) => {
 	const metadata = {
 		id: group.attrs.id.includes('@') ? group.attrs.id : baileys.jidEncode(group.attrs.id, 'g.us'),
 		subject: group.attrs.subject,
-		creation: new Date(+group.attrs.creation * 1000).toLocaleString('id', { timeZone: 'Asia/Jakarta' }),
+		creation: new Date(+group.attrs.creation * 1000).toLocaleString('id', { timeZone: 'America/Los_Angeles' }),
 		owner: group.attrs.creator ? 'wa.me/' + baileys.jidNormalizedUser(group.attrs.creator).split('@')[0] : undefined,
 		desc
 	}
