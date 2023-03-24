@@ -8,6 +8,7 @@ import axios from 'axios'
 import moment from 'moment-timezone' 
 import { en, es, id, ar, pt } from './lib/idiomas/total-idiomas.js' 
 
+
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
 global.owner = [
    ['5492604050270', true], 
@@ -30,6 +31,11 @@ global.lenguajeGB = es  //Idioma de GataBot, Ejemplo: es | en | pt...
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
+global.openai_key = 'sk-...OzYy'
+/* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */
+
+global.openai_org_id = 'HITjoN7H8pCwoncEB9e3fSyW'
+/* Consigue tu ID de organizacion en este enlace: https://platform.openai.com/account/org-settings */
 
 global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f']
 global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
@@ -122,7 +128,19 @@ global.fetch = fetch
 global.axios = axios
 global.moment = moment	
 
-//⊱ ━━━━━.⋅ Sticker WM ⋅.━━━━ ⊰
+//⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
+
+global.official = [ // Agregate si eres Owner
+['18059196237', 'Gata Dios 💻', 1], 
+['5492266466080', '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
+['5214531106422', '𝗖𝗿𝗲𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+['5521989092076', '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+['5491173694367', 'Prueba', 1]] 
+
+global.mail = '' //agrega tú correo
+global.desc = '' //agrega una descripción corta
+global.desc2 = '' //agrega una descripción larga (Solo se aplicará si su whasapp no tiene descripción)
+global.country = '' //agrega tú país ejemplo: 🇪🇨
 
 global.packname = 'A̳s̳a̳k̳u̳r̳a̳ ̳B̳O̳T̳💎'
 global.author = 'ᴀꜱᴀᴋᴜʀᴀ-ᴍᴀᴏ ʙᴏᴛ'
@@ -148,7 +166,7 @@ global.nnn = 'https://chat.whatsapp.com/DUU638FK74P7KWmRAd4u4J' //Grupo 2
 
 global.nnnt = 'https://chat.whatsapp.com/Kt5EXwUhcO8Ay76CIDLs7d' //Grupo 3
 
-global.nnntt = 'https://chat.whatsapp.com/IfQOvlx41su7bPUnfTg7ZB' //Grupo 4
+global.nnntt = 'https://chat.whatsapp.com/K0UCo7igED92q9c1w2DiEH' //Grupo 4
 
 global.nnnttt = 'https://chat.whatsapp.com/HJLpWS2BDrWCPH6uAUKIRG' //Grupo 5
 
@@ -156,7 +174,9 @@ global.nnnttt2 = 'https://chat.whatsapp.com/F63pQpKCsWiF2zFXxhYnky' //Grupo 6 CO
 
 global.nnnttt3 = 'https://chat.whatsapp.com/CcJKHrxGBWAAH3PiBL07JS' //Grupo 7 COL
 
-global.nnnttt4 = 'https://chat.whatsapp.com/CypX2VF70QZI09Nq0XUKPn' //Grupo 8 COL
+global.nnnttt4 = 'https://chat.whatsapp.com/FT0pwTOl0KN5Hyea34Wca9' //Grupo 8 COL
+
+global.nnnttt5 = 'https://chat.whatsapp.com/J8HOf2T3QYeKu3UN9UBkT6' //Grupo 9 COL
 
 global.paypal = 'https://paypal.me/OficialGD'
 
@@ -252,7 +272,7 @@ global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg'
 global.img18 = 'https://i.imgur.com/9yLH4W4.jpeg'
 
 global.welgata = [ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb]
-global.redesMenu = [nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt2, nnnttt3, nnnttt4, md, ig, paypal, yt, asistencia, fb]
+global.redesMenu = [nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt2, nnnttt3, nnnttt4, nnnttt5, md, ig, paypal, yt, asistencia, fb]
 global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18]
 global.gataVidMenu = ['./media/menus/Menuvid1.mp4', './media/menus/Menuvid2.mp4', './media/menus/Menuvid3.mp4']
 global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13]

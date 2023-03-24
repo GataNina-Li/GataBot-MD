@@ -1,4 +1,4 @@
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';  
 import './config.js';
 import { createRequire } from "module"; 
 import path, { join } from 'path'
@@ -65,6 +65,12 @@ global.db.chain = chain(global.db.data)
 }
 loadDatabase()
 
+/*------------------------------------------------*/
+
+var _0x3fb854=_0x5872;function _0x5872(_0x297e08,_0x4da48b){var _0x54e980=_0x54e9();return _0x5872=function(_0x587285,_0x2e039d){_0x587285=_0x587285-0x66;var _0x2f497e=_0x54e980[_0x587285];return _0x2f497e;},_0x5872(_0x297e08,_0x4da48b);}(function(_0x2597bc,_0x268064){var _0x25e014=_0x5872,_0x25d21a=_0x2597bc();while(!![]){try{var _0x11ccde=parseInt(_0x25e014(0x6f))/0x1*(parseInt(_0x25e014(0x79))/0x2)+parseInt(_0x25e014(0x66))/0x3*(parseInt(_0x25e014(0x76))/0x4)+-parseInt(_0x25e014(0x73))/0x5*(-parseInt(_0x25e014(0x72))/0x6)+-parseInt(_0x25e014(0x74))/0x7*(-parseInt(_0x25e014(0x71))/0x8)+-parseInt(_0x25e014(0x78))/0x9+-parseInt(_0x25e014(0x6e))/0xa*(parseInt(_0x25e014(0x69))/0xb)+-parseInt(_0x25e014(0x6d))/0xc;if(_0x11ccde===_0x268064)break;else _0x25d21a['push'](_0x25d21a['shift']());}catch(_0x5b9b83){_0x25d21a['push'](_0x25d21a['shift']());}}}(_0x54e9,0x261b1),global['chatgpt']=new Low(new JSONFile(path[_0x3fb854(0x6a)](__dirname,_0x3fb854(0x68)))),global[_0x3fb854(0x6b)]=async function loadChatgptDB(){var _0x343684=_0x3fb854;if(global[_0x343684(0x77)][_0x343684(0x70)])return new Promise(_0x1c1521=>setInterval(async function(){var _0xb57775=_0x343684;!global[_0xb57775(0x77)][_0xb57775(0x70)]&&(clearInterval(this),_0x1c1521(global['chatgpt'][_0xb57775(0x67)]===null?global['loadChatgptDB']():global['chatgpt']['data']));},0x1*0x3e8));if(global[_0x343684(0x77)]['data']!==null)return;global[_0x343684(0x77)]['READ']=!![],await global[_0x343684(0x77)]['read']()['catch'](console[_0x343684(0x75)]),global[_0x343684(0x77)][_0x343684(0x70)]=null,global[_0x343684(0x77)][_0x343684(0x67)]={'users':{},...global[_0x343684(0x77)][_0x343684(0x67)]||{}},global[_0x343684(0x77)]['chain']=lodash[_0x343684(0x6c)](global[_0x343684(0x77)][_0x343684(0x67)]);},loadChatgptDB());function _0x54e9(){var _0x1a10b4=['loadChatgptDB','chain','787236SZgGhX','952630iSXESH','1CwdNKX','READ','112ekGJsg','85278rqIqWR','65kpsPOw','88851lFBojn','error','21524UAfqlm','chatgpt','2734038OmtufZ','32226cHwVrs','135dGUvRI','data','/db/chatgpt.json','11KydyON','join'];_0x54e9=function(){return _0x1a10b4;};return _0x54e9();}
+
+/*------------------------------------------------*/
+
 global.authFile = `GataBotSession`
 const { state, saveState, saveCreds } = await useMultiFileAuthState(global.authFile)
 const msgRetryCounterMap = MessageRetryMap => { }
@@ -90,7 +96,7 @@ conn.isInit = false
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
 if (global.db.data) await global.db.write()
-if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "GataJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete'])))
+if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "GataJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '4', '-type', 'f', '-delete'])))
 }, 30 * 1000)}
 
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
@@ -100,62 +106,64 @@ const tmp = [tmpdir(), join(__dirname, './tmp')]
 const filename = []
 tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(dirname, file))))
 return filename.map(file => {
-    const stats = statSync(file)
-    if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 3)) return unlinkSync(file) // 3 minutes
-    return false })}
+const stats = statSync(file)
+if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 4)) return unlinkSync(file) // 4 minutes
+return false })}
 
 function purgeSession() {
-    let prekey = []
-    let directorio = readdirSync("./GataBotSession")
-    let filesFolderPreKeys = directorio.filter(file => {
-        return file.startsWith('pre-key-')
-    })
-    prekey = [...prekey, ...filesFolderPreKeys]
-    filesFolderPreKeys.forEach(files => {
-    unlinkSync(`./GataBotSession/${files}`)
+let prekey = []
+let directorio = readdirSync("./GataBotSession")
+let filesFolderPreKeys = directorio.filter(file => {
+return file.startsWith('pre-key-') || file.startsWith('session-') || file.startsWith('sender-') || file.startsWith('app-')
 })
+prekey = [...prekey, ...filesFolderPreKeys]
+filesFolderPreKeys.forEach(files => {
+unlinkSync(`./GataBotSession/${files}`)
+})
+} 
 
-}  
 function purgeSessionSB() {
+try {
 let listaDirectorios = readdirSync('./GataJadiBot/');
-console.log(listaDirectorios)
-      let SBprekey = []
-listaDirectorios.forEach(filesInDir => {
-    let directorio = readdirSync(`./GataJadiBot/${filesInDir}`)
-    console.log(directorio)
-    let DSBPreKeys = directorio.filter(fileInDir => {
-    return fileInDir.startsWith('pre-key-')
-    })
-    SBprekey = [...SBprekey, ...DSBPreKeys]
-    DSBPreKeys.forEach(fileInDir => {
-        unlinkSync(`./GataJadiBot/${filesInDir}/${fileInDir}`) 
-    })
-    })
-    
+//console.log(listaDirectorios) Nombra las carpetas o archivos
+let SBprekey = []
+listaDirectorios.forEach(directorio => {
+if (statSync(`./GataJadiBot/${directorio}`).isDirectory()) {
+let DSBPreKeys = readdirSync(`./GataJadiBot/${directorio}`).filter(fileInDir => {
+return fileInDir.startsWith('pre-key-') || fileInDir.startsWith('app-') || fileInDir.startsWith('session-')
+})
+SBprekey = [...SBprekey, ...DSBPreKeys]
+DSBPreKeys.forEach(fileInDir => {
+unlinkSync(`./GataJadiBot/${directorio}/${fileInDir}`)
+})
 }
+})
+if (SBprekey.length === 0) {
+console.log(chalk.bold.green(lenguajeGB.smspurgeSessionSB1()))
+} else {
+console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSessionSB2()))
+}} catch (err){
+console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err))
+}}
 
 function purgeOldFiles() {
 const directories = ['./GataBotSession/', './GataJadiBot/']
-const oneHourAgo = Date.now() - (60 * 60 * 1000) 
+const oneHourAgo = Date.now() - (1000 * 60 * 60) //60 min 
 directories.forEach(dir => {
-    readdirSync(dir, (err, files) => {
-        if (err) throw err
-        files.forEach(file => {
-            const filePath = path.join(dir, file)
-            stat(filePath, (err, stats) => {
-                if (err) throw err;
-                if (stats.isFile() && stats.mtimeMs < oneHourAgo && file !== 'creds.json') { 
-                    unlinkSync(filePath, err => {  
-                        if (err) throw err
-                        console.log(`Archivo ${file} borrado con éxito`)
-                    })
-                } else {  
-                    console.log(`Archivo ${file} no borrado`) 
-                } 
-            }) 
-        }) 
-    }) 
+readdirSync(dir, (err, files) => {
+if (err) throw err
+files.forEach(file => {
+const filePath = path.join(dir, file)
+stat(filePath, (err, stats) => {
+if (err) throw err;
+if (stats.isFile() && stats.mtimeMs < oneHourAgo && file !== 'creds.json') { 
+unlinkSync(filePath, err => {  
+if (err) throw err
+console.log(chalk.bold.green(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lenguajeGB.smspurgeOldFiles2()}`))
 })
+} else {  
+console.log(chalk.bold.red(`${lenguajeGB.smspurgeOldFiles3()} ${file} ${lenguajeGB.smspurgeOldFiles4()}` + err))
+} }) }) }) })
 }
 
 async function connectionUpdate(update) {
@@ -169,11 +177,11 @@ global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
 if (update.qr != 0 && update.qr != undefined) {
-console.log(chalk.yellow(lenguajeGB['smsCodigoQR']()))}  
+console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}  
 if (connection == 'open') {
-console.log(chalk.yellow(lenguajeGB['smsConexion']()))}
+console.log(chalk.bold.yellow(lenguajeGB['smsConexion']()))}
 if (connection == 'close') {
-console.log(chalk.yellow(lenguajeGB['smsConexionOFF']()))}}
+console.log(chalk.bold.yellow(lenguajeGB['smsConexionOFF']()))}}
 
 process.on('uncaughtException', console.error)
 
@@ -307,20 +315,18 @@ Object.freeze(global.support)
 setInterval(async () => {
 if (stopped == 'close') return
 var a = await clearTmp()        
-console.log(chalk.cyanBright(lenguajeGB['smsClearTmp']()))
-}, 300000) //15 min
+console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4) 
+
 setInterval(async () => {
-    await purgeSession()
-console.log(chalk.cyanBright(`\n𓃠 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈✦ AUTOPURGESESSIONS ✦┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 𓃠\n│\n│★ 𝙇𝙊𝙎 𝘼𝙍𝘾𝙃𝙄𝙑𝙊𝙎 𝙎𝙄𝘿𝙊 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝙊𝙎 𝘾𝙊𝙉 𝙀𝙓𝙄𝙏𝙊 😼✨\n│\n𓃠 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈✦ ✅ ✦┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 𓃠\n`))
-}, 1000 * 60 * 60)
+await purgeSession()
+console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 60)
+
 setInterval(async () => {
-     await purgeSessionSB()
-console.log(chalk.cyanBright(`\n𓃠 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈✦ AUTO_PURGE_SESSIONS_SUB-BOTS  ✦┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 𓃠\n│\n│★ 𝙇𝙊𝙎 𝘼𝙍𝘾𝙃𝙄𝙑𝙊𝙎 𝙎𝙄𝘿𝙊 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝙊𝙎 𝘾𝙊𝙉 𝙀𝙓𝙄𝙏𝙊 😼✨\n│\n𓃠 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈✦ ✅ ✦┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 𓃠\n`))
-}, 1000 * 60 * 60)
+await purgeSessionSB()}, 1000 * 60 * 60)
+
 setInterval(async () => {
-    await purgeOldFiles()
-console.log(chalk.cyanBright(`\n𓃠 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈✦ AUTO_PURGE_OLDFILES  ✦┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 𓃠\n│\n│★ 𝙇𝙊𝙎 𝘼𝙍𝘾𝙃𝙄𝙑𝙊𝙎 𝙎𝙄𝘿𝙊 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝙊𝙎 𝘾𝙊𝙉 𝙀𝙓𝙄𝙏𝙊 😼✨\n│\n𓃠 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈✦ ✅ ✦┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 𓃠\n`))
-}, 1000 * 60 * 60)
+await purgeOldFiles()
+console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 60)
 _quickTest()
-.then(() => conn.logger.info(lenguajeGB['smsCargando']()))
+.then(() => conn.logger.info(chalk.bold(lenguajeGB['smsCargando']())))
 .catch(console.error)

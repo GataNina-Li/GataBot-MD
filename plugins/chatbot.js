@@ -29,17 +29,6 @@ conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
 
 }*/
 
-if (/^MC-SERVER|MC-SERVER|mc-server$/i.test(m.text) ) { //sem prefixo
-    conn.reply(m.chat, `┏━━━━━━━━━━━━━┓
-┃ *<MINECRAFT SERVER/>*
-║≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋
-┣ • *IP: nodo5.boxmineworld.com*
-┣ • *PUERTO: 4003*
-┣ • *BEDROCK Y JAVA*
-┗━━━━━━━━━━━━━┛`, m) //wm, null, [['Menu', '#menu']], m) botones :V
-
-}
-
 if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sem prefixo
     conn.reply(m.chat, `╭┅〘 ⚠️ 𝗢𝗯𝗲𝗱𝗲𝗰𝗲 𝗹𝗮𝘀 𝗿𝗲𝗴𝗹𝗮𝘀 ⚠️ 〙*
 ➽❌ 𝐏𝐫𝐨𝐡𝐢𝐛𝐢𝐝𝐨 𝐥𝐥𝐚𝐦𝐚𝐫 𝐚𝐥 𝐁𝐨𝐭

@@ -1,4 +1,4 @@
-{
+{ 
 "name": "GataBot-MD",
 "version": "1.4.5",
 "description": "Super Bot WhatsApp",
@@ -11,13 +11,13 @@
 "plugins": "plugins" },
     
 "scripts": {
-"start": "node index.js",
+"start": "node --no-warnings index.js",
 "test": "node test.js",
 "test2": "nodemon index.js" },
     
 "homepage": "https://github.com/GataNina-Li",
 "author": {
-"name": "GataNina-Li" },
+"name": "GataNina-Li" }, 
     
 "repository": {
 "type": "git",
@@ -29,8 +29,11 @@
 "dependencies": {
         "@adiwajshing/baileys": "github:GataNina-Li/baileys",
         "@bochilteam/scraper": "^3.0.0",
+        "@tensorflow/tfjs-node": "^4.3.0",
         "@vitalets/google-translate-api": "^8.0.0",
+        "@shineiichijo/marika": "^2.0.6",
         "acrcloud": "^1.4.0",
+        "api-dylux": "^1.2.2",
         "awesome-phonenumber": "^2.68.0",
         "axios": "^0.24.0",
         "brainly-scraper-v2": "*",
@@ -71,10 +74,18 @@
         "similarity": "^1.2.1",
         "socket.io": "^4.4.1",
         "syntax-error": "^1.4.0",
+        "nsfwjs": "^2.4.2",
+        "openai": "^3.1.0",
+        "ffmpeg-extract-frames": "^2.0.2",
+        "get-video-duration": "^4.1.0",
+        "instagram-url-direct": "^1.0.12",
+        "pdfkit": "^0.13.0",
+        "perf_hooks": "^0.0.1",
         "terminal-image": "^2.0.0",
         "translate-google-api": "^1.0.4",
         "url-regex-safe": "^3.0.0",
         "wa-sticker-formatter": "^4.3.2",
         "yargs": "^17.3.1",
-        "yt-search": "^2.10.3" 
+        "yt-search": "^2.10.3",
+        "ytdl-core": "^4.11.2"
 }}

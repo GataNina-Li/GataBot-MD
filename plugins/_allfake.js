@@ -78,6 +78,9 @@ let fakes = { key: { participant: '0@s.whatsapp.net', remoteJid: 'status@broadca
 //{ quickReplyButton: { displayText: 'B', id: '#C' }}]
 //conn.sendButtonGif(m.chat, text1, text2, { url: link1 }, btn, link2)
 //MENSAJE SIMULADOR DE GIF CON BOTON DE ENLACE DE TEXTO Y BOTÓN DE COMANDO
+
+//await conn.sendPayment(m.sender, '99999999', 'texto', m)
+//MENSAJE DE PAGO PENDIENTE
 		
 }
 handler.command = /^(fake)$/i
