@@ -1,4 +1,5 @@
-/*import fs from 'fs'
+/* LOS BOTONES NO FUNCIONA CON LA NUEVA ACTUALIZACIÓN DEL WHATSAPP :v
+import fs from 'fs'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 const { levelling } = '../lib/levelling.js'
