@@ -74,7 +74,7 @@ let fsizedoc = '1'.repeat(10)
 let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(gataMenu.getRandom())).buffer(), sourceUrl: redesMenu.getRandom() }}}
 
 
-let menuA = `${lenguajeGB['smsConfi2']()} *${username}*
+let menu = `${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -84,9 +84,8 @@ let menuA = `${lenguajeGB['smsConfi2']()} *${username}*
 ┊დ *${lenguajeGB['smsBotonM6']()} » ${level} || ${user.exp - min}/${xp}*
 ┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'} 
 ┆დ️ *𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊 »* ${rtotalreg} 𝘿𝙀 ${totalreg} ${(conn.user.jid == global.conn.user.jid ? '' : `\n┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┊დ 𝙎𝙊𝙔 𝙐𝙉 𝙎𝙐𝘽 𝘽𝙊𝙏 𝘿𝙀𝙇: https://wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
-╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱`.trim()
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
 
-let menuB = `
 *╭━〔* ${username} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''} *〕━⬣*
 *┆⚡ EXPERIENCIA ➟ ${exp}*
 *┆💎 DIAMANTES ➟ ${limit}*
@@ -597,10 +596,12 @@ ${readMore}
 ┃💎➺ _${usedPrefix}añadirdiamantes *@tag cantidad*_
 ┃💎➺ _${usedPrefix}añadirxp *@tag cantidad*_
 ┃💎➺ _${usedPrefix}añadirgatacoins *@tag cantidad*_
-*╰━━━━━━━━━━━━⬣*
-`.trim()
+*╰━━━━━━━━━━━━⬣*`.trim()
 
-await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', '🎧 ' + lenguajeGB.smsTex16() + ' 🎧', '/audios', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+    const vi = ['https://telegra.ph/file/405daebd4bc0d69e5d165.mp4',
+'https://telegra.ph/file/1d0ad9f79f65f39895b08.mp4',
+'https://telegra.ph/file/c25afc1685b13210ce602.mp4']
+await conn.sendFile(m.chat, vi.getRandom(), 'error.mp4', menu, fkontak)
 await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, {
 type: 'audioMessage', 
 ptt: true})
@@ -612,7 +613,7 @@ console.log(e)
 }}
 handler.help = ['menu', 'help', '?']
 handler.tags = ['main']
-handler.command = /^(menucompleto|allmenu|allm\?)$/i
+handler.command = /^(menu|menú|help|menucompleto|allmenu|allm\?)$/i
 //handler.register = true
 handler.exp = 50
 handler.money = 20
