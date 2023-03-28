@@ -65,37 +65,37 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 let mentionedJid = [who]
 let username = conn.getName(who)
 let pp = gataVidMenu.getRandom()
+let pareja = global.db.data.users[m.sender].pasangan 
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 //let fsizedoc = '1'.repeat(10)
 //let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(gataMenu.getRandom())).buffer(), sourceUrl: redesMenu.getRandom() }}}
 
 
-let menu = `${lenguajeGB['smsConfi2']()} *${username}*
+let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : username}*${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
+➠ *${week}, ${date}*
+⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
+⎔ *Registrados »* ${rtotalreg}/${totalreg}
 ⎔ *${lenguajeGB['smsTime']()}* ➺ _${time}_    
 ⎔ *${lenguajeGB['smsUptime']()}* ➺ _${uptime}_ 
 ⎔ *${lenguajeGB['smsVersion']()}* ➺ _${vs}_
-⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
 ⎔ *${lenguajeGB['smsMode']()}* ➺ _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}_
 ⎔ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
 ⎔ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
 
-╭┄〔 *${wm}* 〕┄⊱
-┊დ *${week}, ${date}*
-┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
-┊
-┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
-┊დ *${lenguajeGB['smsBotonM6']()} » ${level} || ${user.exp - min}/${xp}*
-┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'} 
-┆დ️ *𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊 »* ${rtotalreg} 𝘿𝙀 ${totalreg} ${(conn.user.jid == global.conn.user.jid ? '' : `\n┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┊დ 𝙎𝙊𝙔 𝙐𝙉 𝙎𝙐𝘽 𝘽𝙊𝙏 𝘿𝙀𝙇: https://wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
-╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄⊱
-
-*╭━〔* ${username} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''} *〕━⬣*
-*┆⚡ EXPERIENCIA ➟ ${exp}*
-*┆💎 DIAMANTES ➟ ${limit}*
-*┆🐈 GATACOINS ➟ ${money}*
-*┆🪙 TOKENS ➟ ${joincount}*
-*╰*┅┅┅┅┅┅┅┅┅┅┅┅┅ *✧*
+*◜INFORMACIÓN DEL USUARIO◞*
+◎ *Tipo de registro »* ${user.registered === true ? `_${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_` : '_' + usedPrefix + 'verificar_'}
+◎ *Mi estado* ➺ ${typeof user.miestado !== 'string' ? '_#miestado || Estado no asignado_' : '_Me siento ' + user.miestado + '_'}
+◎ *Registrado ➺ ${user.registered === true ? '✅' : '❌ _#verificar_'}*
+◎ *${lenguajeGB['smsBotonM7']().charAt(0).toUpperCase().slice(1).toLowerCase()} »* ${user.premiumTime > 0 ? '✅' : '❌ _#pase premium_'} 
+◎ *${lenguajeGB['smsBotonM5']().charAt(0).toUpperCase().slice(1).toLowerCase()} »* ${role}
+◎ *${lenguajeGB['smsBotonM6']().charAt(0).toUpperCase().slice(1).toLowerCase()} » ${level} || ${user.exp - min}/${xp}*
+◎ *${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*
+◎ *✨ Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
+◎ *⚡ Experiencia ➟ ${exp}*
+◎ *💎 Diamantes ➟ ${limit}*
+◎ *🐈 GataCoins ➟ ${money}*
+◎ *🪙 Tokens ➟ ${joincount}*
 ${readMore}
 *╭━〔 INFORMACIÓN DE GATABOT 〕⬣*
 ┃💫➺ _${usedPrefix}cuentasgatabot | cuentasgb_
