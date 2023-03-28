@@ -1,4 +1,5 @@
 //CÓDIGO CREADO GRACIAS A https://github.com/Azami19 & https://github.com/GataNina-Li
+/*Puedes editar el país y los números se editan desde el config.js*\
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
