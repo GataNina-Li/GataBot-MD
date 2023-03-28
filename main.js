@@ -148,7 +148,7 @@ console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err))
 
 function purgeOldFiles() {
 const directories = ['./GataBotSession/', './GataJadiBot/']
-const oneHourAgo = Date.now() - (1000 * 60 * 60) //60 min 
+const oneHourAgo = Date.now() - (1000 * 60 * 30) //30 min 
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
 if (err) throw err
@@ -319,14 +319,14 @@ console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4)
 
 setInterval(async () => {
 await purgeSession()
-console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 60)
+console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 30)
 
 setInterval(async () => {
-await purgeSessionSB()}, 1000 * 60 * 60)
+await purgeSessionSB()}, 1000 * 60 * 30)
 
 setInterval(async () => {
 await purgeOldFiles()
-console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 60)
+console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 30)
 _quickTest()
 .then(() => conn.logger.info(chalk.bold(lenguajeGB['smsCargando']())))
 .catch(console.error)

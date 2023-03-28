@@ -295,9 +295,9 @@ En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-M
 
 ### 🌟 DESARROLLADORES
 <a href="https://github.com/GataNina-Li/GataBot-MD/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=GataNina-Li/GataBot-MD" />
+<img src="https://contrib.rocks/image?repo=GataNina-Li/GataBot-MD" /> 
 </a>
- 
+
 ### 🌟 AGRADECIMIENTOS
 [![TheShadowBrokers1](https://github.com/BrunoSobrino.png?size=60)](https://github.com/BrunoSobrino) 
 
