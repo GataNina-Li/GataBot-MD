@@ -72,6 +72,14 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 
 let menu = `${lenguajeGB['smsConfi2']()} *${username}*
 
+⎔ *${lenguajeGB['smsTime']()}* ➺ _${time}_    
+⎔ *${lenguajeGB['smsUptime']()}* ➺ _${uptime}_ 
+⎔ *${lenguajeGB['smsVersion']()}* ➺ _${vs}_
+⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
+⎔ *${lenguajeGB['smsMode']()}* ➺ _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}_
+⎔ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
+⎔ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
+
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
 ┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
@@ -80,7 +88,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${username}*
 ┊დ *${lenguajeGB['smsBotonM6']()} » ${level} || ${user.exp - min}/${xp}*
 ┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'} 
 ┆დ️ *𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊 »* ${rtotalreg} 𝘿𝙀 ${totalreg} ${(conn.user.jid == global.conn.user.jid ? '' : `\n┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┊დ 𝙎𝙊𝙔 𝙐𝙉 𝙎𝙐𝘽 𝘽𝙊𝙏 𝘿𝙀𝙇: https://wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
-╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄⊱
 
 *╭━〔* ${username} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''} *〕━⬣*
 *┆⚡ EXPERIENCIA ➟ ${exp}*
