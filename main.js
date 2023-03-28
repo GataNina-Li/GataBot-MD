@@ -148,7 +148,7 @@ console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err))
 
 function purgeOldFiles() {
 const directories = ['./GataBotSession/', './GataJadiBot/']
-const oneHourAgo = Date.now() - (1000 * 60 * 30) //60 min 
+const oneHourAgo = Date.now() - (1000 * 60 * 30) //30 min 
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
 if (err) throw err
