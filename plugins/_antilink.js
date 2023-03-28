@@ -15,7 +15,9 @@ if (isBotAdmin) {
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
 if (m.text.includes(linkThisGroup)) return !0
 }    
-await conn.sendButton(m.chat, `${lenguajeGB['smsEnlaceWat']()} ${await this.getName(m.sender)} ${isBotAdmin ? '' : `\n\n${lenguajeGB['smsAllAdmin']()}`}`, wm, [`${lenguajeGB['smsApagar']()}`, '/disable antilink'], m)    
+await m.reply(`${lenguajeGB['smsEnlaceWat']()} ${await this.getName(m.sender)}`)
+//await conn.sendButton(m.chat, `${lenguajeGB['smsEnlaceWat']()} ${await this.getName(m.sender)} ${isBotAdmin ? '' : `\n\n${lenguajeGB['smsAllAdmin']()}`}`, wm, [`${lenguajeGB['smsApagar']()}`, '/disable antilink'], m)    
+if (!isBotAdmin) return m.reply(`${lenguajeGB['smsAllAdmin']()}`)  
 if (isBotAdmin) {
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
