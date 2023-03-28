@@ -81,23 +81,23 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ⎔ *${lenguajeGB['smsTime']()}* ➺ _${time}_    
 ⎔ *${lenguajeGB['smsUptime']()}* ➺ _${uptime}_ 
 ⎔ *${lenguajeGB['smsVersion']()}* ➺ _${vs}_
-⎔ *${lenguajeGB['smsMode']()}* ➺ _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']().charAt(0).toUpperCase() + lenguajeGB['smsModePrivate']().slice(1).toLowerCase()}*` : `*${lenguajeGB['smsModePublic']().charAt(0).toUpperCase() + lenguajeGB['smsModePublic']().slice(1).toLowerCase()}*`}_
+⎔ *${lenguajeGB['smsMode']()} ➺* _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']().charAt(0).toUpperCase() + lenguajeGB['smsModePrivate']().slice(1).toLowerCase()}` : `*${lenguajeGB['smsModePublic']().charAt(0).toUpperCase() + lenguajeGB['smsModePublic']().slice(1).toLowerCase()}`}_
 ⎔ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
 ⎔ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
 
-*◜INFORMACIÓN DEL USUARIO◞*
+ ✨ *◜INFORMACIÓN DEL USUARIO◞* ✨
 ⊜ *Tipo de registro »* ${user.registered === true ? `_${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_` : '❌ _' + usedPrefix + 'Sin registro_'}
 ⊜ *Mi estado »* ${typeof user.miestado !== 'string' ? '❌ _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
 ⊜ *Registrado »* ${user.registered === true ? '✅' : '❌ _' + usedPrefix + 'verificar_'}
 ⊜ *${lenguajeGB['smsBotonM7']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM7']().slice(1).toLowerCase()} »* ${user.premiumTime > 0 ? '✅' : '❌ _' + usedPrefix + 'pase premium_'}
 ⊜ *${lenguajeGB['smsBotonM5']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM5']().slice(1).toLowerCase()} »* ${role}
-⊜ *${lenguajeGB['smsBotonM6']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM6']().slice(1).toLowerCase()} » ${emoji} || ${user.exp - min}/${xp}*
-⊜ *${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*
-⊜ *✨ Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
-⊜ *⚡ Experiencia ➟ ${exp}*
-⊜ *💎 Diamantes ➟ ${limit}*
-⊜ *🐈 GataCoins ➟ ${money}*
-⊜ *🪙 Tokens ➟ ${joincount}*
+⊜ *${lenguajeGB['smsBotonM6']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM6']().slice(1).toLowerCase()} »* ${emoji} || ${user.exp - min}/${xp}
+⊜ *${lenguajeGB['smsPareja']()} »* ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}
+⊜ *Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
+⊜ *Experiencia ➟* ${exp} ⚡
+⊜ *Diamantes ➟* ${limit} 💎
+⊜ *GataCoins ➟* ${money} 🐈
+⊜ *Tokens ➟* ${joincount} 🪙
 ${readMore}
 *╭━〔 INFORMACIÓN DE GATABOT 〕⬣*
 ┃💫➺ _${usedPrefix}cuentasgatabot | cuentasgb_
