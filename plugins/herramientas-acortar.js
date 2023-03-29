@@ -41,6 +41,20 @@ if (args[1] == "linkpoi") {
 	let poi = await(await fetch(`https://linkpoi.ga/api.php?url=${args[0]}`)).json()
 	m.reply(pros).then(_=> conn.reply(m.chat, `${tesk}${poi.shorturl.replace('\/','/')}`,m))
 	}
+//------------
+
+//BITLY
+if (args[1] == "bitly") {
+	let bit = await (await fetch(`https://api.xteam.xyz/shorturl/bitly?url=${args[0]}&APIKEY=${global.xkey}`)).json()
+	m.reply(pros).then(_=> conn.reply(m.chat, `${tesk}${bit.result.link}`,m))
+}
+//------------
+
+//OuO
+if (args[1] == "ouo") {
+	let ouo = await (await fetch(`https://api.lolhuman.xyz/api/ouoshortlink?apikey=${global.lolkey}&url=${args[0]}`)).json()
+	m.reply(pros).then(_=> conn.reply(m.chat, `${tesk}${ouo.result}`,m))
+	}
 }
 handler.help = ['short <url> <type>']
 handler.tags = ['internet']
