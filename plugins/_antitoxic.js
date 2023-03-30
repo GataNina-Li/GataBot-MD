@@ -29,6 +29,7 @@ await m.reply(`*${lenguajeGB['smsToxic6']()}*\n*@${m.sender.split`@`[0]} ${lengu
 user.banned = true
 await this.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 //await this.updateBlockStatus(m.sender, 'block')
+global.db.data.users[m.sender].limit -= 5
 }
 return !1
 }
