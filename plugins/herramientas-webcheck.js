@@ -16,5 +16,5 @@ async function checkWeb(url) {
 		method: 'post',
 		body: new URLSearchParams(Object.entries({ name: url.join('%0A') }))
 	})).json()
-	return res.values*\
-}*\
+	return res.values
+}*/
