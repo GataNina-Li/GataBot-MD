@@ -1,7 +1,9 @@
+
 const toxicRegex = /cp|zp/i
 
-export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, usedPrefix }) {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+
+
+export async function before(m, { conn, isAdmin, isBotAdmin, isOwner }) {
  
 if (m.isBaileys && m.fromMe)
 return !0
@@ -13,14 +15,14 @@ return !1
   //let img = 'https://i.imgur.com/mtqCy2V.jpg'
  const isToxic = toxicRegex.exec(m.text)
     
-if (isToxic && chat.antitoxic && !isOwner && !isAdmin && bot.restrict) {
+if (isToxic && chat.antitoxic && !isOwner && !isAdmin) {
 user.warn += 1
-if (!(user.warn >= 15)) await m.reply(`${user.warn == 1 ? `*@${m.sender.split`@`[0]}*` : `*@${m.sender.split`@`[0]}*`},  ${lenguajeGB['smsToxic1']()} (${isToxic}) ${lenguajeGB['smsToxic2']()}*\n\n${lenguajeGB['smsToxic3']()} *${user.warn}/15*`, false, { mentions: [m.sender] })
-    }
-/*if (!(user.warn >= 15)) await conn.sendButton(m.chat,`${user.warn == 1 ? `*@${m.sender.split`@`[0]}*` : `*@${m.sender.split`@`[0]}*`} *${lenguajeGB['smsToxic1']()} (${isToxic}) ${lenguajeGB['smsToxic2']()}*`, `${lenguajeGB['smsToxic3']()} *${user.warn}/15*\n\n${wm}`, img, [
-[lenguajeGB.smsToxic4(), 'ok'],
-[lenguajeGB.smsToxic5(), '.off antitoxic'],
-[lenguajeGB.smsConMenu(), '/menu']], false, { mentions: [m.sender] })}*/
+
+if (!(user.warn >= 15)) await conn.sendButton(m.chat,`${user.warn == 1 ? `*@${m.sender.split`@`[0]}*` : `*@${m.sender.split`@`[0]}*`} *${lenguajeGB['smsToxic1']()} (${isToxic}) ${lenguajeGB['smsToxic2']()}*`, `${lenguajeGB['smsToxic3']()} *${user.warn}/4*\n\n${wm}`, img, [
+//[lenguajeGB.smsToxic4(), 'ok'],
+//[lenguajeGB.smsToxic5(), '.off antitoxic'],
+//[lenguajeGB.smsConMenu(), '/menu']], false, { mentions: [m.sender] })}
+
 
 if (user.warn >= 15) {
 user.warn = 0
