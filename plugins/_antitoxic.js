@@ -1,4 +1,3 @@
-
 const toxicRegex = /cp|zp/i
 
 export async function before(m, { conn, isAdmin, isBotAdmin, isOwner }) {
