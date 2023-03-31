@@ -1,4 +1,4 @@
-/* LOS BOTONES NO FUNCIONA CON LA NUEVA ACTUALIZACIÓN DEL WHATSAPP :v 
+
 import fs from 'fs'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
@@ -162,7 +162,7 @@ console.log(e)
 }}
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
-handler.command = /^(menu|menú|memu|memú|help|info|comandos|2help|menu1.2|ayuda|commands|commandos|m|\?)$/i
+handler.command = /^(prueba|\?)$/i
 //handler.register = true
 handler.exp = 50
 export default handler
@@ -194,4 +194,4 @@ function ucapan() {
   }
   return res
 } 
-*/
+
