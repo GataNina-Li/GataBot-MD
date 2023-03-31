@@ -1,7 +1,7 @@
 let handler = async (m, { conn, usedPrefix: _p, args, text, usedPrefix}) => {
 	
-	if (!m.quoted) throw 'Balas Chatnya !'
-	if (text.length > 2) throw 'Cuma Untuk 1 Emoji!'
+	if (!m.quoted) throw 'Responde a un mensaje !'
+	if (text.length > 2) throw 'Solo para 1 emoji!'
 	if (!text) throw `📍 Ejemplo de uso :\n${usedPrefix}react 🗿`
 conn.relayMessage(m.chat, { reactionMessage: {
 key: {
