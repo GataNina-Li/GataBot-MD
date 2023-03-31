@@ -1,8 +1,6 @@
 
 const toxicRegex = /cp|zp/i
 
-
-
 export async function before(m, { conn, isAdmin, isBotAdmin, isOwner }) {
  
 if (m.isBaileys && m.fromMe)
@@ -18,11 +16,10 @@ return !1
 if (isToxic && chat.antitoxic && !isOwner && !isAdmin) {
 user.warn += 1
 
-if (!(user.warn >= 15)) await conn.sendButton(m.chat,`${user.warn == 1 ? `*@${m.sender.split`@`[0]}*` : `*@${m.sender.split`@`[0]}*`} *${lenguajeGB['smsToxic1']()} (${isToxic}) ${lenguajeGB['smsToxic2']()}*`, `${lenguajeGB['smsToxic3']()} *${user.warn}/4*\n\n${wm}`, img, [
+if (!(user.warn >= 15)) await conn.sendButton(m.chat,`${user.warn == 1 ? `*@${m.sender.split`@`[0]}*` : `*@${m.sender.split`@`[0]}*`} *${lenguajeGB['smsToxic1']()} (${isToxic}) ${lenguajeGB['smsToxic2']()}*`, `${lenguajeGB['smsToxic3']()} *${user.warn}/15*\n\n${wm}`, img, [
 //[lenguajeGB.smsToxic4(), 'ok'],
 //[lenguajeGB.smsToxic5(), '.off antitoxic'],
 //[lenguajeGB.smsConMenu(), '/menu']], false, { mentions: [m.sender] })}
-
 
 if (user.warn >= 15) {
 user.warn = 0
