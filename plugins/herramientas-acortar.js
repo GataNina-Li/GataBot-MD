@@ -7,10 +7,10 @@ const sections = [
    {
 	title: "TYPE URL",
 	rows: [
-	    {title: "TinyUrl", rowId: ".short " + args[0] + " tinyurl"},
-	    {title: "LinkPoi", rowId: ".short " + args[0] + " linkpoi"},
-	    {title: "Bitly", rowId: ".short " + args[0] + " bitly"},
-	    {title: "OuO", rowId: ".short " + args[0] + " ouo"},
+	    {title: "tinyUrl", rowId: ".short " + args[0] + " tinyurl"},
+	    {title: "linkPoi", rowId: ".short " + args[0] + " linkpoi"},
+	    {title: "bitly", rowId: ".short " + args[0] + " bitly"},
+	    {title: "ouo", rowId: ".short " + args[0] + " ouo"},
 	]
     },
 ]
