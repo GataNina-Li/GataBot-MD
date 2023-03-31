@@ -3,7 +3,7 @@ var handler = async(m, { conn, text }) => {
 
   if (!text) return conn.reply(m.chat, '*⚠️ INGRESE EL NOMBRE DE UN USUARIO DE GITHUB*', m)
 
-  await m.reply('*B U S C A N D O...*')
+  await m.reply('*B U S C A N D O ✅*')
   let request = await githubstalk(text) 
     let { username, following, followers, type, bio, company, blog, location, email, public_repo, public_gists, profile_pic } = request
     let thumb = await (profile_pic)
