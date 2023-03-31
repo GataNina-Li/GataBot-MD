@@ -8,7 +8,7 @@ var handler = async(m, { conn, text }) => {
     let { username, following, followers, type, bio, company, blog, location, email, public_repo, public_gists, profile_pic } = request
     let thumb = await (profile_pic)
     let hasil = `*⬤── 「 𝙂𝙄𝙏𝙃𝙐𝘽 𝙎𝙏𝘼𝙇𝙆 」 ──⬤*
-➸ *Username*: ${username}
+➸ *nombre de usuario*: ${username}
 ➸ *Bio*: ${bio}
 ➸ *Perusahaan*: ${company}
 ➸ *Email:* ${email}
