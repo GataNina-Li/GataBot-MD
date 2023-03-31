@@ -6,7 +6,7 @@ var handler = async(m, { conn, text }) => {
   await m.reply('Searching...')
   let request = await githubstalk(text) 
     let { username, following, followers, type, bio, company, blog, location, email, public_repo, public_gist, profile_pic } = request
-    let thumb = await getBuffer(profile_pic)
+    let thumb = await (profile_pic)
     let hasil = `*── 「 GITHUB STALK 」 ──*
 ➸ *Username*: ${username}
 ➸ *Bio*: ${bio}
