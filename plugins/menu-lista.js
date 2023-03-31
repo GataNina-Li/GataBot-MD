@@ -162,7 +162,7 @@ console.log(e)
 }}
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
-handler.command = /^(prueba|\?)$/i
+handler.command = /^(prueba)$/i
 //handler.register = true
 handler.exp = 50
 export default handler
