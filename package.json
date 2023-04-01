@@ -15,13 +15,13 @@
 "test": "node test.js",
 "test2": "nodemon index.js" },
     
-"homepage": "https://github.com/GataNina-Li",
+"homepage": "https://github.com/GataNina-Li/GataBot-MD",
 "author": {
 "name": "GataNina-Li" }, 
     
 "repository": {
 "type": "git",
-"url": "git@github.com:GataNina-Li/GataBot-MD.git" },
+ "url": "git+https://github.com/GataNina-Li/GataBot-MD.git" },
 
     
 "bugs": {
