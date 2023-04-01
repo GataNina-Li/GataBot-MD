@@ -1,6 +1,6 @@
 {
   "name": "ts-mixer",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "description": "A very small TypeScript library that provides tolerable Mixin functionality.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

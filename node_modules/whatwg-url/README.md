@@ -4,7 +4,7 @@ whatwg-url is a full implementation of the WHATWG [URL Standard](https://url.spe
 
 ## Specification conformance
 
-whatwg-url is currently up to date with the URL spec up to commit [ab0e820](https://github.com/whatwg/url/commit/ab0e820b0b559610b30c731b7f2c1a8094181680).
+whatwg-url is currently up to date with the URL spec up to commit [43c2713](https://github.com/whatwg/url/commit/43c27137a0bc82c4b800fe74be893255fbeb35f4).
 
 For `file:` URLs, whose [origin is left unspecified](https://url.spec.whatwg.org/#concept-url-origin), whatwg-url chooses to use a new opaque origin (which serializes to `"null"`).
 
@@ -24,10 +24,12 @@ The following methods are exported for use by places like jsdom that need to imp
 - [Basic URL parser](https://url.spec.whatwg.org/#concept-basic-url-parser): `basicURLParse(input, { baseURL, url, stateOverride })`
 - [URL serializer](https://url.spec.whatwg.org/#concept-url-serializer): `serializeURL(urlRecord, excludeFragment)`
 - [Host serializer](https://url.spec.whatwg.org/#concept-host-serializer): `serializeHost(hostFromURLRecord)`
+- [URL path serializer](https://url.spec.whatwg.org/#url-path-serializer): `serializePath(urlRecord)`
 - [Serialize an integer](https://url.spec.whatwg.org/#serialize-an-integer): `serializeInteger(number)`
 - [Origin](https://url.spec.whatwg.org/#concept-url-origin) [serializer](https://html.spec.whatwg.org/multipage/origin.html#ascii-serialisation-of-an-origin): `serializeURLOrigin(urlRecord)`
 - [Set the username](https://url.spec.whatwg.org/#set-the-username): `setTheUsername(urlRecord, usernameString)`
 - [Set the password](https://url.spec.whatwg.org/#set-the-password): `setThePassword(urlRecord, passwordString)`
+- [Has an opaque path](https://url.spec.whatwg.org/#url-opaque-path): `hasAnOpaquePath(urlRecord)`
 - [Cannot have a username/password/port](https://url.spec.whatwg.org/#cannot-have-a-username-password-port): `cannotHaveAUsernamePasswordPort(urlRecord)`
 - [Percent decode bytes](https://url.spec.whatwg.org/#percent-decode): `percentDecodeBytes(uint8Array)`
 - [Percent decode a string](https://url.spec.whatwg.org/#percent-decode-string): `percentDecodeString(string)`
@@ -52,7 +54,7 @@ The `stateOverride` parameter is one of the following strings:
 - [`"file host"`](https://url.spec.whatwg.org/#file-host-state)
 - [`"path start"`](https://url.spec.whatwg.org/#path-start-state)
 - [`"path"`](https://url.spec.whatwg.org/#path-state)
-- [`"cannot-be-a-base-URL path"`](https://url.spec.whatwg.org/#cannot-be-a-base-url-path-state)
+- [`"opaque path"`](https://url.spec.whatwg.org/#cannot-be-a-base-url-path-state)
 - [`"query"`](https://url.spec.whatwg.org/#query-state)
 - [`"fragment"`](https://url.spec.whatwg.org/#fragment-state)
 
@@ -63,10 +65,9 @@ The URL record type has the following API:
 - [`password`](https://url.spec.whatwg.org/#concept-url-password)
 - [`host`](https://url.spec.whatwg.org/#concept-url-host)
 - [`port`](https://url.spec.whatwg.org/#concept-url-port)
-- [`path`](https://url.spec.whatwg.org/#concept-url-path) (as an array)
+- [`path`](https://url.spec.whatwg.org/#concept-url-path) (as an array of strings, or a string)
 - [`query`](https://url.spec.whatwg.org/#concept-url-query)
 - [`fragment`](https://url.spec.whatwg.org/#concept-url-fragment)
-- [`cannotBeABaseURL`](https://url.spec.whatwg.org/#url-cannot-be-a-base-url-flag) (as a boolean)
 
 These properties should be treated with care, as in general changing them will cause the URL record to be in an inconsistent state until the appropriate invocation of `basicURLParse` is used to fix it up. You can see examples of this in the URL Standard, where there are many step sequences like "4. Set context object’s url’s fragment to the empty string. 5. Basic URL parse _input_ with context object’s url as _url_ and fragment state as _state override_." In between those two steps, a URL record is in an unusable state.
 

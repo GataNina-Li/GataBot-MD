@@ -57,7 +57,8 @@ class AbstractCursor extends mongo_types_1.TypedEventEmitter {
         }
         this[kClient] = client;
         this[kNamespace] = namespace;
-        this[kDocuments] = [];
+        this[kId] = null;
+        this[kDocuments] = new utils_1.List();
         this[kInitialized] = false;
         this[kClosed] = false;
         this[kKilled] = false;
@@ -93,7 +94,8 @@ class AbstractCursor extends mongo_types_1.TypedEventEmitter {
         }
     }
     get id() {
-        return this[kId];
+        var _a;
+        return (_a = this[kId]) !== null && _a !== void 0 ? _a : undefined;
     }
     /** @internal */
     get client() {
@@ -139,7 +141,15 @@ class AbstractCursor extends mongo_types_1.TypedEventEmitter {
     }
     /** Returns current buffered documents */
     readBufferedDocuments(number) {
-        return this[kDocuments].splice(0, number !== null && number !== void 0 ? number : this[kDocuments].length);
+        const bufferedDocs = [];
+        const documentsToRead = Math.min(number !== null && number !== void 0 ? number : this[kDocuments].length, this[kDocuments].length);
+        for (let count = 0; count < documentsToRead; count++) {
+            const document = this[kDocuments].shift();
+            if (document != null) {
+                bufferedDocs.push(document);
+            }
+        }
+        return bufferedDocs;
     }
     [Symbol.asyncIterator]() {
         async function* nativeAsyncIterator() {
@@ -148,7 +158,15 @@ class AbstractCursor extends mongo_types_1.TypedEventEmitter {
             }
             while (true) {
                 const document = await this.next();
-                if (document == null) {
+                // Intentional strict null check, because users can map cursors to falsey values.
+                // We allow mapping to all values except for null.
+                // eslint-disable-next-line no-restricted-syntax
+                if (document === null) {
+                    if (!this.closed) {
+                        const message = 'Cursor returned a `null` document, but the cursor is not exhausted.  Mapping documents to `null` is not supported in the cursor transform.';
+                        await cleanupCursorAsync(this, { needsToEmitClosed: true }).catch(() => null);
+                        throw new error_1.MongoAPIError(message);
+                    }
                     break;
                 }
                 yield document;
@@ -191,7 +209,7 @@ class AbstractCursor extends mongo_types_1.TypedEventEmitter {
             if (this[kId] === bson_1.Long.ZERO) {
                 return false;
             }
-            if (this[kDocuments].length) {
+            if (this[kDocuments].length !== 0) {
                 return true;
             }
             const doc = await nextAsync(this, true);
@@ -271,6 +289,29 @@ class AbstractCursor extends mongo_types_1.TypedEventEmitter {
      * this function's transform.
      *
      * @remarks
+     *
+     * **Note** Cursors use `null` internally to indicate that there are no more documents in the cursor. Providing a mapping
+     * function that maps values to `null` will result in the cursor closing itself before it has finished iterating
+     * all documents.  This will **not** result in a memory leak, just surprising behavior.  For example:
+     *
+     * ```typescript
+     * const cursor = collection.find({});
+     * cursor.map(() => null);
+     *
+     * const documents = await cursor.toArray();
+     * // documents is always [], regardless of how many documents are in the collection.
+     * ```
+     *
+     * Other falsey values are allowed:
+     *
+     * ```typescript
+     * const cursor = collection.find({});
+     * cursor.map(() => '');
+     *
+     * const documents = await cursor.toArray();
+     * // documents is now an array of empty strings
+     * ```
+     *
      * **Note for Typescript Users:** adding a transform changes the return type of the iteration of this cursor,
      * it **does not** return a new instance of a cursor. This means when calling map,
      * you should always assign the result to a new variable in order to get a correctly typed cursor variable.
@@ -366,8 +407,8 @@ class AbstractCursor extends mongo_types_1.TypedEventEmitter {
         if (!this[kInitialized]) {
             return;
         }
-        this[kId] = undefined;
-        this[kDocuments] = [];
+        this[kId] = null;
+        this[kDocuments].clear();
         this[kClosed] = false;
         this[kKilled] = false;
         this[kInitialized] = false;
@@ -400,7 +441,7 @@ class AbstractCursor extends mongo_types_1.TypedEventEmitter {
      * a significant refactor.
      */
     [kInit](callback) {
-        this._initialize(this[kSession], (err, state) => {
+        this._initialize(this[kSession], (error, state) => {
             if (state) {
                 const response = state.response;
                 this[kServer] = state.server;
@@ -413,7 +454,7 @@ class AbstractCursor extends mongo_types_1.TypedEventEmitter {
                     if (response.cursor.ns) {
                         this[kNamespace] = (0, utils_1.ns)(response.cursor.ns);
                     }
-                    this[kDocuments] = response.cursor.firstBatch;
+                    this[kDocuments].pushMany(response.cursor.firstBatch);
                 }
                 // When server responses return without a cursor document, we close this cursor
                 // and return the raw server response. This is often the case for explain commands
@@ -421,13 +462,16 @@ class AbstractCursor extends mongo_types_1.TypedEventEmitter {
                 if (this[kId] == null) {
                     this[kId] = bson_1.Long.ZERO;
                     // TODO(NODE-3286): ExecutionResult needs to accept a generic parameter
-                    this[kDocuments] = [state.response];
+                    this[kDocuments].push(state.response);
                 }
             }
             // the cursor is now initialized, even if an error occurred or it is dead
             this[kInitialized] = true;
-            if (err || cursorIsDead(this)) {
-                return cleanupCursor(this, { error: err }, () => callback(err, nextDocument(this)));
+            if (error) {
+                return cleanupCursor(this, { error }, () => callback(error, undefined));
+            }
+            if (cursorIsDead(this)) {
+                return cleanupCursor(this, undefined, () => callback());
             }
             callback();
         });
@@ -437,18 +481,11 @@ exports.AbstractCursor = AbstractCursor;
 /** @event */
 AbstractCursor.CLOSE = 'close';
 function nextDocument(cursor) {
-    if (cursor[kDocuments] == null || !cursor[kDocuments].length) {
-        return null;
-    }
     const doc = cursor[kDocuments].shift();
-    if (doc) {
-        const transform = cursor[kTransform];
-        if (transform) {
-            return transform(doc);
-        }
-        return doc;
+    if (doc && cursor[kTransform]) {
+        return cursor[kTransform](doc);
     }
-    return null;
+    return doc;
 }
 const nextAsync = (0, util_1.promisify)(next);
 /**
@@ -466,18 +503,15 @@ function next(cursor, blocking, callback) {
     if (cursor.closed) {
         return callback(undefined, null);
     }
-    if (cursor[kDocuments] && cursor[kDocuments].length) {
+    if (cursor[kDocuments].length !== 0) {
         callback(undefined, nextDocument(cursor));
         return;
     }
     if (cursorId == null) {
         // All cursors must operate within a session, one must be made implicitly if not explicitly provided
-        cursor[kInit]((err, value) => {
+        cursor[kInit](err => {
             if (err)
                 return callback(err);
-            if (value) {
-                return callback(undefined, value);
-            }
             return next(cursor, blocking, callback);
         });
         return;
@@ -487,16 +521,16 @@ function next(cursor, blocking, callback) {
     }
     // otherwise need to call getMore
     const batchSize = cursor[kOptions].batchSize || 1000;
-    cursor._getMore(batchSize, (err, response) => {
+    cursor._getMore(batchSize, (error, response) => {
         if (response) {
             const cursorId = typeof response.cursor.id === 'number'
                 ? bson_1.Long.fromNumber(response.cursor.id)
                 : response.cursor.id;
-            cursor[kDocuments] = response.cursor.nextBatch;
+            cursor[kDocuments].pushMany(response.cursor.nextBatch);
             cursor[kId] = cursorId;
         }
-        if (err || cursorIsDead(cursor)) {
-            return cleanupCursor(cursor, { error: err }, () => callback(err, nextDocument(cursor)));
+        if (error || cursorIsDead(cursor)) {
+            return cleanupCursor(cursor, { error }, () => callback(error, nextDocument(cursor)));
         }
         if (cursor[kDocuments].length === 0 && blocking === false) {
             return callback(undefined, null);

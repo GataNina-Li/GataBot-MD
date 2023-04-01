@@ -32,9 +32,7 @@ npm install strtok3
 
 ### Compatibility
 
-Module: version 7 migrated from [CommonJS](https://en.wikipedia.org/wiki/CommonJS) to [pure ECMAScript Module (ESM)](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
-JavaScript is compliant with [ECMAScript 2019 (ES10)](https://en.wikipedia.org/wiki/ECMAScript#10th_Edition_%E2%80%93_ECMAScript_2019).
-Requires Node.js ≥ 14.16 engine.
+NPM module is compliant with [ECMAScript 2018 (ES9)](https://en.wikipedia.org/wiki/ECMAScript#9th_Edition_%E2%80%93_ECMAScript_2018).
 
 ## API
 
@@ -59,8 +57,8 @@ All of the strtok3 methods return a [*tokenizer*](#tokenizer), either directly o
 Returns, via a promise, a [*tokenizer*](#tokenizer) which can be used to parse a file.
 
 ```js
-import * as strtok3 from 'strtok3';
-import * as Token from 'token-types';
+const strtok3 = require('strtok3');
+const Token = require('token-types');
     
 (async () => {
 
@@ -87,8 +85,8 @@ Create [*tokenizer*](#tokenizer) from a node.js [readable stream](https://nodejs
 Returns a [*tokenizer*](#tokenizer), via a Promise, which can be used to parse a buffer.
 
 ```js
-import strtok3 from 'strtok3';
-import * as Token from 'token-types';
+const strtok3 = require('strtok3');
+const Token = require('token-types');
 
 strtok3.fromStream(stream).then(tokenizer => {
   return tokenizer.readToken(Token.UINT8).then(myUint8Number => {
@@ -107,7 +105,7 @@ strtok3.fromStream(stream).then(tokenizer => {
 Returns a [*tokenizer*](#tokenizer) which can be used to parse the provided buffer.
 
 ```js
-import * as strtok3 from 'strtok3';
+const strtok3 = require('strtok3');
     
 const tokenizer = strtok3.fromBuffer(buffer);
 
@@ -280,8 +278,8 @@ To convert a [Web-API readable stream](https://developer.mozilla.org/en-US/docs/
 
 Example submodule-import:
 ```js
-import * as strtok3core from 'strtok3/core'; // Submodule-import to prevent Node.js specific dependencies
-import { ReadableWebToNodeStream } from 'readable-web-to-node-stream';
+const strtok3core = require('strtok3/lib/core'); // Submodule-import to prevent Node.js specific dependencies
+const {ReadableWebToNodeStream} = require('readable-web-to-node-stream');
 
 (async () => {
 

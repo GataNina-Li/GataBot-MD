@@ -23,7 +23,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.z = void 0;
-const mod = __importStar(require("./external"));
-exports.z = mod;
+const z = __importStar(require("./external"));
+exports.z = z;
 __exportStar(require("./external"), exports);
-exports.default = mod;
+exports.default = z;

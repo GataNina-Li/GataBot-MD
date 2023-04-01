@@ -145,6 +145,7 @@ const Messages = {
 
   INTERACTION_ALREADY_REPLIED: 'The reply to this interaction has already been sent or deferred.',
   INTERACTION_NOT_REPLIED: 'The reply to this interaction has not been sent or deferred.',
+  /** @deprecated */
   INTERACTION_EPHEMERAL_REPLIED: 'Ephemeral responses cannot be deleted.',
 
   COMMAND_INTERACTION_OPTION_NOT_FOUND: name => `Required option "${name}" not found.`,
@@ -165,6 +166,8 @@ const Messages = {
   NOT_IMPLEMENTED: (what, name) => `Method ${what} not implemented on ${name}.`,
 
   SWEEP_FILTER_RETURN: 'The return value of the sweepFilter function was not false or a Function',
+
+  GUILD_FORUM_MESSAGE_REQUIRED: 'You must provide a message to create a guild forum thread',
 };
 
 for (const [name, message] of Object.entries(Messages)) register(name, message);

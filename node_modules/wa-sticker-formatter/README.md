@@ -6,7 +6,7 @@
 
 Wa-Sticker-Formatter is a simple tool which allows you to create and format WhatsApp Stickers.
 
-[![NPM](https://img.shields.io/npm/l/wa-sticker-formatter?style=flat-square&label=License)](https://github.com/AlenSaito1/wa-sticker-formatter/blob/master/LICENSE) [![CodeFactor](https://img.shields.io/codefactor/grade/github/alensaito1/wa-sticker-formatter?style=flat-square&label=Code%20Quality)](https://www.codefactor.io/repository/github/alensaito1/wa-sticker-formatter) [![NPM](https://img.shields.io/npm/dw/wa-sticker-formatter?style=flat-square&label=Downloads)](https://npmjs.com/package/wa-sticker-formatter)
+[![NPM](https://img.shields.io/npm/l/wa-sticker-formatter?style=flat-square&label=License)](https://github.com/AlenVelocity/wa-sticker-formatter/blob/master/LICENSE) [![CodeFactor](https://img.shields.io/codefactor/grade/github/AlenVelocity/wa-sticker-formatter?style=flat-square&label=Code%20Quality)](https://www.codefactor.io/repository/github/AlenVelocity/wa-sticker-formatter) [![NPM](https://img.shields.io/npm/dw/wa-sticker-formatter?style=flat-square&label=Downloads)](https://npmjs.com/package/wa-sticker-formatter)
 
 
 </div>
@@ -127,7 +127,9 @@ Sticker types are exported as an enum.
 enum StickerTypes {
     DEFAULT = 'default',
     CROPPED = 'crop',
-    FULL = 'full'
+    FULL = 'full',
+    CIRCLE = 'circle,
+    ROUNDED = 'rounded'
 }
 
 ```

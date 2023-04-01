@@ -95,7 +95,7 @@ function split (matcher, mapper, options) {
         mapper = matcher
         matcher = /\r?\n/
       // If options is only argument.
-      } else if (typeof matcher === 'object' && !(matcher instanceof RegExp)) {
+      } else if (typeof matcher === 'object' && !(matcher instanceof RegExp) && !matcher[Symbol.split]) {
         options = matcher
         matcher = /\r?\n/
       }

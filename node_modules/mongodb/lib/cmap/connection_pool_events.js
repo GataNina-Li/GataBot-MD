@@ -150,9 +150,10 @@ exports.ConnectionCheckedInEvent = ConnectionCheckedInEvent;
  */
 class ConnectionPoolClearedEvent extends ConnectionPoolMonitoringEvent {
     /** @internal */
-    constructor(pool, serviceId) {
+    constructor(pool, options = {}) {
         super(pool);
-        this.serviceId = serviceId;
+        this.serviceId = options.serviceId;
+        this.interruptInUseConnections = options.interruptInUseConnections;
     }
 }
 exports.ConnectionPoolClearedEvent = ConnectionPoolClearedEvent;

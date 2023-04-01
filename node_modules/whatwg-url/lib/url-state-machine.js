@@ -467,7 +467,11 @@ function includesCredentials(url) {
 }
 
 function cannotHaveAUsernamePasswordPort(url) {
-  return url.host === null || url.host === "" || url.cannotBeABaseURL || url.scheme === "file";
+  return url.host === null || url.host === "" || hasAnOpaquePath(url) || url.scheme === "file";
+}
+
+function hasAnOpaquePath(url) {
+  return typeof url.path === "string";
 }
 
 function isNormalizedWindowsDriveLetter(string) {
@@ -493,9 +497,7 @@ function URLStateMachine(input, base, encodingOverride, url, stateOverride) {
       port: null,
       path: [],
       query: null,
-      fragment: null,
-
-      cannotBeABaseURL: false
+      fragment: null
     };
 
     const res = trimControlChars(this.input);
@@ -592,9 +594,8 @@ URLStateMachine.prototype["parse scheme"] = function parseScheme(c, cStr) {
       this.state = "path or authority";
       ++this.pointer;
     } else {
-      this.url.cannotBeABaseURL = true;
-      this.url.path.push("");
-      this.state = "cannot-be-a-base-URL path";
+      this.url.path = "";
+      this.state = "opaque path";
     }
   } else if (!this.stateOverride) {
     this.buffer = "";
@@ -609,14 +610,13 @@ URLStateMachine.prototype["parse scheme"] = function parseScheme(c, cStr) {
 };
 
 URLStateMachine.prototype["parse no scheme"] = function parseNoScheme(c) {
-  if (this.base === null || (this.base.cannotBeABaseURL && c !== p("#"))) {
+  if (this.base === null || (hasAnOpaquePath(this.base) && c !== p("#"))) {
     return failure;
-  } else if (this.base.cannotBeABaseURL && c === p("#")) {
+  } else if (hasAnOpaquePath(this.base) && c === p("#")) {
     this.url.scheme = this.base.scheme;
-    this.url.path = this.base.path.slice();
+    this.url.path = this.base.path;
     this.url.query = this.base.query;
     this.url.fragment = "";
-    this.url.cannotBeABaseURL = true;
     this.state = "fragment";
   } else if (this.base.scheme === "file") {
     this.state = "file";
@@ -1033,7 +1033,7 @@ URLStateMachine.prototype["parse path"] = function parsePath(c) {
   return true;
 };
 
-URLStateMachine.prototype["parse cannot-be-a-base-URL path"] = function parseCannotBeABaseURLPath(c) {
+URLStateMachine.prototype["parse opaque path"] = function parseOpaquePath(c) {
   if (c === p("?")) {
     this.url.query = "";
     this.state = "query";
@@ -1053,7 +1053,7 @@ URLStateMachine.prototype["parse cannot-be-a-base-URL path"] = function parseCan
     }
 
     if (!isNaN(c)) {
-      this.url.path[0] += utf8PercentEncodeCodePoint(c, isC0ControlPercentEncode);
+      this.url.path += utf8PercentEncodeCodePoint(c, isC0ControlPercentEncode);
     }
   }
 
@@ -1125,16 +1125,10 @@ function serializeURL(url, excludeFragment) {
     }
   }
 
-  if (url.cannotBeABaseURL) {
-    output += url.path[0];
-  } else {
-    if (url.host === null && url.path.length > 1 && url.path[0] === "") {
-      output += "/.";
-    }
-    for (const segment of url.path) {
-      output += `/${segment}`;
-    }
+  if (url.host === null && !hasAnOpaquePath(url) && url.path.length > 1 && url.path[0] === "") {
+    output += "/.";
   }
+  output += serializePath(url);
 
   if (url.query !== null) {
     output += `?${url.query}`;
@@ -1158,14 +1152,28 @@ function serializeOrigin(tuple) {
   return result;
 }
 
+function serializePath(url) {
+  if (hasAnOpaquePath(url)) {
+    return url.path;
+  }
+
+  let output = "";
+  for (const segment of url.path) {
+    output += `/${segment}`;
+  }
+  return output;
+}
+
 module.exports.serializeURL = serializeURL;
+
+module.exports.serializePath = serializePath;
 
 module.exports.serializeURLOrigin = function (url) {
   // https://url.spec.whatwg.org/#concept-url-origin
   switch (url.scheme) {
     case "blob":
       try {
-        return module.exports.serializeURLOrigin(module.exports.parseURL(url.path[0]));
+        return module.exports.serializeURLOrigin(module.exports.parseURL(serializePath(url)));
       } catch (e) {
         // serializing an opaque origin returns "null"
         return "null";
@@ -1219,6 +1227,8 @@ module.exports.setThePassword = function (url, password) {
 module.exports.serializeHost = serializeHost;
 
 module.exports.cannotHaveAUsernamePasswordPort = cannotHaveAUsernamePasswordPort;
+
+module.exports.hasAnOpaquePath = hasAnOpaquePath;
 
 module.exports.serializeInteger = function (integer) {
   return String(integer);

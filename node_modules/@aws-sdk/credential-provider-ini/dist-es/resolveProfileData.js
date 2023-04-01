@@ -1,5 +1,6 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
+import { isProcessProfile, resolveProcessCredentials } from "./resolveProcessCredentials";
 import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
 import { isStaticCredsProfile, resolveStaticCredentials } from "./resolveStaticCredentials";
 import { isWebIdentityProfile, resolveWebIdentityCredentials } from "./resolveWebIdentityCredentials";
@@ -16,6 +17,9 @@ export const resolveProfileData = async (profileName, profiles, options, visited
     }
     if (isWebIdentityProfile(data)) {
         return resolveWebIdentityCredentials(data, options);
+    }
+    if (isProcessProfile(data)) {
+        return resolveProcessCredentials(options, profileName);
     }
     if (isSsoProfile(data)) {
         return resolveSsoCredentials(data);

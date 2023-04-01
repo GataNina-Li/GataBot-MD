@@ -14,7 +14,7 @@ const ReactionCollector = require('./ReactionCollector');
 const { Sticker } = require('./Sticker');
 const { Error } = require('../errors');
 const ReactionManager = require('../managers/ReactionManager');
-const { InteractionTypes, MessageTypes, SystemMessageTypes } = require('../util/Constants');
+const { InteractionTypes, MessageTypes, SystemMessageTypes, MaxBulkDeletableMessageAge } = require('../util/Constants');
 const MessageFlags = require('../util/MessageFlags');
 const Permissions = require('../util/Permissions');
 const SnowflakeUtil = require('../util/SnowflakeUtil');
@@ -57,6 +57,17 @@ class Message extends Base {
      * @type {Snowflake}
      */
     this.id = data.id;
+
+    if ('position' in data) {
+      /**
+       * A generally increasing integer (there may be gaps or duplicates) that represents
+       * the approximate position of the message in a thread.
+       * @type {?number}
+       */
+      this.position = data.position;
+    } else {
+      this.position ??= null;
+    }
 
     /**
      * The timestamp the message was sent at
@@ -621,7 +632,26 @@ class Message extends Base {
     return Boolean(
       this.author.id === this.client.user.id ||
         (permissions.has(Permissions.FLAGS.MANAGE_MESSAGES, false) &&
-          this.guild.me.communicationDisabledUntilTimestamp < Date.now()),
+          this.guild.members.me.communicationDisabledUntilTimestamp < Date.now()),
+    );
+  }
+
+  /**
+   * Whether the message is bulk deletable by the client user
+   * @type {boolean}
+   * @readonly
+   * @example
+   * // Filter for bulk deletable messages
+   * channel.bulkDelete(messages.filter(message => message.bulkDeletable));
+   */
+  get bulkDeletable() {
+    const permissions = this.channel?.permissionsFor(this.client.user);
+    return (
+      (this.inGuild() &&
+        Date.now() - this.createdTimestamp < MaxBulkDeletableMessageAge &&
+        this.deletable &&
+        permissions?.has(Permissions.FLAGS.MANAGE_MESSAGES, false)) ??
+      false
     );
   }
 
@@ -772,9 +802,9 @@ class Message extends Base {
 
     return this.client.actions.MessageReactionAdd.handle(
       {
-        user: this.client.user,
-        channel: this.channel,
-        message: this,
+        [this.client.actions.injectedUser]: this.client.user,
+        [this.client.actions.injectedChannel]: this.channel,
+        [this.client.actions.injectedMessage]: this,
         emoji: Util.resolvePartialEmoji(emoji),
       },
       true,
@@ -836,9 +866,10 @@ class Message extends Base {
    * archived. This can be:
    * * `60` (1 hour)
    * * `1440` (1 day)
-   * * `4320` (3 days) <warn>This is only available when the guild has the `THREE_DAY_THREAD_ARCHIVE` feature.</warn>
-   * * `10080` (7 days) <warn>This is only available when the guild has the `SEVEN_DAY_THREAD_ARCHIVE` feature.</warn>
-   * * `'MAX'` Based on the guild's features
+   * * `4320` (3 days)
+   * * `10080` (7 days)
+   * * `'MAX'` (7 days)
+   * <warn>This option is deprecated and will be removed in the next major version.</warn>
    * @typedef {number|string} ThreadAutoArchiveDuration
    */
 
@@ -854,7 +885,7 @@ class Message extends Base {
 
   /**
    * Create a new public thread from this message
-   * @see ThreadManager#create
+   * @see GuildTextThreadManager#create
    * @param {StartThreadOptions} [options] Options for starting a thread on this message
    * @returns {Promise<ThreadChannel>}
    */

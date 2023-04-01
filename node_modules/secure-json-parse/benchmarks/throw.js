@@ -11,7 +11,7 @@ const internals = {
 const suite = new Benchmark.Suite()
 
 suite
-  .add('JSON.parse', () => {
+  .add('JSON.parse valid', () => {
     JSON.parse(internals.text)
   })
   .add('JSON.parse error', () => {
@@ -21,15 +21,15 @@ suite
   })
   .add('secure-json-parse parse', () => {
     try {
-      sjson.parse(internals.text)
+      sjson.parse(internals.invalid)
     } catch (ignoreErr) { }
   })
   .add('secure-json-parse safeParse', () => {
-    sjson.safeParse(internals.text)
+    sjson.safeParse(internals.invalid)
   })
   .add('reviver', () => {
     try {
-      JSON.parse(internals.text, internals.reviver)
+      JSON.parse(internals.invalid, internals.reviver)
     } catch (ignoreErr) { }
   })
   .on('cycle', (event) => {

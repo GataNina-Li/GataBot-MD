@@ -5,9 +5,6 @@ var TYPED_OK =  (typeof Uint8Array !== 'undefined') &&
                 (typeof Uint16Array !== 'undefined') &&
                 (typeof Int32Array !== 'undefined');
 
-function _has(obj, key) {
-  return Object.prototype.hasOwnProperty.call(obj, key);
-}
 
 exports.assign = function (obj /*from1, from2, from3, ...*/) {
   var sources = Array.prototype.slice.call(arguments, 1);
@@ -20,7 +17,7 @@ exports.assign = function (obj /*from1, from2, from3, ...*/) {
     }
 
     for (var p in source) {
-      if (_has(source, p)) {
+      if (source.hasOwnProperty(p)) {
         obj[p] = source[p];
       }
     }

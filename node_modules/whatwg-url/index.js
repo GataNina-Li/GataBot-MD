@@ -14,12 +14,14 @@ exports.URLSearchParams = sharedGlobalObject.URLSearchParams;
 exports.parseURL = urlStateMachine.parseURL;
 exports.basicURLParse = urlStateMachine.basicURLParse;
 exports.serializeURL = urlStateMachine.serializeURL;
+exports.serializePath = urlStateMachine.serializePath;
 exports.serializeHost = urlStateMachine.serializeHost;
 exports.serializeInteger = urlStateMachine.serializeInteger;
 exports.serializeURLOrigin = urlStateMachine.serializeURLOrigin;
 exports.setTheUsername = urlStateMachine.setTheUsername;
 exports.setThePassword = urlStateMachine.setThePassword;
 exports.cannotHaveAUsernamePasswordPort = urlStateMachine.cannotHaveAUsernamePasswordPort;
+exports.hasAnOpaquePath = urlStateMachine.hasAnOpaquePath;
 
 exports.percentDecodeString = percentEncoding.percentDecodeString;
 exports.percentDecodeBytes = percentEncoding.percentDecodeBytes;

@@ -60,7 +60,7 @@ fs.createReadStream(file)
   .on('data', function (obj) {
     //each chunk now is a js object
   })
-  .on("error", function(error) => {
+  .on("error", function(error) {
     //handling parsing errors
   })
 ```

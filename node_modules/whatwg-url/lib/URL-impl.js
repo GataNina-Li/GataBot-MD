@@ -101,7 +101,7 @@ exports.implementation = class URLImpl {
   }
 
   set host(v) {
-    if (this._url.cannotBeABaseURL) {
+    if (usm.hasAnOpaquePath(this._url)) {
       return;
     }
 
@@ -117,7 +117,7 @@ exports.implementation = class URLImpl {
   }
 
   set hostname(v) {
-    if (this._url.cannotBeABaseURL) {
+    if (usm.hasAnOpaquePath(this._url)) {
       return;
     }
 
@@ -145,19 +145,11 @@ exports.implementation = class URLImpl {
   }
 
   get pathname() {
-    if (this._url.cannotBeABaseURL) {
-      return this._url.path[0];
-    }
-
-    if (this._url.path.length === 0) {
-      return "";
-    }
-
-    return `/${this._url.path.join("/")}`;
+    return usm.serializePath(this._url);
   }
 
   set pathname(v) {
-    if (this._url.cannotBeABaseURL) {
+    if (usm.hasAnOpaquePath(this._url)) {
       return;
     }
 

@@ -10,6 +10,7 @@ const Integration = require('./Integration');
 const Webhook = require('./Webhook');
 const WelcomeScreen = require('./WelcomeScreen');
 const { Error } = require('../errors');
+const AutoModerationRuleManager = require('../managers/AutoModerationRuleManager');
 const GuildApplicationCommandManager = require('../managers/GuildApplicationCommandManager');
 const GuildBanManager = require('../managers/GuildBanManager');
 const GuildChannelManager = require('../managers/GuildChannelManager');
@@ -25,7 +26,6 @@ const VoiceStateManager = require('../managers/VoiceStateManager');
 const {
   ChannelTypes,
   DefaultMessageNotificationLevels,
-  PartialTypes,
   VerificationLevels,
   ExplicitContentFilterLevels,
   Status,
@@ -39,6 +39,7 @@ const Util = require('../util/Util');
 let deprecationEmittedForSetChannelPositions = false;
 let deprecationEmittedForSetRolePositions = false;
 let deprecationEmittedForDeleted = false;
+let deprecationEmittedForMe = false;
 
 /**
  * @type {WeakSet<Guild>}
@@ -116,6 +117,12 @@ class Guild extends AnonymousGuild {
      * @type {GuildScheduledEventManager}
      */
     this.scheduledEvents = new GuildScheduledEventManager(this);
+
+    /**
+     * A manager of the auto moderation rules of this guild.
+     * @type {AutoModerationRuleManager}
+     */
+    this.autoModerationRules = new AutoModerationRuleManager(this);
 
     if (!data) return;
     if (data.unavailable) {
@@ -221,11 +228,15 @@ class Guild extends AnonymousGuild {
     /**
      * An array of enabled guild features, here are the possible values:
      * * ANIMATED_ICON
+     * * AUTO_MODERATION
      * * BANNER
      * * COMMERCE
      * * COMMUNITY
+     * * CREATOR_MONETIZABLE_PROVISIONAL
+     * * CREATOR_STORE_PAGE
      * * DISCOVERABLE
      * * FEATURABLE
+     * * INVITES_DISABLED
      * * INVITE_SPLASH
      * * MEMBER_VERIFICATION_GATE_ENABLED
      * * NEWS
@@ -237,11 +248,15 @@ class Guild extends AnonymousGuild {
      * * WELCOME_SCREEN_ENABLED
      * * TICKETED_EVENTS_ENABLED
      * * MONETIZATION_ENABLED
+     * <warn>`MONETIZATION_ENABLED` has been replaced.
+     * See [this pull request](https://github.com/discord/discord-api-docs/pull/5724) for more information.</warn>
      * * MORE_STICKERS
      * * THREE_DAY_THREAD_ARCHIVE
      * * SEVEN_DAY_THREAD_ARCHIVE
      * * PRIVATE_THREADS
      * * ROLE_ICONS
+     * * ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE
+     * * ROLE_SUBSCRIPTIONS_ENABLED
      * @typedef {string} Features
      * @see {@link https://discord.com/developers/docs/resources/guild#guild-object-guild-features}
      */
@@ -562,7 +577,7 @@ class Guild extends AnonymousGuild {
 
   /**
    * Widget channel for this guild
-   * @type {?TextChannel}
+   * @type {?(TextChannel|NewsChannel|VoiceChannel|StageChannel|ForumChannel)}
    * @readonly
    */
   get widgetChannel() {
@@ -590,15 +605,16 @@ class Guild extends AnonymousGuild {
   /**
    * The client user as a GuildMember of this guild
    * @type {?GuildMember}
+   * @deprecated Use {@link GuildMemberManager#me} instead.
    * @readonly
    */
   get me() {
-    return (
-      this.members.resolve(this.client.user.id) ??
-      (this.client.options.partials.includes(PartialTypes.GUILD_MEMBER)
-        ? this.members._add({ user: { id: this.client.user.id } }, true)
-        : null)
-    );
+    if (!deprecationEmittedForMe) {
+      process.emitWarning('Guild#me is deprecated. Use Guild#members#me instead.', 'DeprecationWarning');
+      deprecationEmittedForMe = true;
+    }
+
+    return this.members.me;
   }
 
   /**
@@ -775,7 +791,8 @@ class Guild extends AnonymousGuild {
   /**
    * Options used to fetch audit logs.
    * @typedef {Object} GuildAuditLogsFetchOptions
-   * @property {Snowflake|GuildAuditLogsEntry} [before] Only return entries before this entry
+   * @property {Snowflake|GuildAuditLogsEntry} [before] Consider only entries before this entry
+   * @property {Snowflake|GuildAuditLogsEntry} [after] Consider only entries after this entry
    * @property {number} [limit] The number of entries to return
    * @property {UserResolvable} [user] Only return entries for actions made by this user
    * @property {AuditLogAction|number} [type] Only return entries for this action type
@@ -791,18 +808,17 @@ class Guild extends AnonymousGuild {
    *   .then(audit => console.log(audit.entries.first()))
    *   .catch(console.error);
    */
-  async fetchAuditLogs(options = {}) {
-    if (options.before && options.before instanceof GuildAuditLogs.Entry) options.before = options.before.id;
-    if (typeof options.type === 'string') options.type = GuildAuditLogs.Actions[options.type];
-
+  async fetchAuditLogs({ before, after, limit, user, type } = {}) {
     const data = await this.client.api.guilds(this.id)['audit-logs'].get({
       query: {
-        before: options.before,
-        limit: options.limit,
-        user_id: this.client.users.resolveId(options.user),
-        action_type: options.type,
+        before: before?.id ?? before,
+        after: after?.id ?? after,
+        limit,
+        user_id: this.client.users.resolveId(user),
+        action_type: typeof type === 'string' ? GuildAuditLogs.Actions[type] : type,
       },
     });
+
     return GuildAuditLogs.build(this, data);
   }
 
@@ -1306,6 +1322,17 @@ class Guild extends AnonymousGuild {
       reason,
     });
     return this;
+  }
+
+  /**
+   * Sets whether this guild's invites are disabled.
+   * @param {boolean} [disabled=true] Whether the invites are disabled
+   * @returns {Promise<Guild>}
+   */
+  disableInvites(disabled = true) {
+    const features = this.features.filter(feature => feature !== 'INVITES_DISABLED');
+    if (disabled) features.push('INVITES_DISABLED');
+    return this.edit({ features });
   }
 
   /**

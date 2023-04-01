@@ -22,7 +22,7 @@ var toString = Object.prototype.toString;
 /* internal
  * inflate.chunks -> Array
  *
- * Chunks of output data, if [[Inflate#onData]] not overridden.
+ * Chunks of output data, if [[Inflate#onData]] not overriden.
  **/
 
 /**
@@ -144,29 +144,13 @@ function Inflate(options) {
   this.header = new GZheader();
 
   zlib_inflate.inflateGetHeader(this.strm, this.header);
-
-  // Setup dictionary
-  if (opt.dictionary) {
-    // Convert data if needed
-    if (typeof opt.dictionary === 'string') {
-      opt.dictionary = strings.string2buf(opt.dictionary);
-    } else if (toString.call(opt.dictionary) === '[object ArrayBuffer]') {
-      opt.dictionary = new Uint8Array(opt.dictionary);
-    }
-    if (opt.raw) { //In raw mode we need to set the dictionary early
-      status = zlib_inflate.inflateSetDictionary(this.strm, opt.dictionary);
-      if (status !== c.Z_OK) {
-        throw new Error(msg[status]);
-      }
-    }
-  }
 }
 
 /**
  * Inflate#push(data[, mode]) -> Boolean
  * - data (Uint8Array|Array|ArrayBuffer|String): input data
  * - mode (Number|Boolean): 0..6 for corresponding Z_NO_FLUSH..Z_TREE modes.
- *   See constants. Skipped or `false` means Z_NO_FLUSH, `true` means Z_FINISH.
+ *   See constants. Skipped or `false` means Z_NO_FLUSH, `true` meansh Z_FINISH.
  *
  * Sends input data to inflate pipe, generating [[Inflate#onData]] calls with
  * new output chunks. Returns `true` on success. The last data block must have
@@ -196,6 +180,7 @@ Inflate.prototype.push = function (data, mode) {
   var dictionary = this.options.dictionary;
   var status, _mode;
   var next_out_utf8, tail, utf8str;
+  var dict;
 
   // Flag to properly process Z_BUF_ERROR on testing inflate call
   // when we check that all output data was flushed.
@@ -227,7 +212,17 @@ Inflate.prototype.push = function (data, mode) {
     status = zlib_inflate.inflate(strm, c.Z_NO_FLUSH);    /* no bad return value */
 
     if (status === c.Z_NEED_DICT && dictionary) {
-      status = zlib_inflate.inflateSetDictionary(this.strm, dictionary);
+      // Convert data if needed
+      if (typeof dictionary === 'string') {
+        dict = strings.string2buf(dictionary);
+      } else if (toString.call(dictionary) === '[object ArrayBuffer]') {
+        dict = new Uint8Array(dictionary);
+      } else {
+        dict = dictionary;
+      }
+
+      status = zlib_inflate.inflateSetDictionary(this.strm, dict);
+
     }
 
     if (status === c.Z_BUF_ERROR && allowBufError === true) {
@@ -302,7 +297,7 @@ Inflate.prototype.push = function (data, mode) {
 
 /**
  * Inflate#onData(chunk) -> Void
- * - chunk (Uint8Array|Array|String): output data. Type of array depends
+ * - chunk (Uint8Array|Array|String): ouput data. Type of array depends
  *   on js engine support. When string output requested, each chunk
  *   will be string.
  *
@@ -329,7 +324,7 @@ Inflate.prototype.onEnd = function (status) {
   if (status === c.Z_OK) {
     if (this.options.to === 'string') {
       // Glue & convert here, until we teach pako to send
-      // utf8 aligned strings to onData
+      // utf8 alligned strings to onData
       this.result = this.chunks.join('');
     } else {
       this.result = utils.flattenChunks(this.chunks);
@@ -386,7 +381,7 @@ function inflate(input, options) {
   inflator.push(input, true);
 
   // That will never happens, if you don't cheat with options :)
-  if (inflator.err) { throw inflator.msg || msg[inflator.err]; }
+  if (inflator.err) { throw inflator.msg; }
 
   return inflator.result;
 }

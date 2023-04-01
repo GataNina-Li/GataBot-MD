@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.resolveProfileData = void 0;
 const property_provider_1 = require("@aws-sdk/property-provider");
 const resolveAssumeRoleCredentials_1 = require("./resolveAssumeRoleCredentials");
+const resolveProcessCredentials_1 = require("./resolveProcessCredentials");
 const resolveSsoCredentials_1 = require("./resolveSsoCredentials");
 const resolveStaticCredentials_1 = require("./resolveStaticCredentials");
 const resolveWebIdentityCredentials_1 = require("./resolveWebIdentityCredentials");
@@ -19,6 +20,9 @@ const resolveProfileData = async (profileName, profiles, options, visitedProfile
     }
     if ((0, resolveWebIdentityCredentials_1.isWebIdentityProfile)(data)) {
         return (0, resolveWebIdentityCredentials_1.resolveWebIdentityCredentials)(data, options);
+    }
+    if ((0, resolveProcessCredentials_1.isProcessProfile)(data)) {
+        return (0, resolveProcessCredentials_1.resolveProcessCredentials)(options, profileName);
     }
     if ((0, resolveSsoCredentials_1.isSsoProfile)(data)) {
         return (0, resolveSsoCredentials_1.resolveSsoCredentials)(data);

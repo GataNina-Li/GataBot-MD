@@ -12,8 +12,8 @@ const serializeAws_restJson1GetRoleCredentialsCommand = async (input, context) =
     });
     const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/federation/credentials";
     const query = map({
-        role_name: [, input.roleName],
-        account_id: [, input.accountId],
+        role_name: [, (0, smithy_client_1.expectNonNull)(input.roleName, `roleName`)],
+        account_id: [, (0, smithy_client_1.expectNonNull)(input.accountId, `accountId`)],
     });
     let body;
     return new protocol_http_1.HttpRequest({
@@ -37,7 +37,7 @@ const serializeAws_restJson1ListAccountRolesCommand = async (input, context) => 
     const query = map({
         next_token: [, input.nextToken],
         max_result: [() => input.maxResults !== void 0, () => input.maxResults.toString()],
-        account_id: [, input.accountId],
+        account_id: [, (0, smithy_client_1.expectNonNull)(input.accountId, `accountId`)],
     });
     let body;
     return new protocol_http_1.HttpRequest({

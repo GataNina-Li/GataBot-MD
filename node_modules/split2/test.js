@@ -390,3 +390,20 @@ test('mapper throws on transform', function (t) {
   input.write('\n')
   input.end('b')
 })
+
+test('supports Symbol.split', function (t) {
+  t.plan(2)
+
+  const input = split({
+    [Symbol.split] (str) {
+      return str.split('~')
+    }
+  })
+
+  input.pipe(strcb(function (err, list) {
+    t.error(err)
+    t.deepEqual(list, ['hello', 'world'])
+  }))
+
+  input.end('hello~world')
+})

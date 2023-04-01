@@ -135,9 +135,10 @@ function makeTempCredentials(credentials, callback) {
             }
         }));
     }
+    const credentialProvider = (0, deps_1.getAwsCredentialProvider)();
     // Check if the AWS credential provider from the SDK is present. If not,
     // use the old method.
-    if ('kModuleError' in deps_1.credentialProvider) {
+    if ('kModuleError' in credentialProvider) {
         // If the environment variable AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
         // is set then drivers MUST assume that it was set by an AWS ECS agent
         if (process.env.AWS_CONTAINER_CREDENTIALS_RELATIVE_URI) {
@@ -177,7 +178,7 @@ function makeTempCredentials(credentials, callback) {
          * - Shared credentials and config ini files
          * - The EC2/ECS Instance Metadata Service
          */
-        const { fromNodeProviderChain } = deps_1.credentialProvider;
+        const { fromNodeProviderChain } = credentialProvider;
         const provider = fromNodeProviderChain();
         provider()
             .then((creds) => {

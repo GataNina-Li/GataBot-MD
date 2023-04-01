@@ -94,9 +94,9 @@ Dump the individual, unprocessed WebP frames to a directory.
 * `start`: The first frame to dump. Defaults to the first frame.
 * `end`: The last frame to dump. Defaults to the last frame.
 
-##### `async .replaceFrame(frame, source)`
+##### `async .replaceFrame(frameIndex, source)`
 Replaces a frame in the animation with another image from `source`. All other frame settings are preserved.
-* `frame`: Which frame to replace. Frame indexes are 0-based.
+* `frameIndex`: Which frame to replace. Frame indexes are 0-based.
 * `source`: If this is a string, the frame is loaded from disk. If this is a Buffer, the frame is loaded from there.
 
 ##### `async .save(path = this.path, options)`
@@ -109,10 +109,11 @@ Returns a Buffer in the format `[ r, g, b, a, r, g, b, a, ... ]`. Values are ran
 Use this for non-animations.<br />
 On error, this returns a Buffer full of 0s.
 
-##### `async .setImageData(buf, { width = 0, height = 0, preset = 0, quality = 75, exact = false, lossless = 0, method = 4, advanced = undefined })`
+##### `async .setImageData(buffer, { width = 0, height = 0, preset = 0, quality = 75, exact = false, lossless = 0, method = 4, advanced = undefined })`
 Encode `buf` as a new WebP using the provided settings and replace the image pixel data with it.<br />
 This preserves EXIF/ICCP/XMP if present.<br />
 Use this for non-animations.<br />
+* `buffer`: A Buffer object with the raw pixels in RGBA order.<br />
 Options:
 * `width`/`height`<br />
     If either are > 0, override the existing width and/or height with this value.<br />
@@ -226,14 +227,16 @@ Options:
 If `lossless` is set above 0, then setting `quality` or `method` is discouraged as they will override settings in the lossless preset.<br />
 Return value can be checked against the values in `WebP.encodeResults`.
 
-##### `async .getFrameData(frame)`
+##### `async .getFrameData(frameIndex)`
 Get the raw RGBA pixel data for a specific frame.<br />
 Use this for animations.<br />
-Otherwise identical to `.getImageData()`.
+* `frameIndex`: Which frame to get. Frame indexes are 0-based.<br />
+Otherwise identical to `.getImageData()`
 
-##### `async .setFrameData(frame, buffer, { width = 0, height = 0, preset = 0, quality = 75, exact = false, lossless = 0, method = 4, advanced = undefined })`
+##### `async .setFrameData(frameIndex, buffer, { width = 0, height = 0, preset = 0, quality = 75, exact = false, lossless = 0, method = 4, advanced = undefined })`
 Encode `buffer` as a new WebP using the provided settings and replace an existing frame's pixel data with it.<br />
 Use this for animations.<br />
+* `frameIndex`: Which frame to get. Frame indexes are 0-based.<br />
 Otherwise identical to `.setImageData()`.
 
 #### Static functions

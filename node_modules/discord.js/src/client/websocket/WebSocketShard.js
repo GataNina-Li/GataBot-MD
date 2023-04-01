@@ -17,6 +17,7 @@ try {
 
 /**
  * Represents a Shard's WebSocket connection
+ * @extends {EventEmitter}
  */
 class WebSocketShard extends EventEmitter {
   constructor(manager, id) {
@@ -33,6 +34,13 @@ class WebSocketShard extends EventEmitter {
      * @type {number}
      */
     this.id = id;
+
+    /**
+     * The resume URL for this shard
+     * @type {?string}
+     * @private
+     */
+    this.resumeURL = null;
 
     /**
      * The current status of the shard
@@ -190,11 +198,13 @@ class WebSocketShard extends EventEmitter {
    * or reject if we couldn't connect
    */
   connect() {
-    const { gateway, client } = this.manager;
+    const { client } = this.manager;
 
     if (this.connection?.readyState === WebSocket.OPEN && this.status === Status.READY) {
       return Promise.resolve();
     }
+
+    const gateway = this.resumeURL ?? this.manager.gateway;
 
     return new Promise((resolve, reject) => {
       const cleanup = () => {
@@ -417,10 +427,11 @@ class WebSocketShard extends EventEmitter {
          */
         this.emit(ShardEvents.READY);
 
+        this.resumeURL = packet.d.resume_gateway_url;
         this.sessionId = packet.d.session_id;
         this.expectedGuilds = new Set(packet.d.guilds.map(d => d.id));
         this.status = Status.WAITING_FOR_GUILDS;
-        this.debug(`[READY] Session ${this.sessionId}.`);
+        this.debug(`[READY] Session ${this.sessionId} | Resume url ${this.resumeURL}.`);
         this.lastHeartbeatAcked = true;
         this.sendHeartbeat('ReadyHeartbeat');
         break;
@@ -578,14 +589,10 @@ class WebSocketShard extends EventEmitter {
     }
     this.wsCloseTimeout = setTimeout(() => {
       this.setWsCloseTimeout(-1);
-      this.debug(`[WebSocket] Close Emitted: ${this.closeEmitted}`);
+
       // Check if close event was emitted.
       if (this.closeEmitted) {
-        this.debug(
-          `[WebSocket] was closed. | WS State: ${
-            CONNECTION_STATE[this.connection?.readyState ?? WebSocket.CLOSED]
-          } | Close Emitted: ${this.closeEmitted}`,
-        );
+        this.debug(`[WebSocket] close was already emitted, assuming the connection was closed properly.`);
         // Setting the variable false to check for zombie connections.
         this.closeEmitted = false;
         return;
@@ -593,13 +600,17 @@ class WebSocketShard extends EventEmitter {
 
       this.debug(
         // eslint-disable-next-line max-len
-        `[WebSocket] did not close properly, assuming a zombie connection.\nEmitting close and reconnecting again.`,
+        `[WebSocket] Close Emitted: ${this.closeEmitted} | did not close properly, assuming a zombie connection.\nEmitting close and reconnecting again.`,
       );
 
-      this.emitClose();
-      // Setting the variable false to check for zombie connections.
-      this.closeEmitted = false;
-    }, time).unref();
+      if (this.connection) this._cleanupConnection();
+
+      this.emitClose({
+        code: 4009,
+        reason: 'Session time out.',
+        wasClean: false,
+      });
+    }, time);
   }
 
   /**
@@ -824,14 +835,11 @@ class WebSocketShard extends EventEmitter {
       this._emitDestroyed();
     }
 
-    if (this.connection?.readyState === WebSocket.CLOSING || this.connection?.readyState === WebSocket.CLOSED) {
-      this.closeEmitted = false;
-      this.debug(
-        `[WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+    this.debug(
+      `[WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
         Timeout: ${this.manager.client.options.closeTimeout}ms`,
-      );
-      this.setWsCloseTimeout(this.manager.client.options.closeTimeout);
-    }
+    );
+    this.setWsCloseTimeout(this.manager.client.options.closeTimeout);
 
     // Step 2: Null the connection object
     this.connection = null;
@@ -842,8 +850,9 @@ class WebSocketShard extends EventEmitter {
     // Step 4: Cache the old sequence (use to attempt a resume)
     if (this.sequence !== -1) this.closeSequence = this.sequence;
 
-    // Step 5: Reset the sequence and session id if requested
+    // Step 5: Reset the sequence, resume URL and session id if requested
     if (reset) {
+      this.resumeURL = null;
       this.sequence = -1;
       this.sessionId = null;
     }

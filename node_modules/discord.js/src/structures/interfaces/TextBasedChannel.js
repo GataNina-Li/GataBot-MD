@@ -5,7 +5,7 @@ const MessageCollector = require('../MessageCollector');
 const MessagePayload = require('../MessagePayload');
 const SnowflakeUtil = require('../../util/SnowflakeUtil');
 const { Collection } = require('@discordjs/collection');
-const { InteractionTypes } = require('../../util/Constants');
+const { InteractionTypes, MaxBulkDeletableMessageAge } = require('../../util/Constants');
 const { TypeError, Error } = require('../../errors');
 const InteractionCollector = require('../InteractionCollector');
 
@@ -73,7 +73,8 @@ class TextBasedChannel {
    * @typedef {BaseMessageOptions} MessageOptions
    * @property {ReplyOptions} [reply] The options for replying to a message
    * @property {StickerResolvable[]} [stickers=[]] Stickers to send in the message
-   * @property {MessageFlags} [flags] Which flags to set for the message. Only `SUPPRESS_EMBEDS` can be set.
+   * @property {MessageFlags} [flags]
+   * Which flags to set for the message. Only `SUPPRESS_EMBEDS` and `SUPPRESS_NOTIFICATIONS` can be set.
    */
 
   /**
@@ -295,7 +296,7 @@ class TextBasedChannel {
     if (Array.isArray(messages) || messages instanceof Collection) {
       let messageIds = messages instanceof Collection ? [...messages.keys()] : messages.map(m => m.id ?? m);
       if (filterOld) {
-        messageIds = messageIds.filter(id => Date.now() - SnowflakeUtil.timestampFrom(id) < 1_209_600_000);
+        messageIds = messageIds.filter(id => Date.now() - SnowflakeUtil.timestampFrom(id) < MaxBulkDeletableMessageAge);
       }
       if (messageIds.length === 0) return new Collection();
       if (messageIds.length === 1) {

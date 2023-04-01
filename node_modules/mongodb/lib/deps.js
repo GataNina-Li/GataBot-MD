@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AutoEncryptionLoggerLevel = exports.aws4 = exports.saslprep = exports.Snappy = exports.credentialProvider = exports.ZStandard = exports.Kerberos = exports.PKG_VERSION = void 0;
+exports.AutoEncryptionLoggerLevel = exports.aws4 = exports.saslprep = exports.Snappy = exports.getAwsCredentialProvider = exports.ZStandard = exports.Kerberos = exports.PKG_VERSION = void 0;
 const error_1 = require("./error");
 const utils_1 = require("./utils");
 exports.PKG_VERSION = Symbol('kPkgVersion');
@@ -29,13 +29,18 @@ try {
     exports.ZStandard = require('@mongodb-js/zstd');
 }
 catch { } // eslint-disable-line
-exports.credentialProvider = makeErrorModule(new error_1.MongoMissingDependencyError('Optional module `@aws-sdk/credential-providers` not found.' +
-    ' Please install it to enable getting aws credentials via the official sdk.'));
-try {
-    // Ensure you always wrap an optional require in the try block NODE-3199
-    exports.credentialProvider = require('@aws-sdk/credential-providers');
+function getAwsCredentialProvider() {
+    try {
+        // Ensure you always wrap an optional require in the try block NODE-3199
+        const credentialProvider = require('@aws-sdk/credential-providers');
+        return credentialProvider;
+    }
+    catch {
+        return makeErrorModule(new error_1.MongoMissingDependencyError('Optional module `@aws-sdk/credential-providers` not found.' +
+            ' Please install it to enable getting aws credentials via the official sdk.'));
+    }
 }
-catch { } // eslint-disable-line
+exports.getAwsCredentialProvider = getAwsCredentialProvider;
 exports.Snappy = makeErrorModule(new error_1.MongoMissingDependencyError('Optional module `snappy` not found. Please install it to enable snappy compression'));
 try {
     // Ensure you always wrap an optional require in the try block NODE-3199

@@ -147,7 +147,11 @@ class BulkWriteResult {
     getWriteErrors() {
         return this.result.writeErrors;
     }
-    /** Retrieve lastOp if available */
+    /**
+     * Retrieve lastOp if available
+     *
+     * @deprecated Will be removed in 5.0
+     */
     getLastOp() {
         return this.result.opTime;
     }
@@ -173,6 +177,7 @@ class BulkWriteResult {
             return new WriteConcernError({ errmsg, code: error_1.MONGODB_ERROR_CODES.WriteConcernFailed });
         }
     }
+    /* @deprecated Will be removed in 5.0 release */
     toJSON() {
         return this.result;
     }

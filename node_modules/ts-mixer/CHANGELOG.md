@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.3](https://github.com/tannerntannern/ts-mixer/compare/v6.0.2...v6.0.3) (2023-02-09)
+
+
+### Bug Fixes
+
+* allow abstract constructor signature for hasMixin ([f82e27b](https://github.com/tannerntannern/ts-mixer/commit/f82e27b96d142cfdec6446930a1db354167e88d2)), closes [tannerntannern/ts-mixer#56](https://github.com/tannerntannern/ts-mixer/issues/56)
+* allow abstract constructor signatures for hasMixin ([8964b59](https://github.com/tannerntannern/ts-mixer/commit/8964b59e062854fde52424497930ca3e8bb98e87)), closes [#57](https://github.com/tannerntannern/ts-mixer/issues/57)
+* simplify signature ([8a79197](https://github.com/tannerntannern/ts-mixer/commit/8a79197cc6bca5757d7c06560d7b26e73491b11f))
+
 ### [6.0.2](https://github.com/tannerntannern/ts-mixer/compare/v6.0.1...v6.0.2) (2022-11-10)
 
 

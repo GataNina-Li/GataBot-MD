@@ -26,7 +26,7 @@ export function dataUriToBuffer(uri) {
         if (meta[i] === 'base64') {
             base64 = true;
         }
-        else {
+        else if (meta[i]) {
             typeFull += `;${meta[i]}`;
             if (meta[i].indexOf('charset=') === 0) {
                 charset = meta[i].substring(8);

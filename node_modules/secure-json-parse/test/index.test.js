@@ -145,6 +145,14 @@ test('parse', t => {
       t.end()
     })
 
+    t.test('should reset stackTraceLimit', t => {
+      const text = '{ "a": 5, "b": 6, "__proto__": { "x": 7 }, "c": { "d": 0, "e": "text", "__proto__": { "y": 8 }, "f": { "g": 2 } } }'
+      Error.stackTraceLimit = 42
+      t.throws(() => j.parse(text))
+      t.same(Error.stackTraceLimit, 42)
+      t.end()
+    })
+
     t.end()
   })
 
@@ -369,6 +377,14 @@ test('safeParse', t => {
       j.safeParse(Buffer.from('"X"')),
       JSON.parse(Buffer.from('"X"'))
     )
+    t.end()
+  })
+
+  t.test('should reset stackTraceLimit', t => {
+    const text = '{ "a": 5, "b": 6, "__proto__": { "x": 7 }, "c": { "d": 0, "e": "text", "__proto__": { "y": 8 }, "f": { "g": 2 } } }'
+    Error.stackTraceLimit = 42
+    t.same(j.safeParse(text), null)
+    t.same(Error.stackTraceLimit, 42)
     t.end()
   })
 

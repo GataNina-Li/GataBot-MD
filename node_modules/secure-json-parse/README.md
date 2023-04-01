@@ -2,7 +2,6 @@
 
 ![CI](https://github.com/fastify/secure-json-parse/workflows/CI/badge.svg)
 [![NPM version](https://img.shields.io/npm/v/secure-json-parse.svg?style=flat)](https://www.npmjs.com/package/secure-json-parse)
-[![Known Vulnerabilities](https://snyk.io/test/github/fastify/secure-json-parse/badge.svg)](https://snyk.io/test/github/fastify/secure-json-parse)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://standardjs.com/)
 
 `JSON.parse()` drop-in replacement with prototype poisoning protection.
