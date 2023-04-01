@@ -55,7 +55,7 @@
         "hispamemes": "^1.0.7",
         "hxz-api": "^1.0.1",
         "jsdom": "^19.0.0",
-        "link-preview-js": "^2.1.13",
+        "link-preview-js": "^3.0.0",
         "lodash": "^4.17.21",
         "lowdb": "^3.0.0",
         "moment-timezone": "^0.5.34",

@@ -3,17 +3,17 @@ var handler = async(m, { conn, text }) => {
 
   if (!text) return conn.reply(m.chat, '*⚠️ INGRESE EL NOMBRE DE UN USUARIO DE GITHUB*', m)
 
-  await m.reply('*B U S C A N D O...*')
+  await m.reply('*B U S C A N D O ✅*')
   let request = await githubstalk(text) 
     let { username, following, followers, type, bio, company, blog, location, email, public_repo, public_gists, profile_pic } = request
     let thumb = await (profile_pic)
-    let hasil = `*── 「 GITHUB STALK 」 ──*
-➸ *Username*: ${username}
+    let hasil = `*⬤── 「 𝙂𝙄𝙏𝙃𝙐𝘽 𝙎𝙏𝘼𝙇𝙆 」 ──⬤*
+➸ *nombre de usuario*: ${username}
 ➸ *Bio*: ${bio}
-➸ *Perusahaan*: ${company}
+➸ *Compañía*: ${company}
 ➸ *Email:* ${email}
 ➸ *Blog:* ${blog}
-➸ *Repo Publik:* ${public_repo}
+➸ *Repositorios públicos:* ${public_repo}
 ➸ *Gists Publik:* ${public_gists}
 ➸ *Follower:* ${followers}
 ➸ *Following:* ${following}
@@ -21,7 +21,7 @@ var handler = async(m, { conn, text }) => {
 ➸ *Type:* ${type}
 `
 
-    conn.sendFile(m.chat, img18, 'githubstalk.jpg', hasil, m)
+    conn.sendFile(m.chat, logogit, 'githubstalk.jpg', hasil, m)
 }
 handler.help = ['githubstalk'].map(v => v + ' <query>')
 handler.tags = ['internet']
