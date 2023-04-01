@@ -15,13 +15,14 @@
 "test": "node test.js",
 "test2": "nodemon index.js" },
     
-"homepage": "https://github.com/GataNina-Li",
+"homepage": "https://github.com/GataNina-Li/GataBot-MD",
 "author": {
 "name": "GataNina-Li" }, 
     
 "repository": {
 "type": "git",
-"url": "git+https://github.com/GataNina-Li/GataBot-MD.git" },
+ "url": "git+https://github.com/GataNina-Li/GataBot-MD.git" },
+
     
 "bugs": {
 "url": "https://github.com/GataNina-Li/GataBot-MD/issues" },
@@ -29,21 +30,18 @@
 "dependencies": {
         "@adiwajshing/baileys": "github:GataNina-Li/baileys",
         "@bochilteam/scraper": "^3.0.0",
-        "@tensorflow/tfjs-node": "^4.3.0",
         "@vitalets/google-translate-api": "^8.0.0",
         "@shineiichijo/marika": "^2.0.6",
         "acrcloud": "^1.4.0",
         "api-dylux": "^1.2.2",
         "awesome-phonenumber": "^2.68.0",
         "axios": "^0.24.0",
-        "brainly-scraper-v2": "*",
         "cfonts": "^2.10.0",
         "chalk": "^5.0.0",
         "cheerio": "^1.0.0-rc.10",
         "colors": "1.4.0",
         "emoji-api": "^1.0.2",
         "express": "^4.17.3",
-        "jimp": "*",
         "file-type": "^17.1.1",
         "fluent-ffmpeg": "^2.1.2",
         "fb-downloader-scrapper": "^1.0.1", 
@@ -87,5 +85,5 @@
         "wa-sticker-formatter": "^4.3.2",
         "yargs": "^17.3.1",
         "yt-search": "^2.10.3",
-        "ytdl-core": "^4.11.2"
+        "ytdl-core": "^4.11.3"
 }}

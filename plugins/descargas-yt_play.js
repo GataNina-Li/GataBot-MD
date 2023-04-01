@@ -60,7 +60,8 @@ conn.sendMessage(m.chat, { audio: { url: aud }, mimetype: 'audio/mp4', fileName:
 
 if (command == 'play2') {
 let jsonn = await ytLink.json()
-let vid = await jsonn.result.video
+let vid = await jsonn.result.video 
+
 /*await conn.sendButton(m.chat, wm, `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀

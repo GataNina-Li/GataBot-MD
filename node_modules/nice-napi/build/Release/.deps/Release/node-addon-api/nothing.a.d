@@ -1,1 +1,0 @@
-cmd_Release/obj.target/../node-addon-api/nothing.a := rm -f Release/obj.target/../node-addon-api/nothing.a && ar crs Release/obj.target/../node-addon-api/nothing.a Release/obj.target/nothing/../node-addon-api/nothing.o

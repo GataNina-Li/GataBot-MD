@@ -1,4 +1,4 @@
-import axiostal from "axios"
+import axios from "axios"
 import fetch from 'node-fetch'
 let handler = async(m, { conn, text, xteamkey }) => {
 if (!text) throw `${mg}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙐𝙉 𝙀𝙉𝙇𝘼𝘾𝙀 𝙋𝘼𝙍𝘼 𝘼𝘾𝙊𝙍𝙏𝘼𝙍\n\n𝙀𝙉𝙏𝙀𝙍 𝘼 𝙇𝙄𝙉𝙆 𝙏𝙊 𝙎𝙃𝙊𝙍𝙏𝙀𝙉`
