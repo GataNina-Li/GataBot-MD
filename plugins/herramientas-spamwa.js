@@ -1,4 +1,4 @@
-/*let handler = async (m, { conn, text, usedPrefix, command }) => {
+let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 let time = global.db.data.users[m.sender].lastrob + 7200000
 if (new Date - global.db.data.users[m.sender].lastrob < 7200000) throw `*⏱️ ESPERA ${msToTime(time - new Date())}\n NO USER ESTE COMANDO CON UN MAL USO*`
@@ -39,4 +39,4 @@ hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
 hours = (hours < 10) ? "0" + hours : hours
 minutes = (minutes < 10) ? "0" + minutes : minutes
 seconds = (seconds < 10) ? "0" + seconds : seconds
-return hours + " Hora(s) " + minutes + " Minuto(s)"}*/
+return hours + " Hora(s) " + minutes + " Minuto(s)"}
