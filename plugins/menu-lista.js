@@ -195,3 +195,4 @@ function ucapan() {
   return res
 } 
 
+*/
