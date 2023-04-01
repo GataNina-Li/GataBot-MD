@@ -21,7 +21,8 @@
     
 "repository": {
 "type": "git",
-"url": "git+https://github.com/GataNina-Li/GataBot-MD.git" },
+"url": "git@github.com:GataNina-Li/GataBot-MD.git" },
+
     
 "bugs": {
 "url": "https://github.com/GataNina-Li/GataBot-MD/issues" },
