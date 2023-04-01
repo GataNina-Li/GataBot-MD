@@ -3,14 +3,14 @@
 /*                                                       */ 
 /*       |- [ ⚠ ] - CREDITOS DEL CODIGO - [ ⚠ ] -|      */
 /*     —◉ DESAROLLADO POR OTOSAKA:                       */
-/*     ◉ Otosaka (https://github.com/6otosaka9)          */                    */
+/*     ◉ Otosaka (https://github.com/6otosaka9)          */                    
 /*                                                       */
 /*     —◉ FT:                                            */
 /*     ◉ BrunoSobrino (https://github.com/BrunoSobrino)  */
 /*                                                       */
 /* [❗]                      [❗]                      [❗] */
 /*-------------------------------------------------------*/
-/*import fetch from 'node-fetch'
+import fetch from 'node-fetch'
 import axios from 'axios'
 import { Configuration, OpenAIApi } from 'openai'
 const configuration = new Configuration({ organization: global.openai_org_id, apiKey: global.openai_key });
@@ -53,4 +53,4 @@ console.log(efe4)
 throw `*[❗] 𝙀𝙍𝙍𝙊𝙍, 𝙑𝙐𝙀𝙇𝙑𝘼 𝘼 𝙄𝙉𝙏𝙀𝙉𝙏𝘼𝙍𝙇𝙊*`   
 }}}}}}
 handler.command = ['openai2', 'chatgpt2', 'ia2', 'robot2', 'Mystic', 'MysticBot']
-export default handler*/
+export default handler
