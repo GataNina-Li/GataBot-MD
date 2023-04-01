@@ -1,4 +1,4 @@
-import axios from 'axios'
+/*import axios from 'axios'
 var handler = async(m, { conn, text }) => {
 
   if (!text) return conn.reply(m.chat, '*⚠️ INGRESE EL NOMBRE DE UN USUARIO DE GITHUB*', m)
@@ -57,4 +57,4 @@ async function githubstalk(user) {
             resolve(hasil)
         })
     })
-}
+}*/
