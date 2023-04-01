@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+/*import fetch from "node-fetch";
 import yts from 'yt-search'
 let handler = async (m, { conn, command, text, usedPrefix }) => {
 	let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
@@ -60,7 +60,8 @@ conn.sendMessage(m.chat, { audio: { url: aud }, mimetype: 'audio/mp4', fileName:
 
 if (command == 'play2') {
 let jsonn = await ytLink.json()
-let vid = await jsonn.result.video
+let vid = await jsonn.result.video */
+
 /*await conn.sendButton(m.chat, wm, `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
@@ -82,7 +83,7 @@ let vid = await jsonn.result.video
 » ${url}
 
 *𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`, thumbnail, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], m, dos.getRandom())*/
-conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
+/*conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 ও *TÍTULO | TITLE*
 » ${title}
@@ -107,4 +108,4 @@ handler.tags = ['downloader']
 handler.command = ['play', 'play2']
 handler.limit = 1
 
-export default handler
+export default handler*/
