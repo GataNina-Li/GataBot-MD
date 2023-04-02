@@ -1,0 +1,41 @@
+{
+  "name": "dotdir-regex",
+  "description": "Regex for matching dot-directories, like `.git/`",
+  "version": "0.1.0",
+  "homepage": "https://github.com/regexps/dotdir-regex",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "regexps/dotdir-regex",
+  "bugs": {
+    "url": "https://github.com/regexps/dotdir-regex/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "keywords": [
+    "detect",
+    "directory",
+    "dot",
+    "dotfile",
+    "exec",
+    "expression",
+    "file",
+    "find",
+    "match",
+    "regex",
+    "regexp",
+    "regular",
+    "test"
+  ]
+}

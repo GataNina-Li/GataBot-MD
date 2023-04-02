@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "8.15.1"
+  - "12.18.0"
+  - "14.16.0"
+script:
+  - "npm run test"

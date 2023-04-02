@@ -1,0 +1,13 @@
+check-coverage: false
+color: true
+coverage: true
+coverage-report:
+  - html
+  - text
+jobs: 2
+no-browser: true
+test-env: TS_NODE_PROJECT=test/tsconfig.json
+test-ignore: $.
+test-regex: ((\/|^)(tests?|__tests?__)\/.*|\.(tests?|spec)|^\/?tests?)\.([mc]js|ts)$
+timeout: 60
+ts: true

@@ -1,0 +1,41 @@
+{
+  "name": "starts-with",
+  "version": "1.0.2",
+  "description": "Returns `true` if the given string or array starts with prefix using strict equality for comparisons. Using fastest implementation.",
+  "repository": "tunnckoCore/starts-with",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "standard && node test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "assertit": "^0.1.0",
+    "benchmarked": "^0.1.4",
+    "lodash.startswith": "^3.0.1"
+  },
+  "keywords": [
+    "array",
+    "begin",
+    "first",
+    "javascript",
+    "js",
+    "prefix",
+    "start",
+    "starts",
+    "string",
+    "tool",
+    "util",
+    "utility",
+    "utils"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "standard": {
+    "ignore": [
+      "benchmark/**/*.js"
+    ]
+  }
+}
