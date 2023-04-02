@@ -1,0 +1,37 @@
+{
+  "name": "nice-napi",
+  "version": "1.0.2",
+  "description": "nice(2) bindings for Node.js",
+  "os" : [ "!win32" ],
+  "main": "./index.js",
+  "exports": {
+    "import": "./.esm-wrapper.mjs",
+    "require": "./index.js"
+  },
+  "types": "./index.d.ts",
+  "scripts": {
+    "test": "node ./test.js",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi",
+    "prepack": " gen-esm-wrapper . ./.esm-wrapper.mjs && prebuildify-ci download && ([ $(ls prebuilds | wc -l) = '2' ] || (echo 'Some prebuilds are missing'; exit 1))"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/addaleax/nice-napi"
+  },
+  "keywords": [
+    "nice",
+    "priority"
+  ],
+  "author": "Anna Henningsen <anna@addaleax.net>",
+  "license": "MIT",
+  "dependencies": {
+    "node-addon-api": "^3.0.0",
+    "node-gyp-build": "^4.2.2"
+  },
+  "devDependencies": {
+    "gen-esm-wrapper": "^1.0.6",
+    "prebuildify": "^4.0.0",
+    "prebuildify-ci": "^1.0.5"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "brainly-scraper-v2",
+  "version": "2.0.15",
+  "description": "A library that makes it easy to retrieve data from brainly sites.",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "clean": "rimraf build",
+    "test": "npm run build && node ./build/test.js",
+    "build": "npm run clean && tsc --build tsconfig.json",
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "prepare": "husky install",
+    "docs": "typedoc --footerTypedocVersion --footerDate --footerTime --favicon https://i.ibb.co/pyqPrLk/image.png",
+    "format": "prettier \"src/**/*.ts\" --write"
+  },
+  "author": {
+    "name": "Hanif Dwy Putra S",
+    "email": "hanifdwyputrasembiring@gmail.com",
+    "url": "https://thehanifs.tech"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "piscina": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "16.11.42",
+    "@typescript-eslint/eslint-plugin": "5.30.6",
+    "@typescript-eslint/parser": "5.30.6",
+    "eslint": "8.19.0",
+    "eslint-config-google": "0.14.0",
+    "eslint-config-prettier": "8.5.0",
+    "husky": "8.0.1",
+    "prettier": "2.7.1",
+    "rimraf": "3.0.2",
+    "typedoc": "latest",
+    "typedoc-plugin-extras": "2.2.3",
+    "typescript": "4.7.4"
+  },
+  "repository": {
+    "url": "https://github.com/hansputera/brainly-scraper-languages"
+  },
+  "readme": "https://github.com/hansputera/brainly-scraper-languages/blob/master/README.md",
+  "maintainers": [
+    "hansputera"
+  ],
+  "keywords": [
+    "brainly",
+    "brainly scrape",
+    "brainly-scraper",
+    "brainlys"
+  ],
+  "engines": {
+    "node": ">=12.x"
+  },
+  "packageManager": "yarn@3.2.2"
+}
