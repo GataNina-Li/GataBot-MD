@@ -950,9 +950,9 @@ function _0x1ce7(){const _0xac1ac2=['212872fjshDh','17320yUXgkp','6019568oxJfgD'
                 if (!('delete' in chat))
                     chat.delete = true                    
                 if (!('modohorny' in chat)) chat.modohorny = false                    
-                if (!('stickers' in chat)) chat.stickers = false                    
+                if (!('stickers' in chat)) chat.stickers = true                    
                 if (!('autosticker' in chat)) chat.autosticker = false                      
-                if (!('audios' in chat)) chat.audios = false                     
+                if (!('audios' in chat)) chat.audios = true                     
 		if (!('antiver' in chat)) chat.antiver = true                    
                 if (!('antiLink' in chat)) chat.antiLink = false                    
                 if (!('antiLink2' in chat)) chat.antiLink2 = false
@@ -983,9 +983,9 @@ function _0x1ce7(){const _0xac1ac2=['212872fjshDh','17320yUXgkp','6019568oxJfgD'
                     sDemote: '', 
                     delete: true,
                     modohorny: true,
-                    stickers: false,
+                    stickers: true,
                     autosticker: false,
-                    audios: false,
+                    audios: true,
 		    antiver: true,
                     antiLink: false,
                     antiLink2: false,
