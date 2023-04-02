@@ -11,9 +11,6 @@ class PartialGroupDMChannel extends Channel {
   constructor(client, data) {
     super(client, data);
 
-    // No flags are present when fetching partial group DM channels.
-    this.flags = null;
-
     /**
      * The name of this Group DM Channel
      * @type {?string}

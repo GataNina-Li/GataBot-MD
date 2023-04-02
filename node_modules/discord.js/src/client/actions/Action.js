@@ -34,7 +34,7 @@ class GenericAction {
   getChannel(data) {
     const id = data.channel_id ?? data.id;
     return (
-      data[this.client.actions.injectedChannel] ??
+      data.channel ??
       this.getPayload(
         {
           id,
@@ -51,7 +51,7 @@ class GenericAction {
   getMessage(data, channel, cache) {
     const id = data.message_id ?? data.id;
     return (
-      data[this.client.actions.injectedMessage] ??
+      data.message ??
       this.getPayload(
         {
           id,
@@ -86,7 +86,7 @@ class GenericAction {
 
   getUser(data) {
     const id = data.user_id;
-    return data[this.client.actions.injectedUser] ?? this.getPayload({ id }, this.client.users, id, PartialTypes.USER);
+    return data.user ?? this.getPayload({ id }, this.client.users, id, PartialTypes.USER);
   }
 
   getUserFromMember(data) {

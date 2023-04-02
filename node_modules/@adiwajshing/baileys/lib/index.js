@@ -17,6 +17,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.makeWALegacySocket = void 0;
+const LegacySocket_1 = __importDefault(require("./LegacySocket"));
+exports.makeWALegacySocket = LegacySocket_1.default;
 const Socket_1 = __importDefault(require("./Socket"));
 __exportStar(require("../WAProto"), exports);
 __exportStar(require("./Utils"), exports);

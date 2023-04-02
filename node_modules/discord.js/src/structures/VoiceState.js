@@ -5,7 +5,6 @@ const { Error, TypeError } = require('../errors');
 
 /**
  * Represents the voice state for a Guild Member.
- * @extends {Base}
  */
 class VoiceState extends Base {
   constructor(guild, data) {
@@ -209,10 +208,10 @@ class VoiceState extends Base {
    * @param {boolean} [request=true] Whether or not the client is requesting to become a speaker.
    * @example
    * // Making the client request to speak in a stage channel (raise its hand)
-   * guild.members.me.voice.setRequestToSpeak(true);
+   * guild.me.voice.setRequestToSpeak(true);
    * @example
    * // Making the client cancel a request to speak
-   * guild.members.me.voice.setRequestToSpeak(false);
+   * guild.me.voice.setRequestToSpeak(false);
    * @returns {Promise<void>}
    */
   async setRequestToSpeak(request = true) {
@@ -233,10 +232,10 @@ class VoiceState extends Base {
    * @param {boolean} [suppressed=true] Whether or not the user should be suppressed.
    * @example
    * // Making the client a speaker
-   * guild.members.me.voice.setSuppressed(false);
+   * guild.me.voice.setSuppressed(false);
    * @example
    * // Making the client an audience member
-   * guild.members.me.voice.setSuppressed(true);
+   * guild.me.voice.setSuppressed(true);
    * @example
    * // Inviting another user to speak
    * voiceState.setSuppressed(false);

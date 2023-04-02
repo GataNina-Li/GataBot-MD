@@ -25,7 +25,6 @@ const Util = require('../../util/Util');
 
 /**
  * Abstract class for defining a new Collector.
- * @extends {EventEmitter}
  * @abstract
  */
 class Collector extends EventEmitter {

@@ -15,13 +15,11 @@ const IntegrationApplication = require('./IntegrationApplication');
  * * `twitch`
  * * `youtube`
  * * `discord`
- * * `guild_subscription`
  * @typedef {string} IntegrationType
  */
 
 /**
- * Represents a guild integration.
- * @extends {Base}
+ *  Represents a guild integration.
  */
 class Integration extends Base {
   constructor(client, data, guild) {

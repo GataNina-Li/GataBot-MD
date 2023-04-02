@@ -32,7 +32,6 @@ class ReactionManager extends CachedManager {
    * Data that can be resolved to a MessageReaction object. This can be:
    * * A MessageReaction
    * * A Snowflake
-   * * The Unicode representation of an emoji
    * @typedef {MessageReaction|Snowflake} MessageReactionResolvable
    */
 

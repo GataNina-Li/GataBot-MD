@@ -3,8 +3,7 @@
 const { Channel } = require('./Channel');
 
 /**
- * Represents a channel that displays a directory of guilds.
- * @extends {Channel}
+ * Represents a channel that displays a directory of guilds
  */
 class DirectoryChannel extends Channel {
   _patch(data) {
