@@ -3,7 +3,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 BOT_DIR="GataBot-MD"
 BOT_REPO="https://github.com/GataNina-Li/$BOT_DIR"
-DB_FILE="database.js"
+DB_FILE="database.json"
 INSTALL_DP="yarn install && npm install && cd"
 
 if [[ $(pwd) == *$BOT_DIR ]]; then
