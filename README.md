@@ -78,6 +78,7 @@
 | **KOYEB** | ***INSTALACIÓN POR KOYEB*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-koyeb) |
 | **WINDOWS** | ***INSTALACIÓN POR WINDOWS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-para-usuarios-de-windowsvpsrdp) |
 | **PREGUNTAS FRECUENTES** | ***DESPEJAR DUDAS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#gatabot-md---preguntas) |
+| **SOBRE GATABOT** | ***SECCIONES DE INFORMACIÓN*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#sobre-gatabot--gb-global) |
 | **DESARROLLADORES** | ***PARTICIPATES DEL PROYECTO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
 -----
 ### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA POR TERMUX 🫰
@@ -261,19 +262,7 @@ En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-M
 * Cómo puedo hacer el Bot Owner?
 > Debe de ingresar al archivo `config.js` o también [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js) luego añadir su número en donde diga `global.owner` Recuerde que requiere de hacer una Bifurcación, puede hacerla [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/fork)
 ----
-### SOBRE GATABOT <img src="https://i.pinimg.com/originals/0e/c9/89/0ec989dde8b5fc0deef4e5b09292b605.gif" height="30px">
-```bash
-> SOLO AQUÍ SE HACE LAS ACTUALIZACIONES OFICIALES DE GATABOT-MD
-> LA VERSIÓN DEL BOT DETERMINA LAS ACTUALIZACIONES EXISTENTES 
-> EN CASO QUE ENCUENTRES UN ERROR O FALLA ESCRÍBEME AL INSTAGRAM 
-> SI SE PRESENTA ERRORES AL USAR EL BOT USE EL COMANDO /REPORTE PARA QUE LA PROPIETARIA LO SOLUCIONE
-> EL BOT FUNCIONA EN WHATSAPP MESSAGE Y WHATSAPP BUSINESS 
-> SI HACES MODIFICACIONES, POR FAVOR DEJA CREDITOS DEL REPOSITORIO
-> FUNCIONA EL BOT INCLUSO CUANDO EL NÚMERO NO TIENE INTERNET 
-> USAR EL COMANDO /ADD O /SACAR PUEDE HACER QUE EL NÚMERO VAYA AL SOPORTE
-> PUEDE ESTAR HASTA 50 GRUPOS, SI EL NÚMERO ES MAYOR, PUEDE HABER SATURACIÓN 
-```
-### SOBRE GATABOT - GB-GLOBAL
+### SOBRE GATABOT ~ GB-GLOBAL
 <details>
 <summary><b>Objetivo</b></summary><br>
 
@@ -313,21 +302,28 @@ En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-M
 <details>
 <summary><b>Términos de uso</b></summary><br>
 
-  - [x] _Próximamente _
+  - [x] _Es importante mencionar que el uso del Bot es bajo la responsabilidad del usuario, y que el propietario del Bot no se hace responsable del uso indebido que se pueda hacer de él._
+  - [x] _Es recomendable establecer restricciones claras sobre el tipo de uso que se puede hacer del Bot._
+  - [x] _Es importante mencionar que el Bot no está diseñado para cometer spam, phishing u otros tipos de actividades maliciosas, y que su uso con estos fines está prohibido._
 
 </details>
 
 <details>
 <summary><b>Recomendaciones</b></summary><br>
 
-  - [x] _Próximamente _
+  - [x] _Es importante mencionar que se recomienda tener una buena conexión a Internet, no solo para una experiencia de usuario más fluida, sino también para garantizar un correcto funcionamiento del Bot._
+  - [x] _Es recomendable tener suficiente espacio de almacenamiento libre para el Bot, ya que esto puede afectar su capacidad para procesar y almacenar datos. Tener una memoria RAM mínima de 3 GB, ya que esto puede ayudar a garantizar una experiencia de usuario fluida y evitar que el Bot se bloquee o se ralentice._
+  - [x] _Es importante mencionar que se recomienda usar el WhatsApp Messenger para el Bot, ya que esto puede garantizar una mayor flexibilidad en cuanto a la compatibilidad con diferentes dispositivos y sistemas operativos._
+  - [x] _Es recomendable tener en cuenta que el Bot puede funcionar de manera estable en un máximo de 30 grupos considerando las características anteriores._
+  - [x] _Es importante mencionar que el Bot funciona aún si el WhatsApp no tiene Internet._
+  - [x] _Si encuentra alguna falla de visibilidad de mensajes, se recomienda volver a escanear el código QR para garantizar una conexión correcta entre el Bot y el WhatsApp._
 
 </details>
 
 <details>
 <summary><b>Actualizaciones y cambios</b></summary><br>
 
-  - [x] _Próximamente _
+  - [x] _GataBot está en constante evolución y mejora, cada actualización busca solucionar errores, mejorar la eficiencia de las funciones existentes, agregar nuevas funciones y optimizar los recursos para una experiencia más fluida. Le recomendamos que se mantenga actualizado con las últimas versiones para disfrutar de todas las mejoras y nuevas características que se implementen en el futuro. ¡Gracias por usar GataBot!_
 
 </details>
 
