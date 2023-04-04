@@ -156,7 +156,7 @@ global.author = '𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨'
 
 //⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
 
-global.vs = '1.4.5'
+global.vs = '1.4.7'
 global.vsJB = '2.0'
 
 global.gt = '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿'
