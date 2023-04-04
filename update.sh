@@ -26,9 +26,9 @@ COMMENT
 
 if [[ $(pwd) == *GataBot-MD ]]; then
 if [ -e "database.js" ]; then
-mv database.js $HOME && cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && cd
+mv database.js $HOME && cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install --ignore-scripts && npm install && cd
 else
-cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && cd
+cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install --ignore-scripts && npm install && cd
 fi
 
 if [ -e "$HOME/database.js" ]; then
@@ -40,17 +40,17 @@ else
 if [ -d "$HOME/GataBot-MD" ]; then
 cd GataBot-MD
 if [ -e "GataBot-MD/database.js" ]; then
-mv database.js $HOME && cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && cd
+mv database.js $HOME && cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install --ignore-scripts && npm install && cd
 if [ -e "$HOME/database.js" ]; then
 mv database.js /GataBot-MD && cd GataBot-MD && npm start
 else
 cd GataBot-MD && npm start
 fi
 else
-cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && npm start
+cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install --ignore-scripts && npm install && npm start
 fi
 else
-rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && npm start
+rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install --ignore-scripts && npm install && npm start
 fi
 fi
 
