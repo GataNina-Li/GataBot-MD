@@ -1,4 +1,4 @@
-# Código creado por @gata_dios     
+# Código creado por @gata_dios    
 
 #!/data/data/com.termux/files/usr/bin/bash
 BOT_DIR="GataBot-MD"
@@ -30,10 +30,10 @@ else
 cd "$HOME/$BOT_DIR" && npm start
 fi
 else
-cd "$HOME" && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && yarn install && npm install && npm start
+cd "$HOME" && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && yarn install --ignore-scripts && npm install && npm start
 fi
 else
-rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$HOME/$BOT_DIR" && yarn install && npm install && npm start
+rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$HOME/$BOT_DIR" && yarn install --ignore-scripts && npm install && npm start
 fi
 fi
 
