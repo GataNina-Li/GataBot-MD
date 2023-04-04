@@ -8,10 +8,11 @@ INSTALL_DP="yarn install --ignore-scripts && npm install && cd"
 
 GREEN='\033[32m'
 BOLD='\033[1m'
-RESET='\033[0m'
+RESET='\033[0m' 
 
 echo -e "${BOLD}${GREEN}Actualizando $BOT_DIR...${RESET}"
-if [[ $(pwd) == *$BOT_DIR ]]; then
+#if [[ $(pwd) == *$BOT_DIR ]]; then
+if [[ $(basename "$PWD") == "$BOT_DIR" ]]; then
 if [ -e "$DB_FILE" ]; then
 echo -e "${BOLD}${GREEN}M1${RESET}"
 echo -e "${BOLD}${GREEN}Moviendo database.json a $HOME y clonando el repositorio $BOT_REPO en $BOT_DIR...${RESET}"
