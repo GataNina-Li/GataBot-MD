@@ -4,7 +4,7 @@
 BOT_DIR="GataBot-MD"
 BOT_REPO="https://github.com/GataNina-Li/$BOT_DIR"
 DB_FILE="database.json"
-INSTALL_DP="yarn install && npm install && cd $HOME"
+INSTALL_DP="yarn install --ignore-scripts && npm install && cd $HOME"
 
 if [[ $(pwd) == *$BOT_DIR ]]; then
 if [ -e "$DB_FILE" ]; then
