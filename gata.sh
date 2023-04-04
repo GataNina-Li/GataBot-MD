@@ -21,11 +21,15 @@ mp3_array=("install_automatic1.mp3" "install_automatic2.mp3" "install_automatic3
 random_mp3=${mp3_array[$RANDOM % ${#mp3_array[@]}]}
 if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/"$random_mp3"; then
 echo -e "\033[01;32mDescarga exitosa. Reproduciendo sonido de intro...\nDownload successful. Playing intro sound...\n\033[0m"
+while true; do
 mpv --no-terminal "$random_mp3" &
+sleep 2
+wait
+done &
 else
 echo -e "\033[01;91mSonido de intro no disponible.\nIntro sound not available.\n\033[0m"
 fi
-
+ 
 echo -e "\033[01;32m\033[01mInstalando dependencias!!\nInstalling dependencies!!\n\033[0m" 
 echo -e "\e[36m
 ██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░
@@ -49,7 +53,7 @@ if pkg install git -y 2>&1 >/dev/null | grep -E -i -q '(command not found|unable
 error=$(pkg install git -y 2>&1 >/dev/null)
 echo -e "\033[0;31mError: $error\033[0m" 
 echo -e "\033[0;34mNo se pudo instalar Git. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
-echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nnpm start\033[0m"
+echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nyarn install\nnpm install\nnpm start\033[0m"
 exit 1
 else
 echo -e "\033[01;32m\033[01mGit se ha instalado correctamente.\nGit has been installed successfully.\n\033[0m" 
@@ -78,7 +82,7 @@ if pkg install nodejs -y 2>&1 >/dev/null | grep -E -i -q '(command not found|una
 error=$(pkg install nodejs -y 2>&1 >/dev/null)
 echo -e "\033[0;31mError: $error\033[0m" 
 echo -e "\033[0;34mNo se pudo instalar Node.js. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
-echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nnpm start\033[0m"
+echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nyarn install\nnpm install\nnpm start\033[0m"
 exit 1
 else
 echo -e "\033[01;32m\033[01mNode.js se ha instalado correctamente.\nNode.js has been installed successfully.\n\033[0m" 
@@ -107,7 +111,7 @@ if pkg install ffmpeg -y 2>&1 >/dev/null | grep -E -i -q '(command not found|una
 error=$(pkg install ffmpeg -y 2>&1 >/dev/null)
 echo -e "\033[0;31mError: $error\033[0m" 
 echo -e "\033[0;34mNo se pudo instalar FFmpeg. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
-echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nnpm start\033[0m"
+echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nyarn install\nnpm install\nnpm start\033[0m"
 exit 1
 else
 echo -e "\033[01;32m\033[01mFFmpeg se ha instalado correctamente.\nFFmpeg has been installed successfully.\n\033[0m" 
@@ -136,10 +140,32 @@ if pkg install imagemagick -y 2>&1 >/dev/null | grep -E -i -q '(command not foun
 error=$(pkg install imagemagick -y 2>&1 >/dev/null)
 echo -e "\033[0;31mError: $error\033[0m" 
 echo -e "\033[0;34mNo se pudo instalar ImageMagick. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
-echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nnpm start\033[0m"
+echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nyarn install\nnpm install\nnpm start\033[0m"
 exit 1
 else
 echo -e "\033[01;32m\033[01mImageMagick se ha instalado correctamente.\nImageMagick has been installed successfully.\n\033[0m" 
+fi
+fi
+
+echo -e "\e[36m
+██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░  ██╗░░░██╗░█████╗░██████╗░███╗░░██╗
+██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██║░░░░░██║░░░░░  ╚██╗░██╔╝██╔══██╗██╔══██╗████╗░██║
+██║██╔██╗██║╚█████╗░░░░██║░░░███████║██║░░░░░██║░░░░░  ░╚████╔╝░███████║██████╔╝██╔██╗██║
+██║██║╚████║░╚═══██╗░░░██║░░░██╔══██║██║░░░░░██║░░░░░  ░░╚██╔╝░░██╔══██║██╔══██╗██║╚████║
+██║██║░╚███║██████╔╝░░░██║░░░██║░░██║███████╗███████╗  ░░░██║░░░██║░░██║██║░░██║██║░╚███║
+╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚══════╝  ░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝\n\e[0m"
+
+if command -v yarn >/dev/null 2>&1; then
+echo -e "\033[01;33mYarn ya estaba instalado anteriormente.\nYarn was already installed previously.\033[0m"
+else
+if npm install -g yarn 2>&1 >/dev/null | grep -E -i -q '(command not found|unable to locate package|E: Could not get lock|debconf: delaying package configuration|Package not found|Failed to fetch|404 Not Found|Hash sum mismatch|503 Service Unavailable|504 Gateway Timeout|408 Request Timeout|Connection timed out|Temporary failure resolving)'; then
+error=$(npm install -g yarn 2>&1 >/dev/null)
+echo -e "\033[0;31mError: $error\033[0m" 
+echo -e "\033[0;34mNo se pudo instalar Yarn. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
+echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nyarn install\nnpm install\nnpm start\033[0m"
+exit 1
+else
+echo -e "\033[01;32m\033[01mYarn se ha instalado correctamente.\nYarn has been installed successfully.\n\033[0m" 
 fi
 fi
 
@@ -174,6 +200,41 @@ echo -e "\033[01;32m\033[01mLa clonación se ha descargado e instalado correctam
 
 echo -e "\033[01;32m\033[01mCambiando al directorio del repositorio!!\nChanging to the repository directory!!\n\033[0m" 
 cd GataBot-MD
+
+echo -e "\e[36m
+██╗░░░██╗██████╗░██████╗░░█████╗░████████╗███████╗  ██╗░░░██╗░█████╗░██████╗░███╗░░██╗
+██║░░░██║██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔════╝  ╚██╗░██╔╝██╔══██╗██╔══██╗████╗░██║
+██║░░░██║██████╔╝██║░░██║███████║░░░██║░░░█████╗░░  ░╚████╔╝░███████║██████╔╝██╔██╗██║
+██║░░░██║██╔═══╝░██║░░██║██╔══██║░░░██║░░░██╔══╝░░  ░░╚██╔╝░░██╔══██║██╔══██╗██║╚████║
+╚██████╔╝██║░░░░░██████╔╝██║░░██║░░░██║░░░███████╗  ░░░██║░░░██║░░██║██║░░██║██║░╚███║
+░╚═════╝░╚═╝░░░░░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝  ░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝\n\e[0m"
+
+echo -e "\033[0;34mSe instalará yarn automáticamente. Espere un momento por favor.\nYarn will be installed automatically. Wait a moment please.\n\033[0m"
+if yarn install 2>&1 >/dev/null | grep -E -i -q '(command not found|unable to locate package|E: Could not get lock|debconf: delaying package configuration|Package not found|Failed to fetch|404 Not Found|Hash sum mismatch|503 Service Unavailable|504 Gateway Timeout|408 Request Timeout|Connection timed out|Temporary failure resolving)'; then
+error=$(yarn install 2>&1 >/dev/null)
+echo -e "\033[0;31mError: $error\033[0m" 
+echo -e "\033[0;34mNo se pudo instalar yarn. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
+else
+echo -e "\033[01;32m\033[01mYarn se ha instalado correctamente..\n\033[0m" 
+fi
+
+echo -e "\e[35m
+██╗███╗░░██╗░██████╗████████╗░█████╗░██╗░░░░░██╗░░░░░  ███╗░░██╗██████╗░███╗░░░███╗
+██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██║░░░░░██║░░░░░  ████╗░██║██╔══██╗████╗░████║
+██║██╔██╗██║╚█████╗░░░░██║░░░███████║██║░░░░░██║░░░░░  ██╔██╗██║██████╔╝██╔████╔██║
+██║██║╚████║░╚═══██╗░░░██║░░░██╔══██║██║░░░░░██║░░░░░  ██║╚████║██╔═══╝░██║╚██╔╝██║
+██║██║░╚███║██████╔╝░░░██║░░░██║░░██║███████╗███████╗  ██║░╚███║██║░░░░░██║░╚═╝░██║
+╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚══════╝  ╚═╝░░╚══╝╚═╝░░░░░╚═╝░░░░░╚═╝\n\e[0m"
+
+echo -e "\033[0;34mSe instalará NPM automáticamente. Espere un momento por favor.\nNPM will be installed automatically. Wait a moment please.\n\033[0m"
+if npm install 2>&1 >/dev/null | grep -E -i -q '(command not found|unable to locate package|E: Could not get lock|debconf: delaying package configuration|Package not found|Failed to fetch|404 Not Found|Hash sum mismatch|503 Service Unavailable|504 Gateway Timeout|408 Request Timeout|Connection timed out|Temporary failure resolving)'; then
+error=$(npm install 2>&1 >/dev/null)
+echo -e "\033[0;31mError: $error\033[0m" 
+echo -e "\033[0;34mNo se pudo instalar NPM. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
+else
+echo -e "\033[01;32m\033[01mNPM se ha instalado correctamente..\n\033[0m" 
+fi
+
 
 : <<'COMMENT'
 v="${b}\033[1;32m"
