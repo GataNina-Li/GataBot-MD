@@ -80,71 +80,65 @@
 | **PREGUNTAS FRECUENTES** | ***DESPEJAR DUDAS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#gatabot-md---preguntas) |
 | **DESARROLLADORES** | ***PARTICIPATES DEL PROYECTO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
 -----
-
 ### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA POR TERMUX 🫰
 [![blog](https://img.shields.io/badge/Instalacion-Automatica-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/PESW8LXXlOI?feature=share)
-> USE ESTOS COMANDOS PARA INSTALAR DE FORMA AUTOMÁTICA EN TERMUX  
+> **Note** Comandos para instalar de forma automática en Termux  
 ```bash
 termux-setup-storage
 ```
 ```bash
 apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash
 ```
-> NOTA: SI LE APARECE (Y/I/N/O/D/Z) [default=N] ? USE LA LETRA "y" LUEGO LA TECLA "ENTER" PARA CONTINUAR CON LA INSTALACIÓN   
 ```js
-//PERSONALIZAR INSTALACIÓN AUTOMÁTICA 
-//En caso que haya hecho una bifurcación y desea usar este tipo de instalación debe de saber que hay que modificar el usuario y nombre del repositorio
+// PERSONALIZAR INSTALACIÓN AUTOMÁTICA (En caso de una Bifurcación)
+// Parámetros editables
 
-//REFERENCIA
+// REFERENCIA
 "wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash"
 
-//PARÁMETROS QUE PUEDE SER MODIFICADOS --> "[...]"
+// PARÁMETROS QUE PUEDE SER MODIFICADOS --> "[...]"
 "wget -O - https://raw.githubusercontent.com/[usuario]/[repositorio]/[rama]/gata.sh | bash"
-
-//EJEMPLO
-"wget -O - https://raw.githubusercontent.com/User/bot_WhatsApp/master/gata.sh | bash"
 ```
-#### Como siguiente paso de la personalización debe de modificar el archivo [`gata.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
+#### MODIFICAR ARCHIVO [`gata.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
 ```js
 //LÍNEAS A MODIFICAR
-172 --> "git clone https://github.com/[user]/[repositorio].git"
+198 --> "git clone https://github.com/[user]/[repositorio].git"
 //Ejemplo: git clone https://github.com/GataNina-Li/GataBot-MD.git
 
-176 --> "cd [repositorio]"
+202 --> "cd [repositorio]"
 //Ejemplo: cd GataBot-MD
 
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
 -----
 ### 🪄 (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB 
-#### ⬇️ AGREGAR CADA COMANDO POR TEXMUX: 
-> ❇️ YA PUEDE INSTALAR DIRECTAMENTE DESDE TERMUX USANDO ESTE REPOSITORIO!!
+> **Note** Comandos para instalar de forma manual
 ```bash
 termux-setup-storage
 ```
 ```bash
-apt update -y && yes | apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && npm start
+apt update && apt upgrade && pkg install git nodejs ffmpeg imagemagick yarn && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && npm start
 ```
+> **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
 ------------------
 ### 📁 (OPCIÓN 3) INSTALACIÓN MANUAL POR TERMUX - ARCHIVOS
-> DESCARGUÉ Y DESCOMPRIMA 
+> **Note** Descargué y Descomprime
 ### [`GataBot-MD ~ Archivos`](https://mega.nz/file/X7AQkZiZ#qZuO8uQ0EI1MzzcD2nKFB6gqX8uahJeQ299D6RBV-Dc)
 [![blog](https://img.shields.io/badge/Termux-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/UcWlyQ8u5HE)
-
-#### ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
 ```bash
 termux-setup-storage
 ```
 ```bash
-apt update -y && yes | apt upgrade && pkg install -y nodejs ffmpeg imagemagick yarn && cd storage/downloads/GataBot-MD/GataBot-MD && cd GataBot-MD && yarn install && npm install && npm start
+apt update && apt upgrade && pkg install nodejs ffmpeg imagemagick yarn && cd storage/downloads/GataBot-MD/GataBot-MD && cd GataBot-MD && yarn install && npm install && npm start
 ```
+> **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
 * #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
 * #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
-> ASEGÚRESE DE GUARDAR LOS ARCHIVOS EN ESTA UBICACIÓN: storage/downloads/GataBot-MD    
+> **Note** Guardar los archivos en la ubicación: storage/downloads/GataBot-MD    
 ----
 ### 🚀 USAR GATABOT 24/7 EN TERMUX 
-> EJECUTE ESTE COMANDO CUANDO YA TENGA INSTALADA GATABOT
+> Ejecutar estos comandos dentro de la carpeta GataBot-MD
 ```bash
 termux-wake-lock && npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs 
 ``` 
@@ -167,10 +161,8 @@ pm2 start index
 ``` 
 ----
 ### 🟣 ACTIVAR EN HEROKU 
-#### ☂️ PARA USUARIOS DE HEROKU 
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) <img src="https://c.tenor.com/OIc0cAei3dwAAAAd/gato-baile.gif" height="32px">
-### Añada lo siguente al Buildpack: <img src="https://cdn-0.emojis.wiki/emoji-pics/microsoft/backhand-index-pointing-down-microsoft.png" height="32px">
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) 
+### 👇 Añada lo siguente al Buildpack: 
 ```bash
 heroku/nodejs
 ```
@@ -187,7 +179,7 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 ### ✅ BOXMINEHOST 
 [![blog](https://img.shields.io/badge/BoxMine-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/Ko019wvu2Tc)
-> ACTIVA GATABOT 24/7 EN LA PLATAFORMA BOXMINEHOST 
+> Activar GataBot-MD 24/7 en BoxMine Host
 
 <a href="https://boxmineworld.com"><img src="https://i.imgur.com/allAyd4.png" height="125px"></a>
 ### BoxMine World
@@ -213,9 +205,9 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/GataNina-Li/GataBot-MD&branch=master&name=gatabot-md)
 
 ------------------
-### `—◉ 🔰 ACTIVAR EN RENDER 🔰`
-
+### ☁️ ACTIVAR EN RENDER 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/blueprint/new?repo=https%3A%2F%2Fgithub.com%2FGataNina-Li%2FGataBot-MD) 
+
 ------------------
 ## 💻 PARA USUARIOS DE WINDOWS/VPS/RDP
 
@@ -281,13 +273,71 @@ En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-M
 > USAR EL COMANDO /ADD O /SACAR PUEDE HACER QUE EL NÚMERO VAYA AL SOPORTE
 > PUEDE ESTAR HASTA 50 GRUPOS, SI EL NÚMERO ES MAYOR, PUEDE HABER SATURACIÓN 
 ```
+### SOBRE GATABOT - GB-GLOBAL
+<details>
+<summary><b>Objetivo</b></summary><br>
+
+  - [x] _Proporcionar un Bot funcional para WhatsApp que ofrezca una amplia gama de funciones, compatibilidad con múltiples idiomas, automatización y una alta eficiencia en su desempeño._
+  - [x] _El Bot estaría diseñado para brindar una experiencia de usuario intuitiva y accesible, permitiendo a los usuarios realizar diversas tareas sin la necesidad de salir de la aplicación de WhatsApp._
+  - [x] _Proporcionar una herramienta que sea útil para una amplia audiencia, al mismo tiempo que ofrezca una solución efectiva y sencilla para las necesidades cotidianas en el uso de WhatsApp._
+
+</details>
+
+<details>
+<summary><b>Funcionamiento</b></summary><br>
+
+  - [x] _GataBot utiliza la utilidad de Javascript y Shell para crear un código altamente funcional que permite gestionar la compatibilidad con WhatsApp._
+  - [x] _Con el uso de la biblioteca de código abierto Baileys, GataBot establece una conexión directa con la aplicación de WhatsApp, lo que permite una experiencia de usuario fluida._
+  - [x] _Se utiliza fuentes externas, APIs, imágenes, videos y documentos en línea para proporcionar una herramienta auténtica y completa que solventa una amplia gama de necesidades dentro de WhatsApp. Con estas características, los usuarios pueden disfrutar de una experiencia de usuario mejorada y eficiente al utilizar GataBot._
+
+</details>
+
+<details>
+<summary><b>Privacidad</b></summary><br>
+
+  - [x] _En GataBot, la seguridad y privacidad de los usuarios son una prioridad fundamental. El código del Bot está diseñado para ser seguro tanto para el propietario del Bot como para los usuarios que interactúan con él._
+  - [x] _En lo que respecta a la recopilación de datos, GataBot solo recopila información pública, como el nombre de usuario, la descripción y la foto de perfil, con el único propósito de mantener el progreso del usuario en el Bot o identificar valores necesarios para realizar las funciones del Bot._
+  - [x] _El código de GataBot es completamente público y puede ser revisado detalladamente sin ningún inconveniente. Con estas características, los usuarios pueden estar seguros de que su información y privacidad están protegidas al interactuar con GataBot._
+
+</details>
+
+<details>
+<summary><b>Edición & Material</b></summary><br>
+
+  - [x] _GataBot está diseñado para ser altamente personalizable, por lo que si tienes conocimientos previos de código, puedes realizar modificaciones libremente en el código del Bot. Sin embargo, aunque el código es público y editable, por favor no olvides mencionar los créditos correspondientes para que GataBot siga recibiendo más novedades y mejoras en el futuro._
+  - [x] _La personalización del Bot puede hacerse tanto a nivel de código como a través de herramientas de configuración, dependiendo de la plataforma o framework que se esté utilizando._  
+  - [x] _En cuanto al material que contiene GataBot, los usuarios pueden esperar encontrar una amplia variedad de contenido, incluyendo memes, inteligencia artificial que depende del PROMPT que reciba, contenido para adultos (quedando en el juicio del usuario asumir si tiene la edad suficiente para comprender dicho contenido), información que cambia dependiendo de la solicitud del usuario, audios y stickers. Por favor, ten en cuenta que nos reservamos el derecho de juzgar dicho contenido y tomar las medidas necesarias para mantener un ambiente seguro y apropiado en el uso de GataBot._
+
+</details>
+
+<details>
+<summary><b>Términos de uso</b></summary><br>
+
+  - [x] _Próximamente _
+
+</details>
+
+<details>
+<summary><b>Recomendaciones</b></summary><br>
+
+  - [x] _Próximamente _
+
+</details>
+
+<details>
+<summary><b>Actualizaciones y cambios</b></summary><br>
+
+  - [x] _Próximamente _
+
+</details>
+
 ----
 ### 💠 [`IDIOMAS DISPONIBLES PARA GATABOT`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js) 
-### 🌐 Español  
-### 🌐 Inglés (English) 
-### 🌐 Portugués (Português)
-### 🌐 Indonesio (Bahasa Indonesia) 
-### 🌐 Árabe (عرب)
+#### 🌐 Español  
+#### 🌐 Inglés (English) 
+#### 🌐 Portugués (Português)
+#### 🌐 Indonesio (Bahasa Indonesia) 
+#### 🌐 Árabe (عرب)
 - [x] Ejemplo <details><summary>Idioma</summary><img src="https://i.imgur.com/RMWFgZo.jpeg"></details>
 ----
 
