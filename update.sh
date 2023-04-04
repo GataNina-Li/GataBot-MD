@@ -33,7 +33,13 @@ else
 cd "$HOME" && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && yarn install --ignore-scripts && npm install && npm start
 fi
 else
-rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$HOME/$BOT_DIR" && yarn install --ignore-scripts && npm install && npm start
+rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$HOME/$BOT_DIR" && yarn install --ignore-scripts && npm install && cd $HOME
+if [ -e "$HOME/$DB_FILE" ]; then
+mv "$HOME/$DB_FILE" "$BOT_DIR" && cd "$BOT_DIR" && npm start
+else
+cd "$HOME/$BOT_DIR" && npm start
+fi
+fi
 fi
 fi
 
