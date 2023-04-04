@@ -41,5 +41,4 @@ cd "$HOME/$BOT_DIR" && npm start
 fi
 fi
 fi
-fi
 
