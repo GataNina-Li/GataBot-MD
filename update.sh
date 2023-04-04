@@ -1,56 +1,39 @@
-: <<'COMMENT'
-#!/data/data/com.termux/files/usr/bin/bash
-
-if [[ $(pwd) == *GataBot-MD ]]; then
-if [ -e "database.js" ]; then
-mv database.js $HOME && cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && cd
-else
-cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && cd
-fi
-  
-if [ -e "$HOME/database.js" ]; then
-mv database.js /GataBot-MD && cd GataBot-MD && npm start
-else
-cd GataBot-MD && npm start
-fi
-else
-if [ -e "$HOME/GataBot-MD/database.js" ]; then
-cd "$HOME/GataBot-MD" && mv database.js /GataBot-MD && cd GataBot-MD && npm start
-else
-cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && cd && npm start
-fi
-fi
-COMMENT
+# Código creado por @gata_dios    
 
 #!/data/data/com.termux/files/usr/bin/bash
+BOT_DIR="GataBot-MD"
+BOT_REPO="https://github.com/GataNina-Li/$BOT_DIR"
+DB_FILE="database.js"
+INSTALL_DP="yarn install && npm install && cd"
 
-if [[ $(pwd) == *GataBot-MD ]]; then
-if [ -e "database.js" ]; then
-mv database.js $HOME && cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install --ignore-scripts && npm install && cd
+if [[ $(pwd) == *$BOT_DIR ]]; then
+if [ -e "$DB_FILE" ]; then
+mv "$DB_FILE" "$HOME" && cd && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && $INSTALL_DP
 else
-cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install --ignore-scripts && npm install && cd
-fi
-
-if [ -e "$HOME/database.js" ]; then
-mv database.js /GataBot-MD && cd GataBot-MD && npm start
-else
-cd GataBot-MD && npm start
-fi
-else
-if [ -d "$HOME/GataBot-MD" ]; then
-cd GataBot-MD
-if [ -e "GataBot-MD/database.js" ]; then
-mv database.js $HOME && cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install --ignore-scripts && npm install && cd
-if [ -e "$HOME/database.js" ]; then
-mv database.js /GataBot-MD && cd GataBot-MD && npm start
-else
-cd GataBot-MD && npm start
-fi
-else
-cd && rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install --ignore-scripts && npm install && npm start
-fi
-else
-rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install --ignore-scripts && npm install && npm start
-fi
+cd && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && $INSTALL_DP
 fi
 
+if [ -e "$HOME/$DB_FILE" ]; then
+mv "$DB_FILE" "/$BOT_DIR" && cd "$BOT_DIR" && npm start
+else
+cd "$BOT_DIR" && npm start
+fi
+else
+if [ -d "$HOME/$BOT_DIR" ]; then
+cd "$BOT_DIR"
+
+if [ -e "$BOT_DIR/$DB_FILE" ]; then
+mv "$DB_FILE" "$HOME" && cd && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && $INSTALL_DP
+
+if [ -e "$HOME/$DB_FILE" ]; then
+mv "$DB_FILE" "/$BOT_DIR" && cd "$BOT_DIR" && npm start
+else
+cd "$BOT_DIR" && npm start
+fi
+else
+cd && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && yarn install && npm install && npm start
+fi
+else
+rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && yarn install && npm install && npm start
+fi
+fi
