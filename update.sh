@@ -3,7 +3,7 @@ BOT_DIR="GataBot-MD"
 BOT_REPO="https://github.com/GataNina-Li/$BOT_DIR" 
 DB_FILE="database.json"
 #INSTALL_DP="yarn --ignore-scripts; npm install && cd"
-INSTALL_DP="yarn --force --ignore-scripts && npm install && cd"
+INSTALL_DP="yarn --ignore-scripts && npm install && cd"
 
 GREEN='\033[32m'
 BOLD='\033[1m'
@@ -12,10 +12,10 @@ RESET='\033[0m'
 if [[ $(basename "$PWD") == "$BOT_DIR" ]]; then
 if [ -e "$DB_FILE" ]; then
 echo -e "${BOLD}${GREEN}Moviendo \"$DB_FILE\" a \"$HOME\" y clonando el repositorio \"$BOT_REPO\" en \"$HOME\"...${RESET}"
-mv "$DB_FILE" "$HOME" && cd && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && $INSTALL_DP
+mv "$DB_FILE" "$HOME" && cd && rm -rf "$HOME/$BOT_DIR" && git clone "$BOT_REPO" && cd "$HOME/$BOT_DIR" && $INSTALL_DP
 else
 echo -e "${BOLD}${GREEN}No se encontró \"$DB_FILE\" en \"$BOT_DIR\" clonando el repositorio \"$BOT_REPO\" en \"$HOME\"...${RESET}"
-cd && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && $INSTALL_DP
+cd && rm -rf "$HOME/$BOT_DIR" && git clone "$BOT_REPO" && cd "$HOME/$BOT_DIR" && $INSTALL_DP
 fi
 
 if [[ $(basename "$PWD") == "$HOME" ]]; then
