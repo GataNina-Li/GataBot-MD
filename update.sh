@@ -1,9 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 BOT_DIR="GataBot-MD"
-BOT_REPO="https://github.com/GataNina-Li/$BOT_DIR"
+BOT_REPO="https://github.com/GataNina-Li/$BOT_DIR" 
 DB_FILE="database.json"
 #INSTALL_DP="yarn --ignore-scripts; npm install && cd"
-INSTALL_DP="yarn cache clean && rm -rf node_modules && yarn install --ignore-scripts && npm install && cd"
+INSTALL_DP="rm -rf node_modules && yarn install --ignore-scripts && npm install && cd"
 
 GREEN='\033[32m'
 BOLD='\033[1m'
