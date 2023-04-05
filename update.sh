@@ -4,7 +4,7 @@
 BOT_DIR="GataBot-MD"
 BOT_REPO="https://github.com/GataNina-Li/$BOT_DIR"
 DB_FILE="database.json"
-INSTALL_DP="yarn --ignore-scripts && npm install && cd $HOME"
+INSTALL_DP="yarn install --ignore-scripts && npm install && cd"
 
 GREEN='\033[32m'
 BOLD='\033[1m'
@@ -19,7 +19,7 @@ echo -e "${BOLD}${GREEN}Moviendo database.json a $HOME y clonando el repositorio
 mv "$DB_FILE" "$HOME" && cd && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && $INSTALL_DP
 else
 echo -e "${BOLD}${GREEN}Clonando el repositorio $BOT_REPO en $BOT_DIR...${RESET}"
-cd "$HOME" && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && $INSTALL_DP
+cd && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && $INSTALL_DP
 fi
 
 if [ -e "$HOME/$DB_FILE" ]; then
