@@ -2,7 +2,7 @@
 BOT_DIR="GataBot-MD"
 BOT_REPO="https://github.com/GataNina-Li/$BOT_DIR"
 DB_FILE="database.json"
-INSTALL_DP="yarn install --ignore-scripts && npm install && cd"
+INSTALL_DP="yarn install --force --ignore-scripts && npm install && cd"
 
 GREEN='\033[32m'
 BOLD='\033[1m'
@@ -48,11 +48,11 @@ cd "$BOT_DIR" && npm start
 fi
 else
 echo -e "${BOLD}${GREEN}No se encontro $DB_FILE. Clonando el repositorio $BOT_REPO en $HOME...${RESET}"
-cd && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && yarn install --ignore-scripts && npm install && npm start
+cd && rm -rf "$BOT_DIR" && git clone "$BOT_REPO" && cd "$BOT_DIR" && yarn install --force --ignore-scripts && npm install && npm start
 fi
 else
 echo -e "${BOLD}${GREEN}No se encontro $BOT_DIR. Clonando el repositorio $BOT_REPO en $HOME...${RESET}"
-git clone "$BOT_REPO" && cd "$BOT_DIR" && yarn install --ignore-scripts && npm install && npm start
+git clone "$BOT_REPO" && cd "$BOT_DIR" && yarn install --force --ignore-scripts && npm install && npm start
 fi
 fi
 
