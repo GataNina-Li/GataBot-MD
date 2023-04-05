@@ -103,10 +103,10 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 #### MODIFICAR ARCHIVO [`gata.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
 ```js
 //LÍNEAS A MODIFICAR
-198 --> "git clone https://github.com/[user]/[repositorio].git"
+205 --> "git clone https://github.com/[user]/[repositorio].git"
 //Ejemplo: git clone https://github.com/GataNina-Li/GataBot-MD.git
 
-202 --> "cd [repositorio]"
+209 --> "cd [repositorio]"
 //Ejemplo: cd GataBot-MD
 
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
