@@ -48,7 +48,7 @@ npm start
 fi
 else
 echo -e "${BOLD}${GREEN}Dirigiéndome a \"$BOT_DIR\"...${RESET}"
-cd && cd "$BOT_DIR" &&
+cd "$BOT_DIR" &&
 echo -e "${BOLD}${GREEN}Iniciando $BOT_DIR...${RESET}"
 npm start
 fi
