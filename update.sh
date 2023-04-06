@@ -5,8 +5,8 @@ BOT_DIR="GataBot-MD"
 BOT_REPO="https://github.com/GataNina-Li/$BOT_DIR" 
 DB_FILE="database.json"
 #INSTALL_DP="yarn --ignore-scripts; npm install && cd"
-INSTALL_DP="yarn add --ignore-scripts --modules-folder ./GataBot-MD/node_modules && npm install && cd"
-
+INSTALL_DP="yarn install --ignore-scripts --modules-folder ./GataBot-MD/node_modules && npm install && cd"
+ 
 GREEN='\033[32m'
 BOLD='\033[1m'
 RESET='\033[0m' 
