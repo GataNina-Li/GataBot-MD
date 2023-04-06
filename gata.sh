@@ -216,13 +216,13 @@ echo -e "\e[36m
 ╚██████╔╝██║░░░░░██████╔╝██║░░██║░░░██║░░░███████╗  ░░░██║░░░██║░░██║██║░░██║██║░╚███║
 ░╚═════╝░╚═╝░░░░░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝  ░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝\n\e[0m"
 
-echo -e "\033[0;34mSe instalará yarn automáticamente. Espere un momento por favor.\nYarn will be installed automatically. Wait a moment please.\n\033[0m"
+echo -e "\033[0;34mSe actualizará yarn automáticamente. Espere un momento por favor.\nIt will update yarn automatically. Wait a moment please.\n\033[0m"
 if yarn install 2>&1 >/dev/null | grep -E -i -q '(command not found|unable to locate package|E: Could not get lock|debconf: delaying package configuration|Package not found|Failed to fetch|404 Not Found|Hash sum mismatch|503 Service Unavailable|504 Gateway Timeout|408 Request Timeout|Connection timed out|Temporary failure resolving)'; then
 error=$(yarn install 2>&1 >/dev/null)
 echo -e "\033[0;31mError: $error\033[0m" 
 echo -e "\033[0;34mNo se pudo instalar yarn. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
 else
-echo -e "\033[01;32m\033[01mYarn se ha instalado correctamente..\n\033[0m" 
+echo -e "\033[01;32m\033[01mYarn se ha actualizado correctamente.\nYarn has been successfully updated.\n\033[0m" 
 fi
 
 echo -e "\e[35m
