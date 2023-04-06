@@ -11,7 +11,7 @@ GREEN='\033[32m'
 BOLD='\033[1m' 
 RESET='\033[0m' 
  
-if [[ $(basename "$PWD") == "$BOT_DIR" ]]; then
+if [[ $(basename "$PWD") == "$BOT_DIR" ]]; then 
 if [ -e "$DB_FILE" ]; then
 echo -e "${BOLD}${GREEN}Moviendo \"$DB_FILE\" a \"$HOME\" y clonando el repositorio \"$BOT_REPO\" en \"$HOME\"...${RESET}"
 mv "$DB_FILE" "$HOME" && cd && rm -rf "$HOME/$BOT_DIR" && git clone "$BOT_REPO" && cd "$HOME/$BOT_DIR" && rm -rf $HOME/$BOT_DIR/node_modules && $INSTALL_DP
