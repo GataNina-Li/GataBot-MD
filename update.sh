@@ -1,16 +1,16 @@
 # Código desarrollado por @gata_dios
 
-#!/data/data/com.termux/files/usr/bin/bash 
+#!/data/data/com.termux/files/usr/bin/bash  
 BOT_DIR="GataBot-MD"
 BOT_REPO="https://github.com/GataNina-Li/$BOT_DIR" 
 DB_FILE="database.json"
 #INSTALL_DP="yarn --ignore-scripts; npm install && cd"
-INSTALL_DP="yarn istall --ignore-scripts && npm install && cd"
+INSTALL_DP="yarn install --ignore-scripts && npm install && cd"
  
 GREEN='\033[32m'
 BOLD='\033[1m' 
 RESET='\033[0m' 
-
+ 
 if [[ $(basename "$PWD") == "$BOT_DIR" ]]; then
 if [ -e "$DB_FILE" ]; then
 echo -e "${BOLD}${GREEN}Moviendo \"$DB_FILE\" a \"$HOME\" y clonando el repositorio \"$BOT_REPO\" en \"$HOME\"...${RESET}"
@@ -72,5 +72,3 @@ echo -e "${BOLD}${GREEN}Iniciando $BOT_DIR...${RESET}"
 npm start
 fi
 fi
-
-
