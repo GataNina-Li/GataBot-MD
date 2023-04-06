@@ -77,3 +77,4 @@ echo -e "${BOLD}${GREEN}Iniciando $BOT_DIR...${RESET}"
 npm start
 fi
 fi
+fi
