@@ -72,6 +72,7 @@
 | **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-2-instalación-manual-por-termux---github) |
 | **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-manual-por-termux---archivos) |
 | **TERMUX 24/7** | ***COMANDOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-247-en-termux) |
+| **TERMUX UPDATE** | ***COMANDOS PARA ACTUALIZAR GATABOT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot-beta) |
 | **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
 | **BOXMINE** | ***INSTALACIÓN POR BOXMINE*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-boxminehost) |
 | **REPLIT** | ***INSTALACIÓN POR REPLIT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-replit---gatabot) |
@@ -160,6 +161,14 @@ pm2 stop index
 ```bash 
 pm2 start index
 ``` 
+----
+### 😼 ACTUALIZAR GATABOT
+> **Note** Comandos para actualizar GataBot-MD de forma automática
+```bash
+grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/update.sh | bash 
+```
+#### Para que no pierda su progreso en GataBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
+> **Warning** Estos comandos solo funcionan para TERMUX, REPLIT, LINUX                           
 ----
 ### 🟣 ACTIVAR EN HEROKU 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) 
