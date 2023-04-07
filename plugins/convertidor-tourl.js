@@ -12,16 +12,16 @@ let name = await conn.getName(who)
   let media = await q.download()
   let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let link = await (isTele ? uploadImage : uploadFile)(media)
-  let caption = `ðŸ“® *L I N K :*
+  let caption = `📚 *L I N K :*
 ${link}
-ðŸ“Š *S I Z E :* ${media.length} Byte
-ðŸ“› *E x p i r e d :* ${isTele ? 'No Expiry Date' : 'Unknown'}
+📍 *S I Z E :* ${media.length} Byte
+📍 *E x p i r e d :* ${isTele ? 'No Expiry Date' : 'Unknown'}
 
 *S H O R T :* ${await shortUrl(link)}`
 
 conn.reply(m.chat, caption, m, { contextInfo: {
           externalAdReply :{
-    mediaUrl: sgh,
+    mediaUrl: md,
     mediaType: 2,
     title: wm,
     body: botdate,
