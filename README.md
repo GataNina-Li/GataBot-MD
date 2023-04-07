@@ -298,6 +298,7 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
   - [x] **¿Que hago si no responde el Bot después de iniciar o si muestra un mensje diciendo "Mensaje en espera"?**<br>
   _Detenga Termux y elimine la sesión de GataBot-MD para obtener un nuevo código QR._
 </details>
+
 ----
 ### SOBRE GATABOT ~ GB-GLOBAL
 <details>
