@@ -252,7 +252,7 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
   _Puede hacerlo desde [`💚 Aquí`](https://github.com/GataNina-Li/GataBot-MD/fork)._
   
   - [x] **¿Dónde puedo agregar el número del Bot?**<br>
-  _Puede hacerlo desde el archivo [`⚙️ config.js`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js). En el apartado `global.owner` puede agregar el número del Bot y más números como Owner_
+  _Puede hacerlo desde el archivo [`⚙️ config.js`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js). En el apartado `global.owner` puede agregar el número del Bot y más números como Owner._
   ```js
   global.owner = [
   ['59311222333', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈', true], // Número del Bot: Ejemplo +593 11 222 333
@@ -271,10 +271,10 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
   _Puede usar la [`Instalación Automática 😼`](https://github.com/GataNina-Li/GataBot-MD/#-opci%C3%B3n-1-instalaci%C3%B3n-autom%C3%A1tica-por-termux-) si es la primera vez que va instalar._<br>
   
   - [x] **¿Cómo puedo descargar Termux?**<br>
-  _Puede descargar la versión de Termux e instlar [`Aquí 😉`](https://f-droid.org/es/packages/com.termux/)._
+  _Puede descargar la versión de Termux e instalar [`Aquí 😉`](https://f-droid.org/es/packages/com.termux/)._
   
   - [x] **¿Cómo conectar a GataBot si se cierra la aplicación de Termux?**<br>
-  _Primero abrir Termux, luego usar este comando a iniciar GataBot si previamente ya hizo su instalación `cd GataBot-MD && npm start`_
+  _Primero abrir Termux, luego usar este comando para iniciar GataBot si previamente ya hizo su instalación `cd GataBot-MD && npm start`_
   <details><summary>Ejemplo</summary><img src="https://i.imgur.com/6nqEr5g.jpeg"></details>
   
   - [x] **¿Cómo iniciar GataBot si me encuentro dentro de su carpeta?**<br>
