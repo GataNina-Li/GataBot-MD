@@ -243,11 +243,6 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 ```cmd
 > ffmpeg -version
 ```
-----    
-###  AJUSTE <img src="https://i.pinimg.com/originals/98/1b/e2/981be28d3ec7b85bfb797a5f9e6a01c2.png" height="32px">
-- CLONAR EL REPOSITORIO [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/fork)
-- CAMBIAR NÚMERO DEL OWNER [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js)
-- SELECCIONAR IDIOMA [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js) 
 ----  
 ### GataBot-MD - Preguntas
 <details>
@@ -256,7 +251,7 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
   - [x] **¿Como puedo hacer una bifurcación?**<br>
   _Puede hacerlo desde [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/fork)._
   
-  - [x] **¿Dónde puedo agregar el númerodel Bot?**<br>
+  - [x] **¿Dónde puedo agregar el número del Bot?**<br>
   _Puede hacerlo desde el archivo [`config.js`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js). En el apartado `global.owner` puede agregar el número del Bot y más números como Owner_
   ```js
   global.owner = [
@@ -265,6 +260,8 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
   ['59377333999'] // Owner 2 +593 77 333 999
 ]
   ```
+  - [x] **¿Cómo edito el texto del Bot?**<br>
+  Ir a la carpeta [`idiomas ✨`](https://github.com/GataNina-Li/GataBot-MD/tree/master/lib/idiomas) y selecciona el archivo del idioma que quiera modificar su contenido.
 </details>
 
 <details>
@@ -301,26 +298,6 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
   - [x] **¿Que hago si no responde el Bot después de iniciar o si muestra un mensje diciendo "Mensaje en espera"?**<br>
   _Detenga Termux y elimine la sesión de GataBot-MD para obtener un nuevo código QR._
 </details>
-
-* Cómo edito el MultiLenguajeGB?
-> Ve a la carpeta [`idiomas ✨`](https://github.com/GataNina-Li/GataBot-MD/tree/master/lib/idiomas) y selecciona el archivo del idioma que quiera modificar su contenido
-
-* Cómo detengo el Bot en Termux?
-> Use ```CTRL``` + ```z``` para apagar el Bot
-
-* Cómo enciendo el Bot en termux?
-> En caso que vuelva a iniciar en termux use este comando ```cd GataBot-MD && npm start```
-En caso que este Apagado el Bot sin salir de la carpeta del Bot, use este comando ```npm start```
-
-* Que hago si quiero volver a clonar el Bot?
-> En caso que quiera eliminar la carpeta del Bot y volver a clonar use este comando ```rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && npm start``` Esta acción también sirve en caso que quiera Actualizar a la última versión (Si usa el Repositorio Oficial es probable que no sea Owner)
-
-* Cómo puedo borrar la Session en Termux?
-> Ejecute este comando en Termux ```rm -rf GataBotSession```
-En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-MD && rm -rf GataBotSession``` Y después solo debe de escanear el Código QR
-
-* Cómo puedo hacer el Bot Owner?
-> Debe de ingresar al archivo `config.js` o también [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js) luego añadir su número en donde diga `global.owner` Recuerde que requiere de hacer una Bifurcación, puede hacerla [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/fork)
 ----
 ### SOBRE GATABOT ~ GB-GLOBAL
 <details>
