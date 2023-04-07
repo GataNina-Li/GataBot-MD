@@ -1,15 +1,41 @@
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
+import fetch from 'node-fetch'
+
 let handler = async (m) => {
-let q = m.quoted ? m.quoted : m
-let mime = (q.msg || q).mimetype || ''
-if (!mime) throw `${lenguajeGB['smsAvisoMG']()}𝙍𝙀𝙎𝙋𝙊𝙉𝘿𝙀𝙍 𝘼 𝙐𝙉 𝙑𝙄𝘿𝙀𝙊 𝙊 𝙄𝙈𝘼𝙂𝙀𝙉 𝙋𝙍𝘼 𝘾𝙊𝙉𝙑𝙀𝙍𝙏𝙄𝙍 𝙀𝙉 𝙀𝙉𝙇𝘼𝘾𝙀\n\n𝙍𝙀𝙋𝙇𝙔 𝙏𝙊 𝘼 𝙑𝙄𝘿𝙀𝙊 𝙊𝙍 𝙄𝙈𝘼𝙂𝙀 𝙏𝙊 𝘾𝙊𝙉𝙑𝙀𝙍𝙏 𝙄𝙉𝙏𝙊 𝘼 𝙇𝙄𝙉𝙆`
-let media = await q.download()
-let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-let link = await (isTele ? uploadImage : uploadFile)(media)
-m.reply(`*ENLACE ${link}*`)
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
+let name = await conn.getName(who)
+  let q = m.quoted ? m.quoted : m
+  let mime = (q.msg || q).mimetype || ''
+  if (!mime) throw 'No media found'
+  let media = await q.download()
+  let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+  let link = await (isTele ? uploadImage : uploadFile)(media)
+  let caption = `ðŸ“® *L I N K :*
+${link}
+ðŸ“Š *S I Z E :* ${media.length} Byte
+ðŸ“› *E x p i r e d :* ${isTele ? 'No Expiry Date' : 'Unknown'}
+
+*S H O R T :* ${await shortUrl(link)}`
+
+conn.reply(m.chat, caption, m, { contextInfo: {
+          externalAdReply :{
+    mediaUrl: sgh,
+    mediaType: 2,
+    title: wm,
+    body: botdate,
+    thumbnail: await(await fetch(link)).buffer(),
+    sourceUrl: link
+     }}
+  })
 }
-handler.help = ['tourl <reply image>']
-handler.tags = ['sticker']
-handler.command = /^(upload|tourl|toenlace)$/i
+handler.help = ['tourl']
+handler.tags = ['tools']
+handler.command = /^(tourl|upload)$/i
 export default handler
+
+async function shortUrl(url) {
+	let res = await fetch(`https://tinyurl.com/api-create.php?url=${url}`)
+	return await res.text()
+}
