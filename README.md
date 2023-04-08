@@ -78,7 +78,7 @@
 | **REPLIT** | ***INSTALACIÓN POR REPLIT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-replit---gatabot) |
 | **KOYEB** | ***INSTALACIÓN POR KOYEB*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-koyeb) |
 | **WINDOWS** | ***INSTALACIÓN POR WINDOWS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-para-usuarios-de-windowsvpsrdp) |
-| **PREGUNTAS FRECUENTES** | ***DESPEJAR DUDAS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#gatabot-md---preguntas) |
+| **PREGUNTAS FRECUENTES** | ***DESPEJAR DUDAS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-gatabot-md---preguntas) |
 | **SOBRE GATABOT** | ***SECCIONES DE INFORMACIÓN*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#sobre-gatabot--gb-global) |
 | **DESARROLLADORES** | ***PARTICIPATES DEL PROYECTO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
 -----
@@ -244,7 +244,7 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 > ffmpeg -version
 ```
 ----  
-### GataBot-MD - Preguntas
+### ❔ GataBot-MD - Preguntas 
 <details>
 <summary><b>Configuración</b></summary>
 
@@ -305,7 +305,7 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 - [x] **¿Cómo puedo Instalar GataBot-MD en BoxMine?**<br>
 _Puede visitar el tutorial [`💛 GataBot-MD ~ BoxMine`](https://youtu.be/Ko019wvu2Tc)_
 
-- [x] **¿Cómo puedo crear una cuenta en BoxMine?<br>
+- [x] **¿Cómo puedo crear una cuenta en BoxMine?**<br>
 _Puede ver esa información [`Aquí 👈`](https://github.com/GataNina-Li/GataBot-MD/#-boxminehost)_
 
 - [x] **¿Cómo puedo actualizar?**<br>
