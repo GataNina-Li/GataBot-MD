@@ -246,7 +246,7 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 ----  
 ### GataBot-MD - Preguntas
 <details>
-<summary><b>Configuración sobre GataBot-MD</b></summary><br>
+<summary><b>Configuración</b></summary>
 
   - [x] **¿Como puedo hacer una bifurcación?**<br>
   _Puede hacerlo desde [`💚 Aquí`](https://github.com/GataNina-Li/GataBot-MD/fork)._
@@ -265,7 +265,7 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 </details>
 
 <details>
-<summary><b>Preguntas sobre Termux</b></summary><br>
+<summary><b>Preguntas sobre Termux</b></summary>
 
   - [x] **¿Cómo puedo instalar GataBot en Termux?**<br>
   _Puede usar la [`Instalación Automática 😼`](https://github.com/GataNina-Li/GataBot-MD/#-opci%C3%B3n-1-instalaci%C3%B3n-autom%C3%A1tica-por-termux-) si es la primera vez que va instalar._<br>
@@ -297,6 +297,24 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
   
   - [x] **¿Que hago si no responde el Bot después de iniciar o si muestra un mensje diciendo "Mensaje en espera"?**<br>
   _Detenga Termux y elimine la sesión de GataBot-MD para obtener un nuevo código QR._
+</details>
+
+<details>
+<summary><b>Preguntas sobre BoxMine</b></summary>
+
+- [x] **¿Cómo puedo Instalar GataBot-MD en BoxMine?**<br>
+_Puede visitar el tutorial [`💛 GataBot-MD ~ BoxMine`](https://youtu.be/Ko019wvu2Tc)_
+
+- [x] **¿Cómo puedo crear una cuenta en BoxMine?<br>
+_Puede ver esa información [`Aquí 👈`](https://github.com/GataNina-Li/GataBot-MD/#-boxminehost)_
+
+- [x] **¿Cómo puedo actualizar?**<br>
+_Detener el servidor con el botón `STOP` luego ir a la pestaña `FILES` y descargar el archivo `database.json` dicho archivo es donde se almacena el progreso del Bot, luego de hacer el respaldo debe de eliminar todos los archivos y carpetas de `FILES`, luego ir a la pestaña `SETTINGS` y usar el Botón `REINSTALL SERVER` después espera un momento y cuando aparezca información del servidor ir a la pestaña `FILES` para agregar el archivo `database.json` que respaldó, luego guardar los cambios ir a la pestaña `CONSOLE` y usar el Botón `RESTART`. De ese modo se actualizará el Bot (Cabe recalcar que se borrará las configuraciones que hizo en `config.js` por lo que si quiere volver agregar la información deberá de editar dicho archivo antes de usar `RESTART`)._
+
+- [x] **¿Cómo puedo obtener un nuevo código QR?**<br>
+_Use el botón `STOP` luego ir a la pestaña `FILES` y borrar la carpeta `GataBotSession` guarde los cambios y luego ir a la pestaña `CONSOLE` y tendrá un nuevo código QR de debe de escanear._
+
+- [x] _Si tiene más dudas puede decirlo por el [`🟣 Servidor de Discord`](https://discord.gg/84qsr4v)_
 </details>
 
 ----
