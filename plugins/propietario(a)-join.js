@@ -23,7 +23,6 @@ handler.help = ['join [chat.whatsapp.com]']
 handler.tags = ['owner']
 handler.command = /^join|nuevogrupo$/i
 //handler.private = true 
-handler.register = true
-handler.owner = true
+//handler.register = true
 export default handler
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
