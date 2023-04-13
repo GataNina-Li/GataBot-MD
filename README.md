@@ -58,8 +58,8 @@
 
 ### ✅ GATABOT OFICIAL
 <a href="http://wa.me/51933502440?text=.menu" target="blank"><img src="https://img.shields.io/badge/1️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/18134031119?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/50232959057?text=.menu" target="blank"><img src="https://img.shields.io/badge/3️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/51959609590?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/17862004403?text=.menu" target="blank"><img src="https://img.shields.io/badge/3️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 <a href="http://wa.me/48699519894?text=.menu" target="blank"><img src="https://img.shields.io/badge/☑️_OpenAI_WaBot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </a>
 
@@ -72,13 +72,13 @@
 | **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-2-instalación-manual-por-termux---github) |
 | **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-manual-por-termux---archivos) |
 | **TERMUX 24/7** | ***COMANDOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-247-en-termux) |
-| **TERMUX UPDATE (beta)** | ***COMANDOS PARA ACTUALIZAR GATABOT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot-beta) |
+| **TERMUX UPDATE** | ***COMANDOS PARA ACTUALIZAR GATABOT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot) |
 | **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
 | **BOXMINE** | ***INSTALACIÓN POR BOXMINE*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-boxminehost) |
 | **REPLIT** | ***INSTALACIÓN POR REPLIT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-replit---gatabot) |
 | **KOYEB** | ***INSTALACIÓN POR KOYEB*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-koyeb) |
 | **WINDOWS** | ***INSTALACIÓN POR WINDOWS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-para-usuarios-de-windowsvpsrdp) |
-| **PREGUNTAS FRECUENTES** | ***DESPEJAR DUDAS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#gatabot-md---preguntas) |
+| **PREGUNTAS FRECUENTES** | ***DESPEJAR DUDAS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-gatabot-md---preguntas) |
 | **SOBRE GATABOT** | ***SECCIONES DE INFORMACIÓN*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#sobre-gatabot--gb-global) |
 | **DESARROLLADORES** | ***PARTICIPATES DEL PROYECTO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
 -----
@@ -162,7 +162,7 @@ pm2 stop index
 pm2 start index
 ``` 
 ----
-### 😼 ACTUALIZAR GATABOT (BETA)
+### 😼 ACTUALIZAR GATABOT
 > **Note** Comandos para actualizar GataBot-MD de forma automática
 ```bash
 grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/update.sh | bash 
@@ -243,33 +243,80 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 ```cmd
 > ffmpeg -version
 ```
-----    
-###  AJUSTE <img src="https://i.pinimg.com/originals/98/1b/e2/981be28d3ec7b85bfb797a5f9e6a01c2.png" height="32px">
-- CLONAR EL REPOSITORIO [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/fork)
-- CAMBIAR NÚMERO DEL OWNER [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js)
-- SELECCIONAR IDIOMA [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js) 
 ----  
-### GataBot-MD - Preguntas
+### ❔ GataBot-MD - Preguntas 
+<details>
+<summary><b>Configuración</b></summary>
 
-* Cómo edito el MultiLenguajeGB?
-> Ve a la carpeta [`idiomas ✨`](https://github.com/GataNina-Li/GataBot-MD/tree/master/lib/idiomas) y selecciona el archivo del idioma que quiera modificar su contenido
+  - [x] **¿Como puedo hacer una bifurcación?**<br>
+  _Puede hacerlo desde [`💚 Aquí`](https://github.com/GataNina-Li/GataBot-MD/fork)._
+  
+  - [x] **¿Dónde puedo agregar el número del Bot?**<br>
+  _Puede hacerlo desde el archivo [`⚙️ config.js`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js). En el apartado `global.owner` puede agregar el número del Bot y más números como Owner._
+  ```js
+  global.owner = [
+  ['59311222333', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈', true], // Número del Bot: Ejemplo +593 11 222 333
+  ['59300999222'], // Owner 1 +593 00 999 222
+  ['59377333999'] // Owner 2 +593 77 333 999
+]
+  ```
+  - [x] **¿Cómo edito el texto del Bot?**<br>
+  _Ir a la carpeta [`idiomas ✨`](https://github.com/GataNina-Li/GataBot-MD/tree/master/lib/idiomas) y selecciona el archivo del idioma que quiera modificar su contenido._
+</details>
 
-* Cómo detengo el Bot en Termux?
-> Use ```CTRL``` + ```z``` para apagar el Bot
+<details>
+<summary><b>Preguntas sobre Termux</b></summary>
 
-* Cómo enciendo el Bot en termux?
-> En caso que vuelva a iniciar en termux use este comando ```cd GataBot-MD && npm start```
-En caso que este Apagado el Bot sin salir de la carpeta del Bot, use este comando ```npm start```
+  - [x] **¿Cómo puedo instalar GataBot en Termux?**<br>
+  _Puede usar la [`Instalación Automática 😼`](https://github.com/GataNina-Li/GataBot-MD/#-opci%C3%B3n-1-instalaci%C3%B3n-autom%C3%A1tica-por-termux-) si es la primera vez que va instalar._<br>
+  
+  - [x] **¿Cómo puedo descargar Termux?**<br>
+  _Puede descargar la versión de Termux e instalar [`Aquí 😉`](https://f-droid.org/es/packages/com.termux/)._
+  
+  - [x] **¿Cómo conectar a GataBot si se cierra la aplicación de Termux?**<br>
+  _Primero abrir Termux, luego usar este comando para iniciar GataBot si previamente ya hizo su instalación `cd GataBot-MD && npm start`_
+  <details><summary>Ejemplo</summary><img src="https://i.imgur.com/6nqEr5g.jpeg"></details>
+  
+  - [x] **¿Cómo iniciar GataBot si me encuentro dentro de su carpeta?**<br>
+  _Usar `npm start` para iniciar GataBot si ya está dentro de la carpeta_
+  <details><summary>Ejemplo</summary><img src="https://i.imgur.com/vqxz6Lc.jpeg"></details>
+  
+  - [x] **¿Cómo detengo Termux?**<br>
+  _Use el botón de termux `CTRL` + Tecla `Z` para detener termux._
+  
+  - [x] **Quiero tener Termux 24/7 ¿Cómo lo hago?**<br>
+  _Desde la carpeta de GataBot use los comandos [`24/7 Termux 🚀`](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-247-en-termux)_
+  <details><summary>Ejemplo</summary><img src="https://i.imgur.com/ZNarv99.jpeg"></details>
+  
+  - [x] **Comandos para obtener nuevo código QR:**<br>
+  _Diga estos comandos desde la carpeta de GataBot `rm -rf GataBotSession && npm start`_
+  
+  - [x] **¿Cómo actualizar GataBot?**<br>
+  _Desde la carpeta de GataBot usar los commandos para [`♻️ Actualizar GataBot-MD`](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot)_
+  <details><summary>Ejemplo</summary><img src="https://i.imgur.com/1kLVQj4.jpeg"></details>
+  
+  - [x] **¿Que hago si no responde el Bot después de iniciar o si muestra un mensje diciendo "Mensaje en espera"?**<br>
+  _Detenga Termux y elimine la sesión de GataBot-MD para obtener un nuevo código QR._
+</details>
 
-* Que hago si quiero volver a clonar el Bot?
-> En caso que quiera eliminar la carpeta del Bot y volver a clonar use este comando ```rm -rf GataBot-MD && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && npm start``` Esta acción también sirve en caso que quiera Actualizar a la última versión (Si usa el Repositorio Oficial es probable que no sea Owner)
+<details>
+<summary><b>Preguntas sobre BoxMine</b></summary>
 
-* Cómo puedo borrar la Session en Termux?
-> Ejecute este comando en Termux ```rm -rf GataBotSession```
-En caso que no tenga nada en el terminar puede usar este comando ```cd GataBot-MD && rm -rf GataBotSession``` Y después solo debe de escanear el Código QR
+- [x] **¿Cómo puedo Instalar GataBot-MD en BoxMine?**<br>
+_Puede visitar el tutorial [`💛 GataBot-MD ~ BoxMine`](https://youtu.be/Ko019wvu2Tc)_
 
-* Cómo puedo hacer el Bot Owner?
-> Debe de ingresar al archivo `config.js` o también [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js) luego añadir su número en donde diga `global.owner` Recuerde que requiere de hacer una Bifurcación, puede hacerla [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/fork)
+- [x] **¿Cómo puedo crear una cuenta en BoxMine?**<br>
+_Puede ver esa información [`Aquí 👈`](https://github.com/GataNina-Li/GataBot-MD/#-boxminehost)_
+
+- [x] **¿Cómo puedo actualizar?**<br>
+_Detener el servidor con el botón `STOP` luego ir a la pestaña `FILES` y descargar el archivo `database.json` dicho archivo es donde se almacena el progreso del Bot, luego de hacer el respaldo debe de eliminar todos los archivos y carpetas de `FILES`, luego ir a la pestaña `SETTINGS` y usar el Botón `REINSTALL SERVER` después espera un momento y cuando aparezca información del servidor ir a la pestaña `FILES` para agregar el archivo `database.json` que respaldó, luego guardar los cambios ir a la pestaña `CONSOLE` y usar el Botón `RESTART`. De ese modo se actualizará el Bot (Cabe recalcar que se borrará las configuraciones que hizo en `config.js` por lo que si quiere volver agregar la información deberá de editar dicho archivo antes de usar `RESTART`)._
+
+- [x] **¿Cómo puedo obtener un nuevo código QR?**<br>
+_Use el botón `STOP` luego ir a la pestaña `FILES` y borrar la carpeta `GataBotSession` guarde los cambios y luego ir a la pestaña `CONSOLE` y tendrá un nuevo código QR de debe de escanear._
+
+- [x] _Si tiene más dudas puede decirlo por el [`🟣 Servidor de Discord`](https://discord.gg/84qsr4v)_
+</details>
+
 ----
 ### SOBRE GATABOT ~ GB-GLOBAL
 <details>
