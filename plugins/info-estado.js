@@ -13,11 +13,23 @@ let _muptime
 if (process.send) { process.send('uptime')
 _muptime = await new Promise(resolve => { process.once('message', resolve) 
 setTimeout(resolve, 1000) }) * 1000}
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 let uptime = clockString(_uptime)
-let estado =`
+let estado = `╭══✨• ೋ•✨๑๑💗๑๑✨•ೋ •✨══╮
+
+*ミ💖 ¡Hola! estimado/a usuario/a 💖彡*
+
+*ミ🤖 Estado de GataBot 🤖彡*
+*=> ✅ Bot activo y de uso público*
+
+╰══✨• ೋ•✨๑๑💗๑๑✨•ೋ •✨══╯`
+conn.sendButton(m.chat, estado, `𝙂𝘼𝙏𝘼 𝘿𝙄𝙊𝙎 - 𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼\n${asistencia}\n\n`, [
+['🌀 MENÚ 🌀', '.menu'], ['🔆 MENÚ COMPLETO 🔆', '.menucompleto'], ['♨️ MENÚ DE AUDIOS ♨️', '.audios']], m)
+
+/*let estado =`
 ╭━━━━[ *𝙀𝙎𝙏𝘼𝘿𝙊 | 𝙎𝙏𝘼𝙏𝙐𝙎* ]━━━━━⬣
 ┃💗 *¡Hola | Hi!* ${name}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
 ┃𓃠 *Versión de ${gt}*
 ┃➥ ${vs}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -37,12 +49,11 @@ conn.sendHydrated(m.chat, estado, `𝙂𝘼𝙏𝘼 𝘿𝙄𝙊𝙎 - 𝘼𝙎�
 ['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪', '.allmenu'],
 ['𝙑𝙚𝙡𝙤𝙘𝙞𝙙𝙖𝙙 | 𝙎𝙥𝙚𝙚𝙙', '/ping'],
 ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '#menu']
-], m,)}
-
+], m,)}*/
 /*conn.sendHydrated(m.chat, estado, wm, picture, 'https://github.com/GataNina-Li/GataBot-MD', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
 ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '#menu']
 ], m)}*/
-
+}
 handler.help = ['estado']
 handler.tags = ['main']
 handler.command = /^(estado|status|estate|state|heygata|stado|stats|botstat(us)?)$/i
