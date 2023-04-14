@@ -40,6 +40,11 @@ const { restrict } = global.db.data.settings[conn.user.jid] || {}
 const { autoread } = global.opts
 let pp = './media/menus/Menu1.jpg'
 let vn = './media/infobot.mp3'
+let grupos = [nna, nn, nnn, nnntt]
+let gata = [img5, img6, img7, img8, img9]
+let enlace = { contextInfo: { externalAdReply: {title: wm + ' ', body: 'support group' , sourceUrl: grupos.getRandom(), thumbnail: await(await fetch(gata.getRandom())).buffer() }}}
+let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: 'The LoliBot-MD', thumbnailUrl: await(await fetch(img)).buffer(), sourceUrl: yt }}}
+let dos = [enlace, enlace2]
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let old = performance.now()
@@ -50,8 +55,8 @@ let old = performance.now()
 
 let info = `╭━━━━[ ${gt} ]━━━━━⬣
 ┃➥ *CREADORA | CREATOR*
-┃ღ *𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨*`
-conn.sendButton(m.chat, info, `┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ღ *𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *CONTACTO | CONTACT* 
 ┃ღ *${ig}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -91,8 +96,8 @@ conn.sendButton(m.chat, info, `┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈�
 ┃➥ *RESTRICT* 
 ┃ღ ${restrict ? '*Activado ✔*' : '*Desactivado ✘*'} 
 ┃
-╰━━━[ 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙘𝙞ó𝙣 | 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙩𝙞𝙤𝙣 ]━━⬣`, [
-['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '.menu']], m)
+╰━━━[ 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙘𝙞ó𝙣 | 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙩𝙞𝙤𝙣 ]━━⬣`
+await conn.sendButton(m.chat, wm, info, gata.getRandom(), [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], m, dos.getRandom())
 /*let info = `
 ╭━━━━[ ${gt} ]━━━━━⬣
 ┃
