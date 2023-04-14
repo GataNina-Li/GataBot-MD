@@ -40,13 +40,60 @@ const { restrict } = global.db.data.settings[conn.user.jid] || {}
 const { autoread } = global.opts
 let pp = './media/menus/Menu1.jpg'
 let vn = './media/infobot.mp3'
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let old = performance.now()
   //await m.reply('_Realizando test_')
   let neww = performance.now()
   let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])]
   let speed = neww - old
 
-let info = `
+let info = `╭━━━━[ ${gt} ]━━━━━⬣
+┃➥ *CREADORA | CREATOR*
+┃ღ *𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨*`
+conn.sendButton(m.chat, info, `┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *CONTACTO | CONTACT* 
+┃ღ *${ig}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃𓃠 *VERSIÓN ACTUAL | VERSION*
+┃ღ ${vs}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *PREFIJO | PREFIX*
+┃ღ *${usedPrefix}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *CHATS PRIVADOS | PRIVATE CHAT*
+┃ღ *${chats.length - groups.length}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *CHATS DE GRUPOS | GROUP CHAT*
+┃ღ *${groups.length}* 
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *CHATS EN TOTAL | TOTAL CHATS*
+┃ღ *${chats.length}* 
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *ACTIVIDAD | ACTIVITY*
+┃ღ *${uptime}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *USUARIOS | USERS*
+┃ღ *${totalreg}* 
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *VELOCIDAD | SPEED*
+┃ღ  *${speed}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *BOT SECUNDARIOS ACTIVOS | ACTIVE SECONDARY BACKS*
+┃ღ *${totaljadibot.length}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *BATERIA | DRUMS*
+┃ღ *${conn.battery ? `${conn.battery.value}%* *${conn.battery.live ? '🔌 Cargando...*' : '⚡ Desconectado*'}` : 'Desconocido*'}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *AUTOREAD*
+┃ღ ${autoread ? '*Activado ✔*' : '*Desactivado ✘*'}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *RESTRICT* 
+┃ღ ${restrict ? '*Activado ✔*' : '*Desactivado ✘*'} 
+┃
+╰━━━[ 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙘𝙞ó𝙣 | 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙩𝙞𝙤𝙣 ]━━⬣`, [
+['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '.menu']], m)
+/*let info = `
 ╭━━━━[ ${gt} ]━━━━━⬣
 ┃
 ┃➥ *CREADORA | CREATOR*
@@ -97,7 +144,7 @@ conn.sendHydrated(m.chat, info, wm, pp, 'https://github.com/GataNina-Li/GataBot-
 ['𝙑𝙚𝙧 𝙂𝙧𝙪𝙥𝙤𝙨 | 𝙎𝙚𝙚 𝙂𝙧𝙤𝙪𝙥𝙨', '#grupolista'],
 ['𝘾𝙪𝙚𝙣𝙩𝙖𝙨 𝙊𝙛𝙞𝙘𝙞𝙖𝙡𝙚𝙨 | 𝘼𝙘𝙘𝙤𝙪𝙣𝙩𝙨', '/cuentasgb'],
 ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '.menu']
-], m,)
+], m,)*/
 //conn.reply(m.chat, info, m)
 }
 handler.help = ['infobot']
