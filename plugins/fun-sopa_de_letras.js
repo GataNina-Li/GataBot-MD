@@ -1,5 +1,5 @@
 //CREADO POR @gata_dios
-
+ 
 let fila, columna, sopaNube, sopaPalabra, sopaDir, userSP, cambioLetra, diamante = null
 let intentos = 0
 let handler = async (m, { conn, text, usedPrefix, command}) => {
