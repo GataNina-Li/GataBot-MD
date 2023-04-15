@@ -122,7 +122,7 @@ intentos = 3
 generarSopaDeLetras()
 resetUserSP(cambioLetra)
 
-async function resetUserSP(cambioLetra) {
+async function resetUserSP() {
 await new Promise((resolve) => setTimeout(resolve, 2 * 60 * 1000)) // 2 min
 if (intentos !== 0) {
 await conn.reply(m.chat, `*@${m.sender.split("@")[0]} TE QUEDA UN MINUTO!!* 😨`, m, { mentions: [m.sender] })
