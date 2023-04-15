@@ -7,7 +7,6 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
 if (!userSP) {
 userSP = m.sender.split("@")[0]
 await conn.reply(m.chat, `*@${m.sender.split("@")[0]} REGISTRADO EN EL JUEGO* ✅`, m, { mentions: [m.sender] })
-return
 }
   
 async function generarSopaDeLetras() {
