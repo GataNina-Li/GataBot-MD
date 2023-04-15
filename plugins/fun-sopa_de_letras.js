@@ -126,14 +126,12 @@ async function resetUserSP() {
 await new Promise((resolve) => setTimeout(resolve, 2 * 60 * 1000)) // 2 min
 if (intentos !== 0) {
 await conn.reply(m.chat, `*@${m.sender.split("@")[0]} TE QUEDA UN MINUTO!!* 😨`, m, { mentions: [m.sender] })
-return
 }
 await new Promise((resolve) => setTimeout(resolve, 3 * 60 * 1000)) // 3 min
 if (intentos !== 0) {
 await conn.reply( m.chat, `*@${m.sender.split("@")[0]} EL TIEMPO SE HA ACABADO!!* 😧\n\n*LA PALABRA _"${sopaPalabra}"_ SE ENCONTRABA EN LA DIRECCIÓN _${cambioLetra}_ DE LA FILA _${fila}_ Y COLUMNA _${columna}_*`, m, { mentions: [m.sender] })
 fila = null, columna = null, sopaNube = null, sopaPalabra = null, sopaDir = null, userSP = null, cambioLetra = null
 intentos = 0
-return
 }
 }}else {
 if (`${fila}${columna}` == text) {
