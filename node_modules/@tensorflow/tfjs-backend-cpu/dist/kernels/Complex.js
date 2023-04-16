@@ -1,0 +1,39 @@
+/**
+ * @license
+ * Copyright 2020 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+import { Complex } from '@tensorflow/tfjs-core';
+export function complex(args) {
+    const { inputs, backend } = args;
+    const { real, imag } = inputs;
+    const realVals = backend.data.get(real.dataId).values;
+    const imagVals = backend.data.get(imag.dataId).values;
+    const complexInfo = backend.makeTensorInfo(real.shape, 'complex64');
+    const complex = backend.data.get(complexInfo.dataId);
+    // The complex tensor owns the underlying real and imag tensorInfos, only the
+    // complex tensor tracks refCount, when complexData is disposed the
+    // underlying tensorData will be disposed.
+    complex.complexTensorInfos = {
+        real: backend.makeTensorInfo(real.shape, 'float32', realVals),
+        imag: backend.makeTensorInfo(imag.shape, 'float32', imagVals)
+    };
+    return complexInfo;
+}
+export const complexConfig = {
+    kernelName: Complex,
+    backendName: 'cpu',
+    kernelFunc: complex
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ29tcGxleC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3RmanMtYmFja2VuZC1jcHUvc3JjL2tlcm5lbHMvQ29tcGxleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7O0dBZUc7QUFFSCxPQUFPLEVBQUMsT0FBTyxFQUFrRSxNQUFNLHVCQUF1QixDQUFDO0FBSS9HLE1BQU0sVUFBVSxPQUFPLENBQUMsSUFBc0Q7SUFFNUUsTUFBTSxFQUFDLE1BQU0sRUFBRSxPQUFPLEVBQUMsR0FBRyxJQUFJLENBQUM7SUFDL0IsTUFBTSxFQUFDLElBQUksRUFBRSxJQUFJLEVBQUMsR0FBRyxNQUFNLENBQUM7SUFFNUIsTUFBTSxRQUFRLEdBQUcsT0FBTyxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxDQUFDLE1BQW9CLENBQUM7SUFDcEUsTUFBTSxRQUFRLEdBQUcsT0FBTyxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxDQUFDLE1BQW9CLENBQUM7SUFFcEUsTUFBTSxXQUFXLEdBQUcsT0FBTyxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsS0FBSyxFQUFFLFdBQVcsQ0FBQyxDQUFDO0lBRXBFLE1BQU0sT0FBTyxHQUFHLE9BQU8sQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLFdBQVcsQ0FBQyxNQUFNLENBQUMsQ0FBQztJQUVyRCw2RUFBNkU7SUFDN0UsbUVBQW1FO0lBQ25FLDBDQUEwQztJQUMxQyxPQUFPLENBQUMsa0JBQWtCLEdBQUc7UUFDM0IsSUFBSSxFQUFFLE9BQU8sQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLEtBQUssRUFBRSxTQUFTLEVBQUUsUUFBUSxDQUFDO1FBQzdELElBQUksRUFBRSxPQUFPLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxLQUFLLEVBQUUsU0FBUyxFQUFFLFFBQVEsQ0FBQztLQUM5RCxDQUFDO0lBRUYsT0FBTyxXQUFXLENBQUM7QUFDckIsQ0FBQztBQUVELE1BQU0sQ0FBQyxNQUFNLGFBQWEsR0FBaUI7SUFDekMsVUFBVSxFQUFFLE9BQU87SUFDbkIsV0FBVyxFQUFFLEtBQUs7SUFDbEIsVUFBVSxFQUFFLE9BQTJCO0NBQ3hDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgMjAyMCBHb29nbGUgTExDLiBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICogTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbiAqIHlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbiAqIFlvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuICpcbiAqIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuICpcbiAqIFVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbiAqIGRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbiAqIFdJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuICogU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxuICogbGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4gKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuICovXG5cbmltcG9ydCB7Q29tcGxleCwgQ29tcGxleElucHV0cywgS2VybmVsQ29uZmlnLCBLZXJuZWxGdW5jLCBUZW5zb3JJbmZvLCBUeXBlZEFycmF5fSBmcm9tICdAdGVuc29yZmxvdy90ZmpzLWNvcmUnO1xuXG5pbXBvcnQge01hdGhCYWNrZW5kQ1BVfSBmcm9tICcuLi9iYWNrZW5kX2NwdSc7XG5cbmV4cG9ydCBmdW5jdGlvbiBjb21wbGV4KGFyZ3M6IHtpbnB1dHM6IENvbXBsZXhJbnB1dHMsIGJhY2tlbmQ6IE1hdGhCYWNrZW5kQ1BVfSk6XG4gICAgVGVuc29ySW5mbyB7XG4gIGNvbnN0IHtpbnB1dHMsIGJhY2tlbmR9ID0gYXJncztcbiAgY29uc3Qge3JlYWwsIGltYWd9ID0gaW5wdXRzO1xuXG4gIGNvbnN0IHJlYWxWYWxzID0gYmFja2VuZC5kYXRhLmdldChyZWFsLmRhdGFJZCkudmFsdWVzIGFzIFR5cGVkQXJyYXk7XG4gIGNvbnN0IGltYWdWYWxzID0gYmFja2VuZC5kYXRhLmdldChpbWFnLmRhdGFJZCkudmFsdWVzIGFzIFR5cGVkQXJyYXk7XG5cbiAgY29uc3QgY29tcGxleEluZm8gPSBiYWNrZW5kLm1ha2VUZW5zb3JJbmZvKHJlYWwuc2hhcGUsICdjb21wbGV4NjQnKTtcblxuICBjb25zdCBjb21wbGV4ID0gYmFja2VuZC5kYXRhLmdldChjb21wbGV4SW5mby5kYXRhSWQpO1xuXG4gIC8vIFRoZSBjb21wbGV4IHRlbnNvciBvd25zIHRoZSB1bmRlcmx5aW5nIHJlYWwgYW5kIGltYWcgdGVuc29ySW5mb3MsIG9ubHkgdGhlXG4gIC8vIGNvbXBsZXggdGVuc29yIHRyYWNrcyByZWZDb3VudCwgd2hlbiBjb21wbGV4RGF0YSBpcyBkaXNwb3NlZCB0aGVcbiAgLy8gdW5kZXJseWluZyB0ZW5zb3JEYXRhIHdpbGwgYmUgZGlzcG9zZWQuXG4gIGNvbXBsZXguY29tcGxleFRlbnNvckluZm9zID0ge1xuICAgIHJlYWw6IGJhY2tlbmQubWFrZVRlbnNvckluZm8ocmVhbC5zaGFwZSwgJ2Zsb2F0MzInLCByZWFsVmFscyksXG4gICAgaW1hZzogYmFja2VuZC5tYWtlVGVuc29ySW5mbyhpbWFnLnNoYXBlLCAnZmxvYXQzMicsIGltYWdWYWxzKVxuICB9O1xuXG4gIHJldHVybiBjb21wbGV4SW5mbztcbn1cblxuZXhwb3J0IGNvbnN0IGNvbXBsZXhDb25maWc6IEtlcm5lbENvbmZpZyA9IHtcbiAga2VybmVsTmFtZTogQ29tcGxleCxcbiAgYmFja2VuZE5hbWU6ICdjcHUnLFxuICBrZXJuZWxGdW5jOiBjb21wbGV4IGFzIHt9IGFzIEtlcm5lbEZ1bmNcbn07XG4iXX0=

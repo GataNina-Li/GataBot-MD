@@ -1,0 +1,50 @@
+/**
+ * @license
+ * Copyright 2021 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+/**
+ * Generates sparse segment reduction negative segment ids error message.
+ *
+ */
+export function getSparseSegmentReductionNegativeSegmentIdsErrorMessage() {
+    return `segment ids must be >= 0`;
+}
+/**
+ * Generates sparse segment reduction non increasing segment ids error message.
+ *
+ */
+export function getSparseSegmentReductionNonIncreasingSegmentIdsErrorMessage() {
+    return `segment ids are not increasing`;
+}
+/**
+ * Generates sparse segment reduction segment id out of range error message.
+ *
+ * @param segmentId The segment id index that is out of range.
+ * @param outputRows Upper bound of valid segment id values.
+ */
+export function getSparseSegmentReductionSegmentIdOutOfRangeErrorMessage(segmentId, outputRows) {
+    return `Segment id ${segmentId} out of range [0, ${outputRows}), possibly because segmentIds input is not sorted.`;
+}
+/**
+ * Generates sparse segment reduction input indice out of range error message.
+ *
+ * @param index The index that holds the out of range value.
+ * @param indexValue The value that is out of range.
+ * @param inputRows Upper bound of valid index values.
+ */
+export function getSparseSegmentReductionIndicesOutOfRangeErrorMessage(index, indexValue, inputRows) {
+    return `Bad: indices[${index}] == ${indexValue} out of range [0, ${inputRows})`;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3BhcnNlX3NlZ21lbnRfcmVkdWN0aW9uX3V0aWwuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi90ZmpzLWNvcmUvc3JjL29wcy9zcGFyc2Uvc3BhcnNlX3NlZ21lbnRfcmVkdWN0aW9uX3V0aWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7OztHQWVHO0FBRUg7OztHQUdHO0FBQ0gsTUFBTSxVQUFVLHVEQUF1RDtJQUNyRSxPQUFPLDBCQUEwQixDQUFDO0FBQ3BDLENBQUM7QUFFRDs7O0dBR0c7QUFDSCxNQUFNLFVBQVUsNERBQTREO0lBQzFFLE9BQU8sZ0NBQWdDLENBQUM7QUFDMUMsQ0FBQztBQUVEOzs7OztHQUtHO0FBQ0gsTUFBTSxVQUFVLHdEQUF3RCxDQUNwRSxTQUFpQixFQUFFLFVBQWtCO0lBQ3ZDLE9BQU8sY0FBYyxTQUFTLHFCQUMxQixVQUFVLHFEQUFxRCxDQUFDO0FBQ3RFLENBQUM7QUFFRDs7Ozs7O0dBTUc7QUFDSCxNQUFNLFVBQVUsc0RBQXNELENBQ2xFLEtBQWEsRUFBRSxVQUFrQixFQUFFLFNBQWlCO0lBQ3RELE9BQU8sZ0JBQWdCLEtBQUssUUFBUSxVQUFVLHFCQUMxQyxTQUFTLEdBQUcsQ0FBQztBQUNuQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IDIwMjEgR29vZ2xlIExMQy4gQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG4gKiB5b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG4gKiBZb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcbiAqXG4gKiBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcbiAqXG4gKiBVbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG4gKiBkaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG4gKiBXSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cbiAqIFNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbiAqIGxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuICogPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbiAqL1xuXG4vKipcbiAqIEdlbmVyYXRlcyBzcGFyc2Ugc2VnbWVudCByZWR1Y3Rpb24gbmVnYXRpdmUgc2VnbWVudCBpZHMgZXJyb3IgbWVzc2FnZS5cbiAqXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBnZXRTcGFyc2VTZWdtZW50UmVkdWN0aW9uTmVnYXRpdmVTZWdtZW50SWRzRXJyb3JNZXNzYWdlKCkge1xuICByZXR1cm4gYHNlZ21lbnQgaWRzIG11c3QgYmUgPj0gMGA7XG59XG5cbi8qKlxuICogR2VuZXJhdGVzIHNwYXJzZSBzZWdtZW50IHJlZHVjdGlvbiBub24gaW5jcmVhc2luZyBzZWdtZW50IGlkcyBlcnJvciBtZXNzYWdlLlxuICpcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGdldFNwYXJzZVNlZ21lbnRSZWR1Y3Rpb25Ob25JbmNyZWFzaW5nU2VnbWVudElkc0Vycm9yTWVzc2FnZSgpIHtcbiAgcmV0dXJuIGBzZWdtZW50IGlkcyBhcmUgbm90IGluY3JlYXNpbmdgO1xufVxuXG4vKipcbiAqIEdlbmVyYXRlcyBzcGFyc2Ugc2VnbWVudCByZWR1Y3Rpb24gc2VnbWVudCBpZCBvdXQgb2YgcmFuZ2UgZXJyb3IgbWVzc2FnZS5cbiAqXG4gKiBAcGFyYW0gc2VnbWVudElkIFRoZSBzZWdtZW50IGlkIGluZGV4IHRoYXQgaXMgb3V0IG9mIHJhbmdlLlxuICogQHBhcmFtIG91dHB1dFJvd3MgVXBwZXIgYm91bmQgb2YgdmFsaWQgc2VnbWVudCBpZCB2YWx1ZXMuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBnZXRTcGFyc2VTZWdtZW50UmVkdWN0aW9uU2VnbWVudElkT3V0T2ZSYW5nZUVycm9yTWVzc2FnZShcbiAgICBzZWdtZW50SWQ6IG51bWJlciwgb3V0cHV0Um93czogbnVtYmVyKSB7XG4gIHJldHVybiBgU2VnbWVudCBpZCAke3NlZ21lbnRJZH0gb3V0IG9mIHJhbmdlIFswLCAke1xuICAgICAgb3V0cHV0Um93c30pLCBwb3NzaWJseSBiZWNhdXNlIHNlZ21lbnRJZHMgaW5wdXQgaXMgbm90IHNvcnRlZC5gO1xufVxuXG4vKipcbiAqIEdlbmVyYXRlcyBzcGFyc2Ugc2VnbWVudCByZWR1Y3Rpb24gaW5wdXQgaW5kaWNlIG91dCBvZiByYW5nZSBlcnJvciBtZXNzYWdlLlxuICpcbiAqIEBwYXJhbSBpbmRleCBUaGUgaW5kZXggdGhhdCBob2xkcyB0aGUgb3V0IG9mIHJhbmdlIHZhbHVlLlxuICogQHBhcmFtIGluZGV4VmFsdWUgVGhlIHZhbHVlIHRoYXQgaXMgb3V0IG9mIHJhbmdlLlxuICogQHBhcmFtIGlucHV0Um93cyBVcHBlciBib3VuZCBvZiB2YWxpZCBpbmRleCB2YWx1ZXMuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBnZXRTcGFyc2VTZWdtZW50UmVkdWN0aW9uSW5kaWNlc091dE9mUmFuZ2VFcnJvck1lc3NhZ2UoXG4gICAgaW5kZXg6IG51bWJlciwgaW5kZXhWYWx1ZTogbnVtYmVyLCBpbnB1dFJvd3M6IG51bWJlcikge1xuICByZXR1cm4gYEJhZDogaW5kaWNlc1ske2luZGV4fV0gPT0gJHtpbmRleFZhbHVlfSBvdXQgb2YgcmFuZ2UgWzAsICR7XG4gICAgICBpbnB1dFJvd3N9KWA7XG59XG4iXX0=

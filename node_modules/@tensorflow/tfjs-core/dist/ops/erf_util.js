@@ -1,0 +1,23 @@
+/**
+ * @license
+ * Copyright 2018 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+export const ERF_P = 0.3275911;
+export const ERF_A1 = 0.254829592;
+export const ERF_A2 = -0.284496736;
+export const ERF_A3 = 1.421413741;
+export const ERF_A4 = -1.453152027;
+export const ERF_A5 = 1.061405429;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXJmX3V0aWwuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi90ZmpzLWNvcmUvc3JjL29wcy9lcmZfdXRpbC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7O0dBZUc7QUFFSCxNQUFNLENBQUMsTUFBTSxLQUFLLEdBQUcsU0FBUyxDQUFDO0FBQy9CLE1BQU0sQ0FBQyxNQUFNLE1BQU0sR0FBRyxXQUFXLENBQUM7QUFDbEMsTUFBTSxDQUFDLE1BQU0sTUFBTSxHQUFHLENBQUMsV0FBVyxDQUFDO0FBQ25DLE1BQU0sQ0FBQyxNQUFNLE1BQU0sR0FBRyxXQUFXLENBQUM7QUFDbEMsTUFBTSxDQUFDLE1BQU0sTUFBTSxHQUFHLENBQUMsV0FBVyxDQUFDO0FBQ25DLE1BQU0sQ0FBQyxNQUFNLE1BQU0sR0FBRyxXQUFXLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgMjAxOCBHb29nbGUgTExDLiBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICogTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbiAqIHlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbiAqIFlvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuICpcbiAqIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuICpcbiAqIFVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbiAqIGRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbiAqIFdJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuICogU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxuICogbGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4gKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuICovXG5cbmV4cG9ydCBjb25zdCBFUkZfUCA9IDAuMzI3NTkxMTtcbmV4cG9ydCBjb25zdCBFUkZfQTEgPSAwLjI1NDgyOTU5MjtcbmV4cG9ydCBjb25zdCBFUkZfQTIgPSAtMC4yODQ0OTY3MzY7XG5leHBvcnQgY29uc3QgRVJGX0EzID0gMS40MjE0MTM3NDE7XG5leHBvcnQgY29uc3QgRVJGX0E0ID0gLTEuNDUzMTUyMDI3O1xuZXhwb3J0IGNvbnN0IEVSRl9BNSA9IDEuMDYxNDA1NDI5O1xuIl19

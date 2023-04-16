@@ -1,0 +1,30 @@
+{
+    "name": "@types/seedrandom",
+    "version": "2.4.30",
+    "description": "TypeScript definitions for seedrandom",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/seedrandom",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Kern Handa",
+            "url": "https://github.com/kernhanda",
+            "githubUsername": "kernhanda"
+        },
+        {
+            "name": "Eugene Zaretskiy",
+            "url": "https://github.com/EugeneZ",
+            "githubUsername": "EugeneZ"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/seedrandom"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "375653da4b2165533e189b35271f3c55e1d93138ee4381fc34df2516f072df2f",
+    "typeScriptVersion": "3.6"
+}

@@ -1,0 +1,43 @@
+/**
+ * @license
+ * Copyright 2020 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+import { FFT, util } from '@tensorflow/tfjs-core';
+import { fftBatch } from '../utils/fft_utils';
+import { reshape } from './Reshape';
+export function fft(args) {
+    const { inputs, backend } = args;
+    const { input } = inputs;
+    const inputSize = util.sizeFromShape(input.shape);
+    // Collapse all outer dimensions to a single batch dimension.
+    const innerDimensionSize = input.shape[input.shape.length - 1];
+    const batch = inputSize / innerDimensionSize;
+    const input2D = reshape({
+        inputs: { x: input },
+        backend,
+        attrs: { shape: [batch, innerDimensionSize] }
+    });
+    const result = fftBatch(input2D, false, backend);
+    const resultReshaped = reshape({ inputs: { x: result }, backend, attrs: { shape: input.shape } });
+    backend.disposeIntermediateTensorInfo(input2D);
+    backend.disposeIntermediateTensorInfo(result);
+    return resultReshaped;
+}
+export const fftConfig = {
+    kernelName: FFT,
+    backendName: 'cpu',
+    kernelFunc: fft
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRkZULmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vdGZqcy1iYWNrZW5kLWNwdS9zcmMva2VybmVscy9GRlQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7OztHQWVHO0FBRUgsT0FBTyxFQUFDLEdBQUcsRUFBbUQsSUFBSSxFQUFDLE1BQU0sdUJBQXVCLENBQUM7QUFHakcsT0FBTyxFQUFDLFFBQVEsRUFBQyxNQUFNLG9CQUFvQixDQUFDO0FBQzVDLE9BQU8sRUFBQyxPQUFPLEVBQUMsTUFBTSxXQUFXLENBQUM7QUFFbEMsTUFBTSxVQUFVLEdBQUcsQ0FBQyxJQUFrRDtJQUVwRSxNQUFNLEVBQUMsTUFBTSxFQUFFLE9BQU8sRUFBQyxHQUFHLElBQUksQ0FBQztJQUMvQixNQUFNLEVBQUMsS0FBSyxFQUFDLEdBQUcsTUFBTSxDQUFDO0lBRXZCLE1BQU0sU0FBUyxHQUFHLElBQUksQ0FBQyxhQUFhLENBQUMsS0FBSyxDQUFDLEtBQUssQ0FBQyxDQUFDO0lBRWxELDZEQUE2RDtJQUM3RCxNQUFNLGtCQUFrQixHQUFHLEtBQUssQ0FBQyxLQUFLLENBQUMsS0FBSyxDQUFDLEtBQUssQ0FBQyxNQUFNLEdBQUcsQ0FBQyxDQUFDLENBQUM7SUFDL0QsTUFBTSxLQUFLLEdBQUcsU0FBUyxHQUFHLGtCQUFrQixDQUFDO0lBRTdDLE1BQU0sT0FBTyxHQUFHLE9BQU8sQ0FBQztRQUN0QixNQUFNLEVBQUUsRUFBQyxDQUFDLEVBQUUsS0FBSyxFQUFDO1FBQ2xCLE9BQU87UUFDUCxLQUFLLEVBQUUsRUFBQyxLQUFLLEVBQUUsQ0FBQyxLQUFLLEVBQUUsa0JBQWtCLENBQUMsRUFBQztLQUM1QyxDQUFDLENBQUM7SUFFSCxNQUFNLE1BQU0sR0FBRyxRQUFRLENBQUMsT0FBTyxFQUFFLEtBQUssRUFBRSxPQUFPLENBQUMsQ0FBQztJQUVqRCxNQUFNLGNBQWMsR0FDaEIsT0FBTyxDQUFDLEVBQUMsTUFBTSxFQUFFLEVBQUMsQ0FBQyxFQUFFLE1BQU0sRUFBQyxFQUFFLE9BQU8sRUFBRSxLQUFLLEVBQUUsRUFBQyxLQUFLLEVBQUUsS0FBSyxDQUFDLEtBQUssRUFBQyxFQUFDLENBQUMsQ0FBQztJQUV6RSxPQUFPLENBQUMsNkJBQTZCLENBQUMsT0FBTyxDQUFDLENBQUM7SUFDL0MsT0FBTyxDQUFDLDZCQUE2QixDQUFDLE1BQU0sQ0FBQyxDQUFDO0lBRTlDLE9BQU8sY0FBYyxDQUFDO0FBQ3hCLENBQUM7QUFFRCxNQUFNLENBQUMsTUFBTSxTQUFTLEdBQWlCO0lBQ3JDLFVBQVUsRUFBRSxHQUFHO0lBQ2YsV0FBVyxFQUFFLEtBQUs7SUFDbEIsVUFBVSxFQUFFLEdBQXVCO0NBQ3BDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgMjAyMCBHb29nbGUgTExDLiBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICogTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbiAqIHlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbiAqIFlvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuICpcbiAqIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuICpcbiAqIFVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbiAqIGRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbiAqIFdJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuICogU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxuICogbGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4gKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuICovXG5cbmltcG9ydCB7RkZULCBGRlRJbnB1dHMsIEtlcm5lbENvbmZpZywgS2VybmVsRnVuYywgVGVuc29ySW5mbywgdXRpbH0gZnJvbSAnQHRlbnNvcmZsb3cvdGZqcy1jb3JlJztcblxuaW1wb3J0IHtNYXRoQmFja2VuZENQVX0gZnJvbSAnLi4vYmFja2VuZF9jcHUnO1xuaW1wb3J0IHtmZnRCYXRjaH0gZnJvbSAnLi4vdXRpbHMvZmZ0X3V0aWxzJztcbmltcG9ydCB7cmVzaGFwZX0gZnJvbSAnLi9SZXNoYXBlJztcblxuZXhwb3J0IGZ1bmN0aW9uIGZmdChhcmdzOiB7aW5wdXRzOiBGRlRJbnB1dHMsIGJhY2tlbmQ6IE1hdGhCYWNrZW5kQ1BVfSk6XG4gICAgVGVuc29ySW5mbyB7XG4gIGNvbnN0IHtpbnB1dHMsIGJhY2tlbmR9ID0gYXJncztcbiAgY29uc3Qge2lucHV0fSA9IGlucHV0cztcblxuICBjb25zdCBpbnB1dFNpemUgPSB1dGlsLnNpemVGcm9tU2hhcGUoaW5wdXQuc2hhcGUpO1xuXG4gIC8vIENvbGxhcHNlIGFsbCBvdXRlciBkaW1lbnNpb25zIHRvIGEgc2luZ2xlIGJhdGNoIGRpbWVuc2lvbi5cbiAgY29uc3QgaW5uZXJEaW1lbnNpb25TaXplID0gaW5wdXQuc2hhcGVbaW5wdXQuc2hhcGUubGVuZ3RoIC0gMV07XG4gIGNvbnN0IGJhdGNoID0gaW5wdXRTaXplIC8gaW5uZXJEaW1lbnNpb25TaXplO1xuXG4gIGNvbnN0IGlucHV0MkQgPSByZXNoYXBlKHtcbiAgICBpbnB1dHM6IHt4OiBpbnB1dH0sXG4gICAgYmFja2VuZCxcbiAgICBhdHRyczoge3NoYXBlOiBbYmF0Y2gsIGlubmVyRGltZW5zaW9uU2l6ZV19XG4gIH0pO1xuXG4gIGNvbnN0IHJlc3VsdCA9IGZmdEJhdGNoKGlucHV0MkQsIGZhbHNlLCBiYWNrZW5kKTtcblxuICBjb25zdCByZXN1bHRSZXNoYXBlZCA9XG4gICAgICByZXNoYXBlKHtpbnB1dHM6IHt4OiByZXN1bHR9LCBiYWNrZW5kLCBhdHRyczoge3NoYXBlOiBpbnB1dC5zaGFwZX19KTtcblxuICBiYWNrZW5kLmRpc3Bvc2VJbnRlcm1lZGlhdGVUZW5zb3JJbmZvKGlucHV0MkQpO1xuICBiYWNrZW5kLmRpc3Bvc2VJbnRlcm1lZGlhdGVUZW5zb3JJbmZvKHJlc3VsdCk7XG5cbiAgcmV0dXJuIHJlc3VsdFJlc2hhcGVkO1xufVxuXG5leHBvcnQgY29uc3QgZmZ0Q29uZmlnOiBLZXJuZWxDb25maWcgPSB7XG4gIGtlcm5lbE5hbWU6IEZGVCxcbiAgYmFja2VuZE5hbWU6ICdjcHUnLFxuICBrZXJuZWxGdW5jOiBmZnQgYXMge30gYXMgS2VybmVsRnVuY1xufTtcbiJdfQ==

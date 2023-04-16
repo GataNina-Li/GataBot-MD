@@ -1,0 +1,69 @@
+/**
+ * @license
+ * Copyright 2020 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+import { nonMaxSuppressionV4Impl } from '../../backends/non_max_suppression_impl';
+import { convertToTensor } from '../../tensor_util_env';
+import { nonMaxSuppSanityCheck } from '../nonmax_util';
+import { scalar } from '../scalar';
+import { tensor1d } from '../tensor1d';
+/**
+ * Asynchronously performs non maximum suppression of bounding boxes based on
+ * iou (intersection over union), with an option to pad results.
+ *
+ * @param boxes a 2d tensor of shape `[numBoxes, 4]`. Each entry is
+ *     `[y1, x1, y2, x2]`, where `(y1, x1)` and `(y2, x2)` are the corners of
+ *     the bounding box.
+ * @param scores a 1d tensor providing the box scores of shape `[numBoxes]`.
+ * @param maxOutputSize The maximum number of boxes to be selected.
+ * @param iouThreshold A float representing the threshold for deciding whether
+ *     boxes overlap too much with respect to IOU. Must be between [0, 1].
+ *     Defaults to 0.5 (50% box overlap).
+ * @param scoreThreshold A threshold for deciding when to remove boxes based
+ *     on score. Defaults to -inf, which means any score is accepted.
+ * @param padToMaxOutputSize Defaults to false. If true, size of output
+ *     `selectedIndices` is padded to maxOutputSize.
+ * @return A map with the following properties:
+ *     - selectedIndices: A 1D tensor with the selected box indices.
+ *     - validOutputs: A scalar denoting how many elements in `selectedIndices`
+ *       are valid. Valid elements occur first, then padding.
+ *
+ * @doc {heading: 'Operations', subheading: 'Images', namespace: 'image'}
+ */
+async function nonMaxSuppressionPaddedAsync_(boxes, scores, maxOutputSize, iouThreshold = 0.5, scoreThreshold = Number.NEGATIVE_INFINITY, padToMaxOutputSize = false) {
+    const $boxes = convertToTensor(boxes, 'boxes', 'nonMaxSuppressionAsync');
+    const $scores = convertToTensor(scores, 'scores', 'nonMaxSuppressionAsync');
+    const params = nonMaxSuppSanityCheck($boxes, $scores, maxOutputSize, iouThreshold, scoreThreshold, null /* softNmsSigma */);
+    const $maxOutputSize = params.maxOutputSize;
+    const $iouThreshold = params.iouThreshold;
+    const $scoreThreshold = params.scoreThreshold;
+    const [boxesVals, scoresVals] = await Promise.all([$boxes.data(), $scores.data()]);
+    // We call a cpu based impl directly with the typedarray data here rather
+    // than a kernel because all kernels are synchronous (and thus cannot await
+    // .data()).
+    const { selectedIndices, validOutputs } = nonMaxSuppressionV4Impl(boxesVals, scoresVals, $maxOutputSize, $iouThreshold, $scoreThreshold, padToMaxOutputSize);
+    if ($boxes !== boxes) {
+        $boxes.dispose();
+    }
+    if ($scores !== scores) {
+        $scores.dispose();
+    }
+    return {
+        selectedIndices: tensor1d(selectedIndices, 'int32'),
+        validOutputs: scalar(validOutputs, 'int32')
+    };
+}
+export const nonMaxSuppressionPaddedAsync = nonMaxSuppressionPaddedAsync_;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibm9uX21heF9zdXBwcmVzc2lvbl9wYWRkZWRfYXN5bmMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi90ZmpzLWNvcmUvc3JjL29wcy9pbWFnZS9ub25fbWF4X3N1cHByZXNzaW9uX3BhZGRlZF9hc3luYy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7O0dBZUc7QUFDSCxPQUFPLEVBQUMsdUJBQXVCLEVBQUMsTUFBTSx5Q0FBeUMsQ0FBQztBQUdoRixPQUFPLEVBQUMsZUFBZSxFQUFDLE1BQU0sdUJBQXVCLENBQUM7QUFFdEQsT0FBTyxFQUFDLHFCQUFxQixFQUFDLE1BQU0sZ0JBQWdCLENBQUM7QUFDckQsT0FBTyxFQUFDLE1BQU0sRUFBQyxNQUFNLFdBQVcsQ0FBQztBQUNqQyxPQUFPLEVBQUMsUUFBUSxFQUFDLE1BQU0sYUFBYSxDQUFDO0FBRXJDOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0dBc0JHO0FBQ0gsS0FBSyxVQUFVLDZCQUE2QixDQUN4QyxLQUEwQixFQUFFLE1BQTJCLEVBQ3ZELGFBQXFCLEVBQUUsWUFBWSxHQUFHLEdBQUcsRUFDekMsY0FBYyxHQUFHLE1BQU0sQ0FBQyxpQkFBaUIsRUFDekMsa0JBQWtCLEdBQUcsS0FBSztJQUM1QixNQUFNLE1BQU0sR0FBRyxlQUFlLENBQUMsS0FBSyxFQUFFLE9BQU8sRUFBRSx3QkFBd0IsQ0FBQyxDQUFDO0lBQ3pFLE1BQU0sT0FBTyxHQUFHLGVBQWUsQ0FBQyxNQUFNLEVBQUUsUUFBUSxFQUFFLHdCQUF3QixDQUFDLENBQUM7SUFFNUUsTUFBTSxNQUFNLEdBQUcscUJBQXFCLENBQ2hDLE1BQU0sRUFBRSxPQUFPLEVBQUUsYUFBYSxFQUFFLFlBQVksRUFBRSxjQUFjLEVBQzVELElBQUksQ0FBQyxrQkFBa0IsQ0FBQyxDQUFDO0lBQzdCLE1BQU0sY0FBYyxHQUFHLE1BQU0sQ0FBQyxhQUFhLENBQUM7SUFDNUMsTUFBTSxhQUFhLEdBQUcsTUFBTSxDQUFDLFlBQVksQ0FBQztJQUMxQyxNQUFNLGVBQWUsR0FBRyxNQUFNLENBQUMsY0FBYyxDQUFDO0lBRTlDLE1BQU0sQ0FBQyxTQUFTLEVBQUUsVUFBVSxDQUFDLEdBQ3pCLE1BQU0sT0FBTyxDQUFDLEdBQUcsQ0FBQyxDQUFDLE1BQU0sQ0FBQyxJQUFJLEVBQUUsRUFBRSxPQUFPLENBQUMsSUFBSSxFQUFFLENBQUMsQ0FBQyxDQUFDO0lBRXZELHlFQUF5RTtJQUN6RSwyRUFBMkU7SUFDM0UsWUFBWTtJQUNaLE1BQU0sRUFBQyxlQUFlLEVBQUUsWUFBWSxFQUFDLEdBQUcsdUJBQXVCLENBQzNELFNBQVMsRUFBRSxVQUFVLEVBQUUsY0FBYyxFQUFFLGFBQWEsRUFBRSxlQUFlLEVBQ3JFLGtCQUFrQixDQUFDLENBQUM7SUFFeEIsSUFBSSxNQUFNLEtBQUssS0FBSyxFQUFFO1FBQ3BCLE1BQU0sQ0FBQyxPQUFPLEVBQUUsQ0FBQztLQUNsQjtJQUNELElBQUksT0FBTyxLQUFLLE1BQU0sRUFBRTtRQUN0QixPQUFPLENBQUMsT0FBTyxFQUFFLENBQUM7S0FDbkI7SUFFRCxPQUFPO1FBQ0wsZUFBZSxFQUFFLFFBQVEsQ0FBQyxlQUFlLEVBQUUsT0FBTyxDQUFDO1FBQ25ELFlBQVksRUFBRSxNQUFNLENBQUMsWUFBWSxFQUFFLE9BQU8sQ0FBQztLQUM1QyxDQUFDO0FBQ0osQ0FBQztBQUVELE1BQU0sQ0FBQyxNQUFNLDRCQUE0QixHQUFHLDZCQUE2QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IDIwMjAgR29vZ2xlIExMQy4gQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG4gKiB5b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG4gKiBZb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcbiAqXG4gKiBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcbiAqXG4gKiBVbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG4gKiBkaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG4gKiBXSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cbiAqIFNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbiAqIGxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuICogPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbiAqL1xuaW1wb3J0IHtub25NYXhTdXBwcmVzc2lvblY0SW1wbH0gZnJvbSAnLi4vLi4vYmFja2VuZHMvbm9uX21heF9zdXBwcmVzc2lvbl9pbXBsJztcbmltcG9ydCB7VGVuc29yMUQsIFRlbnNvcjJEfSBmcm9tICcuLi8uLi90ZW5zb3InO1xuaW1wb3J0IHtOYW1lZFRlbnNvck1hcH0gZnJvbSAnLi4vLi4vdGVuc29yX3R5cGVzJztcbmltcG9ydCB7Y29udmVydFRvVGVuc29yfSBmcm9tICcuLi8uLi90ZW5zb3JfdXRpbF9lbnYnO1xuaW1wb3J0IHtUZW5zb3JMaWtlfSBmcm9tICcuLi8uLi90eXBlcyc7XG5pbXBvcnQge25vbk1heFN1cHBTYW5pdHlDaGVja30gZnJvbSAnLi4vbm9ubWF4X3V0aWwnO1xuaW1wb3J0IHtzY2FsYXJ9IGZyb20gJy4uL3NjYWxhcic7XG5pbXBvcnQge3RlbnNvcjFkfSBmcm9tICcuLi90ZW5zb3IxZCc7XG5cbi8qKlxuICogQXN5bmNocm9ub3VzbHkgcGVyZm9ybXMgbm9uIG1heGltdW0gc3VwcHJlc3Npb24gb2YgYm91bmRpbmcgYm94ZXMgYmFzZWQgb25cbiAqIGlvdSAoaW50ZXJzZWN0aW9uIG92ZXIgdW5pb24pLCB3aXRoIGFuIG9wdGlvbiB0byBwYWQgcmVzdWx0cy5cbiAqXG4gKiBAcGFyYW0gYm94ZXMgYSAyZCB0ZW5zb3Igb2Ygc2hhcGUgYFtudW1Cb3hlcywgNF1gLiBFYWNoIGVudHJ5IGlzXG4gKiAgICAgYFt5MSwgeDEsIHkyLCB4Ml1gLCB3aGVyZSBgKHkxLCB4MSlgIGFuZCBgKHkyLCB4MilgIGFyZSB0aGUgY29ybmVycyBvZlxuICogICAgIHRoZSBib3VuZGluZyBib3guXG4gKiBAcGFyYW0gc2NvcmVzIGEgMWQgdGVuc29yIHByb3ZpZGluZyB0aGUgYm94IHNjb3JlcyBvZiBzaGFwZSBgW251bUJveGVzXWAuXG4gKiBAcGFyYW0gbWF4T3V0cHV0U2l6ZSBUaGUgbWF4aW11bSBudW1iZXIgb2YgYm94ZXMgdG8gYmUgc2VsZWN0ZWQuXG4gKiBAcGFyYW0gaW91VGhyZXNob2xkIEEgZmxvYXQgcmVwcmVzZW50aW5nIHRoZSB0aHJlc2hvbGQgZm9yIGRlY2lkaW5nIHdoZXRoZXJcbiAqICAgICBib3hlcyBvdmVybGFwIHRvbyBtdWNoIHdpdGggcmVzcGVjdCB0byBJT1UuIE11c3QgYmUgYmV0d2VlbiBbMCwgMV0uXG4gKiAgICAgRGVmYXVsdHMgdG8gMC41ICg1MCUgYm94IG92ZXJsYXApLlxuICogQHBhcmFtIHNjb3JlVGhyZXNob2xkIEEgdGhyZXNob2xkIGZvciBkZWNpZGluZyB3aGVuIHRvIHJlbW92ZSBib3hlcyBiYXNlZFxuICogICAgIG9uIHNjb3JlLiBEZWZhdWx0cyB0byAtaW5mLCB3aGljaCBtZWFucyBhbnkgc2NvcmUgaXMgYWNjZXB0ZWQuXG4gKiBAcGFyYW0gcGFkVG9NYXhPdXRwdXRTaXplIERlZmF1bHRzIHRvIGZhbHNlLiBJZiB0cnVlLCBzaXplIG9mIG91dHB1dFxuICogICAgIGBzZWxlY3RlZEluZGljZXNgIGlzIHBhZGRlZCB0byBtYXhPdXRwdXRTaXplLlxuICogQHJldHVybiBBIG1hcCB3aXRoIHRoZSBmb2xsb3dpbmcgcHJvcGVydGllczpcbiAqICAgICAtIHNlbGVjdGVkSW5kaWNlczogQSAxRCB0ZW5zb3Igd2l0aCB0aGUgc2VsZWN0ZWQgYm94IGluZGljZXMuXG4gKiAgICAgLSB2YWxpZE91dHB1dHM6IEEgc2NhbGFyIGRlbm90aW5nIGhvdyBtYW55IGVsZW1lbnRzIGluIGBzZWxlY3RlZEluZGljZXNgXG4gKiAgICAgICBhcmUgdmFsaWQuIFZhbGlkIGVsZW1lbnRzIG9jY3VyIGZpcnN0LCB0aGVuIHBhZGRpbmcuXG4gKlxuICogQGRvYyB7aGVhZGluZzogJ09wZXJhdGlvbnMnLCBzdWJoZWFkaW5nOiAnSW1hZ2VzJywgbmFtZXNwYWNlOiAnaW1hZ2UnfVxuICovXG5hc3luYyBmdW5jdGlvbiBub25NYXhTdXBwcmVzc2lvblBhZGRlZEFzeW5jXyhcbiAgICBib3hlczogVGVuc29yMkR8VGVuc29yTGlrZSwgc2NvcmVzOiBUZW5zb3IxRHxUZW5zb3JMaWtlLFxuICAgIG1heE91dHB1dFNpemU6IG51bWJlciwgaW91VGhyZXNob2xkID0gMC41LFxuICAgIHNjb3JlVGhyZXNob2xkID0gTnVtYmVyLk5FR0FUSVZFX0lORklOSVRZLFxuICAgIHBhZFRvTWF4T3V0cHV0U2l6ZSA9IGZhbHNlKTogUHJvbWlzZTxOYW1lZFRlbnNvck1hcD4ge1xuICBjb25zdCAkYm94ZXMgPSBjb252ZXJ0VG9UZW5zb3IoYm94ZXMsICdib3hlcycsICdub25NYXhTdXBwcmVzc2lvbkFzeW5jJyk7XG4gIGNvbnN0ICRzY29yZXMgPSBjb252ZXJ0VG9UZW5zb3Ioc2NvcmVzLCAnc2NvcmVzJywgJ25vbk1heFN1cHByZXNzaW9uQXN5bmMnKTtcblxuICBjb25zdCBwYXJhbXMgPSBub25NYXhTdXBwU2FuaXR5Q2hlY2soXG4gICAgICAkYm94ZXMsICRzY29yZXMsIG1heE91dHB1dFNpemUsIGlvdVRocmVzaG9sZCwgc2NvcmVUaHJlc2hvbGQsXG4gICAgICBudWxsIC8qIHNvZnRObXNTaWdtYSAqLyk7XG4gIGNvbnN0ICRtYXhPdXRwdXRTaXplID0gcGFyYW1zLm1heE91dHB1dFNpemU7XG4gIGNvbnN0ICRpb3VUaHJlc2hvbGQgPSBwYXJhbXMuaW91VGhyZXNob2xkO1xuICBjb25zdCAkc2NvcmVUaHJlc2hvbGQgPSBwYXJhbXMuc2NvcmVUaHJlc2hvbGQ7XG5cbiAgY29uc3QgW2JveGVzVmFscywgc2NvcmVzVmFsc10gPVxuICAgICAgYXdhaXQgUHJvbWlzZS5hbGwoWyRib3hlcy5kYXRhKCksICRzY29yZXMuZGF0YSgpXSk7XG5cbiAgLy8gV2UgY2FsbCBhIGNwdSBiYXNlZCBpbXBsIGRpcmVjdGx5IHdpdGggdGhlIHR5cGVkYXJyYXkgZGF0YSBoZXJlIHJhdGhlclxuICAvLyB0aGFuIGEga2VybmVsIGJlY2F1c2UgYWxsIGtlcm5lbHMgYXJlIHN5bmNocm9ub3VzIChhbmQgdGh1cyBjYW5ub3QgYXdhaXRcbiAgLy8gLmRhdGEoKSkuXG4gIGNvbnN0IHtzZWxlY3RlZEluZGljZXMsIHZhbGlkT3V0cHV0c30gPSBub25NYXhTdXBwcmVzc2lvblY0SW1wbChcbiAgICAgIGJveGVzVmFscywgc2NvcmVzVmFscywgJG1heE91dHB1dFNpemUsICRpb3VUaHJlc2hvbGQsICRzY29yZVRocmVzaG9sZCxcbiAgICAgIHBhZFRvTWF4T3V0cHV0U2l6ZSk7XG5cbiAgaWYgKCRib3hlcyAhPT0gYm94ZXMpIHtcbiAgICAkYm94ZXMuZGlzcG9zZSgpO1xuICB9XG4gIGlmICgkc2NvcmVzICE9PSBzY29yZXMpIHtcbiAgICAkc2NvcmVzLmRpc3Bvc2UoKTtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgc2VsZWN0ZWRJbmRpY2VzOiB0ZW5zb3IxZChzZWxlY3RlZEluZGljZXMsICdpbnQzMicpLFxuICAgIHZhbGlkT3V0cHV0czogc2NhbGFyKHZhbGlkT3V0cHV0cywgJ2ludDMyJylcbiAgfTtcbn1cblxuZXhwb3J0IGNvbnN0IG5vbk1heFN1cHByZXNzaW9uUGFkZGVkQXN5bmMgPSBub25NYXhTdXBwcmVzc2lvblBhZGRlZEFzeW5jXztcbiJdfQ==

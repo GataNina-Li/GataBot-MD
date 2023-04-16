@@ -1,0 +1,46 @@
+/**
+ * @license
+ * Copyright 2020 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+import { Add } from '../kernel_names';
+import * as broadcast_util from '../ops/broadcast_util';
+import { reshape } from '../ops/reshape';
+import { sum } from '../ops/sum';
+export const addGradConfig = {
+    kernelName: Add,
+    inputsToSave: ['a', 'b'],
+    gradFunc: (dy, saved) => {
+        const [a, b] = saved;
+        const outShape = broadcast_util.assertAndGetBroadcastShape(a.shape, b.shape);
+        const derA = () => {
+            let res = dy;
+            const reduceAxes = broadcast_util.getReductionAxes(a.shape, outShape);
+            if (reduceAxes.length > 0) {
+                res = sum(res, reduceAxes);
+            }
+            return reshape(res, a.shape);
+        };
+        const derB = () => {
+            let res = dy;
+            const reduceAxes = broadcast_util.getReductionAxes(b.shape, outShape);
+            if (reduceAxes.length > 0) {
+                res = sum(res, reduceAxes);
+            }
+            return reshape(res, b.shape);
+        };
+        return { a: derA, b: derB };
+    }
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQWRkX2dyYWQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi90ZmpzLWNvcmUvc3JjL2dyYWRpZW50cy9BZGRfZ3JhZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7O0dBZUc7QUFDSCxPQUFPLEVBQUMsR0FBRyxFQUFDLE1BQU0saUJBQWlCLENBQUM7QUFFcEMsT0FBTyxLQUFLLGNBQWMsTUFBTSx1QkFBdUIsQ0FBQztBQUN4RCxPQUFPLEVBQUMsT0FBTyxFQUFDLE1BQU0sZ0JBQWdCLENBQUM7QUFDdkMsT0FBTyxFQUFDLEdBQUcsRUFBQyxNQUFNLFlBQVksQ0FBQztBQUcvQixNQUFNLENBQUMsTUFBTSxhQUFhLEdBQWU7SUFDdkMsVUFBVSxFQUFFLEdBQUc7SUFDZixZQUFZLEVBQUUsQ0FBQyxHQUFHLEVBQUUsR0FBRyxDQUFDO0lBQ3hCLFFBQVEsRUFBRSxDQUFDLEVBQVUsRUFBRSxLQUFlLEVBQUUsRUFBRTtRQUN4QyxNQUFNLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQyxHQUFHLEtBQUssQ0FBQztRQUNyQixNQUFNLFFBQVEsR0FDVixjQUFjLENBQUMsMEJBQTBCLENBQUMsQ0FBQyxDQUFDLEtBQUssRUFBRSxDQUFDLENBQUMsS0FBSyxDQUFDLENBQUM7UUFFaEUsTUFBTSxJQUFJLEdBQUcsR0FBRyxFQUFFO1lBQ2hCLElBQUksR0FBRyxHQUFHLEVBQUUsQ0FBQztZQUNiLE1BQU0sVUFBVSxHQUFHLGNBQWMsQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFDLENBQUMsS0FBSyxFQUFFLFFBQVEsQ0FBQyxDQUFDO1lBQ3RFLElBQUksVUFBVSxDQUFDLE1BQU0sR0FBRyxDQUFDLEVBQUU7Z0JBQ3pCLEdBQUcsR0FBRyxHQUFHLENBQUMsR0FBRyxFQUFFLFVBQVUsQ0FBQyxDQUFDO2FBQzVCO1lBQ0QsT0FBTyxPQUFPLENBQUMsR0FBRyxFQUFFLENBQUMsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUMvQixDQUFDLENBQUM7UUFDRixNQUFNLElBQUksR0FBRyxHQUFHLEVBQUU7WUFDaEIsSUFBSSxHQUFHLEdBQUcsRUFBRSxDQUFDO1lBQ2IsTUFBTSxVQUFVLEdBQUcsY0FBYyxDQUFDLGdCQUFnQixDQUFDLENBQUMsQ0FBQyxLQUFLLEVBQUUsUUFBUSxDQUFDLENBQUM7WUFDdEUsSUFBSSxVQUFVLENBQUMsTUFBTSxHQUFHLENBQUMsRUFBRTtnQkFDekIsR0FBRyxHQUFHLEdBQUcsQ0FBQyxHQUFHLEVBQUUsVUFBVSxDQUFDLENBQUM7YUFDNUI7WUFDRCxPQUFPLE9BQU8sQ0FBQyxHQUFHLEVBQUUsQ0FBQyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBQy9CLENBQUMsQ0FBQztRQUVGLE9BQU8sRUFBQyxDQUFDLEVBQUUsSUFBSSxFQUFFLENBQUMsRUFBRSxJQUFJLEVBQUMsQ0FBQztJQUM1QixDQUFDO0NBQ0YsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCAyMDIwIEdvb2dsZSBMTEMuIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKiBMaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xuICogeW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuICogWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG4gKlxuICogaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG4gKlxuICogVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuICogZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuICogV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG4gKiBTZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG4gKiBsaW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiAqID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG4gKi9cbmltcG9ydCB7QWRkfSBmcm9tICcuLi9rZXJuZWxfbmFtZXMnO1xuaW1wb3J0IHtHcmFkQ29uZmlnfSBmcm9tICcuLi9rZXJuZWxfcmVnaXN0cnknO1xuaW1wb3J0ICogYXMgYnJvYWRjYXN0X3V0aWwgZnJvbSAnLi4vb3BzL2Jyb2FkY2FzdF91dGlsJztcbmltcG9ydCB7cmVzaGFwZX0gZnJvbSAnLi4vb3BzL3Jlc2hhcGUnO1xuaW1wb3J0IHtzdW19IGZyb20gJy4uL29wcy9zdW0nO1xuaW1wb3J0IHtUZW5zb3J9IGZyb20gJy4uL3RlbnNvcic7XG5cbmV4cG9ydCBjb25zdCBhZGRHcmFkQ29uZmlnOiBHcmFkQ29uZmlnID0ge1xuICBrZXJuZWxOYW1lOiBBZGQsXG4gIGlucHV0c1RvU2F2ZTogWydhJywgJ2InXSxcbiAgZ3JhZEZ1bmM6IChkeTogVGVuc29yLCBzYXZlZDogVGVuc29yW10pID0+IHtcbiAgICBjb25zdCBbYSwgYl0gPSBzYXZlZDtcbiAgICBjb25zdCBvdXRTaGFwZSA9XG4gICAgICAgIGJyb2FkY2FzdF91dGlsLmFzc2VydEFuZEdldEJyb2FkY2FzdFNoYXBlKGEuc2hhcGUsIGIuc2hhcGUpO1xuXG4gICAgY29uc3QgZGVyQSA9ICgpID0+IHtcbiAgICAgIGxldCByZXMgPSBkeTtcbiAgICAgIGNvbnN0IHJlZHVjZUF4ZXMgPSBicm9hZGNhc3RfdXRpbC5nZXRSZWR1Y3Rpb25BeGVzKGEuc2hhcGUsIG91dFNoYXBlKTtcbiAgICAgIGlmIChyZWR1Y2VBeGVzLmxlbmd0aCA+IDApIHtcbiAgICAgICAgcmVzID0gc3VtKHJlcywgcmVkdWNlQXhlcyk7XG4gICAgICB9XG4gICAgICByZXR1cm4gcmVzaGFwZShyZXMsIGEuc2hhcGUpO1xuICAgIH07XG4gICAgY29uc3QgZGVyQiA9ICgpID0+IHtcbiAgICAgIGxldCByZXMgPSBkeTtcbiAgICAgIGNvbnN0IHJlZHVjZUF4ZXMgPSBicm9hZGNhc3RfdXRpbC5nZXRSZWR1Y3Rpb25BeGVzKGIuc2hhcGUsIG91dFNoYXBlKTtcbiAgICAgIGlmIChyZWR1Y2VBeGVzLmxlbmd0aCA+IDApIHtcbiAgICAgICAgcmVzID0gc3VtKHJlcywgcmVkdWNlQXhlcyk7XG4gICAgICB9XG4gICAgICByZXR1cm4gcmVzaGFwZShyZXMsIGIuc2hhcGUpO1xuICAgIH07XG5cbiAgICByZXR1cm4ge2E6IGRlckEsIGI6IGRlckJ9O1xuICB9XG59O1xuIl19

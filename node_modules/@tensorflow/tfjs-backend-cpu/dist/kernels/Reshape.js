@@ -1,0 +1,43 @@
+/**
+ * @license
+ * Copyright 2020 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+import { Reshape, util } from '@tensorflow/tfjs-core';
+export function reshape(args) {
+    const { inputs, backend, attrs } = args;
+    const { x } = inputs;
+    const { shape } = attrs;
+    const xSize = util.sizeFromShape(x.shape);
+    const $shape = util.inferFromImplicitShape(shape, xSize);
+    const $xSize = util.sizeFromShape($shape);
+    util.assert(xSize === $xSize, () => `The new shape (${$shape}) has ${$xSize} elements and the old ` +
+        `shape (${x.shape}) has ${xSize} elements. The new shape and old ` +
+        `shape must have the same number of elements.`);
+    backend.incRef(x.dataId);
+    const xData = backend.data.get(x.dataId);
+    if (xData.complexTensorInfos != null) {
+        const real = xData.complexTensorInfos.real;
+        const imag = xData.complexTensorInfos.imag;
+        real.shape = $shape;
+        imag.shape = $shape;
+    }
+    return { dataId: x.dataId, shape: $shape, dtype: x.dtype };
+}
+export const reshapeConfig = {
+    kernelName: Reshape,
+    backendName: 'cpu',
+    kernelFunc: reshape
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUmVzaGFwZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3RmanMtYmFja2VuZC1jcHUvc3JjL2tlcm5lbHMvUmVzaGFwZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7O0dBZUc7QUFFSCxPQUFPLEVBQTJCLE9BQU8sRUFBMkMsSUFBSSxFQUFDLE1BQU0sdUJBQXVCLENBQUM7QUFJdkgsTUFBTSxVQUFVLE9BQU8sQ0FDbkIsSUFDeUU7SUFFM0UsTUFBTSxFQUFDLE1BQU0sRUFBRSxPQUFPLEVBQUUsS0FBSyxFQUFDLEdBQUcsSUFBSSxDQUFDO0lBQ3RDLE1BQU0sRUFBQyxDQUFDLEVBQUMsR0FBRyxNQUFNLENBQUM7SUFDbkIsTUFBTSxFQUFDLEtBQUssRUFBQyxHQUFHLEtBQUssQ0FBQztJQUV0QixNQUFNLEtBQUssR0FBRyxJQUFJLENBQUMsYUFBYSxDQUFDLENBQUMsQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUMxQyxNQUFNLE1BQU0sR0FBRyxJQUFJLENBQUMsc0JBQXNCLENBQUMsS0FBSyxFQUFFLEtBQUssQ0FBQyxDQUFDO0lBQ3pELE1BQU0sTUFBTSxHQUFHLElBQUksQ0FBQyxhQUFhLENBQUMsTUFBTSxDQUFDLENBQUM7SUFFMUMsSUFBSSxDQUFDLE1BQU0sQ0FDUCxLQUFLLEtBQUssTUFBTSxFQUNoQixHQUFHLEVBQUUsQ0FBQyxrQkFBa0IsTUFBTSxTQUFTLE1BQU0sd0JBQXdCO1FBQ2pFLFVBQVUsQ0FBQyxDQUFDLEtBQUssU0FBUyxLQUFLLG1DQUFtQztRQUNsRSw4Q0FBOEMsQ0FBQyxDQUFDO0lBRXhELE9BQU8sQ0FBQyxNQUFNLENBQUMsQ0FBQyxDQUFDLE1BQU0sQ0FBQyxDQUFDO0lBRXpCLE1BQU0sS0FBSyxHQUFHLE9BQU8sQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxNQUFNLENBQUMsQ0FBQztJQUV6QyxJQUFJLEtBQUssQ0FBQyxrQkFBa0IsSUFBSSxJQUFJLEVBQUU7UUFDcEMsTUFBTSxJQUFJLEdBQUcsS0FBSyxDQUFDLGtCQUFrQixDQUFDLElBQUksQ0FBQztRQUMzQyxNQUFNLElBQUksR0FBRyxLQUFLLENBQUMsa0JBQWtCLENBQUMsSUFBSSxDQUFDO1FBRTNDLElBQUksQ0FBQyxLQUFLLEdBQUcsTUFBTSxDQUFDO1FBQ3BCLElBQUksQ0FBQyxLQUFLLEdBQUcsTUFBTSxDQUFDO0tBQ3JCO0lBRUQsT0FBTyxFQUFDLE1BQU0sRUFBRSxDQUFDLENBQUMsTUFBTSxFQUFFLEtBQUssRUFBRSxNQUFNLEVBQUUsS0FBSyxFQUFFLENBQUMsQ0FBQyxLQUFLLEVBQUMsQ0FBQztBQUMzRCxDQUFDO0FBRUQsTUFBTSxDQUFDLE1BQU0sYUFBYSxHQUFpQjtJQUN6QyxVQUFVLEVBQUUsT0FBTztJQUNuQixXQUFXLEVBQUUsS0FBSztJQUNsQixVQUFVLEVBQUUsT0FBMkI7Q0FDeEMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCAyMDIwIEdvb2dsZSBMTEMuIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKiBMaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xuICogeW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuICogWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG4gKlxuICogaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG4gKlxuICogVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuICogZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuICogV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG4gKiBTZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG4gKiBsaW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiAqID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG4gKi9cblxuaW1wb3J0IHtLZXJuZWxDb25maWcsIEtlcm5lbEZ1bmMsIFJlc2hhcGUsIFJlc2hhcGVBdHRycywgUmVzaGFwZUlucHV0cywgVGVuc29ySW5mbywgdXRpbH0gZnJvbSAnQHRlbnNvcmZsb3cvdGZqcy1jb3JlJztcblxuaW1wb3J0IHtNYXRoQmFja2VuZENQVX0gZnJvbSAnLi4vYmFja2VuZF9jcHUnO1xuXG5leHBvcnQgZnVuY3Rpb24gcmVzaGFwZShcbiAgICBhcmdzOlxuICAgICAgICB7aW5wdXRzOiBSZXNoYXBlSW5wdXRzLCBiYWNrZW5kOiBNYXRoQmFja2VuZENQVSwgYXR0cnM6IFJlc2hhcGVBdHRyc30pOlxuICAgIFRlbnNvckluZm8ge1xuICBjb25zdCB7aW5wdXRzLCBiYWNrZW5kLCBhdHRyc30gPSBhcmdzO1xuICBjb25zdCB7eH0gPSBpbnB1dHM7XG4gIGNvbnN0IHtzaGFwZX0gPSBhdHRycztcblxuICBjb25zdCB4U2l6ZSA9IHV0aWwuc2l6ZUZyb21TaGFwZSh4LnNoYXBlKTtcbiAgY29uc3QgJHNoYXBlID0gdXRpbC5pbmZlckZyb21JbXBsaWNpdFNoYXBlKHNoYXBlLCB4U2l6ZSk7XG4gIGNvbnN0ICR4U2l6ZSA9IHV0aWwuc2l6ZUZyb21TaGFwZSgkc2hhcGUpO1xuXG4gIHV0aWwuYXNzZXJ0KFxuICAgICAgeFNpemUgPT09ICR4U2l6ZSxcbiAgICAgICgpID0+IGBUaGUgbmV3IHNoYXBlICgkeyRzaGFwZX0pIGhhcyAkeyR4U2l6ZX0gZWxlbWVudHMgYW5kIHRoZSBvbGQgYCArXG4gICAgICAgICAgYHNoYXBlICgke3guc2hhcGV9KSBoYXMgJHt4U2l6ZX0gZWxlbWVudHMuIFRoZSBuZXcgc2hhcGUgYW5kIG9sZCBgICtcbiAgICAgICAgICBgc2hhcGUgbXVzdCBoYXZlIHRoZSBzYW1lIG51bWJlciBvZiBlbGVtZW50cy5gKTtcblxuICBiYWNrZW5kLmluY1JlZih4LmRhdGFJZCk7XG5cbiAgY29uc3QgeERhdGEgPSBiYWNrZW5kLmRhdGEuZ2V0KHguZGF0YUlkKTtcblxuICBpZiAoeERhdGEuY29tcGxleFRlbnNvckluZm9zICE9IG51bGwpIHtcbiAgICBjb25zdCByZWFsID0geERhdGEuY29tcGxleFRlbnNvckluZm9zLnJlYWw7XG4gICAgY29uc3QgaW1hZyA9IHhEYXRhLmNvbXBsZXhUZW5zb3JJbmZvcy5pbWFnO1xuXG4gICAgcmVhbC5zaGFwZSA9ICRzaGFwZTtcbiAgICBpbWFnLnNoYXBlID0gJHNoYXBlO1xuICB9XG5cbiAgcmV0dXJuIHtkYXRhSWQ6IHguZGF0YUlkLCBzaGFwZTogJHNoYXBlLCBkdHlwZTogeC5kdHlwZX07XG59XG5cbmV4cG9ydCBjb25zdCByZXNoYXBlQ29uZmlnOiBLZXJuZWxDb25maWcgPSB7XG4gIGtlcm5lbE5hbWU6IFJlc2hhcGUsXG4gIGJhY2tlbmROYW1lOiAnY3B1JyxcbiAga2VybmVsRnVuYzogcmVzaGFwZSBhcyB7fSBhcyBLZXJuZWxGdW5jXG59O1xuIl19

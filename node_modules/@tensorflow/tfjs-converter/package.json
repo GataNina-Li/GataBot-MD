@@ -1,0 +1,59 @@
+{
+  "name": "@tensorflow/tfjs-converter",
+  "version": "3.21.0",
+  "description": "Tensorflow model converter for javascript",
+  "main": "dist/tf-converter.node.js",
+  "jsnext:main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "unpkg": "dist/tf-converter.min.js",
+  "jsdelivr": "dist/tf-converter.min.js",
+  "miniprogram": "dist/miniprogram",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tensorflow/tfjs.git",
+    "directory": "tfjs-converter"
+  },
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "@tensorflow/tfjs-core": "3.21.0"
+  },
+  "devDependencies": {
+    "@bazel/bazelisk": "^1.12.0",
+    "@bazel/ibazel": "^0.16.2",
+    "@tensorflow/tfjs-backend-cpu": "3.21.0",
+    "@tensorflow/tfjs-core": "3.21.0",
+    "@types/argparse": "^1.0.38",
+    "@types/long": "~3.0.32",
+    "@types/node-fetch": "1.6.9",
+    "argparse": "^1.0.10",
+    "node-fetch": "~2.6.1",
+    "opn": "~5.1.0",
+    "protobufjs": "~6.11.3",
+    "ts-node": "~8.8.2",
+    "typescript": "3.5.3",
+    "yalc": "~1.0.0-pre.50"
+  },
+  "scripts": {
+    "build": "bazel build :tfjs-converter_pkg",
+    "build-ci": "yarn build",
+    "bundle": "yarn build",
+    "bundle-ci": "yarn build",
+    "build-npm": "bazel build :tfjs-converter_pkg.pack",
+    "publish-npm": "bazel run :tfjs-converter_pkg.publish",
+    "test": "bazel test :tests",
+    "test-ci": "yarn test",
+    "test-converter": "bazel test :tfjs-converter_test",
+    "test-dev": "ibazel test :tests",
+    "test-snippets": "bazel test :test_snippets_test --test_output=all",
+    "test-snippets-ci": "yarn test-snippets",
+    "gen-doc": "ts-node -s ./scripts/gen_doc.ts",
+    "model-summary": "ts-node -s ./tools/model_summary.ts",
+    "pb2json": "ts-node -s ./tools/pb2json_converter.ts",
+    "build-pip-package": "cd python && ./build-pip-package.sh --test /tmp/tfjs-pips",
+    "run-python-tests": "bazel test python/..."
+  },
+  "resolutions": {
+    "minimist": "1.2.6"
+  }
+}

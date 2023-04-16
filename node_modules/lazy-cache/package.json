@@ -1,0 +1,39 @@
+{
+  "name": "lazy-cache",
+  "description": "Cache requires to be lazy-loaded when needed.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/lazy-cache",
+  "author": {
+    "name": "Jon Schlinkert",
+    "url": "https://github.com/jonschlinkert"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jonschlinkert/lazy-cache.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/lazy-cache/issues"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/jonschlinkert/lazy-cache/blob/master/LICENSE"
+  },
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "ansi-yellow": "^0.1.1"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "keywords": []
+}

@@ -1,0 +1,29 @@
+{
+  "name": "is-dotdir",
+  "description": "Returns true if a path is a dot-directory.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/is-dotdir",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/is-dotdir",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/is-dotdir/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "dotdir-regex": "^0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  },
+  "keywords": []
+}

@@ -1,0 +1,19 @@
+/**
+ * @license
+ * Copyright 2018 Google LLC
+ *
+ * Use of this source code is governed by an MIT-style
+ * license that can be found in the LICENSE file or at
+ * https://opensource.org/licenses/MIT.
+ * =============================================================================
+ */
+// We can't easily extract a string[] from the string union type, but we can
+// recapitulate the list, enforcing at compile time that the values are valid
+// and that we have the right number of them.
+/**
+ * A string array of valid Regularizer class names.
+ *
+ * This is guaranteed to match the `RegularizerClassName` union type.
+ */
+export const regularizerClassNames = ['L1L2'];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVndWxhcml6ZXJfY29uZmlnLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vdGZqcy1sYXllcnMvc3JjL2tlcmFzX2Zvcm1hdC9yZWd1bGFyaXplcl9jb25maWcudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7O0dBUUc7QUFnQkgsNEVBQTRFO0FBQzVFLDZFQUE2RTtBQUM3RSw2Q0FBNkM7QUFFN0M7Ozs7R0FJRztBQUNILE1BQU0sQ0FBQyxNQUFNLHFCQUFxQixHQUEyQixDQUFDLE1BQU0sQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IDIwMTggR29vZ2xlIExMQ1xuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZVxuICogbGljZW5zZSB0aGF0IGNhbiBiZSBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIG9yIGF0XG4gKiBodHRwczovL29wZW5zb3VyY2Uub3JnL2xpY2Vuc2VzL01JVC5cbiAqID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG4gKi9cblxuaW1wb3J0IHtCYXNlU2VyaWFsaXphdGlvbn0gZnJvbSAnLi90eXBlcyc7XG5cbmV4cG9ydCB0eXBlIEwxTDJDb25maWcgPSB7XG4gIGwxPzogbnVtYmVyO1xuICBsMj86IG51bWJlcjtcbn07XG5cbmV4cG9ydCB0eXBlIEwxTDJTZXJpYWxpemF0aW9uID0gQmFzZVNlcmlhbGl6YXRpb248J0wxTDInLCBMMUwyQ29uZmlnPjtcblxuLy8gVXBkYXRlIHJlZ3VsYXJpemVyQ2xhc3NOYW1lcyBiZWxvdyBpbiBjb25jZXJ0IHdpdGggdGhpcy5cbmV4cG9ydCB0eXBlIFJlZ3VsYXJpemVyU2VyaWFsaXphdGlvbiA9IEwxTDJTZXJpYWxpemF0aW9uO1xuXG5leHBvcnQgdHlwZSBSZWd1bGFyaXplckNsYXNzTmFtZSA9IFJlZ3VsYXJpemVyU2VyaWFsaXphdGlvblsnY2xhc3NfbmFtZSddO1xuXG4vLyBXZSBjYW4ndCBlYXNpbHkgZXh0cmFjdCBhIHN0cmluZ1tdIGZyb20gdGhlIHN0cmluZyB1bmlvbiB0eXBlLCBidXQgd2UgY2FuXG4vLyByZWNhcGl0dWxhdGUgdGhlIGxpc3QsIGVuZm9yY2luZyBhdCBjb21waWxlIHRpbWUgdGhhdCB0aGUgdmFsdWVzIGFyZSB2YWxpZFxuLy8gYW5kIHRoYXQgd2UgaGF2ZSB0aGUgcmlnaHQgbnVtYmVyIG9mIHRoZW0uXG5cbi8qKlxuICogQSBzdHJpbmcgYXJyYXkgb2YgdmFsaWQgUmVndWxhcml6ZXIgY2xhc3MgbmFtZXMuXG4gKlxuICogVGhpcyBpcyBndWFyYW50ZWVkIHRvIG1hdGNoIHRoZSBgUmVndWxhcml6ZXJDbGFzc05hbWVgIHVuaW9uIHR5cGUuXG4gKi9cbmV4cG9ydCBjb25zdCByZWd1bGFyaXplckNsYXNzTmFtZXM6IFJlZ3VsYXJpemVyQ2xhc3NOYW1lW10gPSBbJ0wxTDInXTtcbiJdfQ==
