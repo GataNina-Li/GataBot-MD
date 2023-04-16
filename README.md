@@ -266,6 +266,9 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
   ```
   - [x] **¿Cómo edito el texto del Bot?**<br>
   _Ir a la carpeta [`idiomas ✨`](https://github.com/GataNina-Li/GataBot-MD/tree/master/lib/idiomas) y selecciona el archivo del idioma que quiera modificar su contenido._
+  
+  - [x] **¿Dónde puedo cambiar el idioma de GataBot?**<br>
+  _Puede cambiar el idioma ingresando [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/blob/362ee2d694a033923efd9bf9ca16a2b0694e3073/config.js#L41)_
 </details>
 
 <details>
