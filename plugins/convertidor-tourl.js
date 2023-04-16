@@ -8,13 +8,13 @@ let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw 'No media found'
+  if (!mime) throw '*⚠️ No se encontraron medios*'
   let media = await q.download()
   let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let link = await (isTele ? uploadImage : uploadFile)(media)
   let caption = ` *📊 ENLACE:*\n${link}
   *🎁 Tamaño:*\n${media.length} bytes\n
-  *🚀 Expiración:*\n ${isTele ? 'No se expira' : 'Desconocido'}\n
+  *🚀 Expiración:*\n ${isTele ? '✅ No expira' : '⚠️ Desconocido'}\n
   *🔰 Acortado:*\n${await shortUrl(link)}`
 
 conn.reply(m.chat, caption, m, { contextInfo: {
