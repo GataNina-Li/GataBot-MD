@@ -1,3 +1,6 @@
+// Código dañado
+// Atte. @Azami19
+
 let handler = async (m, { conn, usedPrefix: _p, args, text, usedPrefix}) => {
 	
 	if (!m.quoted) throw 'Responde a un mensaje !'
