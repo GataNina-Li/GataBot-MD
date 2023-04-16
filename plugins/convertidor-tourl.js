@@ -14,7 +14,7 @@ let name = await conn.getName(who)
   let link = await (isTele ? uploadImage : uploadFile)(media)
   let caption = ` *📊 ENLACE:*\n${link}
   *🎁 Tamaño:*\n${media.length} bytes\n
-  *🚀 Expiración:* ${isTele ? 'No se expira' : 'Desconocido'}\n
+  *🚀 Expiración:*\n ${isTele ? 'No se expira' : 'Desconocido'}\n
   *🔰 Acortado:*\n${await shortUrl(link)}`
 
 conn.reply(m.chat, caption, m, { contextInfo: {
