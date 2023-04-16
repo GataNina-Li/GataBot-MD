@@ -74,7 +74,7 @@
 |------|-------------|-------|
 | **TERMUX** | ***INSTALACIÓN AUTOMÁTICA*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-1-instalación-automática-por-termux-) |
 | **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-2-instalación-manual-por-termux---github) |
-| **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-manual-por-termux---archivos) |
+| **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-por-termux---archivos) |
 | **TERMUX 24/7** | ***COMANDOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-247-en-termux) |
 | **TERMUX UPDATE** | ***COMANDOS PARA ACTUALIZAR GATABOT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot) |
 | **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
@@ -127,21 +127,20 @@ apt update && apt upgrade && pkg install git nodejs ffmpeg imagemagick yarn && g
 ```
 > **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
 ------------------
-### 📁 (OPCIÓN 3) INSTALACIÓN MANUAL POR TERMUX - ARCHIVOS
+### 📁 (OPCIÓN 3) INSTALACIÓN POR TERMUX - ARCHIVOS
 > **Note** Descargué y Descomprime
-### [`GataBot-MD ~ Archivos`](https://mega.nz/file/X7AQkZiZ#qZuO8uQ0EI1MzzcD2nKFB6gqX8uahJeQ299D6RBV-Dc)
+### [`GataBot-MD ~ Archivos`](https://github.com/GataNina-Li/GataBot-MD/archive/refs/heads/master.zip)
 [![blog](https://img.shields.io/badge/Termux-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/UcWlyQ8u5HE)
 ```bash
 termux-setup-storage
 ```
 ```bash
-apt update && apt upgrade && pkg install nodejs ffmpeg imagemagick yarn && cd storage/downloads/GataBot-MD/GataBot-MD && cd GataBot-MD && yarn install && npm install && npm start
+apt update -y && yes | apt upgrade && pkg install -y nodejs ffmpeg imagemagick yarn && cd storage/downloads/GataBot-MD-master && yarn install && npm install && npm start
 ```
-> **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
 * #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
 * #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
-> **Note** Guardar los archivos en la ubicación: storage/downloads/GataBot-MD    
+> **Note** Guardar los archivos en la ubicación: storage/downloads/GataBot-MD-master    
 ----
 ### 🚀 USAR GATABOT 24/7 EN TERMUX 
 > Ejecutar estos comandos dentro de la carpeta GataBot-MD
