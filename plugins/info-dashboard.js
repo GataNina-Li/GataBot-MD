@@ -7,9 +7,9 @@ let handler = async (m, { conn }) => {
   stats = stats.sort((a, b) => b.total - a.total)
   let txt = stats.slice(0, 10).map(({ name, total, last }, idx) => {
     if (name.includes('-') && name.endsWith('.js')) name = name.split('-')[1].replace('.js', '')
-    return `(${idx + 1})\n*📚 Comando : ${name}*\n*🗂️ Usos : ${total}x*\n*📍 Ultimo uso : ${getTime(last)}*`
+    return `(${idx + 1})\n┏━━━━━━━━━━━━━━━━┓\n┣📚 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 : ${name}\n┣≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋\n┣🗂️ 𝙐𝙎𝙊𝙎 : ${total}\n┣≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋\n┣📍 𝙐𝙇𝙏𝙄𝙈𝙊𝙎 𝙐𝙎𝙊 : ${getTime(last)}\n┗━━━━━━━━━━━━━━━━┛`
   }).join`\n\n`
-  m.reply(`*☘️ Dashboard de ${conn.user.name} ☘️*\n*comandos mas usados*\n\n${txt}`)
+  m.reply(`*☘️ Dashboard comandos mas usados ☘️*\n\n${txt}`)
 }
 handler.help = ['dashboard']
 handler.tags = ['info']

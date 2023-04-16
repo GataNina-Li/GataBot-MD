@@ -38,6 +38,7 @@ global.openai_key = 'sk-...OzYy'
 global.openai_org_id = 'HITjoN7H8pCwoncEB9e3fSyW'
 /* Consigue tu ID de organizacion en este enlace: https://platform.openai.com/account/org-settings */
 
+
 global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f']
 global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
 global.keysxteammm = ['29d4b59a4aa687ca', '5LTV57azwaid7dXfz5fzJu', 'cb15ed422c71a2fb', '5bd33b276d41d6b4', 'HIRO', 'kurrxd09', 'ebb6251cc00f9c63']
@@ -45,70 +46,25 @@ global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())]
 global.keysneoxrrr = ['5VC9rvNx', 'cfALv5']
 global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = ['BrunoSobrino']
+global.itsrose = ['4b146102c4d500809da9d1ff']
 
-global.APIs = { // API Prefix. 
-
-//⊱ ━━━━━.⋅ name: 'https://website' ⋅.━━━━ ⊰
-  aria: 'https://ariarestapii.herokuapp.com',
-  amel: 'https://melcanz.com',
-  bx: 'https://bx-hunter.herokuapp.com',
-  nrtm: 'https://nurutomo.herokuapp.com',
+global.APIs = { 
   xteam: 'https://api.xteam.xyz',
-  nzcha: 'http://nzcha-apii.herokuapp.com',
-  bg: 'http://bochil.ddns.net',
-  fdci: 'https://api.fdci.se',
   dzx: 'https://api.dhamzxploit.my.id',
-  bsbt: 'https://bsbt-api-rest.herokuapp.com',
-  zahir: 'https://zahirr-web.herokuapp.com',
-  zeks: 'https://api.zeks.me',
-  hardianto: 'https://hardianto-chan.herokuapp.com',
-  pencarikode: 'https://pencarikode.xyz', 
-  LeysCoder: 'https://leyscoders-api.herokuapp.com',
-  adiisus: 'https://adiixyzapi.herokuapp.com',
   lol: 'https://api.lolhuman.xyz',
-  pencarikode: 'https://pencarikode.xyz',
-  Velgrynd: 'https://velgrynd.herokuapp.com',
-  rey: 'https://server-api-rey.herokuapp.com',
-  hardianto: 'http://hardianto-chan.herokuapp.com',
-  shadow: 'https://api.reysekha.xyz',
-  apialc: 'https://api-alc.herokuapp.com',
-  botstyle: 'https://botstyle-api.herokuapp.com',
-  neoxr: 'https://neoxr-api.herokuapp.com',
-  ana: 'https://anabotofc.herokuapp.com/',
-  kanx: 'https://kannxapi.herokuapp.com/',
-  nekobot: 'https://nekobot.xyz/api/',
-  purrbot: 'https://purrbot.site/api/',
-  xcdr: "https://wudysoft.up.railway.app",
-  dhnjing: 'https://dhnjing.xyz',
-  'https://violetics.pw': 'beta',
   violetics: 'https://violetics.pw',
   neoxr: 'https://api.neoxr.my.id',
   zenzapis: 'https://api.zahwazein.xyz',
   akuari: 'https://api.akuari.my.id',
   akuari2: 'https://apimu.my.id',	
   fgmods: 'https://api-fgmods.ddns.net',
-  botcahx: 'https://api.botcahx.biz.id'
+  botcahx: 'https://api.botcahx.biz.id',
+  ibeng: 'https://api.ibeng.tech/docs',	
+  rose: 'https://api.itsrose.site',
+  popcat : 'https://api.popcat.xyz',
+  xcoders : 'https://api-xcoders.site'
 },
-
-global.Key360 = '964f-0c75-7afc'
-global.APIKeys = { // APIKey Here
-  //⊱ ━━━━━.⋅ 'https://website': 'apikey' ⋅.━━━━ ⊰
-  'https://ariarestapii.herokuapp.com': 'aria',
-  'https://api-alc.herokuapp.com': 'ConfuMods',
-  'https://api.reysekha.xyz': 'apirey',
-  'https://melcanz.com': 'F3bOrWzY',
-  'https://bx-hunter.herokuapp.com': 'Ikyy69',
-  'https://api.xteam.xyz': '5bd33b276d41d6b4',
-  'https://zahirr-web.herokuapp.com': 'zahirgans',
-  'https://bsbt-api-rest.herokuapp.com': 'benniismael',
-  'https://api.zeks.me': 'apivinz',
-  'https://hardianto-chan.herokuapp.com': 'hardianto',
-  'https://pencarikode.xyz': 'pais', 
-  'https://leyscoders-api.herokuapp.com': 'MIMINGANZ', 
-  'https://server-api-rey.herokuapp.com': 'apirey',
-  'https://api.lolhuman.xyz': '9b817532fadff8fc7cb86862',
-  'https://botstyle-api.herokuapp.com': 'Eyar749L',
-  'https://neoxr-api.herokuapp.com': 'yntkts',
+global.APIKeys = { 
   'https://api.xteam.xyz': `${keysxteam}`,
   'https://api.lolhuman.xyz': '85faf717d0545d14074659ad',
   'https://api.neoxr.my.id': `${keysneoxr}`,	
@@ -116,7 +72,9 @@ global.APIKeys = { // APIKey Here
   'https://api.zahwazein.xyz': `${keysxxx}`,
   'https://api-fgmods.ddns.net': 'fg-dylux',
   'https://api.botcahx.biz.id': 'Admin',
-  'https://anabotofc.herokuapp.com/': 'AnaBot'
+  'https://api.ibeng.tech/docs': 'tamvan',
+  'https://api.itsrose.site': 'Rs-Zeltoria',
+  'https://api-xcoders.site': 'Frieren'
 }
 
 global.mods = ['5492604050270', '5493772406612']
@@ -160,7 +118,7 @@ global.fb = 'https://www.facebook.com/groups/872989990425789/'
 
 global.nna = 'https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3' //UPDATE GATABOT
 global.nna2 = 'https://chat.whatsapp.com/IXZ0aBryB1cHjNxe0VIm76' //Help
-global.nn = 'https://chat.whatsapp.com/KwoMppqeh4lH27rNM4qEbz' //Grupo 1
+global.nn = 'https://chat.whatsapp.com/IXCMOBT2Js5FNVHwXyVlOt' //Grupo 1
 global.nnn = 'https://chat.whatsapp.com/DUU638FK74P7KWmRAd4u4J' //Grupo 2
 global.nnnt = 'https://chat.whatsapp.com/Kt5EXwUhcO8Ay76CIDLs7d' //Grupo 3
 global.nnntt = 'https://chat.whatsapp.com/K0UCo7igED92q9c1w2DiEH' //Grupo 4
@@ -168,7 +126,7 @@ global.nnnttt = 'https://chat.whatsapp.com/HJLpWS2BDrWCPH6uAUKIRG' //Grupo 5
 global.nnnttt2 = 'https://chat.whatsapp.com/F63pQpKCsWiF2zFXxhYnky' //Grupo 6 COL
 global.nnnttt3 = 'https://chat.whatsapp.com/CcJKHrxGBWAAH3PiBL07JS' //Grupo 7 COL
 global.nnnttt4 = 'https://chat.whatsapp.com/FT0pwTOl0KN5Hyea34Wca9' //Grupo 8 COL
-global.nnnttt5 = 'https://chat.whatsapp.com/J8HOf2T3QYeKu3UN9UBkT6' //Grupo 9 COL
+global.nnnttt5 = 'https://chat.whatsapp.com/ErnXC51D9lWJtRWOD4stR2' //Grupo 9 COL
 global.paypal = 'https://paypal.me/OficialGD'
 global.asistencia = 'Wa.me/18059196237' //Dudas? escríbeme...
 

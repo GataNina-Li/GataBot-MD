@@ -43,17 +43,21 @@
 <a href="https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3">
 <img src="https://img.shields.io/badge/GataBot Update Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white">
 </a>
+</a>
+<a href="https://chat.whatsapp.com/IXZ0aBryB1cHjNxe0VIm76">
+<img src="https://img.shields.io/badge/🐈_GataBot_|_Soporte_⚙️-25D366?style=for-the-badge&logo=whatsapp&logoColor=white">
+</a>
 </div>
 
 ### ❇️ GRUPOS OFICIALES
-<a href="https://chat.whatsapp.com/KwoMppqeh4lH27rNM4qEbz" target="blank"><img src="https://img.shields.io/badge/1️⃣_COMUNIDAD_GATADOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://chat.whatsapp.com/DUU638FK74P7KWmRAd4u4J" target="blank"><img src="https://img.shields.io/badge/2️⃣_COMUNIDAD_GATADOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://chat.whatsapp.com/Kt5EXwUhcO8Ay76CIDLs7d" target="blank"><img src="https://img.shields.io/badge/3️⃣_COMUNIDAD_GATADOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://chat.whatsapp.com/K0UCo7igED92q9c1w2DiEH" target="blank"><img src="https://img.shields.io/badge/4️⃣_COMUNIDAD_GATADOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://chat.whatsapp.com/HJLpWS2BDrWCPH6uAUKIRG" target="blank"><img src="https://img.shields.io/badge/5️⃣_COMUNIDAD_GATADOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/IXCMOBT2Js5FNVHwXyVlOt" target="blank"><img src="https://img.shields.io/badge/1️⃣_COMUNIDAD_GATABOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/DUU638FK74P7KWmRAd4u4J" target="blank"><img src="https://img.shields.io/badge/2️⃣_COMUNIDAD_GATABOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/Kt5EXwUhcO8Ay76CIDLs7d" target="blank"><img src="https://img.shields.io/badge/3️⃣_COMUNIDAD_GATABOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/K0UCo7igED92q9c1w2DiEH" target="blank"><img src="https://img.shields.io/badge/4️⃣_COMUNIDAD_GATABOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/HJLpWS2BDrWCPH6uAUKIRG" target="blank"><img src="https://img.shields.io/badge/5️⃣_COMUNIDAD_GATABOT_🐈-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 <a href="https://chat.whatsapp.com/F63pQpKCsWiF2zFXxhYnky" target="blank"><img src="https://img.shields.io/badge/🐈 ᴳᵃᵗᵃᴮᵒᵗ 🌟 ᴰᵒʳʳᵃᵗᴮᵒᵗ 🧿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 <a href="https://chat.whatsapp.com/CcJKHrxGBWAAH3PiBL07JS" target="blank"><img src="https://img.shields.io/badge/🐈 𝐆𝐚𝐭𝐚𝐁𝐨𝐭 & 𝐋𝐨𝐥𝐢𝐁𝐨𝐭 🥳-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://chat.whatsapp.com/FT0pwTOl0KN5Hyea34Wca9" target="blank"><img src="https://img.shields.io/badge/💖 🅜🅤🅛🅣🅘 🅑🅞🅣🅢 💖-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/ErnXC51D9lWJtRWOD4stR2" target="blank"><img src="https://img.shields.io/badge/💖 🅜🅤🅛🅣🅘 🅑🅞🅣🅢 💖-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </a>
 
 ### ✅ GATABOT OFICIAL
@@ -262,6 +266,9 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
   ```
   - [x] **¿Cómo edito el texto del Bot?**<br>
   _Ir a la carpeta [`idiomas ✨`](https://github.com/GataNina-Li/GataBot-MD/tree/master/lib/idiomas) y selecciona el archivo del idioma que quiera modificar su contenido._
+  
+  - [x] **¿Dónde puedo cambiar el idioma de GataBot?**<br>
+  _Puede cambiar el idioma ingresando [`Aquí`](https://github.com/GataNina-Li/GataBot-MD/blob/362ee2d694a033923efd9bf9ca16a2b0694e3073/config.js#L41)_
 </details>
 
 <details>
