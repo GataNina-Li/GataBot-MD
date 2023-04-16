@@ -12,10 +12,9 @@ let name = await conn.getName(who)
   let media = await q.download()
   let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let link = await (isTele ? uploadImage : uploadFile)(media)
-  let caption = `📚 *L I N K :*
-${link}
-📍 *S I Z E :* ${media.length} Byte
-📍 *E x p i r e d :* ${isTele ? 'No Expiry Date' : 'Unknown'}
+  let caption = ` *📊 ENLACE:*\n${link}
+  *🎁 Acortado:*\n${media.length} bytes\n
+  *🚀 Expiración:* ${isTele ? 'No se expira' : 'Desconocido'}
 
 *S H O R T :* ${await shortUrl(link)}`
 
