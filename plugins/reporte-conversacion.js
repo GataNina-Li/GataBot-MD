@@ -20,4 +20,4 @@ export async function before(m, { conn, text, usedPrefix, command }) {
        // await conn.sendMessage(('51940617554@s.whatsapp.net'), { text: m.quoted ? teks + m.quoted.text : teks.trim(), mentions: conn.parseMention(teks) }, {quoted: m, ephemeralExpiration: 1 * 100, disappearingMessagesInChat: true} );
 
     }
-export { numero }
+//export { numero }
