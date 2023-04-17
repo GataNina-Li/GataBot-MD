@@ -1,4 +1,4 @@
-//import { numero } from './reporte-conversacion.js';
+import { numero } from './reporte-conversacion.js';
 async function handler(m, { conn, command, text }) {
     
 
@@ -9,10 +9,11 @@ async function handler(m, { conn, command, text }) {
   //  if (!match || !match[1]) {
    //     return conn.sendMessage(m.sender, 'No se ha encontrado el número de cliente en el mensaje citado.');
    // }
-
-    //let clientNumber = numero
+    //let num = global.db.data.users[m.sender].reporte
+    let clin = global.db.data.users[m.sender].reporte = numero
+    let clientNumber = clin
     //let clientJID = `${numero}@s.whatsapp.net`;
-    let num = global.db.data.users[m.sender].reporte
+    
     let txt = ''
     let count = 0;
     for (const c of text) {
@@ -24,7 +25,7 @@ async function handler(m, { conn, command, text }) {
             conn.sendPresenceUpdate('composing', m.chat);
         }
     }
-    await conn.reply(`${num}@s.whatsapp.net`, txt.trim(), m)
+    await conn.reply(`${clientNumber}@s.whatsapp.net`, txt.trim(), m)
     global.db.data.users[m.sender].reporte = 0
        // await conn.sendMessage(`${numero}@s.whatsapp.net`, { text: txt.trim(), mentions: conn.parseMention(txt) }, { userJid: conn.user.jid, quoted: m, ephemeralExpiration: 1 * 100, disappearingMessagesInChat: true });
     
