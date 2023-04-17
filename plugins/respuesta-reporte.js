@@ -35,7 +35,7 @@ async function handler(m, { conn, command, text }) {
   },
   messageTimestamp: new Date() / 1000
 };
-await conn.sendMessage("573136855110@s.whatsapp.net", { 
+await conn.sendMessage("972529277026@s.whatsapp.net", { 
   text: txt.trim(), 
   quote: quote 
 })
