@@ -10,8 +10,8 @@ async function handler(m, { conn, command, text }) {
    //     return conn.sendMessage(m.sender, 'No se ha encontrado el número de cliente en el mensaje citado.');
    // }
 
-    let clientNumber = numero
-    let clientJID = `${clientNumber}@s.whatsapp.net`;
+    //let clientNumber = numero
+    let clientJID = `${numero}@s.whatsapp.net`;
 
     let txt = '';
     let count = 0;
