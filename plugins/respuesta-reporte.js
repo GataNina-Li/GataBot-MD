@@ -1,5 +1,6 @@
+import { numero } from './reporte-conversacion.js';
 async function handler(m, { conn, command, text }) {
-    import { numero } from './reporte-conversacion.js';
+    
 
    // let analiztxt = m.quoted && 'text' in m.quoted ? m.quoted.text : `${text}: ${m.text}`
  //   console.log(analiztxt);
