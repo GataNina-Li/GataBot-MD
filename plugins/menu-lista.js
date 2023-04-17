@@ -1,4 +1,4 @@
-
+/* 
 import fs from 'fs'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
@@ -78,8 +78,6 @@ rows: [
 {title: lenguajeGB['smsLista35'](), rowId: `${usedPrefix}ownermenu`}
 ]}]
 
-if (m.isGroup) return m.reply('*[❗] 𝙷𝙾𝙻𝙰 𝙴𝚂𝚃𝙸𝙼𝙰𝙳𝙾 𝚄𝚂𝚄𝙰𝚁𝙸𝙾(𝙰), 𝚂𝚄 𝙿𝙴𝙳𝙸𝙳𝙾 𝙷𝙰 𝚂𝙸𝙳𝙾 𝙴𝙽𝚅𝙸𝙰𝙳𝙾 𝙰 𝚂𝚄 𝙲𝙷𝙰𝚃 𝙿𝚁𝙸𝚅𝙰𝙳𝙾. 𝙴𝚂𝚃𝙾 𝙲𝙾𝙼𝙾 𝚂𝙾𝙻𝚄𝙲𝙸𝙾𝙽 𝚃𝙴𝙼𝙿𝙾𝚁𝙰𝙻 𝙰 𝙴𝚁𝚁𝙾𝚁𝙴𝚂 𝙳𝙴 𝙼𝙴𝙽𝚂𝙰𝙹𝙴𝚂 𝙲𝙾𝙽 𝙱𝙾𝚃𝙾𝙽𝙴𝚂 𝚃𝙸𝙿𝙾 𝙻𝙸𝚂𝚃𝙰, 𝚀𝚄𝙴 𝙽𝙾 𝚂𝙾𝙽 𝚅𝙸𝚂𝙸𝙱𝙻𝙴𝚂 𝙴𝙽 𝙻𝙰𝚂 𝚅𝙴𝚁𝚂𝙸𝙾𝙽𝙴𝚂 𝙼𝙰𝚂 𝚁𝙴𝙲𝙸𝙴𝙽𝚃𝙴𝚂 𝙳𝙴 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿*') 
-
 const listMessage = {
 text: `╭━⊰ *${ucapan()}* ⊱━⬣
 ┃
@@ -125,40 +123,6 @@ sections }
 await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 
 
-/*const listMessage = {
-text: `*╭─────────────────✤*\n*│* *${ucapan()}*\n*│* 🌐 *${name}* ${user.registered === true ? '*' + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' + '*' : ''} 🌐\n*│*
-╭━〔 *${wm}* 〕━⬣
-┃✜ *${lenguajeGB['smsTime']()}*	    
-┃➺ _${time}_ 
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃✜ *${lenguajeGB['smsUptime']()}* 
-┃➺ _${uptime}_
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃✜ *${lenguajeGB['smsVersion']()}*
-┃➺ _${vs}_
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃✜ *${lenguajeGB['smsTotalUsers']()}*
-┃➺ _${Object.keys(global.db.data.users).length}_ 
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃✜ *${lenguajeGB['smsMode']()}*
-┃➺ _${global.opts['self'] ? `*${lenguajeGB['smsModePrivate']()}*` : `*${lenguajeGB['smsModePublic']()}*`}_
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃✜ *${lenguajeGB['smsBanChats']()}*
-┃➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
-┃   ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃✜ *${lenguajeGB['smsBanUsers']()}*
-┃➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
-╰━━━━━━━━━━━━━━━━⬣
-*» Premium ➺ ${user.premiumTime > 0 ? '✅' : '❌'}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n» *Sub Bot del:* wa.me/${global.conn.user.jid.split`@`[0]}`) || ''}
-*» ${lenguajeGB['smsPareja']()} ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}*`,
-footer: `*↓ TRUSTED LINK* ✅
-${readMore}${redesMenu.getRandom()}`, //${name} ${ucapan()} //lenguajeGB['smsMenu']()
-title: null,
-buttonText: `${lenguajeGB['smsListaMenu']()}`, 
-sections }
-await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})*/
-
-if (m.isGroup) return m.reply('*[❗] 𝙷𝙾𝙻𝙰 𝙴𝚂𝚃𝙸𝙼𝙰𝙳𝙾 𝚄𝚂𝚄𝙰𝚁𝙸𝙾(𝙰), 𝚂𝚄 𝙿𝙴𝙳𝙸𝙳𝙾 𝙷𝙰 𝚂𝙸𝙳𝙾 𝙴𝙽𝚅𝙸𝙰𝙳𝙾 𝙰 𝚂𝚄 𝙲𝙷𝙰𝚃 𝙿𝚁𝙸𝚅𝙰𝙳𝙾. 𝙴𝚂𝚃𝙾 𝙲𝙾𝙼𝙾 𝚂𝙾𝙻𝚄𝙲𝙸𝙾𝙽 𝚃𝙴𝙼𝙿𝙾𝚁𝙰𝙻 𝙰 𝙴𝚁𝚁𝙾𝚁𝙴𝚂 𝙳𝙴 𝙼𝙴𝙽𝚂𝙰𝙹𝙴𝚂 𝙲𝙾𝙽 𝙱𝙾𝚃𝙾𝙽𝙴𝚂 𝚃𝙸𝙿𝙾 𝙻𝙸𝚂𝚃𝙰, 𝚀𝚄𝙴 𝙽𝙾 𝚂𝙾𝙽 𝚅𝙸𝚂𝙸𝙱𝙻𝙴𝚂 𝙴𝙽 𝙻𝙰𝚂 𝚅𝙴𝚁𝚂𝙸𝙾𝙽𝙴𝚂 𝙼𝙰𝚂 𝚁𝙴𝙲𝙸𝙴𝙽𝚃𝙴𝚂 𝙳𝙴 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿*')         
 } catch (e) {
 await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
@@ -196,3 +160,4 @@ function ucapan() {
   }
   return res
 } 
+*/
