@@ -3,6 +3,7 @@ export async function before(m, { conn, text, usedPrefix, command }) {
     if (!m.chat.endsWith('@s.whatsapp.net'))
     return !0
     numero = `${m.sender.split`@`[0]}`
+    global.db.data.users[m.sender].reporte = numero
     let teks = `❒═════[SEGUIMIENTO DE CONVERSACION]═════❒\n*┬\n├❧ NUMERO:* wa.me/${numero}\n*┴*\n*┬*\n*├❧ MENSAJE:* ${m.text}\n*┴*`
     let txt = '';
     let count = 0;
