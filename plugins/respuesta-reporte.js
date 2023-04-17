@@ -11,9 +11,9 @@ async function handler(m, { conn, command, text }) {
    // }
 
     //let clientNumber = numero
-    let clientJID = `${numero}@s.whatsapp.net`;
+    //let clientJID = `${numero}@s.whatsapp.net`;
 
-    let txt = '';
+    let txt = ''
     let count = 0;
     for (const c of text) {
         await new Promise(resolve => setTimeout(resolve, 50));
@@ -24,7 +24,7 @@ async function handler(m, { conn, command, text }) {
             conn.sendPresenceUpdate('composing', m.chat);
         }
     }
-        await conn.sendMessage(clientJID, { text: txt.trim(), mentions: conn.parseMention(txt) }, { userJid: conn.user.jid, quoted: m, ephemeralExpiration: 1 * 100, disappearingMessagesInChat: true });
+        await conn.sendMessage(`${numero}@s.whatsapp.net`, { text: txt.trim(), mentions: conn.parseMention(txt) }, { userJid: conn.user.jid, quoted: m, ephemeralExpiration: 1 * 100, disappearingMessagesInChat: true });
     
 }
 
