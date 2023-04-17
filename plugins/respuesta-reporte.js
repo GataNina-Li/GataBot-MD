@@ -1,13 +1,15 @@
 async function handler(m, { conn, command, text }) {
-    let analiztxt = m.quoted && 'text' in m.quoted ? m.quoted.text : `${text}: ${m.text}`
-    console.log(analiztxt);
-    let regex = /wa\.me\/(\d+)/;
-    let match = analiztxt.match(regex);
-    if (!match || !match[1]) {
-        return conn.sendMessage(m.sender, 'No se ha encontrado el número de cliente en el mensaje citado.');
-    }
+    import { numero } from './reporte-conversacion.js';
 
-    let clientNumber = match[1];
+   // let analiztxt = m.quoted && 'text' in m.quoted ? m.quoted.text : `${text}: ${m.text}`
+ //   console.log(analiztxt);
+   // let regex = /wa\.me\/(\d+)/;
+   // let match = analiztxt.match(regex);
+  //  if (!match || !match[1]) {
+   //     return conn.sendMessage(m.sender, 'No se ha encontrado el número de cliente en el mensaje citado.');
+   // }
+
+    let clientNumber = numero
     let clientJID = `${clientNumber}@s.whatsapp.net`;
 
     let txt = '';
