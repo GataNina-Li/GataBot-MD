@@ -24,7 +24,7 @@
  "url": "git+https://github.com/GataNina-Li/GataBot-MD.git" },
  
 "bugs": {
-"url": "https://github.com/GataNina-Li/GataBotLite-MD/issues" },
+"url": "https://github.com/GataNina-Li/GataBot-MD/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
   "@adiwajshing/baileys": "npm:baileys@^6.0.8",
