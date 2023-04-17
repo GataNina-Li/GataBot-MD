@@ -133,9 +133,13 @@ apt update && apt upgrade && pkg install git nodejs ffmpeg imagemagick yarn && g
 ](https://youtu.be/UcWlyQ8u5HE)
 ```bash
 termux-setup-storage
-```
-```bash
-apt update -y && yes | apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn && cd storage/downloads/GataBot-MD-master/GataBot-MD-master && yarn --ignore-scripts && npm install && npm start
+apt update
+apt upgrade
+pkg install -y git nodejs ffmpeg imagemagick yarn
+cd storage/downloads/GataBot-MD-master/GataBot-MD-master 
+yarn install
+npm install
+npm start
 ```
 * #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
 * #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
