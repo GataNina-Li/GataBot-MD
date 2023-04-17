@@ -1,4 +1,4 @@
-import { numero } from './reporte-conversacion.js';
+/*import { numero } from './reporte-conversacion.js';
 async function handler(m, { conn, command, text }) {
     
 
@@ -51,4 +51,4 @@ handler.command = ['responder']
 handler.private = true
 handler.owner = true
 
-export default handler
+export default handler*/
