@@ -1,5 +1,5 @@
 async function handler(m, { conn, command, text }) {
-    let analiztxt = m.quoted && m.quoted.text ? m.quoted.text : `${text}: ${m.text}`;
+    let analiztxt = m.quoted && 'text' in m.quoted ? m.quoted.text : `${text}: ${m.text}`
     console.log(analiztxt);
     let regex = /wa\.me\/(\d+)/;
     let match = analiztxt.match(regex);
