@@ -1,9 +1,10 @@
 // Código dañado
 // Atte. @Azami19
 
+
 let handler = async (m, { conn, usedPrefix: _p, args, text, usedPrefix}) => {
 	
-	if (!m.quoted) throw 'Responde a un mensaje !'
+	if (!m.quoted) throw 'Responder chat !'
 	if (text.length > 2) throw 'Solo para 1 emoji!'
 	if (!text) throw `📍 Ejemplo de uso :\n${usedPrefix}react 🗿`
 conn.relayMessage(m.chat, { reactionMessage: {
