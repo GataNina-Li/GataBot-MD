@@ -1,4 +1,4 @@
-import * as baileys from '@adiwajshing/baileys'
+/*import * as baileys from '@adiwajshing/baileys'
 import { Brainly } from 'brainly-scraper-v2'
 import fetch from 'node-fetch'
 let brainly = new Brainly('id')
@@ -27,4 +27,4 @@ handler.help = ['brainly']
 handler.tags = ['herramientas']
 handler.command = /^(brainly)$/i
 
-export default handler
+export default handler*/
