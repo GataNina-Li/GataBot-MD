@@ -96,6 +96,7 @@ function _0x1ce7(){const _0xac1ac2=['212872fjshDh','17320yUXgkp','6019568oxJfgD'
 		                    		    
           if (!isNumber(user.afk)) user.afk = -1
 	      //if (!('autolevelup' in user))  user.autolevelup = true
+	      if (!isNumber(user.reporte)) user.reporte = 0
 	      if (!('role' in user)) user.role = '*NOVATO(A)* 🪤'
               if (!isNumber(user.agility)) user.agility = 0
               if (!isNumber(user.anakanjing)) user.anakanjing = 0
@@ -503,6 +504,7 @@ function _0x1ce7(){const _0xac1ac2=['212872fjshDh','17320yUXgkp','6019568oxJfgD'
 		    
 		    afk: -1,
                     afkReason: '',
+	            reporte: 0,
                     age: 0,
 		    genero: 0,
 		    identidad: 0,
