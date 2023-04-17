@@ -1,4 +1,4 @@
-import { numero } from '/plugins/reporte-conversacion.js';
+import { numero } from './reporte-conversacion.js';
 async function handler(m, { conn, command, text }) {
     
 
