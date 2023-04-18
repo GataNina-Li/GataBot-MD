@@ -15,14 +15,23 @@ _muptime = await new Promise(resolve => { process.once('message', resolve)
 setTimeout(resolve, 1000) }) * 1000}
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 let uptime = clockString(_uptime)
-let estado = `╭══✨• ೋ•✨๑๑💗๑๑✨•ೋ •✨══╮
-
-*ミ💖 ¡Hola! estimado/a usuario/a 💖彡*
-
-*ミ🤖 Estado de GataBot 🤖彡*
-*=> ✅ Bot activo y de uso público*
-
-╰══✨• ೋ•✨๑๑💗๑๑✨•ೋ •✨══╯`
+let estado = `╭━━━━[ *𝙀𝙎𝙏𝘼𝘿𝙊 | 𝙎𝙏𝘼𝙏𝙐𝙎* ]━━━━━⬣
+┃💗 *¡Hola | Hi!* ${name}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
+┃𓃠 *Versión de ${gt}*
+┃➥ ${vs}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ღ ${global.opts['self'] ? '𝙋𝙍𝙄𝙑𝘼𝘿𝙊 - 𝙋𝙍𝙄𝙑𝘼𝙏𝙀' : '𝙋𝙐𝘽𝙇𝙄𝘾𝙊 - 𝙋𝙐𝘽𝙇𝙄𝘾'}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ღ *Activo Durante | Active During* 
+┃➥ ${uptime}
+┃ღ *Usuario(s) | Users* 
+┃➥ ${Object.keys(global.db.data.users).length} 
+┃ღ *Chat(s) Prohibido(s) | Forbidden Chats*
+┃➥ ${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length} 
+┃ღ *Usuario(s) Prohibido(s) | Prohibited Urs*
+┃➥ ${Object.entries(global.db.data.users).filter(user => user[1].banned).length} 
+╰━━━━━━━━━━━━━━━━━━⬣`
 conn.sendButton(m.chat, estado, `𝙂𝘼𝙏𝘼 𝘿𝙄𝙊𝙎 - 𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼\n${asistencia}\n\n`, [
 ['🌀 MENÚ 🌀', '.menu'], ['🔆 MENÚ COMPLETO 🔆', '.menucompleto'], ['♨️ MENÚ DE AUDIOS ♨️', '.audios']], m)
 
