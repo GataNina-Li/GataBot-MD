@@ -62,7 +62,7 @@
 
 ### ✅ GATABOT OFICIAL
 <a href="http://wa.me/51959609590?text=.menu" target="blank"><img src="https://img.shields.io/badge/1️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="http://wa.me/17196291679?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/18134034342?text=.menu" target="blank"><img src="https://img.shields.io/badge/2️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 <a href="http://wa.me/19854128068?text=.menu" target="blank"><img src="https://img.shields.io/badge/3️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 <a href="http://wa.me/525536981575?text=.menu" target="blank"><img src="https://img.shields.io/badge/4️⃣_𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </a>
