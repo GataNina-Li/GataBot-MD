@@ -1,5 +1,5 @@
 import { generateWAMessageFromContent } from "@adiwajshing/baileys"
-import { smsg } from '../lib/simple.js'
+import { smsg } from './lib/simple.js'
 import { botPermisos } from './lib/handler_permisos.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
@@ -1188,7 +1188,7 @@ function _0x1ce7(){const _0xac1ac2=['212872fjshDh','17320yUXgkp','6019568oxJfgD'
                 }
                 }
 
-               let hl = _prefix 
+              /* let hl = _prefix 
                 let adminMode = global.db.data.chats[m.chat].modoadmin
                 let gata = `${plugins.botAdmin || plugins.admin || plugins.group || plugins || noPrefix || hl ||  m.text.slice(0, 1) == hl || plugins.command}`
                 if (adminMode && !isOwner && !isROwner && m.isGroup && !isAdmin && gata) return   
@@ -1230,9 +1230,9 @@ function _0x1ce7(){const _0xac1ac2=['212872fjshDh','17320yUXgkp','6019568oxJfgD'
                 if (plugin.register == true && _user.registered == false) { // Butuh daftar?
                     fail('unreg', m, this)
                     continue
-                }
+                }*/
 		    
-		//botPermisos(plugins, plugin, _user, noPrefix, m, isROwner, isOwner, isAdmin, isBotAdmin, isMods, isPrems, fail, _prefix)
+		botPermisos(plugins, plugin, _user, noPrefix, m, isROwner, isOwner, isAdmin, isBotAdmin, isMods, isPrems, fail, _prefix)
 
                 m.isCommand = true
                 let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10 // Ganancia de XP por comando
