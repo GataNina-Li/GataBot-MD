@@ -1,6 +1,6 @@
 import { generateWAMessageFromContent } from "@adiwajshing/baileys"
 import { smsg } from './lib/simple.js'
-import permisos  from './lib/handler_permisos.js'
+import botPermisos  from './lib/handler_permisos.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
 import path, { join } from 'path'
@@ -1232,7 +1232,7 @@ function _0x1ce7(){const _0xac1ac2=['212872fjshDh','17320yUXgkp','6019568oxJfgD'
                     continue
                 }*/
 		    
-		permisos.botPermisos(plugin, _user, noPrefix, m, isROwner, isOwner, isAdmin, isBotAdmin, isMods, isPrems, fail, _prefix)
+		botPermisos()
 
                 m.isCommand = true
                 let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10 // Ganancia de XP por comando
