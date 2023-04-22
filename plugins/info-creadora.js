@@ -7,6 +7,8 @@ let bot = global.db.data.settings[conn.user.jid] || {}
 let name = await conn.getName(m.sender)
   let type = (args[0] || '').toLowerCase()
   let _type = (args[0] || '').toLowerCase()
+  let pp = gataVidMenu.getRandom()
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
 //------- Nombre
   let nowner = `${wm.split`@`[0]}@s.whatsapp.net`
@@ -82,7 +84,7 @@ const listMessage = {
           conn.reply(m.chat, "Nombre del bot : GataBot-MD 🐈", m, { contextInfo: { mentionedJid: [nowner] }})
             break
             case 'bio':
-	    conn.sendButton(m.chat, teksbio, insta, ppown, [`⋮☰ Menu`, `.menu`], m)
+          conn.sendButton(m.chat, teksbio, pp, [`☘️ 𝗠 𝗘 𝗡 𝗨`, `.menu`], m)
                break
           default:
             return await conn.sendMessage(m.chat, listMessage, { quoted: m, contextInfo: { mentionedJid: [m.sender] }})
@@ -96,7 +98,7 @@ const listMessage = {
           break
 
         default:
-          return conn.sendButton( m.chat, caption, wm, null, [`⋮☰ Menu`, `.menu`], m)
+          return conn.sendButton( m.chat, caption, wm, null, [`☘️ 𝗠 𝗘 𝗡 𝗨`, `.menu`], m)
       }
     }
   } catch (err) {
