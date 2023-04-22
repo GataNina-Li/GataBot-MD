@@ -1,7 +1,6 @@
 import { generateWAMessageFromContent } from "@adiwajshing/baileys"
 import { smsg } from './lib/simple.js'
-//import botPermisos  from './lib/handler_permisos.js'
-const botPermisos = require('./lib/handler_permisos.js')
+import { botPermisos }  from './lib/handler_permisos.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
 import path, { join } from 'path'
