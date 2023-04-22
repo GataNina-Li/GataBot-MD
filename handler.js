@@ -1,6 +1,6 @@
 import { generateWAMessageFromContent } from "@adiwajshing/baileys"
 import { smsg } from './lib/simple.js'
-import { Permisos } = './lib/handler_permisos.js'
+import { Permisos } from './lib/handler_permisos.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
 import path, { join } from 'path'
