@@ -11,7 +11,7 @@ m.reply(`*𝙂𝘼𝙏𝘼𝘽𝙊𝙏-𝙈𝘿 𝙎𝙀 𝙃𝘼 𝙐𝙉𝙄�
 await delay(5 * 5000)
 let res = await conn.groupAcceptInvite(code)
 } else {
-const data = global.owner.filter(([id]) => id)
+const data = global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)
 
 await delay(5 * 5000)
 for (let jid of data.map(([id]) => [id] + '@s.whatsapp.net').filter(v => v != conn.user.jid)) m.reply(`${iig}╭══•───────────────•══╮\n┃ 📧 *𝙎𝙊𝙇𝙄𝘾𝙄𝙏𝙐𝘿 𝙋𝘼𝙍𝘼 𝙐𝙉 𝙂𝙍𝙐𝙋𝙊*\n┃ 📧 *𝙂𝙍𝙊𝙐𝙋 𝙍𝙀𝙌𝙐𝙀𝙎𝙏*\n╰══•───────────────•══╯\n\n*👤 𝙎𝙊𝙇𝙄𝘾𝙄𝙏𝘼𝙉𝙏𝙀 | 𝘼𝙋𝙋𝙇𝙄𝘾𝘼𝙉𝙏*\n` + ' wa.me/' + m.sender.split('@')[0] + '\n\n*🔮 𝙀𝙉𝙇𝘼𝘾𝙀 𝘿𝙀𝙇 𝙂𝙍𝙐𝙋𝙊 | 𝙂𝙍𝙊𝙐𝙋 𝙇𝙄𝙉𝙆*\n ' + link, jid)
