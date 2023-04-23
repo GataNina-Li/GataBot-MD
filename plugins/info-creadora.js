@@ -90,8 +90,8 @@ const listMessage = {
           conn.reply(m.chat, "Nombre del bot : GataBot-MD 🐈", m, { contextInfo: { mentionedJid: [nowner] }})
             break
             case 'bio':
-          conn.sendButton(m.chat, teksbio, pp, [`☘️ 𝗠 𝗘 𝗡 𝗨`, `.menu`], m)
-               break
+          conn.sendButton(m.chat, teksbio, fkontak, pp, [`☘️ 𝗠 𝗘 𝗡 𝗨`, `.menu`], m)
+            break
           default:
             return await conn.sendMessage(m.chat, listMessage, { quoted: m, contextInfo: { mentionedJid: [m.sender] }})
         }
@@ -104,7 +104,7 @@ const listMessage = {
           break
 
         default:
-          return conn.sendButton( m.chat, caption, wm, null, [`☘️ 𝗠 𝗘 𝗡 𝗨`, `.menu`], m)
+          return conn.sendButton( m.chat, caption, wm, null, [`⋮☘️ 𝗠 𝗘 𝗡 𝗨`, `.menu`], m)
       }
     }
   } catch (err) {
