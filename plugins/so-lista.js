@@ -3,6 +3,8 @@
 let handler = m => m
 handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
+//let pp = gataVidMenu.getRandom()
+//let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 global.db.data.users[m.sender].money += 50
 global.db.data.users[m.sender].exp += 50  
     
@@ -15,8 +17,8 @@ this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt
 if (chat.audios && m.text.match(/(bienveni|🥳|🤗|👋)/gi)) {
 let vn = './media/Bienvenido.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
-this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
-    
+conn.sendMessage(m.chat, { audio: { url: vn }, contextInfo: { "externalAdReply": { "title": wm, "body": `🐈`, "previewType": "PHOTO", "thumbnailUrl": null,"thumbnail": imagen1, "sourceUrl": `https://github.com/GataNina-Li/GataBot-MD`, "showAdAttribution": true}}, ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: m })}
+
 if (chat.audios && m.text.match(/(Blackpink in your area|blackpink in your area|in your area|In your area)/gi)) {    
 let vn = './media/Blackpink in your area.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
@@ -766,11 +768,6 @@ this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt
 
 if (chat.audios && m.text.match(/(Hey|Hei|hey|HEY)/gi)) {    
 let vn = './media/jai.mp3'
-this.sendPresenceUpdate('recording', m.chat)   
-this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
-
-if (chat.audios && m.text.match(/(holi|holi bb)/gi)) {    
-let vn = './media/holi.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
