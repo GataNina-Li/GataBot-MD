@@ -1,3 +1,8 @@
+`ANTI LGBT 🏳️‍🌈❌`
+
+
+
+
 > <b>🚀 VERSIÓN 1.4.9</b>
 
 <p align="center"> 
