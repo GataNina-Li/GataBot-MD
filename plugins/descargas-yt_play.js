@@ -11,7 +11,7 @@ let dos = [enlace, enlace2]
 	try {
 //const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v)).catch(async _ => await youtubedlv3(v))
 let vid2 = await (await fetch(`https://api.lolhuman.xyz/api/ytsearch?apikey=${lolkeysapi}&query=${text}`)).json()
-let { videoId, title, views, published, timestamp, durationH, thumbnail } = await vid2.result[0]
+let { videoId, title, views, published, timestamp, description, thumbnail } = await vid2.result[0]
 const url = 'https://www.youtube.com/watch?v=' + videoId
 let ytLink = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi}&query=${text}`)
 if (command == 'play') {
@@ -25,14 +25,13 @@ conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `*𓆩 𓃠 𓆪 ✧═══ 
 ও *PUBLICADO | PUBLISHED*
 » ${published}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *DURACION | DURATION*
-» ${durationH}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *VISTAS| VIEWS*
+ও *VISTAS | VIEWS*
 » ${views}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও *URL*
+» ${url}
 
-*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
-`.trim(), fkontak, m)
+*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`.trim(), fkontak, m)
 const sections = [{
 title: comienzo + ' 📡 𝗧𝗜𝗣𝗢𝗦 𝗗𝗘 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔𝗦 ' + fin,
 rows: [
@@ -55,7 +54,17 @@ const listMessage = {
   buttonText: `🍄 𝙀𝙇𝙀𝙍𝙂𝙄𝙍 🍁`,
   sections
 }
-conn.sendMessage(m.chat, { audio: { url: aud }, mimetype: 'audio/mp4', fileName: `${title}.mp3`}, {quoted: m})
+conn.sendMessage(m.chat, { audio: { url: aud }, mimetype: "audio/mp4", fileName: title + '.mp3', quoted: m, contextInfo: {
+'forwardingScore': 200,
+'isForwarded': false,
+externalAdReply:{
+showAdAttribution: false,
+title: `aqui esta tu perdido`,
+body: `${title}`,
+mediaType: 2, 
+sourceUrl: `${url}`,
+thumbnail: await (await fetch(thumbnail)).buffer()}}}, { quoted: m })
+//conn.sendMessage(m.chat, { audio: { url: aud }, mimetype: 'audio/mp4', fileName: `${title}.mp3`}, {quoted: m})
 }
 
 if (command == 'play2') {
@@ -91,12 +100,11 @@ conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `*𓆩 𓃠 𓆪 ✧═══ 
 ও *PUBLICADO | PUBLISHED*
 » ${published}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *DURACION | DURATION*
-» ${timestamp}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
 ও *VISTAS| VIEWS*
 » ${views}
-
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও *URL*
+» ${url}
 *𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 `.trim(), fkontak, m)
 await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 🤍 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${n}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ 🧡 𝙋𝙀𝙎𝙊 | 𝙎𝙄𝙕𝙀\n┃ ${n3}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(n4) }, { quoted: m })
