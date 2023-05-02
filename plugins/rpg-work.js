@@ -1,17 +1,30 @@
 // creditos a https://github.com/FG98F
 let handler = async (m, { conn, isPrems}) => {
 //let hasil = Math.floor(Math.random() * 5000)
+const fkontak = {
+        "key": {
+        "participants":"0@s.whatsapp.net",
+            "remoteJid": "status@broadcast",
+            "fromMe": false,
+            "id": "Halo"    
+        },
+        "message": {
+            "contactMessage": {
+                "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+            }
+        },
+        "participant": "0@s.whatsapp.net"
+    }
 let pp = 'https://c4.wallpaperflare.com/wallpaper/991/456/22/sketch-artist-anime-anime-girls-arknights-swire-arknights-hd-wallpaper-preview.jpg'
 let gata = Math.floor(Math.random() * 3000)
 global.db.data.users[m.sender].exp += gata * 1  
 let time = global.db.data.users[m.sender].lastwork + 600000
 if (new Date - global.db.data.users[m.sender].lastwork < 600000) throw `*Ya trabajaste, espere unos ${msToTime(time - new Date())} para volver a trabajar!!*`
 
-//m.reply(`${pickRandom(global.work)} *${gata} XP*`)
-conn.sendHydrated(m.chat, wm, `${pickRandom(global.work)} ${gata} XP`, pp, md, '𝙂𝙞𝙩𝙃𝙪𝙗', null, null, [
-['𝗠 𝗘 𝗡 𝗨 ☘️', `#menu`]
-], m,) 
- 
+await conn.reply(m.chat, `*${pickRandom(global.work)}* ${gata} XP`, fkontak, pp, m)
+/*conn.sendHydrated(m.chat, wm, `${pickRandom(global.work)} ${gata} XP`, pp, md, '饾檪饾櫈饾櫓饾檭饾櫔饾櫁', null, null, [
+['饾棤 饾棙 饾棥 饾棬 鈽橈笍', `#menu`]
+], m,) */
 global.db.data.users[m.sender].lastwork = new Date * 1
 }
 handler.help = ['work']
@@ -42,22 +55,22 @@ global.work = ["Trabajas como cortador de galletas y ganas", "Trabaja para una e
  "Moderaste el grupo cuando *GATADIOS* no estaba, el pago fue",
  "iba caminando por la calle y que encuentra con",
  "ayudarte con el grupo mientras los admin no estaba el pago fue",
- "Te secuestran y te llevan a un coliseo subterrÃ¡neo donde luchaste contra monstruos con personas que nunca antes habÃ­as conocido. Ganas", "Limpias la chimenea y encuentras", 
+ "Te secuestran y te llevan a un coliseo subterr脙隆neo donde luchaste contra monstruos con personas que nunca antes hab脙颅as conocido. Ganas", "Limpias la chimenea y encuentras", 
 "Desarrollas juegos para ganarte la vida y ganas", 
-"¿Por que este comando se llama trabajo? Ni siquiera estas haciendo nada relacionado con el trabajo. Sin embargo, ganas", "Trabajaste en la oficina horas extras por", 
+"驴Por que este comando se llama trabajo? Ni siquiera estas haciendo nada relacionado con el trabajo. Sin embargo, ganas", "Trabajaste en la oficina horas extras por", 
 "Trabajas como secuestrador de novias y ganas", 
-"Alguien vino y representa una obra de teatro. Por mirar te dieron", "Compraste y vendiste artÃ­culos y Ganaste", "Trabajas en el restaurante de la abuela como cocinera y ganas", 
+"Alguien vino y representa una obra de teatro. Por mirar te dieron", "Compraste y vendiste art脙颅culos y Ganaste", "Trabajas en el restaurante de la abuela como cocinera y ganas", 
 "Trabajas 10 minutos en un Pizza Hut local. Ganaste", 
-"Trabajas como escritor(a) de galletas de la fortuna y ganas", "Revisas tu bolso y decides vender algunos artÃ­culos inÃºtiles que no necesitas. Resulta que toda esa basura valia", 
-"Ves a alguien luchando por subir una caja a su auto, te apresuras a ayudarlo antes de que se lastime. DespuÃ©s de ayudarlos, amablemente te dan", 
+"Trabajas como escritor(a) de galletas de la fortuna y ganas", "Revisas tu bolso y decides vender algunos art脙颅culos in脙潞tiles que no necesitas. Resulta que toda esa basura valia", 
+"Ves a alguien luchando por subir una caja a su auto, te apresuras a ayudarlo antes de que se lastime. Despu脙漏s de ayudarlos, amablemente te dan", 
 "Desarrollas juegos para ganarte la vida y ganas", 
-"Ganas un concurso de comer chili picante. Â¡El premio es", 
+"Ganas un concurso de comer chili picante. 脗隆El premio es", 
 "Trabajas todo el dia en la empresa por", 
-"Ayudas a moderar el grupo de DyLux por", "Diseñaste un logo para *FG* por", 
+"Ayudas a moderar el grupo de DyLux por", "Dise帽aste un logo para *FG* por", 
 "Moderaste el grupo cuando *FG* no estaba, el pago fue", 
 "Trabajaste lo mejor que pudo en una imprenta que estaba contratando y gana su bien merecido!", 
 "Trabajas como podador de arbustos para *FG98* y ganas", "La demanda de juegos para dispositivos moviles ha aumentado, por lo que creas un nuevo juego lleno de micro-transacciones. Con tu nuevo juego ganas un total de", 
 "Trabajas como actor de voz para Bob Esponja y te las arreglaste para ganar", 
 "Estabas cultivando y Ganaste", "Trabajas como constructor de castillos de arena y ganas", "Trabajaste y Ganaste", 
-"Trabajas como artista callejera y ganas","Â¡Hiciste trabajo social por una buena causa! por tu buena causa Recibiste"
+"Trabajas como artista callejera y ganas","脗隆Hiciste trabajo social por una buena causa! por tu buena causa Recibiste"
 ]
