@@ -27,7 +27,7 @@
 "url": "https://github.com/GataNina-Li/GataBot-MD/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
-  "@adiwajshing/baileys": "github:WhiskeySockets/Baileys",
+  "@adiwajshing/baileys": "npm:baileys@^6.0.9",
   "@bochilteam/scraper": "^3.0.0",
   "@vitalets/google-translate-api": "^8.0.0",
   "@shineiichijo/marika": "^2.0.6",
