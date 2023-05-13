@@ -11,7 +11,7 @@ for (let user of chats) {
 await new Promise(resolve => setTimeout(resolve, 2000)) // 2 segundos
 await conn.reply(user, `${lenguajeGB.smsBCbot7()}\n\n` + teks3, null)
 totalPri++
-if (totalPri >= 3000) { 
+if (totalPri >= 3000) {  
 break
 }}   
 let end = new Date().getTime() 
