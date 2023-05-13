@@ -20,41 +20,27 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 
 //------------ BIO
 let ppown = await conn.profilePictureUrl(nomorown + '@s.whatsapp.net', 'image').catch(_ => imagen1[1]) 
-let teksbio = `
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈
-*wa.me/51910406992*
+let teksbio = `𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈
+*Wa.me/972529277406*
 
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *2* 💖🐈
-*Wa.me/50495495164*
+𝙂𝙖𝙩𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿 💖🐈
+*wa.me/593993684821*
 
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *3* 💖🐈
-*Wa.me/573117763982*
-
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *4* 💖🐈
-*Wa.me/17196291679*
-
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *5* 💖🐈
-*Wa.me/525536981575*
-
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *6* 💖🐈
-*Wa.me/19854128068*
+𝙂𝙖𝙩𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿 *2* 💖🐈
+*wa.me/573136855110*
 *---------------------*
 
 *CENTER GATABOT*
 *centergatabot@gmail.com*
 
 𝙂𝘼𝙏𝘼 𝘿𝙄𝙊𝙎 - 𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼
-*${asistencia}*
-
-*Sr. Pablo* - 𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼
-*Wa.me/51993042301*
-`
+*${asistencia}*`
   let teks = ' '
 const sections = [
    {
 	title: `PROPIETARIO/OWNER`,
 	rows: [
-	    {title: "📱 • NOMBRE", rowId: ".owner nomor"},
+	    {title: "📱 • NOMBRE", rowId: ".owner nombre"},
 	{title: "🙌 • NUMERO", rowId: ".owner bio"},
 	{title: "🌐 • CUENTAS OFICIALES", rowId: ".cuentasgb"},
 	{title: "😸 • GRUPOS", rowId: ".grupos"},
@@ -86,11 +72,13 @@ const listMessage = {
     if (/(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)/i.test(command)) {
       const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
         switch (type) {
-          case 'nomor':
-          conn.reply(m.chat, "Nombre del bot : GataBot-MD 🐈", m, { contextInfo: { mentionedJid: [nowner] }})
+          case 'nombre':
+          await conn.reply(m.chat, `𝙉𝙊𝙈𝘽𝙍𝙀 𝘿𝙀𝙇 𝘽𝙊𝙏 : ${gt} 🐈`, fkontak,  m)
+         // conn.reply(m.chat, "Nombre del bot : GataBot-MD 🐈", m, { contextInfo: { mentionedJid: [nowner] }})
             break
             case 'bio':
-          conn.sendButton(m.chat, teksbio, fkontak, pp, [`☘️ 𝗠 𝗘 𝗡 𝗨`, `.menu`], m)
+             await conn.sendFile(m.chat, gataImg.getRandom(), 'gata.jpg', teksbio, fkontak)
+         // conn.sendButton(m.chat, teksbio, fkontak, pp, [`☘️ 𝗠 𝗘 𝗡 𝗨`, `.menu`], m)
             break
           default:
             return await conn.sendMessage(m.chat, listMessage, { quoted: m, contextInfo: { mentionedJid: [m.sender] }})
@@ -104,7 +92,7 @@ const listMessage = {
           break
 
         default:
-          return conn.sendButton( m.chat, caption, wm, null, [`⋮☘️ 𝗠 𝗘 𝗡 𝗨`, `.menu`], m)
+          return  await conn.sendFile(m.chat, gataImg.getRandom(), 'gata.jpg', teksbio, fkontak)
       }
     }
   } catch (err) {
