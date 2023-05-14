@@ -2,7 +2,7 @@
 
 import { randomBytes } from 'crypto'
 
-let handler = async (m, { conn, command, participants, usedPrefix, text }) => {
+let handler = async (m, { conn, command, participants, usedPrefix, text }) => { 
   if (!text && !m.quoted) return m.reply(lenguajeGB.smsBCMensaje(usedPrefix, command))   
 let cc4 = text ? m : m.quoted ? await m.getQuotedObj() : false || m
 let teks4 = text ? text : cc4.text 
