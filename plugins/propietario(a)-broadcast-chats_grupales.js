@@ -3,7 +3,7 @@ let handler = async (m, { conn, command, participants, usedPrefix, text }) => {
 if (!text && !m.quoted) return m.reply(lenguajeGB.smsBCMensaje(usedPrefix, command))        
 let cc2 = text ? m : m.quoted ? await m.getQuotedObj() : false || m
 let teks2 = text ? text : cc2.text 
-let d = new Date(new Date + 3600000)
+let d = new Date(new Date + 3600000) 
 let locale = lenguajeGB.lenguaje()
 let dia = d.toLocaleDateString(locale, { weekday: 'long' })
 let fecha = d.toLocaleDateString(lenguajeGB.lenguaje(), { day: 'numeric', month: 'numeric', year: 'numeric' })
