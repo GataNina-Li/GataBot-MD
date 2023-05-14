@@ -1393,23 +1393,33 @@ export async function participantsUpdate({ id, participants, action }) {
     let text = ''
     switch (action) {
         case 'add':
-	case 'remove':
-            if (chat.welcome) {
-                let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
-                for (let user of participants) {
-                    let pp = './src/sinfoto.jpg'
-                    try {
-                        pp = await this.profilePictureUrl(user, 'image')
-                    } catch (e) {
-                    } finally {
-                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || lenguajeGB.smsCont12()) :
-                            (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', await this.getName(user)) //.replace('@user', '@' + user.split('@')[0])
-                            let apii = await this.getFile(pp)
-//this.sendButton(id, wm, text, apii.data, [[(action == 'add' ? lenguajeGB.smsCont13() : lenguajeGB.smsCont14()), (action == 'add' ? '.welgc' : '.welgc')], ['💖 Ser Verificado(a)', `.verify`]], null, {mentions: this.parseMention(text)})
-//}}}
+case 'remove':
+if (chat.welcome) {
+let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
+for (let user of participants) {
+let pp = gataMenu.getRandom()
+try {
+pp = await this.profilePictureUrl(user, 'image')
+} catch (e) {
+} finally {
+let apii = await this.getFile(pp)                                      
+const botTt2 = groupMetadata.participants.find(u => this.decodeJid(u.id) == this.user.jid) || {} 
+const isBotAdminNn = botTt2?.admin === "admin" || false
+text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 😻') :
+(chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
 			    
-//CÓDIGO OFUSCADO - MOTIVOS RESERVADOS >> (DIEGO-OFC)			
-var _0x27174a=_0x245b;function _0x245b(_0x5ba6cf,_0x116611){var _0x129eef=_0x129e();return _0x245b=function(_0x245bb0,_0x7a0c7f){_0x245bb0=_0x245bb0-0x17d;var _0x5a3d9e=_0x129eef[_0x245bb0];return _0x5a3d9e;},_0x245b(_0x5ba6cf,_0x116611);}function _0x129e(){var _0xd79927=['add','33fxBeyP','🌟\x20𝗗𝗜𝗦𝗙𝗥𝗨𝗧𝗔\x20𝗗𝗘𝗟\x20𝗚𝗥𝗨𝗣𝗢!!\x20🌟','https://wa.me/18059196237','*:･ﾟ★,｡:｡:･ﾟ☆｡･:｡:･ﾟ★･ﾟ｡:｡:･ﾟ☆:･ﾟ*','16bioDUd','90560wOKftO','data','610896zNDtNW','.menu','2064neToif','5507784aMSEdW','getRandom','10KnWKrq','parseMention','smsCont13','2181762fhNpQI','.verify','smsCont14','10qOOcOK','9751PpKawr','3069783wBkFZj','214452ZfbkVq'];_0x129e=function(){return _0xd79927;};return _0x129e();}(function(_0x2dc98e,_0x5b154a){var _0x402f07=_0x245b,_0x315e18=_0x2dc98e();while(!![]){try{var _0x197cb1=parseInt(_0x402f07(0x191))/0x1*(parseInt(_0x402f07(0x192))/0x2)+-parseInt(_0x402f07(0x17d))/0x3+parseInt(_0x402f07(0x18b))/0x4+-parseInt(_0x402f07(0x188))/0x5*(parseInt(_0x402f07(0x185))/0x6)+-parseInt(_0x402f07(0x189))/0x7*(parseInt(_0x402f07(0x17f))/0x8)+-parseInt(_0x402f07(0x18a))/0x9*(parseInt(_0x402f07(0x182))/0xa)+-parseInt(_0x402f07(0x18d))/0xb*(-parseInt(_0x402f07(0x180))/0xc);if(_0x197cb1===_0x5b154a)break;else _0x315e18['push'](_0x315e18['shift']());}catch(_0x5e2717){_0x315e18['push'](_0x315e18['shift']());}}}(_0x129e,0x7fd98),this['sendButton'](id,_0x27174a(0x190),text,apii[_0x27174a(0x193)],[[action==_0x27174a(0x18c)?lenguajeGB[_0x27174a(0x184)]():lenguajeGB[_0x27174a(0x187)](),action==_0x27174a(0x18c)?_0x27174a(0x17e):_0x27174a(0x17e)],['💖\x20SER\x20VERIFICADO(A)',_0x27174a(0x186)]],null,{'mentions':this[_0x27174a(0x183)](text),'document':{'url':_0x27174a(0x18f)},'mimetype':global['dpdf'],'fileName':'😻\x20𝗦𝘂𝗽𝗲𝗿\x20𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗\x20😻','fileLength':0x38d7ea4c67fff,'pageCount':0x3e7,'contextInfo':{'externalAdReply':{'showAdAttribution':!![],'mediaType':0x2,'mediaUrl':welgata[_0x27174a(0x181)](),'title':action=='add'?_0x27174a(0x18e):'🙀\x20𝗦𝗘\x20𝗥𝗘𝗧𝗜𝗥𝗔\x20𝗗𝗘𝗟\x20𝗚𝗥𝗨𝗣𝗢!!\x20🙀','body':welgata['getRandom'](),'sourceUrl':md,'thumbnail':apii[_0x27174a(0x193)]}}})) }}};
+if (chat.antifake && isBotAdminNn && action === 'add') {
+const numerosPermitidos = ["1", "2", "4", "6", "7", "8", "9"] //PUEDES EDITAR LOS USUARIOS QUE SE ELIMINARÁN SI EMPIEZA POR CUALQUIER DE ESOS NÚMEROS	
+if (numerosPermitidos.some(num => user.startsWith(num))) {	
+this.sendMessage(id, { text:`*${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsInt1']()} @${user.split("@")[0]} ${lenguajeGB['smsInt2']()}*`, mentions: [user] }, { quoted: null });          
+let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
+if (responseb[0].status === "404") return      
+return    
+}}    
+let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
+conn.sendMessage(id, { image: apii.data, caption: text, mentions: [user]}, { quoted: fkontak2 })  
+//this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
+}}}
 			    
 break
 case 'promote':
