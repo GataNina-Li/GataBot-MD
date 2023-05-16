@@ -9,7 +9,7 @@ let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.m
 if (!(who in global.db.data.users)) throw `*⚠️ El usuario no se encuentra en mi base de datos*`
 let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
 let user = global.db.data.users[who]
-let { name, exp, diamond, lastclaim, registered, regTime, age, level, role, warn } = global.db.data.users[who]
+let { name, exp, limit, registered, age, level, role } = global.db.data.users[who]
 let { min, xp, max } = xpRange(user.level, global.multiplier)
 let username = conn.getName(who)
 let math = max - xp
