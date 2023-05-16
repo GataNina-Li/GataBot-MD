@@ -18,7 +18,7 @@ let sn = createHash('md5').update(who).digest('hex')
 let fkon = { key: { fromMe: false, participant: `${m.sender.split`@`[0]}@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
 let str = `
 ]──────❏ *PERFIL* ❏──────[
- ┃ 💌 𝙉𝙤𝙢𝙗𝙧𝙚: ${username} ${registered ? '\n*🎐 • Nombre de usuario:* ' + name + ' ': ''}
+ ┃ 💌 𝙉𝙤𝙢𝙗𝙧𝙚: ${username} ${registered ? '\n┃🎐 𝙉𝙤𝙢𝙗𝙧𝙚 𝙙𝙚 𝙪𝙨𝙪𝙖𝙧𝙞𝙤:' + name + ' ': ''}
  ┃ 📧 𝙏𝙖𝙜: @${who.replace(/@.+/, '')}
  ┃ 📞 𝙉𝙪𝙢𝙚𝙧𝙤: ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
  ┃ 🔗 𝙇𝙞𝙣𝙠: wa.me/${who.split`@`[0]}${registered ? '\n*🎨 • Edad*: ' + age + ' años' : ''}
