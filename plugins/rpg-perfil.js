@@ -18,16 +18,16 @@ let sn = createHash('md5').update(who).digest('hex')
 let fkon = { key: { fromMe: false, participant: `${m.sender.split`@`[0]}@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
 let str = `
 ]──────❏ *PERFIL* ❏──────[
- *┃💌 𝙉𝙊𝙈𝘽𝙍𝙀:* ${username} ${registered ? '\n*🎐 • Nombre de usuario:* ' + name + ' ': ''}
- *📧 • Tag:* @${who.replace(/@.+/, '')}
- *📞 • Numero:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
- *🔗 • Link:* wa.me/${who.split`@`[0]}${registered ? '\n*🎨 • Edad*: ' + age + ' años' : ''}
- *💎 • Diamantes :* ${limit}
- *📊 • Nivel* : ${level}
- *✨ • XP* : Total ${exp} (${user.exp - min} / ${xp})
- *🏆 • Rango:* ${role}
- *📑 • Registrado :* ${registered ? '✅': '❌'}
- *⭐ • Premium* : ${prem ? '✅' : '❌'}`
+ *┃ 💌 𝙉𝙊𝙈𝘽𝙍𝙀:* ${username} ${registered ? '\n*🎐 • Nombre de usuario:* ' + name + ' ': ''}
+ *┃ 📧 𝙏𝘼𝙂:* @${who.replace(/@.+/, '')}
+ *┃ 📞 𝙉𝙐𝙈𝙀𝙍𝙊:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
+ *┃ 𝙇𝙄𝙉𝙆:* wa.me/${who.split`@`[0]}${registered ? '\n*🎨 • Edad*: ' + age + ' años' : ''}
+ *┃💎 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎:* ${limit}
+ *┃ 📊 𝙉𝙄𝙑𝙀𝙇:* ${level}
+ *┃ ✨ 𝙓𝙋:* Total ${exp} (${user.exp - min} / ${xp})
+ *┃ 🏆 𝙍𝘼𝙉𝙂𝙊:* ${role}
+ *┃ 📑 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊:* ${registered ? '✅': '❌'}
+ *┃⭐ 𝙋𝙍𝙀𝙈𝙄𝙐𝙈* : ${prem ? '✅' : '❌'}`
     conn.sendFile(m.chat, pp, 'perfil.jpg', str, fkon, false, { mentions: [who]})
  
 }
