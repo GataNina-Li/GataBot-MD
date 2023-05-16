@@ -13,7 +13,7 @@ if (command == 'play') {
 conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 ও *TÍTULO | TITLE*
-» ${title}
+» ${title} 
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
 ও *DESCRIPCIÓN | DESCRIPTION*
 » ${description}
