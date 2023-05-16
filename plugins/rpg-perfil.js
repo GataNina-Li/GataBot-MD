@@ -22,7 +22,6 @@ let str = `
  *📧 • Tag:* @${who.replace(/@.+/, '')}
  *📞 • Numero:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
  *🔗 • Link:* wa.me/${who.split`@`[0]}${registered ? '\n*🎨 • Edad*: ' + age + ' años' : ''}
-// *⚠️ • Advertencias:* ${warn}/${maxwarn}
  *💎 • Diamantes :* ${limit}
  *📊 • Nivel* : ${level}
  *✨ • XP* : Total ${exp} (${user.exp - min} / ${xp})
