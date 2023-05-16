@@ -7,7 +7,7 @@ let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_con
 //const pp = await conn.profilePictureUrl(conn.user.jid).catch(_ => './src/avatar_contact.png')
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 try {
-pp = await conn.getProfilePicture(who)         pp = await conn.getprofilePictureUrl(who)
+//pp = await conn.getProfilePicture(who)         pp = await conn.getprofilePictureUrl(who)
 } catch (e) {
 
 } finally {
