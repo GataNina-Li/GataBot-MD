@@ -6,7 +6,7 @@ if (!text) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾�
   let results = await yts(text)
   let tes = results.all
   let teks = results.all.map(v => {
-    switch (v.type) {
+    switch (v.type) { 
       case 'video': return `❤️꙰༻ *TÍTULO:* ${v.title}
 ⁖🩵꙰༻ *ENLACE:* ${v.url}
 ⁖💜꙰༻ *DURACIÓN:* ${v.timestamp}
