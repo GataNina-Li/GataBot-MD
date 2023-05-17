@@ -8,7 +8,7 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 try {
 pp = await conn.getProfilePicture(who)         //pp = await conn.getProfilePicture(who)
-} catch (e) {
+} catch (e) { 
 
 } finally {
 let { name, limit, lastclaim, registered, regTime, age } = global.db.data.users[who]
