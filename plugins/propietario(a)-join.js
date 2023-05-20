@@ -4,7 +4,7 @@ let handler = async (m, { conn, text, isMods, isOwner }) => {
 let link = (m.quoted ? m.quoted.text ? m.quoted.text : text : text) || text
 let [_, code] = link.match(linkRegex) || []
 
-if (!code) throw '${mg}🙌 *𝘿𝙀𝘽𝙀 𝘿𝙀 𝙎𝙀𝙍 𝙐𝙉 𝙀𝙉𝙇𝘼𝘾𝙀 𝙈𝙐𝙎𝙏 𝘽𝙀 𝘼 𝙇𝙄𝙉𝙆*\n😼 *Ingrese el enlace de un grupo.*\n*Enter the link of a group.*\n\n*𝙀𝙅𝙀𝙈𝙋𝙇𝙊 | 𝙀𝙓𝘼𝙈𝙋𝙇𝙀*\n*#unete ${nn}*\n\n*#join ${nnn}*'
+if (!code) throw `${mg}🙌 𝘿𝙀𝘽𝙀 𝘿𝙀 𝙎𝙀𝙍 𝙐𝙉 𝙀𝙉𝙇𝘼𝘾𝙀\n𝙈𝙐𝙎𝙏 𝘽𝙀 𝘼 𝙇𝙄𝙉𝙆\n😼 *Ingrese el enlace de un grupo.*\n*Enter the link of a group.*\n\n*𝙀𝙅𝙀𝙈𝙋𝙇𝙊 | 𝙀𝙓𝘼𝙈𝙋𝙇𝙀*\n*#unete ${nn}*\n\n*#join ${nnn}*`
 
 if ( isMods || isOwner || m.fromMe) {
 m.reply(`*𝙂𝘼𝙏𝘼𝘽𝙊𝙏-𝙈𝘿 𝙎𝙀 𝙃𝘼 𝙐𝙉𝙄𝘿𝙊 𝘼𝙇 𝙂𝙍𝙐𝙋𝙊!!✅*\n*𝙎𝙐𝘾𝘾𝙀𝙎𝙎𝙁𝙐𝙇𝙇𝙔 𝙅𝙊𝙄𝙉𝙀𝘿 ✅*`)
