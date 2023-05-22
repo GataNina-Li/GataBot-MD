@@ -6,10 +6,10 @@ let chats = global.db.data.chats[m.chat]
 if (!chats.expired)
 return !0
 if (+new Date() > chats.expired) {
-let caption = `*${this.user.name}* ${lenguajeGB['smsBottem1']()}`
+//let caption = `*${this.user.name}* ${lenguajeGB['smsBottem1']()}`
 let pp = './media/menus/Menu2.jpg'
 
-await conn.sendFile(m.chat, pp, 'gata.mp4', caption)
+await m.reply(`${this.user.name}\n ${lenguajeGB['smsBottem1']()}`)
 //await this.sendButton(m.chat, caption, lenguajeGB.smsBottem2() + wm, pp, [[lenguajeGB.smsBottem3(), '.hastapronto']], null)
 await this.groupLeave(m.chat)
 chats.expired = null
