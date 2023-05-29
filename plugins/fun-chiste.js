@@ -1,4 +1,4 @@
-// By https://github.com/elrebelde21/The-LoliBot-MD
+// By https://github.com/elrebelde21
 
 let handler = async (m, { conn, text}) => {
 
