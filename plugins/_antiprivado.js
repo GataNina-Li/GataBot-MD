@@ -1,4 +1,4 @@
-//by https://github.com/elrebelde21
+//by https://github.com/elrebelde21 
 
 export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
 if (m.isBaileys && m.fromMe) return !0
