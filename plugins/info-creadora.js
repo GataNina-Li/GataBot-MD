@@ -21,13 +21,13 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 //------------ BIO
 let ppown = await conn.profilePictureUrl(nomorown + '@s.whatsapp.net', 'image').catch(_ => imagen1[1]) 
 let teksbio = `𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈
-*Wa.me/972529277406*
+*Wa.me/51950758440*
+
+𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *2* 💖🐈
+*wa.me/573027834626*
 
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿 💖🐈
 *wa.me/593993684821*
-
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿 *2* 💖🐈
-*wa.me/573136855110*
 *---------------------*
 
 *CENTER GATABOT*
