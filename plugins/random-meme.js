@@ -2,7 +2,8 @@
 import hispamemes from 'hispamemes'
 let handler = async (m, {command, conn}) => {
 const url = await hispamemes.meme()  
-conn.sendButton(m.chat, `_${command}_`.trim(), author, url, [['🔄 𝑺𝒊𝒈𝒖𝒊𝒆𝒏𝒕𝒆 🔄', `/${command}`]], m)}
+conn.sendFile(m.chat, url, 'error.jpg', `😂😂😂`, m)}
+//conn.sendButton(m.chat, `_${command}_`.trim(), author, url, [['𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏 🆕', `/${command}`]], m)}
 handler.help = ['meme']
 handler.tags = ['random']
 handler.command = /^(meme|memes)$/i
