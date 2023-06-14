@@ -15,7 +15,6 @@ global.owner = [
   ['593993684821', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈', true],  
   ['5492266466080', '𝙊𝙬𝙣𝙚𝙧 (1) 💻', true],
   ['59894808483', '𝘾𝙪𝙨𝙩𝙤𝙢𝙚𝙧 𝙎𝙪𝙥𝙥𝙤𝙧𝙩 🥏', true],
-  ['593959425714', '𝘿𝙄𝙀𝙂𝙊-𝙊𝙁𝘾', true],
   ['59894808483'],
   ['584125778026'],
   ['5492266613038'],
@@ -130,7 +129,7 @@ global.fb = 'https://www.facebook.com/groups/872989990425789/'
 
 global.nna = 'https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3' //UPDATE GATABOT
 global.nna2 = 'https://chat.whatsapp.com/IXZ0aBryB1cHjNxe0VIm76' //Help
-global.nn = 'https://chat.whatsapp.com/Kt5EXwUhcO8Ay76CIDLs7d' //Grupo 1
+global.nn = 'https://chat.whatsapp.com/EnQgSZuMLFAAfWtuCBE0G3' //Grupo 1
 global.nnn = 'https://chat.whatsapp.com/Kt5EXwUhcO8Ay76CIDLs7d' //Grupo 2
 global.nnnt = 'https://chat.whatsapp.com/K0UCo7igED92q9c1w2DiEH' //Grupo 3
 global.nnntt = 'https://chat.whatsapp.com/HJLpWS2BDrWCPH6uAUKIRG' //Grupo 4
