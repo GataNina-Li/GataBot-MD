@@ -43,10 +43,10 @@ global.lenguajeGB = es  //Idioma de GataBot, Ejemplo: es | en | pt...
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
-global.openai_key = 'sk-...OzYy'
+global.openai_key = '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'
 /* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */
 
-global.openai_org_id = 'HITjoN7H8pCwoncEB9e3fSyW'
+global.openai_org_id = 'org-HITjoN7H8pCwoncEB9e3fSyW'
 /* Consigue tu ID de organizacion en este enlace: https://platform.openai.com/account/org-settings */
 
 
