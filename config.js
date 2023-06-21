@@ -43,13 +43,11 @@ global.lenguajeGB = es  //Idioma de GataBot, Ejemplo: es | en | pt...
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
-//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
-var _0x1a6c7a=_0x3831;function _0x3831(_0x298f83,_0x58938e){var _0x1b0eba=_0x1b0e();return _0x3831=function(_0x3831e1,_0x20f0e9){_0x3831e1=_0x3831e1-0xfa;var _0x54d24d=_0x1b0eba[_0x3831e1];return _0x54d24d;},_0x3831(_0x298f83,_0x58938e);}(function(_0x486fe6,_0x4a3e89){var _0x4df3c9=_0x3831,_0x51fe7c=_0x486fe6();while(!![]){try{var _0x4df777=-parseInt(_0x4df3c9(0xfc))/0x1*(parseInt(_0x4df3c9(0xfa))/0x2)+parseInt(_0x4df3c9(0xfb))/0x3+parseInt(_0x4df3c9(0xfe))/0x4+parseInt(_0x4df3c9(0x102))/0x5+-parseInt(_0x4df3c9(0xff))/0x6*(-parseInt(_0x4df3c9(0x100))/0x7)+parseInt(_0x4df3c9(0x101))/0x8+-parseInt(_0x4df3c9(0xfd))/0x9;if(_0x4df777===_0x4a3e89)break;else _0x51fe7c['push'](_0x51fe7c['shift']());}catch(_0x4ae056){_0x51fe7c['push'](_0x51fe7c['shift']());}}}(_0x1b0e,0x885c6),global['openai_key']=_0x1a6c7a(0x103));function _0x1b0e(){var _0x4d50eb=['360219UUPdmh','5024XJrmaO','9964728LXaHUF','1509424RYenYl','690vENNNg','119uWldXn','4651480NwmhZa','3276215LwxOfI','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','28pyKjKE'];_0x1b0e=function(){return _0x4d50eb;};return _0x1b0e();}
+global.openai_key = 'sk-...OzYy'
 /* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */
 
-function _0x1f59(_0x571f41,_0x5dea93){var _0x67467=_0x6746();return _0x1f59=function(_0x1f5920,_0x460361){_0x1f5920=_0x1f5920-0x1e0;var _0x93938c=_0x67467[_0x1f5920];return _0x93938c;},_0x1f59(_0x571f41,_0x5dea93);}function _0x6746(){var _0x3dda1d=['78130kUQBtA','5553855xzGIAH','4552512RsCeXo','7398yoLiQQ','10070648gMdjpV','48JzVJWv','384588caVzod','1392542adKISu','2UFunjg','270807ZkENpL','openai_org_id'];_0x6746=function(){return _0x3dda1d;};return _0x6746();}var _0x4f7fb9=_0x1f59;(function(_0x2f071f,_0x282547){var _0xe14c68=_0x1f59,_0x4ec381=_0x2f071f();while(!![]){try{var _0x489d6d=parseInt(_0xe14c68(0x1e0))/0x1*(-parseInt(_0xe14c68(0x1ea))/0x2)+parseInt(_0xe14c68(0x1e1))/0x3*(-parseInt(_0xe14c68(0x1e8))/0x4)+-parseInt(_0xe14c68(0x1e4))/0x5+parseInt(_0xe14c68(0x1e9))/0x6+-parseInt(_0xe14c68(0x1e7))/0x7+-parseInt(_0xe14c68(0x1e5))/0x8+parseInt(_0xe14c68(0x1e6))/0x9*(parseInt(_0xe14c68(0x1e3))/0xa);if(_0x489d6d===_0x282547)break;else _0x4ec381['push'](_0x4ec381['shift']());}catch(_0x212390){_0x4ec381['push'](_0x4ec381['shift']());}}}(_0x6746,0xd9cd3),global[_0x4f7fb9(0x1e2)]='org-HITjoN7H8pCwoncEB9e3fSyW');
+global.openai_org_id = 'HITjoN7H8pCwoncEB9e3fSyW'
 /* Consigue tu ID de organizacion en este enlace: https://platform.openai.com/account/org-settings */
-//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f']
 global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
