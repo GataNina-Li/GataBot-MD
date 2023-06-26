@@ -232,7 +232,7 @@ if (!listItems[item]) return conn.sendFile(m.chat, image, 'gata.jpg', footer, fk
 //conn.sendButton(m.chat, text, footer, image, buttons, m)
 if (command.toLowerCase() == 'buy') {
 let paymentMethod = Object.keys(listItems[item]).find(v => v in user)
-if (user[paymentMethod] < listItems[item][paymentMethod] * total) return await conn.reply(m.chat, `*–--『 𝙄𝙉𝙎𝙐𝙁𝙄𝘾𝙄𝙀𝙉𝙏𝙀𝙎 𝙍𝙀𝘾𝙐𝙍𝙎𝙊𝙎 』--–*\n\n*Necesitas ${(listItems[item][paymentMethod] * total) - user[paymentMethod]} ${global.rpgshop.emoticon(paymentMethod)} Para Comprar ${total} ${global.rpgshop.emoticon(item)}.*\n\n*Solo tienes ${user[paymentMethod]} ${global.rpgshop.emoticon(paymentMethod)}.*\n*–––––––––––––––––––––––––*\n*Misiones para Obtener Recursos*\n*Quests to Obtain Resources*\n*⛰️ Aventura : Adventure : » ${new Date - user.lastadventure < 1500000 ? '❌' : `✅ _${usedPrefix}aventura_`}*\n*♻️ Cada hora : Hourly » ${new Date - user.lasthourly < 3600000 ? '❌' : `✅ _${usedPrefix}cadahora_`}*\n*💫 Semanalmente : Weekly ${new Date - user.lastweekly < 259200000 ? '❌' : `✅ _${usedPrefix}cadasemana_`}*\n*🏅 Mensual : Monthly ${new Date - user.lastmonthly < 432000000 ? '❌' : `✅ _${usedPrefix}cadames_`}*\n\nRECURSOS BAJOS : LOW RESOURCES\n\n${wm}`, fkontak, m)
+if (user[paymentMethod] < listItems[item][paymentMethod] * total) return await conn.reply(m.chat, `*–--『 𝙄𝙉𝙎𝙐𝙁𝙄𝘾𝙄𝙀𝙉𝙏𝙀𝙎 𝙍𝙀𝘾𝙐𝙍𝙎𝙊𝙎 』--–*\n\n*Necesitas ${(listItems[item][paymentMethod] * total) - user[paymentMethod]}* *${global.rpgshop.emoticon(paymentMethod)} Para Comprar ${total} ${global.rpgshop.emoticon(item)}.*\n\n*Solo tienes ${user[paymentMethod]} ${global.rpgshop.emoticon(paymentMethod)}.*\n*–––––––––––––––––––––––––*\n*Misiones para Obtener Recursos*\n*Quests to Obtain Resources*\n*⛰️ Aventura : Adventure : » ${new Date - user.lastadventure < 1500000 ? '❌' : `✅ _${usedPrefix}aventura_`}*\n*♻️ Cada hora : Hourly » ${new Date - user.lasthourly < 3600000 ? '❌' : `✅ _${usedPrefix}cadahora_`}*\n*💫 Semanalmente : Weekly ${new Date - user.lastweekly < 259200000 ? '❌' : `✅ _${usedPrefix}cadasemana_`}*\n*🏅 Mensual : Monthly ${new Date - user.lastmonthly < 432000000 ? '❌' : `✅ _${usedPrefix}cadames_`}*\n\n*RECURSOS BAJOS : LOW RESOURCES*\n${wm}`, fkontak, m)
 /*conn.sendButton(m.chat,
 `*–--『 𝙄𝙉𝙎𝙐𝙁𝙄𝘾𝙄𝙀𝙉𝙏𝙀𝙎 𝙍𝙀𝘾𝙐𝙍𝙎𝙊𝙎 』--–*`, 
 `*Necesitas ${(listItems[item][paymentMethod] * total) - user[paymentMethod]} ${global.rpgshop.emoticon(paymentMethod)} Para Comprar ${total} ${global.rpgshop.emoticon(item)}.*
@@ -252,7 +252,7 @@ if (user[paymentMethod] < listItems[item][paymentMethod] * total) return await c
 user[paymentMethod] -= listItems[item][paymentMethod] * total
 user[item] += total
  
- await conn.reply(m.chat, `*––『 COMPRADO | BOUGHT 』––*\n\n${conn.getName(m.sender)}\n*𝙃𝙖𝙨 𝘾𝙤𝙢𝙥𝙧𝙖𝙙𝙤 ${item} » ${total} ${global.rpgshop.emoticon(item)}*.\n*--------------------------------------------*\n*𝙂𝙖𝙨𝙩𝙤𝙨: ${(listItems[item][paymentMethod] * total)} ${global.rpgshop.emoticon(paymentMethod)}*\n*𝘼𝙝𝙤𝙧𝙖 𝙩𝙞𝙚𝙣𝙚: ${user[item]} ${global.rpgshopp.emoticon(item)}\n\nCOMPRA EXITOSA : DONE\n\n${wm}`, fkontak, m)
+ await conn.reply(m.chat, `*––『 COMPRADO | BOUGHT 』––*\n\n${conn.getName(m.sender)}\n*𝙃𝙖𝙨 𝘾𝙤𝙢𝙥𝙧𝙖𝙙𝙤 ${item} » ${total} ${global.rpgshop.emoticon(item)}*.\n*--------------------------------------------*\n*𝙂𝙖𝙨𝙩𝙤𝙨: ${(listItems[item][paymentMethod] * total)} ${global.rpgshop.emoticon(paymentMethod)}*\n*𝘼𝙝𝙤𝙧𝙖 𝙩𝙞𝙚𝙣𝙚: ${user[item]} ${global.rpgshopp.emoticon(item)}\n\n*COMPRA EXITOSA : DONE*\n${wm}`, fkontak, m)
 /*conn.sendButton(m.chat,
 `*––『 COMPRADO | BOUGHT 』––*`,
 `${conn.getName(m.sender)} 
@@ -272,7 +272,7 @@ let paymentMethod = Object.keys(listItems[item]).find(v => v in user)
 user[item] -= total
 user[paymentMethod] += listItems[item][paymentMethod] * total
     
-await conn.reply(m.chat, `*––『 VENDIDO | SOLD 』––*\n\n${conn.getName(m.sender)}\n*𝙃𝙖𝙨 𝙑𝙚𝙣𝙙𝙞𝙙𝙤 ${item} » ${total} ${global.rpgshop.emoticon(item)}*.\n*--------------------------------------------*\n*𝙂𝙖𝙣𝙖𝙣𝙘𝙞𝙖𝙨: ${(listItems[item][paymentMethod] * total)} ${global.rpgshop.emoticon(paymentMethod)}*\n*𝘼𝙝𝙤𝙧𝙖 𝙩𝙞𝙚𝙣𝙚: ${user[paymentMethod]} ${global.rpgshopp.emoticon(paymentMethod)}*\n\nVENTA EXITOSA : DONE\n${wm}`, fkontak, m)
+await conn.reply(m.chat, `*––『 VENDIDO | SOLD 』––*\n\n${conn.getName(m.sender)}\n*𝙃𝙖𝙨 𝙑𝙚𝙣𝙙𝙞𝙙𝙤 ${item} » ${total} ${global.rpgshop.emoticon(item)}*.\n*--------------------------------------------*\n*𝙂𝙖𝙣𝙖𝙣𝙘𝙞𝙖𝙨: ${(listItems[item][paymentMethod] * total)} ${global.rpgshop.emoticon(paymentMethod)}*\n*𝘼𝙝𝙤𝙧𝙖 𝙩𝙞𝙚𝙣𝙚: ${user[paymentMethod]} ${global.rpgshopp.emoticon(paymentMethod)}*\n\n*VENTA EXITOSA : DONE*\n${wm}`, fkontak, m)
 /*conn.sendButton(m.chat,
 `*––『 VENDIDO | SOLD 』––*`,
 `${conn.getName(m.sender)} 
