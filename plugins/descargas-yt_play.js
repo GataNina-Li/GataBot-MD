@@ -101,10 +101,15 @@ var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪
         }
       }
     })
+let qu = args[1] || '360'
+let q = qu + 'p'
+let v = args[0]
+const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v)).catch(async _ => await youtubedlv3(v))
 const dl_url = await yt.video[q].download()
 const ttl = await yt.title
-const size = await yt.video[q].fileSizeH 
-  await conn.sendMessage(m.chat, {
+const size = await yt.video[q].fileSizeH
+await await conn.sendMessage(m.chat, { video: { url: vide }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${ttl}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ 💙 𝙋𝙀𝙎𝙊 | 𝙎𝙄𝙕𝙀\n┃ ${size}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
+ /* await conn.sendMessage(m.chat, {
       video: {
         url: vide,
         mimetype: 'video/mp4',
@@ -120,7 +125,7 @@ const size = await yt.video[q].fileSizeH
           }
         ]
       }
-    }, { quoted: m })
+    }, { quoted: m })*/
     }
 } catch {
 try {
