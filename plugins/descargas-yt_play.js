@@ -1,83 +1,148 @@
-import { youtubeSearch, youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper' 
-import fetch from "node-fetch"
-import yts from 'yt-search'
-let handler = async (m, { conn, command, text, usedPrefix }) => {
-let q, v, yt, dl_url, ttl, size, lolhuman, lolh, n, n2, n3, n4, cap, qu, currentQuality
-	let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-	if (!text) throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝙊 𝙏𝙄𝙏𝙐𝙇𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} Billie Eilish - Bellyache*\n\n𝙒𝙍𝙄𝙏𝙀 𝙏𝙃𝙀 𝙉𝘼𝙈𝙀 𝙊𝙍 𝙏𝙄𝙏𝙇𝙀\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} Billie Eilish - Bellyache*`
-	let vid = (await yts(text)).all[0]
-let { title, description, publishedTime, url, thumbnail, videoId, timestamp, views, published } = vid
-try {
+import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
+   let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
+  if (!text) throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝙊 𝙏𝙄𝙏𝙐𝙇𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} Billie Eilish - Bellyache*\n\n𝙒𝙍𝙄𝙏𝙀 𝙏𝙃𝙀 𝙉𝘼𝙈𝙀 𝙊𝙍 𝙏𝙄𝙏𝙇𝙀\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} Billie Eilish - Bellyache*`
+  try {
+    var vid = (await youtubeSearch(text)).video[0]
+    var { title, 
+          description, 
+          thumbnail, 
+          videoId, 
+          durationH, 
+          durationS,
+          viewH,
+          publishedTime
+                         } = vid
+    var url = 'https://www.youtube.com/watch?v=' + videoId
+
+   let vide = `https://yt.btch.bz/download?URL=${url}&videoName=video`
+
+    let web = `https://yt.btch.bz/downloadAudio?URL=${url}&videoName=video`
+    var tmb = thumbnail
 if (command == 'play') {	
-conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
+    var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
-ও *TÍTULO | TITLE*
-» ${title} 
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *DESCRIPCIÓN | DESCRIPTION*
-» ${description}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *DURACIÓN | DURATION*
-» ${timestamp}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *VISTAS | VIEWS*
-» ${views}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *URL*
-» ${url}
-
-*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`.trim(), fkontak, m)
-q = '128kbps'
-v = url
-yt = await youtubedl(v).catch(async () => await youtubedlv2(v)).catch(async () => await youtubedlv3(v))
-dl_url = await yt.audio[q].download()
-title = await yt.title
-size = await yt.audio[q].fileSizeH
-await conn.sendMessage(m.chat, { audio: { url: dl_url }, mimetype: "audio/mp4", fileName: title + '.mp3', quoted: m, contextInfo: {
-'forwardingScore': 200,
-'isForwarded': false,
-externalAdReply:{
-showAdAttribution: false,
-title: `aqui esta tu perdido`,
-body: `${title}`,
-mediaType: 2, 
-sourceUrl: `${url}`,
-thumbnail: await (await fetch(thumbnail)).buffer()}}}, { quoted: m })
-//await conn.sendFile(m.chat, dl_url, title + '.mp3', null, m, false, { mimetype: 'audio/mp4' })
-}
-if (command == 'play2') {
-conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
-
-ও *TÍTULO | TITLE*
+ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
 » ${title}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *DESCRIPCIÓN | DESCRIPTION*
+ও 𝘿𝙀𝙎𝘾𝙍𝙄𝙋𝘾𝙄𝙊𝙉 | 𝘿𝙀𝙎𝘾𝙍𝙄𝙋𝙏𝙄𝙊𝙉
 » ${description}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *DURACIÓN | DURATION*
-» ${timestamp}
+ও 𝙋𝙐𝘽𝙇𝙄𝘾𝘼𝘿𝙊 | 𝙋𝙐𝘽𝙇𝙄𝙎𝙃𝙀𝘿
+» ${publishedTime}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *VISTAS | VIEWS*
-» ${views}
+ও 𝘿𝙐𝙍𝘼𝘾𝙄𝙊𝙉 | 𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉
+» ${durationH}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও *URL*
+ও 𝙑𝙄𝙎𝙏𝘼𝙎 | 𝙑𝙄𝙀𝙒𝙎
+» ${viewH}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও 𝙐𝙍𝙇
 » ${url}
 
-*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`.trim(), fkontak, m)
-let qu = args[1] || '360'
-let q = qu + 'p'
-let v = args[0]
-const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v)).catch(async _ => await youtubedlv3(v))
-const dl_url = await yt.video[q].download()
-const ttl = await yt.title
-const size = await yt.video[q].fileSizeH
-await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${ttl}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ 💙 𝙋𝙀𝙎𝙊 | 𝙎𝙄𝙕𝙀\n┃ ${size}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
+*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`
+    var pesan = await conn.sendMessage(m.chat, {
+    text: captionvid,
+    contextInfo: {
+    externalAdReply: {
+    title: "",
+    body: "GataBot-MD",
+    thumbnailUrl: tmb ,
+    sourceUrl: web,
+    mediaType: 1,
+    showAdAttribution: true,
+    renderLargerThumbnail: true
+    }}})
+
+    conn.sendMessage(m.chat, { audio: { url: web }, mimetype: 'audio/mpeg', contextInfo: {
+    externalAdReply: {
+    title: title,
+    body: "",
+    thumbnailUrl: tmb,
+    sourceUrl: web,
+    mediaType: 1,
+    showAdAttribution: true,
+    renderLargerThumbnail: true
+    }}} , { quoted: m })
 }
-} catch (e) {
-}}
+if (command == 'play2') {
+var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
+
+ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
+» ${title}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও 𝘿𝙀𝙎𝘾𝙍𝙄𝙋𝘾𝙄𝙊𝙉 | 𝘿𝙀𝙎𝘾𝙍𝙄𝙋𝙏𝙄𝙊𝙉
+» ${description}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও 𝙋𝙐𝘽𝙇𝙄𝘾𝘼𝘿𝙊 | 𝙋𝙐𝘽𝙇𝙄𝙎𝙃𝙀𝘿
+» ${publishedTime}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও 𝘿𝙐𝙍𝘼𝘾𝙄𝙊𝙉 | 𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉
+» ${durationH}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও 𝙑𝙄𝙎𝙏𝘼𝙎 | 𝙑𝙄𝙀𝙒𝙎
+» ${viewH}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও 𝙐𝙍𝙇
+» ${url}
+
+*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`
+    var pesan = await conn.sendMessage(m.chat, {
+      text: captionvid,
+      contextInfo: {
+        externalAdReply: {
+          title: "",
+          body: "GataBot-MD",
+          thumbnailUrl: tmb ,
+          sourceUrl: vide,
+          mediaType: 1,
+          showAdAttribution: true,
+          renderLargerThumbnail: true
+        }
+      }
+    })
+   conn.sendMessage(m.chat, {
+      video: {
+        url: vide,
+        mimetype: 'video/mp4',
+        attributes: [
+          {
+            name: 'controls',
+            value: 'true'
+          },
+          {
+            name: 'autoplay',
+            value: 'true'
+          }
+        ]
+      }
+    }, { quoted: m })
+    }
+} catch {
+try {
+    conn.reply(m.chat, `*ERROR/FALLO SE INTENTADA DESCARGA SUS VIDEO POR EL OTRO SERVER, AGUARDE UN MOMENTO POR FAVOR*`, m, {
+contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
+title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨',
+body: 'Super Bot WhatsApp',         
+previewType: 0, thumbnail: fs.readFileSync("./media/menus/Menu3.jpg"),
+sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}})
+  
+let res = await fetch("https://violetics.pw/api/media/youtube-play?apikey=beta&query="+text) 
+let json = await res.json()
+conn.sendFile(m.chat, json.result.url, 'error.mp4', `${wm}`, m)
+} catch {  
+}}}
 handler.help = ['play', 'play2'].map(v => v + ' <pencarian>')
 handler.tags = ['downloader']
 handler.command = ['play', 'play2']
-handler.limit = 1
-
+handler.exp = 0
+handler.limit = true
 export default handler
+async function cut(url) {
+  url = encodeURIComponent(url)
+  let res = await fetch(`https://api.botcahx.live/api/linkshort/bitly?link=${url}&apikey=${btc}`)
+  if (!res.ok) throw false
+  return await res.text()
+}
+async function delay(ms) {
+   await new Promise(resolve => setTimeout(resolve, ms));
+}
