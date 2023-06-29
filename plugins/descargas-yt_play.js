@@ -137,7 +137,7 @@ handler.help = ['play', 'play2'].map(v => v + ' <pencarian>')
 handler.tags = ['downloader']
 handler.command = ['play', 'play2']
 handler.exp = 0
-handler.limit = true
+handler.limit = 1
 export default handler
 async function cut(url) {
   url = encodeURIComponent(url)
