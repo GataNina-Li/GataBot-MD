@@ -13,14 +13,6 @@ conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
 
 }
 
-if (/^destruirbot|autodestruirbot$/i.test(m.text) ) { //sem prefixo
-    let teks = `
-${pickRandom([`Mi Creadora me trata muy mal 😭`])}
-`.trim()
-conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
-
-}
-
 /*if (/^Mande porno|porno|paja$/i.test(m.text) ) { //sem prefixo
     let teks = `
 ${pickRandom([`no puedo esta contra las política del grupo.😸`, `_uff miren un pajero_`, `_pagame y paso mi pack😏🥵_`, `_que_`, `_que quiere pija dice 🤣_`, `_pasa el pack de tu hermana😏_`, `_mire un gilipolla_`, `_siuuu sexo sexo sexo😈_`, '_callate putito_'])}
@@ -39,7 +31,7 @@ if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sem prefixo
 
 }
 
-if (/^¿que es un bot?|Que es un bot$/i.test(m.text) ) { //sem prefixo
+if (/^¿que es un bot?|Que es un bot|Que es gatabot?$/i.test(m.text) ) { //sem prefixo
     conn.reply(m.chat, `╭┄〔 *${wm}* 〕┄⊱
 ┆ ——————«•»——————
 ┆ ☆::¿𝐐𝐮𝐞́ 𝐞𝐬 𝐮𝐧 𝐁𝐨𝐭 𝐝𝐞 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩?::☆*
