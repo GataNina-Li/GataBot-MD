@@ -9,4 +9,4 @@ handler.help = ['carbon'].map(v => v + ' <text>')
 handler.tags = ['maker']
 handler.command = /^(carbon)$/i
 
-module.exports = handler
+export default handler
