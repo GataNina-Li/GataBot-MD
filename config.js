@@ -31,6 +31,8 @@ global.owner = [
 
 global.mods = [] 
 global.prems = ['528451003894'] 
+//key de violetics
+global.Key360 = ['964f-0c75-7afc']
    
   
 //⊱ ━━━━━.⋅ IDIOMA : LENGUAJE ⋅.━━━━ ⊰ 
