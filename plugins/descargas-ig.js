@@ -3,7 +3,7 @@ import axios from 'axios'
 import cheerio from 'cheerio'
 import instagramGetUrl from 'instagram-url-direct'
 import vm from 'node:vm'
-import { instagram } from "@xct007/frieren-scraper";
+//import { instagram } from '@xct007/frieren-scraper';
 import { instagramdl, instagramdlv2, instagramdlv3, instagramdlv4 } from '@bochilteam/scraper'
 let handler = async (m, { conn, args, command, usedPrefix }) => {
 const fkontak = {
