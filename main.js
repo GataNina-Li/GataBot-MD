@@ -261,13 +261,20 @@ conn.connectionUpdate = connectionUpdate.bind(global.conn)
 conn.credsUpdate = saveCreds.bind(global.conn, true)
 
 const currentDateTime = new Date();
-const messageDateTime = new Date(conn.ev);
-if (currentDateTime >= messageDateTime) {
-    let chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map(v => v[0])
-  //console.log(chats, conn.ev); 
+const messageDateTime = new Date(conn.ev * 1000);
+if (currentDateTime.getTime() - messageDateTime.getTime() <= 300000) {
+//  console.log('Leyendo mensaje entrante:', conn.ev);
+  Object.keys(conn.chats).forEach(jid => {
+    conn.chats[jid].isBanned = false;
+    conn.chats[jid].isWelcome = false;
+  });
 } else {
-    let chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map(v => v[0])}
- //console.log(chats, 'Omitiendo mensajes en espera.'); }
+// console.log(conn.chats, `Omitiendo mensajes en espera.`, conn.ev); 
+ Object.keys(conn.chats).forEach(jid => {
+  conn.chats[jid].isBanned = true;
+  conn.chats[jid].isWelcomd = true;
+  });
+  }
 
 conn.ev.on('messages.upsert', conn.handler)
 conn.ev.on('group-participants.update', conn.participantsUpdate)
