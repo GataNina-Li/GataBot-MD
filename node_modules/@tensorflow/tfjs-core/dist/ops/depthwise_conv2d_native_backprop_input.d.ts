@@ -1,6 +1,0 @@
-/// <amd-module name="@tensorflow/tfjs-core/dist/ops/depthwise_conv2d_native_backprop_input" />
-import { Tensor3D, Tensor4D } from '../tensor';
-import { ExplicitPadding } from './conv_util';
-declare function depthwiseConv2dNativeBackpropInput_<T extends Tensor3D | Tensor4D>(xShape: [number, number, number, number], dy: T, filter: Tensor4D, strides: [number, number] | number, pad: 'valid' | 'same' | number | ExplicitPadding, dilations?: [number, number] | number, dimRoundingMode?: 'floor' | 'round' | 'ceil'): T;
-export declare const depthwiseConv2dNativeBackpropInput: typeof depthwiseConv2dNativeBackpropInput_;
-export {};
