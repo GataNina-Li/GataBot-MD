@@ -53,8 +53,10 @@ if (command == 'play') {
     showAdAttribution: true,
     renderLargerThumbnail: true
     }}})
-
-    conn.sendMessage(m.chat, { audio: { url: web }, mimetype: 'audio/mpeg', contextInfo: {
+let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${yt_play[0].url}`)    
+let lolh = await lolhuman.json()
+let n = lolh.result.title || 'error'
+await conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, fileName: `${n}.mp3`, mimetype: 'audio/mp4', contextInfo: {
     externalAdReply: {
     title: title,
     body: "",
@@ -64,6 +66,18 @@ if (command == 'play') {
     showAdAttribution: true,
     renderLargerThumbnail: true
     }}} , { quoted: m })
+
+   
+  //  conn.sendMessage(m.chat, { audio: { url: web }, mimetype: 'audio/mpeg', contextInfo: {
+  //  externalAdReply: {
+  //  title: title,
+  //  body: "",
+  //  thumbnailUrl: tmb,
+  //  sourceUrl: web,
+  //  mediaType: 1,
+  //  showAdAttribution: true,
+  //  renderLargerThumbnail: true
+  //  }}} , { quoted: m })
 }
 if (command == 'play2') {
 var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
