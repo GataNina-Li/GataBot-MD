@@ -53,14 +53,11 @@ if (command == 'play') {
     showAdAttribution: true,
     renderLargerThumbnail: true
     }}})
-let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${url}`)    
+let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&url=${title}`)    
 let lolh = await lolhuman.json()
 let n = lolh.result.title || 'error'
-//await conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, fileName: `${n}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })
-//await conn.sendFile(m.chat, lolh.result.link, n + '.mp3', null, m, false, { mimetype: 'audio/mp4' })
-
    
-  conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, mimetype: 'audio/mpeg', contextInfo: {
+  conn.sendMessage(m.chat, { audio: { url: lolh.result.audio.link }, mimetype: 'audio/mpeg', contextInfo: {
   externalAdReply: {
   title: title,
   body: "",
