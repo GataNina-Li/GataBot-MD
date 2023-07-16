@@ -57,19 +57,19 @@ let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolke
 let lolh = await lolhuman.json()
 let n = lolh.result.title || 'error'
 //await conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, fileName: `${n}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })
-await conn.sendFile(m.chat, lolh.result.link, n + '.mp3', null, m, false, { mimetype: 'audio/mp4' })
+//await conn.sendFile(m.chat, lolh.result.link, n + '.mp3', null, m, false, { mimetype: 'audio/mp4' })
 
    
-  //  conn.sendMessage(m.chat, { audio: { url: web }, mimetype: 'audio/mpeg', contextInfo: {
-  //  externalAdReply: {
-  //  title: title,
-  //  body: "",
-  //  thumbnailUrl: tmb,
-  //  sourceUrl: web,
-  //  mediaType: 1,
-  //  showAdAttribution: true,
-  //  renderLargerThumbnail: true
-  //  }}} , { quoted: m })
+  conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, mimetype: 'audio/mpeg', contextInfo: {
+  externalAdReply: {
+  title: title,
+  body: "",
+  thumbnailUrl: tmb,
+  sourceUrl: web,
+  mediaType: 1,
+  showAdAttribution: true,
+  renderLargerThumbnail: true
+  }}} , { quoted: m })
 }
 if (command == 'play2') {
 var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
