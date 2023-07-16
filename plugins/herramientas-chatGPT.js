@@ -20,7 +20,7 @@ let jjJson = await rrEes.json()
 m.reply(jjJson.data.data.trim())    
 } catch {      
 try {    
-let tioress = await fetch(`https://api.lolhuman.xyz/api/openai?apikey=GataDios&text=${text}&user=${m.sender}`)
+let tioress = await fetch(`https://api.lolhuman.xyz/api/openai-turbo?apikey=${lolkeysapi}&text=${text}`)
 let hasill = await tioress.json()
 m.reply(`${hasill.result}`.trim())   
 } catch {        
