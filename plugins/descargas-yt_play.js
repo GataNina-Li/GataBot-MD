@@ -57,7 +57,7 @@ let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeys
 let lolh = await lolhuman.json()
 let n = lolh.result.title || 'error'
    
-  conn.sendMessage(m.chat, { audio: { url: lolh.result.audio.link }, mimetype: 'audio/mpeg', contextInfo: {
+  conn.sendMessage(m.chat, { audio: { url: lolh["result"]["audio"]["link"] }, mimetype: 'audio/mpeg', contextInfo: {
   externalAdReply: {
   title: title,
   body: "",
