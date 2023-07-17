@@ -13,8 +13,8 @@ let joincount = tok
 let pjk = Math.ceil(tok * pajak)
 joincount += pjk
 if (joincount < 1) throw `${mg}𝙀𝙇 𝙉𝙐𝙈𝙀𝙍𝙊 𝙈𝙄𝙉𝙄𝙈𝙊 𝙋𝘼𝙍𝘼 𝙏𝙊𝙆𝙀𝙉(𝙎) 𝙀𝙎 *1*\n\n𝙏𝙃𝙀 𝙈𝙄𝙉𝙄𝙈𝙐𝙈 𝙉𝙐𝙈𝘽𝙀𝙍 𝙁𝙊𝙍 𝙏𝙊𝙆𝙀𝙉(𝙎) 𝙄𝙎 *1*`
-//let users = global.db.data.users
-let users = global.db.data.users[who]
+let users = global.db.data.users
+//let users = global.db.data.users[who]
 users[who].joincount += tok
 m.reply(`╭[ 𝙏𝙊𝙆𝙀𝙉(𝙎) 🪙 ]⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ ${text}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${tok} Token(s)* 🪙\n┃\n╰━━━━━━━━━━━━━━⬣`)}
 /*conn.sendHydrated(m.chat, `╭[ 𝙏𝙊𝙆𝙀𝙉(𝙎) 🪙 ]⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ *${text}*\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${tok} Token(s)* 🪙\n┃\n╰━━━━━━━━━━━━━━⬣`, wm, null, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
