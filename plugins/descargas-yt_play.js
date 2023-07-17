@@ -61,9 +61,9 @@ renderLargerThumbnail: true
 //renderLargerThumbnail: true
 //}}} , { quoted: m })
 
-let audio_ = await fetch(`https://yt.nxr.my.id/yt2?url=${url}&type=audio`)
+let audio_ = await fetch(`https://api.dhamzxploit.my.id/api/ytplaymp4?text=${title}`)
 let audioJson = await audio_.json()   
-let typeAudio = audioJson.data.url   
+let typeAudio = audioJson.result.url  
 
 await conn.sendMessage(m.chat, { audio: { url: typeAudio }, mimetype: 'audio/mpeg', contextInfo: {
 externalAdReply: {
