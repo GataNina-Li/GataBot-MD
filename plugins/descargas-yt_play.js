@@ -61,7 +61,7 @@ renderLargerThumbnail: true
 //renderLargerThumbnail: true
 //}}} , { quoted: m })
 
-let audio_ await fetch(`https://yt.nxr.my.id/yt2?url=${url}&type=audio`)
+let audio_ = await fetch(`https://yt.nxr.my.id/yt2?url=${url}&type=audio`)
 let audioJson = await audio_.json()   
 let typeAudio = audioJson.data.url   
 
