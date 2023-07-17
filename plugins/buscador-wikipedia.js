@@ -33,8 +33,8 @@ let info = `𝙀𝙉𝘾𝙊𝙉𝙏𝙍𝙀 𝙀𝙎𝙏𝙊 | 𝙄 𝙁𝙊�
      contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
       title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | 𝙒𝙞𝙠𝙞𝙥𝙚𝙙𝙞𝙖',
        body: '𝗦𝘂𝗽𝗲𝗿 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 𝗕𝗼𝘁 🐱❤️',         
-        previewType: 0, thumbnail: `https://telegra.ph/file/cfd58b404deb2f2cc5a4e.jpg`,
-         sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}})
+        previewType: 0, thumbnail: gataImg,
+         sourceUrl: welgata}}})
   
 }).catch(() => { m.reply(`${fg}𝙉𝙊 𝙎𝙀 𝙀𝙉𝘾𝙊𝙉𝙏𝙍𝙊 𝙇𝙊 𝙌𝙐𝙀 𝘽𝙐𝙎𝘾𝘼. 𝙋𝙍𝙊𝘾𝙐𝙍𝙀 𝙐𝙎𝘼𝙍 𝙐𝙉𝘼 𝙋𝘼𝙇𝘼𝘽𝙍𝘼 𝘾𝙇𝘼𝙑𝙀\n\n𝙉𝙊𝙏 𝙁𝙊𝙐𝙉𝘿 𝙒𝙃𝘼𝙏 𝙔𝙊𝙐 𝘼𝙍𝙀 𝙇𝙊𝙊𝙆𝙄𝙉𝙂 𝙁𝙊𝙍. 𝙏𝙍𝙔 𝙏𝙊 𝙐𝙎𝙀 𝘼 𝙆𝙀𝙔 𝙒𝙊𝙍𝘿`) })}
 handler.help = ['wikipedia'].map(v => v + ' <apa>')
