@@ -1,4 +1,4 @@
-import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
+/*import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
 
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
 let q, v, yt, dl_url, ttl, size, lolhuman, lolh, n, n2, n3, n4, cap, qu, currentQuality   
@@ -113,3 +113,4 @@ return await res.text()
 async function delay(ms) {
 await new Promise(resolve => setTimeout(resolve, ms))
 }
+*/
