@@ -61,13 +61,20 @@ renderLargerThumbnail: true
 //renderLargerThumbnail: true
 //}}} , { quoted: m })
 
-q = '128kbps'
-v = yt_play[0].url
-yt = await youtubedl(v).catch(async _ => await youtubedlv2(v)).catch(async _ => await youtubedlv3(v))
-dl_url = await yt.audio[q].download()
-ttl = await yt.title
-size = await yt.audio[q].fileSizeH
-await conn.sendFile(m.chat, dl_url, ttl + '.mp3', null, m, false, { mimetype: 'audio/mp4' })
+let audio_ await fetch(`https://yt.nxr.my.id/yt2?url=${url}&type=audio`)
+let audioJson = await audio_.json()   
+let typeAudio = audioJson.data.url   
+
+await conn.sendMessage(m.chat, { audio: { url: typeAudio }, mimetype: 'audio/mpeg', contextInfo: {
+externalAdReply: {
+title: title,
+body: "",
+thumbnailUrl: tmb,
+sourceUrl: web,
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
+}}} , { quoted: m })
    
 }
    
