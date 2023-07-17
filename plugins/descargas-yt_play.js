@@ -57,18 +57,18 @@ let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeys
 let lolh = await lolhuman.json()
 let n = lolh.result.title || 'error'
 //await conn.sendMessage(m.chat, { audio: { url: lolh["result"]["audio"]["link"] }, fileName: `${n}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })
-await conn.sendFile(m.chat, lolh.result.audio.link, 'error.mp3', null, m, false, { mimetype: 'audio/mp4' })
+//await conn.sendFile(m.chat, lolh.result.audio.link, 'error.mp3', null, m, false, { mimetype: 'audio/mp4' })
    
- // conn.sendMessage(m.chat, { audio: { url: lolh["result"]["audio"]["link"] }, mimetype: 'audio/mpeg', contextInfo: {
-//  externalAdReply: {
-//  title: title,
-//  body: "",
-//  thumbnailUrl: tmb,
-//  sourceUrl: web,
-//  mediaType: 1,
-//  showAdAttribution: true,
-//  renderLargerThumbnail: true
-//  }}} , { quoted: m })
+await conn.sendMessage(m.chat, { audio: { url: lolh.result.audio.link }, mimetype: 'audio/mpeg', contextInfo: {
+externalAdReply: {
+title: title,
+body: "",
+thumbnailUrl: tmb,
+sourceUrl: web,
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
+}}} , { quoted: m })
 }
 if (command == 'play2') {
 var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
