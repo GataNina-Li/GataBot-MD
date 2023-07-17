@@ -7,7 +7,7 @@ await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙎𝙀 𝙀𝙎𝙏𝘼
 try{
 let lolhuman2 = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${args[0]}`)   
 let lolh2 = await lolhuman2.json()  
-let tema = lolh2.result.title
+let tema = await lolh2.result.title
   
 let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${tema}`)  
 let lolh = await lolhuman.json()
