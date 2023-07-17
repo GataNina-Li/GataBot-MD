@@ -87,7 +87,6 @@ renderLargerThumbnail: true
 }}})
  
 } catch {
-try {
 conn.reply(m.chat, `*ERROR/FALLO SE INTENTADA DESCARGA SUS VIDEO POR EL OTRO SERVER, AGUARDE UN MOMENTO POR FAVOR*`, m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
 title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨',
@@ -98,8 +97,7 @@ sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}})
 let res = await fetch("https://violetics.pw/api/media/youtube-play?apikey=beta&query="+text) 
 let json = await res.json()
 conn.sendFile(m.chat, json.result.url, 'error.mp4', `${wm}`, m)
-} catch {  
-}}} 
+}} 
 
 handler.command = ['play', 'play2']
 handler.exp = 0
