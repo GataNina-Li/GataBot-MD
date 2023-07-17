@@ -75,7 +75,7 @@ showAdAttribution: true,
 renderLargerThumbnail: true
 }}})
    
-await conn.sendFile(m.chat, json.result.video, 'error.mp4', `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, { contextInfo: {
+await conn.sendFile(m.chat, lolh.result.video.link, 'error.mp4', `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, { contextInfo: {
 externalAdReply: {
 title: title,
 body: packname,
