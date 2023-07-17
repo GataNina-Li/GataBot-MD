@@ -10,8 +10,6 @@ var url = 'https://www.youtube.com/watch?v=' + videoId
 let vide = `https://yt.btch.bz/download?URL=${url}&videoName=video`
 let web = `https://yt.btch.bz/downloadAudio?URL=${url}&videoName=video`
 var tmb = thumbnail
-   
-if (command == 'play') {	
 var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
@@ -32,7 +30,12 @@ var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪
 ও 𝙐𝙍𝙇
 » ${url}
 
-*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`
+*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`  
+let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`)    
+let lolh = await lolhuman.json()
+let n = lolh.result.title || 'error'
+   
+if (command == 'play') {	
 var pesan = await conn.sendMessage(m.chat, {
 text: captionvid,
 contextInfo: {
@@ -46,9 +49,6 @@ showAdAttribution: true,
 renderLargerThumbnail: true
 }}})
    
-let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`)    
-let lolh = await lolhuman.json()
-let n = lolh.result.title || 'error'
 await conn.sendMessage(m.chat, { audio: { url: lolh.result.audio.link }, mimetype: 'audio/mpeg', contextInfo: {
 externalAdReply: {
 title: title,
@@ -59,65 +59,42 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })
-   
 }
+   
 if (command == 'play2') {
-var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
+var pesan = await conn.sendMessage(m.chat, {
+text: captionvid,
+contextInfo: {
+externalAdReply: {
+title: title,
+body: packname,
+thumbnailUrl: tmb ,
+sourceUrl: web,
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
+}}})
+   
+await conn.sendMessage(m.chat, {
+video: {
+url: lolh.result.video.link,
+mimetype: 'video/mp4',
+caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`,  
+attributes: [
+{
+name: 'controls',
+value: 'true'
+},
+{
+name: 'autoplay',
+value: 'true'
+}]
+}}, { quoted: m })
+}
 
-ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
-» ${title}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝘿𝙀𝙎𝘾𝙍𝙄𝙋𝘾𝙄𝙊𝙉 | 𝘿𝙀𝙎𝘾𝙍𝙄𝙋𝙏𝙄𝙊𝙉
-» ${description}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝙋𝙐𝘽𝙇𝙄𝘾𝘼𝘿𝙊 | 𝙋𝙐𝘽𝙇𝙄𝙎𝙃𝙀𝘿
-» ${publishedTime}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝘿𝙐𝙍𝘼𝘾𝙄𝙊𝙉 | 𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉
-» ${durationH}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝙑𝙄𝙎𝙏𝘼𝙎 | 𝙑𝙄𝙀𝙒𝙎
-» ${viewH}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝙐𝙍𝙇
-» ${url}
-
-*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`
-    var pesan = await conn.sendMessage(m.chat, {
-      text: captionvid,
-      contextInfo: {
-        externalAdReply: {
-          title: "",
-          body: "GataBot-MD",
-          thumbnailUrl: tmb ,
-          sourceUrl: vide,
-          mediaType: 1,
-          showAdAttribution: true,
-          renderLargerThumbnail: true
-        }
-      }
-    })
-  conn.sendMessage(m.chat, {
-      video: {
-        url: vide,
-        mimetype: 'video/mp4',
-        caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`,  
-        attributes: [
-          {
-            name: 'controls',
-            value: 'true'
-          },
-          {
-            name: 'autoplay',
-            value: 'true'
-          }
-        ]
-      }
-    }, { quoted: m })
-    }
 } catch {
 try {
-    conn.reply(m.chat, `*ERROR/FALLO SE INTENTADA DESCARGA SUS VIDEO POR EL OTRO SERVER, AGUARDE UN MOMENTO POR FAVOR*`, m, {
+conn.reply(m.chat, `*ERROR/FALLO SE INTENTADA DESCARGA SUS VIDEO POR EL OTRO SERVER, AGUARDE UN MOMENTO POR FAVOR*`, m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
 title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨',
 body: 'Super Bot WhatsApp',         
@@ -129,8 +106,7 @@ let json = await res.json()
 conn.sendFile(m.chat, json.result.url, 'error.mp4', `${wm}`, m)
 } catch {  
 }}} 
-handler.help = ['play', 'play2'].map(v => v + ' <pencarian>')
-handler.tags = ['downloader']
+
 handler.command = ['play', 'play2']
 handler.exp = 0
 handler.limit = 1
