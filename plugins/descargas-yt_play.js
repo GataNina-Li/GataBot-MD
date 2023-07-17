@@ -10,7 +10,8 @@ var url = 'https://www.youtube.com/watch?v=' + videoId
 let vide = `https://yt.btch.bz/download?URL=${url}&videoName=video`
 let web = `https://yt.btch.bz/downloadAudio?URL=${url}&videoName=video`
 var tmb = thumbnail
-let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`)    
+//let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`)   
+let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${url}`)    
 let lolh = await lolhuman.json()
 let n = lolh.result.title || 'error'
 var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
@@ -49,7 +50,18 @@ showAdAttribution: true,
 renderLargerThumbnail: true
 }}})
    
-await conn.sendMessage(m.chat, { audio: { url: lolh.result.audio.link }, mimetype: 'audio/mpeg', contextInfo: {
+//await conn.sendMessage(m.chat, { audio: { url: lolh.result.audio.link }, mimetype: 'audio/mpeg', contextInfo: {
+//externalAdReply: {
+//title: title,
+//body: "",
+//thumbnailUrl: tmb,
+//sourceUrl: web,
+//mediaType: 1,
+//showAdAttribution: true,
+//renderLargerThumbnail: true
+//}}} , { quoted: m })
+
+await conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, mimetype: 'audio/mpeg', contextInfo: {
 externalAdReply: {
 title: title,
 body: "",
@@ -59,6 +71,7 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })
+   
 }
    
 if (command == 'play2') {
