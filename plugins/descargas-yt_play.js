@@ -10,6 +10,9 @@ var url = 'https://www.youtube.com/watch?v=' + videoId
 let vide = `https://yt.btch.bz/download?URL=${url}&videoName=video`
 let web = `https://yt.btch.bz/downloadAudio?URL=${url}&videoName=video`
 var tmb = thumbnail
+let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`)    
+let lolh = await lolhuman.json()
+let n = lolh.result.title || 'error'
 var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
@@ -31,9 +34,6 @@ var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪
 » ${url}
 
 *𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`  
-let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`)    
-let lolh = await lolhuman.json()
-let n = lolh.result.title || 'error'
    
 if (command == 'play') {	
 var pesan = await conn.sendMessage(m.chat, {
@@ -75,7 +75,17 @@ showAdAttribution: true,
 renderLargerThumbnail: true
 }}})
    
-await conn.sendMessage(m.chat, { video: { url: lolh.result.video.link }, fileName: `error.mp4`, caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: thumbnail, mimetype: 'video/mp4' }, { quoted: m })   
+await conn.sendFile(m.chat, json.result.video, 'error.mp4', `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, { contextInfo: {
+externalAdReply: {
+title: title,
+body: packname,
+thumbnailUrl: tmb ,
+sourceUrl: web,
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
+}}})
+//await conn.sendMessage(m.chat, { video: { url: lolh.result.video.link }, fileName: `error.mp4`, caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: thumbnail, mimetype: 'video/mp4' }, { quoted: m })   
 } catch {
 try {
 conn.reply(m.chat, `*ERROR/FALLO SE INTENTADA DESCARGA SUS VIDEO POR EL OTRO SERVER, AGUARDE UN MOMENTO POR FAVOR*`, m, {
