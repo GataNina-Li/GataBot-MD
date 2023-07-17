@@ -1,26 +1,18 @@
 import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
-   let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
+
+let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
 let q, v, yt, dl_url, ttl, size, lolhuman, lolh, n, n2, n3, n4, cap, qu, currentQuality   
-  if (!text) throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝙊 𝙏𝙄𝙏𝙐𝙇𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} Billie Eilish - Bellyache*\n\n𝙒𝙍𝙄𝙏𝙀 𝙏𝙃𝙀 𝙉𝘼𝙈𝙀 𝙊𝙍 𝙏𝙄𝙏𝙇𝙀\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} Billie Eilish - Bellyache*`
-  try {
-    var vid = (await youtubeSearch(text)).video[0]
-    var { title, 
-          description, 
-          thumbnail, 
-          videoId, 
-          durationH, 
-          durationS,
-          viewH,
-          publishedTime
-                         } = vid
-    var url = 'https://www.youtube.com/watch?v=' + videoId
-
-   let vide = `https://yt.btch.bz/download?URL=${url}&videoName=video`
-
-    let web = `https://yt.btch.bz/downloadAudio?URL=${url}&videoName=video`
-    var tmb = thumbnail
+if (!text) throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝙊 𝙏𝙄𝙏𝙐𝙇𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} Billie Eilish - Bellyache*\n\n𝙒𝙍𝙄𝙏𝙀 𝙏𝙃𝙀 𝙉𝘼𝙈𝙀 𝙊𝙍 𝙏𝙄𝙏𝙇𝙀\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} Billie Eilish - Bellyache*`
+try {
+var vid = (await youtubeSearch(text)).video[0]
+var { title, description, thumbnail, videoId, durationH, durationS, viewH, publishedTime } = vid
+var url = 'https://www.youtube.com/watch?v=' + videoId
+let vide = `https://yt.btch.bz/download?URL=${url}&videoName=video`
+let web = `https://yt.btch.bz/downloadAudio?URL=${url}&videoName=video`
+var tmb = thumbnail
+   
 if (command == 'play') {	
-    var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
+var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
 » ${title}
@@ -41,25 +33,23 @@ if (command == 'play') {
 » ${url}
 
 *𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`
-    var pesan = await conn.sendMessage(m.chat, {
-    text: captionvid,
-    contextInfo: {
-    externalAdReply: {
-    title: "",
-    body: "GataBot-MD",
-    thumbnailUrl: tmb ,
-    sourceUrl: web,
-    mediaType: 1,
-    showAdAttribution: true,
-    renderLargerThumbnail: true
-    }}})
+var pesan = await conn.sendMessage(m.chat, {
+text: captionvid,
+contextInfo: {
+externalAdReply: {
+title: title,
+body: packname,
+thumbnailUrl: tmb ,
+sourceUrl: web,
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
+}}})
+   
 let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`)    
 let lolh = await lolhuman.json()
 let n = lolh.result.title || 'error'
-//await conn.sendMessage(m.chat, { audio: { url: lolh["result"]["audio"]["link"] }, fileName: `${n}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })
-//await conn.sendFile(m.chat, lolh.result.audio.link, 'error.mp3', null, m, false, { mimetype: 'audio/mp4' })
-await conn.sendFile(m.chat, lolh.result.audio.link, 'tts.opus', null, m, true)   
-/*await conn.sendMessage(m.chat, { audio: { url: lolh.result.audio.link }, mimetype: 'audio/mpeg', contextInfo: {
+await conn.sendMessage(m.chat, { audio: { url: lolh.result.audio.link }, mimetype: 'audio/mpeg', contextInfo: {
 externalAdReply: {
 title: title,
 body: "",
@@ -68,7 +58,8 @@ sourceUrl: web,
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
-}}} , { quoted: m })*/
+}}} , { quoted: m })
+   
 }
 if (command == 'play2') {
 var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
