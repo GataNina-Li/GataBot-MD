@@ -75,7 +75,7 @@ showAdAttribution: true,
 renderLargerThumbnail: true
 }}})
    
-await conn.sendMessage(m.chat, {
+/*await conn.sendMessage(m.chat, {
 video: {
 url: lolh.result.video.link,
 mimetype: 'video/mp4',
@@ -89,7 +89,17 @@ value: 'true'
 name: 'autoplay',
 value: 'true'
 }]
-}}, { quoted: m })
+}}, { quoted: m })*/
+await conn.sendMessage(m.chat, { audio: { url: lolh.result.video.link }, mimetype: 'video/mp4', contextInfo: {
+externalAdReply: {
+title: title,
+body: "",
+thumbnailUrl: tmb,
+sourceUrl: web,
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
+}}} , { quoted: m })
 }
 
 } catch {
