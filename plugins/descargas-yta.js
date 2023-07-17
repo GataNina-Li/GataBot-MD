@@ -7,6 +7,7 @@ await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙎𝙀 𝙀𝙎𝙏𝘼
 try{
 var vid = (await youtubeSearch(text)).video[0]
 var { title } = vid
+await m.reply(title)
   
 let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`)  
 let lolh = await lolhuman.json()
