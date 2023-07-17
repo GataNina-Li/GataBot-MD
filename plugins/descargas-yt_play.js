@@ -90,7 +90,9 @@ name: 'autoplay',
 value: 'true'
 }]
 }}, { quoted: m })*/
-await conn.sendMessage(m.chat, { audio: { url: lolh.result.video.link }, mimetype: 'video/mp4', contextInfo: {
+//await conn.sendMessage(m.chat, { video: { url: lolh.result.video.link }, fileName: `error.mp4`, caption: `_𝐓𝐡𝐞 𝐌𝐲𝐬𝐭𝐢𝐜 - 𝐁𝐨𝐭_`, thumbnail: mediaa.thumb, mimetype: 'video/mp4' }, { quoted: m })
+   
+await conn.sendMessage(m.chat, { video: { url: lolh.result.video.link }, mimetype: 'video/mp4', contextInfo: {
 externalAdReply: {
 title: title,
 body: "",
