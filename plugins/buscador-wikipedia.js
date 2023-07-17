@@ -31,8 +31,8 @@ let info = `𝙀𝙉𝘾𝙊𝙉𝙏𝙍𝙀 𝙀𝙎𝙏𝙊 | 𝙄 𝙁𝙊�
   
     conn.reply(m.chat, `${info} `, m, {
      contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
-      title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨',
-       body: 'Super Bot WhatsApp',         
+      title: '𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 | 𝗪𝗶𝗸𝗶𝗽𝗲𝗱𝗶𝗮',
+       body: '𝙎𝙪𝙥𝙚𝙧 𝙒𝙝𝙖𝙩𝙨𝘼𝙥𝙥 𝘽𝙤𝙩 🐱❤️',         
         previewType: 0, thumbnail: imagen3,
          sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}})
   
