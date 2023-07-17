@@ -42,7 +42,7 @@ contextInfo: {
 externalAdReply: {
 title: title,
 body: packname,
-thumbnailUrl: tmb ,
+thumbnailUrl: tmb,
 sourceUrl: web,
 mediaType: 1,
 showAdAttribution: true,
@@ -75,35 +75,7 @@ showAdAttribution: true,
 renderLargerThumbnail: true
 }}})
    
-/*await conn.sendMessage(m.chat, {
-video: {
-url: lolh.result.video.link,
-mimetype: 'video/mp4',
-caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`,  
-attributes: [
-{
-name: 'controls',
-value: 'true'
-},
-{
-name: 'autoplay',
-value: 'true'
-}]
-}}, { quoted: m })*/
-//await conn.sendMessage(m.chat, { video: { url: lolh.result.video.link }, fileName: `error.mp4`, caption: `_𝐓𝐡𝐞 𝐌𝐲𝐬𝐭𝐢𝐜 - 𝐁𝐨𝐭_`, thumbnail: mediaa.thumb, mimetype: 'video/mp4' }, { quoted: m })
-   
-await conn.sendMessage(m.chat, { video: { url: lolh.result.video.link }, mimetype: 'video/mp4', contextInfo: {
-externalAdReply: {
-title: title,
-body: "",
-thumbnailUrl: tmb,
-sourceUrl: web,
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: true
-}}} , { quoted: m })
-}
-
+await conn.sendMessage(m.chat, { video: { url: lolh.result.video.link }, fileName: `error.mp4`, caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: thumbnail, mimetype: 'video/mp4' }, { quoted: m })   
 } catch {
 try {
 conn.reply(m.chat, `*ERROR/FALLO SE INTENTADA DESCARGA SUS VIDEO POR EL OTRO SERVER, AGUARDE UN MOMENTO POR FAVOR*`, m, {
@@ -123,12 +95,13 @@ handler.command = ['play', 'play2']
 handler.exp = 0
 handler.limit = 1
 export default handler
+
 async function cut(url) {
-  url = encodeURIComponent(url)
-  let res = await fetch(`https://api.botcahx.live/api/linkshort/bitly?link=${url}&apikey=${btc}`)
-  if (!res.ok) throw false
-  return await res.text()
+url = encodeURIComponent(url)
+let res = await fetch(`https://api.botcahx.live/api/linkshort/bitly?link=${url}&apikey=${btc}`)
+if (!res.ok) throw false
+return await res.text()
 }
 async function delay(ms) {
-   await new Promise(resolve => setTimeout(resolve, ms));
+await new Promise(resolve => setTimeout(resolve, ms))
 }
