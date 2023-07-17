@@ -1,4 +1,4 @@
-/*import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
+import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
 
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
 let q, v, yt, dl_url, ttl, size, lolhuman, lolh, n, n2, n3, n4, cap, qu, currentQuality   
@@ -86,7 +86,7 @@ showAdAttribution: true,
 renderLargerThumbnail: true
 }}})
  
-} catch {
+}} catch {
 conn.reply(m.chat, `*ERROR/FALLO SE INTENTADA DESCARGA SUS VIDEO POR EL OTRO SERVER, AGUARDE UN MOMENTO POR FAVOR*`, m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
 title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨',
