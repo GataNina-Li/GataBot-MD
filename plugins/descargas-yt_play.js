@@ -83,7 +83,7 @@ body: 'Super Bot WhatsApp',
 previewType: 0, thumbnail: fs.readFileSync("./media/menus/Menu3.jpg"),
 sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}})
   
-let res = await fetch("https://violetics.pw/api/media/youtube-play?apikey=beta&query="+text) 
+let res = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`) 
 let json = await res.json()
 conn.sendFile(m.chat, json.result.url, 'error.mp4', `${wm}`, m)
 }}
