@@ -25,28 +25,9 @@ ${result.lyrics}
 
 𝙀𝙉𝙇𝘼𝘾𝙀 | 𝙐𝙍𝙇
 🧡 *${result.link}*`, fkontak,  m)
-/*let letratexto =`
-𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀 
-💚 *${result.title}*
 
-𝘼𝙐𝙏𝙊𝙍(𝘼) | 𝘼𝙐𝙏𝙃𝙊𝙍
-💜 *${result.author}*
-
-
-${result.lyrics}
-
-
-𝙀𝙉𝙇𝘼𝘾𝙀 | 𝙐𝙍𝙇
-🧡 *${result.link}*
-`.trim()
-conn.SendButton(m.chat, `letratexto, wm, json.thumbnail.genius, null, null, null, null, [
-['𝘿𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙧 | 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 🚀', `/play ${text}`],
-['𝙈𝙚𝙣𝙪 𝘽𝙪𝙨𝙦𝙪𝙚𝙙𝙖𝙨 | 𝙎𝙚𝙖𝙧𝙘𝙝𝙚𝙨 🔎', '#buscarmenu'],
-['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']
-], m)*/
 } catch (e) {
-  await conn.reply(m.chat, `lenguajeGB['smsMalError3']() #reporte`, m)
-//await conn.reply(m.chat, `\n${wm} lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
+  await conn.reply(m.chat, `*⚠️ VUELVA A INTERNARLO, SI EL COMANDO SIGUE FALLANDO REPÓRTELO AL CREADOR USANDO #reporte*`, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 }}
