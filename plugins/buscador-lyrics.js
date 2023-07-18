@@ -27,7 +27,7 @@ ${result.lyrics}
 🧡 *${result.link}*`, fkontak,  m)
 
 } catch (e) {
-  await conn.reply(m.chat, `*⚠️ VUELVA A INTERNARLO, SI EL COMANDO SIGUE FALLANDO REPÓRTELO AL CREADOR USANDO #reporte*`, m)
+  await conn.reply(m.chat, `*⚠️ VUELVA A INTERNARLO, SI EL COMANDO SIGUE FALLANDO REPÓRTELO A LA CREADORA USANDO #reporte*`, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 }}
