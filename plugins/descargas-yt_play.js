@@ -33,7 +33,9 @@ var captionvid = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪
 ও 𝙐𝙍𝙇
 » ${url}
 
-*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`  
+*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
+
+ᴱˡ ᵃᵘᵈᶦᵒ ᵖᵘᵉᵈᵉ ᵗᵃʳᵈᵃ ᵉⁿᵗʳᵉ ⁵ ᵒ ¹⁰ ᵐᶦⁿᵘᵗᵒˢ ᵉˡ ᵉⁿᵛᶦᵃˢᵉ ᵗᵉⁿᵈʳᵃ́ ᵖᵃᶜᶦᵉⁿᶜᶦᵃ`  
    
 if (command == 'play') {	
 var pesan = await conn.sendMessage(m.chat, {
@@ -85,7 +87,8 @@ sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}})
   
 let res = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`) 
 let json = await res.json()
-conn.sendFile(m.chat, json.result.url, 'error.mp4', `${wm}`, m)
+conn.sendMessage(m.chat, { video: { url: json.result.url }, fileName: `error.mp4`, thumbnail: tmb, mimetype: 'video/mp4' }, { quoted: m });
+//conn.sendFile(m.chat, json.result.url, 'error.mp4', `${wm}`, m)
 }}
 handler.command = ['play', 'play2']
 handler.exp = 0
@@ -100,4 +103,4 @@ return await res.text()
 }
 async function delay(ms) {
 await new Promise(resolve => setTimeout(resolve, ms))
-}
+   }
