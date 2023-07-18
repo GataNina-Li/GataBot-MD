@@ -47,7 +47,7 @@ sourceUrl: web,
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
-}}})
+}}} , { quoted: m })
    
 await conn.sendMessage(m.chat, { audio: { url: lolh.result.audio.link }, mimetype: 'audio/mpeg', contextInfo: {
 externalAdReply: {
@@ -72,7 +72,7 @@ sourceUrl: web,
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
-}}})   
+}}} , { quoted: m })
 await conn.sendMessage(m.chat, { video: { url: lolh.result.video.link }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣` }, { quoted: m })
 }
 } catch (e) {
