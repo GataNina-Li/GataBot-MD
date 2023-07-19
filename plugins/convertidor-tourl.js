@@ -1,4 +1,7 @@
-/*Créditos a https://github.com/Azami19*/
+/* 
+# Créditos a https://github.com/Undefined17
+•• @Azami19 
+*/
 
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
@@ -14,8 +17,8 @@ let name = await conn.getName(who)
   let media = await q.download()
   let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let link = await (isTele ? uploadImage : uploadFile)(media)
-  let caption = ` *📊 ENLACE:*\n${link}
-  *🎁 TAMAÑO:*\n${media.length} bytes\n
+  let caption = ` *🛑 ENLACE:*\n${link}
+  *🥏 TAMAÑO:*\n${media.length} bytes\n
   *🚀 EXPIRACION:*\n ${isTele ? '✅ NO EXPIRA' : '⚠️ DESCONOCIDO'}\n
   *🔰 ACORTADO:*\n${await shortUrl(link)}`
 
