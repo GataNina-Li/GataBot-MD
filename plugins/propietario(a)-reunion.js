@@ -1,6 +1,6 @@
 let handler = async(m, { conn, command }) => {
 
-let text = `*❕ EL OWNER @${m.sender.split`@`[0]}  HA SOLICITADO SU PRESENCIA EN EL STAFF, FAVOR DE DIRIGIRSE LO ANTES POSIBLE AL STAFF*
+let text = `*🥏 EL OWNER @${m.sender.split`@`[0]} HA SOLICITADO SU PRESENCIA EN EL STAFF, FAVOR DE DIRIGIRSE LO ANTES POSIBLE AL STAFF*
 
 *𝙎𝙩𝙖𝙛𝙛 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 🐱*`
 m.reply('*⚠️ ENVIANDO MENSAJE A TODOS LOS OWNERS*')
