@@ -18,7 +18,7 @@ let texto = `
 
 ・☘️・》・》・》`
 
-  await conn.reply(m.chat, `${texto}`, m)
+  await conn.reply(m.chat, `${texto.trim()}`, m)
 //await conn.sendButton(m.chat, texto.trim(), wm, img, [[lenguajeGB.smsConj(), `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)}   
   
 if (command == 'frase2' || command == 'phrase2') { 
