@@ -1,6 +1,6 @@
 let handler = async (m, { text, usedPrefix }) => {
 let user = global.db.data.users[m.sender]
-  if (!text) return m.reply(`*⚠️ POR FAVOR COLOQUE SU MOTIVO PARA ESTAR AFK*\n\n❕ EJEMPLO\n*${usedPrefix}afk Voy a come*`)
+  if (!text) return m.reply(`*⚠️ POR FAVOR COLOQUE SU MOTIVO PARA ESTAR AFK*\n\n❕ EJEMPLO\n*${usedPrefix}afk Voy a comer*`)
     if (text.length < 10) return m.reply(`*⚠️ EL MOTIVO ES MUY CORTO, MINIMO 10 CARÁCTERES*`)
 user.afk = + new Date
 user.afkReason = text
