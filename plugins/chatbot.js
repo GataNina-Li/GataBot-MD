@@ -1,4 +1,4 @@
-// by https://github.com/elrebelde21/The-LoliBot-MD
+// by https://github.com/elrebelde21
  
 let handler = m => m
 handler.all = async function (m) {
@@ -32,10 +32,10 @@ if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sin prefijo
 
 }
 
- if (/^hola|halo|hello|hi$/i.test(m.text) ) { //sin prefijo 
+/* if (/^hola|halo|hello|hi$/i.test(m.text) ) { //sin prefijo 
      conn.reply(m.chat, `Hola :D`, fkontak, m)
 
- }
+ }*/
  
 if (/^¿que es un bot?|Que es un bot|Que es gatabot?$/i.test(m.text) ) { //sem prefixo
     conn.reply(m.chat, `╭┄〔 *${wm}* 〕┄⊱
