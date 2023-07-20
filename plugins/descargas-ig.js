@@ -3,8 +3,8 @@ import axios from 'axios'
 import cheerio from 'cheerio'
 import instagramGetUrl from 'instagram-url-direct'
 import vm from 'node:vm'
-//import { instagram } from '@xct007/frieren-scraper';
-import { instagramdl, instagramdlv2, instagramdlv3, instagramdlv4 } from '@bochilteam/scraper'
+import { instagram } from "@xct007/frieren-scraper";
+import { instagramdl } from '@bochilteam/scraper'
 let handler = async (m, { conn, args, command, usedPrefix }) => {
 const fkontak = {
         "key": {
@@ -12,7 +12,7 @@ const fkontak = {
             "remoteJid": "status@broadcast",
             "fromMe": false,
             "id": "Halo"    
-        },
+        }, 
         "message": {
             "contactMessage": {
                 "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`

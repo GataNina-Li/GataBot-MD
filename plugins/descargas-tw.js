@@ -1,8 +1,8 @@
-import { twitterdlv2 } from '@bochilteam/scraper'
+import { twitterdl } from '@bochilteam/scraper'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 const fkontak = {
         "key": {
-        "participants":"0@s.whatsapp.net",
+        "participants":"0@s.whatsapp.net", 
             "remoteJid": "status@broadcast",
             "fromMe": false,
             "id": "Halo"    
