@@ -6,7 +6,7 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 let chat = global.db.data.chats[m.chat]
 let name = conn.getName(m.sender)
 
-if (/^e$/i.test(m.text) ) { //sem prefixo
+if (/^e$/i.test(m.text) ) { //sin prefijo 
     let teks = `
 ${pickRandom([`Que bueno sabe la letra E`, `eeeeee`])}
 `.trim()
@@ -14,7 +14,7 @@ conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
 
 }
 
-/*if (/^Mande porno|porno|paja$/i.test(m.text) ) { //sem prefixo
+/*if (/^Mande porno|porno|paja$/i.test(m.text) ) { //sin prefijo 
     let teks = `
 ${pickRandom([`no puedo esta contra las política del grupo.😸`, `_uff miren un pajero_`, `_pagame y paso mi pack😏🥵_`, `_que_`, `_que quiere pija dice 🤣_`, `_pasa el pack de tu hermana😏_`, `_mire un gilipolla_`, `_siuuu sexo sexo sexo😈_`, '_callate putito_'])}
 `.trim()
@@ -22,7 +22,7 @@ conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
 
 }*/
 
-if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sem prefixo
+if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sin prefijo 
     conn.reply(m.chat, `╭┅〘 ⚠️ 𝗢𝗯𝗲𝗱𝗲𝗰𝗲 𝗹𝗮𝘀 𝗿𝗲𝗴𝗹𝗮𝘀 ⚠️ 〙*
 ➽❌ 𝐏𝐫𝐨𝐡𝐢𝐛𝐢𝐝𝐨 𝐥𝐥𝐚𝐦𝐚𝐫 𝐚𝐥 𝐁𝐨𝐭
 ➽❌ 𝐏𝐫𝐨𝐡𝐢𝐛𝐢𝐝𝐨 𝐒𝐩𝐚𝐦 𝐚𝐥 𝐁𝐨𝐭
@@ -31,6 +31,9 @@ if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sem prefixo
 *╰═┅ৡৢ͜͡✦═╡ 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨 ╞═┅ৡৢ͜͡✦═╯*`, fkontak, m) //wm, null, [['Menu', '#menu']], m) botones :V
 
 }
+
+ if (/^hola|halo|hello|hi$/i.test(m.text) ) { //sin prefijo 
+     conn.reply(m.chat, `Hola (:`, fkontak, m)
 
 if (/^¿que es un bot?|Que es un bot|Que es gatabot?$/i.test(m.text) ) { //sem prefixo
     conn.reply(m.chat, `╭┄〔 *${wm}* 〕┄⊱
