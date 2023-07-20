@@ -33,7 +33,7 @@ if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sin prefijo
 }
 
  if (/^hola|halo|hello|hi$/i.test(m.text) ) { //sin prefijo 
-     conn.reply(m.chat, `Hola (:`, fkontak, m)
+     conn.reply(m.chat, `Hola :D`, fkontak, m)
 
  }
  
