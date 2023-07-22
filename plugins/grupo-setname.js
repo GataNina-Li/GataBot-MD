@@ -8,6 +8,7 @@ let text = args.join` `
 if(!args || !args[0]) {
 } else {
 conn.groupUpdateSubject(m.chat, text)}
+conn.reply(m.chat, lenguajeGB.smsNam1(), fkontak, m)
 //conn.sendButton(m.chat, wm, lenguajeGB.smsNam1(), pp, [[lenguajeGB.smsConMenu(), `/menu`]], fkontak, m)}
 } catch (e) { 
 //return conn.reply(m.chat, lenguajeGB['smsNam3'](), fkontak, m)

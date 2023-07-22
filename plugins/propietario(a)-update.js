@@ -4,9 +4,11 @@ try {
 if (global.conn.user.jid == conn.user.jid) {
 let stdout = execSync('git pull' + (m.fromMe && text ? ' ' + text : ''))
 conn.reply(m.chat, stdout.toString(), m)}
-} catch {
+//} catch {
 var update = execSync('git remote set-url origin https://github.com/GataNina-Li/GataBot-MD.git && git pull')
 await m.reply(update.toString())
+} catch {
+await m.reply(`${fg}`) 
 }}
 handler.help = ['update']
 handler.tags = ['owner']
