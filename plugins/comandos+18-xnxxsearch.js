@@ -20,7 +20,7 @@ let count = 1
 for (let v of json) {
 let linkXXX = v.link
 vids_.urls.push(linkXXX)
-cap += `*[${count}]*\n• *😏 Titulo:* ${v.title}\n• *🔗 Link:* ${v.link}\n• *📦 Info:* ${v.info}`
+cap += `*[${count}]*\n• *😏 Titulo:* ${v.title}\n• *🔗 Link:* ${v.link}\n• *🧾 Info:* ${v.info}`
 cap += "\n\n" + "═════════════════════════" + "\n\n"
 count++  
 }
