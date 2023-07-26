@@ -61,7 +61,6 @@ if (fgjson1.result == 'error' || fgjson1.result == '' || !fgjson1.result) return
 let fgjson1_result = await translate(`${fgjson1.result}`, { to: 'es', autoCorrect: true })  
 m.reply(fgjson1_result.text.trim())    
 } catch {    
-throw `*[❗] 𝙴𝚁𝚁𝙾𝚁, 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾*`   
 }}}}}}}}
 handler.command = ['openai', 'chatgpt', 'ia', 'robot']
 export default handler
