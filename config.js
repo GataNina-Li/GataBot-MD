@@ -9,7 +9,7 @@ import moment from 'moment-timezone'
 import { en, es, id, ar, pt, fr, hi } from './lib/idiomas/total-idiomas.js' 
 
 
-//⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
+//⊱ ━━━━━'541137042743'.━━━━ ⊰  
 
 global.owner = [
   ['593993684821', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈', true],  
