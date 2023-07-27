@@ -1,6 +1,6 @@
 import translate from '@vitalets/google-translate-api'
 import * as fs from 'fs'
-import { es, en, id, ar, pt } from '../lib/idiomas/total-idiomas.js'
+import { es, en, id, ar, pt, it } from '../lib/idiomas/total-idiomas.js'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
@@ -28,6 +28,10 @@ await conn.sendButton(m.chat, lenguajeGB['smsAvisoEG']() + idioma.text + '\n' + 
 }else if (args[0] == 'ar'){
 global.lenguajeGB = ar
 await conn.sendButton(m.chat, lenguajeGB['smsAvisoEG']() + idioma.text + '\n' + 'დ ```عرب```', wm, null, [[`☘️ 𝗠 𝗘 𝗡 𝗨`, `${usedPrefix}menu`]], fkontak, m)
+
+}else if (args[0] == 'it'){
+global.lenguajeGB = it
+await conn.sendButton(m.chat, lenguajeGB['smsAvisoEG']() + idioma.text + '\n' + 'დ ``Italiano```', wm, null, [[`☘️ 𝗠 𝗘 𝗡 𝗨`, `${usedPrefix}menu`]], fkontak, m)
   
 }else if (args[0] == 'pt'){
 global.lenguajeGB = pt
@@ -41,6 +45,7 @@ rows: [
 {title: "🌟 English", rowId: `${usedPrefix + command} en`},
 {title: "🌟 Bahasa Indonesia", rowId: `${usedPrefix + command} id`},
 {title: "🌟 عرب", rowId: `${usedPrefix + command} ar`},
+{title: "🌟 Italiano", rowId: `${usedPrefix + command} it`},
 {title: "🌟 Português", rowId: `${usedPrefix + command} pt`}]}]
 
 const listMessage = {
@@ -49,6 +54,7 @@ footer: `✦ Español = ${usedPrefix + command} es
 ✦ English = ${usedPrefix + command} en
 ✦ Bahasa Indonesia = ${usedPrefix + command} id
 ✦ عرب = ${usedPrefix + command} ar
+✦ Italiano = ${usedPrefix + command} it
 ✦ Português = ${usedPrefix + command} pt\n\n` + wm,
 title: `${htki} Idioma : Language 🌎`,
 buttonText: `Seleccionar : Select`,
@@ -60,7 +66,7 @@ await m.reply(`${fg}\`\`\`NO SE LOGRÓ CAMBIAR DE IDIOMA, REPORTE ESTE COMANDO $
 console.log(e) 
 }}
 
-handler.command = /^(idioma|languaje|idiomas|languajes|languages)$/i
+handler.command = /^(idioma|languaje|idiomas|languajes|languages|lingua)$/i
 handler.owner = true
 
 export default handler
