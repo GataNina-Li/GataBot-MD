@@ -44,7 +44,7 @@ global.Key360 = ['964f-0c75-7afc']
 //Add the language you want GataBot-MD to have
 //  es = Español         id = Bahasa Indonesia
 //  en = English         pt = Português 
-//  ar = عرب  
+//  ar = عرب             en = Hindi Language
 
 global.lenguajeGB = es  //Idioma de GataBot, Ejemplo: es | en | pt...
 
