@@ -1,12 +1,15 @@
 const linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})( [0-9]{1,3})?/i
-const grupoOficial1 = nn
-const grupoOficial2 = nnn
-const grupoOficial3 = nnnt
-const grupoOficial4 = nnntt
-const grupoOficial5 = nnnttt
-const grupoOficial6 = nnnttt2
-const grupoOficial7 = nnnttt3
-const grupoOficial8 = nnnttt4
+const grupoOficial1 = nna
+const grupoOficial2 = nn2
+const grupoOficial3 = nn
+const grupoOficial4 = nnn
+const grupoOficial5 = nnnt
+const grupoOficial6 = nnntt
+const grupoOficial7 = nnnttt
+const grupoOficial8 = nnnttt1
+const grupoOficial9 = nnnttt2
+const grupoOficial10 = nnnttt3
+const grupoOficial11 = nnnttt4
 
 
 let handler = async (m, { conn, text, usedPrefix, command, participants, groupMetadata }) => {
