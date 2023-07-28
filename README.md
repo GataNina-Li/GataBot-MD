@@ -382,6 +382,7 @@ _Use el botón `STOP` luego ir a la pestaña `FILES` y borrar la carpeta `GataBo
 #### 🌐 Portugués (Português)
 #### 🌐 Indonesio (Bahasa Indonesia) 
 #### 🌐 Árabe (عرب)
+#### 🌐 Hindi (Indian Language)
 - [x] Ejemplo <details><summary>Idioma</summary><img src="https://i.imgur.com/RMWFgZo.jpeg"></details>
 ----
 
