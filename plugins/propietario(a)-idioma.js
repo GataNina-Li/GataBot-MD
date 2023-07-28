@@ -1,72 +1,45 @@
+//https://github.com/Fabri115/botwhaita Enjoy:!
 import translate from '@vitalets/google-translate-api'
-import * as fs from 'fs'
-import { es, en, id, ar, pt, it } from '../lib/idiomas/total-idiomas.js'
+import { es, en, id, ar, pt, it, hi } from '../lib/idiomas/total-idiomas.js'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+    let idioma;
+    let lenguajeGB;
 
-let texto = `*Idioma de GataBot cambiado Correctamente:* `
-let texto2 = `*Seleccione el idioma para GataBot*`
-let texto3 = `*Los Comandos no cambiaran de Idioma, solo el contenido del Mensaje*`
-let idioma = await translate(`${texto}`, { to: args[0], autoCorrect: true })
-let idioma2 = await translate(`${texto2}`, { to: lenguajeGB.lenguaje(), autoCorrect: true })
-let idioma3 = await translate(`${texto3}`, { to: lenguajeGB.lenguaje(), autoCorrect: true })
+    if (args[0] == 'es'){
+        lenguajeGB = es;
+        idioma = await translate('*Idioma de GataBot cambiado Correctamente:* ', { to: 'es', autoCorrect: true });
+    } else if (args[0] == 'en'){
+        lenguajeGB = en;
+        idioma = await translate('*Idioma de GataBot cambiado Correctamente:* ', { to: 'en', autoCorrect: true });
+    } else if (args[0] == 'id'){
+        lenguajeGB = id;
+        idioma = await translate('*Idioma de GataBot cambiado Correctamente:* ', { to: 'id', autoCorrect: true });
+    } else if (args[0] == 'ar'){
+        lenguajeGB = ar;
+        idioma = await translate('*Idioma de GataBot cambiado Correctamente:* ', { to: 'ar', autoCorrect: true });
+    } else if (args[0] == 'it'){
+        lenguajeGB = it;
+        idioma = await translate('*Idioma de GataBot cambiado Correctamente:* ', { to: 'it', autoCorrect: true });
+   } else if (args[0] == 'hi'){
+        lenguajeGB = hi;
+        idioma = await translate('*Idioma de GataBot cambiado Correctamente:* ', { to: 'hi', autoCorrect: true });
+    } else if (args[0] == 'pt'){
+        lenguajeGB = pt;
+        idioma = await translate('*Idioma de GataBot cambiado Correctamente:* ', { to: 'pt', autoCorrect: true });
+    } else {
+        const idiomasDisponibles = ['es', 'en', 'id', 'ar', 'it', 'pt', 'hi'];
+        const idiomasNombres = ['Español', 'English', 'Bahasa Indonesia', 'عرب', 'Italiano', 'Indonesiano', 'Português'];
+        const idiomasTexto = idiomasDisponibles.map((lang, index) => `🌟 ${idiomasNombres[index]}: ${usedPrefix + command} ${lang}`).join('\n');
+        await m.reply(`*Seleccione el idioma para GataBot:*\n\n${idiomasTexto}`);
+        return;
+    }
 
-try {  
-if (args[0] == 'es'){
-global.lenguajeGB = es
-await conn.sendButton(m.chat, lenguajeGB['smsAvisoEG']() + idioma.text + '\n' + 'დ ```Español```', wm, null, [[`☘️ 𝗠 𝗘 𝗡 𝗨`, `${usedPrefix}menu`]], fkontak, m)
-  
-}else if (args[0] == 'en'){
-global.lenguajeGB = en
-await conn.sendButton(m.chat, lenguajeGB['smsAvisoEG']() + idioma.text + '\n' + 'დ ```English```', wm, null, [[`☘️ 𝗠 𝗘 𝗡 𝗨`, `${usedPrefix}menu`]], fkontak, m)
-  
-}else if (args[0] == 'id'){
-global.lenguajeGB = id
-await conn.sendButton(m.chat, lenguajeGB['smsAvisoEG']() + idioma.text + '\n' + 'დ ```Bahasa Indonesia```', wm, null, [[`☘️ 𝗠 𝗘 𝗡 𝗨`, `${usedPrefix}menu`]], fkontak, m)
-  
-}else if (args[0] == 'ar'){
-global.lenguajeGB = ar
-await conn.sendButton(m.chat, lenguajeGB['smsAvisoEG']() + idioma.text + '\n' + 'დ ```عرب```', wm, null, [[`☘️ 𝗠 𝗘 𝗡 𝗨`, `${usedPrefix}menu`]], fkontak, m)
+    global.lenguajeGB = lenguajeGB;
+    await m.reply(idioma.text + '\n\n*Los Comandos no cambiaran de Idioma, solo el contenido del Mensaje.*');
+};
 
-}else if (args[0] == 'it'){
-global.lenguajeGB = it
-await conn.sendButton(m.chat, lenguajeGB['smsAvisoEG']() + idioma.text + '\n' + 'დ ``Italiano```', wm, null, [[`☘️ 𝗠 𝗘 𝗡 𝗨`, `${usedPrefix}menu`]], fkontak, m)
-  
-}else if (args[0] == 'pt'){
-global.lenguajeGB = pt
-await conn.sendButton(m.chat, lenguajeGB['smsAvisoEG']() + idioma.text + '\n' + 'დ ```Português```', wm, null, [[`☘️ 𝗠 𝗘 𝗡 𝗨`, `${usedPrefix}menu`]], fkontak, m)
-}else{
-  
-const sections = [{
-title: '✨ IDIOMAS DISPONIBLES : AVAILABLE LANGUAGES ✨',
-rows: [
-{title: "🌟 Español", rowId: `${usedPrefix + command} es`},
-{title: "🌟 English", rowId: `${usedPrefix + command} en`},
-{title: "🌟 Bahasa Indonesia", rowId: `${usedPrefix + command} id`},
-{title: "🌟 عرب", rowId: `${usedPrefix + command} ar`},
-{title: "🌟 Italiano", rowId: `${usedPrefix + command} it`},
-{title: "🌟 Português", rowId: `${usedPrefix + command} pt`}]}]
+handler.command = /^(idioma|languaje|idiomas|languajes|languages|lingua)$/i;
+handler.owner = true;
 
-const listMessage = {
-text: idioma2.text + '\n\n' + idioma3.text,
-footer: `✦ Español = ${usedPrefix + command} es
-✦ English = ${usedPrefix + command} en
-✦ Bahasa Indonesia = ${usedPrefix + command} id
-✦ عرب = ${usedPrefix + command} ar
-✦ Italiano = ${usedPrefix + command} it
-✦ Português = ${usedPrefix + command} pt\n\n` + wm,
-title: `${htki} Idioma : Language 🌎`,
-buttonText: `Seleccionar : Select`,
-sections }
-await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
-}
-}catch(e){
-await m.reply(`${fg}\`\`\`NO SE LOGRÓ CAMBIAR DE IDIOMA, REPORTE ESTE COMANDO ${usedPrefix + command} CON EL COMANDO ${usedPrefix}reporte\`\`\``) 
-console.log(e) 
-}}
-
-handler.command = /^(idioma|languaje|idiomas|languajes|languages|lingua)$/i
-handler.owner = true
-
-export default handler
+export default handler;
