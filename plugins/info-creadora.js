@@ -1,5 +1,4 @@
-let { MessageType } = (await import('@adiwajshing/baileys')).default
-
+let MessageType =  (await import(global.baileys)).default
 let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
   let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
@@ -21,10 +20,7 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 //------------ BIO
 let ppown = await conn.profilePictureUrl(nomorown + '@s.whatsapp.net', 'image').catch(_ => imagen1[1]) 
 let teksbio = `𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈
-*Wa.me/51950758440*
-
-𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 *2* 💖🐈
-*wa.me/573027834626*
+*Wa.me/573136855110*
 
 𝙂𝙖𝙩𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿 💖🐈
 *wa.me/593993684821*
@@ -73,7 +69,7 @@ const listMessage = {
       const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
         switch (type) {
           case 'nombre':
-          await conn.reply(m.chat, `𝙉𝙊𝙈𝘽𝙍𝙀 𝘿𝙀𝙇 𝘽𝙊𝙏 : ${gt} 🐈`, fkontak,  m)
+          await conn.reply(m.chat, `𝙉𝙊𝙈𝘽𝙍𝙀 𝘿𝙀𝙇 𝘽𝙊𝙏 : ${gt} 🐈`, fkontak, m)
          // conn.reply(m.chat, "Nombre del bot : GataBot-MD 🐈", m, { contextInfo: { mentionedJid: [nowner] }})
             break
             case 'bio':

@@ -1,7 +1,7 @@
-import JavaScriptObfuscator from 'javascript-obfuscator'
+//import JavaScriptObfuscator from 'javascript-obfuscator'
 
 let handler = async(m, { conn, text }) => {
-if (!text) return m.reply("*Ingresa el codigo que vas a ofuscar.*")
+if (!text) return m.reply("*Ingresa el codigo que vas a ofuscar.*") 
 function obfuscateCode(code) {
   return JavaScriptObfuscator.obfuscate(code, { compact: false, controlFlowFlattening: true, deadCodeInjection: true, simplify: true, numbersToExpressions: true }).getObfuscatedCode();
 }

@@ -1,148 +1,112 @@
-// Gracias a https://github.com/BrunoSobrino
+/*import {sticker, addExif} from '../lib/sticker.js';
+import {Sticker} from 'wa-sticker-formatter';
+import fetch from 'node-fetch';
+import got from 'got';
+import cheerio from 'cheerio';
+const handler = async (m, {usedPrefix, conn, args, text, command}) => {
+  let [tipe, emoji] = text.includes('|') ? text.split('|') : args;
+  const defaultType = 'apple';
+  if (tipe && !emoji) {
+    emoji = '😎';
+    tipe = defaultType;
+  }
+  const err = `*[❗] 𝙴𝙻 𝚄𝚂𝙾 𝙲𝙾𝚁𝚁𝙴𝙲𝚃𝙾 𝙳𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙴𝚂*
+*◉ ${usedPrefix + command} <tipo> <emoji>*
 
-import { sticker } from '../lib/sticker.js'
-import MessageType from '@adiwajshing/baileys'
-import { EmojiAPI } from 'emoji-api' 
-const emoji = new EmojiAPI()
+*—◉ 𝙴𝙹𝙴𝙼𝙿𝙻𝙾:*
+*◉ ${usedPrefix + command}* fa 😎
 
-let handler = async (m, { conn, args, usedPrefix, command, isPrems }) => {
-let er = `
-${mg}𝘿𝙀𝘽𝙀 𝘿𝙀 𝙐𝙎𝘼𝙍 𝙀𝙇 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝘾𝙊𝙈𝙊 𝙀𝙉 𝙀𝙇 𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n\n𝙔𝙊𝙐 𝙈𝙐𝙎𝙏 𝙐𝙎𝙀 𝙏𝙃𝙀 𝘾𝙊𝙈𝙈𝘼𝙉𝘿 𝘼𝙎 𝙄𝙉 𝙏𝙃𝙀 𝙀𝙓𝘼𝙈𝙋𝙇𝙀
-*${usedPrefix + command} _tipo emoji_*
+*—◉ 𝚃𝙸𝙿𝙾𝚂* 
 
-⊱⊱ 𝙀𝙅𝙀𝙈𝙋𝙇𝙊 | 𝙀𝙓𝘼𝙈𝙋𝙇𝙀
-*${usedPrefix + command}* sa 😹
+*◉ wha = whatsapp* 
+*◉ ap = apple*
+*◉ fa = facebook*
+*◉ mi = microsoft*
+*◉ ht = htc*
+*◉ tw = twitter*
+*◉ go = google*
+*◉ mo = mozilla*
+*◉ op = openmoji*
+*◉ pi = pixel*
+*◉ sa = samsung*
 
-⊱⊱ 𝙏𝙄𝙋𝙊𝙎 𝘿𝙀 𝙀𝙈𝙊𝙅𝙄𝙎 | 𝙏𝙔𝙋𝙀𝙎 𝙊𝙁 𝙀𝙈𝙊𝙅𝙄𝙎
-
-*✦ wha = whatsapp* 
-*✦ sa = samsung*
-*✦ fa = facebook*
-*✦ ig = Instagram*
-*✦ go = google*
-*✦ ht = htc*
-*✦ mi = microsoft*
-*✦ mo = mozilla*
-*✦ op = openmoji*
-*✦ pi = pixel*
-*✦ ap = apple*
-*✦ tw = twitter*`
-
-if (!args[0]) throw er
-let template = (args[0] || '').toLowerCase()
-if (!args[1]) throw er
-if (/emo/i.test(command)) {
-try {
-switch (template) {
-case 'apple':
-case 'ip':
-case 'ap':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(false, emoji.images[0].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
-case 'facebook':
-case 'fb':
-case 'fa':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(false, emoji.images[6].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
-case 'google':
-case 'go':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(false, emoji.images[1].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
-case 'htc':
-case 'ht':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(false, emoji.images[12].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
-case 'lg':
-case 'ig':
-case 'instagram':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(false, emoji.images[11].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
-case 'microsoft':
-case 'mc':
-case 'mi':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(false, emoji.images[3].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
-case 'mozilla':
-case 'moz':
-case 'mo':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(false, emoji.images[13].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
-case 'openmoji':
-case 'omoji':
-case 'op':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(false, emoji.images[8].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
-case 'pixel':
-case 'pi':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(false, emoji.images[7].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
-case 'samsung':
-case 'sa':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(false, emoji.images[2].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
-case 'twitter':
-case 'tw':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(false, emoji.images[5].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
-case 'whatsapp':
-case 'wa':
-case 'wh':
-case 'wha':
-emoji.get(`${args[1]}`)
-.then(async emoji => {
-let stiker = await sticker(null, emoji.images[4].url, global.packname, global.author)
-conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-})
-break
+*—◉ 𝚂𝙾𝙻𝙾 𝚄𝚂𝙰𝚁 𝚄𝙽 𝙴𝙼𝙾𝙹𝙸 𝚈 𝚁𝙴𝚂𝙿𝙴𝚃𝙴 𝙻𝙾𝚂 𝙴𝚂𝙿𝙰𝙲𝙸𝙾𝚂*`;
+  if (!emoji) throw err;
+  if (tipe == 'mo') tipe = 'mozilla';
+  if (tipe == 'op') tipe = 'openmoji';
+  if (tipe == 'pi') tipe = 'joypixels';
+  if (tipe == 'sa') tipe = 'samsung';
+  if (tipe == 'go') tipe = 'google';
+  if (tipe == 'wha') tipe = 'whatsapp';
+  if (tipe == 'fa') tipe = 'facebook';
+  if (tipe == 'ap') tipe = 'apple';
+  if (tipe == 'mi') tipe = 'microsoft';
+  if (tipe == 'ht') tipe = 'htc';
+  if (tipe == 'tw') tipe = 'twitter';
+  try {
+    emoji = emoji.trim();
+    tipe = tipe.trim().toLowerCase();
+    const json = await semoji(emoji);
+    let chosenURL;
+    for (let i = 0; i < json.length; i++) {
+      if (json[i].nama.includes(tipe)) {
+        chosenURL = json[i].url;
+        break;
+      }
+    }
+    if (!chosenURL) {
+      chosenURL = json[0].url;
+    }
+    console.log(chosenURL);
+    const stiker = await createSticker(false, chosenURL, global.packname, global.author, 20);
+    // let stikerPI = await sticker(false, json.find(v => v.nama == tipe).url, global.packname, global.author)
+    // if (tipe == 'pi' && json || tipe == 'pixel' && json ) stiker = await conn.sendFile(m.chat, stikerPI, null, { asSticker: true }, m)
+    m.reply(stiker);
+  } catch {
+    throw `*[❗] 𝙴𝚁𝚁𝙾𝚁, 𝙸𝙽𝚃𝙴𝙽𝚃𝙰 𝙽𝚄𝙴𝚅𝙰𝙼𝙴𝙽𝚃𝙴*`;
+  }
+};
+handler.help = ['emoji <tipo> <emoji>'];
+handler.tags = ['sticker'];
+handler.command = ['emoji', 'smoji', 'semoji'];
+export default handler;
+async function semoji(hem) {
+  const result = [];
+  const data = await got(encodeURI(`https://emojipedia.org/${hem}/`), {method: 'GET', headers: {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'}});
+  const $ = cheerio.load(data.body);
+  $('body > div.container > div.content > article > section.vendor-list > ul').each(function(asu, chuwi) {
+    $(chuwi).find('li').each(function(sa, na) {
+      const res = {nama: $(na).find('div > div.vendor-info > h2 > a').text().trim().toLowerCase(), url: $(na).find('div > div.vendor-image > img').attr('src')};
+      result.push(res);
+    });
+  });
+  const data2 = [];
+  result.map((Data) => {
+    if (Data.nama == undefined) return;
+    if (Data.url == undefined) return;
+    data2.push(Data);
+  });
+  return data2;
 }
-} catch (e) {
-throw er
-}}}
-handler.help = ['emoji <tipo> <emoji>']
-handler.tags = ['sticker'] 
-handler.command = ['emoji', 'smoji', 'semoji']
-export default handler
+async function createSticker(img, url, packName, authorName, quality) {
+  const stickerMetadata = {type: 'full', pack: packName, author: authorName, quality};
+  return (new Sticker(img ? img : url, stickerMetadata)).toBuffer();
+}
+async function mp4ToWebp(file, stickerMetadata) {
+  if (stickerMetadata) {
+    if (!stickerMetadata.pack) stickerMetadata.pack = '‎';
+    if (!stickerMetadata.author) stickerMetadata.author = '‎';
+    if (!stickerMetadata.crop) stickerMetadata.crop = false;
+  } else if (!stickerMetadata) {
+    stickerMetadata = {pack: '‎', author: '‎', crop: false};
+  }
+  const getBase64 = file.toString('base64');
+  const Format = {file: `data:video/mp4;base64,${getBase64}`, processOptions: {crop: stickerMetadata?.crop, startTime: '00:00:00.0', endTime: '00:00:7.0', loop: 0,
+  }, stickerMetadata: {...stickerMetadata}, sessionInfo: {WA_VERSION: '2.2106.5', PAGE_UA: 'WhatsApp/2.2037.6 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36', WA_AUTOMATE_VERSION: '3.6.10 UPDATE AVAILABLE: 3.6.11', BROWSER_VERSION: 'HeadlessChrome/88.0.4324.190', OS: 'Windows Server 2016', START_TS: 1614310326309, NUM: '6247', LAUNCH_TIME_MS: 7934, PHONE_VERSION: '2.20.205.16'},
+  config: {sessionId: 'session', headless: true, qrTimeout: 20, authTimeout: 0, cacheEnabled: false, useChrome: true, killProcessOnBrowserClose: true, throwErrorOnTosBlock: false, chromiumArgs: ['--no-sandbox', '--disable-setuid-sandbox', '--aggressive-cache-discard', '--disable-cache', '--disable-application-cache', '--disable-offline-load-stale-cache', '--disk-cache-size=0'], executablePath: 'C:\\\\Program Files (x86)\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe', skipBrokenMethodsCheck: true, stickerServerEndpoint: true}};
+  const res = await fetch('https://sticker-api.openwa.dev/convertMp4BufferToWebpDataUrl', {method: 'post', headers: {'Accept': 'application/json, text/plain, /', 'Content-Type': 'application/json;charset=utf-8'}, body: JSON.stringify(Format)});
+  return Buffer.from((await res.text()).split(';base64,')[1], 'base64');
+}*/
+
+
+

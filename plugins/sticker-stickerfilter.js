@@ -1,6 +1,6 @@
 import uploadImage from '../lib/uploadImage.js'
 import { sticker } from '../lib/sticker.js'
-import MessageType from '@adiwajshing/baileys'
+let MessageType = (await import(global.baileys)).default
 const effects = ['greyscale', 'invert', 'brightness', 'threshold', 'sepia', 'red', 'green', 'blue', 'blurple', 'pixelate', 'blur']
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
@@ -16,7 +16,7 @@ ${mg}𝘿𝙀𝘽𝙀 𝘿𝙀 𝙐𝙎𝘼𝙍 𝙀𝙇 𝘾𝙊𝙈𝘼𝙉�
 *${usedPrefix + command} blue*
 
 𝙀𝙁𝙀𝘾𝙏𝙊𝙎 𝘿𝙄𝙎𝙋𝙊𝙉𝙄𝘽𝙇𝙀𝙎
-𝘼𝙑𝘼𝙄𝙇𝘼𝘽𝙇𝙀 𝙀𝙁𝙁𝙀𝘾𝙏𝙎
+𝘼𝙑𝘼𝙄𝙇𝘼𝘽𝙇𝙀 𝙀𝙁𝙁𝙀𝘾𝙏𝙎 
 ${effects.map(effect => `_» ${effect}_`).join('\n')}
 `.trim()
 let q = m.quoted ? m.quoted : m

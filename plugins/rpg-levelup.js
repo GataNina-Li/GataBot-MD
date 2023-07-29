@@ -114,7 +114,8 @@ let user = global.db.data.users[m.sender]
 `.trim()
         try {
             const img = await levelup(teks, user.level)
-            conn.sendFile(m.chat, img, 'levelup.jpg', str, m)
+            conn.sendMessage(m.chat, {image: {url: img}, caption: str, mentions: conn.parseMention(str)}, {quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+            //conn.sendFile(m.chat, img, 'levelup.jpg', str, m)
         } catch (e) {
             m.reply(str)
       }

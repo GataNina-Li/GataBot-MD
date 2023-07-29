@@ -1,5 +1,6 @@
-import MessageType from '@adiwajshing/baileys'
-let handler = async (m, { conn, usedPrefix, command }) => {
+//import MessageType from '@adiwajshing/baileys'
+let MessageType =  (await import(global.baileys)).default
+let handler = async (m, { conn, usedPrefix, command }) => { 
 const fkontak = {
 	"key": {
     "participants":"0@s.whatsapp.net",

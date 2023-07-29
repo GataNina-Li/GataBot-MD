@@ -1,5 +1,6 @@
-import { areJidsSameUser } from '@adiwajshing/baileys'
-let toM = a => '@' + a.split('@')[0]
+//import { areJidsSameUser } from '@adiwajshing/baileys'
+let areJidsSameUser = (await import(global.baileys)).default
+let toM = a => '@' + a.split('@')[0] 
 let handler = async (m, { conn, usedPrefix, command, text, participants, groupMetadata}) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
