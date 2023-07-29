@@ -50,6 +50,7 @@ global.lenguajeGB = es //Idioma de GataBot, Ejemplo: es | en | pt...
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
+global.shizokeys = 'shizo'
 global.openai_key = 'sk-...OzYy'
 /* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */
 
