@@ -64,6 +64,7 @@ global.keysneoxrrr = ['5VC9rvNx', 'cfALv5']
 global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = 'GataDios'
 global.itsrose = ['4b146102c4d500809da9d1ff']
+global.baileys = '@whiskeysockets/baileys'
 
 global.APIs = { 
   xteam: 'https://api.xteam.xyz',
@@ -213,17 +214,17 @@ global.imagen13 = fs.readFileSync('./media/menus/img12.jpg')
 
 //━━━━━━━━━━━━━━ img ━━━━━━━━━
 
-global.img = 'https://i.imgur.com/IXlUwTW.jpg'
-global.img2 = 'https://i.imgur.com/EXTbyyn.jpg'
+global.img = 'https://tinyurl.com/2dgppss3.jpg'
+global.img2 = 'https://tinyurl.com/27jqx2e6.jpg'
 
-global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem
-global.img4 = 'https://i.imgur.com/i0pccuo.jpg' //prem
+global.img3 = 'https://tinyurl.com/23jcbhue.jpg' //prem
+global.img4 = 'https://tinyurl.com/23z2xqqv.jpg' //prem
 
-global.img5 = 'https://i.imgur.com/iL1snRx.jpeg'
-global.img6 = 'https://i.imgur.com/cYFgSKv.jpeg'
-global.img7 = 'https://i.imgur.com/JqL3h2V.jpeg'
-global.img8 = 'https://i.imgur.com/PCujt1s.jpeg'
-global.img9 = 'https://i.imgur.com/xfUEdDb.jpeg'
+global.img5 = 'https://tinyurl.com/29nok9ba.jpeg'
+global.img6 = 'https://tinyurl.com/227vqnqn.jpeg'
+global.img7 = 'https://tinyurl.com/233rvq4c.jpeg'
+global.img8 = 'https://tinyurl.com/2annkxr3.jpeg'
+global.img9 = 'https://tinyurl.com/226lfwn7.jpeg'
 
 global.img10 = 'https://i.imgur.com/DvHoMc3.jpg'
 global.img11 = 'https://i.imgur.com/5Q1MqGD.jpg'
