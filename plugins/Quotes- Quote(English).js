@@ -6,8 +6,8 @@ let handler = async (m, { conn }) => {
   let sizo = `${json.result}`
   conn.sendMessage(m.chat, { text: sizo, mentions: [m.sender] }, { quoted: m })
 }
-handler.help = ['flirt']
-handler.tags = ['fun']
-handler.command = /^(flirt)$/i
+handler.help = ['quote', 'thought']
+handler.tags = ['fun', 'education']
+handler.command = /^(quote|quotes|thought)$/i
 
 export default handler
