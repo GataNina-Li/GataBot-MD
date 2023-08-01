@@ -1,4 +1,5 @@
-let handler = async (m, { conn, participants, groupMetadata, args, usedPrefix, command }) => {
+let handler = async (m, { conn, participants, groupMetadata, args, usedPrefix, text, command }) => {
+  if (!text) return m.reply(`${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙐𝙉 𝙏𝙀𝙓𝙏𝙊 𝙋𝙊𝙍 𝘾𝙐𝘼𝙇 𝙌𝙐𝙄𝙀𝙍𝙀 𝙎𝙊𝙇𝙄𝘾𝙄𝙏𝘼 𝙇𝘼 𝙋𝙍𝙀𝙎𝙀𝙉𝘾𝙄𝘼 𝘿𝙀𝙇 𝙇𝙊𝙎 𝘼𝘿𝙈𝙄𝙉𝙎`)
 const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || './src/admins.jpg'
 const groupAdmins = participants.filter(p => p.admin)
 const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
