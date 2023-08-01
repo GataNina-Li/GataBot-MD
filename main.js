@@ -165,55 +165,59 @@ function clearTmp() {
 }
 
 function purgeSession() {
-  let prekey = [];
-  const directorio = readdirSync('./GataBotSession');
-  const filesFolderPreKeys = directorio.filter((file) => {
-    return file.startsWith('pre-key-');
-  });
-  prekey = [...prekey, ...filesFolderPreKeys];
-  filesFolderPreKeys.forEach((files) => {
-    unlinkSync(`./GataBotSession/${files}`);
-  });
-}
+let prekey = []
+let directorio = readdirSync("./GataBotSession")
+let filesFolderPreKeys = directorio.filter(file => {
+return file.startsWith('pre-key-') || file.startsWith('session-') || file.startsWith('sender-') || file.startsWith('app-')
+})
+prekey = [...prekey, ...filesFolderPreKeys]
+filesFolderPreKeys.forEach(files => {
+unlinkSync(`./GataBotSession/${files}`)
+})
+} 
+
 function purgeSessionSB() {
-  const listaDirectorios = readdirSync('./GataJadiBot/');
- //console.log(listaDirectorios) Nombra las carpetas o archivos
-  let SBprekey = [];
-  listaDirectorios.forEach((filesInDir) => {
-    const directorio = readdirSync(`./GataJadiBot/${filesInDir}`);
-    // console.log(directorio)
-    const DSBPreKeys = directorio.filter((fileInDir) => {
-      return fileInDir.startsWith('pre-key-');
-    });
-    SBprekey = [...SBprekey, ...DSBPreKeys];
-    DSBPreKeys.forEach((fileInDir) => {
-      unlinkSync(`./GataJadiBot/${filesInDir}/${fileInDir}`);
-    });
-  });
+try {
+let listaDirectorios = readdirSync('./GataJadiBot/');
+//console.log(listaDirectorios) Nombra las carpetas o archivos
+let SBprekey = []
+listaDirectorios.forEach(directorio => {
+if (statSync(`./GataJadiBot/${directorio}`).isDirectory()) {
+let DSBPreKeys = readdirSync(`./GataJadiBot/${directorio}`).filter(fileInDir => {
+return fileInDir.startsWith('pre-key-') || fileInDir.startsWith('app-') || fileInDir.startsWith('session-')
+})
+SBprekey = [...SBprekey, ...DSBPreKeys]
+DSBPreKeys.forEach(fileInDir => {
+unlinkSync(`./GataJadiBot/${directorio}/${fileInDir}`)
+})
 }
+})
+if (SBprekey.length === 0) {
+console.log(chalk.bold.green(lenguajeGB.smspurgeSessionSB1()))
+} else {
+console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSessionSB2()))
+}} catch (err){
+console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err))
+}}
 
 function purgeOldFiles() {
-  const directories = ['./GataBotSession/', './GataJadiBot/'];
-  const oneHourAgo = Date.now() - (60 * 60 * 1000);
-  directories.forEach((dir) => {
-    readdirSync(dir, (err, files) => {
-      if (err) throw err;
-      files.forEach((file) => {
-        const filePath = path.join(dir, file);
-        stat(filePath, (err, stats) => {
-          if (err) throw err;
-          if (stats.isFile() && stats.mtimeMs < oneHourAgo && file !== 'creds.json') {
-            unlinkSync(filePath, (err) => {
-              if (err) throw err;
-              console.log(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lenguajeGB.smspurgeOldFiles2()}`)
-            });
-          } else {
-            console.log(`${lenguajeGB.smspurgeOldFiles3()} ${file} ${lenguajeGB.smspurgeOldFiles4()}` + err)
-          }
-        });
-      });
-    });
-  });
+const directories = ['./GataBotSession/', './GataJadiBot/']
+const oneHourAgo = Date.now() - (1000 * 60 * 30) //30 min 
+directories.forEach(dir => {
+readdirSync(dir, (err, files) => {
+if (err) throw err
+files.forEach(file => {
+const filePath = path.join(dir, file)
+stat(filePath, (err, stats) => {
+if (err) throw err;
+if (stats.isFile() && stats.mtimeMs < oneHourAgo && file !== 'creds.json') { 
+unlinkSync(filePath, err => {  
+if (err) throw err
+console.log(chalk.bold.green(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lenguajeGB.smspurgeOldFiles2()}`))
+})
+} else {  
+console.log(chalk.bold.red(`${lenguajeGB.smspurgeOldFiles3()} ${file} ${lenguajeGB.smspurgeOldFiles4()}` + err))
+} }) }) }) })
 }
 
 async function connectionUpdate(update) {
