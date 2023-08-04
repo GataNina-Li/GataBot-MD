@@ -2,7 +2,7 @@
 import { createHash } from 'crypto'
 let nombre = 0, edad = 0, genero = 0, bio = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, registrando
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0  
- 
+
 let handler = async function (m, { conn, text, command, usedPrefix }) {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }	
 let d = new Date(new Date + 3600000)
