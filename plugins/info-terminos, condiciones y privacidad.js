@@ -123,7 +123,7 @@ _- Al hacer uso de ciertos comandos que tengan como objetivo socavar la incomodi
 *https://paypal.me/OficialGD*
 
 *~ Muchas Gracias Por tomarte el tiempo en informate sobre GataBot*` 
-await conn.sendFile(m.chat, pp, 'gata.mp4', terminos)
+await conn.sendFile(m.chat, pp, 'gata.mp4', Terminos)
 /*.trim()
 conn.sendHydrated(m.chat, Terminos,  `${wm}\nEstamos de acuerdo en Hacer Colaboraciones con Personas Comprometidas, manteniendo el Respeto Puedes Contactar si ese es el caso a esta Cuenta Oficial | https://www.instagram.com/gata_dios`, pp, 'https://github.com/GataNina-Li/GataBot-MD', '饾檪饾櫀饾櫓饾櫀饾樈饾櫎饾櫓-饾檲饾樋', null, null, [
 ['饾檲饾櫄饾櫍饾櫔虂 饾櫂饾櫎饾櫌饾櫏饾櫋饾櫄饾櫓饾櫎 | 饾檨饾櫔饾櫋饾櫋 饾檲饾櫄饾櫍饾櫔 馃挮', '.allmenu'],
