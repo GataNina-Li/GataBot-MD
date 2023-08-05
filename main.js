@@ -236,8 +236,46 @@ async function connectionUpdate(update) {
    console.log(chalk.bold.yellow(lenguajeGB['smsConexion']()))}
   if (connection == 'close') {
    console.log(chalk.bold.yellow(lenguajeGB['smsConexionOFF']()))}
+   try {
+//Leer la base de datos
+await db.read();
+const chats = db.data.chats;
+let successfulBans = 0;
+for (const [key, value] of Object.entries(chats)) {
+if (value.isBanned === false) {
+value.isBanned = true;
+//console.log('Baneando chat:', key);
+successfulBans++;
+}}
+await db.write();
+if (successfulBans === 0) {
+throw new Error();
+} else {
+//console.log(`SE BANEARON ${successfulBans} CHATS CORRECTAMENTE`);
 }
-
+} catch (e) {
+console.log(`Error: ${e.message}`)} 
+const currentDateTime = new Date();
+// await waitTwoMinutes()         
+try {
+await db.read();
+const chats = db.data.chats;
+let successfulUnbans = 0;
+for (const [key, value] of Object.entries(chats)) {
+if (value.isBanned === true) {
+value.isBanned = false;
+//console.log('Desbaneando chat:', key);
+successfulUnbans++;
+}}
+await db.write();
+if (successfulUnbans === 0) {
+throw new Error();
+} else {
+console.log(`SE DESBANEARON ${successfulUnbans} CHAT CORRECTAMENTE 😺`);
+}
+} catch (e) {
+console.log(`Error: ${e.message}`)}}
+       
 process.on('uncaughtException', console.error);
 // conn.ev.on('messages.update', console.log);
 
@@ -288,19 +326,11 @@ conn.sRevoke = lenguajeGB['smsSrevoke']()
   conn.credsUpdate = saveCreds.bind(global.conn, true);
 
   const currentDateTime = new Date();
-const messageDateTime = new Date(conn.ev * 1000);
-if (currentDateTime.getTime() - messageDateTime.getTime() <= 300000) {
-//  console.log('Leyendo mensaje entrante:', conn.ev);
-  Object.keys(conn.chats).forEach(jid => {
-    conn.chats[jid].isBanned = false;
-    conn.chats[jid].isWelcome = false;
-  });
-} else {
-// console.log(conn.chats, `Omitiendo mensajes en espera.`, conn.ev); 
- Object.keys(conn.chats).forEach(jid => {
-  conn.chats[jid].isBanned = true;
-  conn.chats[jid].isWelcomd = true;
-  });
+  const messageDateTime = new Date(conn.ev);
+  if (currentDateTime >= messageDateTime) {
+    const chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map((v) => v[0]);
+  } else {
+    const chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map((v) => v[0]);
   }
 
   conn.ev.on('messages.upsert', conn.handler);
