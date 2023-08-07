@@ -1945,7 +1945,7 @@ def shell():
             '%(latency)s ms' % results.server, quiet)
 
     if args.download:
-        printer('🚀 Prueba de velocidad de descarga\n\n'🚀 Testing download speed\n', quiet,
+        printer('🚀 Prueba de velocidad de descarga\n\n🚀 Testing download speed\n', quiet,
                 end=('', '\n')[bool(debug)])
         speedtest.download(
             callback=callback,
@@ -1966,7 +1966,7 @@ def shell():
             pre_allocate=args.pre_allocate,
             threads=(None, 1)[args.single]
         )
-        printer('Upload: %0.2f M%s/s' %
+        printer('Subida | Upload: %0.2f M%s/s' %
                 ((results.upload / 1000.0 / 1000.0) / args.units[1],
                  args.units[0]),
                 quiet)
