@@ -1880,7 +1880,7 @@ def shell():
     else:
         callback = print_dots(shutdown_event)
 
-    printer('*• PING | SPEEDTEST.NET*\n\n', quiet)
+    printer('*• SPEEDTEST.NET*\n\n', quiet)
     try:
         speedtest = Speedtest(
             source_address=args.source,
@@ -1934,7 +1934,7 @@ def shell():
         if args.server and len(args.server) == 1:
             printer('Recuperación de información para el servidor seleccionado.\nRetrieving information for the selected server...', quiet)
         else:
-            printer('\n............................................\n🟢 Seleccionar el mejor servidor basado en ping\n🟢 Selecting best server based on ping...', quiet)
+            printer('....................................................\n🟢 Seleccionar el mejor servidor basado en ping\n🟢 Selecting best server based on ping...\n', quiet)
         speedtest.get_best_server()
     elif args.mini:
         speedtest.get_best_server(speedtest.set_mini_server(args.mini))
