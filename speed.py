@@ -46,7 +46,7 @@ class FakeShutdownEvent(object):
 
     @staticmethod
     def isSet():
-        "Dummy method to always return false"""
+        "Método ficticio para devolver siempre falso | Dummy method to always return false"""
         return False
 
     is_set = isSet
@@ -1932,9 +1932,9 @@ def shell():
             )
 
         if args.server and len(args.server) == 1:
-            printer('Retrieving information for the selected server...', quiet)
+            printer('Recuperación de información para el servidor seleccionado.\n\nRetrieving information for the selected server...', quiet)
         else:
-            printer('Selecting best server based on ping...', quiet)
+            printer('🟢 Seleccionar el mejor servidor basado en ping\n\n🟢 Selecting best server based on ping...', quiet)
         speedtest.get_best_server()
     elif args.mini:
         speedtest.get_best_server(speedtest.set_mini_server(args.mini))
@@ -1945,21 +1945,21 @@ def shell():
             '%(latency)s ms' % results.server, quiet)
 
     if args.download:
-        printer('Testing download speed\n', quiet,
+        printer('🚀 Prueba de velocidad de descarga\n\n'🚀 Testing download speed\n', quiet,
                 end=('', '\n')[bool(debug)])
         speedtest.download(
             callback=callback,
             threads=(None, 1)[args.single]
         )
-        printer('Download: %0.2f M%s/s' %
+        printer('Descargas | Download: %0.2f M%s/s' %
                 ((results.download / 1000.0 / 1000.0) / args.units[1],
                  args.units[0]),
                 quiet)
     else:
-        printer('Skipping download test', quiet)
+        printer('Prueba de descarga de omitir | Skipping download test', quiet)
 
     if args.upload:
-        printer('Testing upload speed\n', quiet,
+        printer('INICIANDO TEST 💫 | TESTING UPLOAD SPEED 💫\n', quiet,
                 end=('', '\n')[bool(debug)])
         speedtest.upload(
             callback=callback,
@@ -1979,7 +1979,7 @@ def shell():
         results.share()
 
     if args.simple:
-        printer('Ping: %s ms\nDownload: %0.2f M%s/s\nUpload: %0.2f M%s/s' %
+        printer('🟢 Ping: %s ms\nDescarga | Download: %0.2f M%s/s\nSubida | Upload: %0.2f M%s/s' %
                 (results.ping,
                  (results.download / 1000.0 / 1000.0) / args.units[1],
                  args.units[0],
