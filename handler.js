@@ -955,10 +955,10 @@ let chatgptUser = global.chatgpt.data.users[m.sender];
                 if (!('delete' in chat))
                     chat.delete = true                    
                 if (!('modohorny' in chat)) chat.modohorny = false                    
-                if (!('stickers' in chat)) chat.stickers = true                    
+                if (!('stickers' in chat)) chat.stickers = false                   
                 if (!('autosticker' in chat)) chat.autosticker = false                      
                 if (!('audios' in chat)) chat.audios = true                     
-		if (!('antiver' in chat)) chat.antiver = true                    
+		if (!('antiver' in chat)) chat.antiver = false                  
                 if (!('antiLink' in chat)) chat.antiLink = false                    
                 if (!('antiLink2' in chat)) chat.antiLink2 = false
 		if (!('antiTiktok' in chat)) chat.antiTiktok = false
@@ -988,10 +988,10 @@ let chatgptUser = global.chatgpt.data.users[m.sender];
                     sDemote: '', 
                     delete: true,
                     modohorny: true,
-                    stickers: true,
+                    stickers: false,
                     autosticker: false,
                     audios: true,
-		    antiver: true,
+		    antiver: false,
                     antiLink: false,
                     antiLink2: false,
 		    antiTiktok: false,
