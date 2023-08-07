@@ -1880,7 +1880,7 @@ def shell():
     else:
         callback = print_dots(shutdown_event)
 
-    printer('*• SPEEDTEST.NET*\n\n', quiet)
+    printer('*• PING | SPEEDTEST.NET*\n\n', quiet)
     try:
         speedtest = Speedtest(
             source_address=args.source,
@@ -1888,14 +1888,14 @@ def shell():
             secure=args.secure
         )
     except (ConfigRetrievalError,) + HTTP_ERRORS:
-        printer('Cannot retrieve speedtest configuration', error=True)
+        printer('No se puede recuperar la configuración de Speedtest | Cannot retrieve speedtest configuration', error=True)
         raise SpeedtestCLIError(get_exception())
 
     if args.list:
         try:
             speedtest.get_servers()
         except (ServersRetrievalError,) + HTTP_ERRORS:
-            printer('Cannot retrieve speedtest server list', error=True)
+            printer('No se puede recuperar la lista de servidores Speedtest | Cannot retrieve speedtest server list', error=True)
             raise SpeedtestCLIError(get_exception())
 
         for _, servers in sorted(speedtest.servers.items()):
@@ -1910,20 +1910,20 @@ def shell():
                         raise
         sys.exit(0)
 
-    printer('Testing from %(isp)s (%(ip)s)...' % speedtest.config['client'],
+    printer('Pruebas de | Testing from %(isp)s (%(ip)s)...' % speedtest.config['client'],
             quiet)
 
     if not args.mini:
-        printer('Retrieving speedtest.net server list...', quiet)
+        printer('Recuperación de la lista de servidores Speedtest.net. | Retrieving speedtest.net server list...', quiet)
         try:
             speedtest.get_servers(servers=args.server, exclude=args.exclude)
         except NoMatchedServers:
             raise SpeedtestCLIError(
-                'No matched servers: %s' %
+                'Sin servidores coincidentes: | No matched servers: %s' %
                 ', '.join('%s' % s for s in args.server)
             )
         except (ServersRetrievalError,) + HTTP_ERRORS:
-            printer('Cannot retrieve speedtest server list', error=True)
+            printer('No se puede recuperar la lista de servidores Speedtest | Cannot retrieve speedtest server list', error=True)
             raise SpeedtestCLIError(get_exception())
         except InvalidServerIDType:
             raise SpeedtestCLIError(
@@ -1932,20 +1932,20 @@ def shell():
             )
 
         if args.server and len(args.server) == 1:
-            printer('Recuperación de información para el servidor seleccionado.\n\nRetrieving information for the selected server...', quiet)
+            printer('Recuperación de información para el servidor seleccionado.\nRetrieving information for the selected server...', quiet)
         else:
-            printer('🟢 Seleccionar el mejor servidor basado en ping\n\n🟢 Selecting best server based on ping...', quiet)
+            printer('\n............................................\n🟢 Seleccionar el mejor servidor basado en ping\n🟢 Selecting best server based on ping...', quiet)
         speedtest.get_best_server()
     elif args.mini:
         speedtest.get_best_server(speedtest.set_mini_server(args.mini))
 
     results = speedtest.results
 
-    printer('Hosted by %(sponsor)s (%(name)s) [%(d)0.2f km]: '
+    printer('Alojado | Hosted by %(sponsor)s (%(name)s) [%(d)0.2f km]: '
             '%(latency)s ms' % results.server, quiet)
 
     if args.download:
-        printer('🚀 Prueba de velocidad de descarga\n\n🚀 Testing download speed\n', quiet,
+        printer('\n🚀 Prueba de velocidad de descarga\n🚀 Testing download speed\n', quiet,
                 end=('', '\n')[bool(debug)])
         speedtest.download(
             callback=callback,
@@ -1959,7 +1959,7 @@ def shell():
         printer('Prueba de descarga de omitir | Skipping download test', quiet)
 
     if args.upload:
-        printer('INICIANDO TEST 💫 | TESTING UPLOAD SPEED 💫\n', quiet,
+        printer('Prueba de velocidad de carga 💫 | testing upload speed 💫\n', quiet,
                 end=('', '\n')[bool(debug)])
         speedtest.upload(
             callback=callback,
@@ -1971,9 +1971,9 @@ def shell():
                  args.units[0]),
                 quiet)
     else:
-        printer('Skipping upload test', quiet)
+        printer('Probación de carga de omisión | Skipping upload test', quiet)
 
-    printer('Results:\n%r' % results.dict(), debug=True)
+    printer('Resultado | Results:\n%r' % results.dict(), debug=True)
 
     if not args.simple and args.share:
         results.share()
@@ -1991,7 +1991,7 @@ def shell():
         printer(results.json())
 
     if args.share and not machine_format:
-        printer('Share results: %s' % results.share())
+        printer('Compartir resultados | Share results: %s' % results.share())
 
 
 def main():
