@@ -9,9 +9,9 @@ if (!args || !args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}�
 try {
 const yt_play = await search(args.join(' '))
 let additionalText = ''
-if (command === 'play3' || command == 'playdoc') {
+if (command === 'play3' || command == 'playaudiodoc') {
 additionalText = '𝘼𝙐𝘿𝙄𝙊'
-} else if (command === 'play4' || command == 'playdoc2') {
+} else if (command === 'play4' || command == 'playvideodoc') {
 additionalText = '𝙑𝙄𝘿𝙀𝙊'
 }
 const texto1 = `𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
@@ -48,7 +48,7 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })
-if (command == 'play3' || command == 'playdoc') {
+if (command == 'play3' || command == 'playaudiodoc') {
 try {
 const q = '128kbps';
 const v = yt_play[0].url;
@@ -100,7 +100,7 @@ renderLargerThumbnail: true
 //conn.sendMessage(m.chat, {document: {url: ress.url}, caption: `${wm}`, fileName: __res[0].title + '.mp3', mimetype: 'audio/mp4'}, {quoted: m});
 } catch {
 }}}}
-if (command == 'play4' || command == 'playdoc2') {
+if (command == 'play4' || command == 'playvideodoc') {
 try {
 const qu = '360';
 const q = qu + 'p';
@@ -140,7 +140,7 @@ handler.limit = 0
 }}
 handler.help = ['play3', 'play4'].map((v) => v + ' < busqueda >');
 handler.tags = ['downloader'];
-handler.command = /^(playdoc|playdoc2|play3|play4)$/i;
+handler.command = /^(playaudiodoc|playdoc|playdoc2|play3|play4|playvideodoc)$/i;
 handler.limit = 3
 export default handler;
 
