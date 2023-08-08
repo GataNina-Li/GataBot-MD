@@ -67,7 +67,7 @@ await conn.sendFile(m.chat, videoig, 'error.mp4', txt1, m)
 } catch { 
 console.log('Error en el intento 4, sin resultados')  
 conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()} 𝙀𝙍𝙍𝙊𝙍 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝙑𝙐𝙀𝙇𝙑𝘼 𝘼 𝙄𝙉𝙏𝙀𝙉𝙏𝘼`, edit: key});
-//throw `${lenguajeGB['smsAvisoFG']()} 𝙀𝙍𝙍𝙊𝙍 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝙑𝙐𝙀𝙇𝙑𝘼 𝘼 𝙄𝙉𝙏𝙀𝙉𝙏𝘼`
+handler.limit = 0
 }}}}}}
 handler.help = ['instagram <link ig>']
 handler.tags = ['downloader']
