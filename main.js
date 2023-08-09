@@ -49,15 +49,14 @@ global.prefix = new RegExp('^[' + (opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆
 
 global.db = new Low(/https?:\/\//.test(opts['db'] || '') ? new cloudDBAdapter(opts['db']) : new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`));
 
-global.DATABASE = global.db; // Backwards Compatibility
+global.DATABASE = global.db; 
 global.loadDatabase = async function loadDatabase() {
 if (global.db.READ) {
 return new Promise((resolve) => setInterval(async function() {
 if (!global.db.READ) {
-clearInterval(this);
+ clearInterval(this);
 resolve(global.db.data == null ? global.loadDatabase() : global.db.data);
-}
-}, 1 * 1000));
+}}, 1 * 1000));
 }
 if (global.db.data !== null) return;
 global.db.READ = true;
@@ -76,7 +75,7 @@ global.db.chain = chain(global.db.data);
 };
 loadDatabase();
 
-/*------------------------------------------------*/
+/* ------------------------------------------------*/
 
 global.chatgpt = new Low(new JSONFile(path.join(__dirname, '/db/chatgpt.json')));
 global.loadChatgptDB = async function loadChatgptDB() {
@@ -86,8 +85,7 @@ setInterval(async function() {
 if (!global.chatgpt.READ) {
 clearInterval(this);
 resolve( global.chatgpt.data === null ? global.loadChatgptDB() : global.chatgpt.data );
-}
-}, 1 * 1000));
+}}, 1 * 1000))
 }
 if (global.chatgpt.data !== null) return;
 global.chatgpt.READ = true;
@@ -119,10 +117,7 @@ return message;
 },
 getMessage: async (key) => {
 if (store) {
-//console.log(key);
-//console.log(conn.chats[key.remoteJid] && conn.chats[key.remoteJid].messages[key.id] ? conn.chats[key.remoteJid].messages[key.id].message : undefined);
 const msg = await store.loadMessage(key.remoteJid, key.id);
-//console.log(msg);
 return conn.chats[key.remoteJid] && conn.chats[key.remoteJid].messages[key.id] ? conn.chats[key.remoteJid].messages[key.id].message : undefined;
 }
 return proto.Message.fromObject({});
@@ -166,32 +161,31 @@ function purgeSession() {
 let prekey = []
 let directorio = readdirSync("./GataBotSession")
 let filesFolderPreKeys = directorio.filter(file => {
-return file.startsWith('pre-key-') || file.startsWith('session-') || file.startsWith('sender-') || file.startsWith('app-')
+return file.startsWith('pre-key-') /*|| file.startsWith('session-') || file.startsWith('sender-') || file.startsWith('app-') */
 })
 prekey = [...prekey, ...filesFolderPreKeys]
 filesFolderPreKeys.forEach(files => {
 unlinkSync(`./GataBotSession/${files}`)
-})} 
+})
+} 
 
 function purgeSessionSB() {
 try {
 let listaDirectorios = readdirSync('./GataJadiBot/');
-//console.log(listaDirectorios) Nombra las carpetas o archivos
 let SBprekey = []
 listaDirectorios.forEach(directorio => {
 if (statSync(`./GataJadiBot/${directorio}`).isDirectory()) {
 let DSBPreKeys = readdirSync(`./GataJadiBot/${directorio}`).filter(fileInDir => {
-return fileInDir.startsWith('pre-key-') || fileInDir.startsWith('app-') || fileInDir.startsWith('session-')
+return fileInDir.startsWith('pre-key-') /*|| fileInDir.startsWith('app-') || fileInDir.startsWith('session-')*/
 })
 SBprekey = [...SBprekey, ...DSBPreKeys]
 DSBPreKeys.forEach(fileInDir => {
 unlinkSync(`./GataJadiBot/${directorio}/${fileInDir}`)
-})}})
-if (SBprekey.length === 0) {
-console.log(chalk.bold.green(lenguajeGB.smspurgeSessionSB1()))
-} else {
-console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSessionSB2()))
-}} catch (err){
+})
+}
+})
+if (SBprekey.length === 0) console.log(chalk.bold.green(lenguajeGB.smspurgeSessionSB1()))
+} catch (err) {
 console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err))
 }}
 
@@ -215,13 +209,6 @@ console.log(chalk.bold.red(`${lenguajeGB.smspurgeOldFiles3()} ${file} ${lenguaje
 } }) }) }) })
 }
 
-function waitTwoMinutes() {
-return new Promise(resolve => {
-setTimeout(() => {
-resolve();
-}, 2 * 60 * 1000); 
-})}
-
 async function connectionUpdate(update) {
 const {connection, lastDisconnect, isNewLogin} = update;
 global.stopped = connection;
@@ -237,52 +224,10 @@ console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
 if (connection == 'open') {
 console.log(chalk.bold.yellow(lenguajeGB['smsConexion']()))}
 if (connection == 'close') {
-console.log(chalk.bold.yellow(lenguajeGB['smsConexionOFF']()))}
-try {
-//Leer la base de datos
-await db.read();
-const chats = db.data.chats;
-let successfulBans = 0;
-for (const [key, value] of Object.entries(chats)) {
-if (value.isBanned === false) {
-if (value.isWelcome === false) {
-value.isBanned = true;
-value.isWelcome = true;
-//console.log('Baneando chat:', key);
-successfulBans++;
-}}}
-await db.write();
-if (successfulBans === 0) {
-throw new Error();
-} else {
-//console.log(`SE BANEARON ${successfulBans} CHATS CORRECTAMENTE`);
-}
-} catch (e) {
-await waitTwoMinutes()}        
-try {
-await db.read();
-const chats = db.data.chats;
-let successfulUnbans = 0;
-for (const [key, value] of Object.entries(chats)) {
-if (value.isBanned === true) {
-if (value.isWelcome === true) {
-value.isBanned = false;
-value.isWelcome = false;
-//console.log('Desbaneando chat:', key);
-successfulUnbans++;
-}}}
-await db.write();
-if (successfulUnbans === 0) {
-throw new Error();
-} else {
-console.log(`SE DESBANEARON ${successfulUnbans} CHAT CORRECTAMENTE 😺`);
-}
-} catch (e) {
-//console.log(`Error: ${e.message}`)
+console.log(chalk.bold.yellow(lenguajeGB['smsConexionOFF']()))
 }}
-       
+
 process.on('uncaughtException', console.error);
-// conn.ev.on('messages.update', console.log);
 
 let isInit = true;
 let handler = await import('./handler.js');
@@ -294,11 +239,13 @@ if (Object.keys(Handler || {}).length) handler = Handler;
 console.error(e);
 }
 if (restatConn) {
-const oldChats = global.conn.chats
-try { global.conn.ws.close() } catch { }
-conn.ev.removeAllListeners()
-global.conn = makeWASocket(connectionOptions, { chats: oldChats })
-isInit = true
+const oldChats = global.conn.chats;
+try {
+global.conn.ws.close();
+} catch { }
+conn.ev.removeAllListeners();
+global.conn = makeWASocket(connectionOptions, {chats: oldChats});
+isInit = true;
 }
 if (!isInit) {
 conn.ev.off('messages.upsert', conn.handler);
@@ -366,23 +313,23 @@ global.reload = async (_ev, filename) => {
 if (pluginFilter(filename)) {
 const dir = global.__filename(join(pluginFolder, filename), true);
 if (filename in global.plugins) {
-if (existsSync(dir)) conn.logger.info(` updated plugin - '${filename}'`);
+if (existsSync(dir)) conn.logger.info(` PLUGINS ACTULIZADO - '${filename}'`);
 else {
-conn.logger.warn(`deleted plugin - '${filename}'`);
+conn.logger.warn(`PLUGINS ELIMINADO - '${filename}'`);
 return delete global.plugins[filename];
 }
-} else conn.logger.info(`new plugin - '${filename}'`);
+} else conn.logger.info(`NUEVO PLUGINS - '${filename}'`);
 const err = syntaxerror(readFileSync(dir), filename, {
 sourceType: 'module',
 allowAwaitOutsideFunction: true,
 });
-if (err) conn.logger.error(`syntax error while loading '${filename}'\n${format(err)}`);
+if (err) conn.logger.error(`SE DETECTO UN ERROR DE SINTAXIS | SYNTAX ERROR WHILE LOADING '${filename}'\n${format(err)}`);
 else {
 try {
 const module = (await import(`${global.__filename(dir)}?update=${Date.now()}`));
 global.plugins[filename] = module.default || module;
 } catch (e) {
-conn.logger.error(`error require plugin '${filename}\n${format(e)}'`);
+conn.logger.error(`HAY UN ERROR REQUIERE EL PLUGINS '${filename}\n${format(e)}'`);
 } finally {
 global.plugins = Object.fromEntries(Object.entries(global.plugins).sort(([a], [b]) => a.localeCompare(b)));
 }}}};
@@ -403,7 +350,8 @@ return Promise.race([
 new Promise((resolve) => {
 p.on('close', (code) => {
 resolve(code !== 127);
-})}),
+});
+}),
 new Promise((resolve) => {
 p.on('error', (_) => resolve(false));
 })]);
@@ -413,19 +361,20 @@ const s = global.support = {ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, fi
 Object.freeze(global.support);
 }
 setInterval(async () => {
-if (stopped == 'close') return
-var a = await clearTmp()        
+if (stopped === 'close' || !conn || !conn.user) return;
+const a = await clearTmp();
 console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4) 
-
 setInterval(async () => {
-await purgeSession()
+if (stopped === 'close' || !conn || !conn.user) return;
+await purgeSession();
 console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 30)
-
 setInterval(async () => {
+if (stopped === 'close' || !conn || !conn.user) return;
+await purgeSessionSB();
 await purgeSessionSB()}, 1000 * 60 * 30)
-
 setInterval(async () => {
-await purgeOldFiles()
+if (stopped === 'close' || !conn || !conn.user) return;
+await purgeOldFiles();
 console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 30)
 _quickTest()
 .then(() => conn.logger.info(chalk.bold(lenguajeGB['smsCargando']())))
