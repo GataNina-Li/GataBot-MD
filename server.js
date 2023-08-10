@@ -6,14 +6,14 @@ import {toBuffer} from 'qrcode'
 import fetch from 'node-fetch'
 
 function connect(conn, PORT) {
-  const app = global.app = express();
+  const app = global.app = express()
   console.log(app)
   const server = global.server = createServer(app)
   let _qr = 'QR invalido, probablemente ya hayas escaneado el QR.'
 
   conn.ev.on('connection.update', function appQR({qr}) {
     if (qr) _qr = qr
-  });
+  })
 
   app.use(async (req, res) => {
     res.setHeader('content-type', 'image/png')
