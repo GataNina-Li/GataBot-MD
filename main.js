@@ -313,12 +313,12 @@ global.reload = async (_ev, filename) => {
 if (pluginFilter(filename)) {
 const dir = global.__filename(join(pluginFolder, filename), true);
 if (filename in global.plugins) {
-if (existsSync(dir)) conn.logger.info(` PLUGINS ACTULIZADO - '${filename}'`);
+if (existsSync(dir)) conn.logger.info(` SE ACTULIZADO - '${filename}' CON ÉXITO`);
 else {
 conn.logger.warn(`PLUGINS ELIMINADO - '${filename}'`);
 return delete global.plugins[filename];
 }
-} else conn.logger.info(`NUEVO PLUGINS - '${filename}'`);
+} else conn.logger.info(`SE DETECTO UN NUEVO PLUGINS - '${filename}'`);
 const err = syntaxerror(readFileSync(dir), filename, {
 sourceType: 'module',
 allowAwaitOutsideFunction: true,
