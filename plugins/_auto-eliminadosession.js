@@ -22,9 +22,9 @@ await fs.unlink(path.join(sessionPath, file));
 filesDeleted++;
 }}
 if (filesDeleted === 0) {
-console.log("NO HAY NADA POR ELIMINAR")
+//console.log("NO HAY NADA POR ELIMINAR")
 } else {
-console.log(`╭» 🟢 GataBotSession 🟢\n│☁ SE ELIMINADO ${filesDeleted} ARCHIVOS DE SESSION CON ÉXITO\n╰―――――――――――――――――――✤`)
+//console.log(`╭» 🟢 GataBotSession 🟢\n│☁ SE ELIMINADO ${filesDeleted} ARCHIVOS DE SESSION CON ÉXITO\n╰―――――――――――――――――――✤`)
 }
 } catch (err) {
 console.error('Error al leer la carpeta o los archivos de sesión:', err);
