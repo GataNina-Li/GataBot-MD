@@ -1,12 +1,12 @@
-import { watchFile, unwatchFile } from 'fs' 
-import chalk from 'chalk'
-import { fileURLToPath } from 'url'
-import fs from 'fs'
-import cheerio from 'cheerio'
-import fetch from 'node-fetch'
-import axios from 'axios'
-import moment from 'moment-timezone' 
-import { en, es, id, ar, pt, fr, hi } from './lib/idiomas/total-idiomas.js' 
+import { watchFile, unwatchFile } from 'fs';
+import chalk from 'chalk';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
+import cheerio from 'cheerio';
+import fetch from 'node-fetch';
+import axios from 'axios';
+import moment from 'moment-timezone';
+import { en, es, id, ar, pt, fr, hi } from './lib/idiomas/total-idiomas.js;
  
 
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
@@ -16,14 +16,14 @@ global.owner = [
 ['593980586516', '𝙊𝙬𝙣𝙚𝙧 💖🐈', true], 
 ['5492266466080'], 
 ['593968585383'], 
-['5492266613038']]
+['5492266613038']];
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 global.mods = [] 
-global.prems = ['528451003894'] 
+global.prems = ['528451003894'];
 //key de violetics
-global.Key360 = ['964f-0c75-7afc']
+global.Key360 = ['964f-0c75-7afc'];
    
   
 //⊱ ━━━━━.⋅ IDIOMA : LENGUAJE ⋅.━━━━ ⊰ 
