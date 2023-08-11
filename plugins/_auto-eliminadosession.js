@@ -9,7 +9,7 @@ handler.all = async function (m) {
 if (/^$/i.test(m.text) ) {
 if (global.conn.user.jid !== conn.user.jid) {
 }}
-await delay(1000) // 600000 = 10 minutos
+//await delay(1000)
 const sessionPath = './GataBotSession/';
 try {
 if (!existsSync(sessionPath)) {
