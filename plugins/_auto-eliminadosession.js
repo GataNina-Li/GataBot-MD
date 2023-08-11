@@ -4,10 +4,12 @@
 import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
 import path from 'path';
 
-const handler = async (m, { conn, usedPrefix }) => {
+const  handler = m => m
+handler.all = async function (m) {
+if (/^$/i.test(m.text) ) {
 if (global.conn.user.jid !== conn.user.jid) {
-}
-await delay(60000) // 600000 = 10 minutos
+}}
+await delay(1000) // 600000 = 10 minutos
 const sessionPath = './GataBotSession/';
 try {
 if (!existsSync(sessionPath)) {
@@ -22,11 +24,11 @@ filesDeleted++;
 if (filesDeleted === 0) {
 console.log("NO HAY NADA POR ELIMINAR")
 } else {
-console.log(`🟢 SE ELIMINADO ${filesDeleted} ARCHIVOS DE SESSION CON ÉXITO`)
+console.log(`╭» 🟢 GataBotSession 🟢\n│☁ SE ELIMINADO ${filesDeleted} ARCHIVOS DE SESSION CON ÉXITO\n╰―――――――――――――――――――✤`)
 }
 } catch (err) {
 console.error('Error al leer la carpeta o los archivos de sesión:', err);
 }};
-handler.command = /^()$/i;
+//handler.command = /^()/i;
 export default handler;
 const delay = time => new Promise(res => setTimeout(res, time))
