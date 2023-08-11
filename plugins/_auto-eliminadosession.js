@@ -1,6 +1,6 @@
 /* Codigo hecho por @Fabri115 y mejorado por BrunoSobrino */
 //🟢 También mejorado por: https://github.com/elrebelde21 🤣
-//🟢 ELIMINAR AUTOMÁTICAMENTE LAS SESSIONES NO IMPORTARTE (ESTOS ESTA PRUEBA) 
+//🟢 ELIMINAR AUTOMÁTICAMENTE LAS SESSIONES NO IMPORTARTE (ESTOS ES PRUEBA) 
 import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
 import path from 'path';
 
