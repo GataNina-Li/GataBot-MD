@@ -181,7 +181,7 @@ global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.pre
 
 //⊱ ━━━━━.⋅ IMG ⋅.━━━━ ⊰
 
-global.imagen1 = fs.readFileSync("./media/menus/menu3.jpg");
+global.imagen1 = fs.readFileSync("./media/menus/Menu3.jpg");
 global.imagen2 = fs.readFileSync("./media/menus/img1.jpg");
 global.imagen3 = fs.readFileSync("./media/menus/img2.jpg");
 global.imagen4 = fs.readFileSync("./media/menus/img3.jpg");
