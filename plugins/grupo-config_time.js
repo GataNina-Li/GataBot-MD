@@ -115,12 +115,17 @@ title: null,
 buttonText: `⚙️ ${lenguajeGB.smsConfi1()} ⚙️`,
 sections }
 
-await conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
+await conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()} ${lenguajeGB['smsMalused']()} 
+${lenguajeGB['smsGrupoTime1']()}
+*${usedPrefix + command} ${lenguajeGB.lenguaje() == 'en' ? 'open' : 'abrir'} 1*
+${lenguajeGB['smsGrupoTime2']()}
+*${usedPrefix + command} ${lenguajeGB.lenguaje() == 'en' ? 'close' : 'cerrar'} 1*`, fkontak, m)
+//await conn.sendMessage(m.chat, caption, {quoted: fkontak})
 throw false
 }
 let timeoutset = 86400000 * args[1] / 24 //Una Hora 86400000
 await conn.groupSettingUpdate(m.chat, isClose).then(async _=> {
-m.reply(`${lenguajeGB['smsAvisoRG']()}${lenguajeGB['smsGrupoTime3']()} ${isClose == 'announcement' ? lenguajeGB.smsGrupoTime4() : lenguajeGB.smsGrupoTime5()} ${args[1] ? `${lenguajeGB['smsGrupoTime6']()} ${clockString(timeoutset)}*` : ''}`)
+m.reply(`${lenguajeGB['smsAvisoRG']()} *${lenguajeGB['smsGrupoTime3']()}* *${isClose == 'announcement' ? lenguajeGB.smsGrupoTime4() : lenguajeGB.smsGrupoTime5()} ${args[1] ? `${lenguajeGB['smsGrupoTime6']()} ${clockString(timeoutset)}*` : ''}`)
 })
 if (args[1]) {
 setTimeout(async () => {

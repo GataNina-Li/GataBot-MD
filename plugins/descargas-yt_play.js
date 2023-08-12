@@ -8,6 +8,11 @@ let q, v, yt, dl_url, ttl, size, lolhuman, lolh, n, n2, n3, n4, cap, qu, current
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝙊 𝙏𝙄𝙏𝙐𝙇𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} Billie Eilish - Bellyache*\n\n𝙒𝙍𝙄𝙏𝙀 𝙏𝙃𝙀 𝙉𝘼𝙈𝙀 𝙊𝙍 𝙏𝙄𝙏𝙇𝙀\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} Billie Eilish - Bellyache*`
 try {
 const yt_play = await search(args.join(" "))
+let additionalText = ''
+if (command === 'play') {
+additionalText = '𝘼𝙐𝘿𝙄𝙊 🔊'
+} else if (command === 'play2') {
+additionalText = '𝙑𝙄𝘿𝙀𝙊 🎥'}
 let captionvid = `𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
@@ -24,6 +29,8 @@ let captionvid = `𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
 ও 𝙐𝙍𝙇
 » ${yt_play[0].url}
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও 𝙀𝙉𝙑𝙄𝘼𝘿𝙊 ${additionalText}, 𝘼𝙂𝙐𝘼𝙍𝘿𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊
 
 *𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`  
 await conn.sendMessage(m.chat, {
@@ -32,7 +39,7 @@ contextInfo: {
 externalAdReply: {
 title: yt_play[0].title,
 body: packname,
-image: { url: yt_play[0].thumbnail }, 
+thumbnailUrl: yt_play[0].thumbnail, 
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
@@ -49,7 +56,7 @@ await conn.sendMessage(m.chat, { audio: { url: dl_url }, mimetype: 'audio/mpeg',
 externalAdReply: {
 title: ttl,
 body: "",
-image: { url: yt_play[0].thumbnail }, 
+thumbnailUrl: yt_play[0].thumbnail, 
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
@@ -62,7 +69,7 @@ await conn.sendMessage(m.chat, { audio: { url: dataRET.mp3[1].url }, mimetype: '
 externalAdReply: {
 title: yt_play[0].title,
 body: "",
-image: { url: yt_play[0].thumbnail }, 
+thumbnailUrl: yt_play[0].thumbnail, 
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
@@ -75,7 +82,7 @@ await conn.sendMessage(m.chat, { audio: { url: humanRET.result.audio.link }, mim
 externalAdReply: {
 title: yt_play[0].title,
 body: "",
-image: { url: yt_play[0].thumbnail }, 
+thumbnailUrl: yt_play[0].thumbnail, 
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
@@ -89,7 +96,7 @@ await conn.sendMessage(m.chat, { audio: { url: lolh.result.link}, mimetype: 'aud
 externalAdReply: {
 title: n,
 body: "",
-image: { url: yt_play[0].thumbnail }, 
+thumbnailUrl: yt_play[0].thumbnail, 
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
@@ -104,7 +111,7 @@ await conn.sendMessage(m.chat, { audio: { url: ress.url }, mimetype: 'audio/mpeg
 externalAdReply: {
 title: __res[0].title,
 body: "",
-image: { url: yt_play[0].thumbnail }, 
+thumbnailUrl: yt_play[0].thumbnail, 
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
@@ -139,8 +146,8 @@ await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimet
 } catch {
 }}}    
 }} catch {
-}
-}
+handler.limit = 0
+}}
 handler.command = ['play', 'play2']
 handler.exp = 0
 handler.limit = 1

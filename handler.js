@@ -1,4 +1,4 @@
-import { generateWAMessageFromContent } from "@adiwajshing/baileys"
+import {generateWAMessageFromContent} from '@whiskeysockets/baileys';
 import { smsg } from './lib/simple.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
@@ -10,7 +10,7 @@ import fetch from 'node-fetch'
 /**
  * @type {import('@adiwajshing/baileys')}  
  */
-const { proto } = (await import('@adiwajshing/baileys')).default
+const { proto } = (await import('@whiskeysockets/baileys')).default
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function () {
     clearTimeout(this)
@@ -955,10 +955,10 @@ let chatgptUser = global.chatgpt.data.users[m.sender];
                 if (!('delete' in chat))
                     chat.delete = true                    
                 if (!('modohorny' in chat)) chat.modohorny = false                    
-                if (!('stickers' in chat)) chat.stickers = true                    
+                if (!('stickers' in chat)) chat.stickers = false                   
                 if (!('autosticker' in chat)) chat.autosticker = false                      
                 if (!('audios' in chat)) chat.audios = true                     
-		if (!('antiver' in chat)) chat.antiver = true                    
+		if (!('antiver' in chat)) chat.antiver = false                  
                 if (!('antiLink' in chat)) chat.antiLink = false                    
                 if (!('antiLink2' in chat)) chat.antiLink2 = false
 		if (!('antiTiktok' in chat)) chat.antiTiktok = false
@@ -988,10 +988,10 @@ let chatgptUser = global.chatgpt.data.users[m.sender];
                     sDemote: '', 
                     delete: true,
                     modohorny: true,
-                    stickers: true,
+                    stickers: false,
                     autosticker: false,
                     audios: true,
-		    antiver: true,
+		    antiver: false,
                     antiLink: false,
                     antiLink2: false,
 		    antiTiktok: false,
@@ -1490,7 +1490,7 @@ export async function groupsUpdate(groupsUpdate) {
         if (!id) continue
         let chats = global.db.data.chats[id], text = ''
         if (!chats?.detect) continue
-        if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '```Description has been changed to```\n@desc').replace('@desc', groupUpdate.desc)
+       // if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '```Description has been changed to```\n@desc').replace('@desc', groupUpdate.desc)
         //if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '```Subject has been changed to```\n@subject').replace('@subject', groupUpdate.subject)
         //if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '```Icon has been changed to```').replace('@icon', groupUpdate.icon)
         if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '```Group link has been changed to```\n@revoke').replace('@revoke', groupUpdate.revoke)

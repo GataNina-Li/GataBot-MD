@@ -1,6 +1,6 @@
 import { sticker } from '../lib/sticker.js'
 import fetch from 'node-fetch'
-import MessageType from '@adiwajshing/baileys'
+let MessageType = (await import(global.baileys)).default
 let handler = async (m, { conn}) => {
 try {   
 if(m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)

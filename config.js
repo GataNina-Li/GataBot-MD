@@ -7,29 +7,15 @@ import fetch from 'node-fetch'
 import axios from 'axios'
 import moment from 'moment-timezone' 
 import { en, es, id, ar, pt, fr, hi, it } from './lib/idiomas/total-idiomas.js' 
-
-
+ 
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
 
 global.owner = [
-  ['593993684821', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈', true],  
-  ['5492266466080', '𝙊𝙬𝙣𝙚𝙧 (1) 💻', true],
-  ['59894808483', '𝘾𝙪𝙨𝙩𝙤𝙢𝙚𝙧 𝙎𝙪𝙥𝙥𝙤𝙧𝙩 🥏', true],
-  ['5218442286089', 'DIEGO-OFC | COLABO', true],
-  ['59894808483'],
-  ['584125778026'],
-  ['5492266613038'],
-  ['584121083781'],
-  ['593968585383'],
-  ['5214531173598'],
-  ['5521989092076'],
-  ['584125778026'],
-  ['4794098210'], 
-  ['50664668406'],
-  ['5217441745001'],
-  ['5214531106422'],
-  ['595986674310']
-]
+['593993684821', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈', true],
+['593980586516', '𝙊𝙬𝙣𝙚𝙧 💖🐈', true], 
+['5492266466080'], 
+['593968585383'], 
+['5492266613038']]
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
@@ -46,7 +32,7 @@ global.Key360 = ['964f-0c75-7afc']
 //  en = English         pt = Português 
 //  ar = عرب             hi = Hindi Language
 
-global.lenguajeGB = es  //Idioma de GataBot, Ejemplo: es | en | pt...
+global.lenguajeGB = es //Idioma de GataBot, Ejemplo: es | en | pt...
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
@@ -64,6 +50,7 @@ global.keysneoxrrr = ['5VC9rvNx', 'cfALv5']
 global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = 'GataDios'
 global.itsrose = ['4b146102c4d500809da9d1ff']
+global.baileys = '@whiskeysockets/baileys'
 
 global.APIs = { 
   xteam: 'https://api.xteam.xyz',
@@ -134,15 +121,16 @@ global.md = 'https://github.com/GataNina-Li/GataBot-MD'
 global.fb = 'https://www.facebook.com/groups/872989990425789/'
 
 global.nna = 'https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3' //UPDATE GATABOT
+global.nn2 = 'https://chat.whatsapp.com/I514IYZiwlGEQuoUj32DLU' //UPDATE 2
 global.nna2 = 'https://chat.whatsapp.com/IXZ0aBryB1cHjNxe0VIm76' //Help
-global.nn = 'https://chat.whatsapp.com/HixWhYHaIBsHtdVVn5GWa7' //Grupo 1
+global.nn = 'https://chat.whatsapp.com/GR5RCg9xc0j3Cvdr9spavw' //Grupo 1
 global.nnn = 'https://chat.whatsapp.com/Ldbick7NHg6KIYM08ePEmM' //Grupo 2
 global.nnnt = 'https://chat.whatsapp.com/DkSiArB76fQ2gasaXbsTpB' //Grupo 3
 global.nnntt = 'https://chat.whatsapp.com/KarvKzAKHMcJAtStYqTY5y' //Grupo 4
 global.nnnttt = 'https://chat.whatsapp.com/HpFEE22gczpHwDoRIAACC6' //Grupo 5
 global.nnnttt1 = 'https://chat.whatsapp.com/IyQcDZqfTkLG46ph8w1AHy' //Grupo 6 COL
 global.nnnttt2 = 'https://chat.whatsapp.com/EjiaKJWvzaiAmvktpScgEc' //Grupo 7 COL
-global.nnnttt3 = 'https://chat.whatsapp.com/KLpYFsitkgzJ15YQxZrBqO' //Grupo 8 COL
+global.nnnttt3 = 'https://chat.whatsapp.com/JzgB9VgPdQWIkIXiuAiecc' //Grupo 8 COL
 global.nnnttt4 = 'https://chat.whatsapp.com/J8HOf2T3QYeKu3UN9UBkT6' //Grupo 9 COL
 global.paypal = 'https://paypal.me/OficialGD'
 global.asistencia = 'Wa.me/19393844141' //Dudas? escríbeme...
@@ -212,17 +200,17 @@ global.imagen13 = fs.readFileSync('./media/menus/img12.jpg')
 
 //━━━━━━━━━━━━━━ img ━━━━━━━━━
 
-global.img = 'https://i.imgur.com/IXlUwTW.jpg'
-global.img2 = 'https://i.imgur.com/EXTbyyn.jpg'
+global.img = 'https://tinyurl.com/2dgppss3.jpg'
+global.img2 = 'https://tinyurl.com/27jqx2e6.jpg'
 
-global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem
-global.img4 = 'https://i.imgur.com/i0pccuo.jpg' //prem
+global.img3 = 'https://tinyurl.com/23jcbhue.jpg' //prem
+global.img4 = 'https://tinyurl.com/23z2xqqv.jpg' //prem
 
-global.img5 = 'https://i.imgur.com/iL1snRx.jpeg'
-global.img6 = 'https://i.imgur.com/cYFgSKv.jpeg'
-global.img7 = 'https://i.imgur.com/JqL3h2V.jpeg'
-global.img8 = 'https://i.imgur.com/PCujt1s.jpeg'
-global.img9 = 'https://i.imgur.com/xfUEdDb.jpeg'
+global.img5 = 'https://tinyurl.com/29nok9ba.jpeg'
+global.img6 = 'https://tinyurl.com/227vqnqn.jpeg'
+global.img7 = 'https://tinyurl.com/233rvq4c.jpeg'
+global.img8 = 'https://tinyurl.com/2annkxr3.jpeg'
+global.img9 = 'https://tinyurl.com/226lfwn7.jpeg'
 
 global.img10 = 'https://i.imgur.com/DvHoMc3.jpg'
 global.img11 = 'https://i.imgur.com/5Q1MqGD.jpg'

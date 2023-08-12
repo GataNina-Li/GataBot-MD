@@ -32,6 +32,7 @@ await conn.sendMessage(m.chat, { audio: fs.readFileSync(`./tmp/${randomName}`), 
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
+handler.limit = false
 }}
 handler.command = /^(spotify|music)$/i
 handler.limit = 1

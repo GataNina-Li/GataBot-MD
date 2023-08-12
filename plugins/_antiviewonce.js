@@ -1,8 +1,8 @@
-let { downloadContentFromMessage } = (await import('@adiwajshing/baileys'));
+let { downloadContentFromMessage } = (await import(global.baileys));
 
 export async function before(m, { isAdmin, isBotAdmin }) {
  
-let chat = db.data.chats[m.chat]
+let chat = db.data.chats[m.chat] 
 if (/^[.~#/\$,](read)?viewonce/.test(m.text)) return
 if (!chat.antiver || chat.isBanned) return
 if (m.mtype == 'viewOnceMessageV2') {

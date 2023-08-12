@@ -3,12 +3,10 @@ import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙀𝙇 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 𝘿𝙀 𝘼𝙇𝙂𝙐𝙄𝙀𝙉 𝘿𝙀 𝙄𝙉𝙎𝙏𝘼𝙂𝙍𝘼𝙈\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} gatadios*\n\n𝙀𝙉𝙏𝙀𝙍 𝙄𝙉𝙎𝙏𝘼𝙂𝙍𝘼𝙈 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} gata_dios*`
-await m.reply(global.wait)    
-//const {key} = await conn.sendMessage(m, {text: '_Cargado_'})
-//await conn.sendMessage(m, {text: '_Cargado . ._', edit: key})
-//await conn.sendMessage(m, {text: '_Cargado. . ._!', edit: key})
-//await conn.sendMessage(m, {text: '_Cargado. . . . ._', edit: key})
-//await conn.sendMessage(m, {text: 'Listo ✅!', edit: key})
+const {key} = await conn.sendMessage(m, {text: wait})
+await conn.sendMessage(m, {text: waitt, edit: key})
+await conn.sendMessage(m, {text: waittt, edit: key})
+await conn.sendMessage(m, {text: waitttt, edit: key})
 let res = await igstalk(args[0].replace(/^@/, ''))
 let res2 = await fetch(`https://api.lolhuman.xyz/api/stalkig/${args[0].replace(/^@/, '')}?apikey=${lolkeysapi}`)
 let res3 = await res2.json()
@@ -50,7 +48,7 @@ handler.command = /^(igstalk|verig|igver)$/i
 handler.exp = 80
 handler.money = 150
 handler.level = 3
-//handler.register = true
+handler.register = true
 export default handler
 
 async function igstalk(Username) {

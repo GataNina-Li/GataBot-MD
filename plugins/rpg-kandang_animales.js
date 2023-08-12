@@ -42,14 +42,14 @@ let handler = async (m, { conn, usedPrefix}) => {
  *${rpg.emoticon('monyet')} ➡️ ${monyet}*
  *${rpg.emoticon('Jabali')} ➡️ ${babihutan}*
  *${rpg.emoticon('babi')} ➡️ ${babi}*
- *${rpg.emoticon('ayam')} ➡️ ${ayam}*`.trim()
-await conn.sendButton(m.chat, ndy, `🔖 𝘼𝙣𝙞𝙢𝙖𝙡𝙚𝙨 𝙡𝙞𝙨𝙩𝙤𝙨 𝙥𝙖𝙧𝙖 𝘾𝙤𝙘𝙞𝙣𝙖𝙧\n𝘼𝙣𝙞𝙢𝙖𝙡𝙨 𝙧𝙚𝙖𝙙𝙮 𝙩𝙤 𝙘𝙤𝙤𝙠\n${wm}`, null, [['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu'], [`🎒 𝙄𝙣𝙫𝙚𝙣𝙩𝙖𝙧𝙞𝙤 | 𝙄𝙣𝙫𝙚𝙣𝙩𝙤𝙧𝙮`, `.inventario`]], fkontak, m)
-
+ *${rpg.emoticon('ayam')} ➡️ ${ayam}*\n\n🔖 𝘼𝙣𝙞𝙢𝙖𝙡𝙚𝙨 𝙡𝙞𝙨𝙩𝙤𝙨 𝙥𝙖𝙧𝙖 𝘾𝙤𝙘𝙞𝙣𝙖𝙧\n𝘼𝙣𝙞𝙢𝙖𝙡𝙨 𝙧𝙚𝙖𝙙𝙮 𝙩𝙤 𝙘𝙤𝙤𝙠\n${wm}`.trim()
+ await conn.reply(m.chat, ndy, fkontak)
+//await conn.sendButton(m.chat, ndy, `🔖 𝘼𝙣𝙞𝙢𝙖𝙡𝙚𝙨 𝙡𝙞𝙨𝙩𝙤𝙨 𝙥𝙖𝙧𝙖 𝘾𝙤𝙘𝙞𝙣𝙖𝙧\n𝘼𝙣𝙞𝙢𝙖𝙡𝙨 𝙧𝙚𝙖𝙙𝙮 𝙩𝙤 𝙘𝙤𝙤𝙠\n${wm}`, null, [['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu'], [`🎒 𝙄𝙣𝙫𝙚𝙣𝙩𝙖𝙧𝙞𝙤 | 𝙄𝙣𝙫𝙚𝙣𝙩𝙤𝙧𝙮`, `.inventario`]], fkontak, m)
 }
 handler.help = ['kandang']
 handler.tags = ['rpg']
 handler.command = /^(kandang|animales|animals)$/i
-
+handler.register = true
 export default handler
 
 const more = String.fromCharCode(8206)

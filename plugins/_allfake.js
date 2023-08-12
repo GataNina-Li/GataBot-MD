@@ -1,9 +1,10 @@
 //ESTOS DISEÑOS PARA MENSAJES SON COMPATIBLES CON GATABOT, SIN EMBARGO ALGUNOS NO SE VEN EN LA VERSIÓN DE WHATSAPP WEB
 //PERO EN EL CELULAR SI SE NOTA TODOS, PUEDES USAR EL QUE QUIERAS 😼
-import { generateWAMessageFromContent } from "@adiwajshing/baileys"
+//import { generateWAMessageFromContent } from "@adiwajshing/baileys"
+let generateWAMessageFromContent = (await import(global.baileys)).default
 import fs from 'fs'
 import fetch from 'node-fetch'
-import moment from 'moment-timezone'
+import moment from 'moment-timezone' 
 
 let handler = async (m, { conn, args }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender

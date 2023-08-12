@@ -1,5 +1,5 @@
 import { sticker } from '../lib/sticker.js'
-import MessageType from '@adiwajshing/baileys'
+let MessageType = (await import(global.baileys)).default
 import fetch from 'node-fetch'
 import fs from "fs"
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {

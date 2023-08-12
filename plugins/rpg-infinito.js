@@ -1,5 +1,5 @@
 //let { MessageType } = require('@adiwajshing/baileys')
-import MessageType from '@adiwajshing/baileys'
+let { MessageType } = (await import(global.baileys)).default
 //SOLO USA SI ERES EL/LA PROPIETARIO(A) DEL BOT PARA TENER TODO ILIMITADO O USA EL COMANDO PREMIUM Jajaj
 let handler = async (m, { conn }) => {
     let user = global.db.data.users[m.sender]
