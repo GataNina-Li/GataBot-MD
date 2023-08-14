@@ -15,6 +15,7 @@ import {tmpdir} from 'os';
 import {format} from 'util';
 import P from 'pino';
 import pino from 'pino';
+import {Boom} from '@hapi/boom';
 import {makeWASocket, protoType, serialize} from './lib/simple.js';
 import {Low, JSONFile} from 'lowdb';
 import {mongoDB, mongoDBV2} from './lib/mongoDB.js';
@@ -223,8 +224,7 @@ if (update.qr != 0 && update.qr != undefined) {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
 if (connection == 'open') {
 console.log(chalk.bold.yellow(lenguajeGB['smsConexion']()))}
-const reason = (lastDisconnect?.error)?.output?.statusCode;
-//let reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
+let reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
 if (connection === 'close') {
  if (reason === DisconnectReason.badSession) {
 conn.logger.error(chalk.bold.yellow(lenguajeGB['smsConexion']()));
