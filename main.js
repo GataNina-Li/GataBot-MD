@@ -54,7 +54,7 @@ global.loadDatabase = async function loadDatabase() {
 if (global.db.READ) {
 return new Promise((resolve) => setInterval(async function() {
 if (!global.db.READ) {
- clearInterval(this);
+clearInterval(this);
 resolve(global.db.data == null ? global.loadDatabase() : global.db.data);
 }}, 1 * 1000));
 }
@@ -85,7 +85,7 @@ setInterval(async function() {
 if (!global.chatgpt.READ) {
 clearInterval(this);
 resolve( global.chatgpt.data === null ? global.loadChatgptDB() : global.chatgpt.data );
-}}, 1 * 1000))
+}}, 1 * 1000));
 }
 if (global.chatgpt.data !== null) return;
 global.chatgpt.READ = true;
@@ -174,7 +174,7 @@ try {
 let listaDirectorios = readdirSync('./GataJadiBot/');
 let SBprekey = []
 listaDirectorios.forEach(directorio => {
-if (statSync(`./GataJadiBot/${directorio}`).isDirectory()) {
+if (statSync(`./jadibts/${directorio}`).isDirectory()) {
 let DSBPreKeys = readdirSync(`./GataJadiBot/${directorio}`).filter(fileInDir => {
 return fileInDir.startsWith('pre-key-') /*|| fileInDir.startsWith('app-') || fileInDir.startsWith('session-')*/
 })
@@ -184,9 +184,9 @@ unlinkSync(`./GataJadiBot/${directorio}/${fileInDir}`)
 })
 }
 })
-if (SBprekey.length === 0) console.log(chalk.bold.green(lenguajeGB.smspurgeSessionSB1()))
+if (SBprekey.length === 0) console.log(chalk.bold.green(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lenguajeGB.smspurgeOldFiles2()}`))
 } catch (err) {
-console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err))
+console.log(chalk.bold.red(`${lenguajeGB.smspurgeOldFiles3()} ${file} ${lenguajeGB.smspurgeOldFiles4()}` + err))
 }}
 
 function purgeOldFiles() {
@@ -215,7 +215,7 @@ global.stopped = connection;
 if (isNewLogin) conn.isInit = true;
 const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode;
 if (code && code !== DisconnectReason.loggedOut && conn?.ws.socket == null) {
-console.log(await global.reloadHandler(true).catch(console.error));
+ console.log(await global.reloadHandler(true).catch(console.error));
 global.timestamp.connect = new Date;
 }
 if (global.db.data == null) loadDatabase();
@@ -223,9 +223,43 @@ if (update.qr != 0 && update.qr != undefined) {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
 if (connection == 'open') {
 console.log(chalk.bold.yellow(lenguajeGB['smsConexion']()))}
-if (connection == 'close') {
-console.log(chalk.bold.yellow(lenguajeGB['smsConexionOFF']()))
-}}
+const reason = (lastDisconnect?.error)?.output?.statusCode;
+//let reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
+if (connection === 'close') {
+ if (reason === DisconnectReason.badSession) {
+conn.logger.error(chalk.bold.yellow(lenguajeGB['smsConexion']()));
+//await connectionUpdate();
+//process.exit();
+} else if (reason === DisconnectReason.connectionClosed) {
+conn.logger.warn(lenguajeGB['smsConexioncerrar']());
+//await connectionUpdate();
+//process.exit();
+} else if (reason === DisconnectReason.connectionLost) {
+conn.logger.warn(lenguajeGB['smsConexionperdida']());
+//await connectionUpdate();
+//process.exit();
+} else if (reason === DisconnectReason.connectionReplaced) {
+conn.logger.error(lenguajeGB['smsConexionreem']());
+//await connectionUpdate();
+//process.exit();
+} else if (reason === DisconnectReason.loggedOut) {
+conn.logger.error(chalk.bold.yellow(lenguajeGB['smsConexionOFF']()));
+//await connectionUpdate();
+//process.exit();
+} else if (reason === DisconnectReason.restartRequired) {
+conn.logger.info(lenguajeGB['smsConexionreinicio']());
+//await connectionUpdate(); 
+//process.exit();
+//process.send('reset');
+} else if (reason === DisconnectReason.timedOut) {
+conn.logger.warn(lenguajeGB['smsConexiontiem']());
+//await connectionUpdate();
+//process.exit();
+} else {
+conn.logger.warn(lenguajeGB['smsConexiondescon']());
+//await connectionUpdate();
+//process.exit();
+}}}
 
 process.on('uncaughtException', console.error);
 
@@ -315,10 +349,10 @@ const dir = global.__filename(join(pluginFolder, filename), true);
 if (filename in global.plugins) {
 if (existsSync(dir)) conn.logger.info(` SE ACTULIZADO - '${filename}' CON ÉXITO`);
 else {
-conn.logger.warn(`PLUGINS ELIMINADO - '${filename}'`);
+conn.logger.warn(`SE ELIMINO UN ARCHIVO : '${filename}'`);
 return delete global.plugins[filename];
 }
-} else conn.logger.info(`SE DETECTO UN NUEVO PLUGINS - '${filename}'`);
+} else conn.logger.info(`SE DETECTO UN NUEVO PLUGINS : '${filename}'`);
 const err = syntaxerror(readFileSync(dir), filename, {
 sourceType: 'module',
 allowAwaitOutsideFunction: true,
@@ -363,7 +397,7 @@ Object.freeze(global.support);
 setInterval(async () => {
 if (stopped === 'close' || !conn || !conn.user) return;
 const a = await clearTmp();
-console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4) 
+console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4)
 setInterval(async () => {
 if (stopped === 'close' || !conn || !conn.user) return;
 await purgeSession();
