@@ -229,38 +229,29 @@ if (connection == 'open') {
 console.log(chalk.bold.yellow(lenguajeGB['smsConexion']()))}
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
 if (connection === 'close') {
- if (reason === DisconnectReason.badSession) {
+if (reason === DisconnectReason.badSession) {
 conn.logger.error(chalk.bold.yellow(lenguajeGB['smsConexion']()));
-//await connectionUpdate();
-//process.exit();
+ //process.exit();
 } else if (reason === DisconnectReason.connectionClosed) {
 conn.logger.warn(lenguajeGB['smsConexioncerrar']());
-//await connectionUpdate();
-//process.exit();
+process.send('reset');
 } else if (reason === DisconnectReason.connectionLost) {
 conn.logger.warn(lenguajeGB['smsConexionperdida']());
-//await connectionUpdate();
-//process.exit();
+process.send('reset');
 } else if (reason === DisconnectReason.connectionReplaced) {
 conn.logger.error(lenguajeGB['smsConexionreem']());
-//await connectionUpdate();
 //process.exit();
 } else if (reason === DisconnectReason.loggedOut) {
-conn.logger.error(chalk.bold.yellow(lenguajeGB['smsConexionOFF']()));
-//await connectionUpdate();
+conn.logger.error(chalk.bold.yellow(lenguajeGB['smsConexion']()));
 //process.exit();
 } else if (reason === DisconnectReason.restartRequired) {
 conn.logger.info(lenguajeGB['smsConexionreinicio']());
-//await connectionUpdate(); 
-//process.exit();
 //process.send('reset');
 } else if (reason === DisconnectReason.timedOut) {
 conn.logger.warn(lenguajeGB['smsConexiontiem']());
-//await connectionUpdate();
-//process.exit();
+process.send('reset');
 } else {
 conn.logger.warn(lenguajeGB['smsConexiondescon']());
-//await connectionUpdate();
 //process.exit();
 }}}
 
