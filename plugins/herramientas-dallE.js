@@ -1,13 +1,32 @@
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-if (!text) throw `*[❗] 𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙐𝙉 𝙏𝙀𝙓𝙏𝙊 𝙋𝘼𝙍𝘼 𝘾𝙍𝙀𝘼𝙍 𝙐𝙉𝘼 𝙄𝙈𝘼𝙂𝙀𝙉 𝙔 𝘼𝙎𝙄 𝙐𝙎𝘼𝙍 𝙇𝘼 𝙁𝙐𝙉𝘾𝙄𝙊𝙉 𝘿𝙀 𝘿𝘼𝙇𝙇-𝙀*\n\n*❏ 𝙀𝙅𝙀𝙈𝙋𝙇𝙊 𝘿𝙀 𝙋𝙀𝙏𝙄𝘾𝙄𝙊𝙉𝙀𝙎*\n*❏ ${usedPrefix + command} gatitos llorando*\n*❏ ${usedPrefix + command} gata besos*`
-try {
-m.reply('*[❗] 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊 𝙀𝙉 𝙇𝙊 𝙌𝙐𝙀 𝙈𝘼𝙉𝘿𝙊 𝙇𝙊 𝙌𝙐𝙀 𝙈𝙀 𝙋𝙄𝘿𝙄𝙊*')
-let tiores = await conn.getFile(`https://api.lolhuman.xyz/api/dall-e?apikey=${lolkeysapi}&text=${text}`)
-await conn.sendFile(m.chat, tiores.data, null, null, m)
-} catch {
-throw `*[❗] 𝙀𝙍𝙍𝙊𝙍, 𝙑𝙐𝙀𝙇𝙑𝘼 𝘼 𝙄𝙉𝙏𝙀𝙉𝙏𝘼*`
-}
-}
-handler.command = ['dall-e', 'dalle', 'ia2', 'cimg', 'openai2']
-handler.level = 1
-export default handler
+import fetch from 'node-fetch';
+const handler = async (m, {conn, text, usedPrefix, command}) => {
+  if (!text) throw `*[❗] INGRESE UN TEXTO PARA CREAR UNA IMAGEN Y ASI USAR LA FUNCIÓN DE DALLE-E*\n\n*—◉ EJEMPLOS DE PETICIONES*\n*◉ ${usedPrefix + command} gatitos llorando*\n*◉ ${usedPrefix + command} hatsune miku beso*`;
+    await conn.sendMessage(m.chat, {text: '*[❗] REALIZANDO IMAGEN, AGUARDE UN MOMENTO.*'}, {quoted: m});
+  try {
+    const tiores1 = await fetch(`https://vihangayt.me/tools/imagine?q=${text}`);
+    const json1 = await tiores1.json();
+    await conn.sendMessage(m.chat, {image: {url: json1.data}}, {quoted: m});
+  } catch {  
+      console.log('[❗] ERROR EN LA API NÚMERO 1 DE DALL-E.');  
+  try {
+    const tiores2 = await conn.getFile(`https://vihangayt.me/tools/midjourney?q=${text}`);
+    await conn.sendMessage(m.chat, {image: {url: tiores2.data}}, {quoted: m});
+  } catch {
+      console.log('[❗] ERROR EN LA API NÚMERO 2 DE DALL-E.');
+  try {
+    const tiores3 = await fetch(`https://vihangayt.me/tools/lexicaart?q=${text}`);
+    const json3 = await tiores3.json();
+    await conn.sendMessage(m.chat, {image: {url: json3.data[0].images[0].url}}, {quoted: m});
+  } catch {
+      console.log('[❗] ERROR EN LA API NÚMERO 3 DE DALL-E.');
+  try {
+    const tiores4 = await conn.getFile(`https://api.lolhuman.xyz/api/dall-e?apikey=${lolkeysapi}&text=${text}`);
+    await conn.sendMessage(m.chat, {image: {url: tiores4.data}}, {quoted: m});
+  } catch {
+    console.log('[❗] ERROR, NINGUNA API FUNCIONA.');
+    throw `*[❗] ERROR, NO SE OBTUVIERON RESULTADOS.*`;
+  }}
+ }}
+};
+handler.command = ['dall-e', 'dalle', 'ia2', 'cimg', 'openai3', 'a-img', 'aimg', 'imagine'];
+export default handler;
