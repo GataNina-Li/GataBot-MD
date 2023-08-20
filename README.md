@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-<img src="https://imgur.com/a/UHbZiZt" alt="Alcabot-MD" width="900"/>
+<img src="https://imgur.com/a/UHbZiZt" alt="Alcabot-MD" width="90"/>
 </p>
 
 <p align="center">
