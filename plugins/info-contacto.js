@@ -5,7 +5,6 @@ import fetch from 'node-fetch'
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 try{
 let contact, number, ofc, nombre, description, correo, lugar, enlace, biog
-let contact, number, ofc, nombre, description, correo, lugar, enlace, biog
 let biografiaBot = await conn.fetchStatus(conn.user.jid.split('@')[0] + '@s.whatsapp.net').catch(_ => 'undefined')
 let bioBot = biografiaBot.status?.toString() || `${desc2 == '' ? lenguajeGB.smsContacto1() : desc2}`
 let contacts = global.official.filter(c => c[2] === 1)
