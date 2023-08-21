@@ -2,11 +2,11 @@ let handler = m => m
 handler.all = async function (m) {
 let setting = global.db.data.settings[this.user.jid]
 	
-let _uptime = process.uptime() * 1000
+let _uptime = process.uptime() * 60000
 let _muptime
 if (process.send) { process.send('uptime')
 _muptime = await new Promise(resolve => { process.once('message', resolve) 
-setTimeout(resolve, 300000) }) * 1000}
+setTimeout(resolve, 60000) }) * 60000}
 
 let uptime = clockString(_uptime)
 let bio = `${global.packname} ║ ✅ ${uptime} ⌛ ║ ⒼⒷ 𓃠 #estado #menu #jadibot #grupos #owner 💻`
