@@ -12,11 +12,11 @@ const handler = async (m, {conn, usedPrefix}) => {
   const res = await fetchJson(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/tebaklagu.json`);
   const json = res[Math.floor(Math.random() * res.length)];
   const caption = `
-ADIVINA EL TITULO DE LA CANCION
-Tiempo ${(timeout / 1000).toFixed(2)} segundos
-Escribe *${usedPrefix}pista* Para obtener una pista
-Premio: ${poin} XP
-RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim();
+╭[ADIVINA EL TITULO DE LA CANCION]━⬣
+┃⎔ Tiempo ➺ ${(timeout / 1000).toFixed(2)} segundos ⏰
+┃⎔ Escribe *${usedPrefix}pista* Para obtener una pista 😸
+┃⎔ Premio: ${poin} XP⚡
+╰RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!━⬣!`.trim();
   conn.tebaklagu[id] = [
     await m.reply(caption),
     json, poin,
