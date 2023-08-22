@@ -5,7 +5,8 @@ if (!args[0]) return conn.reply(m.chat, '*Porfavor ingresa un url de la página 
 let krt = await ssweb(args)
 //let url = /https?:\/\//.test(args[0]) ? args[0] : 'https://' + args[0]
 //let ss = await (await fetch(global.API('nrtm', '/api/ssweb', { delay: 1000, url, full }))).buffer()
-conn.sendFile(m.chat, krt, 'error.png', m)
+//conn.sendFile(m.chat, krt, 'error.png', m)
+conn.sendMessage(m.chat, {image:krt.result, caption: `Resultados`}, {quoted:m})
 }
 handler.help = ['ss', 'ssf'].map(v => v + ' <url>')
 handler.tags = ['internet']
