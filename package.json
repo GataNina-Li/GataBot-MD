@@ -40,6 +40,7 @@
 "aptoide-scraper": "^1.0.1",
 "awesome-phonenumber": "^2.68.0",
 "axios": "^1.1.3",
+"mathjs": "^11.3.0",
 "body-parser": "^1.20.2",
 "cfonts": "^2.10.0",
 "chalk": "^5.0.0",
