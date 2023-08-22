@@ -109,7 +109,7 @@ let user = global.db.data.users[m.sender]
 ┃ *FECHA:* *${new Date().toLocaleString('id-ID')}*
 ╰━━━〔 *𓃠 ${vs}* 〕━━━━━⬣
 
-*_Cuanto más interactúes con GataBot-MD, mayor será tu nivel!!_*
+*_Cuanto más interactúes con KatashiBot-MD, mayor será tu nivel!!_*
 *_Actualiza tú rango con el comando ${usedPrefix}rol!!_*
 `.trim()
         try {
