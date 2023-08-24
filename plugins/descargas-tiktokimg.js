@@ -12,7 +12,7 @@ anu = anu.result
 if (anu.length == 0) throw Error('Error : no data')
 let c = 0
 for (let x of anu) {
-if (c == 0) await conn.sendMessage(m.chat, { image: { url: x }, caption: `✅ Se ha enviado 1 de ${anu.length} imágenes. ✅\nEl resto podrá ser visible en el chat privado del bot 😸_\n(Para evitar el spam)` }, { quoted : m })
+if (c == 0) await conn.sendMessage(m.chat, { image: { url: x }, caption: `✅ *Se ha enviado 1 de ${anu.length} imágenes.* ✅\n_El resto podrá ser visible en el chat privado del bot_ 😸` }, { quoted : m })
 else await conn.sendMessage(m.sender, { image: { url: x } }, { quoted : m })
 c += 1
 }
