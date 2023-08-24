@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 let handler = async(m, { conn, text, usedPrefix, command }) => {
-if (!text) throw `*⚠️ INGRESE UN ENLACE DE TIKTOK QUE CONTENGA IMAGENES.* 😿`
+if (!text) throw `*⚠️ INGRESE UN ENLACE DE TIKTOK QUE CONTENGA IMÁGENES.* 😿`
 if (!(text.includes('http://') || text.includes('https://'))) return m.reply(`url invalid, please input a valid url. Try with add http:// or https://`)
 if (!text.includes('tiktok.com')) return m.reply(`*⚠️ URL INVALIDA.*`)
 try {
