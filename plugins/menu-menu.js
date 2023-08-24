@@ -257,6 +257,7 @@ ${readMore}
 ┃🚀➺ _${usedPrefix}verig | igstalk *usuario(a)*_
 ┃🚀➺ _${usedPrefix}ighistoria | igstory *usuario(a)*_
 ┃🚀➺ _${usedPrefix}tiktok *link*_
+┃🚀➺ _${usedPrefix}tiktokimagen | ttimagen *link*_
 ┃🚀➺ _${usedPrefix}tiktokfoto | tiktokphoto *usuario(a)*_
 ┃🚀➺ _${usedPrefix}vertiktok | tiktokstalk *usuario(a)*_
 ┃🚀➺ _${usedPrefix}mediafire | dlmediafire *link*_
