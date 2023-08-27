@@ -1211,24 +1211,21 @@ if (m.text && user.banned && !isROwner) {
   return;
 }
     
-if (botSpam.antispam && m.text && user && user.lastCommandTime && (Date.now() - user.lastCommandTime) < 5000 && !isROwner) {
-  if (user.commandCount === 5) {
-    const remainingTime = Math.ceil((user.lastCommandTime + 5000 - Date.now()) / 1000)
-    if (remainingTime > 0) {
-      const messageText = `*𝙀𝙎𝙋𝙀𝙍𝘼 ${remainingTime} 𝙎𝙀𝙂𝙐𝙉𝘿𝙊 𝘼𝙉𝙏𝙀𝙎 𝘿𝙀 𝙐𝙎𝘼𝙍 𝙊𝙏𝙍𝙊 𝘾𝙊𝙈𝘼𝙉𝘿𝙊*`
-      m.reply(messageText)
-      return
-    } else {
-      user.commandCount = 0
-    }
-  } else {
-    user.commandCount += 1
-  }
+if (botSpam.antispam2 && m.text && user && user.lastCommandTime && (Date.now() - user.lastCommandTime) < 5000 && !isROwner) {
+if (user.commandCount === 2) {
+const remainingTime = Math.ceil((user.lastCommandTime + 5000 - Date.now()) / 1000);
+if (remainingTime > 0) {
+const messageText = `𝙀𝙎𝙋𝙀𝙍𝘼 ${remainingTime} 𝙎𝙀𝙂𝙐𝙉𝘿𝙊 𝘼𝙉𝙏𝙀𝙎 𝘿𝙀 𝙐𝙎𝘼𝙍 𝙊𝙏𝙍𝙊 𝘾𝙊𝙈𝘼𝙉𝘿𝙊`;
+ m.reply(messageText);
+return;
 } else {
-  user.lastCommandTime = Date.now()
-  user.commandCount = 1
- }
-}
+user.commandCount = 0;
+}} else {
+user.commandCount += 1;
+}} else {
+user.lastCommandTime = Date.now();
+user.commandCount = 1;
+}}
 
                 let hl = _prefix 
                 let adminMode = global.db.data.chats[m.chat].modoadmin
