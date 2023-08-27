@@ -1020,7 +1020,8 @@ let chatgptUser = global.chatgpt.data.users[m.sender];
 		if (!('temporal' in settings)) settings.temporal = true
                 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 		if (!('antiCall' in settings)) settings.antiCall = true
-		if (!('antiSpam' in settings)) settings.antiSpam = true
+		if (!('antiSpam' in settings)) settings.antiSpam = true 
+		if (!('antispam2' in settings)) settings.antispam2 = true
 		if (!('jadibotmd' in settings)) settings.jadibotmd = true  
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
@@ -1031,6 +1032,7 @@ let chatgptUser = global.chatgpt.data.users[m.sender];
 		antiPrivate: false,
 		antiCall: true,
 		antiSpam: true,
+		antispam2: true, 
 		jadibotmd: true,
             }
         } catch (e) {
