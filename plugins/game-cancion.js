@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import axios from 'axios';
-const timeout = 60000;
+const timeout = 30000;
 const poin = 1000;
 const handler = async (m, {conn, usedPrefix}) => {
   conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {};
