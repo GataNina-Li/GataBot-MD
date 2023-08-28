@@ -37,16 +37,6 @@ let hasill22_result = await translate(`${hasill22.result}`, { to: 'es', autoCorr
 m.reply(`${hasill22_result.text}`.trim())         
 } catch {
 try {  
-const searchString2 = " Indonesia "
-const replacementString2 = ' español '
-let rres = await fetch(`https://api.ibeng.tech/api/others/chatgpt?q=Hola&apikey=eMlBNRzUXv`)
-let jjson = await rres.json()
-let hahaha = await translate(`${jjson.data}`, { to: 'es', autoCorrect: true })
-let sextS = hahaha.text
-let replacedText = sextS.replace(searchString2, replacementString2).trim()
-m.reply(replacedText)
-} catch {    
-try {   
 let akuariapi2 = await fetch(`https://api.akuari.my.id/ai/gpt?chat=${text}`)
 let akuariapijson2 = await akuariapi2.json()
 if (akuariapijson2.respon == 'error' || akuariapijson2.respon == '' || !akuariapijson2.respon) return XD //causar error undefined para lanzar msg de error
@@ -61,6 +51,6 @@ if (fgjson1.result == 'error' || fgjson1.result == '' || !fgjson1.result) return
 let fgjson1_result = await translate(`${fgjson1.result}`, { to: 'es', autoCorrect: true })  
 m.reply(fgjson1_result.text.trim())    
 } catch {    
-}}}}}}}}
+}}}}}}}
 handler.command = ['openai', 'chatgpt', 'ia', 'robot']
 export default handler
