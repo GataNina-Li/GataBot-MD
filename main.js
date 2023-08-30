@@ -246,7 +246,7 @@ conn.logger.error(chalk.bold.yellow(lenguajeGB['smsConexion']()));
 //process.exit();
 } else if (reason === DisconnectReason.restartRequired) {
 conn.logger.info(lenguajeGB['smsConexionreinicio']());
-//process.send('reset');
+process.send('reset');
 } else if (reason === DisconnectReason.timedOut) {
 conn.logger.warn(lenguajeGB['smsConexiontiem']());
 process.send('reset');
