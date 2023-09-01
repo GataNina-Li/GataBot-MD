@@ -1187,7 +1187,7 @@ user.bannedMessageCount = 0;
 }
 if (user.bannedMessageCount < 3) {
 const messageNumber = user.bannedMessageCount + 1;
-const messageText = `❰ ⚠️ ❱ *𝙀𝙎𝙏𝘼𝙎 𝘽𝘼𝙉𝙀𝘼𝘿𝙊/𝘼* ❰ ⚠️ ❱\nAviso (${messageNumber}/3)${user.bannedReason ? `\n*Motivo:* ${user.bannedReason}` : '*Motivo:* Sin especificar (spam)'}
+const messageText = `❰ ⚠️ ❱ *𝙀𝙎𝙏𝘼𝙎 𝘽𝘼𝙉𝙀𝘼𝘿𝙊/𝘼* ❰ ⚠️ ❱\nAviso (${messageNumber}/3) ${user.bannedReason ? `\n*Motivo:* ${user.bannedReason}` : '*Motivo:* Sin especificar (spam)'}
 *👉 Puedes contactar a la propietaria del Bot si crees que se trata de un error (TENER PRUEBAS) para tratar el motivo de tú desbaneo*
 
 👉 ${global.asistencia}
