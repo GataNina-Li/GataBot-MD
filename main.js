@@ -175,7 +175,7 @@ try {
 let listaDirectorios = readdirSync('./GataJadiBot/');
 let SBprekey = []
 listaDirectorios.forEach(directorio => {
-if (statSync(`./jadibts/${directorio}`).isDirectory()) {
+if (statSync(`./GataJadiBot/${directorio}`).isDirectory()) {
 let DSBPreKeys = readdirSync(`./GataJadiBot/${directorio}`).filter(fileInDir => {
 return fileInDir.startsWith('pre-key-') /*|| fileInDir.startsWith('app-') || fileInDir.startsWith('session-')*/
 })
