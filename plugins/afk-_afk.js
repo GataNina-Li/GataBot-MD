@@ -1,4 +1,4 @@
-let handler = m => m
+let handler = m => m 
 handler.before = async function (m, { text, args, usedPrefix, command, conn } ) {
 let user = global.db.data.users[m.sender]
 if (user.afk > -1) {
