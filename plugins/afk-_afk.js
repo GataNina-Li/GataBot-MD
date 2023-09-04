@@ -1,10 +1,13 @@
-export function before(m) {
+//export function before(m) {
+let handler = m => m
+handler.before = async function (m, { text, args, usedPrefix, command, conn } ) {
 let user = global.db.data.users[m.sender]
 if (user.afk > -1) {
-m.reply(`
-${lenguajeGB['smsAfkM1']()}${user.afkReason ? ` ${lenguajeGB['smsAfkM2']()} ` + user.afkReason : ''}
-  
-${lenguajeGB['smsAfkM3']()} *${(new Date - user.afk).toTimeString()}*`.trim())
+await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}✴️ *A F K* ✴️
+*▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔*
+*@${m.sender.split("@")[0]}* ${lenguajeGB['smsAfkM1']()}${user.afkReason ? ` ${lenguajeGB['smsAfkM2']()} ` + user.afkReason : ''}
+
+${lenguajeGB['smsAfkM3']()} *${(new Date - user.afk).toTimeString()}*`.trim(), m, { mentions: [m.sender] })
 user.afk = -1
 user.afkReason = ''
 }
@@ -24,3 +27,4 @@ ${lenguajeGB['smsAfkM3']()} *${(new Date - afkTime).toTimeString()}*
 }
 return true
 }
+export default handler
