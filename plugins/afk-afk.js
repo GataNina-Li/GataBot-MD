@@ -12,7 +12,7 @@ user.afk = + new Date
 user.afkReason = text
 await conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}✴️ *A F K* ✴️
 *▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔*
-${lenguajeGB['smsAfkM1A']()} @${m.sender.split("@")[0]} ${lenguajeGB['smsAfkM1B']()}${text ? '\n👉 ' + text : ''}`, m, { mentions: [m.sender] })
+${lenguajeGB['smsAfkM1A']()} *@${m.sender.split("@")[0]}* ${lenguajeGB['smsAfkM1B']()}${text ? '\n👉 ' + text : ''}`, m, { mentions: [m.sender] })
 }
 
 handler.command = /^afk$/i
