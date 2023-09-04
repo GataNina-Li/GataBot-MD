@@ -1,4 +1,4 @@
-let handler = async (m, { text, usedPrefix, command, args }) => {
+let handler = async (m, { text, args, usedPrefix, command, conn}) => {
 let user = global.db.data.users[m.sender]
   
 if (args.length >= 1) {
