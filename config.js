@@ -13,12 +13,12 @@ import { en, es, id, ar, pt, fr, hi } from "./lib/idiomas/total-idiomas.js";
 global.owner = [
 ["51934721687", '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-BenjaBot 💖🐈', true],
 ["51934721687", '𝙊𝙬𝙣𝙚𝙧 💖🐈', true], 
-["5492266466080"], 
-["593968585383"], 
-["5492266613038"],
-["595975740803"], 
-["51906662557"],
-["5217294888993"]]
+["51934721687"], 
+["51934721687"], 
+["51934721687"],
+["51934721687"], 
+["51934721687"],
+["51934721687"]]
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
@@ -51,7 +51,7 @@ global.keysxteammm = ["29d4b59a4aa687ca", "5LTV57azwaid7dXfz5fzJu", "cb15ed422c7
 global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())];
 global.keysneoxrrr = ["5VC9rvNx", "cfALv5"];
 global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())];
-global.lolkeysapi = "GataDios";
+global.lolkeysapi = "BenjaBot";
 global.itsrose = ["4b146102c4d500809da9d1ff"];
 global.baileys = "@whiskeysockets/baileys";
 
@@ -101,7 +101,7 @@ global.official = [ // Agregate si eres Owner
 ["51934721687", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
 ["51934721687", '𝗖𝘂𝘀𝘁𝗼𝗺𝗲𝗿 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
 ["51934721687", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
-["5491173694367", 'Prueba', 1]];
+["51934721687", 'Prueba', 1]];
 
 global.mail = ''; //agrega tú correo
 global.desc = ''; //agrega una descripción corta
@@ -116,34 +116,9 @@ global.author = "Benja Bot";
 global.vs = "1.4.9";
 global.vsJB = "2.0";
 
-global.gt = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩- BenjaBot";
-global.yt = "https://youtube.com/@gatadios";
-global.yt2 = "https://www.youtube.com/watch?v=Ko019wvu2Tc&t=71s";
-global.ig = "https://www.instagram.com/gata_dios";
-global.md = "https://github.com/GataNina-Li/GataBot-MD";
-global.fb = "https://www.facebook.com/groups/872989990425789/";
-
-global.nna = 'https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3' //UPDATE GATABOT
-global.nn2 = 'https://chat.whatsapp.com/I514IYZiwlGEQuoUj32DLU' //UPDATE 2
-global.nna2 = 'https://chat.whatsapp.com/IXZ0aBryB1cHjNxe0VIm76' //Help
-global.nn = 'https://chat.whatsapp.com/GR5RCg9xc0j3Cvdr9spavw' //Grupo 1
-global.nnn = 'https://chat.whatsapp.com/KyFCCERSthIK2ubFyNdowG' //Grupo 2
-global.nnnt = 'https://chat.whatsapp.com/DkSiArB76fQ2gasaXbsTpB' //Grupo 3
-global.nnntt = 'https://chat.whatsapp.com/KarvKzAKHMcJAtStYqTY5y' //Grupo 4
-global.nnnttt = 'https://chat.whatsapp.com/HpFEE22gczpHwDoRIAACC6' //Grupo 5
-global.nnnttt1 = 'https://chat.whatsapp.com/IyQcDZqfTkLG46ph8w1AHy' //Grupo 6 COL
-global.nnnttt2 = 'https://chat.whatsapp.com/EjiaKJWvzaiAmvktpScgEc' //Grupo 7 COL
-global.nnnttt3 = 'https://chat.whatsapp.com/JzgB9VgPdQWIkIXiuAiecc' //Grupo 8 COL
-global.nnnttt4 = 'https://chat.whatsapp.com/J8HOf2T3QYeKu3UN9UBkT6' //Grupo 9 COL
-global.paypal = 'https://paypal.me/OficialGD'
-global.asistencia = 'Wa.me/50660400020' //Dudas? escríbeme...
-
-//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
-
-
 //⊱ ━━━━━━━━━━━━━.⋅ Datos ⋅.━━━━━━━━━━━━━━ ⊰
 
-global.rg = '╰⊱✅⊱ *𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊 | 𝙍𝙀𝙎𝙐𝙇𝙏* ⊱✅⊱╮\n\n';
+global.rg = '╰⊱✅⊱ *ResultadoBenja | RESULTBOT* ⊱✅⊱╮\n\n';
 global.resultado = rg;
 
 global.ag = '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n';
@@ -161,7 +136,7 @@ global.mal = mg;
 global.eeg = '╰⊱📩⊱ *𝙍𝙀𝙋𝙊𝙍𝙏𝙀 | 𝙍𝙀𝙋𝙊𝙍𝙏* ⊱📩⊱╮\n\n';
 global.envio = eeg;
 
-global.eg = '╰⊱💚⊱ *𝙀́𝙓𝙄𝙏𝙊 | 𝙎𝙐𝘾𝘾𝙀𝙎𝙎* ⊱💚⊱╮\n\n';
+global.eg = '╰⊱💚⊱ *𝙀́𝙓𝙄𝙏𝙊BENJA | 𝙎𝙐𝘾𝘾𝙀𝙎𝙎* ⊱💚⊱╮\n\n';
 global.exito = eg;
 
 //𝙀𝙅𝙀𝙈𝙋𝙇𝙊 | 𝙀𝙓𝘼𝙈𝙋𝙇𝙀
@@ -170,73 +145,14 @@ global.exito = eg;
 
 //⊱ ━━━━━.⋅ Información | Information ⋅.━━━━ ⊰
 
-global.wm = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 : 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨";
-global.igfg = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿";
+global.wm = "BenjaBot : Benja Dios";
+global.igfg = "BenjaBot";
 global.wait = "*⌛ _Cargando | Charging..._ ▬▭▭▭▭▭▭*";
 global.waitt = "*⌛ _Cargando | Charging..._ ▬▬▭▭▭*";
 global.waittt = "*⌛ _Cargando | Charging..._ ▬▬▬▬▭▭*";
 global.waitttt = "*⌛ _Cargando | Charging..._ ▬▬▬▬▬▬▭*";
 global.nomorown = "593993684821";
 global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"];
-
-//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
-
-
-//⊱ ━━━━━.⋅ IMG ⋅.━━━━ ⊰
-
-global.imagen1 = fs.readFileSync("./media/menus/Menu3.jpg");
-global.imagen2 = fs.readFileSync("./media/menus/img1.jpg");
-global.imagen3 = fs.readFileSync("./media/menus/img2.jpg");
-global.imagen4 = fs.readFileSync("./media/menus/img3.jpg");
-global.imagen5 = fs.readFileSync("./media/menus/img4.jpg");
-global.imagen6 = fs.readFileSync("./media/menus/img5.jpg");
-global.imagen7 = fs.readFileSync('./media/menus/img6.jpg');
-global.imagen8 = fs.readFileSync('./media/menus/img7.jpg');
-global.imagen9 = fs.readFileSync("./media/menus/img8.jpg");
-global.imagen10 = fs.readFileSync("./media/menus/img9.jpg");
-global.imagen11 = fs.readFileSync("./media/menus/img10.jpg");
-global.imagen12 = fs.readFileSync("./media/menus/img11.jpg");
-global.imagen13 = fs.readFileSync("./media/menus/img12.jpg");
-
-//━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
-
-
-//━━━━━━━━━━━━━━ img ━━━━━━━━━
-
-global.img = 'https://tinyurl.com/2dgppss3.jpg';
-global.img2 = 'https://tinyurl.com/27jqx2e6.jpg';
-
-global.img3 = 'https://tinyurl.com/23jcbhue.jpg'; //prem
-global.img4 = 'https://tinyurl.com/23z2xqqv.jpg'; //prem
-
-global.img5 = 'https://tinyurl.com/29nok9ba.jpeg';
-global.img6 = 'https://tinyurl.com/227vqnqn.jpeg';
-global.img7 = 'https://tinyurl.com/233rvq4c.jpeg';
-global.img8 = 'https://tinyurl.com/2annkxr3.jpeg';
-global.img9 = 'https://tinyurl.com/226lfwn7.jpeg';
-
-global.img10 = 'https://i.imgur.com/DvHoMc3.jpg';
-global.img11 = 'https://i.imgur.com/5Q1MqGD.jpg';
-global.img12 = 'https://i.imgur.com/vWnsjh8.jpg';
-global.img13 = 'https://i.imgur.com/pCfFOgw.jpeg';
-global.img14 = 'https://i.imgur.com/knBDWRA.jpeg';
-global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg';
-
-global.img16 = 'https://i.imgur.com/11MRjo4.jpeg'; //+18
-
-global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg';
-global.img18 = 'https://i.imgur.com/9yLH4W4.jpeg';
-
-global.logogit = 'https://tinyurl.com/2qvl9vgs';
-
-global.welgata = [ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb];
-global.redesMenu = [nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt1, nnnttt2, nnnttt3, nnnttt4, md, ig, paypal, yt, asistencia, fb];
-global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18];
-global.gataVidMenu = ['./media/menus/Menuvid1.mp4', './media/menus/Menuvid2.mp4', './media/menus/Menuvid3.mp4'];
-global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13];
-
-//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
-
 
 //⊱ ━━━━━.⋅ RPG ⋅.━━━━ ⊰
 
