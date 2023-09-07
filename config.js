@@ -134,6 +134,7 @@ global.nnnttt1 = 'https://chat.whatsapp.com/CwFGDtRUQuGHsgpHUuHDLQ' //Grupo 6 CO
 global.nnnttt2 = 'https://chat.whatsapp.com/Cyq71iqt8Ys23Jz5fEDnDm' //Grupo 7 COL
 global.nnnttt3 = 'https://chat.whatsapp.com/LjSeXchfC0TBFPx26YGV62' //Grupo 8 COL
 global.nnnttt4 = 'https://chat.whatsapp.com/KLpYFsitkgzJ15YQxZrBqO' //Grupo 9 COL
+global.nnnttt5 = 'https://chat.whatsapp.com/DfaWdh1Hg2A8dutjRUy6lq' //A.T.M.M
 global.paypal = 'https://paypal.me/OficialGD'
 global.asistencia = 'Wa.me/50660400020' //Dudas? escríbeme...
 
