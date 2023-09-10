@@ -6,4 +6,4 @@ echo ""
     npm start
     sleep 1
 
-done
+done 
