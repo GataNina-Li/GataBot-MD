@@ -22,7 +22,7 @@ const fkontak = {
 if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙐𝙉 𝙀𝙉𝙇𝘼𝘾𝙀 𝘿𝙀 𝙏𝙒𝙄𝙏𝙏𝙀𝙍 𝙋𝘼𝙍𝘼 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙍 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} https://twitter.com/Animalesybichos/status/1564616107159330816?t=gKqUsstvflSp7Dhpe_nmDg&s=19*\n\n𝙀𝙉𝙏𝙀𝙍 𝘼 𝙏𝙒𝙄𝙏𝙏𝙀𝙍  𝙇𝙄𝙉𝙆 𝙏𝙊 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿 𝙔𝙊𝙐𝙍 𝙑𝙄𝘿𝙀𝙊\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} https://twitter.com/Animalesybichos/status/1564616107159330816?t=gKqUsstvflSp7Dhpe_nmDg&s=19*`
  try {
    const resFG = await twitter(text);
-   const { key } = await conn.sendMessage(m.chat, {text: wait}, {quoted: fkontak});
+   var { key } = await conn.sendMessage(m.chat, {text: wait}, {quoted: fkontak});
 await delay(1000 * 1);
 await conn.sendMessage(m.chat, {text: waitt, edit: key});
 await delay(1000 * 1);
