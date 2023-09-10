@@ -22,7 +22,8 @@ const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function (
  * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['messages.upsert']} groupsUpdate 
  */
 export async function handler(chatUpdate) {
-    this.msgqueque = this.msgqueque || []
+    this.msgqueque = this.msgqueque || [];
+  this.uptime = this.uptime || Date.now();
     if (!chatUpdate)
         return
     this.pushMessage(chatUpdate.messages).catch(console.error)
@@ -1563,9 +1564,17 @@ let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: m
 if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
-let file = global.__filename(import.meta.url, true)
+const file = global.__filename(import.meta.url, true);
 watchFile(file, async () => {
-    unwatchFile(file)
-    console.log(chalk.redBright("Update 'handler.js'"))
-    if (global.reloadHandler) console.log(await global.reloadHandler())
-})
+  unwatchFile(file);
+  console.log(chalk.redBright('Update \'handler.js\''));
+  if (global.reloadHandler) console.log(await global.reloadHandler());
+  
+  if (global.conns && global.conns.length > 0 ) {
+    const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
+    for (const userr of users) {
+      userr.subreloadHandler(false)
+    }
+  }
+  
+});
