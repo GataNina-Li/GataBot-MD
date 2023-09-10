@@ -24,7 +24,7 @@ gradient: ['red', 'magenta']});
 
 var isRunning = false;
 /**
-* Start a js file
+* Start a js file 
 * @param {String} file `path/to/file`
 */
 function start(file) {
