@@ -28,6 +28,7 @@ var isRunning = false;
 * @param {String} file `path/to/file`
 */
 function start(file) {
+console.info = () => {}
 if (isRunning) return
 isRunning = true;
 let args = [join(__dirname, file), ...process.argv.slice(2)]
