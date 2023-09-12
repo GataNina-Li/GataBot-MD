@@ -10,10 +10,9 @@ let user = global.db.data.users[m.sender]
 let bot = global.db.data.settings[this.user.jid] || {}
 if (bot.antiPrivate && !isOwner && !isROwner) {
 user.warn += 1;
-if (!(user.warn >= 5)) await m.reply(`Hola *@${m.sender.split`@`[0]}*, NO PUEDE USAR ESTE BOT EN CHAT PRIVADO\n\nUnirte al Grupo oficial del bot para poder usar el bot\n${nn}`, false, {mentions: [m.sender]})}
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'banchat')
-if (user.warn >= 5) {
- user.warn = 0;
+if (!(user.warn >= 4)) await m.reply(`Hola *@${m.sender.split`@`[0]}*, NO PUEDE USAR ESTE BOT EN CHAT PRIVADO\n\nUnirte al Grupo oficial del bot para poder usar el bot\n${nn}`, false, {mentions: [m.sender]})}
+if (user.warn >= 4) {
+user.warn = 100000000000000000000000000
 //await m.reply(`Te repite 5 veces no privado hora sera bloqueado bye`, false, {mentions: [m.sender]})
 //await this.updateBlockStatus(m.sender, 'block')
 await conn.groupParticipantsUpdate(m.chat, [m.sender], 'banchat')
