@@ -29,11 +29,6 @@ var isRunning = false;
 * @param {String} file `path/to/file`
 */
 function start(file) {
-console.log = async function () {
-if (!util.format(...arguments).includes("Closing session: SessionEntry")) return
-if (!util.format(...arguments).includes("Removing old closed session: SessionEntry")) return
-if (!util.format(...arguments).includes("Closing stale open session for new outgoing prekey bundle")) return
-}
 if (isRunning) return
 isRunning = true;
 let args = [join(__dirname, file), ...process.argv.slice(2)]
