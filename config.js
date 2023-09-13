@@ -11,8 +11,8 @@ import { en, es, id, ar, pt, fr, hi } from "./lib/idiomas/total-idiomas.js";
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
 
 global.owner = [
-["593993684821", '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈', true],
-["595975740803", '𝙊𝙬𝙣𝙚𝙧 💖🐈', true], 
+["6281245695410", 'ell_Botz 💖🐈', true],
+["6281245695410", '𝙊𝙬𝙣𝙚𝙧 💖🐈', true], 
 ["5492266466080"], 
 ["593968585383"], 
 ["5492266613038"],
@@ -22,7 +22,7 @@ global.owner = [
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 global.mods = [];
-global.prems = ["528451003894"];
+global.prems = ["6281245695410"];
 //key de violetics
 global.Key360 = ["964f-0c75-7afc"];
    
@@ -96,7 +96,7 @@ global.moment = moment;
 //⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
 
 global.official = [ // Agregate si eres Owner
-["18059196237", 'Gata Dios 💻', 1], 
+["6281245695410", 'ell 💻', 1], 
 ["5492266466080", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
 ["59894808483", '𝗖𝘂𝘀𝘁𝗼𝗺𝗲𝗿 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
 ["5521989092076", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
@@ -107,8 +107,8 @@ global.desc = ''; //agrega una descripción corta
 global.desc2 = ''; //agrega una descripción larga (Solo se aplicará si su whasapp no tiene descripción)
 global.country = ''; //agrega tú país ejemplo: 🇪🇨
 
-global.packname = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 🐈";
-global.author = "𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨";
+global.packname = "ell- 🐈";
+global.author = "I LOPE YOU";
 
 //⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
 
@@ -136,7 +136,7 @@ global.nnnttt3 = 'https://chat.whatsapp.com/LVocHnQjrci6dM4TZdmhBH' //Grupo 8 CO
 global.nnnttt4 = 'https://chat.whatsapp.com/KLpYFsitkgzJ15YQxZrBqO' //Grupo 9 COL
 global.nnnttt5 = 'https://chat.whatsapp.com/HOCsvLox0Ui7cwzTCeFhPP' //A.T.M.M
 global.paypal = 'https://paypal.me/OficialGD'
-global.asistencia = 'Wa.me/50660400020' //Dudas? escríbeme...
+global.asistencia = 'Wa.me/6281245695410' //Dudas? escríbeme...
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
@@ -170,13 +170,13 @@ global.exito = eg;
 
 //⊱ ━━━━━.⋅ Información | Information ⋅.━━━━ ⊰
 
-global.wm = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 : 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨";
-global.igfg = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿";
+global.wm = "ELL-𝙈𝘿 : ELL 𝘿𝙞𝙤𝙨";
+global.igfg = "Michaell-𝙈𝘿";
 global.wait = "*⌛ _Cargando | Charging..._ ▬▭▭▭▭▭▭*";
 global.waitt = "*⌛ _Cargando | Charging..._ ▬▬▭▭▭*";
 global.waittt = "*⌛ _Cargando | Charging..._ ▬▬▬▬▭▭*";
 global.waitttt = "*⌛ _Cargando | Charging..._ ▬▬▬▬▬▬▭*";
-global.nomorown = "593993684821";
+global.nomorown = "6281245695410";
 global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"];
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
