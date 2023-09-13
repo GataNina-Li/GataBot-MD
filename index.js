@@ -42,7 +42,7 @@ p.on('message', data => {
 console.log = async function () {
 if (!util.format(...arguments).includes("Closing session: SessionEntry")) return
 if (!util.format(...arguments).includes("Removing old closed session: SessionEntry")) return
-if (!util.format(...arguments).includes("Closing stale open session for new outgoing prekey bundle")) 
+if (!util.format(...arguments).includes("Closing stale open session for new outgoing prekey bundle")) return
 }
 //console.log('╭--------- - - - ✓\n┆ ✅ TIEMPO DE ACTIVIDAD ACTUALIZADA\n╰-------------------- - - -', data)
 switch (data) {
