@@ -5,6 +5,7 @@ import { setupMaster, fork } from "cluster";
 import { watchFile, unwatchFile } from "fs";
 import cfonts from "cfonts";
 import chalk from "chalk";
+import util from "util"
 import { createInterface } from "readline";
 import yargs from "yargs";
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -28,7 +29,6 @@ var isRunning = false;
 * @param {String} file `path/to/file`
 */
 function start(file) {
-console.info = () => {}
 if (isRunning) return
 isRunning = true;
 let args = [join(__dirname, file), ...process.argv.slice(2)]
@@ -39,6 +39,11 @@ args: args.slice(1),
 })
 let p = fork()
 p.on('message', data => {
+console.info = async function () {
+if (!util.format(...arguments).includes("Closing session: SessionEntry")) return;
+if (!util.format(...arguments).includes("Removing old closed session: SessionEntry")) return;
+// if (!util.format(...arguments).includes("Session error:MessageCounterError:")) 
+}
 //console.log('╭--------- - - - ✓\n┆ ✅ TIEMPO DE ACTIVIDAD ACTUALIZADA\n╰-------------------- - - -', data)
 switch (data) {
 case 'reset':
