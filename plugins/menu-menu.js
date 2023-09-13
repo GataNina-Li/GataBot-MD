@@ -1,4 +1,5 @@
 import fs from 'fs'
+import moment from 'moment-timezone'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 const { levelling } = '../lib/levelling.js'
@@ -73,9 +74,12 @@ const numberToEmoji = { "0": "0️⃣", "1": "1️⃣", "2": "2️⃣", "3": "3�
 let lvl = level
 let emoji = Array.from(lvl.toString()).map((digit) => numberToEmoji[digit] || "❓").join("")
 
+const fechaecu = moment().tz('America/Quito')	
+const formatoFecha = fechaecu.format('dddd, DD [de] MMMM [del] YYYY')	
+
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : username}*${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
-\`\`\`${week}, ${date}\`\`\`
+\`\`\`${formatoFecha}\`\`\`
 ⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
 ⎔ *Registrados »* ${rtotalreg}/${totalreg}
 ⎔ *${lenguajeGB['smsTime']()}* ➺ _${time}_    
