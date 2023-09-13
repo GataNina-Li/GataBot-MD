@@ -39,9 +39,9 @@ args: args.slice(1),
 })
 let p = fork()
 p.on('message', data => {
-console.info = async function () {
-if (!util.format(...arguments).includes("Closing session: SessionEntry")) return;
-if (!util.format(...arguments).includes("Removing old closed session: SessionEntry")) return;
+console.log = async function () {
+if (!util.format(...arguments).includes("Closing session: SessionEntry")) return
+if (!util.format(...arguments).includes("Removing old closed session: SessionEntry")) return
 // if (!util.format(...arguments).includes("Session error:MessageCounterError:")) 
 }
 //console.log('╭--------- - - - ✓\n┆ ✅ TIEMPO DE ACTIVIDAD ACTUALIZADA\n╰-------------------- - - -', data)
