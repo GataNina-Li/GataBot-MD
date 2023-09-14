@@ -4,6 +4,154 @@
         "response": "Te quiero como a ningüino" 
     },
     {
+        "question": "El que lo hace, no lo quiere; el que lo compra, no lo usa; el que lo usa, no lo sabe. ¿Qué es?",
+        "response": "Un ataúd" 
+    },
+    {
+        "question": "Puede correr pero nunca caminar, tiene una boca pero nunca habla. ¿Qué es?",
+        "response": "Un río" 
+    },
+    {
+        "question": "Tiene llaves pero no puede abrir cerraduras. ¿Qué es?",
+        "response": "Un piano" 
+    },
+    {
+        "question": "Sube y baja, pero nunca se mueve. ¿Qué es?",
+        "response": "Una escalera" 
+    },
+    {
+        "question": "Soy una palabra de 7 letras, si me pronuncias, te dejo sin aire. Si me agregas una letra más, pareceré bastante frío, pero si me quitas una, seré necesario. ¿Qué soy?",
+        "response": "Silencio" 
+    },
+    {
+        "question": "Entra en la casa por la ventana, pero nunca sale por la puerta. ¿Qué es?",
+        "response": "La luz del sol" 
+    },
+    {
+        "question": "Siempre estoy delante de ti, pero nunca puedes verme. ¿Qué soy?",
+        "response": "El futuro" 
+    },
+    {
+        "question": "Nunca puedes mantenerme hasta que me das. ¿Qué soy?",
+        "response": "Tu palabra" 
+    },
+    {
+        "question": "Soy un símbolo que siempre sigue a la R, pero nunca a la T. ¿Qué soy?",
+        "response": "La letra E" 
+    },
+    {
+        "question": "Cuanto más te quito, más grande me vuelvo. ¿Qué soy?",
+        "response": "Un agujero" 
+    },
+    {
+        "question": "Tengo ciudades, pero no edificios. Tengo selvas, pero no árboles. Tengo ríos, pero no agua. ¿Qué soy?",
+        "response": "Un mapa" 
+    },
+    {
+        "question": "Tiene llaves, pero no puede abrir ninguna puerta. A veces tiene números, pero nunca hace cálculos. ¿Qué es?",
+        "response": "Un teclado" 
+    },
+    {
+        "question": "Soy un lugar donde todos corren, pero nadie se mueve. Siempre estoy lleno, pero nunca hay multitud. ¿Qué soy?",
+        "response": "Un sueño" 
+    },
+    {
+        "question": "Soy el comienzo de la sabiduría, el final de la vida y el medio de la oscuridad. ¿Qué soy?",
+        "response": "La letra E" 
+    },
+    {
+        "question": "Soy un número que siempre está en medio de 5 y 9. ¿Qué soy?",
+        "response": "El número 7" 
+    },
+    {
+        "question": "Soy una palabra de 12 letras, aunque si me pronuncias, tendrás una de las 12 partes. Si me escribes, tendrás todas las 12. ¿Qué soy?",
+        "response": "El alfabeto" 
+    },
+    {
+        "question": "Tengo ojos, pero nunca lloro. Tengo un corazón, pero nunca amo. ¿Qué soy?",
+        "response": "Un espantapájaros" 
+    },
+    {
+        "question": "Soy un agujero que puedes llenar con objetos, pero si lo llenas con agua, desapareceré. ¿Qué soy?",
+        "response": "Un agujero negro" 
+    },
+    {
+        "question": "Tengo un cuello pero no tengo cabeza, y te acompaño en la cama todas las noches. ¿Qué soy?",
+        "response": "Una almohada" 
+    },
+    {
+        "question": "Soy un lugar donde las personas van cuando están rotas, pero nunca necesito ser reparado. ¿Qué soy?",
+        "response": "Un espejo" 
+    },
+    {
+        "question": "Tengo hojas, pero no soy un árbol. Tengo una cara, pero no soy una persona. ¿Qué soy?",
+        "response": "Un libro" 
+    },
+    {
+        "question": "Soy un camino que puedes caminar, pero siempre estás retrocediendo. ¿Qué soy?",
+        "response": "Una escalera" 
+    },
+    {
+        "question": "Nunca puedes tocarlo, pero siempre está frente a ti. ¿Qué es?",
+        "response": "El futuro" 
+    },
+    {
+        "question": "Tengo un ojo pero no puedo ver. ¿Qué soy?",
+        "response": "Una aguja" 
+    },
+    {
+        "question": "Siempre estoy en el agua, pero nunca me mojo. ¿Qué soy?",
+        "response": "Una sombra" 
+    },
+    {
+        "question": "Puedo volar sin alas, siempre estoy cerca del suelo, pero nunca me caigo. ¿Qué soy?",
+        "response": "Un sueño" 
+    },
+    {
+        "question": "Soy redondo como una moneda, pero no tengo valor. ¿Qué soy?",
+        "response": "Un botón" 
+    },
+    {
+        "question": "Soy una palabra de cinco letras y me temen más que a la muerte. Si me quitas la primera letra, tendrás un lugar donde la gente vive. ¿Qué soy?",
+        "response": "Cárcel" 
+    },
+    {
+        "question": "Soy un lugar donde nunca se puede entrar, pero siempre puedes ver lo que está dentro. ¿Qué soy?",
+        "response": "Un ojo" 
+    },
+    {
+        "question": "Tengo dientes, pero no puedo masticar. ¿Qué soy?",
+        "response": "Un peine" 
+    },
+    {
+        "question": "Soy un agujero en el agua que puedes llenar con una taza. ¿Qué soy?",
+        "response": "Un agujero de llave" 
+    },
+    {
+        "question": "Tengo una cabeza, un cuerpo, pero no tengo alma. ¿Qué soy?",
+        "response": "Un muñeco" 
+    },
+    {
+        "question": "Tengo manos y una cara, pero no tengo cuerpo. ¿Qué soy?",
+        "response": "Un reloj" 
+    },
+    {
+        "question": "Soy una cosa que es más útil cuando está rota. ¿Qué soy?",
+        "response": "Un huevo" 
+    },
+    {
+        "question": "Soy un lugar donde puedes encontrar tesoros y libros, pero nunca encontrarás oro ni palabras. ¿Qué soy?",
+        "response": "Una biblioteca" 
+    },
+    {
+        "question": "Si me nombras, me rompes. ¿Qué soy?",
+        "response": "El silencio" 
+    },
+    {
+        "question": "Soy un número sin fin, pero siempre empiezo con un 1. ¿Qué soy?",
+        "response": "El número Pi" 
+    },
+    {
         "question": "¿Qué le dice un ciego a otro ciego?",
         "response": "Después nos vemos"
     },
