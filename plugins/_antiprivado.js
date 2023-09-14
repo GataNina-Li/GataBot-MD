@@ -12,16 +12,16 @@ bot = global.db.data.settings[this.user.jid] || {}
 if (bot.antiPrivate && !isOwner && !isROwner) {
 if (user.counterPrivate === 0) {
 mensaje = `*@${m.sender.split`@`[0]} ESTÁ PROHIBIDO ESCRIBIR AL PRIVADO, PORQUE ASÍ LO QUISO MI PROPIETARIO(A).*\n\n⚠️ \`\`\`PRIMERA ADVERTENCIA\`\`\` ⚠️`
-await conn.reply(m.chat, mensaje, null, { mentions: m.sender })  
+await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
   
 } else if (user.counterPrivate === 1) {
 let grupos = [ nn, nnn, nnnt, nnntt, nnnttt ].getRandom()
 mensaje = `*@${m.sender.split`@`[0]} YA SE MENCIONÓ QUE NO PUEDE ESCRIBIR AL PRIVADO. 🫤*\n\n👇 *PUEDE UNIRSE A ESTE GRUPO OFICIAL*\n${grupos}\n\n*SI VUELVE A ESCRIBIR SERÁ BLOQUEADO(A)* ‼️\n⚠️ \`\`\`SEGUNDA ADVERTENCIA\`\`\` ⚠️`
-await conn.reply(m.chat, mensaje, null, { mentions: m.sender }) 
+await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] }) 
   
 } else if (user.counterPrivate === 2) {
 mensaje = `*@${m.sender.split`@`[0]} SERÁ BLOQUEADO(A). 😾 SE MENCIONÓ ANTES QUE NO PODÍA ESCRIBIR AL PRIVADO.*\n\n⚠️ \`\`\`TERCERA ADVERTENCIA\`\`\` ⚠️`
-await conn.reply(m.chat, mensaje, null, { mentions: m.sender }) 
+await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] }) 
   
 user.counterPrivate = -1
 await this.updateBlockStatus(m.sender, 'block')
