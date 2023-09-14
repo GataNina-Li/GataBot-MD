@@ -58,6 +58,7 @@ if (!('premium' in user)) user.premium = false
 		if (!('registroR' in user)) user.registroR = false
 		if (!('registroC' in user)) user.registroC = false  
 		if (!isNumber(user.IDregister)) user.IDregister = 0   
+	
         if (!user.registered) {
 	    if (!('name' in user)) user.name = m.name
 	    if (!isNumber(user.age)) user.age = 0
@@ -89,7 +90,7 @@ if (!('premium' in user)) user.premium = false
                     if (!isNumber(user.stroberi)) user.stroberi = 0
                         
 	        }
-		                    		    
+	  if (!isNumber(user.counterPrivate)) user.counterPrivate = 0	                    		    
           if (!isNumber(user.afk)) user.afk = -1
 	      //if (!('autolevelup' in user))  user.autolevelup = true
 	      if (!isNumber(user.reporte)) user.reporte = 0
@@ -481,7 +482,6 @@ if (!('premium' in user)) user.premium = false
               if (!isNumber(user.vodka)) user.vodka = 0
               if (!isNumber(user.wallet)) user.wallet = 0
               if (!isNumber(user.warn)) user.warn = 0
-	      if (!isNumber(user.warn2)) user.warn2 = 0
               if (!isNumber(user.weapon)) user.weapon = 0
               if (!isNumber(user.weapondurability)) user.weapondurability = 0
               if (!isNumber(user.wolf)) user.wolf = 0
@@ -496,7 +496,8 @@ if (!('premium' in user)) user.premium = false
               if (!user.premium) user.premiumTime = 0
               if (!user.rtrofi) user.rtrofi = 'Bronce'
             } else
-                global.db.data.users[m.sender] = {    
+                global.db.data.users[m.sender] = { 
+		    counterPrivate: 0,
 		    afk: -1,
                     afkReason: '',
 	            reporte: 0,
@@ -899,7 +900,6 @@ if (!('premium' in user)) user.premium = false
                     vodka: 0,
                     wallet: 0,
                     warn: 0,
-	            warn2: 0,
                     weapon: 0,
                     weapondurability: 0,
                     wolf: 0,
