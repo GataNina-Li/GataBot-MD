@@ -481,6 +481,7 @@ if (!('premium' in user)) user.premium = false
               if (!isNumber(user.vodka)) user.vodka = 0
               if (!isNumber(user.wallet)) user.wallet = 0
               if (!isNumber(user.warn)) user.warn = 0
+	      if (!isNumber(user.warn2)) user.warn2 = 0
               if (!isNumber(user.weapon)) user.weapon = 0
               if (!isNumber(user.weapondurability)) user.weapondurability = 0
               if (!isNumber(user.wolf)) user.wolf = 0
@@ -898,6 +899,7 @@ if (!('premium' in user)) user.premium = false
                     vodka: 0,
                     wallet: 0,
                     warn: 0,
+	            warn2: 0,
                     weapon: 0,
                     weapondurability: 0,
                     wolf: 0,
