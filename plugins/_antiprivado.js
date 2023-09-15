@@ -3,7 +3,7 @@ export async function before(m, {conn, isAdmin, isBotAdmin, isOwner, isROwner}) 
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
-if (comandos.test(m.text)) return !0
+if (comandos.test(m.text.toLowerCase())) return !0
 
 let chat, user, bot, mensaje
 chat = global.db.data.chats[m.chat]
