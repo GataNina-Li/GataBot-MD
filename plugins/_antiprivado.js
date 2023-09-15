@@ -3,8 +3,8 @@ export async function before(m, {conn, isAdmin, isBotAdmin, isOwner, isROwner, c
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
-const regexComando = `(?:${command}${comandos.source}|${command} ${comandos.source})`  
-const regex = new RegExp(regexComando, 'i')
+//const regexComando = `(?:${command}${comandos.source}|${command} ${comandos.source})`
+const regex = new RegExp(`(?:${command}${comandos.source}|${command} ${comandos.source})`, 'i')
 if (regex.test(m.text.toLowerCase())) return !0
 
 let chat, user, bot, mensaje
