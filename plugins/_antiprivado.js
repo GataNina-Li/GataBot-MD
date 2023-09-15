@@ -1,9 +1,11 @@
 const comandos = /piedra|papel|tijera|estado|verificar|creadora|bottemporal|grupos|instalarbot|términos|bots|deletebot|eliminarsesion|serbot|verify|register|registrar|reg|reg1|nombre|name|nombre2|name2|edad|age|edad2|age2|genero|género|gender|identidad|pasatiempo|hobby|identify|finalizar|pas2|pas3|pas4|pas5|registroc|deletesesion|registror|jadibot/i
-export async function before(m, {conn, isAdmin, isBotAdmin, isOwner, isROwner}) {
+export async function before(m, {conn, isAdmin, isBotAdmin, isOwner, isROwner, command }) {
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
-if (comandos.test(m.text.toLowerCase())) return !0
+const regexComando = `(?:${command}${comandos.source}|${command} ${comandos.source})`  
+const regex = new RegExp(regexComando, 'i')
+if (regex.test(m.text.toLowerCase())) return !0
 
 let chat, user, bot, mensaje
 chat = global.db.data.chats[m.chat]
