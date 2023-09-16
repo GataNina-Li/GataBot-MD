@@ -3,7 +3,7 @@ export async function before(m, {conn, isAdmin, isBotAdmin, isOwner, isROwner, u
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
-const regex = new RegExp(`^${'.'}(?:${comandos.source})$`, 'i')
+const regex = new RegExp(`^${usedPrefix.source}(?:${comandos.source})$`, 'i')
 console.log(regex.test(m.text.toLowerCase().trim()))
 if (regex.test(m.text.toLowerCase().trim())) return !0
 
