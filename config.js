@@ -36,10 +36,10 @@ global.lenguajeGB = es; //Idioma de GataBot, Ejemplo: es | en | pt...
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
-global.openai_key = "sk-...OzYy2";
+global.openai_key = "sk-...kpDv";
 /* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */
 
-global.openai_org_id = "HITjoN7H8pCwoncEB9e3fSyW";
+global.openai_org_id = "TeVozfwukVe6ABXk8JqqfxoC";
 /* Consigue tu ID de organizacion en este enlace: https://platform.openai.com/account/org-settings */
 
 global.keysZens = ["LuOlangNgentot", "c2459db922", "37CC845916", "6fb0eff124", "hdiiofficial", "fiktod", "BF39D349845E", "675e34de8a", "0b917b905e6f"];
@@ -103,7 +103,7 @@ global.official = [ // Agregate si eres Owner
 global.mail = 'alcaventas15@gmail.com'; //agrega tú correo
 global.desc = 'AlcaBot Users'; //agrega una descripción corta
 global.desc2 = 'Alcaventas.ff'; //agrega una descripción larga (Solo se aplicará si su whasapp no tiene descripción)
-global.country = ''; //agrega tú país ejemplo: 🇪🇨
+global.country = '🇲🇽'; //agrega tú país ejemplo: 🇪🇨
 
 global.packname = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 🐈";
 global.author = "𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨";
