@@ -3,9 +3,8 @@ export async function before(m, {conn, isAdmin, isBotAdmin, isOwner, isROwner, u
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
-const letraText = m.text.toLowerCase().trim()
 const regex = new RegExp(`^${comandos.source}$`, 'i')
-if (letraText.startsWith(usedPrefix) === true && regex.test(m.text.toLowerCase().trim())) return !0
+if (regex.test(m.text.toLowerCase().trim())) return !0
 
 let chat, user, bot, mensaje
 chat = global.db.data.chats[m.chat]
