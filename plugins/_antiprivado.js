@@ -4,6 +4,7 @@ if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
 const regex = new RegExp(`^${usedPrefix} ?(?:${comandos.source})$`, 'i')
+console.log(regex.test(m.text.toLowerCase().trim()))
 if (regex.test(m.text.toLowerCase().trim())) return !0
 
 let chat, user, bot, mensaje
