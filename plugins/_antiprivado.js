@@ -4,7 +4,7 @@ if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
 const regex = new RegExp(`^${prefix} ?(?:${comandos.source})$`, 'i')
-if (regex.test(m.text.toLowerCase()) === false) return !0
+if (regex.test(m.text.toLowerCase())) return !0
 
 let chat, user, bot, mensaje
 chat = global.db.data.chats[m.chat]
