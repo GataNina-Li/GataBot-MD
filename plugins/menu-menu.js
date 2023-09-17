@@ -72,45 +72,45 @@ let menu = `
     
 *╭━[ MENU DE ALCA BOT 🛠️ ]━⬣*
 *╭━━━[ AJUSTES - CHATS ]━━━⬣*
-🔵 _${usedPrefix}on *:* off *bienvenida*_
-🔵 _${usedPrefix}on *:* off *avisos*_
-🔵 _${usedPrefix}on *:* off *autonivel*_
-🔵 _${usedPrefix}on *:* off *stickers*_
-🔵 _${usedPrefix}on *:* off *autosticker*_
-🔵 _${usedPrefix}on *:* off *reaction*_
-🔵 _${usedPrefix}on *:* off *audios*_
+🌀 _${usedPrefix}on *:* off *bienvenida*_
+🌀 _${usedPrefix}on *:* off *avisos*_
+🌀 _${usedPrefix}on *:* off *autonivel*_
+🌀 _${usedPrefix}on *:* off *stickers*_
+🌀 _${usedPrefix}on *:* off *autosticker*_
+🌀 _${usedPrefix}on *:* off *reaction*_
+🌀 _${usedPrefix}on *:* off *audios*_
  
-*╭━[ 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙎 𝘼𝙇𝘾𝘼𝘽𝙊𝙏 🌀 ]━⬣*
-🟢➺ _${usedPrefix}play *texto*_
-*╭━[ 𝙎 𝙏 𝙄 𝘾 𝙆 𝙀 𝙍 𝙎👋]━⬣*
-⚫️➺ _${usedPrefix}tts es *texto*_
-⚫️➺ _${usedPrefix}sticker | s *imagen*_
-⚫️➺ _${usedPrefix}sticker | s *url de tipo jpg*_
+*╭━[ 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙎 𝘼𝙇𝘾𝘼𝘽𝙊𝙏 🧤 ]━⬣*
+🌀 _${usedPrefix}play *texto*_
 
-*╭━[ 𝘾𝙊𝙉𝙁𝙄𝙂𝙐𝙍𝘼𝘾𝙄𝙊𝙉 - 𝙂𝙍𝙐𝙋𝙊𝙎🧤 ]━⬣*
-🟢➺ _${usedPrefix}add *numero*_
-🟢➺ _${usedPrefix}sacar | ban | kick_
-🟢➺ _${usedPrefix}grupo *abrir : cerrar*_
-🟢➺ _${usedPrefix}group *open : close*_
-🟢➺ _${usedPrefix}daradmin*@tag*_
-🟢➺ _${usedPrefix}quitar *@tag*_
-🟢➺ _${usedPrefix}banchat_
-🟢➺ _${usedPrefix}unbanchat_
-🟢➺ _${usedPrefix}banuser *@tag*_
-🟢➺ _${usedPrefix}admins *texto*_
-🟢➺ _${usedPrefix}invocar *texto*_
-🟢➺ _${usedPrefix}infogrupo_
-🟢➺ _${usedPrefix}newdesc *texto*_
-🟢➺ _${usedPrefix}bienvenida *texto*_
-🟢➺ _${usedPrefix}despedida *texto*_
-🟢➺ _${usedPrefix}on_
-🟢➺ _${usedPrefix}off_
+*╭━[ 𝙎 𝙏 𝙄 𝘾 𝙆 𝙀 𝙍 𝙎 🧤]━⬣*
+🌀 _${usedPrefix}tts es *texto*_
+🌀 _${usedPrefix}sticker | s *imagen*_
+
+*╭━[ 𝘾𝙊𝙉𝙁𝙄𝙂𝙐𝙍𝘼𝘾𝙄𝙊𝙉 - 𝙂𝙍𝙐𝙋𝙊𝙎 🧤]━⬣*
+🌀 _${usedPrefix}add *numero*_
+🌀 _${usedPrefix}sacar | ban | kick_
+🌀 _${usedPrefix}grupo *abrir : cerrar*_
+🌀 _${usedPrefix}group *open : close*_
+🌀 _${usedPrefix}daradmin*@tag*_
+🌀 _${usedPrefix}quitar *@tag*_
+🌀 _${usedPrefix}banchat_
+🌀 _${usedPrefix}unbanchat_
+🌀 _${usedPrefix}banuser *@tag*_
+🌀 _${usedPrefix}admins *texto*_
+🌀 _${usedPrefix}invocar *texto*_
+🌀 _${usedPrefix}infogrupo_
+🌀 _${usedPrefix}newdesc *texto*_
+🌀 _${usedPrefix}bienvenida *texto*_
+🌀 _${usedPrefix}despedida *texto*_
+🌀 _${usedPrefix}on_
+🌀 _${usedPrefix}off_
 
 *╭━[+ FUNCIONES 🧤 ]━⬣*
-🔴➺ _${usedPrefix}registrar_
-🔴➺ _${usedPrefix}perfil_
-🔴➺ _${usedPrefix}myns_
-🔴➺ _${usedPrefix}unreg *numero de serie*_
+🔴 _${usedPrefix}registrar_
+🔴 _${usedPrefix}perfil_
+🔴 _${usedPrefix}myns_
+🔴 _${usedPrefix}unreg *numero de serie*_
 *⚡️ ALCA VENTAS 528241050228 ⚡️*`.trim()
 await conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
 	
