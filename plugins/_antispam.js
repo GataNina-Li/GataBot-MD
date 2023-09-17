@@ -48,35 +48,38 @@ handler.before = async function (m, { conn, isAdmin }) {
 
 export default handler*/
 
-export async function antiSpamHandler(m, { conn }) {
-    const user = global.db.data.users[m.sender] || {};
-    const botSettings = global.db.data.settings[this.user.jid] || {};
+const userSpamData = {}
+let handler = m => m
+handler.before = async function (m, { conn }) {
 
-    if (botSettings.antiSpam && !user.isBanned) {
-        
-        const currentTime = new Date().getTime();
-        const timeDifference = currentTime - (user.lastMessageTime || 0);
+const sender = m.sender
+const currentTime = new Date().getTime()
+const timeWindow = 5000 
+const messageLimit = 5 
 
-        if (timeDifference < 5000) {
-            user.messageCount = (user.messageCount || 0) + 1;
-
-           
-            if (user.messageCount >= 5) {
-              //  user.isBanned = true;
-                const mention = `@${m.sender.split("@")[0]}`;
-                const warningMessage = `Baneado ${mention} por enviar spam.`;
-                conn.reply(m.chat, warningMessage, m);
-            }
-        } else {
-            
-            user.messageCount = 1;
-        }
-
-        
-        user.lastMessageTime = currentTime;
-
-        
-        global.db.data.users[m.sender] = user;
-        global.db.save();
-    }
+if (!(sender in userSpamData)) {
+  
+userSpamData[sender] = {
+lastMessageTime: currentTime,
+messageCount: 1,
 }
+  
+} else {
+const userData = userSpamData[sender]
+const timeDifference = currentTime - userData.lastMessageTime
+
+if (timeDifference <= timeWindow) {
+userData.messageCount += 1
+
+if (userData.messageCount >= messageLimit) {
+const mention = `@${sender.split("@")[0]}`
+const warningMessage = `Baneado ${mention} por enviar spam.`
+conn.reply(m.chat, warningMessage, m)
+
+}} else {
+userData.messageCount = 1
+}
+userData.lastMessageTime = currentTime
+}}
+
+export default handler
