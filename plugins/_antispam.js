@@ -48,31 +48,35 @@ handler.before = async function (m, { conn, isAdmin }) {
 
 export default handler*/
 
-export async function all(m) {
-    if (!m.message)
-        return
-    this.spam = this.spam ? this.spam : {}
-    let chat = global.db.data.chats[m.chat]
-    let bot = global.db.data.settings[this.user.jid] || {}
-    if (bot.antiSpam) {
-        if (m.sender in this.spam) {
-            this.spam[m.sender].count++
-            if (m.messageTimestamp.toNumber() - this.spam[m.sender].lastspam > 5) {
-                if (this.spam[m.sender].count > 5) {
-                    global.db.data.users[m.sender].banned = true
-                    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
-                    let caption = ` Banned *@${who.split("@")[0]}* No hacer spam`
-                    this.reply(m.chat, caption, m)
-                }
-                this.spam[m.sender].count = 0
-                this.spam[m.sender].lastspam = m.messageTimestamp.toNumber()
+export async function antiSpamHandler(m, { conn }) {
+    const user = global.db.data.users[m.sender] || {};
+    const botSettings = global.db.data.settings[this.user.jid] || {};
+
+    if (botSettings.antiSpam && !user.isBanned) {
+        
+        const currentTime = new Date().getTime();
+        const timeDifference = currentTime - (user.lastMessageTime || 0);
+
+        if (timeDifference < 5000) {
+            user.messageCount = (user.messageCount || 0) + 1;
+
+           
+            if (user.messageCount >= 5) {
+              //  user.isBanned = true;
+                const mention = `@${m.sender.split("@")[0]}`;
+                const warningMessage = `Baneado ${mention} por enviar spam.`;
+                conn.reply(m.chat, warningMessage, m);
             }
+        } else {
+            
+            user.messageCount = 1;
         }
-        else
-            this.spam[m.sender] = {
-                jid: m.sender,
-                count: 0,
-                lastspam: 0
-            }
+
+        
+        user.lastMessageTime = currentTime;
+
+        
+        global.db.data.users[m.sender] = user;
+        global.db.save();
     }
 }
