@@ -136,14 +136,14 @@ conn.reply(m.chat, `@${sender.split("@")[0]} No puede hacer nada por 2 minutos`,
                 if (userData.antiBan === 1) {
                     setTimeout(() => {
                         if (userData.antiBan === 1) {
-                            userData.antiBan = 1
+                            userData.antiBan = 0
                             user.banned = false
                         }
                     }, 30000) // 30 segundos
                 } else if (userData.antiBan === 2) {
                     setTimeout(() => {
                         if (userData.antiBan === 2) {
-                            userData.antiBan = 2
+                            userData.antiBan = 0
                             user.banned = false
                         }
                     }, 60000) // 1 minuto
