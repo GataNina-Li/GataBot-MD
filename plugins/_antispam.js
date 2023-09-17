@@ -1,7 +1,7 @@
 let handler = m => m
 
 handler.before = async function (m, { conn, isAdmin }) {
-  if (m.isGroup && isAdmin) return null
+  //if (m.isGroup && isAdmin) return null
 
   let chat = global.db.data.chats[m.chat]
   let delet = m.key.participant
