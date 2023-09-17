@@ -11,7 +11,7 @@ import { en, es, id, ar, pt, fr, hi } from "./lib/idiomas/total-idiomas.js";
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
 
 global.owner = [
-["528241050228", '𝑨𝑳𝑪𝑨𝑽𝑬𝑵𝑻𝑨𝑺-𝑩𝑶𝑻', true],
+["528241050228", '𝘼𝙇𝘾𝘼 𝘽𝙊𝙏 🌀', true],
 ["595975740803", '𝙊𝙬𝙣𝙚𝙧 💖🐈', true], 
 ["5492266466080"], 
 ["593968585383"], 
@@ -94,7 +94,7 @@ global.moment = moment;
 //⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
 
 global.official = [ // Agregate si eres Owner
-["18059196237", 'Gata Dios 💻', 1], 
+["528241050228", '𝘼𝙇𝘾𝘼 𝘽𝙊𝙏 🌀', 1], 
 ["5492266466080", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
 ["59894808483", '𝗖𝘂𝘀𝘁𝗼𝗺𝗲𝗿 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
 ["5521989092076", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
@@ -105,8 +105,8 @@ global.desc = 'AlcaBot Users'; //agrega una descripción corta
 global.desc2 = 'Alcaventas.ff'; //agrega una descripción larga (Solo se aplicará si su whasapp no tiene descripción)
 global.country = '🇲🇽'; //agrega tú país ejemplo: 🇪🇨
 
-global.packname = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 🐈";
-global.author = "𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨";
+global.packname = "𝘼𝙇𝘾𝘼 𝘽𝙊𝙏 🌀";
+global.author = "𝘼𝙇𝘾𝘼 𝘽𝙊𝙏 🌀";
 
 //⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
 
