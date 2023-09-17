@@ -13,26 +13,8 @@ if (command === 'play') {
 additionalText = '𝘼𝙐𝘿𝙄𝙊 🔊'
 } else if (command === 'play2') {
 additionalText = '𝙑𝙄𝘿𝙀𝙊 🎥'}
-let captionvid = `𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
-
-ও 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
-»  ${yt_play[0].title}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝙋𝙐𝘽𝙇𝙄𝘾𝘼𝘿𝙊 | 𝙋𝙐𝘽𝙇𝙄𝙎𝙃𝙀𝘿
-» ${yt_play[0].ago}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝘿𝙐𝙍𝘼𝘾𝙄𝙊𝙉 | 𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉
-» ${secondString(yt_play[0].duration.seconds)}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝙑𝙄𝙎𝙏𝘼𝙎 | 𝙑𝙄𝙀𝙒𝙎
-» ${MilesNumber(yt_play[0].views)}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝙐𝙍𝙇
-» ${yt_play[0].url}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও 𝙀𝙉𝙑𝙄𝘼𝘿𝙊 ${additionalText}, 𝘼𝙂𝙐𝘼𝙍𝘿𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊
-
-*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`  
+let captionvid = `𝙀𝙉𝙑𝙄𝘼𝙉𝘿𝙊 🎶 ….`
+  
 await conn.sendMessage(m.chat, {
 text: captionvid,
 contextInfo: {
@@ -40,7 +22,7 @@ externalAdReply: {
 title: yt_play[0].title,
 body: packname,
 thumbnailUrl: yt_play[0].thumbnail, 
-mediaType: 1,
+mediaType: 0,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })
@@ -129,7 +111,7 @@ const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v))
 const dl_url = await yt.video[q].download()
 const ttl = await yt.title
 const size = await yt.video[q].fileSizeH
-await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${ttl}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
+await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: ` 🌀 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${ttl}\n╰━━━━━❰ *ALCA BOT* ❱━━━━⬣`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
 } catch {   
 try {  
 let mediaa = await ytMp4(yt_play[0].url)
@@ -142,7 +124,7 @@ let n = lolh.result.title || 'error'
 let n2 = lolh.result.link
 let n3 = lolh.result.size
 let n4 = lolh.result.thumbnail
-await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${n}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(n4) }, { quoted: m })
+await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ALCABOT ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀\n┃ ${n}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(n4) }, { quoted: m })
 } catch {
 }}}    
 }} catch {
@@ -150,7 +132,7 @@ handler.limit = 0
 }}
 handler.command = ['play', 'play2']
 handler.exp = 0
-handler.limit = 1
+handler.limit = 0
 export default handler
 
 async function search(query, options = {}) {
@@ -159,7 +141,7 @@ return search.videos};
 
 function MilesNumber(number) {
 const exp = /(\d)(?=(\d{3})+(?!\d))/g;
-const rep = "$1.";
+const rep = "$0.";
 let arr = number.toString().split(".");
 arr[0] = arr[0].replace(exp, rep);
 return arr[1] ? arr.join(".") : arr[0]};
