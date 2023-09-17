@@ -1,4 +1,4 @@
-let handler = m => m
+/*let handler = m => m
 
 handler.before = async function (m, { conn, isAdmin }) {
   //if (m.isGroup && isAdmin) return null
@@ -46,4 +46,33 @@ handler.before = async function (m, { conn, isAdmin }) {
   }
 }
 
-export default handler
+export default handler*/
+
+export async function all(m) {
+    if (!m.message)
+        return
+    this.spam = this.spam ? this.spam : {}
+    let chat = global.db.data.chats[m.chat]
+    let bot = global.db.data.settings[this.user.jid] || {}
+    if (bot.antiSpam) {
+        if (m.sender in this.spam) {
+            this.spam[m.sender].count++
+            if (m.messageTimestamp.toNumber() - this.spam[m.sender].lastspam > 5) {
+                if (this.spam[m.sender].count > 5) {
+                    global.db.data.users[m.sender].banned = true
+                    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
+                    let caption = ` Banned *@${who.split("@")[0]}* No hacer spam`
+                    this.reply(m.chat, caption, m)
+                }
+                this.spam[m.sender].count = 0
+                this.spam[m.sender].lastspam = m.messageTimestamp.toNumber()
+            }
+        }
+        else
+            this.spam[m.sender] = {
+                jid: m.sender,
+                count: 0,
+                lastspam: 0
+            }
+    }
+}
