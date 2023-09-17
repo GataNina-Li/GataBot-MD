@@ -98,6 +98,7 @@ const userSpamData = {}
 let handler = m => m
 handler.before = async function (m, { conn }) {
 
+let user = global.db.data.users[m.sender]
 const sender = m.sender
 const currentTime = new Date().getTime()
 const timeWindow = 4000  
@@ -131,7 +132,7 @@ const warningMessage = `Baneado ${mention} por enviar spam.`
 conn.reply(m.chat, warningMessage, m)
   
 user.banned = true
-userData.antiBan += 1
+userData.antiBan++ 
 userData.messageCount = 1
 
 }} else {
