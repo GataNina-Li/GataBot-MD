@@ -54,8 +54,8 @@ handler.before = async function (m, { conn }) {
 
     const sender = m.sender
     const currentTime = new Date().getTime()
-    const timeWindow = 3000  
-    const messageLimit = 3  
+    const timeWindow = 4000  
+    const messageLimit = 4  
 
     if (!(sender in userSpamData)) {
         userSpamData[sender] = {
