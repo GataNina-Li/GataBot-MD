@@ -113,6 +113,14 @@ handler.before = async function (m, { conn }) {
         const userData = userSpamData[sender]
         const timeDifference = currentTime - userData.lastMessageTime
 
+if (userData.antiBan === 1) {
+conn.reply(m.chat, `@${sender.split("@")[0]} No puede hacer nada por 30 segundos`, m)
+} else if (userData.antiBan === 2) {
+conn.reply(m.chat, `@${sender.split("@")[0]} No puede hacer nada por 1 minuto`, m)
+} else if (userData.antiBan === 3) {
+conn.reply(m.chat, `@${sender.split("@")[0]} No puede hacer nada por 2 minutos`, m)
+}
+
         if (timeDifference <= timeWindow) {
             userData.messageCount += 1
 
