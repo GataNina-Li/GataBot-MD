@@ -94,7 +94,7 @@ userData.lastMessageTime = currentTime;
 export default handler*/
 
 
-const userSpamData = {}
+/*const userSpamData = {}
 let handler = m => m
 handler.before = async function (m, { conn }) {
     let user = global.db.data.users[m.sender]
@@ -166,4 +166,5 @@ conn.reply(m.chat, `@${sender.split("@")[0]} No puede hacer nada por 2 minutos`,
     }
 }
 
-export default handler
+export default handler*/
+
