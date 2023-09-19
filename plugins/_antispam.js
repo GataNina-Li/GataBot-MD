@@ -33,17 +33,17 @@ const timeDifference = currentTime - userData.lastMessageTime
 if (userData.antiBan === 1) {
 if (userData.message < 1) {
 userData.message++  
-mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COAMDNOS DURANTE 15 SEGUNDOS*\n\n*MOTIVO: SPAM DE MENSAJES LEVE*`
+mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 15 SEGUNDOS*\n\n*MOTIVO: SPAM DE MENSAJES LEVE*`
 await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
 }} else if (userData.antiBan === 2) {
 if (userData.message2 < 1) {
 userData.message2++  
-mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COAMDNOS DURANTE 30 SEGUNDOS*\n\n*MOTIVO: SPAM DE MENSAJES MODERADO*`
+mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 30 SEGUNDOS*\n\n*MOTIVO: SPAM DE MENSAJES MODERADO*`
 await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
 }} else if (userData.antiBan === 3) {
 if (userData.message3 < 1) {
 userData.message3++  
-mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COAMDNOS DURANTE 1 MINUTO*\n\n*MOTIVO: SPAM DE MENSAJE ALARMANTE*`
+mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 1 MINUTO*\n\n*MOTIVO: SPAM DE MENSAJE ALARMANTE*`
 await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
 }}
 
