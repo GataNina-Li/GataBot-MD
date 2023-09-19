@@ -135,6 +135,7 @@ userData.messageCount += 1
 if (userData.messageCount >= messageLimit) {
 const mention = `@${sender.split("@")[0]}`
 const warningMessage = `Baneado ${mention} por enviar spam.`
+if (userData.antiBan > 3) return
 await conn.reply(m.chat, warningMessage, m)
 user.banned = true
 userData.antiBan++
