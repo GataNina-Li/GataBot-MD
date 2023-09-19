@@ -9,8 +9,8 @@ if (isOwner || isROwner || isAdmin || !isBotAdmin) return
 let user = global.db.data.users[m.sender]
 const sender = m.sender
 const currentTime = new Date().getTime()
-const timeWindow = 5000
-const messageLimit = 10
+const timeWindow = 5000 // tiempo límite 
+const messageLimit = 10 // cantidad de mensajes en dicho tiempo
 
 let time, time2, time3, mensaje
 time = 15000 // 15 seg
@@ -25,24 +25,25 @@ antiBan: 0,
 message: 0,
 message2: 0,
 message3: 0,
-}} else {
+}
+} else {
 const userData = userSpamData[sender]
 const timeDifference = currentTime - userData.lastMessageTime
 
 if (userData.antiBan === 1) {
 if (userData.message < 1) {
 userData.message++  
-mensaje = `*@${m.sender.split`@`[0]} NO PUEDE HACER NADA DURANTE 15 SEGUNDOS*\n\n*MOTIVO: SPAM DE MENSAJES LEVE*`
+mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COAMDNOS DURANTE 15 SEGUNDOS*\n\n*MOTIVO: SPAM DE MENSAJES LEVE*`
 await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
 }} else if (userData.antiBan === 2) {
 if (userData.message2 < 1) {
 userData.message2++  
-mensaje = `*@${m.sender.split`@`[0]} NO PUEDE HACER NADA DURANTE 30 SEGUNDOS*\n\n*MOTIVO: SPAM DE MENSAJES MODERADO*`
+mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COAMDNOS DURANTE 30 SEGUNDOS*\n\n*MOTIVO: SPAM DE MENSAJES MODERADO*`
 await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
 }} else if (userData.antiBan === 3) {
 if (userData.message3 < 1) {
 userData.message3++  
-mensaje = `*@${m.sender.split`@`[0]} NO PUEDE HACER NADA DURANTE 1 MINUTO*\n\n*MOTIVO: SPAM DE MENSAJE ALARMANTE*`
+mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COAMDNOS DURANTE 1 MINUTO*\n\n*MOTIVO: SPAM DE MENSAJE ALARMANTE*`
 await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
 }}
 
