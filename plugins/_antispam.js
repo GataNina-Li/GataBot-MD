@@ -45,6 +45,7 @@ if (userData.message3 < 1) {
 userData.message3++  
 mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 2 MINUTOS*\n\n*MOTIVO: SPAM DE MENSAJE ALARMANTE*`
 await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
+await conn.groupParticipantsUpdate(m.chat, [sender], 'remove')
 }}
 
 if (timeDifference <= timeWindow) {
