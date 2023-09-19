@@ -85,7 +85,7 @@ user.banned = false
     
 }}
 } else {
-if (timeDifference >= 1000) {
+if (timeDifference >= 2000) {
 userData.messageCount = 1
 }}
 userData.lastMessageTime = currentTime
