@@ -1175,7 +1175,7 @@ const messageText = `⚠️ ESTAS BANEADO ⚠️\n*👉🏻 Puedes contactar al 
 👉 Wa.me/573183650526
 `.trim();
 m.reply(messageText)
-}
+//}
 		
 
                 let hl = _prefix 
