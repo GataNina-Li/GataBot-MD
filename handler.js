@@ -1167,7 +1167,7 @@ let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
 if (!['owner-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner) return // Except this
 if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'tool-delete.js' && chat?.isBanned && !isROwner) return 
-m.reply('BANEADO POR SPAM')
+//m.reply('BANEADO POR SPAM')
 }
 		
 
