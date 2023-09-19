@@ -1014,7 +1014,6 @@ if (!('premium' in user)) user.premium = false
                 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 		if (!('antiCall' in settings)) settings.antiCall = true
 		if (!('antiSpam' in settings)) settings.antiSpam = true 
-		if (!('antispam2' in settings)) settings.antispam2 = true
 		if (!('jadibotmd' in settings)) settings.jadibotmd = true  
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
@@ -1025,7 +1024,6 @@ if (!('premium' in user)) user.premium = false
 		antiPrivate: false,
 		antiCall: true,
 		antiSpam: true,
-		antispam2: true, 
 		jadibotmd: true,
             }
         } catch (e) {
@@ -1196,23 +1194,6 @@ return;
 return;
 }
 		
-if (botSpam.antispam2 && m.text && user && user.lastCommandTime && (Date.now() - user.lastCommandTime) < 6000 && !isROwner) {
-if (user.commandCount === 2) {
-const remainingTime = Math.ceil((user.lastCommandTime + 6000 - Date.now()) / 1000);
-if (remainingTime > 0) {
-const messageText = `*𝙀𝙎𝙋𝙀𝙍𝘼 ${remainingTime} 𝙎𝙀𝙂𝙐𝙉𝘿𝙊 𝘼𝙉𝙏𝙀𝙎 𝘿𝙀 𝙐𝙎𝘼𝙍 𝙊𝙏𝙍𝙊 𝘾𝙊𝙈𝘼𝙉𝘿𝙊*`;
-m.reply(messageText);
-return;
-} else {
-user.commandCount = 0;
-}
-} else {
-user.commandCount += 1;
-}
-} else {
-user.lastCommandTime = Date.now();
-user.commandCount = 1;
-}}
 
                 let hl = _prefix 
                 let adminMode = global.db.data.chats[m.chat].modoadmin
