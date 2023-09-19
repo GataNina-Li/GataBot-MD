@@ -109,6 +109,8 @@ lastMessageTime: currentTime,
 messageCount: 1,
 antiBan: 0, 
 message: 0,
+message2: 0,
+message3: 0,
 }} else {
 const userData = userSpamData[sender]
 const timeDifference = currentTime - userData.lastMessageTime
@@ -118,12 +120,12 @@ if (userData.message >= 1) return
 userData.message++  
 await conn.reply(m.chat, `@${sender.split("@")[0]} No puede hacer nada por 30 segundos`, m)
 } else if (userData.antiBan === 2) {
-if (userData.message >= 2) return
-userData.message++  
+if (userData.message >= 1) return
+userData.message2++  
 await conn.reply(m.chat, `@${sender.split("@")[0]} No puede hacer nada por 1 minuto`, m)
 } else if (userData.antiBan === 3) {
-if (userData.message >= 3) return
-userData.message++  
+if (userData.message >= 1) return
+userData.message3++  
 await conn.reply(m.chat, `@${sender.split("@")[0]} No puede hacer nada por 2 minutos`, m)
 }
 
@@ -143,6 +145,8 @@ setTimeout(() => {
 if (userData.antiBan === 1) {
 userData.antiBan = 0
 userData.message = 0
+userData.message2 = 0
+userData.message3 = 0
 user.banned = false
 }}, 30000) // 30 segundos
   
@@ -151,6 +155,8 @@ setTimeout(() => {
 if (userData.antiBan === 2) {
 userData.antiBan = 0
 userData.message = 0
+userData.message2 = 0
+userData.message3 = 0
 user.banned = false
 }}, 60000) // 1 minuto
                 
@@ -159,6 +165,8 @@ setTimeout(() => {
 if (userData.antiBan === 3) {
 userData.antiBan = 0
 userData.message = 0
+userData.message2 = 0
+userData.message3 = 0
 user.banned = false
 }}, 120000) // 2 minutos
     
