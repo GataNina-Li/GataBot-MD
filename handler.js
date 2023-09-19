@@ -1160,22 +1160,16 @@ if (!('premium' in user)) user.premium = false
                             false
 
 if (!isAccept)
-continue
-m.plugin = name
-//if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
-let chat = global.db.data.chats[m.chat]
-let user = global.db.data.users[m.sender]
-//let botSpam = global.db.data.settings[this.user.jid]
-if (!['owner-unbanchat.js', 'gc-link.js', 'gc-hidetag.js', 'info-creator.js'].includes(name) && chat && chat.isBanned && !isROwner) return // Except this
-if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'tool-delete.js' && chat?.isBanned && !isROwner) return 
-const messageText = `⚠️ ESTAS BANEADO ⚠️\n*👉🏻 Puedes contactar al propietario del Bot si crees que se trata de un error o para charlar sobre tu desbaneo*
-
-👉 wa.me/527441745001
-👉 wa.me/972529277026
-👉 Wa.me/573183650526
-`.trim();
-m.reply(messageText)
-//}
+                    continue
+                m.plugin = name
+                if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
+                    let chat = global.db.data.chats[m.chat]
+                    let user = global.db.data.users[m.sender]
+                    if (name != 'owner-unbanchat.js' && chat?.isBanned)
+                        return // Except this
+                    if (name != 'owner-unbanuser.js' && user?.banned)
+                        return m.reply('Baneado')
+                }
 		
 
                 let hl = _prefix 
