@@ -5,7 +5,7 @@ let user = global.db.data.users[m.sender]
 const sender = m.sender
 const currentTime = new Date().getTime()
 const timeWindow = 5000
-const messageLimit = 5
+const messageLimit = 10
 
 let time, time2, time3, mensaje
 time = 15000 // 15 seg
