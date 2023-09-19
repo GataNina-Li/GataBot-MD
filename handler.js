@@ -1168,7 +1168,7 @@ if (!isAccept)
                     if (name != 'owner-unbanchat.js' && chat?.isBanned)
                         return // Except this
                     if (name != 'owner-unbanuser.js' && user?.banned)
-                        return m.reply('Baneado')
+                        return
                 }
 		
 
