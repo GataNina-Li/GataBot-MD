@@ -1,6 +1,6 @@
 const userSpamData = {}
 let handler = m => m
-handler.before = async function (m, {conn, isAdmin, isBotAdmin, isOwner, isROwner}) {
+handler.before = async function (m, {conn, isAdmin, isBotAdmin, isOwner, isROwner, isPrems}) {
 const chat = global.db.data.chats[m.chat]
 if (!m.isGroup) return
 if (chat.modoadmin) return  
