@@ -67,104 +67,51 @@ let username = conn.getName(who)
 let pp = gataVidMenu.getRandom()
 let pareja = global.db.data.users[m.sender].pasangan 
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-//let fsizedoc = '1'.repeat(10)
-//let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(gataMenu.getRandom())).buffer(), sourceUrl: redesMenu.getRandom() }}}
-const numberToEmoji = { "0": "0️⃣", "1": "1️⃣", "2": "2️⃣", "3": "3️⃣", "4": "4️⃣", "5": "5️⃣", "6": "6️⃣", "7": "7️⃣", "8": "8️⃣", "9": "9️⃣", }
-let lvl = level
-let emoji = Array.from(lvl.toString()).map((digit) => numberToEmoji[digit] || "❓").join("")
 
-let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : username}*${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
+let menu = `
+    
+*╭━[ MENU DE ALCA BOT 🛠️ ]━⬣*
+*╭━━━[ AJUSTES - CHATS ]━━━⬣*
+🌀 _${usedPrefix}on *:* off *bienvenida*_
+🌀 _${usedPrefix}on *:* off *avisos*_
+🌀 _${usedPrefix}on *:* off *autonivel*_
+🌀 _${usedPrefix}on *:* off *stickers*_
+🌀 _${usedPrefix}on *:* off *autosticker*_
+🌀 _${usedPrefix}on *:* off *reaction*_
+🌀 _${usedPrefix}on *:* off *audios*_
+ 
+*╭━[ 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙎 𝘼𝙇𝘾𝘼𝘽𝙊𝙏 🧤 ]━⬣*
+🌀 _${usedPrefix}play *texto*_
 
-\`\`\`${week}, ${date}\`\`\`
-⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
-⎔ *Registrados »* ${rtotalreg}/${totalreg}
-⎔ *${lenguajeGB['smsTime']()}* ➺ _${time}_    
-⎔ *${lenguajeGB['smsUptime']()}* ➺ _${uptime}_ 
-⎔ *${lenguajeGB['smsVersion']()}* ➺ _${vs}_
-⎔ *${lenguajeGB['smsMode']()} ➺* _${global.opts['self'] ? `${lenguajeGB['smsModePrivate']().charAt(0).toUpperCase() + lenguajeGB['smsModePrivate']().slice(1).toLowerCase()}` : `${lenguajeGB['smsModePublic']().charAt(0).toUpperCase() + lenguajeGB['smsModePublic']().slice(1).toLowerCase()}`}_
-⎔ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
-⎔ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
+*╭━[ 𝙎 𝙏 𝙄 𝘾 𝙆 𝙀 𝙍 𝙎 🧤]━⬣*
+🌀 _${usedPrefix}tts es *texto*_
+🌀 _${usedPrefix}sticker | s *imagen*_
 
-✨ *◜INFORMACIÓN DEL USUARIO◞* ✨
-*❗️AJUSTES - CHATS❗️*
-┃ *Configura si eres Propietario(a) y/o*
-┃ *Admin!!*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃⚙️ _${usedPrefix}on *:* off *bienvenida | welcome*_
-┃⚙️ _${usedPrefix}on *:* off *avisos | detect*_
-┃⚙️ _${usedPrefix}on *:* off *autonivel | autolevelup*_
-┃⚙️ _${usedPrefix}on *:* off *restringir | restrict*_
-┃⚙️ _${usedPrefix}on *:* off *antillamar | anticall*_
-┃⚙️ _${usedPrefix}on *:* off *publico | public*_
-┃⚙️ _${usedPrefix}on *:* off *autovisto | autoread*_
-┃⚙️ _${usedPrefix}on *:* off *temporal*_
-┃⚙️ _${usedPrefix}on *:* off *stickers*_
-┃⚙️ _${usedPrefix}on *:* off *autosticker*_
-┃⚙️ _${usedPrefix}on *:* off *reacciones | reaction*_
-┃⚙️ _${usedPrefix}on *:* off *audios*_
-┃⚙️ _${usedPrefix}on *:* off *modocaliente | modohorny*_
-┃⚙️ _${usedPrefix}on *:* off *antitoxicos | antitoxic*_
-┃⚙️ _${usedPrefix}on *:* off *antiver | antiviewonce*_
-┃⚙️ _${usedPrefix}on *:* off *antieliminar | antidelete*_
-┃⚙️ _${usedPrefix}on *:* off *antinternacional | antifake*_
-┃⚙️ _${usedPrefix}on *:* off *antienlace | antilink*_
-┃⚙️ _${usedPrefix}on *:* off *antienlace2 | antilink2*_
-┃⚙️ _${usedPrefix}on *:* off *antitiktok | antitk*_
-┃⚙️ _${usedPrefix}on *:* off *antiyoutube | antiyt*_
-┃⚙️ _${usedPrefix}on *:* off *antitelegram | antitel*_
-┃⚙️ _${usedPrefix}on *:* off *antifacebook | antifb*_
-┃⚙️ _${usedPrefix}on *:* off *antinstagram | antig*_
-┃⚙️ _${usedPrefix}on *:* off *antitwitter | antitw*_
-┃⚙️ _${usedPrefix}on *:* off *soloprivados | pconly*_
-┃⚙️ _${usedPrefix}on *:* off *sologrupos | gconly*_
-*╰━━━━━━━━━━━━⬣*
+*╭━[ 𝘾𝙊𝙉𝙁𝙄𝙂𝙐𝙍𝘼𝘾𝙄𝙊𝙉 - 𝙂𝙍𝙐𝙋𝙊𝙎 🧤]━⬣*
+🌀 _${usedPrefix}add *numero*_
+🌀 _${usedPrefix}sacar | ban | kick_
+🌀 _${usedPrefix}grupo *abrir : cerrar*_
+🌀 _${usedPrefix}group *open : close*_
+🌀 _${usedPrefix}daradmin*@tag*_
+🌀 _${usedPrefix}quitar *@tag*_
+🌀 _${usedPrefix}banchat_
+🌀 _${usedPrefix}unbanchat_
+🌀 _${usedPrefix}banuser *@tag*_
+🌀 _${usedPrefix}admins *texto*_
+🌀 _${usedPrefix}invocar *texto*_
+🌀 _${usedPrefix}infogrupo_
+🌀 _${usedPrefix}newdesc *texto*_
+🌀 _${usedPrefix}bienvenida *texto*_
+🌀 _${usedPrefix}despedida *texto*_
+🌀 _${usedPrefix}on_
+🌀 _${usedPrefix}off_
 
-*❗️DESCARGAS | DOWNLOADS❗️*
-┃🧤➺ _${usedPrefix}imagen | image *texto*_
-┃🧤➺ _${usedPrefix}play | play2 *texto o link*_
-┃🧤➺ _${usedPrefix}play.1 *texto o link*_
-
-*❗️CONFIGURACIÓN - GRUPOS❗️ *
-┃🌐➺ _${usedPrefix}add *numero*_
-┃🌐➺ _${usedPrefix}sacar | ban | kick  *@tag*_
-┃🌐➺ _${usedPrefix}grupo *abrir : cerrar*_
-┃🌐➺ _${usedPrefix}group *open : close*_
-┃🌐➺ _${usedPrefix}daradmin | promote *@tag*_
-┃🌐➺ _${usedPrefix}quitar | demote *@tag*_
-┃🌐➺ _${usedPrefix}banchat_
-┃🌐➺ _${usedPrefix}unbanchat_
-┃🌐➺ _${usedPrefix}banuser *@tag*_
-┃🌐➺ _${usedPrefix}unbanuser *@tag*_
-┃🌐➺ _${usedPrefix}admins *texto*_
-┃🌐➺ _${usedPrefix}invocar *texto*_
-┃🌐➺ _${usedPrefix}tagall *texto*_
-┃🌐➺ _${usedPrefix}hidetag *texto*_
-┃🌐➺ _${usedPrefix}infogrupo | infogroup_
-┃🌐➺ _${usedPrefix}enlace | link_
-┃🌐➺ _${usedPrefix}newnombre | nuevonombre *texto*_
-┃🌐➺ _${usedPrefix}newdesc | descripcion *texto*_
-┃🌐➺ _${usedPrefix}setwelcome | bienvenida *texto*_
-┃🌐➺ _${usedPrefix}setbye | despedida *texto*_
-
-*❗️FUNCIÓN RPG❗️*
-┃⚗️➺ _${usedPrefix}verificar | registrar_
-┃⚗️➺ _${usedPrefix}perfil | profile_
-┃⚗️➺ _${usedPrefix}myns_
-┃⚗️➺ _${usedPrefix}unreg *numero de serie*_
-
-*❗️STICKERS❗️*
-┃ *Realiza stickers o crea*
-┃🧤 _${usedPrefix}sticker | s *imagen o video*_
-
-*❗️ MENU PARA PROPIETARIO/A❗️*
-┃ *Comandos solo para Propietario/a!!*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃💎 _${usedPrefix}join *enlace*_
-┃💎 _${usedPrefix}unete *enlace*_
-┃💎➺ _${usedPrefix}darxp *cantidad*_
-┃💎➺ _${usedPrefix}idioma | language_
-┃💎➺ _${usedPrefix}cajafuerte_
-┃💎➺ _${usedPrefix}comunicar | broadcastall | bc *texto*_
+*╭━[+ FUNCIONES 🧤 ]━⬣*
+🔴 _${usedPrefix}registrar_
+🔴 _${usedPrefix}perfil_
+🔴 _${usedPrefix}myns_
+🔴 _${usedPrefix}unreg *numero de serie*_
+*⚡️ ALCA VENTAS 528241050228 ⚡️*`.trim()
 await conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
 	
 } catch (e) {
@@ -182,4 +129,4 @@ function clockString(ms) {
 let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
 let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
 let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}  
+return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
