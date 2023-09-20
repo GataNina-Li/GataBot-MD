@@ -97,6 +97,7 @@ if (!('premium' in user)) user.premium = false
 	      if (!('role' in user)) user.role = '*NOVATO(A)* 🪤'
               if (!isNumber(user.agility)) user.agility = 0
               if (!isNumber(user.anakanjing)) user.anakanjing = 0
+	      if (!isNumber(user.mesagge)) user.anakanjing = 0
               if (!isNumber(user.anakcentaur)) user.anakcentaur = 0
               if (!isNumber(user.anakgriffin)) user.anakgriffin = 0
               if (!isNumber(user.anakkucing)) user.anakkucing = 0
@@ -509,6 +510,7 @@ if (!('premium' in user)) user.premium = false
 		    premLimit: 0,
 		    miestado: 0,
                     agility: 16,
+                    messageSpam: 0,
                     anakanjing: 0,
                     anakcentaur: 0,
                     anakgriffin: 0,
@@ -1168,7 +1170,9 @@ let user = global.db.data.users[m.sender]
 if (!['owner-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner) return // Except this
 if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'tool-delete.js' && chat?.isBanned && !isROwner) return 
 if (m.text && user.banned && !isROwner) {
-m.reply('Has sido baneado.')
+if (user.antispam > 2) return
+m.reply('*ESTÁ BANEADO(A), NO PUEDE USAR COMANDOS*MOTIVO: ')
+user.antispam++	
 return
 }
 }
