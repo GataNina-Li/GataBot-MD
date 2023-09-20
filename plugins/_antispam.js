@@ -67,6 +67,7 @@ userData.antiBan = 0
 userData.message = 0
 userData.message2 = 0
 userData.message3 = 0
+user.antispam = 0
 user.banned = false
 }}, time) 
   
@@ -77,6 +78,7 @@ userData.antiBan = 0
 userData.message = 0
 userData.message2 = 0
 userData.message3 = 0
+user.antispam = 0
 user.banned = false
 }}, time2) 
                 
@@ -87,6 +89,7 @@ userData.antiBan = 0
 userData.message = 0
 userData.message2 = 0
 userData.message3 = 0
+user.antispam = 0
 user.banned = false
 }}, time3)
     
