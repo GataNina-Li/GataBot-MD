@@ -10,6 +10,8 @@ import yargs from 'yargs';
 import {spawn} from 'child_process';
 import lodash from 'lodash';
 import chalk from 'chalk';
+import fs from 'fs'
+import { watchFile, unwatchFile } from 'fs'  
 import syntaxerror from 'syntax-error';
 import {tmpdir} from 'os';
 import {format} from 'util';
