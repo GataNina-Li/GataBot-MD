@@ -12,7 +12,7 @@ const currentTime = new Date().getTime()
 const timeWindow = 5000 // tiempo límite 
 const messageLimit = 10 // cantidad de mensajes en dicho tiempo
 
-let time, time2, time3, mensaje
+let time, time2, time3, mensaje, motive
 time = 30000 // 30 seg
 time2 = 60000 // 1 min
 time3 = 120000 // 2 min
@@ -33,18 +33,24 @@ const timeDifference = currentTime - userData.lastMessageTime
 if (userData.antiBan === 1) {
 if (userData.message < 1) {
 userData.message++  
-mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 30 SEGUNDOS*\n\n*MOTIVO: SPAM DE MENSAJES LEVE*`
+motive = 'SPAM DE MENSAJES LEVE'
+mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 30 SEGUNDOS*\n\n*MOTIVO: ${motive}*`  
 await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
+user.messageSpam = motive
 }} else if (userData.antiBan === 2) {
 if (userData.message2 < 1) {
 userData.message2++  
-mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 1 MINUTO*\n\n*MOTIVO: SPAM DE MENSAJES MODERADO*`
+motive = 'SPAM DE MENSAJES MODERADO'
+mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 1 MINUTO*\n\n*MOTIVO: ${motive}*`
 await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
+user.messageSpam = motive
 }} else if (userData.antiBan === 3) {
 if (userData.message3 < 1) {
 userData.message3++  
-mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 2 MINUTOS*\n\n*MOTIVO: SPAM DE MENSAJE ALARMANTE*`
-await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
+motive = 'SPAM DE MENSAJES ALARMANTE'
+mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 2 MINUTOS*\n\n*MOTIVO: ${motive}*`
+await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] }) 
+user.messageSpam = motive
 await conn.groupParticipantsUpdate(m.chat, [sender], 'remove')
 }}
 
@@ -68,6 +74,8 @@ userData.message = 0
 userData.message2 = 0
 userData.message3 = 0
 user.antispam = 0
+motive = 0
+user.messageSpam = 0
 user.banned = false
 }}, time) 
   
@@ -79,6 +87,8 @@ userData.message = 0
 userData.message2 = 0
 userData.message3 = 0
 user.antispam = 0
+motive = 0
+user.messageSpam = 0
 user.banned = false
 }}, time2) 
                 
@@ -90,6 +100,8 @@ userData.message = 0
 userData.message2 = 0
 userData.message3 = 0
 user.antispam = 0
+motive = 0
+user.messageSpam = 0
 user.banned = false
 }}, time3)
     
