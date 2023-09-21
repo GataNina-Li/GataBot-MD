@@ -34,7 +34,7 @@ global.Key360 = ["964f-0c75-7afc"];
 //  en = English         pt = Português 
 //  ar = عرب             hi = Hindi Language
 
-global.lenguajeGB = es; //Idioma de GataBot, Ejemplo: es | en | pt...
+global.lenguajeGB = es //Idioma de GataBot, Ejemplo: es | en | pt...
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
