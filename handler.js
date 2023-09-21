@@ -1016,6 +1016,7 @@ if (!('premium' in user)) user.premium = false
                 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 		if (!('antiCall' in settings)) settings.antiCall = true
 		if (!('antiSpam' in settings)) settings.antiSpam = true 
+		if (!('modoia' in settings)) settings.modoia = false
 		if (!('jadibotmd' in settings)) settings.jadibotmd = true  
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
@@ -1026,6 +1027,7 @@ if (!('premium' in user)) user.premium = false
 		antiPrivate: false,
 		antiCall: true,
 		antiSpam: true,
+		modoia: false, 
 		jadibotmd: true,
             }
         } catch (e) {
