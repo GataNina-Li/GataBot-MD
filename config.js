@@ -38,10 +38,10 @@ global.lenguajeGB = es; //Idioma de GataBot, Ejemplo: es | en | pt...
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
-global.openai_key = "sk-...OzYy2";
+global.openai_key = 'sk-0';
 /* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */
 
-global.openai_org_id = "HITjoN7H8pCwoncEB9e3fSyW";
+global.openai_org_id = 'org-3';
 /* Consigue tu ID de organizacion en este enlace: https://platform.openai.com/account/org-settings */
 
 global.keysZens = ["LuOlangNgentot", "c2459db922", "37CC845916", "6fb0eff124", "hdiiofficial", "fiktod", "BF39D349845E", "675e34de8a", "0b917b905e6f"];
