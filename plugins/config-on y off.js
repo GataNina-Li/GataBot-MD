@@ -396,6 +396,17 @@ throw false
 chat.simi = isEnable
 break
 
+case 'modoia':
+case 'chatgpt':
+case 'ia':
+isAll = true;
+if (!isOwner) {
+global.dfail('owner', m, conn);
+throw false;
+}
+bot.modoia = isEnable;      
+break;      
+      
 case 'swonly': case 'statusonly':
 isAll = true
 if (!isROwner) {
