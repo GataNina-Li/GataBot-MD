@@ -1039,7 +1039,7 @@ if (!('premium' in user)) user.premium = false
             return
         if (opts['pconly'] && m.chat.endsWith('g.us') && !m.Owner)
             return
-        if (opts['gconly'] && !m.chat.endsWith('g.us') && !isOwner)
+        if (opts['gconly'] && !m.chat.endsWith('g.us') && !m.Owner)
             return
         if (opts['swonly'] && m.chat !== 'status@broadcast')
             return
