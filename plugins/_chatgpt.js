@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import translate from '@vitalets/google-translate-api';
 const handler = (m) => m;
+const chat = global.db.data.chats[m.chat];
 
 handler.before = async (m) => {
 let Prefijo = false;
