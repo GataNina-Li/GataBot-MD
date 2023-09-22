@@ -1035,11 +1035,11 @@ if (!('premium' in user)) user.premium = false
         }
         if (opts['nyimak'])
             return
-        if (!m.fromMe && opts['self'])
+        if (!m.fromMe && !isOwner & opts['self'])
             return
-        if (opts['pconly'] && m.chat.endsWith('g.us'))
+        if (opts['pconly'] && m.chat.endsWith('g.us') && !isOwner)
             return
-        if (opts['gconly'] && !m.chat.endsWith('g.us'))
+        if (opts['gconly'] && !m.chat.endsWith('g.us') && !isOwner)
             return
         if (opts['swonly'] && m.chat !== 'status@broadcast')
             return
