@@ -1,12 +1,11 @@
 import fetch from 'node-fetch';
 import translate from '@vitalets/google-translate-api';
 const handler = (m) => m;
-const chat = global.db.data.chats[m.chat];
 
 handler.before = async (m) => {
 let Prefijo = false;
 const prefixRegex = global.prefix;
-if (prefixRegex.test(m.text) && !chat.isBanned && !opts['gconly']) Prefijo = true;
+if (prefixRegex.test(m.text) && !opts['gconly']) Prefijo = true;
 const bot = global.db.data.settings[conn.user.jid]   
 if (bot.modoia && !m.isGroup && !Prefijo && !m.fromMe && m.text !== '') {
 if (/^.*false|disnable|(turn)?off|0/i.test(m.text)) return;
