@@ -1035,9 +1035,9 @@ if (!('premium' in user)) user.premium = false
         }
         if (opts['nyimak'])
             return
-        if (!m.fromMe && !isOwner & opts['self'])
+        if (!m.fromMe && !m.Owner & opts['self'])
             return
-        if (opts['pconly'] && m.chat.endsWith('g.us') && !isOwner)
+        if (opts['pconly'] && m.chat.endsWith('g.us') && !m.Owner)
             return
         if (opts['gconly'] && !m.chat.endsWith('g.us') && !isOwner)
             return
