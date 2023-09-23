@@ -11,8 +11,8 @@ import { en, es, id, ar, pt, fr, hi } from "./lib/idiomas/total-idiomas.js";
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
 
 global.owner = [
-["525587109454", '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈', true],
-["595975740803", '𝙊𝙬𝙣𝙚𝙧 💖🐈', true], 
+["524888833126", 'POOL4R BOT👹', true],
+["523318065446", 'POOL4R CDG🇲🇽', true], 
 ["5492266466080"], 
 ["593968585383"], 
 ["5492266613038"],
