@@ -113,7 +113,7 @@ global.author = "𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨";
 //⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
 
 global.vs = "1.4.9";
-global.vsJB = "2.5";
+global.vsJB = "2.5 (Beta)";
 
 global.gt = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿";
 global.yt = "https://youtube.com/@gatadios";
