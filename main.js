@@ -147,43 +147,49 @@ if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 't
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
 async function connectionUpdate(update) {
-const {connection, lastDisconnect, isNewLogin} = update
-global.stopped = connection
-if (isNewLogin) conn.isInit = true
-const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
+const {connection, lastDisconnect, isNewLogin} = update;
+global.stopped = connection;
+if (isNewLogin) conn.isInit = true;
+const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode;
 if (code && code !== DisconnectReason.loggedOut && conn?.ws.socket == null) {
-console.log(await global.reloadHandler(true).catch(console.error))
-global.timestamp.connect = new Date
+await global.reloadHandler(true).catch(console.error);
+//console.log(await global.reloadHandler(true).catch(console.error));
+global.timestamp.connect = new Date;
 }
-if (global.db.data == null) loadDatabase()
+if (global.db.data == null) loadDatabase();
 if (update.qr != 0 && update.qr != undefined) {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
-if (connection == 'open') {
+  if (connection == 'open') {
 console.log(chalk.bold.greenBright(lenguajeGB['smsConexion']()))}
-let reason = new Boom(lastDisconnect?.error)?.output?.statusCode
+let reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
 if (connection === 'close') {
 if (reason === DisconnectReason.badSession) {
 console.log(chalk.bold.cyanBright(lenguajeGB['smsConexionOFF']()))
+//process.exit();
 } else if (reason === DisconnectReason.connectionClosed) {
 console.log(chalk.bold.magentaBright(lenguajeGB['smsConexioncerrar']()))
-process.send('reset')
+await global.reloadHandler(true).catch(console.error);
 } else if (reason === DisconnectReason.connectionLost) {
 console.log(chalk.bold.blueBright(lenguajeGB['smsConexionperdida']()))
-process.send('reset')
+await global.reloadHandler(true).catch(console.error);
 } else if (reason === DisconnectReason.connectionReplaced) {
 console.log(chalk.bold.yellowBright(lenguajeGB['smsConexionreem']()))
+//process.exit();
 } else if (reason === DisconnectReason.loggedOut) {
 console.log(chalk.bold.redBright(lenguajeGB['smsConexionOFF']()))
+//process.exit();
 } else if (reason === DisconnectReason.restartRequired) {
 console.log(chalk.bold.cyanBright(lenguajeGB['smsConexionreinicio']()))
+await global.reloadHandler(true).catch(console.error);
 } else if (reason === DisconnectReason.timedOut) {
 console.log(chalk.bold.yellowBright(lenguajeGB['smsConexiontiem']()))
-process.send('reset')
+await global.reloadHandler(true).catch(console.error);
 } else {
 console.log(chalk.bold.redBright(lenguajeGB['smsConexiondescon'](reason, connection)))
-}}
-}
-process.on('uncaughtException', console.error)
+await global.reloadHandler(true).catch(console.error);
+}}}
+
+process.on('uncaughtException', console.error);
 
 let isInit = true;
 let handler = await import('./handler.js');
