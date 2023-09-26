@@ -128,6 +128,7 @@ ${readMore}
 ┃ *Número en GataBot!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃💻 _${usedPrefix}serbot | jadibot_
+┃💻 _${usedPrefix}serbot --code | jadibot --code_
 ┃💻 _${usedPrefix}bots | listjadibots_
 ┃💻 _${usedPrefix}detener | stop_
 ┃💻 _${usedPrefix}bcbot_
