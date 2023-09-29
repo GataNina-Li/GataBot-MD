@@ -156,6 +156,8 @@ await global.reloadHandler(true).catch(console.error);
 //console.log(await global.reloadHandler(true).catch(console.error));
 global.timestamp.connect = new Date;
 }
+if (global.conns instanceof Array) console.log()
+else global.conns = []
 if (global.db.data == null) loadDatabase();
 if (update.qr != 0 && update.qr != undefined) {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
