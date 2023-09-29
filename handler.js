@@ -1035,9 +1035,9 @@ jadibotmd: true,
 console.error(e)
 }
 if (opts['nyimak']) return
-if (!m.fromMe && !m.Owner && !m.ROwner && opts['self']) return
-if (opts['pconly'] && m.chat.endsWith('g.us') && !m.Owner && !m.ROwner) return
-if (opts['gconly'] && !m.chat.endsWith('g.us') && !m.Owner && !m.ROwner) return
+if (!m.fromMe && opts['self']) return
+if (opts['pconly'] && m.chat.endsWith('g.us')) return
+if (opts['gconly'] && !m.chat.endsWith('g.us')) return
 if (opts['swonly'] && m.chat !== 'status@broadcast') return
 if (typeof m.text !== 'string')
 m.text = ''
