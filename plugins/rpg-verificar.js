@@ -186,8 +186,8 @@ const { key } = await conn.sendMessage(m.chat, { text: yyr }, {quoted: m})
 await delay(1000)
 await conn.sendMessage(m.chat, { text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key })
 } 
-asignarIdentidad(text)
-identidad = identidad
+var identidadAsignada = asignarIdentidad(text)
+identidad = identidadAsignada
 user.identidad = identidad
 pasatiempo = 0
 pas1 = 0
