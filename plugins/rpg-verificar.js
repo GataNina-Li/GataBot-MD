@@ -152,8 +152,10 @@ case "👤":
 genero = "Ocultado"
 break
 default:
+
+}
 return m.reply(`*RECUERDE USAR EL EMOJI NUMÉRICO, EMOJI DE GÉNERO O TEXTO NUMÉRICO PARA SELECCIONAR SU GÉNERO*`)
-}}
+}
 asignarGenero(text)
 user.genero = genero
 
