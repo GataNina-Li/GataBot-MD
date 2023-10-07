@@ -186,7 +186,8 @@ generos.forEach(function (genero, index) {
 yyr += `*┊* \`\`\`[${index + 1}]\`\`\` » _${genero}_\n`
 })
 yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
-if (!text) return const { key } = await conn.sendMessage(m.chat, { text: yyr }, {quoted: m})
+const { key }
+if (!text) return key = await conn.sendMessage(m.chat, { text: yyr }, {quoted: m})
 await delay(1000 * 1)
 await conn.sendMessage(m.chat, { text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key })
 asignarIdentidad(text.slice(1).trim())
