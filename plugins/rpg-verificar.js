@@ -156,7 +156,6 @@ return m.reply(`*RECUERDE USAR EL EMOJI NUMÉRICO, EMOJI DE GÉNERO O TEXTO NUM�
 }}
 asignarGenero(text)
 user.genero = genero
-
 if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: eg + `*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n*❖ EDAD:*\n${edad === 0 ? 'No encontrada' : edad + ' años'}\n*❖ GENERO:*\n${genero === 0 ? 'No encontrada' : genero}\n\n*🌱 AHORA PUEDE REGISTRAR SU IDENTIDAD*\n${usedPrefix}identidad`}, {quoted: fkontak}) 
 }
 	
@@ -188,11 +187,9 @@ yyr += `*┊* \`\`\`[${index + 1}]\`\`\` » _${genero}_\n`
 })
 yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
 if (!text) return m.reply(yyr)
-const { key } = await conn.sendMessage(m.chat, {text: yyr}, {quoted: m})
-await delay(3000)
-await conn.sendMessage(m.chat, {text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key})
+const { key } = await conn.sendMessage(m.chat, { text: yyr }, {quoted: m})
 //await delay(3000)
-//await conn.sendMessage(m.chat, {text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key})
+await conn.sendMessage(m.chat, { text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key })
 asignarIdentidad(text.slice(1).trim())
 identidad = genero
 user.identidad = identidad
