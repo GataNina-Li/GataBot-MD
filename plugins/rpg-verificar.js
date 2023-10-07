@@ -219,7 +219,7 @@ case "👤":
 genero = "Ocultado"
 break
 default:
-await conn.sendMessage(m.chat, {text: `*RECUERDE USAR EL EMOJI NUMÉRICO, EMOJI DE GÉNERO O TEXTO NUMÉRICO PARA SELECCIONAR SU GÉNERO*`, edit: key})
+return conn.sendMessage(m.chat, {text: `*RECUERDE USAR EL EMOJI NUMÉRICO, EMOJI DE GÉNERO O TEXTO NUMÉRICO PARA SELECCIONAR SU GÉNERO*`, edit: key})
 //return m.reply(`*RECUERDE USAR EL EMOJI NUMÉRICO, EMOJI DE GÉNERO O TEXTO NUMÉRICO PARA SELECCIONAR SU GÉNERO*`)
 }}
 asignarGenero(text)
