@@ -130,8 +130,7 @@ let old = performance.now()
 let neww = performance.now()
 let speed = `${neww - old}`
 let doxeo = `*‼️ PERSONA DOXEADA CON EXITO ‼️*
-📅 ${fecha}
-⏰ ${tiempo}
+
 📢 Resultados:
 *Nombre:* ${text}
 *Ip:* 92.28.211.234
