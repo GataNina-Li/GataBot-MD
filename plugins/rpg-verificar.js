@@ -128,31 +128,63 @@ if (text.length >= 25) {
 await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n${usedPrefix}nombre ${gt}\n\n_Si quiere usar su nombre registrado en su WhatsApp, escriba ${usedPrefix}nombre2_`, edit: key})
 //conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n${usedPrefix}nombre ${gt}\n\n_Si quiere usar su nombre registrado en su WhatsApp, escriba ${usedPrefix}nombre2_`}, {quoted: fkontak})
 }
-if (text.length <= 2) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n${usedPrefix}nombre ${gt}\n\n_Si quiere usar su nombre registrado en su WhatsApp, escriba ${usedPrefix}nombre2_`}, {quoted: fkontak})
+if (text.length <= 2) {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n${usedPrefix}nombre ${gt}\n\n_Si quiere usar su nombre registrado en su WhatsApp, escriba ${usedPrefix}nombre2_`, edit: key})
+//conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n${usedPrefix}nombre ${gt}\n\n_Si quiere usar su nombre registrado en su WhatsApp, escriba ${usedPrefix}nombre2_`}, {quoted: fkontak})
 nombre = text.replace(/\s+/g, '').replace(/[0-9]+/gi, "").trim()
 user.name = nombre
-if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n\n🔢 *AHORA PUEDE REGISTRAR SU EDAD EJEMPLO:*\n${usedPrefix}edad 20`}, {quoted: fkontak})
 }
+if (verificar.test(text) == true) {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n\n🔢 *AHORA PUEDE REGISTRAR SU EDAD EJEMPLO:*\n${usedPrefix}edad 20`, edit: key})	
+//conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n\n🔢 *AHORA PUEDE REGISTRAR SU EDAD EJEMPLO:*\n${usedPrefix}edad 20`}, {quoted: fkontak})
+}}
 	
 if (command == 'nombre2' || command == 'name2') {
-if (typeof nombre === 'string') fg + '*NO PUEDE CAMBIAR DE NOMBRE*\n\n_Una vez completado no puede ser modificado_'
-if (nombreWA.slice(1).length < 2) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*SU NOMBRE DE WHATSAPP ES MUY CORTO PARA REGISTRAR*\n\n*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre usando ${usedPrefix}nombre ${gt}*`}, {quoted: fkontak})
-if (nombreWA.slice(1).length > 25) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*SU NOMBRE DE WHATSAPP ES MUY LARGO PARA REGISTRAR*\n\n*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre usando ${usedPrefix}nombre ${gt}*`}, {quoted: fkontak})
+if (typeof nombre === 'string') {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*NO PUEDE CAMBIAR DE NOMBRE*\n\n_Una vez completado no puede ser modificado_`, edit: key})
+}
+if (nombreWA.slice(1).length < 2) {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*SU NOMBRE DE WHATSAPP ES MUY CORTO PARA REGISTRAR*\n\n*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre usando ${usedPrefix}nombre ${gt}*`, edit: key})
+//conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*SU NOMBRE DE WHATSAPP ES MUY CORTO PARA REGISTRAR*\n\n*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre usando ${usedPrefix}nombre ${gt}*`}, {quoted: fkontak})
+}
+if (nombreWA.slice(1).length > 25) {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*SU NOMBRE DE WHATSAPP ES MUY LARGO PARA REGISTRAR*\n\n*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre usando ${usedPrefix}nombre ${gt}*`, edit: key})
+//conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*SU NOMBRE DE WHATSAPP ES MUY LARGO PARA REGISTRAR*\n\n*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre usando ${usedPrefix}nombre ${gt}*`}, {quoted: fkontak})
 nombre = nombreWA.replace(/\s+/g, '').replace(/[0-9]+/gi, "").slice(1).trim()
 user.name = nombre
-if (verificar.test(text) == false) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n\n🔢 *AHORA PUEDE REGISTRAR SU EDAD EJEMPLO:*\n${usedPrefix}edad 20`}, {quoted: fkontak})
 }
+if (verificar.test(text) == false) {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n\n🔢 *AHORA PUEDE REGISTRAR SU EDAD EJEMPLO:*\n${usedPrefix}edad 20`, edit: key})
+//conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n\n🔢 *AHORA PUEDE REGISTRAR SU EDAD EJEMPLO:*\n${usedPrefix}edad 20`}, {quoted: fkontak})
+}}
 		
 if (command == 'edad' || command == 'age' || command == 'edad2' || command == 'age2') {
-if (typeof edad === 'string') return m.reply(`${lenguajeGB['smsAvisoFG']()}*NO PUEDE CAMBIAR DE EDAD*\n\n_Una vez completado no puede ser modificado_`)
-if (verificar.test(text.slice(1)) == false && !text) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoIIG']()}*👉 PERSONALICE SU EDAD PARA REGISTRAR, EJEMPLO:*\n${usedPrefix}edad 20`}, {quoted: fkontak})
-if (isNaN(text)) return m.reply(`${lenguajeGB['smsAvisoFG']()}*INGRESE SOLO NÚMEROS*`)
-if (text > 50) return m.reply(`${lenguajeGB['smsAvisoFG']()}*DEMASIADO MAYOR PARA SER REGISTRADO*`)
-if (text < 10) return m.reply(`${lenguajeGB['smsAvisoFG']()}*DEMASIADO MENOR PARA SER REGISTRADO*`)
+if (typeof edad === 'string') {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*NO PUEDE CAMBIAR DE EDAD*\n\n_Una vez completado no puede ser modificado_`, edit: key})
+//m.reply(`${lenguajeGB['smsAvisoFG']()}*NO PUEDE CAMBIAR DE EDAD*\n\n_Una vez completado no puede ser modificado_`)
+}
+if (verificar.test(text.slice(1)) == false && !text) {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoIIG']()}*👉 PERSONALICE SU EDAD PARA REGISTRAR, EJEMPLO:*\n${usedPrefix}edad 20`, edit: key})
+//conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoIIG']()}*👉 PERSONALICE SU EDAD PARA REGISTRAR, EJEMPLO:*\n${usedPrefix}edad 20`}, {quoted: fkontak})
+}
+if (isNaN(text)) {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*INGRESE SOLO NÚMEROS*`, edit: key})
+//m.reply(`${lenguajeGB['smsAvisoFG']()}*INGRESE SOLO NÚMEROS*`)
+}
+if (text > 50) {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*DEMASIADO MAYOR PARA SER REGISTRADO*`, edit: key})
+//m.reply(`${lenguajeGB['smsAvisoFG']()}*DEMASIADO MAYOR PARA SER REGISTRADO*`)
+}
+if (text < 10) { 
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*DEMASIADO MENOR PARA SER REGISTRADO*`, edit: key})
+//m.reply(`${lenguajeGB['smsAvisoFG']()}*DEMASIADO MENOR PARA SER REGISTRADO*`)
 edad = text.replace(/[.,\/#!$%\^&\*;:{}@=\-_`~()\s\a-z]/gi, "")
 user.age = edad
-if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n*❖ EDAD:*\n${edad === 0 ? 'No encontrada' : edad + ' años'}\n\n🧬 *AHORA PUEDE REGISTRAR SU GÉNERO EJEMPLO:*\n${usedPrefix}genero`}, {quoted: fkontak})
 }
+if (verificar.test(text) == true) { 
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n*❖ EDAD:*\n${edad === 0 ? 'No encontrada' : edad + ' años'}\n\n🧬 *AHORA PUEDE REGISTRAR SU GÉNERO EJEMPLO:*\n${usedPrefix}genero`, edit: key})
+//conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n*❖ EDAD:*\n${edad === 0 ? 'No encontrada' : edad + ' años'}\n\n🧬 *AHORA PUEDE REGISTRAR SU GÉNERO EJEMPLO:*\n${usedPrefix}genero`}, {quoted: fkontak})
+}}
 	
 if (command == 'genero' || command == 'género' || command == 'gender') {
 let genText = `🌟 *SELECCIONA TU GÉNERO!!*
@@ -165,7 +197,10 @@ let genText = `🌟 *SELECCIONA TU GÉNERO!!*
 ✓ ${usedPrefix}genero 2️⃣
 ✓ ${usedPrefix}genero 2`
 
-if (!text) return conn.sendMessage(m.chat, { text: genText }, { quoted: fkontak })	
+if (!text) {
+await conn.sendMessage(m.chat, {text: genText, edit: key})
+//conn.sendMessage(m.chat, { text: genText }, { quoted: fkontak })
+}
 function asignarGenero(text) {
 switch (text) {
 case "1️⃣":
@@ -184,12 +219,15 @@ case "👤":
 genero = "Ocultado"
 break
 default:
-return m.reply(`*RECUERDE USAR EL EMOJI NUMÉRICO, EMOJI DE GÉNERO O TEXTO NUMÉRICO PARA SELECCIONAR SU GÉNERO*`)
+await conn.sendMessage(m.chat, {text: `*RECUERDE USAR EL EMOJI NUMÉRICO, EMOJI DE GÉNERO O TEXTO NUMÉRICO PARA SELECCIONAR SU GÉNERO*`, edit: key})
+//return m.reply(`*RECUERDE USAR EL EMOJI NUMÉRICO, EMOJI DE GÉNERO O TEXTO NUMÉRICO PARA SELECCIONAR SU GÉNERO*`)
 }}
 asignarGenero(text)
 user.genero = genero
-if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: eg + `*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n*❖ EDAD:*\n${edad === 0 ? 'No encontrada' : edad + ' años'}\n*❖ GENERO:*\n${genero === 0 ? 'No encontrada' : genero}\n\n*🌱 AHORA PUEDE REGISTRAR SU IDENTIDAD*\n${usedPrefix}identidad`}, {quoted: fkontak}) 
-}
+if (verificar.test(text) == true) {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n*❖ EDAD:*\n${edad === 0 ? 'No encontrada' : edad + ' años'}\n*❖ GENERO:*\n${genero === 0 ? 'No encontrada' : genero}\n\n*🌱 AHORA PUEDE REGISTRAR SU IDENTIDAD*\n${usedPrefix}identidad`, edit: key})
+//conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n*❖ EDAD:*\n${edad === 0 ? 'No encontrada' : edad + ' años'}\n*❖ GENERO:*\n${genero === 0 ? 'No encontrada' : genero}\n\n*🌱 AHORA PUEDE REGISTRAR SU IDENTIDAD*\n${usedPrefix}identidad`}, {quoted: fkontak}) 
+}}
 	
 if (command == 'identidad' || command == 'identity') {
 var generos = [
@@ -218,10 +256,11 @@ generos.forEach(function (genero, index) {
 yyr += `*┊* \`\`\`[${index + 1}]\`\`\` » _${genero}_\n`
 })
 yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
-if (!text) {
-key  = await conn.sendMessage(m.chat, { text: yyr }, {quoted: m})	
+if (!text) {	
+await conn.sendMessage(m.chat, {text: yyr, edit: key})
 //await delay(1000 * 1)
-await conn.sendMessage(m.chat, { text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key })
+await conn.sendMessage(m.chat, {text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key})
+//await conn.sendMessage(m.chat, { text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key })
 } 
 asignarIdentidad(text.slice(1).trim())
 identidad = genero
@@ -232,8 +271,10 @@ pas2 = 0
 pas3 = 0
 pas4 = 0
 pas5 = 0  
-if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: eg + `*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n❖ EDAD:*\n${edad === 0 ? 'No encontrada' : edad + ' años'}\n*❖ GENERO:*\n${genero === 0 ? 'No encontrada' : genero}\n*❖ IDENTIDAD DE GÉNERO:*\n${identidad === 0 ? 'No encontrada' : identidad}\n\n❇️ AHORA REGISTRAR MIS PASATIEMPOS\n${usedPrefix}pasatiempo`}, {quoted: fkontak})
-}
+if (verificar.test(text) == true) {
+await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n❖ EDAD:*\n${edad === 0 ? 'No encontrada' : edad + ' años'}\n*❖ GENERO:*\n${genero === 0 ? 'No encontrada' : genero}\n*❖ IDENTIDAD DE GÉNERO:*\n${identidad === 0 ? 'No encontrada' : identidad}\n\n❇️ AHORA REGISTRAR MIS PASATIEMPOS\n${usedPrefix}pasatiempo`, edit: key})
+//conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n❖ EDAD:*\n${edad === 0 ? 'No encontrada' : edad + ' años'}\n*❖ GENERO:*\n${genero === 0 ? 'No encontrada' : genero}\n*❖ IDENTIDAD DE GÉNERO:*\n${identidad === 0 ? 'No encontrada' : identidad}\n\n❇️ AHORA REGISTRAR MIS PASATIEMPOS\n${usedPrefix}pasatiempo`}, {quoted: fkontak})
+}}
 	
 const sections = [
 { title: "❇️ SELECCIONE HASTA 5 PASATIEMPOS!!",
