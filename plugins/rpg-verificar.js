@@ -4,7 +4,7 @@ let nombre = 0, edad = 0, genero = 0, bio = 0, identidad = 0, pasatiempo = 0, re
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0  
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
-let { key, key2, key3 }
+let { key, key2, key3 } = ''
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }	
 let d = new Date(new Date + 3600000)
 let locale = 'es'
@@ -219,7 +219,7 @@ yyr += `*┊* \`\`\`[${index + 1}]\`\`\` » _${genero}_\n`
 })
 yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
 if (!text) {
-const { key } = await conn.sendMessage(m.chat, { text: yyr }, {quoted: m})	
+key  = await conn.sendMessage(m.chat, { text: yyr }, {quoted: m})	
 //await delay(1000 * 1)
 await conn.sendMessage(m.chat, { text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key })
 } 
