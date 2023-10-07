@@ -101,7 +101,10 @@ return minutes + " m y " + seconds + " s "
 
 import {performance} from 'perf_hooks';
 const handler = async (m, {conn, text}) => {
-    
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }  
+let user = global.db.data.users[m.sender]
+let time = user.prue + 90000 //1 min
+if (new Date - user.prue < 90000) return await conn.reply(m.chat, `🙌 HEY ALTO ESPERA UNOS MINUTOS PARA USAR OTRO COMANDO NO HAGA SPAM`, fkontak, m)    
 const start = performance.now();    
 const end = performance.now();
 const executionTime = (end - start);
@@ -188,30 +191,44 @@ const doxeo = `*_✅ Persona doxxeada con éxito_*\n\n*_Tiempo: ${executionTime}
 *Tcp:* ${fakeData.tcp3}
 *EXTERNAL MAC:* ${fakeData.externalMac}
 *MODEM JUMPS:* ${fakeData.modemJumps}`;
-    
+
 async function loading() {
 var hawemod = [
-"《 █▒▒▒▒▒▒▒▒▒▒▒》10%",
-"《 ████▒▒▒▒▒▒▒▒》30%",
-"《 ███████▒▒▒▒▒》50%",
-"《 ██████████▒▒》80%",
-"《 ████████████》100%"
+`*${pickRandom(['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'])}%*`
+ `*${pickRandom(['21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40'])}%*`
+ `*${pickRandom(['41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60'])}%*`
+`*${pickRandom(['61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80'])}%*`
+`*${pickRandom(['81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100'])}%*`   
 ]
-      let { key } = await conn.sendMessage(m.chat, {text: `*😱 ¡¡Empezando Doxxeo!! 😱*`}, {quoted: m})
+let { key } = await conn.sendMessage(m.chat, {text: `*😱 ¡¡Empezando Doxxeo!! 😱*`}, {quoted: m})
  for (let i = 0; i < hawemod.length; i++) {
    await new Promise(resolve => setTimeout(resolve, 1000)); 
-   await conn.sendMessage(m.chat, {text: hawemod[i], edit: key}, {quoted: m}); 
-  }
-  await conn.sendMessage(m.chat, {text: doxeo, edit: key, mentions: conn.parseMention(doxeo)}, {quoted: m});         
- }
-loading()    
-};
-handler.help = ['doxear <nombre> | <@tag>'];
-handler.tags = ['fun'];
-handler.command = /^Doxxeo|doxxeo|doxxear|Doxxear|doxeo|doxear|doxxeame|doxeame/i;
+await conn.sendMessage(m.chat, {text: hawemod[i], edit: key}, {quoted: m})}
+await conn.sendMessage(m.chat, {text: doxeo, edit: key, mentions: conn.parseMention(doxeo)}, {quoted: m})}
+loading()
+user.prue = new Date * 1  
+}
+handler.help = ['doxear <nombre> | <@tag>']
+handler.tags = ['fun']
+handler.command = /^Doxxeo|doxxeo|doxxear|Doxxear|doxeo|doxear|doxxeame|doxeame/i
 export default handler;
+function pickRandom(list) {
+return list[Math.floor(Math.random() * list.length)]}
 
 function getRandomValue(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
+
+function msToTime(duration) {
+var milliseconds = parseInt((duration % 1000) / 100),
+seconds = Math.floor((duration / 1000) % 60),
+minutes = Math.floor((duration / (1000 * 60)) % 60),
+hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
+
+hours = (hours < 10) ? "0" + hours : hours
+minutes = (minutes < 10) ? "0" + minutes : minutes
+seconds = (seconds < 10) ? "0" + seconds : seconds
+
+return minutes + " m y " + seconds + " s " 
+}  
 
