@@ -344,7 +344,7 @@ console.log(chalk.bold.green(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lengua
 }) }) }) }
 
 setInterval(async () => {
-await clearTmp()        
+await clearTmp()
 console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4) // 4 min 
 
 setInterval(async () => {
