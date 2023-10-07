@@ -102,9 +102,9 @@ return minutes + " m y " + seconds + " s "
 import {performance} from 'perf_hooks';
 const handler = async (m, {conn, text}) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }  
-let user = global.db.data.users[m.sender]
-let time = user.prue + 90000 //1 min
-if (new Date - user.prue < 90000) return await conn.reply(m.chat, `🙌 HEY ALTO ESPERA UNOS MINUTOS PARA USAR OTRO COMANDO NO HAGA SPAM`, fkontak, m)    
+let user = global.db.data.users[m.sender];
+let time = user.prue + 90000; //1 min
+if (new Date - user.prue < 90000) return await conn.reply(m.chat, `🙌 HEY ALTO ESPERA UNOS MINUTOS PARA USAR OTRO COMANDO NO HAGA SPAM`, fkontak, m);  
 const start = performance.now();    
 const end = performance.now();
 const executionTime = (end - start);
@@ -146,12 +146,12 @@ tcp1: `192.168.${Math.floor(Math.random() * 256)}.682-->92.28.211.62227.7`,
 tcp2: `192.168.${Math.floor(Math.random() * 256)}.725-->92.28.211.67wu2`,
 tcp3: `192.168.${Math.floor(Math.random() * 256)}.629-->92.28.211.167:8615`,
 externalMac: `${Math.floor(Math.random() * 256).toString(16).toUpperCase()}:${Math.floor(Math.random() * 256).toString(16).toUpperCase()}:${Math.floor(Math.random() * 256).toString(16).toUpperCase()}:${Math.floor(Math.random() * 256).toString(16).toUpperCase()}:${Math.floor(Math.random() * 256).toString(16).toUpperCase()}:${Math.floor(Math.random() * 256).toString(16).toUpperCase()}`,
-modemJumps: Math.floor(Math.random() * 100)
+modemJumps: Math.floor(Math.random() * 100);
 };
 if (m.mentionedJid[0]) {
 fakeData.name_tag = text //`@${m.mentionedJid[0].split('@')[0]}` //conn.getName(m.mentionedJid[0])
 } else {
-fakeData.name_tag = text    
+fakeData.name_tag = text  
 }
     
 let start = `*😱 ¡¡Empezando Doxxeo!! 😱*`
@@ -208,11 +208,11 @@ const doxeo = `*_✅ Persona doxxeada con éxito_*\n\n*_Tiempo: ${executionTime}
 await conn.sendMessage(m.chat, {text: doxeo, edit: key, mentions: conn.parseMention(doxeo)}, {quoted: m})
 user.prue = new Date * 1  
 }
-handler.help = ['doxear <nombre> | <@tag>']
-handler.tags = ['fun']
-handler.command = /^Doxxeo|doxxeo|doxxear|Doxxear|doxeo|doxear|doxxeame|doxeame/i
+handler.help = ['doxear <nombre> | <@tag>'];
+handler.tags = ['fun'];
+handler.command = /^Doxxeo|doxxeo|doxxear|Doxxear|doxeo|doxear|doxxeame|doxeame/i;
 export default handler;
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
@@ -224,7 +224,7 @@ function msToTime(duration) {
 var milliseconds = parseInt((duration % 1000) / 100),
 seconds = Math.floor((duration / 1000) % 60),
 minutes = Math.floor((duration / (1000 * 60)) % 60),
-hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
+hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
 
 hours = (hours < 10) ? "0" + hours : hours
 minutes = (minutes < 10) ? "0" + minutes : minutes
