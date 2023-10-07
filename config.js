@@ -17,7 +17,7 @@ global.owner = [
 ["593968585383"], 
 ["5492266613038"],
 ["51948705559"],
-["5217294888993"]]
+["5217294888993"]];
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
@@ -122,22 +122,22 @@ global.ig = "https://www.instagram.com/gata_dios";
 global.md = "https://github.com/GataNina-Li/GataBot-MD";
 global.fb = "https://www.facebook.com/groups/872989990425789/";
 
-global.n2 = 'https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A' //CANAL GATABOT
-global.nna = 'https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3' //UPDATE GATABOT
-global.nn2 = 'https://chat.whatsapp.com/HLXJUIznsbHJ3LF6pTgmh6' //UPDATE 2
-global.nna2 = 'https://chat.whatsapp.com/JRFOdyjNqhwEJcDQoBCHzL' //Help
-global.nn = 'https://chat.whatsapp.com/Ii0hagX0idw4C7Gxwts54x' //Grupo 1
-global.nnn = 'https://chat.whatsapp.com/LGHW0ZwLgpeH7Nsn4vlrWi' //Grupo 2
-global.nnnt = 'https://chat.whatsapp.com/Jvhbjxueer0GSdOw75ZtWR' //Grupo 3
-global.nnntt = 'https://chat.whatsapp.com/Gysm0PMJ4zg7ts0E9t91Hz' //Grupo 4
-global.nnnttt = 'https://chat.whatsapp.com/IZeaMQos8pxEhlyVI6yZaa' //Grupo 5
-global.nnnttt1 = 'https://chat.whatsapp.com/B8lrwGzSUbf7zlZHDAwCQ8' //Grupo 6 COL
-global.nnnttt2 = 'https://chat.whatsapp.com/IlyJBy1fxcw2qAHLSC5YLa' //Grupo 7 COL
-global.nnnttt3 = 'https://chat.whatsapp.com/LVocHnQjrci6dM4TZdmhBH' //Grupo 8 COL
-global.nnnttt4 = 'https://chat.whatsapp.com/IB9Vs7mZ03BBkH3reCU8Dw' //Grupo 9 COL
-global.nnnttt5 = 'https://chat.whatsapp.com/HOCsvLox0Ui7cwzTCeFhPP' //A.T.M.M
-global.paypal = 'https://paypal.me/OficialGD'
-global.asistencia = 'Wa.me/50660400020' //Dudas? escríbeme...
+global.n2 = 'https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A'; //CANAL GATABOT
+global.nna = 'https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3'; //UPDATE GATABOT
+global.nn2 = 'https://chat.whatsapp.com/HLXJUIznsbHJ3LF6pTgmh6'; //UPDATE 2
+global.nna2 = 'https://chat.whatsapp.com/JRFOdyjNqhwEJcDQoBCHzL'; //Help
+global.nn = 'https://chat.whatsapp.com/Ii0hagX0idw4C7Gxwts54x'; //Grupo 1
+global.nnn = 'https://chat.whatsapp.com/LGHW0ZwLgpeH7Nsn4vlrWi'; //Grupo 2
+global.nnnt = 'https://chat.whatsapp.com/Jvhbjxueer0GSdOw75ZtWR'; //Grupo 3
+global.nnntt = 'https://chat.whatsapp.com/Gysm0PMJ4zg7ts0E9t91Hz'; //Grupo 4
+global.nnnttt = 'https://chat.whatsapp.com/IZeaMQos8pxEhlyVI6yZaa'; //Grupo 5
+global.nnnttt1 = 'https://chat.whatsapp.com/B8lrwGzSUbf7zlZHDAwCQ8'; //Grupo 6 COL
+global.nnnttt2 = 'https://chat.whatsapp.com/IlyJBy1fxcw2qAHLSC5YLa'; //Grupo 7 COL
+global.nnnttt3 = 'https://chat.whatsapp.com/LVocHnQjrci6dM4TZdmhBH'; //Grupo 8 COL
+global.nnnttt4 = 'https://chat.whatsapp.com/IB9Vs7mZ03BBkH3reCU8Dw'; //Grupo 9 COL
+global.nnnttt5 = 'https://chat.whatsapp.com/HOCsvLox0Ui7cwzTCeFhPP'; //A.T.M.M
+global.paypal = 'https://paypal.me/OficialGD';
+global.asistencia = 'Wa.me/50660400020'; //Dudas? escríbeme...
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
@@ -246,7 +246,7 @@ global.flaaa = [
 'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=crafts-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&text=',
 'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=amped-logo&doScale=true&scaleWidth=800&scaleHeight=500&text=',
 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=',
-'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text=']
+'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text='];
 
 global.cmenut = "❖––––––『";
 global.cmenub = "┊✦ ";
