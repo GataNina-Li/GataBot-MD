@@ -551,4 +551,8 @@ handler.command = ['verify', 'verificar', 'register', 'registrar', 'reg', 'reg1'
 handler.private = true 
 export default handler
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+function pickRandom(list) { 
+ return list[Math.floor(Math.random() * list.length)]} 
+  
+ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+//const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
