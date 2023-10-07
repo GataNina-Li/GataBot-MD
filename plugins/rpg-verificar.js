@@ -188,6 +188,9 @@ yyr += `*┊* \`\`\`[${index + 1}]\`\`\` » _${genero}_\n`
 })
 yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
 if (!text) return m.reply(yyr)
+const { key } = await conn.sendMessage(m.chat, {text: yyr}, {quoted: m})
+await delay(3000)
+await conn.sendMessage(m.chat, {text: boost, edit: key})
 
 var identidadAsignada = asignarIdentidad(text.slice(1).trim())
 identidad = identidadAsignada
@@ -549,3 +552,5 @@ await m.reply(`${sn}`)
 handler.command = ['verify', 'verificar', 'register', 'registrar', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', 'identidad', 'pasatiempo', 'hobby', 'identity', 'finalizar', 'pas2', 'pas3', 'pas4', 'pas5']  ///^(verify|verificar|reg(ister)?)$/i
 handler.private = true 
 export default handler
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
