@@ -189,7 +189,7 @@ yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
 if (!text) return m.reply(yyr)
 const { key } = await conn.sendMessage(m.chat, { text: yyr }, {quoted: m})
 //await delay(3000)
-await conn.sendMessage(m.chat, { text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key })
+await conn.sendMessage(m.chat, { text: `*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key })
 asignarIdentidad(text.slice(1).trim())
 identidad = genero
 user.identidad = identidad
