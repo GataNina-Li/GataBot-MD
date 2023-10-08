@@ -198,179 +198,96 @@ pas5 = 0
 if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: eg + `*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${nombre === 0 ? 'No encontrada' : nombre}\n*❖ EDAD:*\n${edad === 0 ? 'No encontrada' : edad + ' años'}\n*❖ GENERO:*\n${genero === 0 ? 'No encontrada' : genero}\n*❖ IDENTIDAD DE GÉNERO:*\n${identidad === 0 ? 'No encontrada' : identidad}\n\n❇️ AHORA REGISTRAR MIS PASATIEMPOS\n${usedPrefix}pasatiempo`}, {quoted: fkontak})
 }
 	
-const sections = [
-{ title: "❇️ SELECCIONE HASTA 5 PASATIEMPOS!!",
-rows: [
-{title: "👟 Acroyoga", rowId: usedPrefix + command + ' ' + text + '👟 Acroyoga' },		
-{title: "🎭 Actuación", rowId: usedPrefix + command + ' ' + text + '🎭 Actuación' },	
-{title: "🥋 Aikido", rowId: usedPrefix + command + ' ' + text + '🥋 Aikido' },	
-{title: "🎯 Airrsoft", rowId: usedPrefix + command + ' ' + text + '🎯 Airrsoft' },
-{title: "♟️ Ajedrez", rowId: usedPrefix + command + ' ' + text + '♟️ Ajedrez' },
-{title: "🏔️ Alpinismo", rowId: usedPrefix + command + ' ' + text + '🏔️ Alpinismo' },
-{title: "🖥️ Animación", rowId: usedPrefix + command + ' ' + text + '🖥️ Animación' },
-{title: "🎉 Animador/a de Equipos", rowId: usedPrefix + command + ' ' + text + '🎉 Animador/a de Equipos' },
-{title: "✏️ Anime dibujos", rowId: usedPrefix + command + ' ' + text + '✏️ Anime dibujos' },	
-{title: "🐝 Apicultura", rowId: usedPrefix + command + ' ' + text + '🐝 Apicultura' },
-{title: "💻 Aprender a programar", rowId: usedPrefix + command + ' ' + text + '💻 Aprender a programar' },
-{title: "🌐 Aprender un idioma", rowId: usedPrefix + command + ' ' + text + '🌐 Aprender un idioma' },
-{title: "💐 Arreglos florales", rowId: usedPrefix + command + ' ' + text + '💐 Arreglos florales' },
-{title: "🎨 Arte", rowId: usedPrefix + command + ' ' + text + '🎨 Arte' },
-{title: "🥋 Artes marciales", rowId: usedPrefix + command + ' ' + text + '🥋 Artes marciales' },
-{title: "🥋 Artes marciales mixtas", rowId: usedPrefix + command + ' ' + text + '🥋 Artes marciales mixtas' },
-{title: "🔭 Astrofotografía", rowId: usedPrefix + command + ' ' + text + '🔭 Astrofotografía' },
-{title: "🔮 Astrología", rowId: usedPrefix + command + ' ' + text + '🔮 Astrología' },
-{title: "👟 Atletismo", rowId: usedPrefix + command + ' ' + text + '👟 Atletismo' },
-{title: "🩰 Ballet", rowId: usedPrefix + command + ' ' + text + '🩰 Ballet' },
-{title: "💄 Belleza", rowId: usedPrefix + command + ' ' + text + '💄 Belleza' },
-{title: "🏔️ Barranquismo", rowId: usedPrefix + command + ' ' + text + '🏔️ Barranquismo' },
-{title: "💻 Blog", rowId: usedPrefix + command + ' ' + text + '💻 Blog' },
-{title: "✏️ Bocetos", rowId: usedPrefix + command + ' ' + text + '✏️ Bocetos' },
-{title: "✂️ Bordado", rowId: usedPrefix + command + ' ' + text + '✂️ Bordado' },
-{title: "🎳 Bowling", rowId: usedPrefix + command + ' ' + text + '🎳 Bowling' },
-{title: "🥊 Boxeo", rowId: usedPrefix + command + ' ' + text + '🥊 Boxeo' },
-{title: "🏸 Bádminton", rowId: usedPrefix + command + ' ' + text + '🏸 Bádminton' },
-{title: "🏀 Baloncesto", rowId: usedPrefix + command + ' ' + text + '🏀 Baloncesto' },
-{title: "⚾ Béisbol", rowId: usedPrefix + command + ' ' + text + '⚾ Béisbol' },
-{title: "🖋️ Caligrafía", rowId: usedPrefix + command + ' ' + text + '🖋️ Caligrafía' },
-{title: "👟 Caminata", rowId: usedPrefix + command + ' ' + text + '👟 Caminata' },
-{title: "🏕 Camping", rowId: usedPrefix + command + ' ' + text + '🏕 Camping' },
-{title: "🛶 Canoa", rowId: usedPrefix + command + ' ' + text + '🛶 Canoa' },
-{title: "🎤 Canto", rowId: usedPrefix + command + ' ' + text + '🎤 Canto' }, 
-{title: "🎤 Canto a capela", rowId: usedPrefix + command + ' ' + text + '🎤 Canto a capela' },
-{title: "✏️ Caricaturas", rowId: usedPrefix + command + ' ' + text + '✏️ Caricaturas' },
-{title: "🪚 Carpintería", rowId: usedPrefix + command + ' ' + text + '🪚 Carpintería' },
-{title: "🏎️ Carreras de autos", rowId: usedPrefix + command + ' ' + text + '🏎️ Carreras de autos' },
-{title: "🐎 Carreras de caballos", rowId: usedPrefix + command + ' ' + text + '🐎 Carreras de caballos' },
-{title: "🛵 Carreras de motocicletas", rowId: usedPrefix + command + ' ' + text + '🛵 Carreras de motocicletas' },
-{title: "❄️ Carreras de moto de nieve", rowId: usedPrefix + command + ' ' + text + '❄️ Carreras de moto de nieve' },
-{title: "🚧 Carreras de obstáculos", rowId: usedPrefix + command + ' ' + text + '🚧 Carreras de obstáculos' },
-{title: "🦮 Carreras de perros", rowId: usedPrefix + command + ' ' + text + '🦮 Carreras de perros' },
-{title: "🛷 Carreras de trineos", rowId: usedPrefix + command + ' ' + text + '🛷 Carreras de trineos' },
-{title: "♿ Carreras en silla de ruedas", rowId: usedPrefix + command + ' ' + text + '♿ Carreras en silla de ruedas' },
-{title: "🗺️ Cartografía", rowId: usedPrefix + command + ' ' + text + '🗺️ Cartografía' },
-{title: "🏹 Caza", rowId: usedPrefix + command + ' ' + text + '🏹 Caza' },
-{title: "🚲 Ciclismo", rowId: usedPrefix + command + ' ' + text + '🚲 Ciclismo' },
-{title: "🎬 Cinematografía", rowId: usedPrefix + command + ' ' + text + '🎬 Cinematografía' },
-{title: "🔮 Clarividencia", rowId: usedPrefix + command + ' ' + text + '🔮 Clarividencia' },
-{title: "🍳 Cocinar", rowId: usedPrefix + command + ' ' + text + '🍳 Cocinar' },
-{title: "🥗 Cocina saludable", rowId: usedPrefix + command + ' ' + text + '🥗 Cocina saludable' },
-{title: "🧤 Coleccionar objetos", rowId: usedPrefix + command + ' ' + text + '🧤 Coleccionar objetos' },
-{title: "🗝️ Coleccionar antigüedades", rowId: usedPrefix + command + ' ' + text + '🗝️ Coleccionar antigüedades' },
-{title: "💥 Coleccionar cómics", rowId: usedPrefix + command + ' ' + text + '💥 Coleccionar cómics' },
-{title: "📚 Coleccionar libros", rowId: usedPrefix + command + ' ' + text + '📚 Coleccionar libros' },
-{title: "🎭 Comedia", rowId: usedPrefix + command + ' ' + text + '🎭 Comedia' },
-{title: "👻 Conspiración", rowId: usedPrefix + command + ' ' + text + '👻 Conspiración' },	
-{title: "🍕 Comer", rowId: usedPrefix + command + ' ' + text + '🍕 Comer' },
-{title: "🎵 Composición de canciones", rowId: usedPrefix + command + ' ' + text + '🎵 Composición de canciones' },
-{title: "🎶 Composición de música", rowId: usedPrefix + command + ' ' + text + '🎶 Composición de música' },
-{title: "🚗 Conducir", rowId: usedPrefix + command + ' ' + text + '🚗 Conducir' },
-{title: "🎩 Cosplay", rowId: usedPrefix + command + ' ' + text + '🎩 Cosplay' }, 
-{title: "💐 Cultivo de flores", rowId: usedPrefix + command + ' ' + text + '💐 Cultivo de flores' },
-{title: "🎼 Danza", rowId: usedPrefix + command + ' ' + text + '🎼 Danza' },
-{title: "🥋 Defensa personal", rowId: usedPrefix + command + ' ' + text + '🥋 Defensa personal' },
-{title: "👟 Deportes extremos", rowId: usedPrefix + command + ' ' + text + '👟 Deportes extremos' },
-{title: "✏️ Dibujar", rowId: usedPrefix + command + ' ' + text + '✏️ Dibujar' },
-{title: "✏️ Dibujar en 3D", rowId: usedPrefix + command + ' ' + text + '✏️ Dibujar en 3D' },
-{title: "💤 Dormir", rowId: usedPrefix + command + ' ' + text + '💤 Dormir' },
-{title: "👋 Estar en YouTube", rowId: usedPrefix + command + ' ' + text + '👋 Estar en YouTube' },
-{title: "👋 Estar en TikTok", rowId: usedPrefix + command + ' ' + text + '👋 Estar en TikTok' },
-{title: "👋 Estar en Facebook", rowId: usedPrefix + command + ' ' + text + '👋 Estar en Facebook' },	
-{title: "👋 Estar en Facebook Messenger", rowId: usedPrefix + command + ' ' + text + '👋 Estar en Facebook Messenger' },
-{title: "👋 Estar en Whatsapp", rowId: usedPrefix + command + ' ' + text + '👋 Estar en Whatsapp' },	
-{title: "👋 Estar en Instagram", rowId: usedPrefix + command + ' ' + text + '👋 Estar en Instagram' },
-{title: "👋 Estar en Twitter", rowId: usedPrefix + command + ' ' + text + '👋 Estar en Twitter' },
-{title: "👋 Estar en Pinterest", rowId: usedPrefix + command + ' ' + text + '👋 Estar en Pinterest' },
-{title: "👋 Estar en Telegram", rowId: usedPrefix + command + ' ' + text + '👋 Estar en Telegram' },
-{title: "👋 Estar en WeChat", rowId: usedPrefix + command + ' ' + text + '👋 Estar en WeChat' },
-{title: "👋 Estar en Snapchat", rowId: usedPrefix + command + ' ' + text + '👋 Estar en Snapchat' },
-{title: "👋 Estar en Reddit", rowId: usedPrefix + command + ' ' + text + '👋 Estar en Reddit' },	
-{title: "📝 Escritura creativa", rowId: usedPrefix + command + ' ' + text + '📝 Escritura creativa' },
-{title: "🎧 Escuchar música", rowId: usedPrefix + command + ' ' + text + '🎧 Escuchar música' },
-{title: "📘 Estudiar", rowId: usedPrefix + command + ' ' + text + '📘 Estudiar' },
-{title: "👻 Fantasmas y/o apariciones", rowId: usedPrefix + command + ' ' + text + '👻 Fantasmas y/o apariciones' },
-{title: "👟 Fitness", rowId: usedPrefix + command + ' ' + text + '👟 Fitness' },
-{title: "📸 Fotografía", rowId: usedPrefix + command + ' ' + text + '📸 Fotografía' },
-{title: "📸 Fotogénico/a", rowId: usedPrefix + command + ' ' + text + '📸 Fotogénico/a' },	
-{title: "📸 Fotografía de moda", rowId: usedPrefix + command + ' ' + text + '📸 Fotografía de moda' },
-{title: "📸 Fotografía de juegos", rowId: usedPrefix + command + ' ' + text + '📸 Fotografía de juegos' },
-{title: "📸 Fotografía de animales", rowId: usedPrefix + command + ' ' + text + '📸 Fotografía de animales' },
-{title: "📸 Fotografía de paisajes", rowId: usedPrefix + command + ' ' + text + '📸 Fotografía de paisajes' },
-{title: "📸 Fotografía blanco y negro", rowId: usedPrefix + command + ' ' + text + '📸 Fotografía blanco y negro' },
-{title: "⚽ Fútbol", rowId: usedPrefix + command + ' ' + text + '⚽ Fútbol' },
-{title: "🏈 Fútbol americano", rowId: usedPrefix + command + ' ' + text + '🏈 Fútbol americano' },
-{title: "🎮 Gamer", rowId: usedPrefix + command + ' ' + text + '🎮 Gamer' },	
-{title: "🏊 Gimnasia acuática", rowId: usedPrefix + command + ' ' + text + '🏊 Gimnasia acuática' },
-{title: "🏒 Hockey", rowId: usedPrefix + command + ' ' + text + '🏒 Hockey' },
-{title: "✏️ Ilustración", rowId: usedPrefix + command + ' ' + text + '✏️ Ilustración' },
-{title: "🎤 Ir a concietos", rowId: usedPrefix + command + ' ' + text + '🎤 Ir a concietos' },
-{title: "👟 Ir al gimnasio", rowId: usedPrefix + command + ' ' + text + '👟 Ir a gimnasio' },
-{title: "🛍️ Ir de compra", rowId: usedPrefix + command + ' ' + text + '🛍️ Ir de compra' },
-{title: "🎮 Juegos VR/AR", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos VR/AR' },
-{title: "🎮 Juegos de rol", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos de rol' },
-{title: "🎮 Juegos de acción", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos de acción' },
-{title: "🎮 Juegos de pelea", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos de pelea' },
-{title: "🎮 Juegos de arcade", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos de arcade' },
-{title: "🎮 Juegos de aventura", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos de aventura' },
-{title: "🎮 Juegos de estrategia", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos de estrategia' },
-{title: "🎮 Juegos de simulación", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos de simulación' },
-{title: "🎮 Juegos de deportes", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos de deportes' },
-{title: "🎮 Juegos de carreras", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos de carreras' },
-{title: "🎮 Juegos de battle royale", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos de battle royale' },
-{title: "🎮 Juegos clásicos", rowId: usedPrefix + command + ' ' + text + '🎮 Juegos clásicos' },
-{title: "🃏 Juegos de cartas", rowId: usedPrefix + command + ' ' + text + '🃏 Juegos de cartas' },
-{title: "🎲 Juegos de mesa", rowId: usedPrefix + command + ' ' + text + '🎲 Juegos de mesa' },
-{title: "📖 Leer", rowId: usedPrefix + command + ' ' + text + '📖 Leer' },
-{title: "👟 Lucha libre", rowId: usedPrefix + command + ' ' + text + '👟 Lucha libre' },
-{title: "💄 Maquillaje artístico", rowId: usedPrefix + command + ' ' + text + '💄 Maquillaje artístico' },
-{title: "😆 Memes", rowId: usedPrefix + command + ' ' + text + '😆 Memes' },
-{title: "💭 Meditación", rowId: usedPrefix + command + ' ' + text + '💭 Meditación' },
-{title: "🖥️ Modelado 3D", rowId: usedPrefix + command + ' ' + text + '🖥️ Modelado 3D' },
-{title: "✨ Observación de estrellas", rowId: usedPrefix + command + ' ' + text + '✨ Observación de estrellas' },
-{title: "🌕 Observación de la luna", rowId: usedPrefix + command + ' ' + text + '🌕 Observación de la luna' },
-{title: "☁ Observación de las nubes", rowId: usedPrefix + command + ' ' + text + '☁ Observación de las nubes' },
-{title: "📄 Origami", rowId: usedPrefix + command + ' ' + text + '📄 Origami' },
-{title: "🎣 Pesca", rowId: usedPrefix + command + ' ' + text + '🎣 Pesca' },
-{title: "🎨 Pintura", rowId: usedPrefix + command + ' ' + text + '🎨 Pintura' },
-{title: "🎙️ Podcasts", rowId: usedPrefix + command + ' ' + text + '🎙️ Podcasts' },
-{title: "📝 Poesía", rowId: usedPrefix + command + ' ' + text + '📝 Poesía' },
-{title: "🎾 Tenis", rowId: usedPrefix + command + ' ' + text + '🎾 Tenis' },
-{title: "🏓 Tenis de mesa", rowId: usedPrefix + command + ' ' + text + '🏓 Tenis de mesa' },
-{title: "🎵 Toco un instrumento", rowId: usedPrefix + command + ' ' + text + '🎵 Toco un instrumento' },	
-{title: "🎹 Tocar el piano", rowId: usedPrefix + command + ' ' + text + '🎹 Tocar el piano' },
-{title: "🎸 Tocar la guitarra", rowId: usedPrefix + command + ' ' + text + '🎸 Tocar la guitarra' },
-{title: "🎻 Tocar el violín", rowId: usedPrefix + command + ' ' + text + '🎻 Tocar el violín' },
-{title: "🎷 Tocar el saxofón", rowId: usedPrefix + command + ' ' + text + '🎷 Tocar el saxofón' },
-{title: "🎺 Tocar la trompeta", rowId: usedPrefix + command + ' ' + text + '🎺 Tocar la trompeta' },
-{title: "🪘 Tocar el tamboril", rowId: usedPrefix + command + ' ' + text + '🪘 Tocar el tamboril' },
-{title: "🥁 Tocar el tambor", rowId: usedPrefix + command + ' ' + text + '🥁 Tocar el tambor' },
-{title: "📺 Ver televisión", rowId: usedPrefix + command + ' ' + text + '📺 Ver televisión' },
-{title: "🌎 Viajar", rowId: usedPrefix + command + ' ' + text + '🌎 Viajar' },
-{title: "🎒 Viajar de mochilero/a", rowId: usedPrefix + command + ' ' + text + '🎒 Viajar de mochilero/a' },
-{title: "🫂 Visitar amigos", rowId: usedPrefix + command + ' ' + text + '🫂 Visitar amigos' },
-{title: "📹 Vlog", rowId: usedPrefix + command + ' ' + text + '📹 Vlog' },
-{title: "🏐 Voleibol", rowId: usedPrefix + command + ' ' + text + '🏐 Voleibol' },
-{title: "👟 Yoga", rowId: usedPrefix + command + ' ' + text + '👟 Yoga' },
-{title: "🎼 Ópera", rowId: usedPrefix + command + ' ' + text + '🎼 Ópera' }]},]
-const listMessage = {
-text: `👉 *SELECCIONE SUS PASATIEMPOS POR FAVOR*\n*❖ NOMBRE:* ${nombre === 0 ? 'No encontrada' : nombre}\n*❖ EDAD:* ${edad === 0 ? 'No encontrada' : edad}\n*❖ GÉNERO:* ${genero === 0 ? 'No encontrada' : genero}\n*❖ IDENTIDAD DE GÉNERO:* ${identidad === 0 ? 'No encontrada' : identidad}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`,
-footer: wm,
-title: "*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*\n",
-buttonText: "❇️ MI PASATIEMPO ❇️",
-sections
-}
 if (command == 'pasatiempo' || command == 'hobby') {
+var seleccion = text
+var todosLosPasatiempos = [
+"👟 Acroyoga", "🎭 Actuación", "🥋 Aikido", "🎯 Airsoft", "♟️ Ajedrez",
+"🏔️ Alpinismo", "🖥️ Animación", "🎉 Animador/a de Equipos", "✏️ Anime dibujos", "🐝 Apicultura",
+"🏕 Camping", "🛶 Canoa", "🎤 Canto", "🎮 Gamer", "🎮 Gamer", "📸 Fotografía"
+]
+
+var emojiANumero = {
+"0️⃣": "0", "1️⃣": "1", "2️⃣": "2", "3️⃣": "3", "4️⃣": "4",
+"5️⃣": "5", "6️⃣": "6", "7️⃣": "7", "8️⃣": "8", "9️⃣": "9"
+}
+
+var todosLosPasatiemposOrdenados = todosLosPasatiempos.sort(function(a, b) {
+return a.slice(2).localeCompare(b.slice(2), undefined, { sensitivity: 'base' })
+})
+
+function asignarPasatiempo(text) {
+var numero = parseInt(text.replace(/\D/g, ''))
+if (numero >= 1 && numero <= todosLosPasatiemposOrdenados.length) {
+return todosLosPasatiemposOrdenados[numero - 1]
+} else if (text.trim() !== "") {
+var pasatiempoIngresado = text.replace(/\D/g, '')
+m.reply(`*EL PASATIEMPO "${pasatiempoIngresado}" NO FORMA PARTE DE LA LISTA DE PASATIEMPOS*`)
+}}
+	
+var pasatiemposSet = new Set(todosLosPasatiempos)
+var todosLosPasatiemposOrdenados = Array.from(pasatiemposSet).sort(function(a, b) {
+return a.slice(2).localeCompare(b.slice(2), undefined, { sensitivity: 'base' })
+})
+let yyr = ''
+yyr += `*╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮*
+*┊ 🎉 SELECCIONE SU PASATIEMPO!!*
+*┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯*\n`;
+todosLosPasatiemposOrdenados.forEach(function (pasatiempo, index) {
+yyr += `*┊* \`\`\`[${index + 1}]\`\`\` » ${pasatiempo}\n`
+});
+yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
+var maximoIndice = todosLosPasatiemposOrdenados.length - 0
+
+function seleccionarPasatiempos(texto) {
+var seleccionados = texto.split(',').map(function(item) {
+return item.trim()
+})
+var pasatiemposSet = new Set()
+
+for (var i = 0; i < seleccionados.length; i++) {
+var pasatiempoSeleccionado = asignarPasatiempo(seleccionados[i])
+if (pasatiempoSeleccionado !== undefined) {
+pasatiemposSet.add(pasatiempoSeleccionado)
+if (!pas1) {
+pas1 = pasatiempoSeleccionado
+} else if (!pas2) {
+pas2 = pasatiempoSeleccionado
+} else if (!pas3) {
+pas3 = pasatiempoSeleccionado
+} else if (!pas4) {
+pas4 = pasatiempoSeleccionado
+} else if (!pas5) {
+pas5 = pasatiempoSeleccionado
+}}}
+var pasatiemposUnicos = Array.from(pasatiemposSet)
+var resultado = pasatiemposUnicos.join(', ')
+
+var pasatiemposSeleccionados = [pas1, pas2, pas3, pas4, pas5].filter(pasatiempo => pasatiempo !== "");
+var posicionesSet = new Set(pasatiemposSeleccionados);
+if (pasatiemposUnicos.length >= 1 && pasatiemposUnicos.length <= 5) {
+if (pasatiemposSeleccionados.length >= 1 && pasatiemposSeleccionados.length <= 5 && pasatiemposSeleccionados.length === posicionesSet.size) {
+//console.log("Pasatiempos seleccionados:", resultado)
+//console.log("Pasatiempos por separado:", pas1, pas2, pas3, pas4, pas5)
+}else{
+m.reply(`*EL PASATIEMPO "${pasatiempoSeleccionado}" YA HA SIDO SELECCIONADO*`)
+}} else {
+m.reply(`*SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n${yyr}`)
+}}
+seleccionarPasatiempos(seleccion)
+
+	
 //if (typeof pas1 === 'string') return conn.sendButton(m.chat, fg + '*NO PUEDE CAMBIAR DE PASATIEMPO*', 'Una vez seleccionado no puede ser modificado\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m) 
-if (!text) return conn.sendMessage(m.chat, {text: eg + `*👉SELECCIONE SUS PASATIEMPOS POR FAVOR :*\n❖ EJEMPLO: ${usedPrefix}pasatiempo 💻 Aprender a programar\n${usedPrefix}pasatiempo 👋 Estar en Whatsapp\n${usedPrefix}pasatiempo escucha musica\n❖ PUEDE PONER HASTA 5 PASATIEMPOS\n*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*\n*❖ NOMBRE:* ${nombre}\n*❖ EDAD:* ${edad === 0 ? 'No encontrada' : edad}\n*❖ GÉNERO:* ${genero === 0 ? 'No encontrada' : genero}\n*❖ IDENTIDAD DE GÉNERO:* ${identidad === 0 ? 'No encontrada' : identidad}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`}, {quoted: fkontak})
+//if (!text) return conn.sendMessage(m.chat, {text: eg + `*👉SELECCIONE SUS PASATIEMPOS POR FAVOR :*\n❖ EJEMPLO: ${usedPrefix}pasatiempo 💻 Aprender a programar\n${usedPrefix}pasatiempo 👋 Estar en Whatsapp\n${usedPrefix}pasatiempo escucha musica\n❖ PUEDE PONER HASTA 5 PASATIEMPOS\n*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*\n*❖ NOMBRE:* ${nombre}\n*❖ EDAD:* ${edad === 0 ? 'No encontrada' : edad}\n*❖ GÉNERO:* ${genero === 0 ? 'No encontrada' : genero}\n*❖ IDENTIDAD DE GÉNERO:* ${identidad === 0 ? 'No encontrada' : identidad}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`}, {quoted: fkontak})
 //conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
-pas1 = text.trim()
-pasatiempo = pas1
+//pas1 = text.trim()
+pasatiempo = resultado
 user.pasatiempo = pasatiempo
 global.db.data.users[m.sender]['registroC'] = true
 conn.sendMessage(m.chat, {text: eg + `*GENIAL!! SE HA AGREGADO UN PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*${pasatiempo === 0 ? 'No encontrada' : pasatiempo}*\nPuede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n❇️ AGREGAR OTRO PASATIEMPO\n${usedPrefix}pas2\n🐈 FINALIZAR REGISTRO\n${usedPrefix}finalizar`}, {quoted: fkontak})
 //conn.sendButton(m.chat, eg + '*GENIAL!! SE HA AGREGADO UN PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n' + `${pasatiempo === 0 ? 'No encontrada' : pasatiempo}`, 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas2'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }	
 	
-if (command == 'pas2') {
+/*if (command == 'pas2') {
 if (typeof pas2 === 'string') return conn.sendMessage(m.chat, {text: fg + `*NO PUEDE CAMBIAR DE PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\nUna vez seleccionado no puede ser modificado\n\n🐈 FINALIZAR REGISTRO\n${usedPrefix}finalizar`}, {quoted: fkontak})
 //conn.sendButton(m.chat, fg + '*NO PUEDE CAMBIAR DE PASATIEMPO*', 'Una vez seleccionado no puede ser modificado\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 if (!text) return conn.sendMessage(m.chat, {text: eg + `👉 *SELECCIONE SUS PASATIEMPOS POR FAVOR :*\n❖ EJEMPLO: ${usedPrefix}pasatiempo 💻 Aprender a programar\n${usedPrefix}pasatiempo 👋 Estar en Whatsapp\n${usedPrefix}pasatiempo escucha musica\n❖ PUEDE PONER HASTA 5 PASATIEMPOS\n\n*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*\n*❖ NOMBRE:* ${nombre}\n*❖ EDAD:* ${edad === 0 ? 'No encontrada' : edad}\n*❖ GÉNERO:* ${genero === 0 ? 'No encontrada' : genero}\n*❖ IDENTIDAD DE GÉNERO:* ${identidad === 0 ? 'No encontrada' : identidad}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`}, {quoted: fkontak})
@@ -421,7 +338,7 @@ pasatiempo = pas1 + ', ' + pas2 + ', ' + pas3 + ', ' + pas4 + ', ' + pas5
 user.pasatiempo = pasatiempo
 conn.sendMessage(m.chat, {text: eg + `*GENIAL!! SE HA AGREGADO UN PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*${pasatiempo === 0 ? 'No encontrada' : pasatiempo}*\nPuede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n❇️ AGREGAR OTRO PASATIEMPO\n${usedPrefix}pas2\n🐈 FINALIZAR REGISTRO\n${usedPrefix}finalizar`}, {quoted: fkontak})
 //conn.sendButton(m.chat, eg + '*GENIAL!! SE HA AGREGADO OTRO PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n' + `${pas5 === 0 ? 'No encontrada' : pasatiempo}`, 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
-}
+}*/
 	
 if (command == 'finalizar' || command == 'end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
