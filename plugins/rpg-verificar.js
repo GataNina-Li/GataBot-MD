@@ -456,7 +456,7 @@ yyr += `*╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮*
 *┊ 🎉 SELECCIONE SU PASATIEMPO!!*
 *┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯*\n`;
 todosLosPasatiemposOrdenados.forEach(function (pasatiempo, index) {
-yyr += `*┊* \`\`\`[${index + 1}]\`\`\` » ${pasatiempo}\n`
+yyr += `[ ${index + 1} ] » ${pasatiempo}\n`
 });
 yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
 var maximoIndice = todosLosPasatiemposOrdenados.length - 0
