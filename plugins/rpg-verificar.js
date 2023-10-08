@@ -84,7 +84,7 @@ user.age = parseInt(_registro[1]) //_registro[1]
 global.db.data.users[m.sender]['registroR'] = true
 
 let registroRapido = ` *░ 📑 REGISTRO ACTUAL 📑 ░*
- *∷∷∷∷∷∷∷∷∷∷∷∷∷∷∷∷∷∷∷*
+ *∷∷∷∷∷∷∷∷∷∷∷∷∷∷∷*
 ┊ *✓ NOMBRE*
 ┊ ⁘ ${user.name === 0 ? sinDefinir : user.name}
 ┊
