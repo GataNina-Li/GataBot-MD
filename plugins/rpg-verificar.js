@@ -603,7 +603,7 @@ clearInterval(intervalId)
 //await conn.sendMessage(m.chat, {text: , edit: key})
 await conn.sendMessage(m.chat, {
 text: `🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
-*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*
+*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n
 😼 *REGISTRADO POR*
 ❱❱ ${wm}\n
 📑 *TIPO DE REGISTRO* 
@@ -631,9 +631,9 @@ ${user.premLimit === 1 ? '' : `🎟️ *PREMIUM*
 contextInfo: {
 externalAdReply: {
 title: wm,
-body: gt,
+body: user.name,
 thumbnailUrl: pp, 
-url: yt,
+sourceUrl: 'https://www.atom.bio/gatabot/',
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
