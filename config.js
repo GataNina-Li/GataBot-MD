@@ -204,31 +204,31 @@ global.imagen13 = fs.readFileSync("./media/menus/img12.jpg");
 
 //━━━━━━━━━━━━━━ img ━━━━━━━━━
 
-global.img = 'https://tinyurl.com/2dgppss3.jpg';
-global.img2 = 'https://tinyurl.com/27jqx2e6.jpg';
+global.img = 'https://i.imgur.com/IXlUwTW.jpg'
+global.img2 = 'https://i.imgur.com/EXTbyyn.jpg'
 
-global.img3 = 'https://tinyurl.com/23jcbhue.jpg'; //prem
-global.img4 = 'https://tinyurl.com/23z2xqqv.jpg'; //prem
+global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem
+global.img4 = 'https://i.imgur.com/i0pccuo.jpg' //prem
 
-global.img5 = 'https://tinyurl.com/29nok9ba.jpeg';
-global.img6 = 'https://tinyurl.com/227vqnqn.jpeg';
-global.img7 = 'https://tinyurl.com/233rvq4c.jpeg';
-global.img8 = 'https://tinyurl.com/2annkxr3.jpeg';
-global.img9 = 'https://tinyurl.com/226lfwn7.jpeg';
+global.img5 = 'https://i.imgur.com/iL1snRx.jpeg'
+global.img6 = 'https://i.imgur.com/cYFgSKv.jpeg'
+global.img7 = 'https://i.imgur.com/JqL3h2V.jpeg'
+global.img8 = 'https://i.imgur.com/PCujt1s.jpeg'
+global.img9 = 'https://i.imgur.com/xfUEdDb.jpeg'
 
-global.img10 = 'https://i.imgur.com/DvHoMc3.jpg';
-global.img11 = 'https://i.imgur.com/5Q1MqGD.jpg';
-global.img12 = 'https://i.imgur.com/vWnsjh8.jpg';
-global.img13 = 'https://i.imgur.com/pCfFOgw.jpeg';
-global.img14 = 'https://i.imgur.com/knBDWRA.jpeg';
-global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg';
+global.img10 = 'https://i.imgur.com/DvHoMc3.jpg'
+global.img11 = 'https://i.imgur.com/5Q1MqGD.jpg'
+global.img12 = 'https://i.imgur.com/vWnsjh8.jpg'
+global.img13 = 'https://i.imgur.com/pCfFOgw.jpeg'
+global.img14 = 'https://i.imgur.com/knBDWRA.jpeg'
+global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg'
 
 global.img16 = 'https://i.imgur.com/11MRjo4.jpeg'; //+18
 
-global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg';
-global.img18 = 'https://i.imgur.com/9yLH4W4.jpeg';
+global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg'
+global.img18 = 'https://i.imgur.com/9yLH4W4.jpeg'
 
-global.logogit = 'https://tinyurl.com/2qvl9vgs';
+global.logogit = 'https://tinyurl.com/2qvl9vgs'
 
 global.welgata = [ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb];
 global.redesMenu = [n2, nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt1, nnnttt2, nnnttt3, nnnttt4, md, ig, paypal, yt, asistencia, fb];
