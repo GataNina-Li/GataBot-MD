@@ -222,6 +222,7 @@ return todosLosPasatiemposOrdenados[numero - 1]
 } else if (text.trim() !== "") {
 var pasatiempoIngresado = text.replace(/\D/g, '')
 m.reply(`*EL PASATIEMPO "${pasatiempoIngresado}" NO FORMA PARTE DE LA LISTA DE PASATIEMPOS*`)
+return
 }}
 	
 var pasatiemposSet = new Set(todosLosPasatiempos)
