@@ -21,7 +21,7 @@ minute: 'numeric',
 second: 'numeric'
 }) 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? m.sender : m.sender
-let pp = await conn.profilePictureUrl(who).catch(_ => './src/avatar_contact.png')
+let pp = await conn.profilePictureUrl(m.sender).catch(_ => './src/avatar_contact.png')
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
 let nombreWA = await usedPrefix + conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0] 
@@ -632,7 +632,7 @@ contextInfo: {
 externalAdReply: {
 title: wm,
 body: gt,
-thumbnailUrl: 'https://telegra.ph/file/d8ef67ebf82d35afc66c3.jpg', 
+thumbnailUrl: pp, 
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
