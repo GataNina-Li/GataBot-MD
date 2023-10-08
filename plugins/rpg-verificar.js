@@ -268,7 +268,10 @@ var posicionesSet = new Set(pasatiemposSeleccionados)
 if (pasatiemposUnicos.length >= 1 && pasatiemposUnicos.length <= 5) {
 if (pasatiemposSeleccionados.length >= 1 && pasatiemposSeleccionados.length <= 5 && pasatiemposSeleccionados.length === posicionesSet.size) {
 console.log("Pasatiempos seleccionados:", resultado)
-console.log("Pasatiempos por separado:", pas1, pas2, pas3, pas4, pas5)
+user.pasatiempo = resultado
+global.db.data.users[m.sender]['registroC'] = true
+conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA AGREGADO LOS PASATIEMPOS*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*${resultado === 0 ? 'No encontrada' : resultado}*\n\n*PARA GUARDAR SUS REGISTRO ESCRIBA:*\n${usedPrefix}finalizar`}, {quoted: fkontak})	
+//console.log("Pasatiempos por separado:", pas1, pas2, pas3, pas4, pas5)
 }else{
 m.reply(`*EL PASATIEMPO "${pasatiempoSeleccionado}" YA HA SIDO SELECCIONADO*`)
 }} else {
@@ -281,9 +284,9 @@ seleccionarPasatiempos(seleccion)
 //if (!text) return conn.sendMessage(m.chat, {text: eg + `*👉SELECCIONE SUS PASATIEMPOS POR FAVOR :*\n❖ EJEMPLO: ${usedPrefix}pasatiempo 💻 Aprender a programar\n${usedPrefix}pasatiempo 👋 Estar en Whatsapp\n${usedPrefix}pasatiempo escucha musica\n❖ PUEDE PONER HASTA 5 PASATIEMPOS\n*╭⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*\n*❖ NOMBRE:* ${nombre}\n*❖ EDAD:* ${edad === 0 ? 'No encontrada' : edad}\n*❖ GÉNERO:* ${genero === 0 ? 'No encontrada' : genero}\n*❖ IDENTIDAD DE GÉNERO:* ${identidad === 0 ? 'No encontrada' : identidad}\n\n*╰⸺ ⊹ ⸺  ⊹ ⸺ ⊹ ⸺ ⊹ ⸺ ⊹ 》*`}, {quoted: fkontak})
 //conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
 //pas1 = text.trim()
-user.pasatiempo = resultado
-global.db.data.users[m.sender]['registroC'] = true
-conn.sendMessage(m.chat, {text: eg + `*GENIAL!! SE HA AGREGADO UN PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*${resultado === 0 ? 'No encontrada' : resultado}*\nPuede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n❇️ AGREGAR OTRO PASATIEMPO\n${usedPrefix}pas2\n🐈 FINALIZAR REGISTRO\n${usedPrefix}finalizar`}, {quoted: fkontak})
+//user.pasatiempo = resultado
+//global.db.data.users[m.sender]['registroC'] = true
+//conn.sendMessage(m.chat, {text: eg + `*GENIAL!! SE HA AGREGADO UN PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*${resultado === 0 ? 'No encontrada' : resultado}*\nPuede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n❇️ AGREGAR OTRO PASATIEMPO\n${usedPrefix}pas2\n🐈 FINALIZAR REGISTRO\n${usedPrefix}finalizar`}, {quoted: fkontak})
 //conn.sendButton(m.chat, eg + '*GENIAL!! SE HA AGREGADO UN PASATIEMPO*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n' + `${pasatiempo === 0 ? 'No encontrada' : pasatiempo}`, 'Puede agregar hasta 5 pasatiempos!!! o puede avanzar con el registro teniendo mínimo un pasatiempo\n\n' + wm, null, [[`❇️ AGREGAR OTRO PASATIEMPO`, usedPrefix + 'pas2'], [`🐈 FINALIZAR REGISTRO`, usedPrefix + 'finalizar']], m)
 }	
 	
