@@ -23,7 +23,7 @@ second: 'numeric'
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp
 try {
-pp = await conn.profilePictureUrl(who, 'image');
+pp = await conn.profilePictureUrl(who, 'image')
 } catch (error) {
 pp = await gataMenu.getRandom()
 }
@@ -638,7 +638,7 @@ contextInfo: {
 externalAdReply: {
 title: wm,
 body: gt,
-thumbnailUrl: 'https://i.imgur.com/jfbuJRU.jpeg', 
+thumbnailUrl: pp, 
 //mediaUrl: yt,
 mediaType: 1,
 showAdAttribution: true,
