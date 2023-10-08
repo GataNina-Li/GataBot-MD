@@ -264,11 +264,11 @@ var pasatiemposUnicos = Array.from(pasatiemposSet)
 var resultado = pasatiemposUnicos.join(', ')
 
 var pasatiemposSeleccionados = [pas1, pas2, pas3, pas4, pas5].filter(pasatiempo => pasatiempo !== "");
-var posicionesSet = new Set(pasatiemposSeleccionados);
+var posicionesSet = new Set(pasatiemposSeleccionados)
 if (pasatiemposUnicos.length >= 1 && pasatiemposUnicos.length <= 5) {
 if (pasatiemposSeleccionados.length >= 1 && pasatiemposSeleccionados.length <= 5 && pasatiemposSeleccionados.length === posicionesSet.size) {
-await console.log("Pasatiempos seleccionados:", resultado)
-await console.log("Pasatiempos por separado:", pas1, pas2, pas3, pas4, pas5)
+console.log("Pasatiempos seleccionados:", resultado)
+console.log("Pasatiempos por separado:", pas1, pas2, pas3, pas4, pas5)
 }else{
 m.reply(`*EL PASATIEMPO "${pasatiempoSeleccionado}" YA HA SIDO SELECCIONADO*`)
 }} else {
