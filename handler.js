@@ -64,18 +64,18 @@ if (!isNumber(user.limit)) user.limit = 15
 if (!('registered' in user)) user.registered = false
 if (!('registroR' in user)) user.registroR = false
 if (!('registroC' in user)) user.registroC = false  
-if (!isNumber(user.IDregister)) user.IDregister = 0   
+if (!isNumber(user.IDregister)) user.IDregister = 0 
+	
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
 if (!('age' in user)) user.age = m.age
-//if (!isNumber(user.age)) user.age = 0
-if (!isNumber(user.descripcion)) user.descripcion = 0
-if (!isNumber(user.genero)) user.genero = 0
-if (!isNumber(user.identidad)) user.identidad = 0
-if (!isNumber(user.pasatiempo)) user.pasatiempo = 0
-if (!isNumber(user.tiempo)) user.tiempo = 0
+if (!('descripcion' in user)) user.descripcion = m.descripcion
+if (!('genero' in user)) user.genero = m.genero
+if (!('identidad' in user)) user.identidad = m.identidad
+if (!('pasatiempo' in user)) user.pasatiempo = m.pasatiempo
+if (!('tiempo' in user)) user.tiempo = m.tiempo
+if (!('miestado' in user)) user.miestado = m.miestado	
 if (!isNumber(user.premLimit)) user.premLimit = 0
-if (!isNumber(user.miestado)) user.miestado = 0 
 if (!isNumber(user.anggur)) user.anggur = 0
 if (!isNumber(user.apel)) user.apel = 0
 if (!isNumber(user.bibitanggur)) user.bibitanggur = 0
@@ -93,8 +93,8 @@ if (!isNumber(user.premiumDate)) user.premiumDate = -1
 if (!isNumber(user.regTime)) user.regTime = -1
 if (!isNumber(user.semangka)) user.semangka = 0
 if (!isNumber(user.stroberi)) user.stroberi = 0
-                        
 }
+	
 if (!isNumber(user.counterPrivate)) user.counterPrivate = 0	                    		    
 if (!isNumber(user.afk)) user.afk = -1
 //if (!('autolevelup' in user))  user.autolevelup = true
@@ -506,13 +506,14 @@ counterPrivate: 0,
 afk: -1,
 afkReason: '',
 reporte: 0,
+name: m.name,
 age: m.age,
-genero: 0,
-identidad: 0,
-pasatiempo: 0,
-tiempo: 0,
+genero: m.genero,
+identidad: m.identidad,
+pasatiempo: m.pasatiempo,
+tiempo: m.tiempo,
+miestado: m.miestado,	
 premLimit: 0,
-miestado: 0,
 agility: 16,
 messageSpam: 0,
 anakanjing: 0,
@@ -795,7 +796,6 @@ monyet: 0,
 mythic: 0,
 naga: 0,
 nagalastclaim: 0,
-name: m.name,
 net: 0,
 nila: 0,
 nilabakar: 0,
