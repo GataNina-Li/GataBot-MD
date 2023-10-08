@@ -186,12 +186,12 @@ yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
 if (!text) {
 const { key } = await conn.sendMessage(m.chat, { text: yyr }, {quoted: m})	
 await delay(1000)
-await conn.sendMessage(m.chat, { text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key })
+await conn.sendMessage(m.chat, { text: yyr + `\n\n*AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n${usedPrefix}identidad 4️⃣\n${usedPrefix}identidad 4`, edit: key }) 
 } 
 var identidadAsignada = asignarIdentidad(text)
 //identidad = identidadAsignada
 user.identidad = identidadAsignada
-if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: eg + `*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${user.name === 0 ? 'No encontrada' : user.name}\n*❖ EDAD:*\n${user.age === 0 ? 'No encontrada' : user.age + ' años'}\n*❖ GENERO:*\n${user.genero === 0 ? 'No encontrada' : user.genero}\n*❖ IDENTIDAD DE GÉNERO:*\n${user.identidad === 0 ? 'No encontrada' : user.identidad}\n\n❇️ AHORA REGISTRAR MIS PASATIEMPOS\n${usedPrefix}pasatiempo`}, {quoted: fkontak})
+if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: eg + `*GENIAL!! SE HA COMPLETADO LO SIGUIENTE*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*❖ NOMBRE:*\n${!user.name ? 'No encontrada' : user.name}\n*❖ EDAD:*\n${!user.age ? 'No encontrada' : user.age + ' años'}\n*❖ GENERO:*\n${!user.genero ? 'No encontrada' : user.genero}\n*❖ IDENTIDAD DE GÉNERO:*\n${!user.identidad ? 'No encontrada' : user.identidad}\n\n❇️ AHORA REGISTRAR MIS PASATIEMPOS\n${usedPrefix}pasatiempo`}, {quoted: fkontak})
 }
 	
 if (command == 'pasatiempo' || command == 'hobby') {
