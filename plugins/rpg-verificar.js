@@ -634,7 +634,7 @@ title: wm,
 body: gt,
 thumbnailUrl: pp, 
 mediaUrl: yt,
-mediaType: 1,
+//mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}}, { quoted: m })
