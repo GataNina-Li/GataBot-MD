@@ -493,7 +493,7 @@ if (pasatiemposSeleccionados.length >= 1 && pasatiemposSeleccionados.length <= 5
 console.log("Pasatiempos seleccionados:", resultado)
 user.pasatiempo = resultado
 global.db.data.users[m.sender]['registroC'] = true
-key = await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA AGREGADO LOS PASATIEMPOS*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*${user.pasatiempo === 0 ? 'No encontrada' : user.pasatiempo}*\n\n*PARA GUARDAR SUS REGISTRO ESCRIBA:*\n${usedPrefix}finalizar`}, {quoted: fkontak})	
+key = conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA AGREGADO LOS PASATIEMPOS*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*${user.pasatiempo === 0 ? 'No encontrada' : user.pasatiempo}*\n\n*PARA GUARDAR SUS REGISTRO ESCRIBA:*\n${usedPrefix}finalizar`}, {quoted: fkontak})	
 //console.log("Pasatiempos por separado:", pas1, pas2, pas3, pas4, pas5)
 }else{
 m.reply(`*EL PASATIEMPO "${pasatiempoSeleccionado}" YA HA SIDO SELECCIONADO*`)
