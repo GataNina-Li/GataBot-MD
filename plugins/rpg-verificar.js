@@ -21,15 +21,7 @@ minute: 'numeric',
 second: 'numeric'
 }) 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let pp
-try {
-pp = await conn.profilePictureUrl(who, 'image')
-if (!pp) {
-pp = await gataMenu.getRandom()
-}} catch (error) {
-pp = await gataMenu.getRandom()
-}
-	
+await conn.profilePictureUrl(who, 'image').catch((_) => null) || gataMenu.getRandom()	
 //let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => gataMenu.getRandom())
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
