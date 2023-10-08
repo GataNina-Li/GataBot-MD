@@ -271,10 +271,8 @@ console.log("Pasatiempos seleccionados:", resultado)
 console.log("Pasatiempos por separado:", pas1, pas2, pas3, pas4, pas5)
 }else{
 m.reply(`*EL PASATIEMPO "${pasatiempoSeleccionado}" YA HA SIDO SELECCIONADO*`)
-return
 }} else {
 m.reply(`*SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n${yyr}`)
-return
 }}
 seleccionarPasatiempos(seleccion)
 
