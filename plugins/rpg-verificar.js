@@ -116,8 +116,7 @@ intervalId = setInterval(mensajeRegistro, 3 * 60 * 1000) //3 min
 setTimeout(() => {
 clearInterval(intervalId)}, 186000) //3.1 min
 }
-if (typeof user.name === 'string') return m.reply(`${lenguajeGB['smsAvisoFG']()}*NO PUEDE CAMBIAR DE NOMBRE*\n\n_Una vez completado no puede ser modificado_`)
-if (verificar.test(text) == false || text.length <= 1) return conn.reply(m.chat, `${iig}👉 *PERSONALICE SU NOMBRE PARA REGISTRAR, EJEMPLO:*\n${usedPrefix}nombre ${gt}`, fkontak, m)
+if (verificar.test(text) == false || text.length <= 1) return conn.reply(m.chat, `${lenguajeGB['smsAvisoIIG']()}👉 *PERSONALICE SU NOMBRE PARA REGISTRAR, EJEMPLO:*\n${usedPrefix}nombre ${gt}`, fkontak, m)
 if (text.length >= 25) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*USE UN NOMBRE MÁS CORTO, EJEMPLO:*\n${usedPrefix}nombre ${gt}\n\n_Si quiere usar su nombre registrado en su WhatsApp, escriba ${usedPrefix}nombre2_`}, {quoted: fkontak})
 if (text.length <= 2) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*NOMBRE FALTANTE O MUY CORTO, EJEMPLO:*\n${usedPrefix}nombre ${gt}\n\n_Si quiere usar su nombre registrado en su WhatsApp, escriba ${usedPrefix}nombre2_`}, {quoted: fkontak})
 user.name = text.replace(/\s+/g, '').replace(/[0-9]+/gi, "").trim()
@@ -125,7 +124,6 @@ if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: `${leng
 }
 	
 if (command == 'nombre2' || command == 'name2') {
-if (typeof user.name === 'string') return m.reply(`${lenguajeGB['smsAvisoFG']()}*NO PUEDE CAMBIAR DE NOMBRE*\n\n_Una vez completado no puede ser modificado_`)
 if (nombreWA.slice(1).length < 2) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*SU NOMBRE DE WHATSAPP ES MUY CORTO PARA REGISTRAR*\n\n*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre usando ${usedPrefix}nombre ${gt}*`}, {quoted: fkontak})
 if (nombreWA.slice(1).length > 25) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoFG']()}*SU NOMBRE DE WHATSAPP ES MUY LARGO PARA REGISTRAR*\n\n*Modifique su nombre de WhatsApp e intente de nuevo o puede personalizar su nombre usando ${usedPrefix}nombre ${gt}*`}, {quoted: fkontak})
 user.name = nombreWA.replace(/\s+/g, '').replace(/[0-9]+/gi, "").slice(1).trim()
@@ -133,7 +131,6 @@ if (verificar.test(text) == false) return conn.sendMessage(m.chat, {text: `${len
 }
 		
 if (command == 'edad' || command == 'age' || command == 'edad2' || command == 'age2') {
-if (typeof user.age === 'string') return m.reply(`${lenguajeGB['smsAvisoFG']()}*NO PUEDE CAMBIAR DE EDAD*\n\n_Una vez completado no puede ser modificado_`)
 if (verificar.test(text.slice(1)) == false && !text) return conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoIIG']()}*👉 PERSONALICE SU EDAD PARA REGISTRAR, EJEMPLO:*\n${usedPrefix}edad 20`}, {quoted: fkontak})
 if (isNaN(text)) return m.reply(`${lenguajeGB['smsAvisoFG']()}*INGRESE SOLO NÚMEROS*`)
 if (text > 50) return m.reply(`${lenguajeGB['smsAvisoFG']()}*DEMASIADO MAYOR PARA SER REGISTRADO*`)
@@ -143,7 +140,6 @@ if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: `${leng
 }
 	
 if (command == 'genero' || command == 'género' || command == 'gender') {
-if (typeof user.genero === 'string') return m.reply(`${lenguajeGB['smsAvisoFG']()}*NO PUEDE CAMBIAR SU GÉNERO*\n\n_Una vez completado no puede ser modificado_`)
 let genText = `🌟 *SELECCIONA TU GÉNERO!!*
 1️⃣ ️▸ _🚹 MASCULINO (Hombre)_
 2️⃣ ▸ _🚺 FEMENINO (Mujer)_
@@ -178,7 +174,6 @@ if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: eg + `*
 }
 	
 if (command == 'identidad' || command == 'identity') {
-if (typeof user.identidad === 'string') return m.reply(`${lenguajeGB['smsAvisoFG']()}*NO PUEDE CAMBIAR SU IDENTIDAD*\n\n_Una vez completado no puede ser modificado_`)
 var generos = [
 "Agénero", "Andrógino", "Andrógina", "Asexual", "Bigénero", "Bisexual",
 "Cisgénero", "CrossDresser", "Demigénero", "Gay", "Género fluido", "Género neutro",
@@ -218,7 +213,6 @@ if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: eg + `*
 }
 	
 if (command == 'pasatiempo' || command == 'hobby') {
-if (typeof user.pasatiempo === 'string') return m.reply(`${lenguajeGB['smsAvisoFG']()}*NO PUEDE CAMBIAR SU PASATIEMPO*\n\n_Una vez completado no puede ser modificado_`)
 pasatiempo = 0
 pas1 = ''
 pas2 = ''
