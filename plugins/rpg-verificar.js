@@ -21,7 +21,13 @@ minute: 'numeric',
 second: 'numeric'
 }) 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => gataMenu.getRandom())
+let pp
+try {
+pp = await conn.profilePictureUrl(who, 'image');
+} catch (error) {
+pp = await gataMenu.getRandom()
+}
+//let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => gataMenu.getRandom())
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
 let nombreWA = await usedPrefix + conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0] 
@@ -632,7 +638,7 @@ contextInfo: {
 externalAdReply: {
 title: wm,
 body: gt,
-thumbnailUrl: pp, 
+thumbnailUrl: 'https://i.imgur.com/jfbuJRU.jpeg', 
 //mediaUrl: yt,
 mediaType: 1,
 showAdAttribution: true,
