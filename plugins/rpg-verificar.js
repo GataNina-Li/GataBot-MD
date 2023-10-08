@@ -605,27 +605,27 @@ await conn.sendMessage(m.chat, {
 text: `🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
 *- - - - - - - - - - - - - - - - - - - - - - - - - - - -*
 😼 *REGISTRADO POR*
-❱❱ ${wm}
+❱❱ ${wm}\n
 📑 *TIPO DE REGISTRO* 
-❱❱ ${user.registroC === true ? 'Registro Completo' : 'Registro Rápido'}
+❱❱ ${user.registroC === true ? 'Registro Completo' : 'Registro Rápido'}\n
 ⌛ *FECHA/HORA*
-❱❱ ${user.tiempo} 
+❱❱ ${user.tiempo}\n
 🛅 *CÓDIGO DE REGISTRO*
-❱❱ ${sn}
+❱❱ ${sn}\n
 ✅ *INSIGNIA DE VERIFICACIÓN*
-❱❱   *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
+❱❱   *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*\n
 ✨ *NOMBRE* 
-❱❱ ${user.name}
+❱❱ ${user.name}\n
 👀 *DESCRIPCIÓN*
-❱❱ ${user.descripcion}
+❱❱ ${user.descripcion}\n
 🔢 *EDAD* 
-❱❱ ${user.age}
+❱❱ ${user.age}\n
 ${user.registroC === true ? `☘️ *GENERO*
-❱❱ ${user.genero}
+❱❱ ${user.genero}\n
 🌱 *IDENTIDAD DE GÉNERO*
-❱❱ ${user.identidad}
+❱❱ ${user.identidad}\n
 ❇️ *PASATIEMPO(S)*
-❱❱ ${user.pasatiempo}
+❱❱ ${user.pasatiempo}\n
 ${user.premLimit === 1 ? '' : `🎟️ *PREMIUM*
 ❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS || ${user.premiumTime - now} ms`}`}   ` : ''}`,
 contextInfo: {
