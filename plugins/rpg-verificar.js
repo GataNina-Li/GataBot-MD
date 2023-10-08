@@ -24,9 +24,12 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 let pp
 try {
 pp = await conn.profilePictureUrl(who, 'image')
-} catch (error) {
+if (!pp || typeof pp !== 'string' || pp.trim() === '') {
 pp = await gataMenu.getRandom()
+}} catch (error) {
+pp = await gataMenu.getRandom();
 }
+	
 //let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => gataMenu.getRandom())
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
