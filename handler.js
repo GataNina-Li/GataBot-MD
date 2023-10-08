@@ -67,7 +67,8 @@ if (!('registroC' in user)) user.registroC = false
 if (!isNumber(user.IDregister)) user.IDregister = 0   
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
-if (!isNumber(user.age)) user.age = 0
+if (!('age' in user)) user.age = m.age
+//if (!isNumber(user.age)) user.age = 0
 if (!isNumber(user.descripcion)) user.descripcion = 0
 if (!isNumber(user.genero)) user.genero = 0
 if (!isNumber(user.identidad)) user.identidad = 0
