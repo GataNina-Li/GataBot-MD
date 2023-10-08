@@ -21,6 +21,7 @@ minute: 'numeric',
 second: 'numeric'
 }) 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? m.sender : m.sender
+let pp = await conn.getProfilePicture(who)
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
 let nombreWA = await usedPrefix + conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0] 
@@ -597,9 +598,11 @@ user.registered = true
 let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)	
 registrando = false
 clearInterval(intervalId)	
-key = await conn.sendMessage(m.chat, {text: '🍄 ```VERIFICANDO DATOS...```'}, {quoted: m})
-await delay(2000)
-await conn.sendMessage(m.chat, {text: `🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
+//key = await conn.sendMessage(m.chat, {text: '🍄 ```VERIFICANDO DATOS...```'}, {quoted: m})
+//await delay(2000)
+//await conn.sendMessage(m.chat, {text: , edit: key})
+await conn.sendMessage(m.chat, {
+text: `🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
 *- - - - - - - - - - - - - - - - - - - - - - - - - - - -*
 😼 *REGISTRADO POR*
 ❱❱ ${wm}
@@ -624,8 +627,16 @@ ${user.registroC === true ? `☘️ *GENERO*
 ❇️ *PASATIEMPO(S)*
 ❱❱ ${user.pasatiempo}
 ${user.premLimit === 1 ? '' : `🎟️ *PREMIUM*
-❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS || ${user.premiumTime - now} ms`}`}   ` : ''}`, edit: key})
-//await conn.reply(m.chat, , fkontak,  m)
+❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS || ${user.premiumTime - now} ms`}`}   ` : ''}`,
+contextInfo: {
+externalAdReply: {
+title: wm,
+body: gt,
+thumbnailUrl: pp, 
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
+}}}, { quoted: m })
 //await conn.sendButton(m.chat, caption, user.registroC === true ? 'Si elimina su registro se eliminará los datos e insignia y dejara de tener acceso a los comandos con registro\n\nTendrá Premium solo la premira vez que se registre si llega a volver a registrarse no tendrá premium a excepción si compra usando #pase premium\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}` : 'Si elimina su registro se eliminará los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
 await m.reply(`${sn}`)	
 }}
