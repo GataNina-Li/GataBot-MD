@@ -632,7 +632,7 @@ contextInfo: {
 externalAdReply: {
 title: wm,
 body: gt,
-thumbnailUrl: pp, 
+thumbnailUrl: 'https://telegra.ph/file/d8ef67ebf82d35afc66c3.jpg', 
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
