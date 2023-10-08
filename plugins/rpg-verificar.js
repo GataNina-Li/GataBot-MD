@@ -194,11 +194,11 @@ if (verificar.test(text) == true) return conn.sendMessage(m.chat, {text: eg + `*
 	
 if (command == 'pasatiempo' || command == 'hobby') {
 pasatiempo = 0
-pas1 = 0
-pas2 = 0
-pas3 = 0
-pas4 = 0
-pas5 = 0  
+pas1 = ''
+pas2 = ''
+pas3 = ''
+pas4 = ''
+pas5 = ''  
 var seleccion = text
 var todosLosPasatiempos = [
 "👟 Acroyoga", "🎭 Actuación", "🥋 Aikido", "🎯 Airsoft", "♟️ Ajedrez",
