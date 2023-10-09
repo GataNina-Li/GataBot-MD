@@ -25,7 +25,8 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 let pp = await conn.profilePictureUrl(who, 'image').catch((_) => gataMenu.getRandom())
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
-let nombreWA = '@' + m.sender.split("@s.whatsapp.net")[0] //await conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0] 
+const { name } = global.db.data.users[who]
+let nombreWA = name //await conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0] 
 let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
