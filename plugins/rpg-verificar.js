@@ -26,7 +26,7 @@ let pp = await conn.profilePictureUrl(who, 'image').catch((_) => gataMenu.getRan
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
 const { name } = global.db.data.users[who]
-let nombreWA = name //await conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0] 
+let nombreWA = await conn.getName(name) //await conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0] 
 let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
