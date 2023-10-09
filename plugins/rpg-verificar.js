@@ -190,7 +190,7 @@ text = text.replace(/[\d️⃣]/g, function(match) {
 return emojiANumero[match] || match
 })
 var numero = parseInt(text.replace(/[^\d]/g, ''))	
-if (!isNaN(numero) && numero >= 1 && numero <= generos.length) {
+if (!isNaN(numero) && numero >= 1 && numero <= generos.length && text == 0) {
 return generos[numero - 1]
 } else if (!text) {
 return conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*RECUERDE USAR EL EMOJI NUMÉRICO, EMOJI DE GÉNERO O TEXTO NUMÉRICO PARA SELECCIONAR SU IDENTIDAD, EJEMPLO*\n\n✓ \`\`\`${usedPrefix}identidad 2️⃣\`\`\`\n✓ \`\`\`${usedPrefix}identidad 2\`\`\``, fkontak, m)
