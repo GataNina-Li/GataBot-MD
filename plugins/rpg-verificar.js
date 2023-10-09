@@ -462,7 +462,7 @@ if (numero >= 1 && numero <= todosLosPasatiemposOrdenados.length) {
 return todosLosPasatiemposOrdenados[numero - 1]
 } else if (text.trim() !== "") {
 var pasatiempoIngresado = text.replace(/\D/g, '')
-conn.reply(m.chat, `*EL PASATIEMPO "${pasatiempoIngresado}" NO FORMA PARTE DE LA LISTA DE PASATIEMPOS*`, fkontak, m)
+conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${pasatiempoIngresado}" NO FORMA PARTE DE LA LISTA DE PASATIEMPOS*`, fkontak, m)
 return
 }}	
 var pasatiemposSet = new Set(todosLosPasatiempos)
@@ -507,12 +507,12 @@ if (pasatiemposSeleccionados.length >= 1 && pasatiemposSeleccionados.length <= 5
 //console.log("Pasatiempos seleccionados:", resultado)
 user.pasatiempo = resultado
 global.db.data.users[m.sender]['registroC'] = true
-conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA AGREGADO LOS PASATIEMPOS*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*${user.pasatiempo === 0 ? 'No encontrada' : user.pasatiempo}*\n\n*PARA GUARDAR SUS REGISTRO ESCRIBA:*\n${usedPrefix}finalizar`}, {quoted: fkontak})	
+conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA AGREGADO LOS PASATIEMPOS*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*${user.pasatiempo === 0 ? sinDefinir : user.pasatiempo}*\n\n🌟 *PARA GUARDAR SU REGISTRO ESCRIBA:*\n\`\`\`${usedPrefix}finalizar\`\`\``}, {quoted: fkontak})	
 //console.log("Pasatiempos por separado:", pas1, pas2, pas3, pas4, pas5)
 }else{
-conn.reply(m.chat, `*EL PASATIEMPO "${pasatiempoSeleccionado}" YA HA SIDO SELECCIONADO*`, fkontak, m)
+conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${pasatiempoSeleccionado}" YA HA SIDO SELECCIONADO*`, fkontak, m)
 }} else {
-conn.reply(m.chat, `*SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n${yyr}`, fkontak, m)
+conn.reply(m.chat, `🌟 *SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n*Para seleccionar varios pasatiempos separé por comas (,) además puede usar números o emojis numéricos, ejemplo:*\n\n ✓ \`\`\`${usedPrefix}pasatiempo 2️⃣\`\`\`\ ⇢ *(1 pasatiempo)*\n✓ \`\`\`${usedPrefix}genero 45, 65\`\`\` ⇢ *(2 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 2️⃣4️⃣, 1️⃣5️⃣6️⃣, 8️⃣9️⃣\`\`\` ⇢ *(3 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 223, 456, 6, 4 ⇢ *(4 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 56, 5️⃣1️⃣6️⃣, 345, 2️⃣4️⃣, 200 ⇢ *(5 pasatiempos)*\n\n${yyr}`, fkontak, m)
 }}
 seleccionarPasatiempos(seleccion)
 }	
@@ -529,18 +529,18 @@ user.premium = true
 fecha = `${week}, ${date} *||* `
 hora = `${time}`
 user.tiempo = fecha + hora
-user.name = user.name === 0 ? 'No encontrada' : user.name + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ'
+user.name = user.name === 0 ? sinDefinir : user.name + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ'
 user.descripcion = bio
-user.age = user.age === 0 ? 'No encontrada' : user.age >= 18 ? user.age += ' Años *||* ' + '(Persona Adulta)' : user.age += ' Años *||* ' + '(Persona Joven)'
-user.genero = user.genero === 0 ? 'No encontrada 👤' : user.genero == 'Ocultado' ? `${user.genero} 🕶️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : 'No encontrada 👤'
-user.identidad = user.identidad === 0 ? 'No encontrada' : user.identidad
-user.pasatiempo = user.pasatiempo === 0 ? 'No encontrada' : user.pasatiempo
+user.age = user.age === 0 ? sinDefinir : user.age >= 18 ? user.age += ' Años *||* ' + '(Persona Adulta)' : user.age += ' Años *||* ' + '(Persona Joven)'
+user.genero = user.genero === 0 ? sinDefinir : user.genero == 'Ocultado' ? `${user.genero} 🕶️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : sinDefinir
+user.identidad = user.identidad === 0 ? sinDefinir : user.identidad
+user.pasatiempo = user.pasatiempo === 0 ? sinDefinir : user.pasatiempo
 }else{
 fecha = `${week}, ${date} || `
 hora = `${time}`
 user.tiempo = fecha + hora
-user.name = user.name === 0 ? 'No encontrada' : user.name + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ'
-user.age = user.age === 0 ? 'No encontrada' : user.age >= 18 ? user.age += ' Años *||* ' + '(Persona Adulta)' : user.age += ' Años *||* ' + '(Persona Joven)'
+user.name = user.name === 0 ? sinDefinir : user.name + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ'
+user.age = user.age === 0 ? sinDefinir : user.age >= 18 ? user.age += ' Años *||* ' + '(Persona Adulta)' : user.age += ' Años *||* ' + '(Persona Joven)'
 user.descripcion = bio	
 }
 user.regTime = + new Date
@@ -548,9 +548,6 @@ user.registered = true
 let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)	
 registrando = false
 clearInterval(intervalId)	
-//key = await conn.sendMessage(m.chat, {text: '🍄 ```VERIFICANDO DATOS...```'}, {quoted: m})
-//await delay(2000)
-//await conn.sendMessage(m.chat, {text: , edit: key})
 await conn.sendMessage(m.chat, {
 text: `🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
 *- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n
