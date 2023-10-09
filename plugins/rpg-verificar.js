@@ -474,7 +474,7 @@ yyr += `*╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮*
 *┊ 🎉 SELECCIONE SU PASATIEMPO!!*
 *┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯*\n`;
 todosLosPasatiemposOrdenados.forEach(function (pasatiempo, index) {
-yyr += `[ ${index + 1} ] » ${pasatiempo}\n`
+yyr += ` [ ${index + 1} ] » ${pasatiempo}\n`
 });
 yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
 var maximoIndice = todosLosPasatiemposOrdenados.length - 0
@@ -512,7 +512,7 @@ conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA AG
 }else{
 conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${pasatiempoSeleccionado}" YA HA SIDO SELECCIONADO*`, fkontak, m)
 }} else {
-conn.reply(m.chat, `🌟 *SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n*Para seleccionar varios pasatiempos separé por comas (,) además puede usar números o emojis numéricos, ejemplo:*\n\n ✓ \`\`\`${usedPrefix}pasatiempo 2️⃣\`\`\`\ ⇢ *(1 pasatiempo)*\n✓ \`\`\`${usedPrefix}genero 45, 65\`\`\` ⇢ *(2 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 2️⃣4️⃣, 1️⃣5️⃣6️⃣, 8️⃣9️⃣\`\`\` ⇢ *(3 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 223, 456, 6, 4 ⇢ *(4 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 56, 5️⃣1️⃣6️⃣, 345, 2️⃣4️⃣, 200 ⇢ *(5 pasatiempos)*\n\n${yyr}`, fkontak, m)
+conn.reply(m.chat, `🌟 *SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n*Para seleccionar varios pasatiempos separé por comas (,) además puede usar números o emojis numéricos, ejemplo:*\n\n✪ *(1 pasatiempo)*\n✓ \`\`\`${usedPrefix}pasatiempo 2️⃣\`\`\`\n\n✪ *(2 pasatiempo)*\n✓ \`\`\`${usedPrefix}genero 45, 65\`\`\`\n\n✪ *(3 pasatiempo)*\n✓ \`\`\`${usedPrefix}genero 2️⃣4️⃣, 1️⃣5️⃣6️⃣, 8️⃣9️⃣\`\`\`\n\n✪ *(4 pasatiempo)*\n✓ \`\`\`${usedPrefix}genero 223, 456, 6, 4\`\`\`\n\n✪ *(5 pasatiempo)*\n✓ \`\`\`${usedPrefix}genero 56, 5️⃣1️⃣6️⃣, 345, 2️⃣4️⃣, 200\`\`\`\n\n${yyr}`, fkontak, m)
 }}
 seleccionarPasatiempos(seleccion)
 }	
