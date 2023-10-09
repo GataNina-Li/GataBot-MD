@@ -520,7 +520,7 @@ seleccionarPasatiempos(seleccion)
 if (command == 'finalizar' || command == 'end') {
 if (global.db.data.users[m.sender]['registroC'] == true) {
 if (user.premLimit === 0) {	
-tiempo = user.premLimit === 1 ? 0 : 10800000 //3 horas
+tiempo = user.premLimit === 1 ? 0 : 36000000 //10 horas
 var now = new Date() * 1
 if (now < user.premiumTime) user.premiumTime += tiempo
 else user.premiumTime = now + tiempo
@@ -574,7 +574,7 @@ ${user.registroC === true ? `☘️ *GENERO*
 ❇️ *PASATIEMPO(S)*
 ❱❱ ${user.pasatiempo}\n
 ${user.premLimit === 1 ? '' : `🎟️ *PREMIUM*
-❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +3 HORAS || ${user.premiumTime - now} ms`}`}   ` : ''}`,
+❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +10 HORAS || ${user.premiumTime - now} ms`}`}   ` : ''}${user.registroC === true ? `\n\n🌟 *Si es su primera vez registrándose, recibirá horas premium de forma gratuita como bonificación exclusiva por su primera inscripción, puede cancelar y eliminar su registro en cualquier momento. Gracias por registrarse ✨*` : ''}`,
 contextInfo: {
 externalAdReply: {
 title: wm,
@@ -585,7 +585,6 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}}, { quoted: fkontak })
-//await conn.sendButton(m.chat, caption, user.registroC === true ? 'Si elimina su registro se eliminará los datos e insignia y dejara de tener acceso a los comandos con registro\n\nTendrá Premium solo la premira vez que se registre si llega a volver a registrarse no tendrá premium a excepción si compra usando #pase premium\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}` : 'Si elimina su registro se eliminará los datos e insignia y dejara de tener acceso a los comandos con registro\n\nPuede volver a eliminar su registro y registrarse desde 0 sin problema.\n\nSu código de serie le permitirá borrar su registro ejemplo:\n' + `${usedPrefix}unreg ${sn}`, [['𝘼𝙝𝙤𝙧𝙖 𝙚𝙨𝙩𝙤𝙮 𝙑𝙚𝙧𝙞𝙛𝙞𝙘𝙖𝙙𝙤(𝙖)!! ✅', '/profile']], m)
 await m.reply(`${sn}`)	
 }}
 handler.command = ['verify', 'verificar', 'register', 'registrar', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', 'identidad', 'pasatiempo', 'hobby', 'identity', 'finalizar', 'pas2', 'pas3', 'pas4', 'pas5']  ///^(verify|verificar|reg(ister)?)$/i
