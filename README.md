@@ -68,7 +68,7 @@
 | **SOBRE GATABOT** | ***SECCIONES DE INFORMACIÓN*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#sobre-gatabot--gb-global) |
 | **DESARROLLADORES** | ***PARTICIPATES DEL PROYECTO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
 -----
-### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA POR TERMUX 🫰
+### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA 🫰
 [![blog](https://img.shields.io/badge/Instalacion-Automatica-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/PESW8LXXlOI?feature=share)
 > **Note** Comandos para instalar de forma automática en Termux  
 ```bash
