@@ -464,7 +464,7 @@ if (numero >= 1 && numero <= todosLosPasatiemposOrdenados.length) {
 return todosLosPasatiemposOrdenados[numero - 1]
 } else if (text.trim() !== "") {
 var pasatiempoIngresado = text.replace(/\D/g, '')
-conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${pasatiempoIngresado}" NO FORMA PARTE DE LA LISTA DE PASATIEMPOS*`, fkontak, m)
+conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${!pasatiempoIngresado ? 'CON LETRAS 🔡' : pasatiempoIngresado}" NO FORMA PARTE DE LA LISTA DE PASATIEMPOS*`, fkontak, m)
 return
 }}	
 var pasatiemposSet = new Set(todosLosPasatiempos)
