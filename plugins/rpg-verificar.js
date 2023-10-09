@@ -202,7 +202,8 @@ return generos[numero - 1]
 } else if (!text) {
 return conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*RECUERDE USAR EL EMOJI NUMÉRICO, EMOJI DE GÉNERO O TEXTO NUMÉRICO PARA SELECCIONAR SU IDENTIDAD, EJEMPLO*\n\n✓ \`\`\`${usedPrefix}identidad 2️⃣\`\`\`\n✓ \`\`\`${usedPrefix}identidad 2\`\`\``, fkontak, m)
 }else{
-conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*ESTÁ SELECCIÓN "${numero}" NO FORMA PARTE DE LA LISTA DE IDENTIDAD, ELEGIR UNO DE LA LISTA*`, fkontak, m)
+conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}*ESTÁ ELECCIÓN "${numero}" NO FORMA PARTE DE LA LISTA DE IDENTIDAD, ELEGIR UNO DE LA LISTA POR FAVOR, EJEMPLO:*\n\n✓ \`\`\`${usedPrefix}identidad 2️⃣\`\`\`\n✓ \`\`\`${usedPrefix}identidad 2\`\`\``, fkontak, m)
+return
 }}
 let yyr = ''
 yyr += `*╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈•*
@@ -213,9 +214,9 @@ yyr += `*┊* \`\`\`[${index + 1}]\`\`\` » _${identidad}_\n`
 })
 yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
 if (!text) {
-const { key } = await conn.sendMessage(m.chat, { text: yyr }, {quoted: m})	
+const { key } = await conn.sendMessage(m.chat, { text: yyr }, {quoted: fkontak})	
 await delay(1000)
-await conn.sendMessage(m.chat, { text: yyr + `\n\n✨ *AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n\`\`\`${usedPrefix}identidad 4️⃣\`\`\`\n\`\`\`${usedPrefix}identidad 4\`\`\``, edit: key }) 
+await conn.sendMessage(m.chat, { text: yyr + `\n\n✨ *AQUÍ UN EJEMPLO DE COMO SELECCIONAR:*\n\`\`\`${usedPrefix}identidad 4️⃣\`\`\`\n\`\`\`${usedPrefix}identidad 4\`\`\``, edit: key }, {quoted: fkontak}) 
 } 
 var identidadAsignada = asignarIdentidad(text)
 user.identidad = identidadAsignada
