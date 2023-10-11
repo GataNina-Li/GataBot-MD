@@ -1,12 +1,12 @@
-import { watchFile, unwatchFile } from "fs";
-import chalk from "chalk";
-import { fileURLToPath } from "url";
-import fs from "fs";
-import cheerio from "cheerio";
-import fetch from "node-fetch";
-import axios from "axios";
-import moment from "moment-timezone";
-import { en, es, id, ar, pt, fr, hi } from "./lib/idiomas/total-idiomas.js"; 
+import { watchFile, unwatchFile } from "fs"
+import chalk from "chalk"
+import { fileURLToPath } from "url"
+import fs from "fs"
+import cheerio from "cheerio"
+import fetch from "node-fetch"
+import axios from "axios"
+import moment from "moment-timezone"
+import { en, es, id, ar, pt, fr, hi } from "./lib/idiomas/total-idiomas.js"
  
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
 
@@ -17,14 +17,14 @@ global.owner = [
 ["593968585383"], 
 ["5492266613038"],
 ["51948705559"],
-["5217294888993"]];
+["5217294888993"]]
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
-global.mods = [];
-global.prems = ["528451003894"];
+global.mods = []
+global.prems = ["528451003894"]
 //key de violetics
-global.Key360 = ["964f-0c75-7afc"];
+global.Key360 = ["964f-0c75-7afc"]
    
   
 //⊱ ━━━━━.⋅ IDIOMA : LENGUAJE ⋅.━━━━ ⊰ 
@@ -34,14 +34,14 @@ global.Key360 = ["964f-0c75-7afc"];
 //  en = English         pt = Português 
 //  ar = عرب             hi = Hindi Language
 
-global.lenguajeGB = es; //Idioma de GataBot, Ejemplo: es | en | pt...
+global.lenguajeGB = es //Idioma de GataBot, Ejemplo: es | en | pt...
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
-global.openai_key = 'sk-0';
+global.openai_key = 'sk-0'
 /* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */
 
-global.openai_org_id = 'org-3';
+global.openai_org_id = 'org-3'
 /* Consigue tu ID de organizacion en este enlace: https://platform.openai.com/account/org-settings */
 
 global.keysZens = ["LuOlangNgentot", "c2459db922", "37CC845916", "6fb0eff124", "hdiiofficial", "fiktod", "BF39D349845E", "675e34de8a", "0b917b905e6f"];
@@ -83,7 +83,7 @@ global.APIKeys = {
   'https://api-xcoders.site': 'Frieren'
 };
 
-global.mods = []; 
+global.mods = []
 
 
 /*************************/
