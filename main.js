@@ -144,7 +144,7 @@ console.log(chalk.bold.magentaBright(lenguajeGB['smsConexioncerrar']()))
 process.send('reset')
 } else if (reason === DisconnectReason.connectionLost) {
 console.log(chalk.bold.blueBright(lenguajeGB['smsConexionperdida']()))
-await global.reloadHandler(true).catch(console.error)
+process.send('reset')
 } else if (reason === DisconnectReason.connectionReplaced) {
 console.log(chalk.bold.yellowBright(lenguajeGB['smsConexionreem']()))
 } else if (reason === DisconnectReason.loggedOut) {
