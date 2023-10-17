@@ -1343,7 +1343,7 @@ if (!opts['noprint']) await (await import(`./lib/print.js`)).default(m, this)
 console.log(m, m.quoted, e)}
 let settingsREAD = global.db.data.settings[this.user.jid] || {}  
 if (opts['autoread'] && usedPrefix) await this.readMessages([m.key])
-if (settingsREAD.autoread2 && usedPrefix) await this.readMessages([m.key])  
+if (settingsREAD.autoread2) await this.readMessages([m.key])  
 //if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])    
 	    
 if (!db.data.chats[m.chat].reaction && m.isGroup) throw 0
