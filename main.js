@@ -158,7 +158,7 @@ if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber
 break 
 } else {
 console.log(chalk.bgBlack(chalk.bold.redBright("Asegúrese de agregar el código de país.\nEjemplo: +593090909090")))
-}
+}}
 rl.close()
 }
 
