@@ -132,7 +132,7 @@ opcion = opcion
 
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
-printQRInTerminal: opcion == '1' ? true : false,
+printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
 browser: ['Chrome (Linux)', '', ''],
 auth: {
