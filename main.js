@@ -22,6 +22,8 @@ import {makeWASocket, protoType, serialize} from './lib/simple.js'
 import {Low, JSONFile} from 'lowdb'
 import {mongoDB, mongoDBV2} from './lib/mongoDB.js'
 import store from './lib/store.js'
+import readline from 'readline'
+import NodeCache from 'node-cache'
 const { proto} = (await import('@whiskeysockets/baileys')).default;
 const { DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser, PHONENUMBER_MCC } = await import('@whiskeysockets/baileys')
 const { CONNECTING} = ws
@@ -147,7 +149,7 @@ if (!Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
 console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar el código de país. Ejemplo: +593090909090")))
 process.exit(0)
 }} else {
-addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su númerode WhatsApp. Ejemplo: +593090909090: `)))
+addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su número de WhatsApp. Ejemplo: +593090909090: `)))
 addNumber = addNumber.replace(/[^0-9]/g, '')
 rl.close()
 }
