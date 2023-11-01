@@ -204,7 +204,7 @@ global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
 if (update.qr != 0 && update.qr != undefined) {
-if (update.qr) {
+if (!update.qr) {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
 }
 if (connection == 'open') {
