@@ -139,7 +139,6 @@ defaultQueryTimeoutMs: undefined,
 version
 }
 
-global.conn = makeWASocket(connectionOptions)
 let opcion
 if (!global.confirmCode && !global.authFile) {
 while (true) {
@@ -184,6 +183,7 @@ console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.bol
 }, 3000)
 }}
 
+global.conn = makeWASocket(connectionOptions)
 conn.isInit = false
 conn.well = false
 
