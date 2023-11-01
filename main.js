@@ -157,7 +157,7 @@ addNumber = addNumber.replace(/[^0-9]/g, '')
 if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
 break 
 } else {
-console.log(chalk.bgBlack(chalk.bold.redBright("Asegúrese de agregar el código de país.\nEjemplo: +593090909090")))
+console.log(chalk.bgBlack(chalk.bold.redBright("Asegúrese de agregar el código de país.")))
 }}
 rl.close()
 }
@@ -218,11 +218,11 @@ await global.reloadHandler(true).catch(console.error) //process.send('reset')
 console.log(chalk.bold.redBright(lenguajeGB['smsConexiondescon'](reason, connection)))
 }}
 }
-process.on('uncaughtException', console.error)
-//process.on('uncaughtException', (err) => {
-//console.error('Se ha cerrado la conexión:\n', err)
-//process.send('reset') 
-//})
+//process.on('uncaughtException', console.error)
+process.on('uncaughtException', (err) => {
+console.error('Se ha cerrado la conexión:\n', err)
+process.send('reset') 
+})
 
 
 let isInit = true;
