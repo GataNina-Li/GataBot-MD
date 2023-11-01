@@ -116,9 +116,52 @@ const MethodMobile = process.argv.includes("mobile")
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
+let opcion
+if (!global.confirmCode) {
+while (true) {
+opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
+if (opcion === '1' || opcion === '2') {
+rl.close()
+break
+} else {
+console.log('Por favor, seleccione solo 1 o 2.')
+}}
+opcion = opcion
+}
+
+if (opcion === '1') {
+const connectionOptions = {
+printQRInTerminal: true,
+patchMessageBeforeSending: (message) => {
+const requiresPatch = !!( message.buttonsMessage || message.templateMessage || message.listMessage )
+if (requiresPatch) {
+message = {viewOnceMessage: {message: {messageContextInfo: {deviceListMetadataVersion: 2, deviceListMetadata: {}}, ...message}}}
+}
+return message
+},
+getMessage: async (key) => {
+if (store) {
+const msg = await store.loadMessage(key.remoteJid, key.id)
+return conn.chats[key.remoteJid] && conn.chats[key.remoteJid].messages[key.id] ? conn.chats[key.remoteJid].messages[key.id].message : undefined
+}
+return proto.Message.fromObject({})
+},
+msgRetryCounterMap,
+logger: pino({level: 'silent'}),
+auth: {
+creds: state.creds,
+keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})),
+},
+browser: ['GataBotLite-MD','Edge','2.0.0'],
+version,
+defaultQueryTimeoutMs: undefined,
+}
+}
+
+if (opcion === '2') {
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
-printQRInTerminal: false, 
+printQRInTerminal: !methodCode, 
 mobile: MethodMobile, 
 browser: ['Chrome (Linux)', '', ''],
 auth: {
@@ -137,20 +180,8 @@ msgRetryCounterMap,
 defaultQueryTimeoutMs: undefined,   
 version
 }
-global.conn = makeWASocket(connectionOptions)
-
-let opcion
-if (!global.confirmCode) {
-while (true) {
-opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
-if (opcion === '1' || opcion === '2') {
-break
-rl.close()
-} else {
-console.log('Por favor, seleccione solo 1 o 2.')
-}}
-opcion = opcion
 }
+global.conn = makeWASocket(connectionOptions)
 
 if (opcion === '2') {
 if (methodCode && !conn.authState.creds.registered) {
@@ -196,7 +227,7 @@ if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 async function connectionUpdate(update) {  
 const {connection, lastDisconnect, isNewLogin} = update
 global.stopped = connection
-//if (isNewLogin) conn.isInit = true
+if (isNewLogin) conn.isInit = true
 const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (code && code !== DisconnectReason.loggedOut && conn?.ws.socket == null) {
 await global.reloadHandler(true).catch(console.error)
