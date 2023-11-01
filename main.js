@@ -117,7 +117,7 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 //const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 const question = (texto) => new Promise((resolver) => {
 process.stdout.write(texto)
-rl.question('', resolver)
+rl.question(texto, resolver)
 })
 
 const connectionOptions = {
