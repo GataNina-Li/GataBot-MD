@@ -12,6 +12,8 @@
     
 "scripts": {
 "start": "node index.js",
+"qr": "npm start",
+"code": "node index.js code",
 "test": "node test.js",
 "test2": "nodemon index.js" },
     
