@@ -148,7 +148,7 @@ break
 } else {
 console.log('Por favor, seleccione solo 1 o 2.')
 }}
-return opcion
+opcion = opcion
 }
 rl.close()
 if (opcion === '2') {
