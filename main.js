@@ -125,7 +125,6 @@ break
 } else {
 console.log('Por favor, seleccione solo 1 o 2.')
 }}
-rl.close()
 opcion = opcion
 }
 
