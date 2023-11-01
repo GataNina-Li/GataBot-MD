@@ -129,40 +129,9 @@ console.log('Por favor, seleccione solo 1 o 2.')
 opcion = opcion
 }
 
-global.conn = makeWASocket(connectionOptions)
-if (opcion === '1') {
-const connectionOptions = {
-printQRInTerminal: true,
-patchMessageBeforeSending: (message) => {
-const requiresPatch = !!( message.buttonsMessage || message.templateMessage || message.listMessage )
-if (requiresPatch) {
-message = {viewOnceMessage: {message: {messageContextInfo: {deviceListMetadataVersion: 2, deviceListMetadata: {}}, ...message}}}
-}
-return message
-},
-getMessage: async (key) => {
-if (store) {
-const msg = await store.loadMessage(key.remoteJid, key.id)
-return conn.chats[key.remoteJid] && conn.chats[key.remoteJid].messages[key.id] ? conn.chats[key.remoteJid].messages[key.id].message : undefined
-}
-return proto.Message.fromObject({})
-},
-msgRetryCounterMap,
-logger: pino({level: 'silent'}),
-auth: {
-creds: state.creds,
-keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})),
-},
-browser: ['GataBot-MD','Edge','2.0.0'],
-version,
-defaultQueryTimeoutMs: undefined,
-}
-}
-
-if (opcion === '2') {
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
-printQRInTerminal: !methodCode, 
+printQRInTerminal: opcion == '1' ? true : false,
 mobile: MethodMobile, 
 browser: ['Chrome (Linux)', '', ''],
 auth: {
@@ -181,8 +150,8 @@ msgRetryCounterMap,
 defaultQueryTimeoutMs: undefined,   
 version
 }
-}
 
+global.conn = makeWASocket(connectionOptions)
 if (opcion === '2') {
 //if (methodCode && !conn.authState.creds.registered) {
 if (!conn.authState.creds.registered) {  
