@@ -121,7 +121,7 @@ if (!global.confirmCode) {
 while (true) {
 opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
 if (opcion === '1' || opcion === '2') {
-rl.close()
+//rl.close()
 break
 } else {
 console.log('Por favor, seleccione solo 1 o 2.')
