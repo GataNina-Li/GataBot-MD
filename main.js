@@ -117,6 +117,18 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
 let opcion
+if (!fs.existsSync(`./${authFile}/creds.json`)) {
+while (true) {
+opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
+if (opcion === '1' || opcion === '2') {
+//rl.close()
+break
+} else {
+console.log('Por favor, seleccione solo 1 o 2.')
+}}
+opcion = opcion
+}
+
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : false,
@@ -182,18 +194,6 @@ if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
 
 async function connectionUpdate(update) {  
-if (!global.confirmCode && !conn.authState.creds.registered) {
-while (true) {
-opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
-if (opcion === '1' || opcion === '2') {
-//rl.close()
-break
-} else {
-console.log('Por favor, seleccione solo 1 o 2.')
-}}
-opcion = opcion
-}
-  
 const {connection, lastDisconnect, isNewLogin} = update
 global.stopped = connection
 if (isNewLogin) conn.isInit = true
