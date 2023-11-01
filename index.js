@@ -52,8 +52,9 @@ break;
 }});
 p.on('exit', (_, code) => {
 isRunning = false;
-console.error('⚠️ ERROR ⚠️', code);
-if (code === 0) return;
+console.error('⚠️ ERROR ⚠️ >> ', code)
+start('main.js')
+if (code === 0) return
 watchFile(args[0], () => {
 unwatchFile(args[0]);
 start(file);
@@ -67,4 +68,4 @@ p.emit('message', line.trim());
 //console.log(p)
 }
 
-start('main.js');
+start('main.js')
