@@ -150,7 +150,9 @@ if (!Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
 console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar el código de país. Ejemplo: +593090909090")))
 process.exit(0)
 }} else {
+setTimeout(async () => {
 addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su número de WhatsApp. Ejemplo: +593090909090 --> `)))
+}, 1000)
 addNumber = addNumber.replace(/[^0-9]/g, '')
 rl.close()
 }
