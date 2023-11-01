@@ -111,15 +111,14 @@ const msgRetryCounterCache = new NodeCache()
 const {version} = await fetchLatestBaileysVersion();
 let phoneNumber = global.botNumberCode
 
-const methodCode = !!phoneNumber || process.argv.includes("code")
+const methodCode = !!phoneNumber //|| process.argv.includes("code")
 const MethodMobile = process.argv.includes("mobile")
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
-
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
-printQRInTerminal: !methodCode, 
+printQRInTerminal: false, 
 mobile: MethodMobile, 
 browser: ['Chrome (Linux)', '', ''],
 auth: {
