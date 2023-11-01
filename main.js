@@ -184,8 +184,8 @@ version
 global.conn = makeWASocket(connectionOptions)
 
 if (opcion === '2') {
-if (methodCode && !conn.authState.creds.registered) {
-//if (!conn.authState.creds.registered) {  
+//if (methodCode && !conn.authState.creds.registered) {
+if (!conn.authState.creds.registered) {  
 if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
 
 let addNumber
