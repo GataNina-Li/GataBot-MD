@@ -149,13 +149,12 @@ break
 console.log('Por favor, seleccione solo 1 o 2.')
 }}
 opcion = opcion
-//rl.close()
+rl.close()
 }
 
-global.conn = makeWASocket(connectionOptions)
 if (opcion === '2') {
 //if (methodCode && !conn.authState.creds.registered) {
-if (!conn.authState.creds.registered) {  
+if (!this.authState.creds.registered) {  
 if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
 
 let addNumber
@@ -178,12 +177,13 @@ rl.close()
 }
 
 setTimeout(async () => {
-let codeBot = await conn.requestPairingCode(addNumber)
+let codeBot = await this.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.bold.white(chalk.white(codeBot)))
 }, 3000)
 }}
 
+global.conn = makeWASocket(connectionOptions)
 conn.isInit = false
 conn.well = false
 
