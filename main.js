@@ -115,12 +115,12 @@ const methodCode = !!phoneNumber || process.argv.includes("code")
 const MethodMobile = process.argv.includes("mobile")
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 //const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
-const question = (texto) => new Promise((resolver) => {
-setImmediate(() => {
-process.stdout.write(texto)
-rl.question(texto, resolver)
+function question(texto) {
+return new Promise((resolve) => {
+rl.question(texto, (answer) => {
+resolve(answer)
 })
-})
+})}
 
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
