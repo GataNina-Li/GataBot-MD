@@ -148,15 +148,23 @@ if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
 
 if (!Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar el código de país. Ejemplo: +593090909090")))
+console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar el código de país.\nEjemplo: +593090909090")))
 process.exit(0)
   
 }} else {
-console.log('Escriba su número de WhatsApp. Ejemplo: +593090909090')
-await question(chalk.bgBlack(chalk.greenBright('--> ')))  
 //addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su número de WhatsApp. Ejemplo: +593090909090 --> `)))
-addNumber = addNumber.replace(/[^0-9]/g, '')
-rl.close()
+//addNumber = addNumber.replace(/[^0-9]/g, '')
+//rl.close()
+while (true) {
+addNumber = await question(chalk.bgBlack(chalk.greenBright('Escriba su número de WhatsApp.\nEjemplo: +593090909090 --> ')))
+addNumber = addNumber.replace(/[^0-9]/g, '');
+
+if (addNumber.match(/^\d+$/)) {
+break 
+} else {
+console.log(chalk.bgBlack(chalk.redBright('Por favor, introduzca un número válido.')))
+}}
+rl.close();
 }
 
 setTimeout(async () => {
