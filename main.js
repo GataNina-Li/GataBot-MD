@@ -138,6 +138,7 @@ msgRetryCounterMap,
 defaultQueryTimeoutMs: undefined,   
 version
 }
+global.conn = makeWASocket(connectionOptions)
 
 let opcion
 if (!global.confirmCode) {
@@ -152,10 +153,9 @@ console.log('Por favor, seleccione solo 1 o 2.')
 opcion = opcion
 }
 
-global.conn = makeWASocket(connectionOptions)
 if (opcion === '2') {
-//if (methodCode && !conn.authState.creds.registered) {
-if (!conn.authState.creds.registered) {  
+if (methodCode && !conn.authState.creds.registered) {
+//if (!conn.authState.creds.registered) {  
 if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
 
 let addNumber
