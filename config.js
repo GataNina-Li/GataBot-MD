@@ -20,6 +20,9 @@ global.owner = [
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
+//BETA: Si quiere evitar escribir el número que será bot en la consola, agregué desde aquí entonces:
+global.botNumberCode = "" //Ejemplo: +59309090909
+
 global.mods = []
 global.prems = ["528451003894"]
 //key de violetics
