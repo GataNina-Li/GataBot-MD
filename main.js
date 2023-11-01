@@ -114,7 +114,11 @@ let phoneNumber = global.botNumberCode
 const methodCode = !!phoneNumber || process.argv.includes("code")
 const MethodMobile = process.argv.includes("mobile")
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
-const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
+//const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
+const question = (texto) => new Promise((resolver) => {
+process.stdout.write(texto)
+rl.question('', resolver)
+})
 
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
@@ -151,7 +155,6 @@ console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar el código de p
 process.exit(0)
   
 }} else {
-console.log(chalk.bgBlack(chalk.greenBright(`Escriba su número de WhatsApp. Ejemplo: +593090909090 --> `)))
 addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su número de WhatsApp. Ejemplo: +593090909090 --> `)))
 addNumber = addNumber.replace(/[^0-9]/g, '')
 rl.close()
