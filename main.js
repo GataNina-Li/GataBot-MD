@@ -125,9 +125,10 @@ break
 } else {
 console.log('Por favor, seleccione solo 1 o 2.')
 }}
+rl.close()
 opcion = opcion
 }
-rl.close()
+
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : false,
