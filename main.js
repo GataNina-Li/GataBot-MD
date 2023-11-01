@@ -155,6 +155,7 @@ addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su número d
 addNumber = addNumber.replace(/[^0-9]/g, '')
 rl.close()
 }*/
+async function obtenerNumero() {
 function validarNumero(numero) {
   return /^\d+$/.test(numero); 
 }
@@ -184,7 +185,7 @@ codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.black(chalk.white(codeBot)))
 }, 3000)
 }
-
+}
 conn.isInit = false
 conn.well = false
 
