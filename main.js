@@ -151,7 +151,7 @@ if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
 let opcion
 async function connectionUpdate(update) {
-if (!global.authFile) {
+//if (!global.authFile) {
 while (true) {
 opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
 if (opcion === '1' || opcion === '2') {
@@ -161,7 +161,7 @@ console.log('Por favor, seleccione solo 1 o 2.')
 }}
 rl.close()
 //return opcion
-}
+//}
 
 if (opcion === '2') {
 //if (methodCode && !conn.authState.creds.registered) {
@@ -192,7 +192,7 @@ let codeBot = await conn.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.bold.white(chalk.white(codeBot)))
 }, 3000)
-}}
+}//}
 
 
   
