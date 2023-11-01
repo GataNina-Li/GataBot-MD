@@ -156,6 +156,7 @@ browser: ['GataBot-MD','Edge','2.0.0'],
 version,
 defaultQueryTimeoutMs: undefined,
 }
+conn = makeWASocket(connectionOptions)
 }
 
 if (opcion === '2') {
@@ -180,9 +181,10 @@ msgRetryCounterMap,
 defaultQueryTimeoutMs: undefined,   
 version
 }
+conn = makeWASocket(connectionOptions)
 }
-global.conn = makeWASocket(connectionOptions)
 
+global.conn = makeWASocket(connectionOptions)
 if (opcion === '2') {
 //if (methodCode && !conn.authState.creds.registered) {
 if (!conn.authState.creds.registered) {  
