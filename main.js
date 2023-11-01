@@ -154,7 +154,7 @@ rl.close()
 
 if (opcion === '2') {
 //if (methodCode && !conn.authState.creds.registered) {
-if (!this.authState.creds.registered) {  
+if (!conn.authState.creds.registered) {  
 if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
 
 let addNumber
@@ -177,7 +177,7 @@ rl.close()
 }
 
 setTimeout(async () => {
-let codeBot = await this.requestPairingCode(addNumber)
+let codeBot = await conn.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.bold.white(chalk.white(codeBot)))
 }, 3000)
@@ -200,9 +200,9 @@ global.stopped = connection
 if (isNewLogin) conn.isInit = true
 const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (code && code !== DisconnectReason.loggedOut && conn?.ws.socket == null) {
-await global.reloadHandler(true).catch(console.error)
+//await global.reloadHandler(true).catch(console.error)
 //console.log(await global.reloadHandler(true).catch(console.error));
-global.timestamp.connect = new Date
+//global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
 if (update.qr != 0 && update.qr != undefined) {
