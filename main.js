@@ -146,25 +146,26 @@ if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento
 let addNumber
 if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
-} else {
+if (!Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
+console.log(chalk.bgBlack(chalk.bold.redBright("Configure el archivo 'config.js' porque su número de WhatsApp no comienza con el código de país, Ejemplo: +593090909090")))
+process.exit(0)
+}} else {
 while (true) {
-addNumber = await question(chalk.bgBlack(chalk.greenBright('Escriba su número de WhatsApp.\nEjemplo: +593090909090 --> ')))
+addNumber = await question(chalk.bgBlack(chalk.bold.greenBright('Escriba su número de WhatsApp.\nEjemplo: +593090909090 \n--> ')))
 addNumber = addNumber.replace(/[^0-9]/g, '')
 
 if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
 break 
-} else if (!Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar el código de país.\nEjemplo: +593090909090")))
 } else {
-console.log(chalk.bgBlack(chalk.redBright('Por favor, introduzca un número válido.')))
-}}
+console.log(chalk.bgBlack(chalk.bold.redBright("Asegúrese de agregar el código de país.\nEjemplo: +593090909090")))
+}
 rl.close();
 }
 
 setTimeout(async () => {
 let codeBot = await conn.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
-console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.black(chalk.white(codeBot)))
+console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.bold.white(chalk.white(codeBot)))
 }, 3000)
 }
 
@@ -217,7 +218,12 @@ await global.reloadHandler(true).catch(console.error) //process.send('reset')
 console.log(chalk.bold.redBright(lenguajeGB['smsConexiondescon'](reason, connection)))
 }}
 }
-process.on('uncaughtException', console.error)
+//process.on('uncaughtException', console.error)
+process.on('uncaughtException', (err) => {
+console.error('Se ha cerrado la conexión:\n', err);
+process.send('reset') 
+})
+
 
 let isInit = true;
 let handler = await import('./handler.js');
