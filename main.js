@@ -159,12 +159,12 @@ setTimeout(async () => {
 let codeBot = await conn.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.black(chalk.white(codeBot)))
+conn.logger.info(`Cargando...\n`)
 }, 3000)
 }
 
 conn.isInit = false
 conn.well = false
-conn.logger.info(`Cargando...\n`)
 
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
