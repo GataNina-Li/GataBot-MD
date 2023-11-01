@@ -218,11 +218,11 @@ await global.reloadHandler(true).catch(console.error) //process.send('reset')
 console.log(chalk.bold.redBright(lenguajeGB['smsConexiondescon'](reason, connection)))
 }}
 }
-//process.on('uncaughtException', console.error)
-process.on('uncaughtException', (err) => {
-console.error('Se ha cerrado la conexión:\n', err);
-process.send('reset') 
-})
+process.on('uncaughtException', console.error)
+//process.on('uncaughtException', (err) => {
+//console.error('Se ha cerrado la conexión:\n', err)
+//process.send('reset') 
+//})
 
 
 let isInit = true;
