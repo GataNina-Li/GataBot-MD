@@ -139,7 +139,7 @@ version
 }
 
 global.conn = makeWASocket(connectionOptions)
-if (methodCode && !conn.authState.creds.registered) {
+/*if (methodCode && !conn.authState.creds.registered) {
 if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
 
 let addNumber
@@ -153,13 +153,30 @@ process.exit(0)
 }} else {
 addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su número de WhatsApp. Ejemplo: +593090909090 --> `)))
 addNumber = addNumber.replace(/[^0-9]/g, '')
-  
-if (!Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar el código de país. Ejemplo: +593090909090")))
-addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su número de WhatsApp. Ejemplo: +593090909090 --> `)))
-addNumber = addNumber.replace(/[^0-9]/g, '')  
 rl.close()
-}}
+}*/
+function validarNumero(numero) {
+  return /^\d+$/.test(numero); 
+}
+let addNumber;
+
+  if (!!phoneNumber) {
+    addNumber = phoneNumber.replace(/[^0-9]/g, '');
+
+    if (!validarNumero(addNumber) || !Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
+      console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar un número válido con el código de país. Ejemplo: +593090909090")));
+      return obtenerNumero();
+    }
+  } else {
+    addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su número de WhatsApp. Ejemplo: +593090909090 --> `)));
+    addNumber = addNumber.replace(/[^0-9]/g, '');
+    rl.close();
+
+    if (!validarNumero(addNumber) || !Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
+      console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar un número válido con el código de país. Ejemplo: +593090909090")));
+      return obtenerNumero(); 
+    }
+  }
 
 setTimeout(async () => {
 let codeBot = await conn.requestPairingCode(addNumber)
