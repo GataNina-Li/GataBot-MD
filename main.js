@@ -205,11 +205,11 @@ global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
 if (update.qr != 0 && update.qr != undefined) {
+if (connectionOptions.printQRInTerminal) {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
-if (connection == 'open') {
-if (!code) {  
-console.log(chalk.bold.greenBright(lenguajeGB['smsConexion']()))}
 }
+if (connection == 'open') {
+console.log(chalk.bold.greenBright(lenguajeGB['smsConexion']()))}
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode
 if (connection === 'close') {
 if (reason === DisconnectReason.badSession) {
