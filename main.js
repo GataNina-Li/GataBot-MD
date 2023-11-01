@@ -121,12 +121,12 @@ if (!fs.existsSync(`./${authFile}/creds.json`)) {
 while (true) {
 opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
 if (opcion === '1' || opcion === '2') {
-//rl.close()
 break
 } else {
 console.log('Por favor, seleccione solo 1 o 2.')
 }}
 opcion = opcion
+rl.close()
 }
 
 const connectionOptions = {
@@ -193,7 +193,7 @@ if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 't
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
 
-async function connectionUpdate(update, connectionOptions) {  
+async function connectionUpdate(update) {  
 const {connection, lastDisconnect, isNewLogin} = update
 global.stopped = connection
 if (isNewLogin) conn.isInit = true
@@ -205,7 +205,7 @@ global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
 if (update.qr != 0 && update.qr != undefined) {
-if (connectionOptions.printQRInTerminal) {
+if (update.qr) {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
 }
 if (connection == 'open') {
