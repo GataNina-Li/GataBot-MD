@@ -22,10 +22,10 @@ import {makeWASocket, protoType, serialize} from './lib/simple.js'
 import {Low, JSONFile} from 'lowdb'
 import {mongoDB, mongoDBV2} from './lib/mongoDB.js'
 import store from './lib/store.js'
-const {proto} = (await import('@whiskeysockets/baileys')).default;
-const {DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore} = await import('@whiskeysockets/baileys')
-const {CONNECTING} = ws
-const {chain} = lodash
+const { proto} = (await import('@whiskeysockets/baileys')).default;
+const { DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser, PHONENUMBER_MCC } = await import('@whiskeysockets/baileys')
+const { CONNECTING} = ws
+const { chain} = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 
 protoType()
@@ -102,18 +102,66 @@ loadChatgptDB();
 /* ------------------------------------------------*/
 
 global.authFile = `GataBotSession`
-const { state, saveState, saveCreds } = await useMultiFileAuthState(global.authFile)
+const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile)
+const msgRetryCounterMap = (MessageRetryMap) => { };
+const msgRetryCounterCache = new NodeCache()
+const {version} = await fetchLatestBaileysVersion();
+let phoneNumber = global.botNumberCode
+
+const methodCode = !!phoneNumber || process.argv.includes("code")
+const MethodMobile = process.argv.includes("mobile")
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
 const connectionOptions = {
-printQRInTerminal: true,
-auth: state,
-logger: P({ level: 'silent'}),
-browser: ['GataBot-MD','Edge','2.0.0']
+logger: pino({ level: 'silent' }),
+printQRInTerminal: !methodCode, 
+mobile: MethodMobile, 
+browser: ['Chrome (Linux)', '', ''],
+auth: {
+creds: state.creds,
+keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
+},
+markOnlineOnConnect: true, 
+generateHighQualityLinkPreview: true, 
+getMessage: async (clave) => {
+let jid = jidNormalizedUser(clave.remoteJid)
+let msg = await store.loadMessage(jid, clave.id)
+return msg?.message || ""
+},
+msgRetryCounterCache,
+msgRetryCounterMap,
+defaultQueryTimeoutMs: undefined,   
+version
 }
 
 global.conn = makeWASocket(connectionOptions)
+if (methodCode && !conn.authState.creds.registered) {
+if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
+
+let addNumber
+if (!!phoneNumber) {
+addNumber = phoneNumber.replace(/[^0-9]/g, '')
+
+if (!Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
+console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar el código de país. Ejemplo: +593090909090")))
+process.exit(0)
+}} else {
+addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su númerode WhatsApp. Ejemplo: +593090909090: `)))
+addNumber = addNumber.replace(/[^0-9]/g, '')
+rl.close()
+}
+
+setTimeout(async () => {
+let codeBot = await conn.requestPairingCode(addNumber)
+codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
+console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.black(chalk.white(codeBot)))
+}, 3000)
+}
+
 conn.isInit = false
 conn.well = false
+conn.logger.info(`Cargando...\n`)
 
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
@@ -127,7 +175,8 @@ global.stopped = connection
 if (isNewLogin) conn.isInit = true
 const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (code && code !== DisconnectReason.loggedOut && conn?.ws.socket == null) {
-console.log(await global.reloadHandler(true).catch(console.error))
+await global.reloadHandler(true).catch(console.error)
+//console.log(await global.reloadHandler(true).catch(console.error));
 global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
