@@ -116,8 +116,10 @@ const MethodMobile = process.argv.includes("mobile")
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 //const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 const question = (texto) => new Promise((resolver) => {
+setImmediate(() => {
 process.stdout.write(texto)
 rl.question(texto, resolver)
+})
 })
 
 const connectionOptions = {
