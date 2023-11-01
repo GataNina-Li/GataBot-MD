@@ -140,7 +140,23 @@ version
 }
 
 global.conn = makeWASocket(connectionOptions)
-if (methodCode && !conn.authState.creds.registered) {
+
+if (!global.authFile) {
+let opcion
+while (true) {
+opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
+if (opcion === '1' || opcion === '2') {
+break
+} else {
+console.log('Por favor, seleccione solo 1 o 2.');
+}}
+rl.close()
+return opcion
+}
+
+if (opcion === '2') {
+//if (methodCode && !conn.authState.creds.registered) {
+if (!conn.authState.creds.registered) {  
 if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
 
 let addNumber
@@ -167,7 +183,7 @@ let codeBot = await conn.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.bold.white(chalk.white(codeBot)))
 }, 3000)
-}
+}}
 
 conn.isInit = false
 conn.well = false
