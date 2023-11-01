@@ -148,10 +148,10 @@ opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con cód
 if (opcion === '1' || opcion === '2') {
 break
 } else {
-console.log('Por favor, seleccione solo 1 o 2.');
+console.log('Por favor, seleccione solo 1 o 2.')
 }}
 rl.close()
-return opcion
+//return opcion
 }
 
 if (opcion === '2') {
