@@ -150,7 +150,7 @@ if (!Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
 console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar el código de país. Ejemplo: +593090909090")))
 process.exit(0)
 }} else {
-addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su número de WhatsApp. Ejemplo: +593090909090: `)))
+addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su número de WhatsApp. Ejemplo: +593090909090 --> `)))
 addNumber = addNumber.replace(/[^0-9]/g, '')
 rl.close()
 }
@@ -159,7 +159,6 @@ setTimeout(async () => {
 let codeBot = await conn.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.black(chalk.white(codeBot)))
-conn.logger.info(`Cargando...\n`)
 }, 3000)
 }
 
