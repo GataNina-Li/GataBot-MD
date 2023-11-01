@@ -193,7 +193,7 @@ if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 't
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
 
-async function connectionUpdate(update) {  
+async function connectionUpdate(update, connectionOptions) {  
 const {connection, lastDisconnect, isNewLogin} = update
 global.stopped = connection
 if (isNewLogin) conn.isInit = true
@@ -207,7 +207,7 @@ if (global.db.data == null) loadDatabase()
 if (update.qr != 0 && update.qr != undefined) {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
 if (connection == 'open') {
-if (opcion === '1') {  
+if (connectionOptions.printQRInTerminal === true) {  
 console.log(chalk.bold.greenBright(lenguajeGB['smsConexion']()))}
 }
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode
