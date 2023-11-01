@@ -11,7 +11,7 @@
 "plugins": "plugins" },
     
 "scripts": {
-"start": "node --no-warnings index.js",
+"start": "node index.js",
 "test": "node test.js",
 "test2": "nodemon index.js" },
     
