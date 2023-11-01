@@ -148,10 +148,9 @@ break
 } else {
 console.log('Por favor, seleccione solo 1 o 2.')
 }}
-rl.close()
-//return opcion
+return opcion
 }
-
+rl.close()
 if (opcion === '2') {
 //if (methodCode && !conn.authState.creds.registered) {
 if (!conn.authState.creds.registered) {  
