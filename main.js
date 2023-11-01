@@ -140,7 +140,7 @@ version
 }
 
 let opcion
-if (!global.confirmCode) {
+if (!global.confirmCode && !global.conn.authState.creds.registered) {
 while (true) {
 opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
 if (opcion === '1' || opcion === '2') {
@@ -149,8 +149,8 @@ break
 console.log('Por favor, seleccione solo 1 o 2.')
 }}
 opcion = opcion
-}
 rl.close()
+}
 
 global.conn = makeWASocket(connectionOptions)
 if (opcion === '2') {
