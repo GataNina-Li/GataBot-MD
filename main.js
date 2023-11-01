@@ -151,6 +151,8 @@ console.log('Por favor, seleccione solo 1 o 2.')
 opcion = opcion
 }
 rl.close()
+
+global.conn = makeWASocket(connectionOptions)
 if (opcion === '2') {
 //if (methodCode && !conn.authState.creds.registered) {
 if (!conn.authState.creds.registered) {  
@@ -182,7 +184,6 @@ console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.bol
 }, 3000)
 }}
 
-global.conn = makeWASocket(connectionOptions)
 conn.isInit = false
 conn.well = false
 
