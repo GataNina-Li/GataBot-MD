@@ -240,7 +240,6 @@ console.error('Se ha cerrado la conexión:\n', err)
 process.send('reset') 
 })
 
-
 let isInit = true;
 let handler = await import('./handler.js');
 global.reloadHandler = async function(restatConn) {
