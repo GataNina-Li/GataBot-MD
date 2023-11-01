@@ -146,21 +146,18 @@ if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento
 let addNumber
 if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
-
-if (!Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar el código de país.\nEjemplo: +593090909090")))
-process.exit(0)
-  
-}} else {
+} else {
 //addNumber = await question(chalk.bgBlack(chalk.greenBright(`Escriba su número de WhatsApp. Ejemplo: +593090909090 --> `)))
 //addNumber = addNumber.replace(/[^0-9]/g, '')
 //rl.close()
 while (true) {
 addNumber = await question(chalk.bgBlack(chalk.greenBright('Escriba su número de WhatsApp.\nEjemplo: +593090909090 --> ')))
-addNumber = addNumber.replace(/[^0-9]/g, '');
+addNumber = addNumber.replace(/[^0-9]/g, '')
 
 if (addNumber.match(/^\d+$/)) {
 break 
+} else if (!Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
+console.log(chalk.bgBlack(chalk.redBright("Asegúrese de agregar el código de país.\nEjemplo: +593090909090")))
 } else {
 console.log(chalk.bgBlack(chalk.redBright('Por favor, introduzca un número válido.')))
 }}
