@@ -116,8 +116,9 @@ const MethodMobile = process.argv.includes("mobile")
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
+global.conn = makeWASocket(connectionOptions)
 let opcion
-if (!global.confirmCode && !global.authFile) {
+if (!global.confirmCode && !conn.authState.creds.registered) {
 while (true) {
 opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
 if (opcion === '1' || opcion === '2') {
@@ -151,7 +152,7 @@ defaultQueryTimeoutMs: undefined,
 version
 }
 
-global.conn = makeWASocket(connectionOptions)
+
 if (opcion === '2') {
 //if (methodCode && !conn.authState.creds.registered) {
 if (!conn.authState.creds.registered) {  
