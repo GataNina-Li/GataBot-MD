@@ -120,15 +120,15 @@ const question = (texto) => new Promise((resolver) => rl.question(texto, resolve
 
 let opcion
 if (!fs.existsSync(`./${authFile}/creds.json`) && !methodCodeQR && !methodCode) {
-async function askForOption() {
-opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ');
+opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
 if (opcion === '1' || opcion === '2') {
 rl.close()
 } else {
-console.log('Por favor, seleccione solo 1 o 2.')
-return askForOption()
+opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
+if (opcion === '1' || opcion === '2') {
+rl.close()
+//console.log('Por favor, seleccione solo 1 o 2.')
 }}
-askForOption()
 }
 
 const connectionOptions = {
