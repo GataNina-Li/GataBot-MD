@@ -128,10 +128,7 @@ rl.close()
 console.log('Por favor, seleccione solo 1 o 2.')
 return askForOption()
 }}
-
-askForOption().then((opcionSeleccionada) => {
-console.log('Opción seleccionada: ', opcionSeleccionada)
-}).catch(console.error)
+askForOption()
 }
 
 const connectionOptions = {
