@@ -131,7 +131,7 @@ rl.close()
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: true, //opcion == '1' ? true : methodCodeQR ? true : false,
-mobile: MethodMobile, 
+mobile: true, //MethodMobile, 
 browser: ['Chrome (Linux)', '', ''],
 auth: {
 creds: state.creds,
