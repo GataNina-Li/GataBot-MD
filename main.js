@@ -122,13 +122,13 @@ let opcion
 if (!methodCodeQR || !methodCode) {
 do {
 opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
-if (!/^[1-2]$/.test(opcion)) {
+if (fs.existsSync(`./${authFile}/creds.json`)) {
+console.log('El archivo de autenticación ya existe.')  
+} else if (!/^[1-2]$/.test(opcion)) {
 console.log('No se permiten letras o símbolos especiales.')
-} else if (fs.existsSync(`./${authFile}/creds.json`)) {
-console.log('El archivo de autenticación ya existe.')
 } else if (opcion !== '1' && opcion !== '2') {
 console.log('Por favor, seleccione solo 1 o 2.')
-}} while (opcion !== '1' && opcion !== '2' && fs.existsSync(`./${authFile}/creds.json`))
+}} while (opcion !== '1' && opcion !== '2')
 }
 
 const connectionOptions = {
