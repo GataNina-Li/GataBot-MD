@@ -177,19 +177,18 @@ version
 global.conn = makeWASocket(connectionOptions)
 if (opcion === '2' || methodCode) {
 if (fs.existsSync(`./${authFile}/creds.json`)) {
-console.log(`Primero borre el archivo "creds.json" que se encuentra en la carpeta ${authFile} y reinicie.`) 
+console.log(chalk.bold.redBright(`PRIMERO BORRE EL ARCHIVO ${chalk.bold.greenBright("creds.json")} QUE SE ENCUENTRA EN LA CARPETA ${chalk.bold.greenBright(authFile)} Y REINICIE.`))
 process.exit()
 }
 opcion = '2'
-//if (methodCode && !conn.authState.creds.registered) {
 if (!conn.authState.creds.registered) {  
-if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
+//if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
 
 let addNumber
 if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
 if (!Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.bold.redBright("Configure el archivo 'config.js' porque su número de WhatsApp no comienza con el código de país, Ejemplo: +593090909090")))
+console.log(chalk.bgBlack(chalk.bold.redBright(`CONFIGURAR ARCHIVO ${chalk.bold.greenBright("config.js")} SU NÚMERO DE WHATSAPP NO TIENE CÓDIGO DE PAÍS, ${chalk.bold.yellowBright("EJEMPLO: +593090909090")}`)))
 process.exit(0)
 }} else {
 while (true) {
