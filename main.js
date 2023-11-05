@@ -135,7 +135,7 @@ opcion = await question(`╭${lineM}
 ┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta('Escriba sólo el número')}
 ┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta('para conectarse.')}
 ┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
-╰${lineM}\n${chalk.bold.magentaBright('--->')} `)
+╰${lineM}\n${chalk.bold.magentaBright(`---> [ ${chalk.bold.green(opcion)} ]`)} `)
 if (fs.existsSync(`./${authFile}/creds.json`)) {
 console.log(`Primero borre el archivo "creds.json" que se encuentra en la carpeta ${authFile} y reinicie.`)  
 process.exit()
