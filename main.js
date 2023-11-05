@@ -119,7 +119,7 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
 let opcion
-if (!methodCodeQR || !methodCode) {
+if (!methodCodeQR && !methodCode) {
 do {
 let lineM = '⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》'
 opcion = await question(`╭${lineM}  
@@ -232,9 +232,9 @@ await global.reloadHandler(true).catch(console.error)
 global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
-if (update.qr != 0 && update.qr != undefined || methodCodeQR) { 
-opcion = '1'
-if (opcion == '1') {
+if (update.qr != 0 && update.qr != undefined) { 
+//opcion = '1'
+if (opcion == '1' || methodCodeQR) {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
 }
 if (connection == 'open') {
