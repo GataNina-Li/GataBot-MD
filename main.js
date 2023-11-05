@@ -156,7 +156,6 @@ const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
-//browser: ['Chrome (Linux)', '', ''],
 browser: opcion == '1' ? ['GataBot-MD', 'Edge', '2.0.0'] : methodCodeQR ? ['GataBot-MD', 'Edge', '2.0.0'] : ['Chrome (Linux)', '', ''],
 auth: {
 creds: state.creds,
@@ -201,7 +200,6 @@ break
 } else {
 console.log(chalk.bold.redBright("ASEGÚRESE DE AGREGAR EL CÓDIGO DE PAÍS."))
 }}
-rl.close()
 }
 
 setTimeout(async () => {
