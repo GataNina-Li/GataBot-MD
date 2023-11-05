@@ -122,18 +122,18 @@ let opcion
 if (!methodCodeQR || !methodCode) {
 do {
 opcion = await question(`╭⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯   
-┊ ╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅   
-┊ ┊  ${chalk.bold.cyan('MÉTODO DE VINCULACIÓN')}
-┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅   
-┊ ╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅     
-┊ ┊ ${chalk.bold.yellow('¿CÓMO DESEA CONECTARSE?')}
-┊ ┊ ${chalk.bold.redBright('⇢ Opción 1:')} ${chalk.greenBright('Código QR.')}
-┊ ┊ ${chalk.bold.redBright('⇢ Opción 2:')} ${chalk.greenBright('Código de 8 digitos.')}
-┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅   
-┊ ╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅     
-┊ ┊ ${chalk.italic.magenta('Escriba sólo el número')}
-┊ ┊ ${chalk.italic.magenta('para conectarse.')}
-┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅ 
+┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
+┊ ${chalk.blueBright('┊')} ${chalk.bold.cyan('MÉTODO DE VINCULACIÓN')}
+┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}   
+┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}     
+┊ ${chalk.blueBright('┊')} ${chalk.bold.yellow('¿CÓMO DESEA CONECTARSE?')}
+┊ ${chalk.blueBright('┊')} ${chalk.bold.redBright('⇢ Opción 1:')} ${chalk.greenBright('Código QR.')}
+┊ ${chalk.blueBright('┊')} ${chalk.bold.redBright('⇢ Opción 2:')} ${chalk.greenBright('Código de 8 digitos.')}
+┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
+┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}     
+┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta('Escriba sólo el número')}
+┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta('para conectarse.')}
+┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
 ╰⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\n---> `)
 if (fs.existsSync(`./${authFile}/creds.json`)) {
 console.log(`Primero borre el archivo "creds.json" que se encuentra en la carpeta ${authFile} y reinicie.`)  
