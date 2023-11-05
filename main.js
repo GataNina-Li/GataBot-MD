@@ -109,29 +109,31 @@ const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFil
 const msgRetryCounterMap = (MessageRetryMap) => { };
 const msgRetryCounterCache = new NodeCache()
 const {version} = await fetchLatestBaileysVersion();
-//let phoneNumber = global.botNumberCode
+let phoneNumber = global.botNumberCode
 
-//const methodCodeQR = process.argv.includes("qr")
-//const methodCode = !!phoneNumber || process.argv.includes("code")
-//const MethodMobile = process.argv.includes("mobile")
+const methodCodeQR = process.argv.includes("qr")
+const methodCode = !!phoneNumber || process.argv.includes("code")
+const MethodMobile = process.argv.includes("mobile")
 
-//const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
-//const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
-/*let opcion
+let opcion
 if (!fs.existsSync(`./${authFile}/creds.json`) && !methodCodeQR && !methodCode) {
+while (true) {
 opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
-opcion = opcion  
-} else if (opcion != '1' || opcion != '2') {
-opcion = await question('Mal, Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
-//console.log('Por favor, seleccione solo 1 o 2.')
+if (opcion === '1' || opcion === '2') {
+break
+} else {
+console.log('Por favor, seleccione solo 1 o 2.')
+}}
 rl.close() 
-}*/
+}
 
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
-printQRInTerminal: true, //opcion == '1' ? true : methodCodeQR ? true : false,
-//mobile: true, //MethodMobile, 
+printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
+mobile: MethodMobile, 
 browser: ['Chrome (Linux)', '', ''],
 auth: {
 creds: state.creds,
@@ -151,7 +153,7 @@ version
 }
 
 global.conn = makeWASocket(connectionOptions)
-/*if (opcion === '2' || methodCode) {
+if (opcion === '2' || methodCode) {
 //if (methodCode && !conn.authState.creds.registered) {
 if (!conn.authState.creds.registered) {  
 if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
@@ -172,7 +174,7 @@ break
 } else {
 console.log(chalk.bgBlack(chalk.bold.redBright("Asegúrese de agregar el código de país.")))
 }}
-//rl.close()
+rl.close()
 }
 
 setTimeout(async () => {
@@ -181,7 +183,7 @@ codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.black(chalk.bgGreen(`Código de emparejamiento: `)), chalk.bold.white(chalk.white(codeBot)))
 rl.close()
 }, 3000)
-}}*/
+}}
 
 conn.isInit = false
 conn.well = false
@@ -204,10 +206,10 @@ await global.reloadHandler(true).catch(console.error)
 global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
-if (update.qr != 0 && update.qr != undefined) { //methodCodeQR
-//if (opcion == '1') {
+if (update.qr != 0 && update.qr != undefined || methodCodeQR) { 
+if (opcion == '1') {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
-//}
+}
 if (connection == 'open') {
 console.log(chalk.bold.greenBright(lenguajeGB['smsConexion']()))}
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode
