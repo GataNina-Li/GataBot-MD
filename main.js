@@ -151,9 +151,6 @@ process.exit()
 console.log(chalk.bold.redBright(`NO SE PERMITE NÚMEROS QUE NO SEAN ${chalk.bold.greenBright("1")} O ${chalk.bold.greenBright("2")}, TAMPOCO LETRAS O SÍMBOLOS ESPECIALES.
 ${chalk.bold.yellowBright("CONSEJO: COPIE EL NÚMERO DE LA OPCIÓN Y PÉGUELO EN LA CONSOLA.")}`))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
-}else {
-console.log('Elimina la creds.js')
-process.exit()
 }
 
 const connectionOptions = {
@@ -214,11 +211,7 @@ console.log(chalk.bold.white(chalk.bgMagenta(`CÓDIGO DE VINCULACIÓN:`)), chalk
 rl.close()
 }, 2000)
 }}
-}else {
-console.log('Elimina la creds.js')
-process.exit()
 }
-
 
 conn.isInit = false
 conn.well = false
