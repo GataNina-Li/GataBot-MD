@@ -132,12 +132,12 @@ opcion = await question(`╭${lineM}
 ┊ ${chalk.blueBright('┊')} ${chalk.bold.redBright('⇢  Opción 2:')} ${chalk.greenBright('Código de 8 digitos.')}
 ┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
 ┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}     
-┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta('Escriba sólo el número')}
-┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta('para conectarse.')}
+┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta('Escriba sólo el número de')}
+┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta('la opción para conectarse.')}
 ┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
-╰${lineM}\n${chalk.bold.magentaBright(`---> [ ${chalk.bold.green(opcion)} ]`)} `)
+╰${lineM}\n${chalk.bold.magentaBright('---> ')
 if (fs.existsSync(`./${authFile}/creds.json`)) {
-console.log(`Primero borre el archivo "creds.json" que se encuentra en la carpeta ${authFile} y reinicie.`)  
+console.log(chalk.bold.redBright(`PRIMERO BORRE EL ARCHIVO ${chalk.bold.greenBright("creds.json")} QUE SE ENCUENTRA EN LA CARPETA ${chalk.bold.greenBright(authFile)} Y REINICIE.`))
 process.exit()
 } else if (!/^[1-2]$/.test(opcion)) {
 console.log('No se permite número que sea diferente de 1 o 2, tampoco letras o símbolos especiales.')
