@@ -141,7 +141,7 @@ process.exit()
 } else if (!/^[1-2]$/.test(opcion)) {
 console.log('No se permite número que sea diferente de 1 o 2, tampoco letras o símbolos especiales.')
 } while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
-}}
+}
 
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
