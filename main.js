@@ -151,6 +151,8 @@ process.exit()
 console.log(chalk.bold.redBright(`NO SE PERMITE NÚMEROS QUE NO SEAN ${chalk.bold.greenBright("1")} O ${chalk.bold.greenBright("2")}, TAMPOCO LETRAS O SÍMBOLOS ESPECIALES.
 ${chalk.bold.yellowBright("CONSEJO: COPIE EL NÚMERO DE LA OPCIÓN Y PÉGUELO EN LA CONSOLA.")}`))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
+}else {
+console.log('Elimina la creds.js')
 }
 
 const connectionOptions = {
@@ -174,8 +176,9 @@ msgRetryCounterMap,
 defaultQueryTimeoutMs: undefined,   
 version
 }
-//opcion = '1'
+
 global.conn = makeWASocket(connectionOptions)
+if (!fs.existsSync(`./${authFile}/creds.json`) {
 if (opcion === '2' || methodCode) {
 if (fs.existsSync(`./${authFile}/creds.json`)) {
 console.log(chalk.bold.redBright(`PRIMERO BORRE EL ARCHIVO ${chalk.bold.greenBright("creds.json")} QUE SE ENCUENTRA EN LA CARPETA ${chalk.bold.greenBright(authFile)} Y REINICIE.`))
@@ -210,6 +213,10 @@ console.log(chalk.bold.white(chalk.bgMagenta(`CÓDIGO DE VINCULACIÓN:`)), chalk
 rl.close()
 }, 2000)
 }}
+}else {
+console.log('Elimina la creds.js')
+}
+
 
 conn.isInit = false
 conn.well = false
