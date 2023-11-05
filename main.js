@@ -121,14 +121,26 @@ const question = (texto) => new Promise((resolver) => rl.question(texto, resolve
 let opcion
 if (!methodCodeQR || !methodCode) {
 do {
-opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
+opcion = await question(`╭⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯   
+┊ ╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅   
+┊ ┊  MÉTODO DE VINCULACIÓN 
+┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅   
+┊ ╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅     
+┊ ┊ ¿CÓMO DESEA CONECTARSE?
+┊ ┊ Opción 1: Código QR.
+┊ ┊ Opción 2: Código de 8 digitos.
+┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅   
+┊ ╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅     
+┊ ┊ Escriba sólo el número 
+┊ ┊ para conectarse.
+┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅ 
+╰⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\n---> `)
 if (fs.existsSync(`./${authFile}/creds.json`)) {
-console.log('El archivo de autenticación ya existe.')  
+console.log(`Primero borre el archivo "creds.json" que se encuentra en la carpeta ${authFile} y reinicie.`)  
+process.exit()
 } else if (!/^[1-2]$/.test(opcion)) {
-console.log('No se permiten letras o símbolos especiales.')
-} else if (opcion !== '1' && opcion !== '2') {
-console.log('Por favor, seleccione solo 1 o 2.')
-}} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
+console.log('No se permite número que sea diferente de 1 o 2, tampoco letras o símbolos especiales.')
+} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }
 
 const connectionOptions = {
@@ -155,6 +167,10 @@ version
 
 global.conn = makeWASocket(connectionOptions)
 if (opcion === '2' || methodCode) {
+if (fs.existsSync(`./${authFile}/creds.json`)) {
+console.log(`Primero borre el archivo "creds.json" que se encuentra en la carpeta ${authFile} y reinicie.`) 
+process.exit()
+}
 opcion = '2'
 //if (methodCode && !conn.authState.creds.registered) {
 if (!conn.authState.creds.registered) {  
