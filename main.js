@@ -242,6 +242,10 @@ console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
 if (connection == 'open') {
 console.log(chalk.bold.greenBright(lenguajeGB['smsConexion']()))}
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode
+if (reason == 405) {
+await fs.unlinkSync("./GataBotSession/" + "creds.json")
+return console.log(`*CONEXION REPLAZADA, AGUARDE UN MOMENTO ME VOY A REINICIAR\n\nSI SALE ERROR VUELVA A INICIAR :\n npm start*`)
+process.send('reset')}
 if (connection === 'close') {
 if (reason === DisconnectReason.badSession) {
 console.log(chalk.bold.cyanBright(lenguajeGB['smsConexionOFF']()))
