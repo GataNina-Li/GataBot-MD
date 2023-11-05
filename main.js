@@ -174,7 +174,7 @@ msgRetryCounterMap,
 defaultQueryTimeoutMs: undefined,   
 version
 }
-opcion = '1'
+//opcion = '1'
 global.conn = makeWASocket(connectionOptions)
 if (opcion === '2' || methodCode) {
 if (fs.existsSync(`./${authFile}/creds.json`)) {
@@ -233,7 +233,8 @@ global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
 if (update.qr != 0 && update.qr != undefined || methodCodeQR) { 
-if (opcion !== '2') {
+opcion = '1'
+if (opcion == '1') {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
 }
 if (connection == 'open') {
