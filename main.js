@@ -122,12 +122,12 @@ let opcion
 if (!fs.existsSync(`./${authFile}/creds.json`) && !methodCodeQR && !methodCode) {
 while (true) {
 opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
+rl.close() 
 if (opcion === '1' || opcion === '2') {
 break
 } else {
 console.log('Por favor, seleccione solo 1 o 2.')
 }}
-rl.close() 
 }
 
 const connectionOptions = {
@@ -154,6 +154,7 @@ version
 
 global.conn = makeWASocket(connectionOptions)
 if (opcion === '2' || methodCode) {
+opcion = '2'
 //if (methodCode && !conn.authState.creds.registered) {
 if (!conn.authState.creds.registered) {  
 if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
