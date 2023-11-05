@@ -119,6 +119,7 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
 let opcion
+if (!fs.existsSync(`./${authFile}`)) {
 if (!methodCodeQR && !methodCode) {
 do {
 let lineM = '⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》'
@@ -151,7 +152,7 @@ process.exit()
 console.log(chalk.bold.redBright(`NO SE PERMITE NÚMEROS QUE NO SEAN ${chalk.bold.greenBright("1")} O ${chalk.bold.greenBright("2")}, TAMPOCO LETRAS O SÍMBOLOS ESPECIALES.
 ${chalk.bold.yellowBright("CONSEJO: COPIE EL NÚMERO DE LA OPCIÓN Y PÉGUELO EN LA CONSOLA.")}`))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
-}
+}}
 
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
