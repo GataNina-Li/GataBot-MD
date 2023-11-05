@@ -119,11 +119,17 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
 let opcion
-if (!fs.existsSync(`./${authFile}/creds.json`) && !methodCodeQR && !methodCode) {
+do {
 opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
-if (opcion !== '1' || opcion !== '2') {
+if (opcion !== '1' && opcion !== '2') {
 console.log('Por favor, seleccione solo 1 o 2.')
-}}
+} else if (!/^[1-2]$/.test(opcion)) {
+console.log('No se permiten letras o símbolos especiales.')
+} else if (fs.existsSync(`./${authFile}/creds.json`) || methodCodeQR || methodCode) {
+console.log('El archivo de autenticación ya existe.')
+}} while (opcion !== '1' && opcion !== '2')
+rl.close()
+}
 
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
@@ -163,7 +169,6 @@ process.exit(0)
 }} else {
 while (true) {
 addNumber = await question(chalk.bgBlack(chalk.bold.greenBright('Escriba su número de WhatsApp.\nEjemplo: +593090909090\n--> ')))
-rl.close()
 addNumber = addNumber.replace(/[^0-9]/g, '')
 
 if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
@@ -171,7 +176,7 @@ break
 } else {
 console.log(chalk.bgBlack(chalk.bold.redBright("Asegúrese de agregar el código de país.")))
 }}
-//rl.close()
+rl.close()
 }
 
 setTimeout(async () => {
