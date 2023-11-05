@@ -123,16 +123,16 @@ if (!methodCodeQR || !methodCode) {
 do {
 opcion = await question(`╭⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯   
 ┊ ╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅   
-┊ ┊  MÉTODO DE VINCULACIÓN 
+┊ ┊  ${chalk.bold.cyan('MÉTODO DE VINCULACIÓN')}
 ┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅   
 ┊ ╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅     
-┊ ┊ ¿CÓMO DESEA CONECTARSE?
-┊ ┊ Opción 1: Código QR.
-┊ ┊ Opción 2: Código de 8 digitos.
+┊ ┊ ${chalk.bold.yellow('¿CÓMO DESEA CONECTARSE?')
+┊ ┊ ${chalk.bold.redBright('⇢ Opción 1:') ${chalk.greenBright('Código QR.')
+┊ ┊ ${chalk.bold.redBright('⇢ Opción 2:') ${chalk.greenBright('Código de 8 digitos.')
 ┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅   
 ┊ ╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅     
-┊ ┊ Escriba sólo el número 
-┊ ┊ para conectarse.
+┊ ┊ ${chalk.italic.magenta('Escriba sólo el número')
+┊ ┊ ${chalk.italic.magenta('para conectarse.')
 ┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅ 
 ╰⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\n---> `)
 if (fs.existsSync(`./${authFile}/creds.json`)) {
