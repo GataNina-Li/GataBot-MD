@@ -234,7 +234,7 @@ await global.reloadHandler(true).catch(console.error)
 global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
-if (update.qr != 0 && update.qr != undefined || methodCodeQR) { 
+if (update.qr != 0 && update.qr != undefined || methodCodeQR) {
 //opcion = '1'
 if (opcion == '1' || methodCodeQR) {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
