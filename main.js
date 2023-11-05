@@ -153,6 +153,7 @@ ${chalk.bold.yellowBright("CONSEJO: COPIE EL NÚMERO DE LA OPCIÓN Y PÉGUELO EN
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }else {
 console.log('Elimina la creds.js')
+process.exit()
 }
 
 const connectionOptions = {
@@ -180,10 +181,10 @@ version
 global.conn = makeWASocket(connectionOptions)
 if (!fs.existsSync(`./${authFile}/creds.json`) {
 if (opcion === '2' || methodCode) {
-if (fs.existsSync(`./${authFile}/creds.json`)) {
-console.log(chalk.bold.redBright(`PRIMERO BORRE EL ARCHIVO ${chalk.bold.greenBright("creds.json")} QUE SE ENCUENTRA EN LA CARPETA ${chalk.bold.greenBright(authFile)} Y REINICIE.`))
-process.exit()
-}
+//if (fs.existsSync(`./${authFile}/creds.json`)) {
+//console.log(chalk.bold.redBright(`PRIMERO BORRE EL ARCHIVO ${chalk.bold.greenBright("creds.json")} QUE SE ENCUENTRA EN LA CARPETA ${chalk.bold.greenBright(authFile)} Y REINICIE.`))
+//process.exit()
+//}
 opcion = '2'
 if (!conn.authState.creds.registered) {  
 //if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
@@ -212,10 +213,12 @@ codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.bold.white(chalk.bgMagenta(`CÓDIGO DE VINCULACIÓN:`)), chalk.bold.white(chalk.white(codeBot)))
 rl.close()
 }, 2000)
-}}
+}
 }else {
 console.log('Elimina la creds.js')
-}
+process.exit()
+}}
+
 
 
 conn.isInit = false
