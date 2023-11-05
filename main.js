@@ -213,11 +213,10 @@ codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.bold.white(chalk.bgMagenta(`CÓDIGO DE VINCULACIÓN:`)), chalk.bold.white(chalk.white(codeBot)))
 rl.close()
 }, 2000)
-}
-}else {
+}}else {
 console.log('Elimina la creds.js')
 process.exit()
-}}
+}
 
 
 
