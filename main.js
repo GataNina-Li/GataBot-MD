@@ -173,7 +173,7 @@ msgRetryCounterMap,
 defaultQueryTimeoutMs: undefined,   
 version
 }
-
+opcion = '1'
 global.conn = makeWASocket(connectionOptions)
 if (opcion === '2' || methodCode) {
 if (fs.existsSync(`./${authFile}/creds.json`)) {
