@@ -1,6 +1,6 @@
 {
 "name": "GataBot-MD",
-"version": "1.4.9", 
+"version": "1.7.0", 
 "description": "Super Bot WhatsApp",
 "main": "index.js",
 "type": "module",
