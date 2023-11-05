@@ -123,7 +123,7 @@ if (!methodCodeQR || !methodCode) {
 do {
 opcion = await question(`╭⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》   
 ┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
-┊ ${chalk.blueBright('┊')} ${chalk.white.bgWhite.bold.cyan('MÉTODO DE VINCULACIÓN')}
+┊ ${chalk.blueBright('┊')} ${chalk.blue.bgBlue.bold.cyan('MÉTODO DE VINCULACIÓN')}
 ┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}   
 ┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}     
 ┊ ${chalk.blueBright('┊')} ${chalk.bold.yellow('¿CÓMO DESEA CONECTARSE?')}
