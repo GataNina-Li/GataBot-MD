@@ -121,12 +121,13 @@ const question = (texto) => new Promise((resolver) => rl.question(texto, resolve
 let opcion
 if (!methodCodeQR || !methodCode) {
 do {
-opcion = await question(`╭⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》   
+let lineM = '⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》'
+opcion = await question(`╭${lineM}  
 ┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
 ┊ ${chalk.blueBright('┊')} ${chalk.blue.bgBlue.bold.cyan('MÉTODO DE VINCULACIÓN')}
 ┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}   
 ┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}     
-┊ ${chalk.blueBright('┊')} ${chalk.green.bgGreen.bold.yellow('¿CÓMO DESEA CONECTARSE?')}
+┊ ${chalk.blueBright('┊')} ${chalk.green.bgGreen.bold.black('¿CÓMO DESEA CONECTARSE?')}
 ┊ ${chalk.blueBright('┊')} ${chalk.bold.redBright('⇢  Opción 1:')} ${chalk.greenBright('Código QR.')}
 ┊ ${chalk.blueBright('┊')} ${chalk.bold.redBright('⇢  Opción 2:')} ${chalk.greenBright('Código de 8 digitos.')}
 ┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
@@ -134,7 +135,7 @@ opcion = await question(`╭⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 
 ┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta('Escriba sólo el número')}
 ┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta('para conectarse.')}
 ┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
-╰⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》\n---> `)
+╰${lineM}\n${chalk.bold.magentaBright('--->')} `)
 if (fs.existsSync(`./${authFile}/creds.json`)) {
 console.log(`Primero borre el archivo "creds.json" que se encuentra en la carpeta ${authFile} y reinicie.`)  
 process.exit()
