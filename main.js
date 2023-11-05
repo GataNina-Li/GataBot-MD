@@ -119,7 +119,7 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
 let opcion
-if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}`)) {
+if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) {
 do {
 let lineM = '⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》'
 opcion = await question(`╭${lineM}  
