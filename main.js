@@ -121,6 +121,7 @@ const question = (texto) => new Promise((resolver) => rl.question(texto, resolve
 let opcion
 do {
 opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
+rl.close()
 if (fs.existsSync(`./${authFile}/creds.json`) || methodCodeQR || methodCode) {
 console.log('El archivo de autenticación ya existe.')  
 } else if (!/^[1-2]$/.test(opcion)) {
@@ -128,8 +129,6 @@ console.log('No se permiten letras o símbolos especiales.')
 } else if (opcion !== '1' && opcion !== '2') {
 console.log('Por favor, seleccione solo 1 o 2.')
 }} while (opcion !== '1' && opcion !== '2')
-rl.close()  
-
 
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
