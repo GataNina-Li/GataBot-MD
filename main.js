@@ -128,7 +128,7 @@ console.log('El archivo de autenticación ya existe.')
 console.log('No se permiten letras o símbolos especiales.')
 } else if (opcion !== '1' && opcion !== '2') {
 console.log('Por favor, seleccione solo 1 o 2.')
-}} while (opcion !== '1' && opcion !== '2')
+}} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }
 
 const connectionOptions = {
