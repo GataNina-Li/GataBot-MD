@@ -126,13 +126,13 @@ opcion = await question(`╭⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 ┊ ┊  ${chalk.bold.cyan('MÉTODO DE VINCULACIÓN')}
 ┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅   
 ┊ ╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅     
-┊ ┊ ${chalk.bold.yellow('¿CÓMO DESEA CONECTARSE?')
-┊ ┊ ${chalk.bold.redBright('⇢ Opción 1:') ${chalk.greenBright('Código QR.')
-┊ ┊ ${chalk.bold.redBright('⇢ Opción 2:') ${chalk.greenBright('Código de 8 digitos.')
+┊ ┊ ${chalk.bold.yellow('¿CÓMO DESEA CONECTARSE?')}
+┊ ┊ ${chalk.bold.redBright('⇢ Opción 1:')} ${chalk.greenBright('Código QR.')}
+┊ ┊ ${chalk.bold.redBright('⇢ Opción 2:')} ${chalk.greenBright('Código de 8 digitos.')}
 ┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅   
 ┊ ╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅     
-┊ ┊ ${chalk.italic.magenta('Escriba sólo el número')
-┊ ┊ ${chalk.italic.magenta('para conectarse.')
+┊ ┊ ${chalk.italic.magenta('Escriba sólo el número')}
+┊ ┊ ${chalk.italic.magenta('para conectarse.')}
 ┊ ╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅ 
 ╰⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\n---> `)
 if (fs.existsSync(`./${authFile}/creds.json`)) {
