@@ -119,7 +119,7 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
 let opcion
-if (!methodCodeQR || !methodCode)
+if (!methodCodeQR || !methodCode) {
 do {
 opcion = await question('Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n--> ')
 if (!/^[1-2]$/.test(opcion)) {
