@@ -126,9 +126,9 @@ opcion = await question(`╭⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 
 ┊ ${chalk.blueBright('┊')} ${chalk.blue.bgBlue.bold.cyan('MÉTODO DE VINCULACIÓN')}
 ┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}   
 ┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}     
-┊ ${chalk.blueBright('┊')} ${chalk.bold.yellow('¿CÓMO DESEA CONECTARSE?')}
-┊ ${chalk.blueBright('┊')} ${chalk.bold.redBright('⇢ Opción 1:')} ${chalk.greenBright('Código QR.')}
-┊ ${chalk.blueBright('┊')} ${chalk.bold.redBright('⇢ Opción 2:')} ${chalk.greenBright('Código de 8 digitos.')}
+┊ ${chalk.blueBright('┊')} ${chalk.green.bgGreen.bold.yellow('¿CÓMO DESEA CONECTARSE?')}
+┊ ${chalk.blueBright('┊')} ${chalk.bold.redBright('⇢  Opción 1:')} ${chalk.greenBright('Código QR.')}
+┊ ${chalk.blueBright('┊')} ${chalk.bold.redBright('⇢  Opción 2:')} ${chalk.greenBright('Código de 8 digitos.')}
 ┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
 ┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}     
 ┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta('Escriba sólo el número')}
