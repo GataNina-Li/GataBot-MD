@@ -121,9 +121,6 @@ const question = (texto) => new Promise((resolver) => rl.question(texto, resolve
 const rl2 = readline.createInterface({ input: process.stdin, output: process.stdout })
 const question2 = (texto) => new Promise((resolver) => rl2.question(texto, resolver))
 
-process.stdin.resume()
-process.stdin.setEncoding('utf8')
-
 let opcion
 async function startInit() {
 if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) {
