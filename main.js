@@ -117,20 +117,18 @@ const MethodMobile = process.argv.includes("mobile")
 
 //const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 //const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout, prompt: '' })
 const question = (texto) => {
-  return new Promise((resolver) => {
-    rl.question(texto, (respuesta) => {
-      resolver(respuesta.trim())
-    })
-  })
+return new Promise((resolver) => {
+rl.question(texto, (respuesta) => {
+resolver(respuesta.trim())
+}) })
 }
 
 let opcion
+if (methodCodeQR) {
+opcion = '1'
+}
 if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) {
 do {
 let lineM = '⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》'
@@ -214,6 +212,7 @@ break
 } else {
 console.log(chalk.bold.redBright("ASEGÚRESE DE AGREGAR EL CÓDIGO DE PAÍS."))
 }}
+rl.close()  
 }
 
 
@@ -221,7 +220,6 @@ setTimeout(async () => {
 let codeBot = await conn.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.bold.white(chalk.bgMagenta(`CÓDIGO DE VINCULACIÓN:`)), chalk.bold.white(chalk.white(codeBot)))
-rl.close()
 }, 2000)
 }}
 }
@@ -248,7 +246,6 @@ global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
 if (update.qr != 0 && update.qr != undefined || methodCodeQR) {
-//opcion = '1'
 if (opcion == '1' || methodCodeQR) {
 console.log(chalk.bold.yellow(lenguajeGB['smsCodigoQR']()))}
 }
