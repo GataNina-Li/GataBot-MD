@@ -115,8 +115,20 @@ const methodCodeQR = process.argv.includes("qr")
 const methodCode = !!phoneNumber || process.argv.includes("code")
 const MethodMobile = process.argv.includes("mobile")
 
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
-const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
+//const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+//const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+const question = (texto) => {
+  return new Promise((resolver) => {
+    rl.question(texto, (respuesta) => {
+      resolver(respuesta.trim())
+    })
+  })
+}
 
 let opcion
 if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) {
