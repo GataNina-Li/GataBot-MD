@@ -19,12 +19,12 @@
     
 "homepage": "https://github.com/GataNina-Li/GataBot-MD",
 "author": {
-"name": "GataNina-Li" }, 
+"name": "GataNina-Li" },
     
 "repository": {
 "type": "git",
- "url": "git+https://github.com/GataNina-Li/GataBot-MD.git" },
- 
+"url": "git+https://github.com/GataNina-Li/GataBot-MD.git" },
+
 "bugs": {
 "url": "https://github.com/GataNina-Li/GataBot-MD/issues" },
 "license": "GPL-3.0-or-later",
