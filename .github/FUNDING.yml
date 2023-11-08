@@ -8,4 +8,4 @@ community_bridge: # Replace with a single Community Bridge project-name e.g., cl
 liberapay: # Replace with a single Liberapay username
 issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
-custom: ['https://github.com/GataNina-Li','https://boxmineworld.com', 'https://www.zipponodes.xyz']
+custom: ['https://github.com/GataNina-Li','https://dash.boxmineworld.com/login', 'https://dash.zipponodes.com/login', 'https://dash.vortexuscloud.com/login']
