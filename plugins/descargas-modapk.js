@@ -13,4 +13,6 @@ await conn.sendMessage(m.chat, {document: {url: data5.dllink}, mimetype: 'applic
 throw `${lenguajeGB['smsAvisoFG']()} *NO HAY RESULTADOS DE LO QUE SOLICITA*`;
 }};
 handler.command = /^(apkmod|apk|modapk|dapk2|aptoide|aptoidedl)$/i;
+handler.register = true
+handler.limit = 2
 export default handler;
