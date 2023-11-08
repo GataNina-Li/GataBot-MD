@@ -102,13 +102,16 @@ return minutes + " m y " + seconds + " s "
 import { performance } from 'perf_hooks'
 
 var handler = async (m, { conn, text }) => {
-
-if (!text) throw '*⚠️ INGRESA EL @tag DE ALGUN USUARIO*'
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }  
+let user = global.db.data.users[m.sender]
+let time = user.prue + 90000 //1 min
+if (new Date - user.prue < 90000) return await conn.reply(m.chat, `🙌 HEY ALTO ESPERA UNOS MINUTOS PARA USAR OTRO COMANDO NO HAGA SPAM`, fkontak, m)
+if (!text) throw `${lenguajeGB['smsAvisoMG']()} 𝙄𝙉𝙂𝙍𝙀𝙎𝘼 𝙀𝙇 @tag 𝘿𝙀 𝘼𝙇𝙂𝙐𝙉 𝙐𝙎𝙐𝘼𝙍𝙄𝙊*`
 let who
 if (m.isGroup) who = m.mentionedJid[0]
 else who = m.chat
-if (!who) throw '*⚠️ INGRESA EL @tag DE ALGUN USUARIO*'
-let start = `*⚠️ EMPEZANDO DOXEO ⚠️*`
+if (!who) throw `${lenguajeGB['smsAvisoMG']()} 𝙄𝙉𝙂𝙍𝙀𝙎𝘼 𝙀𝙇 @tag 𝘿𝙀 𝘼𝙇𝙂𝙐𝙉 𝙐𝙎𝙐𝘼𝙍𝙄𝙊*`
+let start = `*😱 ¡¡Empezando Doxxeo!! 😱*`
 let ala = `😨`
 let boost = `*${pickRandom(['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'])}%*`
 let boost2 = `*${pickRandom(['21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40'])}%*`
@@ -129,9 +132,9 @@ await conn.sendMessage(m.chat, {text: `${boost5}`, edit: key})
 let old = performance.now()
 let neww = performance.now()
 let speed = `${neww - old}`
-let doxeo = `*‼️ PERSONA DOXEADA CON EXITO ‼️*
+let doxeo = `*_✅ Persona doxxeada con éxito_*\n\n*_Tiempo: ${speed} segundos!_*
 
-📢 Resultados:
+*RESULTADOS:*
 *Nombre:* ${text}
 *Ip:* 92.28.211.234
 *N:* 43 7462
@@ -169,13 +172,13 @@ Sof02s32inf14.1e100.net
 *EXTERNAL MAC:* 6U:77:89:ER:O4
 *MODEM JUMPS:* 64`
 m.reply(doxeo, null, { mentions: conn.parseMention(doxeo) })
-
+user.prue = new Date * 1  
 }
 handler.help = ['doxear']
 handler.tags = ['juegos']
 handler.command = /^Doxxeo|doxxeo|doxxear|Doxxear|doxeo|doxear|doxxeame|doxeame/i
 handler.group = true
-
+handler.register = true
 export default handler
 
 function pickRandom(list) {
