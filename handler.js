@@ -1169,7 +1169,7 @@ if (user.antispam > 2) return
 m.reply(`🚫 *ESTÁ BANEADO(A), NO PUEDE USAR COMANDOS*\n
 📑 *MOTIVO: ${user.messageSpam === 0 ? 'NO ESPECIFICADO' : user.messageSpam}*\n
 ⚠️ \`\`\`SI ESTE BOT ES CUENTA OFICIAL Y TIENE EVIDENCIA QUE RESPALDE QUE ESTE MENSAJE ES UN ERROR, PUEDE EXPONER SU CASO EN:\`\`\`
-*${ig}*`)
+👉 *${ig}*\n👉 wa.me/50660400020\n👉 wa.me/573026191480`)
 user.antispam++	
 return
 }}
