@@ -954,7 +954,7 @@ if (!('sPromote' in chat)) chat.sPromote = ''
 if (!('sDemote' in chat)) chat.sDemote = '' 
 if (!('delete' in chat))
 chat.delete = true                    
-if (!('modohorny' in chat)) chat.modohorny = false                    
+if (!('modohorny' in chat)) chat.modohorny = true                    
 if (!('stickers' in chat)) chat.stickers = false                   
 if (!('autosticker' in chat)) chat.autosticker = false                      
 if (!('audios' in chat)) chat.audios = true                     
@@ -969,7 +969,7 @@ if (!('antiInstagram' in chat)) chat.antiInstagram = false
 if (!('antiTwitter' in chat)) chat.antiInstagram = false
 if (!('antifake' in chat)) chat.antifake = false
 if (!('reaction' in chat)) chat.reaction = true    
-if (!('viewonce' in chat)) chat.viewonce = true         
+if (!('viewonce' in chat)) chat.viewonce = false       
 if (!('modoadmin' in chat)) chat.modoadmin = false           
 if (!('antitoxic' in chat)) chat.antitoxic = true 
 if (!('simi' in chat)) chat.simi = false
@@ -1001,7 +1001,7 @@ antiInstagram: false,
 antiTwitter: false,
 antifake: false,
 reaction: true,
-viewonce: true,
+viewonce: false,
 modoadmin: false,
 antitoxic: true,
 simi: false,
@@ -1016,7 +1016,7 @@ if (!('self' in settings)) settings.self = false
 if (!('autoread' in settings)) settings.autoread = false
 if (!('autoread2' in settings)) settings.autoread2 = false
 if (!('restrict' in settings)) settings.restrict = false
-if (!('temporal' in settings)) settings.temporal = true
+if (!('temporal' in settings)) settings.temporal = false
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('antiCall' in settings)) settings.antiCall = true
 if (!('antiSpam' in settings)) settings.antiSpam = true 
@@ -1027,7 +1027,7 @@ self: false,
 autoread: false,
 autoread2: false,
 restrict: false,
-temporal: true,
+temporal: false,
 antiPrivate: false,
 antiCall: true,
 antiSpam: true,
