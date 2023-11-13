@@ -1,5 +1,5 @@
 let linkRegex = /https:/i
-export async function before(m, { isAdmin, isBotAdmin, text }) { 
+export async function before(m, { isAdmin, isBotAdmin, text, participants }) { 
 if (m.isBaileys && m.fromMe)
 return !0
 if (!m.isGroup) return !1
