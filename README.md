@@ -111,7 +111,7 @@ apt update
 apt upgrade
 ```
 ```bash
-pkg install git nodejs ffmpeg imagemagick yarn
+pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
 ```bash
 git clone https://github.com/GataNina-Li/GataBot-MD
