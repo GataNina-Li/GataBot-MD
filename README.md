@@ -103,8 +103,6 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 > **Note** Comandos para instalar de forma manual
 ```bash
 termux-setup-storage
-```
-```bash
 apt update
 apt upgrade
 pkg install git nodejs ffmpeg imagemagick yarn
