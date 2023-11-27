@@ -3,7 +3,7 @@ import yaoiImages from 'module-gatadios'
 
 let handler = async (m, { conn }) => {
 const resultJson = yaoiImages.getRandomImage()
-m.reply(resultJson.name)
+m.reply(resultJson.json())
 }
 
 handler.command = /^(prueba36)$/i
