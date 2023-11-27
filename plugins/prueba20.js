@@ -1,5 +1,5 @@
 import fs from 'fs'
-const yaoiImages = require('yaoi-images')
+import yaoiImages from 'yaoi-images'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 const resultJson = yaoiImages.getRandomImage()
