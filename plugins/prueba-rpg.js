@@ -67,7 +67,7 @@ mentions: [...userItem.slice(page * 20, page * 20 + 20)].filter(
 })
 }
 
-handler.command = /^(leaderboard1|lb1)$/i;
+handler.command = /^(liga|league)$/i;
 export default handler;
 
 function sort(property, ascending = true) {
