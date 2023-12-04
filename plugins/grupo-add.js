@@ -11,7 +11,7 @@ if (text.includes('+')) throw  `${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍�
 let group = m.chat
 let link = 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group)
  
-      await conn.reply(text+'@s.whatsapp.net', `Hola! me presento, soy GataBot-MD 🐈, soy un Bot para WhatsApp, una persona del grupo utilizo el comando para añadirte al grupo, pero no pude agregarte, asi que te mando la invitacion para que te unas al grupo, te esperamos con ansias!!\n\n${link}`, m, {mentions: [m.sender]})
+      await conn.reply(text+'@s.whatsapp.net', `Hola! me presento, soy GataBot-MD 🐈, soy un Bot de WhatsApp, una persona del grupo utilizo el comando para añadirte al grupo, pero no pude agregarte, asi que te mando la invitacion para que te unas al grupo, te esperamos con ansias!!\n\n${link}`, m, {mentions: [m.sender]})
         m.reply(`*@${who.split`@`[0]}*\n*Enviando invitacion a su privado...*`) 
 
 }
