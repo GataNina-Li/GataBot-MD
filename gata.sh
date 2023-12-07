@@ -169,7 +169,7 @@ if npm install -g yarn 2>&1 >/dev/null | grep -E -i -q '(command not found|unabl
 error=$(npm install -g yarn 2>&1 >/dev/null)
 echo -e "\033[0;31mError: $error\033[0m" 
 echo -e "\033[0;34mNo se pudo instalar Yarn. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
-echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/GataNina-Li/GataBot-MD\ncd GataBot-MD\nyarn install\nnpm install\nnpm start\033[0m"
+echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/XxShadowxXY/GataBot-MD\ncd GataBot-MD\nyarn install\nnpm install\nnpm start\033[0m"
 exit 1
 else
 echo -e "\033[01;32m\033[01mYarn se ha instalado correctamente.\nYarn has been installed successfully.\n\033[0m" 
