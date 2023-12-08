@@ -1,3 +1,5 @@
+//Créditos a Katashi Fukushima
+
 import fs from 'fs'
 
 let timeout = 30000
