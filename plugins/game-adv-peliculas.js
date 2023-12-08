@@ -13,7 +13,7 @@ let tekateki = JSON.parse(fs.readFileSync(`./src/game/peliculas.json`))
 let json = tekateki[Math.floor(Math.random() * tekateki.length)]
 let _clue = json.response
 let clue = _clue.replace(/[A-Za-z]/g, '_')
-let caption = `*• ADIVINEN LA PELÍCULA •*\n\n*${json.question}*\n\n*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos\n*• Bono:* +${poin} Exp
+let caption = `*• ADIVINAN LA PELÍCULA CON EMOJIS •*\n\n*${json.question}*\n\n*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos\n*• Bono:* +${poin} Exp
 `.trim()
 conn.tekateki[id] = [ 
 await conn.reply(m.chat, caption, m), json, poin, setTimeout(async () => {
