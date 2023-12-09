@@ -4,6 +4,6 @@
 
 | USUARIO          |   CÓDIGO                | CONTACTO   
 | ------------     | ------------            | ------------
-| ⚪        | ⚪               |  ⚪
+| [**Richetti123**](https://github.com/Richetti123)        | `KmZxVE5lIUVvrkqLd8EYJlC9G`               | `IG: @richetti_123` 
 | ⚪        | ⚪               |  ⚪
 
