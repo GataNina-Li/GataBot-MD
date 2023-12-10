@@ -111,22 +111,22 @@ this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt
 
 if (chat.audios && m.text.match(/(bienveni|🥳|🤗|👋)/gi)) {
 //let vn = './media/Bienvenido.mp3'
-let vn = 'https://a.uguu.se/gXdhnLVq.mp3'
+let vn = 'https://s27.aconvert.com/convert/p3r68-cdx67/tzqj6-tdi5h.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 conn.sendMessage(m.chat, { audio: { url: vn }, contextInfo: { "externalAdReply": { "title": wm, "body": `🐈`, "previewType": "PHOTO", "thumbnailUrl": null,"thumbnail": imagen1, "sourceUrl": `https://github.com/GataNina-Li/GataBot-MD`, "showAdAttribution": true}}, ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: m })}
 
 if (chat.audios && m.text.match(/(Blackpink in your area|blackpink in your area|in your area|In your area)/gi)) {    
-let vn = 'https://a.uguu.se/beduMNmu.mp3'
+let vn = 'https://s33.aconvert.com/convert/p3r68-cdx67/q1sje-2uh0k.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(Buen día grupo|Buen dia grupo|🙌)/gi)) {    
-let vn = 'https://a.uguu.se/FavpEeTD.mp3'
+let vn = 'https://s17.aconvert.com/convert/p3r68-cdx67/iu575-k207r.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(Calla Fan de bts|bts|Amo a bts)/gi)) {
-    let vn = 'https://a.uguu.se/SsFKRzZU.mp3'
+    let vn = 'https://s27.aconvert.com/convert/p3r68-cdx67/324h2-iz6tk.mp3'
     let sticker = './media/btss.webp'
     this.sendPresenceUpdate('recording', m.chat)
     let or = ['audio', 'sticker'];
