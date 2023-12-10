@@ -10,7 +10,7 @@ global.db.data.users[m.sender].exp += 50
     
 if (/^A Bueno master|Bueno master|Bueno Máster|🫂$/i.test(m.text) && chat.audios) {  
 if (!db.data.chats[m.chat].audios && m.isGroup) throw 0    
-let vn = 'https://a.uguu.se/mvaGrJKs.mp3'
+let vn = 'https://s31.aconvert.com/convert/p3r68-cdx67/l2jee-f8fxj.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}   
 
@@ -80,7 +80,7 @@ this.sendPresenceUpdate('recording', m.chat)
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
 if (chat.audios && m.text.match(/(Yokese|yokese|YOKESE)/gi)) {    
-let vn = 'https://a.uguu.se/wxdEkZvK.mp3'
+let vn = 'https://s17.aconvert.com/convert/p3r68-cdx67/1j4c9-4jkys.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
