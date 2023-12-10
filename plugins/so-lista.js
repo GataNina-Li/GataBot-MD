@@ -253,42 +253,42 @@ this.sendPresenceUpdate('recording', m.chat)
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(anadieleimporta|a nadie le importa|y que|no importa|literal)/gi)) {    
-let vn = 'https://a.uguu.se/PqzGKrCy.mp3'
+let vn = 'https://s27.aconvert.com/convert/p3r68-cdx67/44dsj-43yco.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(miarda de bot|mierda de bot|mearda de bot|Miarda de Bot|Mierda de Bot|Mearda de Bot|bot puto|Bot puto|Bot CTM|Bot ctm|bot CTM|bot ctm|bot pendejo|Bot pendejo|bot de mierda)/gi)) {    
-let vn = 'https://a.uguu.se/LFdowVqY.mp3'
+let vn = 'https://s31.aconvert.com/convert/p3r68-cdx67/rn358-o7jut.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}    
     
 if (chat.audios && m.text.match(/(Cada|Basado|Basada|Basadisimo|BASADO|basado|basada|Que basado|Que basada|que basado)/gi)) {    
-let vn = 'https://a.uguu.se/QomzBflt.mp3'
+let vn = 'https://s19.aconvert.com/convert/p3r68-cdx67/p29ei-lje62.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(Bien pensado woody|bien pensado woody|Bien pensado|bien pensado|Bien pensado wudy|bien pensado wudy|Bien pensado Woody|bien pensado Woody|Bien pensado woodi|bien pensado woodi)/gi)) {    
-let vn = 'https://a.uguu.se/VbPijknB.mp3'
+let vn = 'https://s5.aconvert.com/convert/p3r68-cdx67/wzw6a-278ta.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(bañate|Bañat)/gi)) {    
-let vn = 'https://a.uguu.se/flnuuLQR.mp3'
+let vn = 'https://s21.aconvert.com/convert/p3r68-cdx67/k9cji-xb7ug.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(buenas noches|Buenas noches|Boanoite|boanoite)/gi)) {    
-let vn = 'https://a.uguu.se/bWiqNNqj.mp3'
+let vn = 'https://s19.aconvert.com/convert/p3r68-cdx67/5uemm-7mrlk.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(Bueno si|bueno si|bueno sí|Bueno sí)/gi)) {    
-let vn = 'https://a.uguu.se/fitQWfsp.mp3'
+let vn = 'https://s19.aconvert.com/convert/p3r68-cdx67/1bvta-15stj.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(buenos dias|Buenos dias|buenos días|Buenos días)/gi)) {    
-let vn = 'https://a.uguu.se/qigYCQDH.mp3'
+let vn = 'https://s19.aconvert.com/convert/p3r68-cdx67/oj93d-wqv01.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
@@ -313,7 +313,7 @@ this.sendPresenceUpdate('recording', m.chat)
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(Enojado|ENOJADO|enojado|Molesto|Enojada|ENOJADA|enojada|Molesta|🤬|😡|😠|😤)/gi)) {    
-let vn = 'https://a.uguu.se/pcrTBsED.mp3'
+let vn = 'https://s17.aconvert.com/convert/p3r68-cdx67/xzg9g-y6gga.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
@@ -398,7 +398,7 @@ this.sendPresenceUpdate('recording', m.chat)
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(Marica tu|cancion1|Marica quien|maricon|Homosexual|putin)/gi)) {    
-let vn = 'https://a.uguu.se/oFoXgavC.mp3'
+let vn = 'https://s19.aconvert.com/convert/p3r68-cdx67/uwfi7-f4xxv.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
@@ -563,7 +563,7 @@ this.sendPresenceUpdate('recording', m.chat)
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
 if (chat.audios && m.text.match(/(delivery|delivery de empanada|empanada)/gi)) {
-let vn = 'https://a.uguu.se/cCVZdSWq.mp3'
+let vn = 'https://s33.aconvert.com/convert/p3r68-cdx67/okt1j-cen0v.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
@@ -678,7 +678,7 @@ this.sendPresenceUpdate('recording', m.chat)
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
 if (chat.audios && m.text.match(/(trabajo|trabajo)/gi)) {    
-let vn = 'https://a.uguu.se/ROnwneRo.mp3'
+let vn = 'https://s21.aconvert.com/convert/p3r68-cdx67/yh7za-d2jqc.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
