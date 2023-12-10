@@ -1,6 +1,6 @@
 # TÉRMINOS, PRIVACIDAD, Y CONDICIONES DE USO.
 
-> **_Última actualización 09 de diciembre de 2023_**
+> **_Última actualización 10 de diciembre de 2023_**
 
 ## MODIFICACIONES Y ACTUALIZACIONES
 _Nos reservamos el derecho de actualizar, modificar o cambiar nuestros términos, políticas de privacidad y condiciones sin previo aviso. Cualquier ajuste será efectivo inmediatamente después de su publicación. Le recomendamos revisar periódicamente nuestras políticas para estar informado sobre cualquier cambio. El uso continuado de nuestro código o bot después de la publicación de cualquier modificación constituirá su aceptación de dichas modificaciones._
@@ -53,14 +53,6 @@ Los datos almacenados en diversas plataformas donde se ejecute el código quedan
 </details>
 
 <details>
-<summary><b>POLÍTICA DE PRIVACIDAD</b></summary>
-
-En calidad de bot, subbot o usuario común, es posible que se recopile cierta información, como el número de teléfono, datos de contacto, detalles del dispositivo, ubicación y la información proporcionada durante el uso del código.
-
-Queremos asegurarle que sus datos están resguardados en todo momento. Nos comprometemos a no compartir su información con terceros, a menos que sea estrictamente necesario en el ámbito legal. Esta medida se toma con el firme propósito de garantizar la privacidad y seguridad de sus datos personales.
-</details>
-
-<details>
 <summary><b>USUARIOS MENORES DE EDAD</b></summary>
 
 Debido a que cierto contenido del código, después de su procesamiento, puede contener información o material que no es apropiado para todo el público, incluso al aplicar metodologías para ocultar ciertos contenidos, no podemos garantizar su total efectividad. Por este motivo, el uso de este código está permitido únicamente para personas mayores de 18 años, de acuerdo con la [**Convención sobre los Derechos del Niño (CDN, CRC en inglés)**](https://www.un.org/es/events/childrenday/pdf/derechos.pdf), un tratado internacional de las Naciones Unidas.
@@ -94,4 +86,47 @@ Si identificas a alguien que vende nuestro código y no aparece en la lista de d
 Es importante que comprenda que el uso de este código puede resultar en la suspensión de su número si WhatsApp detecta actividades inusuales. En tal caso, no asumiremos la responsabilidad de brindar soporte ni nos haremos cargo de las consecuencias de dicha suspensión.
 
 En el contexto de un bot, es posible que algunos comandos no funcionen correctamente en todo momento. Si detecta que un comando no cumple con su función, le recomendamos que informe sobre el problema a los desarrolladores para que pueda abordarse y resolverse en futuras actualizaciones. Agradecemos su colaboración para mejorar la funcionalidad y la experiencia general del código.
+</details>
+
+<details>
+<summary><b>PATROCINADORES</b></summary>
+
+<details>
+<summary><b>BoxMine Host</b></summary>
+
+El servicio de hosting proporciona alojamiento para GataBot en sus servidores, enfatizando que no vende el código de GataBot. Han leído y aceptado la política de GataBot, consolidando mejoras para la Comunidad GataBot y la comunidad de BoxMine.
+</details>
+
+<details>
+<summary><b>ZippoNodes</b></summary>
+
+Como servicio de hosting especializado en alojamiento de Bots, ofrece una versión de GataBot con la aprobación de la misma, conforme a su disposición de aceptar la política de GataBot.
+</details>
+
+<details>
+<summary><b>Vortexus Cloud</b></summary>
+
+GataBot forma parte del catálogo de Vortexus Cloud, que ofrece alojamiento en la nube. Este servicio acepta la política de GataBot, fortaleciendo la disposición de trabajar de manera conjunta.
+</details>
+
+### RECOMENDACIÓN DE LECTURA DE POLÍTICAS DE PATROCINADORES
+
+Se sugiere encarecidamente leer la política de cada patrocinador para comprender su funcionamiento específico. Esta medida asegura una comprensión completa de los términos y condiciones asociados con cada servicio de hosting, permitiendo una colaboración efectiva y cumplimiento adecuado con las políticas individuales de cada patrocinador.
+</details>
+
+<details>
+<summary><b>POLÍTICA DE PRIVACIDAD</b></summary>
+
+### Cuentas Oficiales
+Las cuentas oficiales de WhatsApp están bajo el control del Staff GataBot. Se implementa una rutina de eliminación de mensajes cada 24 horas, y la database se borra con frecuencia para garantizar que no se acumulen datos de usuarios. El progreso en estas cuentas no se mantiene de manera inamovible. El Staff realiza vigilancia para mantener la cuenta activa y utilizar datos públicos que contribuyan a mejorar GataBot según las diversas situaciones de los usuarios con acceso a la cuenta oficial.
+
+En calidad de bot, subbot o usuario común, es posible que se recopile cierta información, como el número de teléfono, datos de contacto, detalles del dispositivo, ubicación y la información proporcionada durante el uso del código.
+
+Queremos asegurarle que sus datos están resguardados en todo momento. Nos comprometemos a no compartir su información con terceros, a menos que sea estrictamente necesario en el ámbito legal. Esta medida se toma con el firme propósito de garantizar la privacidad y seguridad de sus datos personales.
+
+### Propietarios/as
+Si es propietario/a de una cuenta que actúa como Bot, tiene el control de los datos recopilados por el Bot. No podemos garantizar su uso y queda a discreción de cada propietario/a evaluar y manipular los datos según su criterio.
+
+### Usuarios Terceros
+Los usuarios terceros, en este contexto, se refieren a los Sub Bots, que están sujetos al control de los propietarios. Estos usuarios pueden recopilar datos a través de la función Sub Bot, y no podemos garantizar cómo se utilizarán dichos datos.
 </details>
