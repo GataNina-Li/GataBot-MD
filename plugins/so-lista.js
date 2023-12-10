@@ -95,7 +95,7 @@ this.sendPresenceUpdate('recording', m.chat)
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
 if (chat.audios && m.text.match(/(Goku pervertido|pervertido|pervertida|goku|antojen|antogen|😈|👿|👉👌|👌👈)/gi)) {    
-let vn = 'https://a.uguu.se/ntcbLHOp.mp3'
+let vn = 'https://s31.aconvert.com/convert/p3r68-cdx67/cmql6-0fe6v.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}    
     
@@ -238,17 +238,17 @@ this.sendPresenceUpdate('recording', m.chat)
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(Traigan le una falda|Traiganle una falda|Nina|niña|niño)/gi)) {    
-let vn = 'https://a.uguu.se/iMRdWHVV.mp3'
+let vn = 'https://s31.aconvert.com/convert/p3r68-cdx67/uwtlw-ifiqn.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(Y este quien es|Y este quien poronga es|Y este quien porongas es|vida)/gi)) {    
-let vn = 'https://a.uguu.se/RfhuNZvb.mp3'
+let vn = 'https://s31.aconvert.com/convert/p3r68-cdx67/vocsn-kgzab.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(TENGO LOS CALZONES|Tengo los calzones|tengo los calzones|🥶|😳|😱|😨|🙀|calzones)/gi)) {    
-let vn = 'https://a.uguu.se/YQKUkSKB.mp3'
+let vn = 'https://s27.aconvert.com/convert/p3r68-cdx67/1hhu0-vx4op.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
@@ -328,7 +328,7 @@ this.sendPresenceUpdate('recording', m.chat)
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(Esto va para ti|esto va para ti)/gi)) {    
-let vn = 'https://a.uguu.se/EQqZPFwr.mp3'
+let vn = 'https://s31.aconvert.com/convert/p3r68-cdx67/4fdad-8h2ty.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
@@ -428,7 +428,7 @@ this.sendPresenceUpdate('recording', m.chat)
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (chat.audios && m.text.match(/(nadie te pregunto|Nadie te pregunto|Nadie te preguntó|nadie te preguntó|quien te pregunto)/gi)) {    
-let vn = 'https://a.uguu.se/OpqjZUOd.mp3'
+let vn = 'https://s23.aconvert.com/convert/p3r68-cdx67/r622s-v01c6.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
@@ -573,7 +573,7 @@ this.sendPresenceUpdate('recording', m.chat)
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
 if (chat.audios && m.text.match(/(Bardo|pateo|bardo|🤺|callarte|negro|puto)/gi)) {
-let vn = 'https://a.uguu.se/JoAaCXBy.mp3'
+let vn = 'https://s19.aconvert.com/convert/p3r68-cdx67/g0qwa-ejfgb.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
