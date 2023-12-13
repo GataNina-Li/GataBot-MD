@@ -90,25 +90,13 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 termux-setup-storage
 ```
 ```bash
-apt update
+apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
 ```bash
-apt upgrade
+git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD
 ```
 ```bash
-pkg install -y git nodejs ffmpeg imagemagick yarn
-```
-```bash
-git clone https://github.com/GataNina-Li/GataBot-MD
-```
-```bash
-cd GataBot-MD
-```
-```bash
-yarn install
-```
-```bash
-npm install
+yarn install && npm install
 ```
 ```bash
 npm start
@@ -124,13 +112,7 @@ npm start
 termux-setup-storage
 ```
 ```bash
-apt update
-```
-```bash
-apt upgrade
-```
-```bash
-pkg install -y git nodejs ffmpeg imagemagick yarn
+apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
 ```bash
 cd storage/downloads/GataBot-MD-master/GataBot-MD-master 
