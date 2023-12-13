@@ -52,7 +52,7 @@
 | **KOYEB** | ***INSTALACIÓN POR KOYEB*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-koyeb) |
 | **WINDOWS** | ***INSTALACIÓN POR WINDOWS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-para-usuarios-de-windowsvpsrdp) |
 | **DISTRIBUIDORES AUTORIZADOS** | ***PREGUNTAS*** |[ver](https://github.com/GataNina-Li/GataBot-MD#distribuidores-autorizados-o-resellers---preguntas) |
-| **SOBRE GATABOT** | ***SECCIONES DE INFORMACIÓN*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#sobre-gatabot--gb-global) |
+| **SOBRE GATABOT** | ***POLÍTICA DE USO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md) |
 | **DESARROLLADORES** | ***PARTICIPATES DEL PROYECTO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
 -----
 ### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA 🫰
