@@ -2,6 +2,7 @@
 <a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=GataBot-MD++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
 </p>
 
+> Antes de usar este repositorio, visita la **[Política de GataBot. 😼](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)**
 <p align="center">
 <img src="https://i.imgur.com/kd8sus3.jpeg" alt="GataBot-MD" width="800"/>
 </p>
@@ -247,7 +248,34 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 ```cmd
 > ffmpeg -version
 ```
+----
+### DISTRIBUIDORES AUTORIZADOS O RESELLERS - PREGUNTAS 
+<details>
+<summary><b>¿Te gustaría ser un Distribuidores Autorizados o reseller de GataBot?</b></summary>
+  
+- ¡Contáctanos [**aquí**](https://wa.me/message/MEKOUFBEOG5ED1) para solicitar tu [**Licencia**](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)!
+</details>
 
+<details>
+<summary><b>¿Qué significa ser un Distribuidor Autorizado o reseller en GataBot?</b></summary>
+  
+- Aquellos usuarios que adquieran la licencia de Distribuidores Autorizados o resellers obtienen el derecho legal de utilizar este repositorio para fines educativos, políticos o comerciales, sin poner en riesgo su reputación personal u organizacional.
+</details>
+
+<details>
+<summary><b>¿Dónde puedes solicitar la licencia para ser Distribuidor Autorizado o reseller de GataBot?</b></summary>
+
+  - Te ofrecemos tres opciones exclusivas: **[WhatsApp](https://wa.me/message/MEKOUFBEOG5ED1)**, **[Instagram](https://www.instagram.com/gata_dios/)** y **[correo electrónico](centergatabot@gmail.com)**.
+</details>
+
+<details>
+<summary><b>¿Cómo puedo verificar quién es un distribuidor autorizado en GataBot?</b></summary>
+
+  - Lo hemos simplificado para ti. Si deseas conocer la lista y contactar al reseller para verificar su autenticidad, simplemente visita este **[enlace](https://github.com/GataNina-Li/GataBot-MD/blob/master/dealers.md)**. La licencia debe estar disponible públicamente en el repositorio del distribuidor, y si tanto su nombre de usuario en GitHub como el código de la licencia coinciden con nuestra lista, significa que está **[verificado](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)** como parte de resellers de GataBot. **¡Estamos aquí para garantizar transparencia y calidad en nuestra red de distribución!**
+</details>
+
+> Recuerda leer la **[Política de GataBot. 😼](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)** antes de hacer algo con este repositorio. 
+  
 ----
 ### 💠 [`IDIOMAS DISPONIBLES PARA GATABOT`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js) 
 #### 🌐 Español  
@@ -259,9 +287,6 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 - [x] Ejemplo <details><summary>Idioma</summary><img src="https://i.imgur.com/ZTwOGkT.jpg"></details>
 ----
 
-### 🌟 CREADORA 
-[![GataNina-Li](https://github.com/GataNina-Li.png?size=100)](https://github.com/GataNina-Li) 
-
 ### 🌟 DESARROLLADORES
 <a href="https://github.com/GataNina-Li/GataBot-MD/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=GataNina-Li/GataBot-MD" /> 
@@ -270,3 +295,6 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 ### 🌟 AGRADECIMIENTOS
 [![TheShadowBrokers1](https://github.com/BrunoSobrino.png?size=60)](https://github.com/BrunoSobrino) 
 
+### 🌟 CREADORA 
+[![GataNina-Li](https://github.com/GataNina-Li.png?size=100)](https://github.com/GataNina-Li) 
+> Copyright (c) 2023 **[GataNina-Li](https://github.com/GataNina-Li/GataBot-MD/blob/master/LICENSE)**.
