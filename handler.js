@@ -952,7 +952,7 @@ if (!('sWelcome' in chat)) chat.sWelcome = ''
 if (!('sBye' in chat)) chat.sBye = ''                    
 if (!('sPromote' in chat)) chat.sPromote = ''                    
 if (!('sDemote' in chat)) chat.sDemote = '' 
-if (!('delete' in chat)) chat.delete = true                    
+if (!('delete' in chat)) chat.delete = false                   
 if (!('modohorny' in chat)) chat.modohorny = true                    
 if (!('stickers' in chat)) chat.stickers = false                   
 if (!('autosticker' in chat)) chat.autosticker = false                      
@@ -984,7 +984,7 @@ sWelcome: '',
 sBye: '',
 sPromote: '',
 sDemote: '', 
-delete: true,
+delete: false,
 modohorny: true,
 stickers: false,
 autosticker: false,
