@@ -466,6 +466,7 @@ ${readMore}
 ┃🔍➺ _${usedPrefix}animeinfo *texto*_
 ┃🔍➺ _${usedPrefix}mangainfo *texto*_
 ┃🔍➺ _${usedPrefix}google *texto*_
+┃🔍➺ _${usedPrefix}googlelyrics *texto*_
 ┃🔍➺ _${usedPrefix}letra | lirik *texto*_
 ┃🔍➺ _${usedPrefix}ytsearch | yts *texto*_
 ┃🔍➺ _${usedPrefix}wiki | wikipedia *texto*_
