@@ -1,6 +1,6 @@
 # TÉRMINOS, PRIVACIDAD, Y CONDICIONES DE USO.
 
-> **_Última actualización 10 de diciembre de 2023_**
+> **_Última actualización 22 de diciembre de 2023_**
 
 ## MODIFICACIONES Y ACTUALIZACIONES
 _Nos reservamos el derecho de actualizar, modificar o cambiar nuestros términos, políticas de privacidad y condiciones sin previo aviso. Cualquier ajuste será efectivo inmediatamente después de su publicación. Le recomendamos revisar periódicamente nuestras políticas para estar informado sobre cualquier cambio. El uso continuado de nuestro código o bot después de la publicación de cualquier modificación constituirá su aceptación de dichas modificaciones._
@@ -98,7 +98,7 @@ El servicio de hosting proporciona alojamiento para GataBot en sus servidores, e
 </details>
 
 <details>
-<summary><b>ZippoNodes</b></summary>
+<summary><b>Cafirexos</b></summary>
 
 Como servicio de hosting especializado en alojamiento de Bots, ofrece una versión de GataBot con la aprobación de la misma, conforme a su disposición de aceptar la política de GataBot.
 </details>
