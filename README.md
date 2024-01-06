@@ -254,7 +254,7 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 <details>
 <summary><b>¿Te gustaría ser un Distribuidores Autorizados o reseller de GataBot?</b></summary>
   
-- ¡Contáctanos [**aquí**](https://wa.me/message/MEKOUFBEOG5ED1) para solicitar tu [**Licencia**](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)!
+- ¡Contáctanos [**aquí**](https://wa.me/message/C45GXBEFTPONE1) para solicitar tu [**Licencia**](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)!
 </details>
 
 <details>
@@ -266,7 +266,7 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 <details>
 <summary><b>¿Dónde puedes solicitar la licencia para ser Distribuidor Autorizado o reseller de GataBot?</b></summary>
 
-  - Te ofrecemos tres opciones exclusivas: **[WhatsApp](https://wa.me/message/MEKOUFBEOG5ED1)**, **[Instagram](https://www.instagram.com/gata_dios/)** y **[correo electrónico](centergatabot@gmail.com)**.
+  - Te ofrecemos tres opciones exclusivas: **[WhatsApp](https://wa.me/message/C45GXBEFTPONE1)**, **[Instagram](https://www.instagram.com/gata_dios/)** y **[correo electrónico](centergatabot@gmail.com)**.
 </details>
 
 <details>
