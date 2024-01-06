@@ -24,13 +24,12 @@ let handler = async (m, { conn, usedPrefix }) => {
 *• Bono:* +${poin} Exp
 
 💫 Responde a este mensaje con la letra de la opción correcta ✅
-¡Tienes 10 segundos!
 `.trim()
     conn.tekateki[id] = [
        await conn.reply(m.chat, caption, m),
         json, poin,
         setTimeout(async () => {
-            if (conn.tekateki[id]) await conn.reply(m.chat, `Se acabó el tiempo!\n*La respuesta es la opción:* ${json.response}`, conn.tekateki[id][0])
+            if (conn.tekateki[id]) await conn.reply(m.chat, `Se acabó el tiempo!`, conn.tekateki[id][0])
             delete conn.tekateki[id]
         }, timeout)
     ]
