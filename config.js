@@ -144,7 +144,7 @@ global.nnnttt3 = 'https://chat.whatsapp.com/BngbJC3aBVhF5KjoaawiT1' //Grupo 8 CO
 global.nnnttt4 = 'https://chat.whatsapp.com/KQtWZDVfosTKbheIlndLBN' //Grupo 9 COL
 global.nnnttt5 = 'https://chat.whatsapp.com/HOCsvLox0Ui7cwzTCeFhPP' //A.T.M.M
 global.paypal = 'https://paypal.me/OficialGD'
-global.asistencia = 'Wa.me/50660400020' //Dudas? escríbeme...
+global.asistencia = 'Wa.me/51906662557' //Dudas? escríbeme...
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
