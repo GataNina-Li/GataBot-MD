@@ -1,7 +1,5 @@
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '1'
 import './config.js'
-//import './plugins/_MID-GB.js'
-import { es, en } from './lib/multi-language/_default.js'
 import { createRequire } from 'module'
 import path, { join } from 'path'
 import {fileURLToPath, pathToFileURL} from 'url'
@@ -35,7 +33,7 @@ const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 
 protoType()
 serialize()
-global.mid = default_language 
+
 global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') {
   return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString();
 }; global.__dirname = function dirname(pathURL) {
