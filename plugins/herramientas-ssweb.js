@@ -5,7 +5,7 @@ let user = global.db.data.users[m.sender]
 let calidad, webIMG 
 //calidad = user.premiumTime > 0 ? '3840x2160' : '1280x720'
 try {  
-if (user.premiumTime > 0) {
+if (!user.premiumTime) {
 calidad = '1280x720' //HD
 webIMG = `https://api.screenshotmachine.com/?key=c04d3a&url=${args[0]}&screenshotmachine.com&dimension=500x500`
 await conn.sendMessage(m.chat, { image: { url: webIMG }, caption: `🎟️ *PREMIUM:* ${user.premiumTime > 0 ? '✅' : '❌'}\n🪄 *CALIDAD:* \`\`\`(${calidad}) HD\`\`\`\n\n👑 _Para una imagen en *4K*, adquiera un pase usando *${usedPrefix}pase premium*_` }, { quoted: m }) 
