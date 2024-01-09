@@ -75,6 +75,7 @@ if (!('identidad' in user)) user.identidad = m.identidad
 if (!('pasatiempo' in user)) user.pasatiempo = m.pasatiempo
 if (!('tiempo' in user)) user.tiempo = m.tiempo
 if (!('miestado' in user)) user.miestado = m.miestado	
+if (!('midLanguage' in user)) user.midLanguage = m.midLanguage
 if (!isNumber(user.premLimit)) user.premLimit = 0
 if (!isNumber(user.anggur)) user.anggur = 0
 if (!isNumber(user.apel)) user.apel = 0
@@ -502,6 +503,7 @@ if (!user.premium) user.premiumTime = 0
 if (!user.rtrofi) user.rtrofi = 'Bronce'
 } else
 global.db.data.users[m.sender] = {
+midLanguage: 0,
 counterPrivate: 0,
 afk: -1,
 afkReason: '',
