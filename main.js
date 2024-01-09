@@ -125,7 +125,7 @@ rl.question(texto, (respuesta) => {
 resolver(respuesta.trim())
 }) })
 }
-before()
+await before()
 let opcion
 if (methodCodeQR) {
 opcion = '1'
