@@ -9,7 +9,7 @@ MID_GB = es
 } else if (idioma == "en") {
 MID_GB = en
 } else {
-MID_GB = default_language || es
+MID_GB = mid || es
 }
 global.mid = MID_GB	
 }
