@@ -65,4 +65,5 @@ rl.on('line', (line) => {
 p.emit('message', line.trim())
 })
 }}}
+start('./plugins/_MID-GB.js')
 start('main.js')
