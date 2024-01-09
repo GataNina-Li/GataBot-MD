@@ -1,7 +1,6 @@
 import { es, en } from '../lib/multi-language/_default.js'
-//global.mid = es
 
-export async function before(m) {
+export async function before(m,{ conn }) {
 let idioma  = global.db.data.users[m.sender].midLanguage
 let MID_GB
   
@@ -15,4 +14,3 @@ MID_GB = default_language || es
 global.mid = MID_GB
 	
 }
-await before()
