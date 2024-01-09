@@ -1,6 +1,6 @@
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '1'
 import './config.js'
-import './plugins/_MID-GB.js'
+import { before } from './plugins/_MID-GB.js'
 import { createRequire } from 'module'
 import path, { join } from 'path'
 import {fileURLToPath, pathToFileURL} from 'url'
@@ -125,7 +125,7 @@ rl.question(texto, (respuesta) => {
 resolver(respuesta.trim())
 }) })
 }
-
+before()
 let opcion
 if (methodCodeQR) {
 opcion = '1'
