@@ -6,7 +6,7 @@ import cheerio from "cheerio"
 import fetch from "node-fetch"
 import axios from "axios"
 import moment from "moment-timezone"
-//import { es, en } from "./lib/multi-language/_default.js"
+import { es as esDefault, en as enDefault } from "./lib/multi-language/_default.js"
 import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
@@ -38,14 +38,14 @@ global.confirmCode = "" // No tocar esto : Do not touch this line
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // ❰❰ Multi Idioma Dinámico : Dynamic Multi Language (MID-GB) ❱❱
-// [ES] > Agregué uno de los idiomas disponibles para el Bot en "default_language".
-// [EN] > I added one of the languages available for the Bot in "default_language".
+// [ES] > Agregué uno de los idiomas disponibles para el Bot en "mid".
+// [EN] > I added one of the languages available for the Bot in "mid".
 
 // ❰❰ IDIOMAS DISPONIBLES : AVAILABLE LANGUAGES ❱❱
 // Español 👉 es           
 // English 👉 en
-global.default_language = es
 global.lenguajeGB = es
+global.mid = esDefault
 global.version_language = '1.0 (MID-GB)'
 
 // [ES] > Si "default_language" esta vacío, su idioma predeterminado será Español o se usará el idioma que cada usuario haya seleccionado al momento de registrarse. 
