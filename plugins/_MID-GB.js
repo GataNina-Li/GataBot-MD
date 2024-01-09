@@ -15,3 +15,4 @@ MID_GB = default_language || es
 global.mid = MID_GB
 	
 }
+await before()
