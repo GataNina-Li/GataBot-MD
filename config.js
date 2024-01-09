@@ -6,7 +6,7 @@ import cheerio from "cheerio"
 import fetch from "node-fetch"
 import axios from "axios"
 import moment from "moment-timezone"
-import { es, en } from "./lib/multi-language/_default.js"
+//import { es, en } from "./lib/multi-language/_default.js"
 import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
