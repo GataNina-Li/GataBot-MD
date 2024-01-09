@@ -35,7 +35,7 @@ const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 
 protoType()
 serialize()
-global.mid
+global.mid = default_language 
 global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') {
   return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString();
 }; global.__dirname = function dirname(pathURL) {
