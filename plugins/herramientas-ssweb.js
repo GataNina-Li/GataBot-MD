@@ -1,4 +1,34 @@
-import fetch from 'node-fetch'
+import fetch from 'node-fetch' 
+const handler = async (m, {conn, text, args}) => {   
+if (!args[0]) return conn.reply(m.chat, '*Por favor ingresa una url de la página a la que se le tomará captura 🔎*', m)  
+try {
+const ss = await (await fetch(`https://image.thum.io/get/fullpage/${args[0]}`)).buffer()
+conn.sendFile(m.chat, ss, '', '', m)
+} catch { 
+try {  
+const ss2 = `https://api.screenshotmachine.com/?key=c04d3a&url=${args[0]}&screenshotmachine.com&dimension=720x720`  
+conn.sendMessage(m.chat, { image: { url: ss2 }}, { quoted: m }) 
+} catch {  
+try { 
+const ss3 =  `https://api.lolhuman.xyz/api/SSWeb?apikey=${lolkeysapi}&url=${text}` 
+conn.sendMessage(m.chat, { image: { url: ss3 }}, { quoted: m }) 
+} catch { 
+const ss4 = `https://api.lolhuman.xyz/api/SSWeb2?apikey=${lolkeysapi}&url=${text}`
+conn.sendMessage(m.chat, { image: { url: ss4 }}, { quoted: m })
+}}}
+} 
+
+handler.command = /^ss(web)?f?$/i;   
+export default handler
+
+
+
+
+
+
+
+
+/*import fetch from 'node-fetch'
 let handler = async (m, { conn, command, args }) => {
 let full = /f$/i.test(command)
 if (!args[0]) return conn.reply(m.chat, '*Por favor ingresa un url de la página a la que se le tomará captura 🔎*', m)
@@ -49,3 +79,4 @@ const ssweb = (url, device = 'desktop') => {
           }).catch(reject)
      })
           }
+*/
