@@ -1,1 +1,1 @@
-# Multi Lenguaje Dinámico GB (MLD-GB)
+# Multi Idioma Dinámico GB (MID-GB)
