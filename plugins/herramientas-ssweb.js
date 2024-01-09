@@ -4,14 +4,14 @@ if (!args[0]) return conn.reply(m.chat, '*Por favor ingresa una url de la págin
 let user = global.db.data.users[m.sender]
 let calidad, calidad2, webIMG 
 try {  
-if (user.premiumTime < 0) {
+if (user.premiumTime > 0) {
 calidad = '1280x720' //HD
 webIMG = `https://api.screenshotmachine.com/?key=c04d3a&url=${args[0]}&screenshotmachine.com&dimension=${calidad}`
 await conn.sendMessage(m.chat, { image: { url: webIMG }, caption: `🎟️ *PREMIUM:* ${user.premiumTime > 0 ? '✅' : '❌'}\n🪄 *CALIDAD:* \`\`\`(${calidad}) HD\`\`\`\n\n👑 _Para una imagen en *4K*, adquiera un pase usando ${usedPrefix}pase premium_` }, { quoted: m }) 
 } else {
 calidad2 = '3840x2160' //4K
 webIMG = `https://api.screenshotmachine.com/?key=c04d3a&url=${args[0]}&screenshotmachine.com&dimension=${calidad2}`
-await conn.sendMessage(m.chat, { image: { url: webIMG }, caption: `🎟️ *PREMIUM:* ${user.premiumTime > 0 ? '✅' : '❌'}\n👑 *CALIDAD:* \`\`\`(${calidad}) 4K\`\`\`` }, { quoted: m }) 
+await conn.sendMessage(m.chat, { image: { url: webIMG }, caption: `🎟️ *PREMIUM:* ${user.premiumTime > 0 ? '✅' : '❌'}\n👑 *CALIDAD:* \`\`\`(${calidad2}) 4K\`\`\`` }, { quoted: m }) 
 }     
 //conn.sendMessage(m.chat, { image: { url: webIMG }, caption: `Imagen HD.\n\nPara una imagen de mayor calidad adquiera un pase usando ${usedPrefix}pase premium` }, { quoted: m }) 
 } catch { 
