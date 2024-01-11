@@ -267,7 +267,7 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 <details>
 <summary><b>¿Dónde puedes solicitar la licencia para ser Distribuidor Autorizado o reseller de GataBot?</b></summary>
 
-  - Te ofrecemos tres opciones exclusivas: **[Instagram](https://www.instagram.com/gata_dios/)** y **[correo electrónico](centergatabot@gmail.com)**.
+  - Te ofrecemos opciones exclusivas: **[Instagram](https://www.instagram.com/gata_dios/)** y **[correo electrónico](centergatabot@gmail.com)**.
 </details>
 
 <details>
