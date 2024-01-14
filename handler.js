@@ -37,11 +37,9 @@ if (global.db.data == null) await global.loadDatabase()
 if (global.chatgpt.data === null) await global.loadChatgptDB()
 /*------------------------------------------------*/	
 try {
-m = smsg(this, m) || m;
-if (!m) {
-return;
-}
-global.mconn = m 
+m = smsg(this, m) || m
+if (!m)
+return
 m.exp = 0
 m.limit = false
 m.money = false
@@ -1462,7 +1460,7 @@ export async function deleteUpdate(message) {
 try {
 const { fromMe, id, participant } = message
 if (fromMe) return 
-let msg = mconn.conn.serializeM(mconn.conn.loadMessage(id))
+let msg = this.serializeM(this.loadMessage(id))
 let chat = global.db.data.chats[msg?.chat] || {}
 if (!chat?.delete) return 
 if (!msg) return 
@@ -1471,8 +1469,8 @@ const antideleteMessage = `*╭━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━ 
 ${lenguajeGB['smsCont20']()} @${participant.split`@`[0]}
 ${lenguajeGB['smsCont21']()}
 *╰━━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━╯*`.trim();
-await mconn.conn.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
-mconn.conn.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+await this.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
+this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 } catch (e) {
 console.error(e)
 }}
