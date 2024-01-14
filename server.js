@@ -12,9 +12,14 @@ function connect(conn, PORT) {
   let _qr = 'QR invalido, probablemente ya hayas escaneado el QR.'
 
   conn.ev.on('connection.update', function appQR({qr}) {
-    if (qr) _qr = qr
+    if (qr) {
+      _qr = qr
+      if (global.keepAliveRender === 1 && process.env.RENDER_EXTERNAL_URL) {
+        console.log(`Para obtener el código QR ingresa a ${process.env.RENDER_EXTERNAL_URL}/get-qr-code`);
+      }
+    } 
   })
-
+  
   app.get('/get-qr-code', async (req, res) => {
     res.setHeader('content-type', 'image/png')
     res.end(await toBuffer(_qr))
@@ -51,16 +56,25 @@ function keepAlive() {
   }, 5 * 1000 * 60)
 }
 
+
 //Kurt18: Esta función va impedir que Render vaya a modo suspensión por inactividad
 const keepAliveHostRender = async () => {
-  setInterval(async() => {
-    const urlRender = process.env.RENDER_EXTERNAL_URL;
-    const res = await fetch(urlRender);
-    if (res.status === 200) {
-      const result = await res.text();
-      console.log(`Resultado desde keepAliveHostRender() URL ${urlRender} ->`, result);
-    }
-  }, 5 * 1000 * 60)
+  try {
+      setInterval(async() => {
+        if (process.env.RENDER_EXTERNAL_URL) {
+          const urlRender = process.env.RENDER_EXTERNAL_URL;
+          const res = await fetch(urlRender);
+          if (res.status === 200) {
+            const result = await res.text();
+            console.log(`Resultado desde keepAliveHostRender() ->`, result);
+          }
+        } else {
+          console.log(`No se encontró URL en Host Render.com. Por favor ir a config.js y modificar a cero el valor de: global.keepAliveRender`);
+        }
+      }, 5 * 1000 * 60)
+  } catch (error) {
+    console.log(`Error manejado en server.js keepAliveHostRender() detalles: ${error}`);
+  }
 }
 
 export default connect
