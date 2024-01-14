@@ -7,7 +7,7 @@ import fetch from 'node-fetch'
 
 function connect(conn, PORT) {
   const app = global.app = express()
-  console.log(app)
+  //console.log(app)
   const server = global.server = createServer(app)
   let _qr = 'QR invalido, probablemente ya hayas escaneado el QR.'
 
@@ -15,13 +15,18 @@ function connect(conn, PORT) {
     if (qr) _qr = qr
   })
 
-  app.use(async (req, res) => {
+  app.get('/get-qr-code', async (req, res) => {
     res.setHeader('content-type', 'image/png')
     res.end(await toBuffer(_qr))
-  })
+  });
 
-  server.listen(PORT, () => {
+  app.get('*', async (req, res) => {
+    res.json("GATABOT-MD en ejecución");
+  });
+
+  server.listen(PORT, async () => {
     console.log('App listened on port', PORT)
+    if (global.keepAliveRender === 1) await keepAliveHostRender();
     if (opts['keepalive']) keepAlive()
   })
 }
@@ -43,6 +48,18 @@ function keepAlive() {
   if (/(\/\/|\.)undefined\./.test(url)) return
   setInterval(() => {
     fetch(url).catch(console.error)
+  }, 5 * 1000 * 60)
+}
+
+//Kurt18: Esta función va impedir que Render vaya a modo suspensión por inactividad
+const keepAliveHostRender = async () => {
+  setInterval(async() => {
+    const urlRender = process.env.RENDER_EXTERNAL_URL;
+    const res = await fetch(urlRender);
+    if (res.status === 200) {
+      const result = await res.text();
+      console.log(`Resultado desde keepAliveHostRender() URL ${urlRender} ->`, result);
+    }
   }, 5 * 1000 * 60)
 }
 
