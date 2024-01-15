@@ -80,15 +80,17 @@ let configContent = await fs.readFile(configPath, 'utf8')
             console.log(`Resultado desde keepAliveHostRender() ->`, result);
           }
         } else {
-          console.log(`No esta usando un Host de Render.com\nCambiando valores de "obtenerQrWeb" y "keepAliveRender" a 0 en 'config.js'`);
+        const isInitialConfig = configContent.includes('global.obtenerQrWeb = 1;') && configContent.includes('global.keepAliveRender = 1;')
+        if (isInitialConfig) {
+          console.log(`No esta usando un Host de Render.com\nCambiando valores de "obtenerQrWeb" y "keepAliveRender" a 0 en 'config.js'`)
           try {
-          configContent = configContent.replace('global.obtenerQrWeb = 1;', 'global.obtenerQrWeb = 0;');
+          configContent = configContent.replace('global.obtenerQrWeb = 1;', 'global.obtenerQrWeb = 0;')
           configContent = configContent.replace('global.keepAliveRender = 1;', 'global.keepAliveRender = 0;')
-          await fs.writeFile(configPath, configContent, 'utf8');
-          console.log('Archivo de configuración actualizado con éxito.');
+          await fs.writeFile(configPath, configContent, 'utf8')
+          console.log('Archivo de configuración actualizado con éxito.')
         } catch (writeError) {
-          console.error(`Error al escribir el archivo de 'config.js': `, writeError);
-        }
+          console.error(`Error al escribir el archivo de 'config.js': `, writeError)
+        }}
 }
       }, 5 * 1000 * 60)
   } catch (error) {
