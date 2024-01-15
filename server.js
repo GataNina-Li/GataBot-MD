@@ -6,6 +6,7 @@ import {Socket} from 'socket.io'
 import {toBuffer} from 'qrcode'
 import fetch from 'node-fetch'
 import fs from 'fs'
+import fs from 'fs/promises'
 import { watchFile, unwatchFile } from "fs"
 import { fileURLToPath } from "url"
 
