@@ -4,6 +4,9 @@ import path from 'path'
 import {Socket} from 'socket.io'
 import {toBuffer} from 'qrcode'
 import fetch from 'node-fetch'
+import fs from 'fs'
+import { watchFile, unwatchFile } from "fs"
+import { fileURLToPath } from "url"
 
 function connect(conn, PORT) {
   const app = global.app = express()
@@ -59,6 +62,8 @@ function keepAlive() {
 
 //Kurt18: Esta función va impedir que Render vaya a modo suspensión por inactividad
 const keepAliveHostRender = async () => {
+const configPath = path.join(__dirname, 'config.js')
+let configContent = await fs.readFile(configPath, 'utf8')
   try {
       setInterval(async() => {
         if (process.env.RENDER_EXTERNAL_URL) {
@@ -69,8 +74,16 @@ const keepAliveHostRender = async () => {
             console.log(`Resultado desde keepAliveHostRender() ->`, result);
           }
         } else {
-          console.log(`No se encontró URL en Host Render.com. Por favor ir a config.js y modificar a cero el valor de: global.keepAliveRender`);
+          console.log(`No esta usando un Host de Render.com\nCambiando valores de "obtenerQrWeb" y "keepAliveRender" a 0 en 'config.js'`);
+          try {
+          configContent = configContent.replace('global.obtenerQrWeb = 1;', 'global.obtenerQrWeb = 0;');
+          configContent = configContent.replace('global.keepAliveRender = 1;', 'global.keepAliveRender = 0;')
+          await fs.writeFile(configPath, configContent, 'utf8');
+          console.log('Archivo de configuración actualizado con éxito.');
+        } catch (writeError) {
+          console.error(`Error al escribir el archivo de 'config.js': `, writeError);
         }
+}
       }, 5 * 1000 * 60)
   } catch (error) {
     console.log(`Error manejado en server.js keepAliveHostRender() detalles: ${error}`);
@@ -78,3 +91,10 @@ const keepAliveHostRender = async () => {
 }
 
 export default connect
+
+let file = fileURLToPath(import.meta.url);
+watchFile(file, () => {
+unwatchFile(file);
+console.log(chalk.redBright("Update 'server.js'"));
+import(`${file}?update=${Date.now()}`);
+})
