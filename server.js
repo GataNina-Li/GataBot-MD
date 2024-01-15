@@ -62,7 +62,11 @@ function keepAlive() {
 
 //Kurt18: Esta función va impedir que Render vaya a modo suspensión por inactividad
 const keepAliveHostRender = async () => {
-const configPath = path.join(__dirname, 'config.js')
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+  
+//const configPath = path.join(__dirname, 'config.js')
+const configPath = join(__dirname, 'config.js')
 let configContent = await fs.readFile(configPath, 'utf8')
   try {
       setInterval(async() => {
