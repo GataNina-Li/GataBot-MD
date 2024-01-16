@@ -12,13 +12,5 @@ MID_GB = en
 MID_GB = mid || es
 }
 global.mid = MID_GB	
- 
-try {
-    const util = await import("util");
-    if (!util.format(...arguments).includes("Closing session: SessionEntry")) return;
-    if (!util.format(...arguments).includes("Removing old closed session: SessionEntry")) return;
-    // if (!util.format(...arguments).includes("Session error:MessageCounterError:")) 
-  } catch (error) {
-    console.error("Error al importar 'util':", error);
-  }
+
 }
