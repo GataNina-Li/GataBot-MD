@@ -152,8 +152,8 @@ global.ths = "https://www.threads.net/@gata_dios"
 global.paypal = 'https://paypal.me/OficialGD'
 global.asistencia = 'https://wa.me/message/C45GXBEFTPONE1' //Contacto
 
-global.nna = 'https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A' // CANAL UPDATE
-global.nn2 = 'https://whatsapp.com/channel/0029Va6yY0iLY6d6XDmqA03g' // CANAL GataBot
+global.nna = 'https://whatsapp.com/channel/0029Va6yY0iLY6d6XDmqA03g' // CANAL UPDATE
+global.nn2 = 'https://t.me/globalgb' // CANAL GataBot
 global.nna2 = 'https://chat.whatsapp.com/JRFOdyjNqhwEJcDQoBCHzL' // Help
 global.nn = 'https://chat.whatsapp.com/HBIIrHorHbW2LIxlS9MjRI' // Grupo 1
 global.nnn = 'https://chat.whatsapp.com/CtA2nopOZor0bRwV3FCYH3' // Grupo 2
