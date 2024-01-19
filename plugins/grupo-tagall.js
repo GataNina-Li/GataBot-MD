@@ -16,4 +16,5 @@ conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, 
 handler.command = /^(tagall|invocar|invocacion|todos|invocación)$/i
 handler.admin = true
 handler.group = true
+handler.botAdmin = true
 export default handler
