@@ -1,5 +1,5 @@
 # TÉRMINOS, PRIVACIDAD, Y CONDICIONES DE USO.
-
+ 
 > **_Última actualización 22 de diciembre de 2023_**
 
 ## MODIFICACIONES Y ACTUALIZACIONES
