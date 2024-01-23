@@ -64,6 +64,10 @@ const hasill22_result = await translate(`${hasill22.result}`, {to: 'es', autoCor
 m.reply(`${hasill22_result.text}`.trim());
 } catch {
 try {
+const ChatGPT_ = await fetch(`https://api.cafirexos.com/api/chatgpt?text=${text}`)
+m.reply(`${ChatGPT_.text}`.trim()) 
+} catch {
+try {
 const searchString2 = ' Indonesia ';
 const replacementString2 = ' español ';
 const rres = await fetch(`https://api.ibeng.tech/api/others/chatgpt?q=Hola&apikey=eMlBNRzUXv`);
