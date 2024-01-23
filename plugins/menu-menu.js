@@ -193,9 +193,14 @@ ${readMore}
 ┃🎡➺ _${usedPrefix}formarpareja_
 ┃🎡➺ _${usedPrefix}dado_
 ┃🎡➺ _${usedPrefix}verdad_
+┃🎡➺ _${usedPrefix}acentijo_
+┃🎡➺ _${usedPrefix}cancion_
+┃🎡➺ _${usedPrefix}trivia_
+┃🎡➺ _${usedPrefix}pelicula_
+┃🎡➺ _${usedPrefix}adivinaza_
 ┃🎡➺ _${usedPrefix}reto_
-┃🎡➺ _${usedPrefix}multijuegos_
-┃🎡➺ _${usedPrefix}juegos_
+┃🎡➺ _${usedPrefix}ruleta_
+┃🎡➺ _${usedPrefix}suerte_
 *╰━━━━━━━━━━━━⬣*
 
 *╭━〔 IA 〕━⬣*
@@ -530,6 +535,8 @@ ${readMore}
 ┃⚗️➺ _${usedPrefix}minargatacoins | minarcoins_
 ┃⚗️➺ _${usedPrefix}minarexperiencia | minarexp_
 ┃⚗️➺ _${usedPrefix}minar *:* minar2 *:* minar3_
+┃⚗️➺ _${usedPrefix}rob | robar 
+┃⚗️➺ _${usedPrefix}crime
 ┃⚗️➺ _${usedPrefix}reclamar | regalo | claim_
 ┃⚗️➺ _${usedPrefix}cadahora | hourly_
 ┃⚗️➺ _${usedPrefix}cadasemana | semanal | weekly_
