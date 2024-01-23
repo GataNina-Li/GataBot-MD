@@ -1,4 +1,4 @@
-FROM node:20.10.0-alpine3.18
+FROM node:20.10.0-alpine3.18 
 
 #Kurt18: La distribucion alpine3 es mas optima para contenedores
 #Kurt18: se agrega GIT porque alpine3 no lo trae por defecto
