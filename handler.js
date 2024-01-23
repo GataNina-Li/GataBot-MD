@@ -518,6 +518,7 @@ miestado: m.miestado,
 descripcion: m.descripcion,
 premLimit: 0,
 agility: 16,
+juegos: 0,
 messageSpam: 0,
 anakanjing: 0,
 anakcentaur: 0,
@@ -947,20 +948,20 @@ if (typeof chat !== 'object')
 global.db.data.chats[m.chat] = {}
 		
 if (chat) {
-if (!('isBanned' in chat)) chat.isBanned = false                    
-if (!('welcome' in chat)) chat.welcome = true                    
-if (!('detect' in chat)) chat.detect = true                    
-if (!('sWelcome' in chat)) chat.sWelcome = ''                    
+if (!('isBanned' in chat)) chat.isBanned = false         
+if (!('welcome' in chat)) chat.welcome = true           
+if (!('detect' in chat)) chat.detect = true               
+if (!('sWelcome' in chat)) chat.sWelcome = ''          
 if (!('sBye' in chat)) chat.sBye = ''                    
-if (!('sPromote' in chat)) chat.sPromote = ''                    
+if (!('sPromote' in chat)) chat.sPromote = ''             
 if (!('sDemote' in chat)) chat.sDemote = '' 
 if (!('delete' in chat)) chat.delete = false                   
-if (!('modohorny' in chat)) chat.modohorny = true                    
-if (!('stickers' in chat)) chat.stickers = false                   
-if (!('autosticker' in chat)) chat.autosticker = false                      
-if (!('audios' in chat)) chat.audios = true                     
-if (!('antiver' in chat)) chat.antiver = false                  
-if (!('antiLink' in chat)) chat.antiLink = false                    
+if (!('modohorny' in chat)) chat.modohorny = true       
+if (!('stickers' in chat)) chat.stickers = false            
+if (!('autosticker' in chat)) chat.autosticker = false      
+if (!('audios' in chat)) chat.audios = true               
+if (!('antiver' in chat)) chat.antiver = false             
+if (!('antiLink' in chat)) chat.antiLink = false      
 if (!('antiLink2' in chat)) chat.antiLink2 = false
 if (!('antiTiktok' in chat)) chat.antiTiktok = false
 if (!('antiYoutube' in chat)) chat.antiYoutube = false
@@ -971,8 +972,9 @@ if (!('antiTwitter' in chat)) chat.antiInstagram = false
 if (!('antifake' in chat)) chat.antifake = false
 if (!('reaction' in chat)) chat.reaction = true    
 if (!('viewonce' in chat)) chat.viewonce = false       
-if (!('modoadmin' in chat)) chat.modoadmin = false           
+if (!('modoadmin' in chat)) chat.modoadmin = false    
 if (!('antitoxic' in chat)) chat.antitoxic = false
+if (!('game' in chat)) chat.game = true
 if (!('simi' in chat)) chat.simi = false
 if (!('antiTraba' in chat)) chat.antiTraba = true
 if (!('autolevelup' in chat))  chat.autolevelup = true
@@ -1005,6 +1007,7 @@ reaction: true,
 viewonce: false,
 modoadmin: false,
 antitoxic: false,
+game: true, 
 simi: false,
 antiTraba: true,
 autolevelup: true,
