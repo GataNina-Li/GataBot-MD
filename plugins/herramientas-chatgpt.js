@@ -92,6 +92,6 @@ const akuariapiresult1 = await translate(`${akuariapijson1.respon}`, {to: 'es', 
 m.reply(`${akuariapiresult1.text}`.trim());
 } catch {
 throw `*[❗] 𝙴𝚁𝚁𝙾𝚁, 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾*`;
-}}}}}}}}}}};
+}}}}}}}}}}}};
 handler.command = /^(openai|chatgpt|ia|robot|openai2|chatgpt2|ia2|robot2|Gata)$/i;
 export default handler;
