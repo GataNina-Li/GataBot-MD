@@ -1,9 +1,9 @@
 import fetch from 'node-fetch'
 let handler = async (m, { command, usedPrefix, conn }) => {
 
-async function reclamarImagen(imagen, url) {
+async function reclamarImagen(imagen, jsonURL) {
 try {
-const response = await fetch(url);
+const response = await fetch(jsonURL);
 const data = await response.json();
 if (data.imagenesReclamadas && data.imagenesReclamadas.length > 0) {
 const imagenAleatoria = data.imagenesReclamadas[Math.floor(Math.random() * data.imagenesReclamadas.length)];
