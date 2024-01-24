@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 let handler = async (m, { command, usedPrefix, conn }) => {
 
-async function reclamarImagen(imagen) {
+async function reclamarImagen(imagen, url) {
 try {
 const response = await fetch(url);
 const data = await response.json();
