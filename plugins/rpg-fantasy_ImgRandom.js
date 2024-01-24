@@ -9,14 +9,14 @@ const data = await response.json()
 
 if (data.imagenesReclamadas && data.imagenesReclamadas.length > 0) {
 const dato = data.imagenesReclamadas[Math.floor(Math.random() * data.imagenesReclamadas.length)]
-
+let fakeIMG = { contextInfo: { externalAdReply: { title: conn.getName(m.sender), body: dato.descripcion, sourceUrl: redesMenu, thumbnailUrl: dato.urlImagen }}}
 let info = `*Nombre:* ${dato.nombre}
 *Origen:* ${dato.descripcion}
 *Costo:* $${dato.costo}
 *Estado:* Libre
 *Clase:* ${dato.clase}
 *ID:* \`\`\`${dato.codigoImagen}\`\`\``;
-await conn.sendMessage(m.chat, { image: { url: dato.urlImagen }, caption: info }, { quoted: m })
+await conn.sendMessage(m.chat, { image: { url: dato.urlImagen }, caption: info }, { quoted: fakeIMG })
 } else {
 console.error('El JSON no contiene imágenes reclamadas.')
 conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m })
