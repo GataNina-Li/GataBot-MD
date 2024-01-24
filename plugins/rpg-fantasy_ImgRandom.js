@@ -7,7 +7,7 @@ const response = await fetch(url)
 const data = await response.json()
 
 data.imagenesReclamadas.forEach((imagen, index) => {
-fakeIMG = { contextInfo: { externalAdReply: { title: conn.getName(m.sender), body: imagen.descripcion, sourceUrl: redesMenu, thumbnailUrl: imagen.urlImagen }}}
+let fakeIMG = { contextInfo: { externalAdReply: { title: conn.getName(m.sender), body: imagen.descripcion, sourceUrl: redesMenu, thumbnailUrl: imagen.urlImagen }}}
 let info = `Nombre: ${imagen.nombre}
 Origen: ${imagen.descripcion}
 Costo: $${imagen.costo}
