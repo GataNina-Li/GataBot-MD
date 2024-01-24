@@ -20,7 +20,7 @@ let info = `*Nombre:* ${dato.nombre}
 *Clase:* ${dato.clase}
 *ID:* \`\`\`${dato.codigoImagen}\`\`\``;
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-conn.sendFile(m.chat, dato.urlImagen, 'error.jpg', info, fkontak, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `${conn.getName(m.sender)}`, body: `${dato.descripcion}`, mediaType: 1, sourceUrl: redesMenu.getRandom(), thumbnailUrl: pp}}})
+conn.sendFile(m.chat, dato.urlImagen, 'error.jpg', info, fkontak, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `${conn.getName(m.sender)}`, body: `${dato.descripcion}`, mediaType: 1, sourceUrl: accountsgb.getRandom(), thumbnailUrl: pp}}})
 } else {
 console.error('El JSON no contiene imágenes reclamadas.')
 conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m })
