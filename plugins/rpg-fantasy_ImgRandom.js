@@ -9,15 +9,16 @@ const data = await response.json()
 
 if (data.imagenesReclamadas && data.imagenesReclamadas.length > 0) {
 const dato = data.imagenesReclamadas[Math.floor(Math.random() * data.imagenesReclamadas.length)]
-let fakeIMG = { contextInfo: { externalAdReply: { title: `${conn.getName(m.sender)}`, body: `${dato.descripcion}`, sourceUrl: redesMenu, thumbnailUrl: dato.urlImagen }}}
+let fakeIMG = { contextInfo: { externalAdReply: { title: `${conn.getName(m.sender)}`, body: `${dato.descripcion}`, sourceUrl: redesMenu.getRandom(), thumbnailUrl: dato.urlImagen }}}
 let info = `*Nombre:* ${dato.nombre}
 *Origen:* ${dato.descripcion}
 *Costo:* $${dato.costo}
 *Estado:* Libre
 *Clase:* ${dato.clase}
 *ID:* \`\`\`${dato.codigoImagen}\`\`\``;
-//await conn.sendMessage(m.chat, { image: { url: dato.urlImagen }, caption: info }, { quoted: fakeIMG })
-await conn.sendMessage(m.chat, { image: { url: dato.urlImagen }, caption: info, mentions: [m.sender] }, { quoted: fakeIMG })
+await conn.sendMessage(m.chat, { image: { url: dato.urlImagen }, caption: info }, { quoted: fakeIMG })
+//await conn.sendMessage(m.chat, { image: { url: dato.urlImagen }, caption: info, mentions: [m.sender] }, { quoted: fakeIMG })
+//conn.sendFile(m.chat, dato.urlImagen, 'error.jpg', '', null, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `${conn.getName(m.sender)}`, body: `${dato.descripcion}`, mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: gataImg.getRandom()}}})
 } else {
 console.error('El JSON no contiene imágenes reclamadas.')
 conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m })
