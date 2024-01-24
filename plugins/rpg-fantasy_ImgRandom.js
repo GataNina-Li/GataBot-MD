@@ -17,7 +17,7 @@ let info = `*Nombre:* ${dato.nombre}
 *Clase:* ${dato.clase}
 *ID:* \`\`\`${dato.codigoImagen}\`\`\``;
 //await conn.sendMessage(m.chat, { image: { url: dato.urlImagen }, caption: info }, { quoted: fakeIMG })
-await conn.sendFile(m.chat, dato.urlImagen, 'error.mp4', info, fakeIMG)
+await conn.sendMessage(m.chat, { image: { url: dato.urlImagen }, caption: info, mentions: [m.sender] }, { quoted: fakeIMG })
 } else {
 console.error('El JSON no contiene imágenes reclamadas.')
 conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m })
