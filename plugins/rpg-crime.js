@@ -1,10 +1,13 @@
 //CÓDIGO CREADO POR elrebelde21 : https://github.com/elrebelde21
 const handler = async (m, {conn, isPrems}) => {
-const date = global.db.data.users[m.sender].crime + 10800000; //3600000 = 3 hs
-if (new Date - global.db.data.users[m.sender].crime < 10800000) return m.reply(`『🚓︎』𝙇𝘼 𝙋𝙊𝙇𝙄𝘾𝙄𝘼 𝙀𝙎𝙏𝘼 𝙑𝙄𝙂𝙄𝙇𝘼𝙉𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝙈𝙊𝙈𝙀𝙉𝙏𝙊, 𝙑𝙐𝙀𝙇𝙑𝙀 𝙀𝙉 : ${msToTime(date - new Date())}`)
-const exp = Math.floor(Math.random() * 10000)
-const diamond = Math.floor(Math.random() * 300)
-const money = Math.floor(Math.random() * 10000)
+const date = global.db.data.users[m.sender].crime + 3600000; //3600000 = 1 hs
+if (new Date - global.db.data.users[m.sender].crime < 3600000) return m.reply(`『🚓︎』𝙇𝘼 𝙋𝙊𝙇𝙄𝘾𝙄𝘼 𝙀𝙎𝙏𝘼 𝙑𝙄𝙂𝙄𝙇𝘼𝙉𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝙈𝙊𝙈𝙀𝙉𝙏𝙊, 𝙑𝙐𝙀𝙇𝙑𝙀 𝙀𝙉 : ${msToTime(date - new Date())}`)
+const exp = Math.floor(Math.random() * 9000)
+const diamond = Math.floor(Math.random() * 150)
+const money = Math.floor(Math.random() * 9000)
+if (global.db.data.users[m.sender].exp < 0) return m.reply(`《💰》${pickRandom(global.robar)} ${exp} XP`).catch(global.db.data.users[m.sender].exp += exp)
+if (global.db.data.users[m.sender].limit < 0) return m.reply(`《💰》${pickRandom(global.robar)} ${diamond} 💎 Diamante`).catch(global.db.data.users[m.sender].limit += diamond)
+if (global.db.data.users[m.sender].money < 0) return m.reply(`《💰》${pickRandom(global.robar)} ${money} 🐈GataCoins`).catch(global.db.data.users[m.sender].money += money) 
 let or = ['text', 'text2', 'text3', 'text4']; 
 let media = or[Math.floor(Math.random() * 4)]
 global.db.data.users[m.sender].crime = new Date * 1;
