@@ -9,7 +9,7 @@ const data = await response.json()
 
 if (data.imagenesReclamadas && data.imagenesReclamadas.length > 0) {
 const dato = data.imagenesReclamadas[Math.floor(Math.random() * data.imagenesReclamadas.length)]
-let fakeIMG = { contextInfo: { externalAdReply: { title: conn.getName(m.sender), body: dato.descripcion, sourceUrl: redesMenu, thumbnailUrl: dato.urlImagen }}}
+let fakeIMG = { contextInfo: { externalAdReply: { title: `${conn.getName(m.sender)}`, body: dato.descripcion, sourceUrl: redesMenu, thumbnailUrl: dato.urlImagen }}}
 let info = `*Nombre:* ${dato.nombre}
 *Origen:* ${dato.descripcion}
 *Costo:* $${dato.costo}
