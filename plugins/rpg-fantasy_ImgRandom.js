@@ -14,7 +14,7 @@ Costo: $${imagen.costo}
 Estado: Libre
 Clase: ${imagen.clase}
 Id de imagen: ${imagen.codigoImagen}`
-conn.sendMessage(m.chat, { image: { url: imagen.urlImagen }, caption: info, mentions: [m.sender] }, { quoted: fakeIMG })  
+conn.sendMessage(m.chat, { image: { url: imagen.urlImagen }, caption: info }, { quoted: fakeIMG })  
 })
 } catch (error) {
 console.error('Error al obtener o procesar los datos: ', error)
