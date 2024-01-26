@@ -1,9 +1,8 @@
 import fetch from 'node-fetch';
 let id_message = null
 let dato = null
-//let conn = null
-async function handler(m, { conn, args, usedPrefix, command }) {
-//let handler = async (m, { command, usedPrefix, conn }) => {
+
+let handler = async (m, { command, usedPrefix, conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
@@ -38,10 +37,10 @@ console.error('Error al obtener o procesar los datos: ', error)
 conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
 }
 
-handler.before = async (m, conn) => {
+handler.before = async (m) => {
 if (m.quoted && m.quoted.id === id_message && m.text.toLowerCase() === 'comprar') {
-conn.sendMessage(m.chat, `El usuario ${conn.getName(m.sender)} ha comprado a ${dato.nombre}`, { quoted: m })
-//m.reply(`El usuario ${conn.getName(m.sender)} ha comprado a ${dato.nombre}`)
+//conn.sendMessage(m.chat, `El usuario ${conn.getName(m.sender)} ha comprado a ${dato.nombre}`, { quoted: m })
+m.reply(`El usuario ${conn.getName(m.sender)} ha comprado a ${dato.nombre}`)
 }}}
 
 handler.command = /^(fantasy|fy)$/i
