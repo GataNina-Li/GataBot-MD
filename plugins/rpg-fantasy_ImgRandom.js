@@ -39,6 +39,7 @@ export default handler*/
 import fetch from 'node-fetch';
 
 let id_message = null; // Variable para almacenar el ID del mensaje de la imagen
+let dato = null
 
 let handler = async (m, { command, usedPrefix, conn }) => {
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
@@ -66,7 +67,7 @@ let handler = async (m, { command, usedPrefix, conn }) => {
             const data = await response.json();
 
             if (data.imagenesReclamadas && data.imagenesReclamadas.length > 0) {
-                const dato = data.imagenesReclamadas[Math.floor(Math.random() * data.imagenesReclamadas.length)];
+                dato = data.imagenesReclamadas[Math.floor(Math.random() * data.imagenesReclamadas.length)];
                 let pp = await conn.profilePictureUrl(who, 'image').catch((_) => dato.urlImagen);
                 let info = `*⛱️ FANTASÍA RPG ⛱️*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Nombre:* ${dato.nombre}\n✓ *Origen:* ${dato.descripcion}\n✓ *Costo:* $${dato.costo}\n✓ *Estado:* Libre\n✓ *Clase:* ${dato.clase}\n✓ *ID:* \`\`\`${dato.codigoImagen}\`\`\``;
 
