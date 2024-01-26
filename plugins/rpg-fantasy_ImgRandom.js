@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
-let id_message = null
-let dato = null
+let id_message, pp, dato = null
+//let dato = null
 
 let handler = async (m, { command, usedPrefix, conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -13,7 +13,7 @@ const data = await response.json()
 
 if (data.imagenesReclamadas && data.imagenesReclamadas.length > 0) {
 dato = data.imagenesReclamadas[Math.floor(Math.random() * data.imagenesReclamadas.length)]
-let pp = await conn.profilePictureUrl(who, 'image').catch((_) => dato.urlImagen)
+pp = await conn.profilePictureUrl(who, 'image').catch((_) => dato.urlImagen)
 let info = `*⛱️ FANTASÍA RPG ⛱️*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Nombre:* ${dato.nombre}\n✓ *Origen:* ${dato.descripcion}\n✓ *Costo:* $${dato.costo}\n✓ *Estado:* Libre\n✓ *Clase:* ${dato.clase}\n✓ *ID:* \`\`\`${dato.codigoImagen}\`\`\``
 
 id_message = (await conn.sendFile(m.chat, dato.urlImagen, 'error.jpg', info, fkontak, true, {
@@ -37,7 +37,7 @@ console.error('Error al obtener o procesar los datos: ', error)
 conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
 }
 
-handler.before = async (m, pp) => {
+handler.before = async (m) => {
 if (m.quoted && m.quoted.id === id_message && m.text.toLowerCase() === 'comprar') {
 let ppp = { contextInfo: { externalAdReply: {title: `${conn.getName(m.sender)}`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: pp }}}
 conn.sendMessage(m.chat, {text: `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*` }, { quoted: ppp})
