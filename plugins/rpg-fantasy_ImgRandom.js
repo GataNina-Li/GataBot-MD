@@ -39,8 +39,9 @@ conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
 
 handler.before = async (m) => {
 if (m.quoted && m.quoted.id === id_message && m.text.toLowerCase() === 'comprar') {
-let ppp = { contextInfo: { externalAdReply: {title: `${conn.getName(m.sender)}`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: pp }}}
-conn.sendMessage(m.chat, {text: `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*` }, { quoted: ppp})
+let ppp = { contextInfo: { externalAdReply: {title: `${conn.getName(m.sender)}`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: 'https://w7.pngwing.com/pngs/474/375/png-transparent-agar-io-computer-icons-ubuntu-skin-buy-text-orange-logo.png' }}}
+//conn.sendMessage(m.chat, {text: `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*` }, { quoted: ppp})
+conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, ppp, )
 }}
 
 handler.command = /^(fantasy|fy)$/i
