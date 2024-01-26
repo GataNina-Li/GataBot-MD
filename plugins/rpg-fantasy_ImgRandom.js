@@ -100,7 +100,8 @@ let handler = async (m, { command, usedPrefix, conn }) => {
 handler.before = async (m) => {
     // Verifica si el mensaje actual es una respuesta al mensaje de la imagen y si el texto es "comprar"
     if (m.quoted && m.quoted.id === id_message && m.text.toLowerCase() === 'comprar') {
-        conn.sendMessage(m.chat, `El siguiente usuario ${conn.getName(m.sender)} ha comprado a ${dato.nombre}`, { quoted: m });
+        //conn.sendMessage(m.chat, `El siguiente usuario ${conn.getName(m.sender)} ha comprado a ${dato.nombre}`, { quoted: m });
+        m.reply(`El siguiente usuario ${conn.getName(m.sender)} ha comprado a ${dato.nombre}`)
         // Puedes realizar más acciones relacionadas con la compra aquí
     }
 };
