@@ -70,7 +70,7 @@ sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: pp
 }}
 }, { caption: 'imagen_info' }).then(() => {
-if (m.text.toLowerCase().includes('comprar')) {
+if (m.text.toLowerCase().includes('comp')) {
 let comprador = m.sender
 console.log('Se ha comprado la imagen. Comprador:', comprador)
                             
