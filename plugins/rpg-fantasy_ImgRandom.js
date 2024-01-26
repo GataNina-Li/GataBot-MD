@@ -39,7 +39,7 @@ export default handler*/
 import fetch from 'node-fetch';
 let id_message = null
 let dato = null
-let conn = null
+//let conn = null
 
 let handler = async (m, { command, usedPrefix, conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
