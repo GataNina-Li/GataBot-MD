@@ -45,6 +45,6 @@ conn.sendMessage(m.chat, {text: `El usuario *${conn.getName(m.sender)}* ha compr
 }}}
 
 handler.command = /^(fantasy|fy)$/i
-export default handler;
+export default handler
 
 
