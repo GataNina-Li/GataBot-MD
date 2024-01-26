@@ -39,7 +39,7 @@ conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
 
 handler.before = async (m) => {
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
-let fake = { contextInfo: { externalAdReply: {title: `${conn.getName(m.sender)}`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: 'https://img.freepik.com/vector-premium/icono-marca-verificacion_108855-4739.jpg' }}}
+let fake = { contextInfo: { externalAdReply: {title: `${conn.getName(m.sender)}`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: 'https://play-lh.googleusercontent.com/3-i7c2XnuvfTjkYwvb1ltNO96xtjiYfgP5zsLK3nNcwJHbVjoWu8IeslOns-8mtpilg' }}}
 //conn.sendMessage(m.chat, {text: `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*` }, { quoted: ppp})
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake, )
 }}
