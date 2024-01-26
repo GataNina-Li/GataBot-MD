@@ -40,7 +40,7 @@ conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
 
 handler.before = async (m) => {
 if (m.quoted && m.quoted.id === id_message && m.text.toLowerCase() === 'comprar') {
-this.sendMessage(m.chat, `El usuario ${conn.getName(m.sender)} ha comprado a ${dato.nombre}`, { quoted: m })
+m.sendMessage(m.chat, `El usuario ${conn.getName(m.sender)} ha comprado a ${dato.nombre}`, { quoted: m })
 //m.reply(`El usuario ${conn.getName(m.sender)} ha comprado a ${dato.nombre}`)
 }}
 
