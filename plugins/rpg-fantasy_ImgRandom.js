@@ -16,7 +16,7 @@ if (data.imagenesReclamadas && data.imagenesReclamadas.length > 0) {
 const dato = data.imagenesReclamadas[Math.floor(Math.random() * data.imagenesReclamadas.length)]
 let pp = await conn.profilePictureUrl(who, 'image').catch((_) => dato.urlImagen)
 let info = `*⛱️ FANTASÍA RPG ⛱️*
-*⋯⋯⋯⋯⋯⋯*
+*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 *✓ Nombre:* ${dato.nombre}
 *✓ Origen:* ${dato.descripcion}
 *✓ Costo:* $${dato.costo}
