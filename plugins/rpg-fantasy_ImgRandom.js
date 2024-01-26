@@ -1,6 +1,5 @@
-import fetch from 'node-fetch';
+/*import fetch from 'node-fetch'
 let id_message, pp, dato = null
-//let dato = null
 
 let handler = async (m, { command, usedPrefix, conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -38,13 +37,16 @@ conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
 }}
 
 handler.before = async (m) => {
+let user = global.db.data.users[m.sender]
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
+const cantidadFaltante = dato.costo - user.money
+if (user.money < dato.costo) return conn.reply(m.chat, `Te falta ${cantidadFaltante} `, m, fake, )
+  
 let fake = { contextInfo: { externalAdReply: {title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen }}}
-//conn.sendMessage(m.chat, {text: `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*` }, { quoted: ppp})
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake, )
 }}
 
 handler.command = /^(fantasy|fy)$/i
-export default handler
+export default handler*/
 
 
