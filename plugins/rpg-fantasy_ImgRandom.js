@@ -86,10 +86,10 @@ function obtenerProximoIndice(fantasy) {
 if (!fantasy || Object.keys(fantasy).length === 0) {
 return 'index1'
 }
-const indices = Object.keys(fantasy);
+const indices = Object.keys(fantasy)
 const ultimoIndice = indices.reduce((max, indice) => {
 const numero = parseInt(indice.match(/\d+/)[0])
-return numero > max ? numero : max;
+return numero > max ? numero : max
 }, 0)
 return `index${ultimoIndice + 1}`
 }
