@@ -74,14 +74,18 @@ Estado: true,
 }
 
 if (user.fantasy[indiceCompra]) {
-const compraExistente = user.fantasy[indiceCompra]
-const comprasCombinadas = {
-...compraExistente,
-...compraActual,
+const comprasAnteriores = { ...user.fantasy };
+const indicesNumericos = Object.keys(comprasAnteriores).map(indice => parseInt(indice.match(/\d+/)[0]))
+let nuevoIndiceNumerico = 1
+while (indicesNumericos.includes(nuevoIndiceNumerico)) {
+nuevoIndiceNumerico++
 }
-user.fantasy[indiceCompra] = comprasCombinadas
-} else {
-user.fantasy[indiceCompra] = compraActual
+const nuevoIndice = `index${nuevoIndiceNumerico}`
+user.fantasy = {
+...comprasAnteriores,
+[nuevoIndice]: { ...compraActual },
+}} else {
+user.fantasy[indiceCompra] = compraActual;
 }
   
 user.money -= dato.costo
