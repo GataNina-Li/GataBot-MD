@@ -7,7 +7,7 @@ let packName = args[0].replace("https://t.me/addstickers/", "")
 let gas = await fetch(`https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getStickerSet?name=${encodeURIComponent(packName)}`, { method: "GET", headers: { "User-Agent": "GoogleBot" } })
 if (!gas.ok) throw eror
 let json = await gas.json()
-m.reply(`${lenguajeGB['smsAvisoIIG']()} *𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝙏𝙊𝙏𝘼𝙇𝙀𝙎:* ${json.result.stickers.length} *𝙀𝙉𝙑𝙄𝘼𝘿𝙊 𝙀𝙇:* ${json.result.stickers.length * 1.5} Segundos`.trim())
+m.reply(`${lenguajeGB['smsAvisoIIG']()} *𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝙏𝙊𝙏𝘼𝙇𝙀𝙎:* ${json.result.stickers.length}\n*𝙀𝙉𝙑𝙄𝘼𝘿𝙊 𝙀𝙇:* ${json.result.stickers.length * 1.5} Segundos`.trim())
 for (let i = 0; i < json.result.stickers.length; i++) {
 let fileId = json.result.stickers[i].thumb.file_id
 let gasIn = await fetch(`https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getFile?file_id=${fileId}`)
