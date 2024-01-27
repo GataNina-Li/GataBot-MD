@@ -56,7 +56,7 @@ let user = global.db.data.users[m.sender]
 if (!user.fantasy) user.fantasy = {}
 
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
-const cantidadFaltante = user.money - dato.costo
+const cantidadFaltante = dato.costo - user.money
 
 if (user.money < dato.costo) {
 fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } };
