@@ -72,7 +72,8 @@ Imagen: dato.urlImagen,
 like: false,
 Estado: true,
 }
-let update = { ...user.fantasy, [indiceCompra]: compraActual }
+const comprasAnteriores = { ...user.fantasy };
+update = { ...comprasAnteriores, [indiceCompra]: compraActual };
 console.log(update)
 user.fantasy = update
 user.money -= dato.costo
