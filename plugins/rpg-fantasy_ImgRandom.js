@@ -75,7 +75,7 @@ Estado: true,
 }
   
 informacionCompras[indiceCompra] = compraActual
-user.fantasy[indiceCompra] += compraActual
+user.fantasy[indiceCompra] = compraActual
 user.money -= dato.costo
 
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
