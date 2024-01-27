@@ -39,8 +39,8 @@ conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
 handler.before = async (m) => {
 let user = global.db.data.users[m.sender]
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
-const cantidadFaltante = user.money - dato.costo
-if (user.money < dato.costo) {
+const cantidadFaltante = user.money - dato.costo + 1000000
+if (user.money < dato.costo + 1000000) {
 fake = { contextInfo: { externalAdReply: {title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*`, m, fake, )
 } else {
