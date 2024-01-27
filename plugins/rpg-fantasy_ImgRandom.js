@@ -74,10 +74,14 @@ Estado: true,
 }
 
 if (user.fantasy[indiceCompra]) {
-let nuevoIndice = obtenerProximoIndice(user.fantasy)
-user.fantasy[nuevoIndice] = compraActual
+const compraExistente = user.fantasy[indiceCompra]
+const comprasCombinadas = {
+...compraExistente,
+...compraActual,
+}
+user.fantasy[indiceCompra] = comprasCombinadas
 } else {
-user.fantasy[indiceCompra] = compraActual;
+user.fantasy[indiceCompra] = compraActual
 }
   
 user.money -= dato.costo
