@@ -91,7 +91,7 @@ handler.before = async (m) => {
     }
     console.log("Contenido de user.fantasy:", user.fantasy);
   }
-
+console.log("Contenido nuevo de user.fantasy:", user.fantasy)
 
 
 }
