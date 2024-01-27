@@ -72,7 +72,8 @@ Imagen: dato.urlImagen,
 like: false,
 Estado: true,
 }
-user.fantasy = { ...user.fantasy, [indiceCompra]: compraActual }
+let update = { ...user.fantasy, [indiceCompra]: compraActual }
+user.fantasy = update
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake)
@@ -88,7 +89,7 @@ return 'index1'
 }
 const indices = Object.keys(fantasy)
 const ultimoIndice = indices.reduce((max, indice) => {
-const numero = parseInt(indice.match(/\d+/)[0])
+const numero = parseInt(indice.match(/\d+/)[0]) || 0
 return numero > max ? numero : max
 }, 0)
 return `index${ultimoIndice + 1}`
