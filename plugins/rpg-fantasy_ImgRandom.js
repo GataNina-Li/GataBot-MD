@@ -52,49 +52,36 @@ conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato
 }}*/
 
 handler.before = async (m) => {
-user = global.db.data.users[m.sender];
-  if (!user.fantasy) user.fantasy = {};
+user = global.db.data.users[m.sender]
+if (!user.fantasy) user.fantasy = {}
+if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
+const cantidadFaltante = dato.costo - user.money
 
-  if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
-    const cantidadFaltante = dato.costo - user.money;
-
-    if (user.money < dato.costo) {
-      fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } };
-      conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake);
-    } else {
-      const indiceCompra = obtenerProximoIndice(user.fantasy);
-      const compraActual = {
-        Nombre: dato.nombre,
-        Origen: dato.descripcion,
-        Costo: dato.costo,
-        Clase: dato.clase,
-        ID: dato.codigoImagen,
-        Imagen: dato.urlImagen,
-        like: false,
-        Estado: true,
-      };
-
-      if (user.fantasy[indiceCompra]) {
-        
-        const compraExistente = user.fantasy[indiceCompra];
-        const compraUnificada = { ...compraExistente, ...compraActual };
-        user.fantasy[indiceCompra] = compraUnificada;
-      } else {
-        
-        user.fantasy[indiceCompra] = compraActual;
-      }
-
-      user.money -= dato.costo;
-
-      fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } };
-      conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake);
-    }
-    console.log("Contenido de user.fantasy:", user.fantasy);
-  }
-user = global.db.data.users[m.sender];
-console.log("Contenido nuevo de user.fantasy:", user.fantasy)
-
-
+if (user.money < dato.costo) {
+fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
+conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
+} else {
+const indiceCompra = obtenerProximoIndice(user.fantasy);
+const compraActual = {
+Nombre: dato.nombre,
+Origen: dato.descripcion,
+Costo: dato.costo,
+Clase: dato.clase,
+ID: dato.codigoImagen,
+Imagen: dato.urlImagen,
+like: false,
+Estado: true,
+}
+if (user.fantasy[indiceCompra]) {
+user.fantasy[indiceCompra] = { ...user.fantasy[indiceCompra], ...compraActual }
+} else {
+user.fantasy[indiceCompra] = compraActual
+}
+user.money -= dato.costo
+fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
+conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake)
+console.log("Contenido de user.fantasy:", user.fantasy)
+}}
 }
 handler.command = /^(fantasy|fy)$/i
 export default handler
