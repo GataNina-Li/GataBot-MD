@@ -80,8 +80,9 @@ user.money -= dato.costo
 
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake)
+}
 console.log("Contenido de user.fantasy:", user.fantasy)
-}}
+}
 
 }
 handler.command = /^(fantasy|fy)$/i
