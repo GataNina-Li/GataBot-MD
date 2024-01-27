@@ -1,5 +1,5 @@
-/*import fetch from 'node-fetch'
-let id_message, pp, dato = null
+import fetch from 'node-fetch'
+let id_message, pp, dato, fake = null
 
 let handler = async (m, { command, usedPrefix, conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -40,13 +40,16 @@ handler.before = async (m) => {
 let user = global.db.data.users[m.sender]
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
 const cantidadFaltante = dato.costo - user.money
-if (user.money < dato.costo) return conn.reply(m.chat, `Te falta ${cantidadFaltante} `, m, fake, )
-  
-let fake = { contextInfo: { externalAdReply: {title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen }}}
+if (user.money < dato.costo + 100000000) {
+fake = { contextInfo: { externalAdReply: {title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `🫧 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*`, m, fake, )
+} else {
+user.money -= dato.costo
+fake = { contextInfo: { externalAdReply: {title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen }}}
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake, )
 }}
-
+}
 handler.command = /^(fantasy|fy)$/i
-export default handler*/
+export default handler
 
 
