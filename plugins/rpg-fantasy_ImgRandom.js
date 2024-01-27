@@ -1,7 +1,5 @@
 import fetch from 'node-fetch'
 let id_message, pp, dato, fake, user = null
-let informacionCompras = {}
-let contadorCompras = 1
 
 let handler = async (m, { command, usedPrefix, conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -53,7 +51,7 @@ conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato
 
 handler.before = async (m) => {
 user = global.db.data.users[m.sender]
-if (!user.fantasy) user.fantasy = {}
+if (!user.fantasy) user.fantasy = []
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
 const cantidadFaltante = dato.costo - user.money
 
@@ -72,10 +70,7 @@ Imagen: dato.urlImagen,
 like: false,
 Estado: true,
 }
-const comprasAnteriores = { ...user.fantasy };
-let update = { ...comprasAnteriores, [indiceCompra]: compraActual };
-console.log(update)
-user.fantasy = update
+user.fantasy.push({ [indiceCompra]: compraActual })
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake)
