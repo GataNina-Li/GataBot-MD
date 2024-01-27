@@ -87,11 +87,16 @@ handler.command = /^(fantasy|fy)$/i
 export default handler
 
 function obtenerProximoIndice(fantasy) {
-let indice = 1
-while (fantasy[`index${indice}`]) {
-indice++
+if (!fantasy || Object.keys(fantasy).length === 0) {
+return 'index1'
 }
-return `index${indice}`
+const indices = Object.keys(fantasy)
+const ultimoIndice = indices.reduce((max, indice) => {
+const numero = parseInt(indice.match(/\d+/)[0])
+return numero > max ? numero : max
+}, 0)
+return `index${ultimoIndice + 1}`;
 }
+
 
 
