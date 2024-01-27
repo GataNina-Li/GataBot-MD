@@ -199,7 +199,7 @@ if (!isNumber(user.fox)) user.fox = 0
 if (!isNumber(user.foxexp)) user.foxexp = 0
 if (!isNumber(user.foxlastfeed)) user.foxlastfeed = 0
 if (!isNumber(user.fullatm)) user.fullatm = 0
-if (!isNumber(user.fantasy)) user.fantasy = 0
+if (!isNumber(user.fantasy)) user.fantasy = {}
 if (!isNumber(user.gadodado)) user.gadodado = 0
 if (!isNumber(user.gajah)) user.gajah = 0
 if (!isNumber(user.gamemines)) user.gamemines = false
@@ -622,7 +622,7 @@ fox: 0,
 foxexp: 0,
 foxlastfeed: 0,
 fullatm: 0,
-fantasy: 0,
+fantasy: {},
 gadodado: 0,
 gajah: 0,
 gamemines: false,
