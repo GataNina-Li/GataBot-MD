@@ -89,11 +89,9 @@ if (!fantasy || Object.keys(fantasy).length === 0) {
 return 'index1'
 }
 const indices = Object.keys(fantasy)
-const ultimoIndice = indices.reduce((max, indice) => {
-const numero = parseInt(indice.match(/\d+/)[0]) || 0
-return numero > max ? numero : max
-}, 0)
-return `index${ultimoIndice + 1}`
+const numeros = indices.map(indice => parseInt(indice.match(/\d+/)[0]))
+const nuevoIndice = Math.max(...numeros) + 1
+return `index${nuevoIndice}`
 }
 
 
