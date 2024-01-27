@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-let id_message, pp, dato, fake = null
+let id_message, pp, dato, fake, user = null
 let informacionCompras = {}
 let contadorCompras = 1
 
@@ -52,7 +52,7 @@ conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato
 }}*/
 
 handler.before = async (m) => {
-  let user = global.db.data.users[m.sender];
+user = global.db.data.users[m.sender];
   if (!user.fantasy) user.fantasy = {};
 
   if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
@@ -91,6 +91,7 @@ handler.before = async (m) => {
     }
     console.log("Contenido de user.fantasy:", user.fantasy);
   }
+user = global.db.data.users[m.sender];
 console.log("Contenido nuevo de user.fantasy:", user.fantasy)
 
 
