@@ -73,6 +73,7 @@ like: false,
 Estado: true,
 }
 let update = { ...user.fantasy, [indiceCompra]: compraActual }
+m.reply(update)
 user.fantasy = update
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
