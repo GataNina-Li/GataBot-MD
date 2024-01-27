@@ -74,8 +74,13 @@ like: false,
 Estado: true,
 }
   
-informacionCompras[indiceCompra] = compraActual
+if (user.fantasy[indiceCompra]) {
+const indexNumerico = parseInt(indiceCompra.match(/\d+/)[0])
+const nuevoIndice = `index${indexNumerico + 1}`
+user.fantasy[nuevoIndice] = compraActual
+} else {
 user.fantasy[indiceCompra] = compraActual
+}
 user.money -= dato.costo
 
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
