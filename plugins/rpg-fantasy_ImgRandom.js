@@ -59,7 +59,8 @@ if (user.money < dato.costo) {
 fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
-const indiceCompra = obtenerProximoIndice(user.fantasy)
+const indicesAnteriores = user.fantasy.map(compra => Object.keys(compra)[0]);
+const indiceCompra = obtenerProximoIndice(indicesAnteriores)
 const compraActual = {
 Nombre: dato.nombre,
 Origen: dato.descripcion,
@@ -80,12 +81,11 @@ console.log("Contenido de user.fantasy:", user.fantasy)
 handler.command = /^(fantasy|fy)$/i
 export default handler
 
-function obtenerProximoIndice(fantasy) {
-if (!fantasy || fantasy.length === 0) {
+function obtenerProximoIndice(indicesAnteriores) {
+if (indicesAnteriores.length === 0) {
 return 'index1'
 }
-const indices = fantasy.map(compra => parseInt(Object.keys(compra)[0].match(/\d+/)[0]))
-const ultimoIndice = Math.max(...indices, 0);
+const ultimoIndice = Math.max(...indicesAnteriores.map(indice => parseInt(indice.match(/\d+/)[0])), 0)
 return `index${ultimoIndice + 1}`
 }
 
