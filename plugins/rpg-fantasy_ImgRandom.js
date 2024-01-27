@@ -52,7 +52,8 @@ conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato
 }}*/
 
 handler.before = async (m) => {
-let user = global.db.data.users[m.sender];
+let user = global.db.data.users[m.sender]
+if (!user.fantasy) user.fantasy = {}
 
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
 const cantidadFaltante = user.money - dato.costo
@@ -72,7 +73,7 @@ Imagen: dato.urlImagen,
 like: false,
 Estado: true,
 }
-
+  
 informacionCompras[indiceCompra] = compraActual
 user.fantasy[indiceCompra] += compraActual
 user.money -= dato.costo
