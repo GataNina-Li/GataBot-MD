@@ -61,7 +61,8 @@ if (user.money < dato.costo) {
 fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
-const indiceCompra = obtenerProximoIndice(user.fantasy);
+const comprasAnteriores = Object.keys(user.fantasy).length > 0 ? { ...user.fantasy } : null
+const indiceCompra = obtenerProximoIndice(user.fantasy)
 const compraActual = {
 Nombre: dato.nombre,
 Origen: dato.descripcion,
@@ -72,22 +73,7 @@ Imagen: dato.urlImagen,
 like: false,
 Estado: true,
 }
-
-if (user.fantasy[indiceCompra]) {
-const comprasAnteriores = { ...user.fantasy };
-const indicesNumericos = Object.keys(comprasAnteriores).map(indice => parseInt(indice.match(/\d+/)[0]))
-let nuevoIndiceNumerico = 1
-while (indicesNumericos.includes(nuevoIndiceNumerico)) {
-nuevoIndiceNumerico++
-}
-const nuevoIndice = `index${nuevoIndiceNumerico}`
-user.fantasy = {
-...comprasAnteriores,
-[nuevoIndice]: { ...compraActual },
-}} else {
-user.fantasy[indiceCompra] = compraActual;
-}
-  
+user.fantasy = comprasAnteriores ? { ...comprasAnteriores, [indiceCompra]: compraActual } : { [indiceCompra]: compraActual }
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake)
