@@ -54,10 +54,6 @@ conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato
 handler.before = async (m) => {
 let user = global.db.data.users[m.sender];
 
-if (!user.fantasy) {
-user.fantasy = {}
-}
-
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
 const cantidadFaltante = user.money - dato.costo
 
@@ -65,7 +61,7 @@ if (user.money < dato.costo) {
 fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } };
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake);
 } else {
-const indiceCompra = obtenerProximoIndice(user.fantasy);
+const indiceCompra = obtenerProximoIndice(user.fantasy)
 const compraActual = {
 Nombre: dato.nombre,
 Origen: dato.descripcion,
@@ -78,7 +74,7 @@ Estado: true,
 }
 
 informacionCompras[indiceCompra] = compraActual
-user.fantasy[indiceCompra] = compraActual
+user.fantasy[indiceCompra] += compraActual
 user.money -= dato.costo
 
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
