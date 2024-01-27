@@ -1,5 +1,7 @@
 import fetch from 'node-fetch'
 let id_message, pp, dato, fake = null
+let informacionCompras = {}
+let contadorCompras = 1
 
 let handler = async (m, { command, usedPrefix, conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -36,7 +38,7 @@ console.error('Error al obtener o procesar los datos: ', error)
 conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
 }}
 
-handler.before = async (m) => {
+/*handler.before = async (m) => {
 let user = global.db.data.users[m.sender]
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
 const cantidadFaltante = user.money - dato.costo
@@ -47,7 +49,40 @@ conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* 
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: {title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen }}}
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake, )
-}}
+}}*/
+
+handler.before = async (m) => {
+let user = global.db.data.users[m.sender]
+  
+if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
+const cantidadFaltante = user.money - dato.costo
+
+if (user.money < dato.costo) {
+fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
+conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
+} else {
+const indiceCompra = `index${contadorCompras++}`
+const compraActual = {
+Nombre: dato.nombre,
+Origen: dato.descripcion,
+Costo: dato.costo,
+Clase: dato.clase,
+ID: dato.codigoImagen,
+Imagen: dato.urlImagen,
+like: false,
+Estado: true,
+}
+informacionCompras[indiceCompra] = compraActual
+      
+if (!user.fantasy) user.fantasy = {}
+user.fantasy[indiceCompra] = compraActual
+user.money -= dato.costo
+
+fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
+conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake)
+console.log("Contenido de user.fantasy:", user.fantasy)
+}}}
+
 }
 handler.command = /^(fantasy|fy)$/i
 export default handler
