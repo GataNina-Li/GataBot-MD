@@ -59,10 +59,12 @@ const id = Object.keys(user)[0]
 const fantasy = user[id].fantasy
 return fantasy.some(personaje => personaje.id === dato.code)
 })
+
 if (usuarioConCodigo) {
 const idUsuarioConCodigo = Object.keys(usuarioConCodigo)[0]
 const nombreUsuario = conn.getName(idUsuarioConCodigo)
 const nombrePersonaje = data.infoImg.find(personaje => personaje.code === dato.code)?.name
+
 if (nombrePersonaje) {
 const mensaje = `Este personaje *${nombrePersonaje}* está reclamado por *${nombreUsuario}*`
 conn.reply(m.chat, mensaje, m)
