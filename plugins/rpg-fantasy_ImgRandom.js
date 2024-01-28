@@ -69,9 +69,7 @@ id: dato.codigoImagen,
 like: false,
 estado: true
 }]
-for (const compra of user.fantasy_character.purchases) {
-user.fantasy.push(compra)
-}
+user.fantasy.push(user.fantasy_character.purchases)
 user.fantasy_character.purchases = []
         
 user.money -= dato.costo
