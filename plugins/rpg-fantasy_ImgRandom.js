@@ -70,7 +70,7 @@ const nombreUsuario = conn.getName("593968585383@s.whatsapp.net")
 const nombrePersonaje = data.infoImg.find(personaje => personaje.code === dato.code)?.name
 
 if (nombrePersonaje) {
-const mensaje = `Este personaje *${nombrePersonaje}* está reclamado por *${nombreUsuario}*`
+const mensaje = `Este personaje *${nombrePersonaje}* está reclamado por *${conn.getName(m.sender)}*`
 conn.reply(m.chat, mensaje, m)
         
 }} else {        
