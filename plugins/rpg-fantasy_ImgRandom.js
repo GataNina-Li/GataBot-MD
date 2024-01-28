@@ -61,10 +61,12 @@ return fantasy.some(personaje => personaje.id === dato.code)
 })
 if (usuarioConCodigo) {
 const idUsuarioConCodigo = Object.keys(usuarioConCodigo)[0]
-const nombrePersonaje = fantasyDB.find(user => Object.keys(user)[0] === idUsuarioConCodigo)[idUsuarioConCodigo].fantasy.find(personaje => personaje.id === dato.code).name
 const nombreUsuario = conn.getName(idUsuarioConCodigo)
+const nombrePersonaje = data.infoImg.find(personaje => personaje.code === dato.code)?.name
+if (nombrePersonaje) {
 const mensaje = `Este personaje *${nombrePersonaje}* está reclamado por *${nombreUsuario}*`
 conn.reply(m.chat, mensaje, m)
+        
 } else {        
 function realizarCompra() {
 const userId = m.sender
