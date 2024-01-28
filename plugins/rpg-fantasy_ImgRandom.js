@@ -49,8 +49,8 @@ fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emo
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.name}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
 let fantasyDB = []
-if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
+if (fs.existsSync(fantasyDBPath)) {
 fantasyDB = JSON.parse(data)
 }
 
