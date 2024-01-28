@@ -70,7 +70,13 @@ Imagen: dato.urlImagen,
 like: false,
 Estado: true,
 }
+if (user.fantasy_character.count === 0) {
 user.fantasy_character.count++
+} else {
+const indicesActuales = user.fantasy.map(compra => parseInt(Object.keys(compra)[0].match(/\d+/)[0]))
+const indiceMayor = Math.max(...indicesActuales)
+user.fantasy_character.count = indiceMayor + 1
+}
 user.fantasy_character.purchases.push({
 [`index${user.fantasy_character.count}`]: compraActual,
 })
