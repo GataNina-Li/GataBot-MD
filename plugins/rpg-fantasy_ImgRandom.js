@@ -68,9 +68,8 @@ id: dato.codigoImagen,
 like: false,
 estado: true
 }
-//user.fantasy.push(compraActual)
-user.fantasy = perd.length > 0 ? [...perd, compraActual] : user.fantasy
-        
+user.fantasy = perd.length > 0 ? [...perd, compraActual] : [compraActual]
+      
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake)
