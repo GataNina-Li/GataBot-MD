@@ -70,7 +70,7 @@ like: false,
 estado: true
 };
 user.fantasy_character.purchases = [compraActual]
-user.fantasy.push(...user.fantasy_character.purchases)
+user.fantasy.push(user.fantasy, ...user.fantasy_character.purchases)
 user.fantasy_character.purchases = []
         
 user.money -= dato.costo
