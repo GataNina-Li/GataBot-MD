@@ -70,21 +70,20 @@ Imagen: dato.urlImagen,
 like: false,
 Estado: true,
 }
-if (user.fantasy_character.count === 0) {
-user.fantasy_character.count++
-} else {
-const indicesActuales = user.fantasy.map(compra => parseInt(Object.keys(compra)[0].match(/\d+/)[0]))
-const indiceMayor = Math.max(...indicesActuales)
-user.fantasy_character.count = indiceMayor + 1
-}
+user.fantasy_character.count = Math.max(...user.fantasy.map(compra => parseInt(Object.keys(compra)[0].match(/\d+/)[0])), 0) + 1
 user.fantasy_character.purchases.push({
 [`index${user.fantasy_character.count}`]: compraActual,
 })
-if (!user.fantasy) {
+if (user.fantasy === 0) {
 user.fantasy = user.fantasy_character.purchases
 } else {
 user.fantasy.push(...user.fantasy_character.purchases)
 }
+for (const key in user.fantasy_character.purchases) {
+if (user.fantasy_character.purchases.hasOwnProperty(key)) {
+const compra = user.fantasy_character.purchases[key];
+user.fantasy_character.purchases = compra
+}}
 //user.fantasy_character.purchases = []
         
 user.money -= dato.costo
