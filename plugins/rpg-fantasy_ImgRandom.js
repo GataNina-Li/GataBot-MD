@@ -52,7 +52,7 @@ conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato
 handler.before = async (m) => {
 user = global.db.data.users[m.sender]
 if (!user.fantasy) user.fantasy = []
-if (!user.fantasy_character === 0) user.fantasy_character = { count: 0, purchases: [] }
+if (!user.fantasy_character) user.fantasy_character = { count: 0, purchases: [] }
         
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
 const cantidadFaltante = dato.costo - user.money
@@ -75,7 +75,7 @@ user.fantasy_character.count++
 user.fantasy_character.purchases.push({
 [`index${user.fantasy_character.count}`]: compraActual,
 })
-if (user.fantasy.length === 0) {
+if (!user.fantasy) {
 user.fantasy = user.fantasy_character.purchases
 } else {
 user.fantasy = user.fantasy.concat(user.fantasy_character.purchases)
