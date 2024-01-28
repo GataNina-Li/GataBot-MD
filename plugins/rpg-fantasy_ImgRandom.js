@@ -1,4 +1,6 @@
 import fetch from 'node-fetch'
+import fs from 'fs'
+const fantasyDBPath = './fantasy.json'
 let id_message, pp, dato, fake, user = null
 
 let handler = async (m, { command, usedPrefix, conn }) => {
@@ -62,16 +64,36 @@ if (user.money < dato.costo) {
 fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
-let perd = user.fantasy.length > 0 ? [...user.fantasy] : 0
-let compraActual = {
+        
+let fantasyDB = []
+if (fs.existsSync(fantasyDBPath)) {
+const data = fs.readFileSync(fantasyDBPath, 'utf8')
+fantasyDB = JSON.parse(data)
+}
+function realizarCompra() {
+const userId = m.sender
+const usuarioExistente = fantasyDB.find(user => user.id === userId);
+if (usuarioExistente) {
+usuarioExistente.fantasy.push({
 id: dato.codigoImagen,
 like: false,
 estado: true
+})
+} else {
+const nuevoUsuario = {
+id: userId,
+fantasy: [{
+id: dato.codigoImagen,
+like: false,
+estado: true
+}]
 }
-user.fantasy.push(compraActual)
-for (let i = 0; i < perd.length; i++) {
-user.fantasy.push({...perd[i]})
+fantasyDB.push(nuevoUsuario)
 }
+fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
+}
+realizarCompra()
+
       
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
