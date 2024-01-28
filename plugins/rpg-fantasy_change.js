@@ -5,6 +5,7 @@ const fantasyDBPath = './fantasy.json'
 let id_message, pp, dato, fake, user = null
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
+user = global.db.data.users[m.sender]
 if (!text) return conn.reply(m.chat, 'Debes proporcionar el nombre o código de la imagen.', m)
 
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
