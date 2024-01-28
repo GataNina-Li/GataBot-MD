@@ -12,19 +12,19 @@ try {
 const response = await fetch(jsonURL)
 const data = await response.json()
 
-if (data.imagenesReclamadas && data.imagenesReclamadas.length > 0) {
-dato = data.imagenesReclamadas[Math.floor(Math.random() * data.imagenesReclamadas.length)]
-pp = await conn.profilePictureUrl(who, 'image').catch((_) => dato.urlImagen)
-let info = `*⛱️ FANTASÍA RPG ⛱️*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Nombre:* ${dato.nombre}\n✓ *Origen:* ${dato.descripcion}\n✓ *Costo:* $${dato.costo}\n✓ *Estado:* Libre\n✓ *Clase:* ${dato.clase}\n✓ *ID:* \`\`\`${dato.codigoImagen}\`\`\``
+if (data.infoImg && data.infoImg.length > 0) {
+dato = data.infoImg[Math.floor(Math.random() * data.infoImg.length)]
+pp = await conn.profilePictureUrl(who, 'image').catch((_) => dato.url)
+let info = `*⛱️ FANTASÍA RPG ⛱️*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Nombre:* ${dato.name}\n✓ *Origen:* ${dato.desp}\n✓ *Costo:* $${dato.price}\n✓ *Estado:* Libre\n✓ *Clase:* ${dato.class}\n✓ *Tipo:* ${dato.type}\n✓ *ID:* \`\`\`${dato.code}\`\`\``
 
-id_message = (await conn.sendFile(m.chat, dato.urlImagen, 'error.jpg', info, fkontak, true, {
+id_message = (await conn.sendFile(m.chat, dato.url, 'error.jpg', info, fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
 externalAdReply: {
 showAdAttribution: false,
 title: `${conn.getName(m.sender)}`,
-body: `${dato.descripcion}`,
+body: `${dato.desp}`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: pp
@@ -42,11 +42,11 @@ handler.before = async (m) => {
 user = global.db.data.users[m.sender]
         
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
-const cantidadFaltante = dato.costo - user.money
+const cantidadFaltante = dato.price - user.money
 
-if (user.money < dato.costo) {
+if (user.money < dato.price) {
 fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
-conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
+conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.name}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
 let fantasyDB = []
 if (fs.existsSync(fantasyDBPath)) {
@@ -58,27 +58,29 @@ const userId = m.sender
 const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 usuarioExistente[userId].fantasy.push({
-id: dato.codigoImagen,
+id: dato.code,
 like: false,
-estado: true
+dislike: false,
+status: true
 })
 } else {
 const nuevoUsuario = {
 [userId]: {
 fantasy: [
 {
-id: dato.codigoImagen,
+id: dato.code,
 like: false,
-estado: true
+dislike: false,
+status: true
 }]}}
 fantasyDB.push(nuevoUsuario);
 }
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8');
 }
 realizarCompra()
-user.money -= dato.costo
-fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
-conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake)
+user.money -= dato.price
+fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.desp}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.url } } }
+conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.name}*`, m, fake)
 }}
 }
 handler.command = /^(fantasy|fy)$/i
