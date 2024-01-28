@@ -67,7 +67,9 @@ estado: true
 }
 user.fantasy_character.count++
 compraActual.index = user.fantasy_character.count
-user.fantasy_character.purchases.push(compraActual)
+user.fantasy = compraActual
+user.fantasy_character.purchases.push(user.fantasy)
+user.fantasy = 0
         
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
