@@ -63,13 +63,13 @@ fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emo
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
 user.fantasy_character++
-const compraActual = {
-index: user.fantasy_character,
-id: dato.codigoImagen,
-like: false,
-estado: true
-}
-user.fantasy.push(compraActual)
+user.fantasy.push({
+    index: user.fantasy_character.count,
+    id: dato.codigoImagen,
+    like: false,
+    estado: true
+})
+//user.fantasy.push(user.fantasy)
         
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
