@@ -36,7 +36,7 @@ conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m }
 }} catch (error) {
 console.error('Error al obtener o procesar los datos: ', error)
 conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
-}}
+}
 
 handler.before = async (m) => {
 user = global.db.data.users[m.sender]
@@ -98,7 +98,7 @@ realizarCompra()
 user.money -= dato.price
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.desp}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.url } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.name}*`, m, fake)
-}}}
+}}}}
 }
 handler.command = /^(fantasy|fy)$/i
 export default handler
