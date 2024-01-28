@@ -69,8 +69,8 @@ like: false,
 estado: true
 }
 user.fantasy.push(compraActual)
-for (const compra of perd) {
-user.fantasy.push(compra)
+for (let i = 0; i < perd.length; i++) {
+user.fantasy.push(perd[i])
 }
       
 user.money -= dato.costo
