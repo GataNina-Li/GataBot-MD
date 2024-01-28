@@ -38,24 +38,8 @@ console.error('Error al obtener o procesar los datos: ', error)
 conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
 }}
 
-/*handler.before = async (m) => {
-let user = global.db.data.users[m.sender]
-if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
-const cantidadFaltante = user.money - dato.costo
-if (user.money < dato.costo) {
-fake = { contextInfo: { externalAdReply: {title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tiene ${user.money} ${rpgg.emoticon('money')}*`, m, fake, )
-} else {
-user.money -= dato.costo
-fake = { contextInfo: { externalAdReply: {title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen }}}
-conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake, )
-}}*/
-
 handler.before = async (m) => {
 user = global.db.data.users[m.sender]
-//if (user.fantasy === 0) { 
-//user.fantasy = []
-//}
         
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
 const cantidadFaltante = dato.costo - user.money
@@ -64,7 +48,6 @@ if (user.money < dato.costo) {
 fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
-        
 let fantasyDB = []
 if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
@@ -72,34 +55,30 @@ fantasyDB = JSON.parse(data)
 }
 function realizarCompra() {
 const userId = m.sender
-const usuarioExistente = fantasyDB.find(user => user.id === userId);
+const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
-usuarioExistente.fantasy.push({
+usuarioExistente[userId].fantasy.push({
 id: dato.codigoImagen,
 like: false,
 estado: true
 })
 } else {
 const nuevoUsuario = {
-id: userId,
-fantasy: [{
+[userId]: {
+fantasy: [
+{
 id: dato.codigoImagen,
 like: false,
 estado: true
-}]
+}]}}
+fantasyDB.push(nuevoUsuario);
 }
-fantasyDB.push(nuevoUsuario)
-}
-fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
+fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8');
 }
 realizarCompra()
-
-      
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.nombre}*`, m, fake)
-console.log("Contenido de user.fantasy:", user.fantasy)
-console.log("Contenido:", user.fantasy_character)
 }}
 }
 handler.command = /^(fantasy|fy)$/i
