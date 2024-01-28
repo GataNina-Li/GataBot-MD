@@ -73,11 +73,11 @@ if (nombrePersonaje) {
 if (m.sender == idUsuarioConCodigo) {
 fake = { contextInfo: { externalAdReply: { title: `😊 Ya fue comprado antes`, body: `🌟 ¡Compra más para llegar al top!`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
 const mensaje_ = `El personaje *${nombrePersonaje}* ya es tuyo!!`
-conn.reply(m.chat, mensaje_, fake)
+conn.reply(m.chat, mensaje_, m, fake)
 } else {
 fake = { contextInfo: { externalAdReply: { title: `❌ No puedes comprar esto: ${nombrePersonaje}`, body: `🙂 ¡Compra otro personaje!`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
 const mensaje = `Este personaje *${nombrePersonaje}* está reclamado por *${nombreUsuario}*`
-conn.reply(m.chat, mensaje, fake)
+conn.reply(m.chat, mensaje, m, fake)
         
 }}} else {        
 function realizarCompra() {
