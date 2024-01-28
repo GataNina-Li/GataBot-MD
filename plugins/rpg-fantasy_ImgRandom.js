@@ -51,7 +51,7 @@ conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato
 
 handler.before = async (m) => {
 user = global.db.data.users[m.sender]
-//if (!user.fantasy) user.fantasy = []
+if (!user.fantasy) user.fantasy = []
         
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
 const cantidadFaltante = dato.costo - user.money
@@ -67,9 +67,11 @@ estado: true
 }]
 user.fantasy_character.count++
 compraActual.index = user.fantasy_character.count
-user.fantasy = compraActual
-user.fantasy_character.purchases.push(user.fantasy)
-user.fantasy = 0
+user.fantasy_character.purchases.push(compraActual)
+for (const compra of user.fantasy_character.purchases) {
+user.fantasy.push(compra)
+}
+user.fantasy_character.purchases = []
         
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
