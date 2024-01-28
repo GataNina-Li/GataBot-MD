@@ -61,19 +61,15 @@ fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emo
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
 const compraActual = {
-Nombre: dato.nombre,
-Origen: dato.descripcion,
-Costo: dato.costo,
-Clase: dato.clase,
-ID: dato.codigoImagen,
-Imagen: dato.urlImagen,
+id: dato.codigoImagen,
 like: false,
-Estado: true,
+estado: true
 }
 user.fantasy_character.count = user.fantasy_character.count + 1
 user.fantasy_character.purchases.push({
 [`index${user.fantasy_character.count}`]: compraActual,
-});
+})
+
 if (user.fantasy.length === 0) {
 user.fantasy = user.fantasy_character.purchases
 } else {
