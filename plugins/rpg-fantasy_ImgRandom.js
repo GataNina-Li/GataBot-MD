@@ -36,7 +36,7 @@ conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m }
 }} catch (error) {
 console.error('Error al obtener o procesar los datos: ', error)
 conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
-}
+}}
 
 handler.before = async (m) => {
 user = global.db.data.users[m.sender]
@@ -48,6 +48,9 @@ if (user.money < dato.price) {
 fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.name}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
+const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
+const response = await fetch(jsonURL)
+const data = await response.json()
 let fantasyDB = []
 if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
@@ -98,7 +101,7 @@ realizarCompra()
 user.money -= dato.price
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.desp}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.url } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.name}*`, m, fake)
-}}}}
+}}}
 }
 handler.command = /^(fantasy|fy)$/i
 export default handler
