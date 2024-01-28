@@ -70,10 +70,14 @@ const nombreUsuario = conn.getName(idUsuarioConCodigo)
 const nombrePersonaje = data.infoImg.find(personaje => personaje.code === dato.code)?.name
 
 if (nombrePersonaje) {
+if (m.sender == idUsuarioConCodigo) {
+const mensaje_ = `El personaje *${nombrePersonaje}* ya es tuyo!!`
+conn.reply(m.chat, mensaje_, m)
+} else {        
 const mensaje = `Este personaje *${nombrePersonaje}* está reclamado por *${nombreUsuario}*`
 conn.reply(m.chat, mensaje, m)
         
-}} else {        
+}}} else {        
 function realizarCompra() {
 const userId = m.sender
 const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
