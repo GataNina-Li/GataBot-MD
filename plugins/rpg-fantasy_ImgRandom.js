@@ -62,17 +62,13 @@ if (user.money < dato.costo) {
 fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.nombre}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
-user.fantasy_character.count++
-compraActual.index = user.fantasy_character.count        
+user.fantasy_character.count++       
 user.fantasy_character.purchases = [{
-index: compraActual.index,
+index: user.fantasy_character.count,
 id: dato.codigoImagen,
 like: false,
 estado: true
 }]
-//user.fantasy_character.count++
-//compraActual.index = user.fantasy_character.count
-//user.fantasy_character.purchases.push(compraActual)
 for (const compra of user.fantasy_character.purchases) {
 user.fantasy.push(compra)
 }
