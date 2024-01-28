@@ -83,9 +83,9 @@ user.fantasy_character.purchases.push({
 if (!user.fantasy) {
 user.fantasy = user.fantasy_character.purchases
 } else {
-user.fantasy = user.fantasy.concat(user.fantasy_character.purchases)
+user.fantasy.push(...user.fantasy_character.purchases)
 }
-user.fantasy_character.purchases = []
+//user.fantasy_character.purchases = []
         
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
