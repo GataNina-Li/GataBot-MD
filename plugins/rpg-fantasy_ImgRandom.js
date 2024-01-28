@@ -70,7 +70,7 @@ estado: true
 }
 user.fantasy.push(compraActual)
 for (let i = 0; i < perd.length; i++) {
-user.fantasy.push(perd[i])
+user.fantasy.push({...perd[i]})
 }
       
 user.money -= dato.costo
