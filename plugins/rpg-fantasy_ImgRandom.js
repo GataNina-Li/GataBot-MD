@@ -68,7 +68,10 @@ id: dato.codigoImagen,
 like: false,
 estado: true
 }
-user.fantasy = perd.length > 0 ? [...perd, compraActual] : [compraActual]
+user.fantasy.push(compraActual)
+for (const compra of perd) {
+user.fantasy.push(compra)
+}
       
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
