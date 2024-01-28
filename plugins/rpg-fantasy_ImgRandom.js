@@ -53,6 +53,19 @@ if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
 fantasyDB = JSON.parse(data)
 }
+
+const usuarioConCodigo = fantasyDB.find(user => {
+const id = Object.keys(user)[0]
+const fantasy = user[id].fantasy
+return fantasy.some(personaje => personaje.id === dato.code)
+})
+if (usuarioConCodigo) {
+const idUsuarioConCodigo = Object.keys(usuarioConCodigo)[0]
+const nombrePersonaje = fantasyDB.find(user => Object.keys(user)[0] === idUsuarioConCodigo)[idUsuarioConCodigo].fantasy.find(personaje => personaje.id === dato.code).name
+const nombreUsuario = conn.getName(idUsuarioConCodigo)
+const mensaje = `Este personaje *${nombrePersonaje}* está reclamado por *${nombreUsuario}*`
+conn.reply(m.chat, mensaje, m)
+} else {        
 function realizarCompra() {
 const userId = m.sender
 const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
@@ -81,7 +94,7 @@ realizarCompra()
 user.money -= dato.price
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.desp}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.url } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.name}*`, m, fake)
-}}
+}}}
 }
 handler.command = /^(fantasy|fy)$/i
 export default handler
