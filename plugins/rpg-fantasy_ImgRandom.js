@@ -66,11 +66,11 @@ return fantasy.some(personaje => personaje.id === dato.code)
 
 if (usuarioConCodigo) {
 const idUsuarioConCodigo = Object.keys(usuarioConCodigo)[0]
-const nombreUsuario = conn.getName("593968585383@s.whatsapp.net")
+const nombreUsuario = conn.getName(idUsuarioConCodigo)
 const nombrePersonaje = data.infoImg.find(personaje => personaje.code === dato.code)?.name
 
 if (nombrePersonaje) {
-const mensaje = `Este personaje *${nombrePersonaje}* está reclamado por *${conn.getName(m.sender)}*`
+const mensaje = `Este personaje *${nombrePersonaje}* está reclamado por *${nombreUsuario}*`
 conn.reply(m.chat, mensaje, m)
         
 }} else {        
