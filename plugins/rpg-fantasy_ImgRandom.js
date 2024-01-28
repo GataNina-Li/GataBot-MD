@@ -70,7 +70,7 @@ like: false,
 estado: true
 }]
 user.fantasy.push(user.fantasy_character.purchases)
-user.fantasy_character.purchases = []
+//user.fantasy_character.purchases = []
         
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
