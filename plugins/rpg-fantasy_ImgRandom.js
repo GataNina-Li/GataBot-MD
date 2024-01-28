@@ -68,10 +68,10 @@ index: user.fantasy_character.count,
 id: dato.codigoImagen,
 like: false,
 estado: true
-};
-user.fantasy_character.purchases = [compraActual]
-user.fantasy.push(user.fantasy, ...user.fantasy_character.purchases)
-user.fantasy_character.purchases = []
+}
+user.fantasy_character.purchases.push(compraActual)
+user.fantasy.push(...user.fantasy_character.purchases);
+//user.fantasy_character.purchases = []
         
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
