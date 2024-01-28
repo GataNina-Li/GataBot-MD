@@ -65,10 +65,9 @@ id: dato.codigoImagen,
 like: false,
 estado: true
 }
-user.fantasy_character.count = user.fantasy_character.count + 1
-user.fantasy_character.purchases.push({
-[`index${user.fantasy_character.count}`]: compraActual,
-})
+user.fantasy_character.count++
+compraActual.index = user.fantasy_character.count
+user.fantasy_character.purchases.push(compraActual)
 user.fantasy = user.fantasy.concat(user.fantasy_character.purchases)
 user.fantasy_character.purchases = []
         
