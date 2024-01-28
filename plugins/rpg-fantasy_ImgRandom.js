@@ -70,6 +70,7 @@ estado: true
 }
 user.fantasy.push(user.fantasy_character)
 user.fantasy = perd.length > 0 ? [...perd, user.fantasy_character] : [user.fantasy_character]
+user.fantasy.push(user.fantasy_character)        
         
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
