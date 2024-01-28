@@ -70,21 +70,16 @@ Imagen: dato.urlImagen,
 like: false,
 Estado: true,
 }
-user.fantasy_character.count = Math.max(...user.fantasy.map(compra => parseInt(Object.keys(compra)[0].match(/\d+/)[0])), 0) + 1
+user.fantasy_character.count = user.fantasy_character.count + 1
 user.fantasy_character.purchases.push({
 [`index${user.fantasy_character.count}`]: compraActual,
-})
-if (user.fantasy === 0) {
+});
+if (user.fantasy.length === 0) {
 user.fantasy = user.fantasy_character.purchases
 } else {
-user.fantasy.push(...user.fantasy_character.purchases)
+user.fantasy = user.fantasy.concat(user.fantasy_character.purchases)
 }
-for (const key in user.fantasy_character.purchases) {
-if (user.fantasy_character.purchases.hasOwnProperty(key)) {
-const compra = user.fantasy_character.purchases[key];
-user.fantasy_character.purchases = compra
-}}
-//user.fantasy_character.purchases = []
+user.fantasy_character.purchases = []
         
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
