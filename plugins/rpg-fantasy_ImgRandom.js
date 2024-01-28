@@ -64,7 +64,7 @@ conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* 
 } else {
 user.fantasy_character++
 user.fantasy.push({
-    index: user.fantasy_character.count,
+    index: user.fantasy_character,
     id: dato.codigoImagen,
     like: false,
     estado: true
