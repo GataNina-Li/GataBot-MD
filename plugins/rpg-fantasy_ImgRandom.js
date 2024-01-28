@@ -71,7 +71,7 @@ Imagen: dato.urlImagen,
 like: false,
 Estado: true,
 }
-user.fantasy_character.count++
+user.fantasy_character.count += 1
 user.fantasy_character.purchases.push({
 [`index${user.fantasy_character.count}`]: compraActual,
 })
@@ -80,7 +80,7 @@ user.fantasy = user.fantasy_character.purchases
 } else {
 user.fantasy = user.fantasy.concat(user.fantasy_character.purchases)
 }
-user.fantasy_character.purchases = []
+//user.fantasy_character.purchases = []
         
 user.money -= dato.costo
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.descripcion}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.urlImagen } } }
