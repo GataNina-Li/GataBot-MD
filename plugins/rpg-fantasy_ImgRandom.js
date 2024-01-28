@@ -68,7 +68,7 @@ id: dato.codigoImagen,
 like: false,
 estado: true
 }
-user.fantasy.push(compraActual)
+//user.fantasy.push(compraActual)
 user.fantasy = perd.length > 0 ? [...perd, compraActual] : user.fantasy
         
 user.money -= dato.costo
