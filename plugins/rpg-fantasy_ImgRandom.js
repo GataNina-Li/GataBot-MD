@@ -69,7 +69,7 @@ if (nombrePersonaje) {
 const mensaje = `Este personaje *${nombrePersonaje}* está reclamado por *${nombreUsuario}*`
 conn.reply(m.chat, mensaje, m)
         
-} else {        
+}} else {        
 function realizarCompra() {
 const userId = m.sender
 const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
