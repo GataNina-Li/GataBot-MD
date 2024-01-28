@@ -65,6 +65,7 @@ conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* 
 user.fantasy_character.count++
 compraActual.index = user.fantasy_character.count        
 user.fantasy_character.purchases = [{
+index: compraActual.index,
 id: dato.codigoImagen,
 like: false,
 estado: true
