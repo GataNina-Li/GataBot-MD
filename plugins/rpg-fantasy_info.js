@@ -45,7 +45,7 @@ ${String.fromCharCode(8206).repeat(850)}
 `.trim()
 
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-await conn.sendFile(m.chat, 'https://i.imgur.com/vIH5SKp.jpg', 'error.jpg', fantasy, fkontak, true, {
+let uu = (await conn.sendFile(m.chat, 'https://i.imgur.com/vIH5SKp.jpg', 'error.jpg', fantasy, fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
@@ -56,7 +56,8 @@ body: `Una aventura nos espera...`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
-}}})   
+}}
+}, { caption: 'imagen_info' })).key.id
 }
 
 handler.command = /^(fantasyinfo|fyinfo)$/i
