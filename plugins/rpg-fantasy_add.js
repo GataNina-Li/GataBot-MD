@@ -32,7 +32,7 @@ if (fs.existsSync(fantasyAddPath)) {
 const data = fs.readFileSync(fantasyAddPath, 'utf8')
 fantasyAddData = JSON.parse(data)
 }
-const [url, name, desp, classInput, typeInput] = text.split(',').map((item) => item.trim())
+const [url, name, desp, classInput, typeInput] = text.split('$').map((item) => item.trim())
 if (!url || !name || !desp || !classInput || !typeInput) {
 return conn.reply(m.chat, 'Faltan parámetros. Asegúrate de proporcionar todos los datos requeridos.', m)
 }
