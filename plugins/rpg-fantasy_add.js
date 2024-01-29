@@ -90,18 +90,18 @@ break
 }
 
 const codigoImagen = generarCodigo()
-for (const info of data.infoImg) {
-fantasyAddData.push({
-index: info.index,
-url: info.url,
-name: info.name,
-desp: info.desp,
-class: info.class,
-type: info.type,
-price: info.price,
-code: info.code,
-})
-}
+//for (const info of data.infoImg) {
+//fantasyAddData.push({
+//index: info.index,
+//url: info.url,
+//name: info.name,
+//desp: info.desp,
+//class: info.class,
+//type: info.type,
+//price: info.price,
+//code: info.code,
+//})
+//}
 
 fantasyAddData.push({
 index: nextIndex,
