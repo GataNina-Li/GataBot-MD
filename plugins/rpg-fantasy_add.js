@@ -92,24 +92,24 @@ break
 const codigoImagen = generarCodigo()
 for (const info of data.infoImg) {
 fantasyAddData.push({
+index: info.index,
 url: info.url,
 name: info.name,
 desp: info.desp,
 class: info.class,
 type: info.type,
-index: info.index,
 price: info.price,
 code: info.code,
 })
 }
 
 fantasyAddData.push({
+index: nextIndex,
 url,
 name: formattedName,
 desp: formattedDesp,
 class: formattedClass,
 type: formattedType,
-index: nextIndex,
 price,
 code: codigoImagen,
 })
@@ -127,7 +127,7 @@ const numeros = '0123456789'
 const caracteresEspeciales = '$#@%_*&+!:'
 
 let codigo = ''
-for (let i = 0; i < 7; i++) {
+for (let i = 0; i < 4; i++) {
 codigo += letras.charAt(Math.floor(Math.random() * letras.length))
 }
 for (let i = 0; i < 4; i++) {
