@@ -8,7 +8,7 @@ const helpMessage = `
 Este comando te permite agregar nuevos personajes a un archivo Json llamado *"fantasyAdd.json"*.
 
 *Uso:*
-*${usedPrefix + command}* enlace, nombre, descripción, clase, tipo
+*${usedPrefix + command}* enlace + nombre + descripción + clase + tipo
 
 *Parámetros:*
 *- url:* Enlace de la imagen (debe comenzar con 'https://telegra.ph/file/').\n
@@ -21,7 +21,7 @@ Este comando te permite agregar nuevos personajes a un archivo Json llamado *"fa
 _Para obtener el enlace a la imagen puedes usar el coamndo *${usedPrefix}tourl* respondiendo a la imgen, también puedes mejorar la calidad de imagen respondiendo a la imagen *${usedPrefix}hd*_
 
 *Ejemplo:*
-*${usedPrefix + command}* https://telegra.ph/file/abcd1234.jpg, Son Goku, Dragon Ball, Épico, Aventura / Acción
+*${usedPrefix + command}* https://telegra.ph/file/abcd1234.jpg + Son Goku + Dragon Ball + Épico + Aventura / Acción
 `.trim()
 if (!text) return conn.reply(m.chat, helpMessage, m)
   
