@@ -37,7 +37,7 @@ if (imagenUsuario) {
 fantasyUsuario.splice(fantasyUsuario.indexOf(imagenUsuario), 1)
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 user.money += 100
-conn.reply(m.chat, `Has cambiado la imagen de *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.`, m)
+conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.`, m)
 } else {
 conn.reply(m.chat, `No posees la imagen ${personaje} en tu colección.`, m)
 }} else {
