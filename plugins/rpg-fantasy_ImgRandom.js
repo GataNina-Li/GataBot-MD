@@ -15,7 +15,27 @@ const data = await response.json()
 if (data.infoImg && data.infoImg.length > 0) {
 dato = data.infoImg[Math.floor(Math.random() * data.infoImg.length)]
 pp = await conn.profilePictureUrl(who, 'image').catch((_) => dato.url)
-let info = `*⛱️ FANTASÍA RPG ⛱️*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Nombre:* ${dato.name}\n✓ *Origen:* ${dato.desp}\n✓ *Costo:* $${dato.price}\n✓ *Estado:* Libre\n✓ *Clase:* ${dato.class}\n✓ *Tipo:* ${dato.type}\n✓ *ID:* \`\`\`${dato.code}\`\`\``
+
+let estado = 'Libre'
+const codigoActual = dato.code
+const usuarioExistente = fantasyDB.find(user => {
+const id = Object.keys(user)[0]
+const fantasy = user[id].fantasy
+return fantasy.some(personaje => personaje.id === codigoActual)
+})
+
+if (usuarioExistente) {
+const idUsuarioExistente = Object.keys(usuarioExistente)[0];
+const nombreImagen = data.infoImg.find(personaje => personaje.code === codigoActual)?.name;
+
+if (nombreImagen) {
+estado = `${nombreImagen} fue comprado por ${conn.getName(idUsuarioExistente)}`;
+}}
+
+let info = `*⛱️ FANTASÍA RPG ⛱️*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Nombre:* ${dato.name}\n✓ *Origen:* ${dato.desp}\n✓ *Costo:* $${dato.price}\n✓ *Clase:* ${dato.class}\n✓ *Tipo:* ${dato.type}\n✓ *ID:* \`\`\`${codigoActual}\`\`\`\n\n✓ *Estado:* ${estado}`
+
+        
+//let info = `*⛱️ FANTASÍA RPG ⛱️*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Nombre:* ${dato.name}\n✓ *Origen:* ${dato.desp}\n✓ *Costo:* $${dato.price}\n✓ *Estado:* Libre\n✓ *Clase:* ${dato.class}\n✓ *Tipo:* ${dato.type}\n✓ *ID:* \`\`\`${dato.code}\`\`\``
 
 id_message = (await conn.sendFile(m.chat, dato.url, 'error.jpg', info, fkontak, true, {
 contextInfo: {
