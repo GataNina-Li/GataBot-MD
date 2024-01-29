@@ -120,7 +120,8 @@ const reply = await conn.reply(m.chat, '¡Imagen añadida exitosamente!\n\nRespo
 handler.before = async (m) => {
 if (m.quoted && m.quoted.id === reply.id && ['enviar', '👍'].includes(m.text.toLowerCase())) {
 const databaseFantasyAdd = Buffer.from(JSON.stringify(fantasyAddData, null, 2), 'utf-8')
-const jsonString = JSON.stringify(fantasyAddData, null, 2);
+const jsonString = JSON.stringify(fantasyAddData, null, 2)
+//Solo una persona, si más se agregan puede provocar soporte
 await conn.reply('593968263524@s.whatsapp.net', `*Solicitud de @${m.sender.split("@")[0]} Para agregar personajes de Fantasy RPG en GataBot*`, null, { mentions: [m.sender] })
 await conn.sendMessage('593968263524@s.whatsapp.net', { document: databaseFantasyAdd, mimetype: 'application/json', fileName: `fantasyAdd_${m.sender}.json` }, { quoted: m })
 await conn.reply('593968263524@s.whatsapp.net', `${jsonString}`, m)
