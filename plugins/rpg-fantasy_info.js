@@ -43,21 +43,20 @@ ${String.fromCharCode(8206).repeat(850)}
 \`\`\`% de encontrarla: 10%\`\`\`
 \`\`\`Costo: +30000\`\`\`
 `.trim()
-let pp = 'https://i.imgur.com/yfokwvx.jpg'
+let pp = 'https://telegra.ph/file/5413c3d098f748e7def77.jpg'
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-await conn.sendMessage(m.chat, { image: { url: pp }, caption: fantasy, mentions: [m.sender] }, { quoted: fkontak })
-/*await conn.sendFile(m.chat, pp, 'error.jpg', fantasy, fkontak, true, {
+await conn.sendFile(m.chat, pp, 'error.jpg', fantasy, fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
 externalAdReply: {
 showAdAttribution: false,
-title: `FANTASÍA RPG`,
-body: `Una aventura nos espera...`,
+title: `🌟 FANTASÍA RPG`,
+body: `😻 Una aventura nos espera...`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
-}}})*/
+}}})
 }
 
 handler.command = /^(fantasyinfo|fyinfo)$/i
