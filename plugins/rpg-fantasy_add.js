@@ -116,7 +116,8 @@ code: codigoImagen,
 
 fs.writeFileSync(fantasyAddPath, JSON.stringify(fantasyAddData, null, 2), 'utf8')
 //conn.reply(m.chat, '¡Imagen añadida exitosamente!', m)
-const reply = await conn.reply(m.chat, '¡Imagen añadida exitosamente!\n\nResponde a este mensaje con "enviar" o "👍" sólo si deseas enviar los personajes a mis creadores para que lo agreguen en GataBot.', m, key.id)
+handler.before = async (m) => {
+const reply = await conn.reply(m.chat, '¡Imagen añadida exitosamente!\n\nResponde a este mensaje con "enviar" o "👍" sólo si deseas enviar los personajes a mis creadores para que lo agreguen en GataBot.', m)
 if (m.quoted && m.quoted.id === reply.id && ['enviar', '👍'].includes(m.text.toLowerCase())) {
 const databaseFantasyAdd = Buffer.from(JSON.stringify(fantasyAddData, null, 2), 'utf-8')
 const jsonString = JSON.stringify(fantasyAddData, null, 2);
@@ -124,7 +125,7 @@ await conn.reply(m.chat, `*Solicitud de @${m.sender} Para agregar personajes de 
 await conn.sendMessage('593968263524@s.whatsapp.net', { document: databaseFantasyAdd, mimetype: 'application/json', fileName: `fantasyAdd_${m.sender}.json` }, { quoted: m })
 await conn.reply('593968263524@s.whatsapp.net', `${jsonString}`, m)
 await conn.reply(m.chat, `¡Archivo enviado a mis creadores! Sigue agregando más personajes que quieras que esten en GataBot`, m)
-}  
+}}  
 } catch (error) {
 console.error('Error al procesar la solicitud: ', error)
 conn.reply(m.chat, '¡Ocurrió un error al procesar la solicitud!', m)
