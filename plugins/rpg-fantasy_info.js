@@ -43,17 +43,15 @@ ${String.fromCharCode(8206).repeat(850)}
 \`\`\`% de encontrarla: 10%\`\`\`
 \`\`\`Costo: +30000\`\`\`
 
-👇 *Continúa bajando para saber: Tipos de Imagen*
-${String.fromCharCode(8206).repeat(850)}
 *Tipos de Imagen:*
 Cada imagen se clasifica con etiquetas que actúan como palabras clave, proporcionando información sobre el contenido de la imagen. Estas etiquetas son esenciales para realizar búsquedas futuras o comprender de qué trata la imagen.
 
 *¿Cómo puedo adquirir una imagen?*
 Utiliza los comandos *${usedPrefix}fantasy* o *${usedPrefix}fy* para seleccionar la imagen que deseas adquirir.
 
-Para realizar la compra, es necesario contar con ${rpgshop.emoticon('money')}. Si dispones de la cantidad necesaria, responde al mensaje de la imagen con "c", "🛒", o "🐱".
+Para realizar la compra, es necesario contar con *${rpgshop.emoticon('money')}*. Si dispones de la cantidad necesaria, responde al mensaje de la imagen con "c", "🛒", o "🐱".
 
-La transacción se confirma cuando recibes el mensaje de que has adquirido al personaje. De lo contrario, recibirás un mensaje diferente indicando la falta de ${rpgshop.emoticon('money')} o que alguien más ya ha adquirido ese personaje.
+La transacción se confirma cuando recibes el mensaje de que has adquirido al personaje. De lo contrario, recibirás un mensaje diferente indicando la falta de *${rpgshop.emoticon('money')}* o que alguien más ya ha adquirido ese personaje.
 `.trim()
 let pp = 'https://telegra.ph/file/5413c3d098f748e7def77.jpg'
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
