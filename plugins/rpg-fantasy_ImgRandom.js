@@ -16,6 +16,11 @@ if (data.infoImg && data.infoImg.length > 0) {
 dato = data.infoImg[Math.floor(Math.random() * data.infoImg.length)]
 pp = await conn.profilePictureUrl(who, 'image').catch((_) => dato.url)
 
+let fantasyDB = []
+if (fs.existsSync(fantasyDBPath)) {
+const data = fs.readFileSync(fantasyDBPath, 'utf8')
+fantasyDB = JSON.parse(data)
+}
 let estado = 'Libre'
 const codigoActual = dato.code
 const usuarioExistente = fantasyDB.find(user => {
