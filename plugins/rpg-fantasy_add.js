@@ -123,20 +123,20 @@ conn.reply(m.chat, '¡Ocurrió un error al procesar la solicitud!', m)
 
 function generarCodigo() {
 const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-const numeros = '0123456789'
+const numeros = '0123456789';
 const caracteresEspeciales = '$#@%_*&+!:^/'
-
 let codigo = ''
 for (let i = 0; i < 4; i++) {
 codigo += letras.charAt(Math.floor(Math.random() * letras.length))
 }
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 3; i++) {
 codigo += numeros.charAt(Math.floor(Math.random() * numeros.length))
 }
+for (let i = 0; i < 3; i++) {
 codigo += caracteresEspeciales.charAt(Math.floor(Math.random() * caracteresEspeciales.length))
-codigo = codigo.split('').sort(() => Math.random() - 0.5).join('')
+}
+codigo = codigo.split('').sort(() => Math.random() - 0.5).join('');
 return codigo
 }
-
 handler.command = /^(fantasyadd|fyadd)$/i
 export default handler
