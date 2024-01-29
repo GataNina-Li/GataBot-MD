@@ -52,6 +52,9 @@ Utiliza los comandos *${usedPrefix}fantasy* o *${usedPrefix}fy* para seleccionar
 Para realizar la compra, es necesario contar con *${rpgshop.emoticon('money')}*. Si dispones de la cantidad necesaria, responde al mensaje de la imagen con "c", "🛒", o "🐱".
 
 La transacción se confirma cuando recibes el mensaje de que has adquirido al personaje. De lo contrario, recibirás un mensaje diferente indicando la falta de *${rpgshop.emoticon('money')}* o que alguien más ya ha adquirido ese personaje.
+
+*¿Te gustaría proponer tus propios personajes para que formen parte de GataBot?*
+¡Es sencillo! Solo utiliza el comando *${usedPrefix}fyadd* o *${usedPrefix}fantasyadd* y sigue la guía proporcionada para comenzar a crear tu solicitud de personajes. Los desarrolladores estarán encantados de recibir tus propuestas y considerarlas para enriquecer la experiencia en GataBot.
 `.trim()
 let pp = 'https://telegra.ph/file/5413c3d098f748e7def77.jpg'
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
