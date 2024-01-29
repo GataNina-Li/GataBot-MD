@@ -11,17 +11,17 @@ Este comando te permite agregar nuevos personajes a un archivo Json llamado *"fa
 *${usedPrefix + command}* enlace, nombre, descripción, clase, tipo
 
 *Parámetros:*
-*- url:* Enlace de la imagen (debe comenzar con 'https://telegra.ph/file/').
-*- name:* Nombre del anime o personaje (primera letra de cada palabra en mayúscula).
-*- desp:* Descripción del anime o personaje o de donde proviene (primera letra de cada palabra en mayúscula).
-*- class:* Clase del personaje (Común, Poco Común, Raro, Épico, Legendario, Sagrado, Supremo, o Transcendental).
+*- url:* Enlace de la imagen (debe comenzar con 'https://telegra.ph/file/').\n
+*- name:* Nombre del anime o personaje (primera letra de cada palabra en mayúscula).\n
+*- desp:* Descripción del anime o personaje o de donde proviene (primera letra de cada palabra en mayúscula).\n
+*- class:* Clase del personaje (Común, Poco Común, Raro, Épico, Legendario, Sagrado, Supremo, o Transcendental).\n
 *- type:* Etiquetas del personaje, separadas por ":" o ";" o "/" (primera letra de cada etiqueta en mayúscula).
 
 *Nota*
 _Para obtener el enlace a la imagen puedes usar el coamndo *${usedPrefix}tourl* respondiendo a la imgen, también puedes mejorar la calidad de imagen respondiendo a la imagen *${usedPrefix}hd*_
 
 *Ejemplo:*
-${usedPrefix + command} https://telegra.ph/file/abcd1234.jpg, Son Goku, Dragon Ball, Épico, Aventura / Acción
+*${usedPrefix + command}* https://telegra.ph/file/abcd1234.jpg, Son Goku, Dragon Ball, Épico, Aventura / Acción
 `.trim()
 if (!text) return conn.reply(m.chat, helpMessage, m)
   
