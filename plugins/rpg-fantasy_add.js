@@ -104,7 +104,7 @@ const codigoImagen = generarCodigo()
 //}
 
 fantasyAddData.push({
-index: nextIndex,
+index: true,
 url,
 name: formattedName,
 desp: formattedDesp,
