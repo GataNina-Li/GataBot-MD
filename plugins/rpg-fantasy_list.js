@@ -91,7 +91,7 @@ ${chunkArray(allCharacters.split('\n'), 5)[currentPage - 1].join('\n')}
 *Personajes de Menor Costo:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
-${chunkArray(lowCostCharacters, 5)[currentPage - 1]?.join('\n') || ''}
+${chunkArray(lowCostCharacters.split('\n'), 5)[currentPage - 1].join('\n')}
 
 *Personajes de Mayor Costo:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
