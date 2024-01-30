@@ -158,7 +158,7 @@ if (m.quoted && m.quoted.id === id_message && ['👍', '❤️', '👎'].include
         if (emojiAntes) {
           const cambioEmojiMessage = `Has decidido cambiar tu reacción anterior *${emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')}* por *${emoji}* en *${nombrePersonaje}*.`;
           const errorMessage = `No puedes dar *${emoji}* a *${nombrePersonaje}* porque ya lo hiciste antes.`;
-          conn.reply(m.chat, ${emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️') == emoji ? errorMessage : cambioEmojiMessage}, m);
+          conn.reply(m.chat, ${emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️') == emoji ? cambioEmojiMessage : errorMessage}, m);
         } else {
           const confirmationMessage = `¡Has respondido *${emoji}* para *${nombrePersonaje}*! 🌟`;
           conn.reply(m.chat, confirmationMessage, m);
