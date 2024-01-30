@@ -72,7 +72,7 @@ title: `🌟 FANTASÍA RPG`,
 body: `🎈 Lista de personajes`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
-thumbnailUrl: 'https://i.imgur.com/LkjsAXH.png'
+thumbnailUrl: 'https://telegra.ph/file/109a73eb9db6439ce6168.png'
 }}})
 
 function formatCharacterList(characterList) {
