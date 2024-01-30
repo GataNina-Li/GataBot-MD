@@ -8,13 +8,13 @@ let nombre2 = '𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨'
  
 const s = [
 'https://media0.giphy.com/media/65ODCwM00NVmEyLsX3/giphy.gif?cid=ecf05e47p9z5h8ozpdu8cjem55qy6hc6mtjb1tjlyr9usjsy&rid=giphy.gif&ct=g',
-'https://media0.giphy.com/media/GpyS1lJXJYupG/giphy.gif?cid=ecf05e47qxzfl93t2e4q41fx6batypxo8sbhmqjjpc7t6lu2&rid=giphy.gif&ct=g',
-'https://i.pinimg.com/736x/fd/4e/61/fd4e614a5c0fb835e7858473286f3058.jpg',
+'content://media/external/downloads/1000593125',
+'https://telegra.ph/file/fab0eefe87ef1cd1a3b62.png',
 'https://media2.giphy.com/media/1LVd4P5P2Kpzi/giphy.gif?cid=ecf05e47nbn37e5sbo69h41lojwsdao7aoxnw2kmr07uwodi&rid=giphy.gif&ct=g',
-'https://media1.giphy.com/media/12juneOf2Rc4ak/giphy.gif?cid=ecf05e47gprladmhgg8gqq5kewkd67c39hkboe6hp1z3tvnt&rid=giphy.gif&ct=g',
+'https://media1.https://telegra.ph/file/154258d8b98975946ebb7.png',
 'http://pm1.narvii.com/7835/01726f9861b2f27c482de69e32537967613bb980r1-813-720v2_uhq.jpg',
 'http://pm1.narvii.com/7659/830884bd84986014140803b3425793f6fa39eb34r1-488-418v2_uhq.jpg',
-'https://img-10.stickers.cloud/packs/9a9e981d-45e4-4ee9-93ff-483012f02167/webp/33c6b62d-8447-4c7d-a07c-9c09a0272805.webp',
+'https://telegra.ph/file/1102719d88d2a9138e2f3.png',
 'https://c.tenor.com/SlyuVaDqEdMAAAAd/lizard-dancing-xd.gif',
 'https://c.tenor.com/n_CQEVKGB1kAAAAC/dead-chat-xd-discord.gif',
 'https://c.tenor.com/woUBgv2VLKoAAAAC/didnt-xd.gif',
