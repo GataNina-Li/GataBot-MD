@@ -31,12 +31,12 @@ charactersByType[type].push(`- ${character.name}`)
 const lowCostCharacters = data.infoImg
 .filter((character) => character.price >= 0 && character.price <= 700)
 .map((character) => `- ${character.name} (${character.price})`)
-//.join('\n')
+.join('\n')
 
 const highCostCharacters = data.infoImg
 .filter((character) => character.price > 700)
 .map((character) => `- ${character.name} (${character.price})`)
-//.join('\n')
+.join('\n')
 
 let currentPage = text ? parseInt(text) : 1
 let totalPages = 1
