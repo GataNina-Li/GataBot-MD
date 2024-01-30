@@ -128,15 +128,15 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
   // Función para obtener la respuesta formateada
   function getFormattedReply() {
     return `
-Personajes Totales:
-${allCharacters}
+Personajes Totales - Página ${currentPage} de ${totalPages}:
+${chunkArray(allCharacters.split('\n'), 5)[currentPage - 1].join('\n')}
 
 Número total de personajes: ${totalCharacters}
 
-Personajes por Clase:
+Personajes por Clase - Página ${currentPage} de ${totalPages}:
 ${formatCharacterList(charactersByClass)}
 
-Personajes por Tipo:
+Personajes por Tipo - Página ${currentPage} de ${totalPages}:
 ${formatCharacterList(charactersByType)}
   `;
   }
@@ -144,6 +144,7 @@ ${formatCharacterList(charactersByType)}
 
 handler.command = /^(fylista)$/i;
 export default handler;
+
 
 
 
