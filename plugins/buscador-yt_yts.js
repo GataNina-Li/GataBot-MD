@@ -29,8 +29,7 @@ return `[${i + 1}]\n❤️꙰༻ *TÍTULO:*  ${v.title}
 ⁖💜꙰༻ *DURACIÓN:* ${v.timestamp}
 ⁖💚꙰༻ *SUBIDO:* ${v.ago}
 ⁖🧡꙰༻ *VISTAS:* ${v.views}`}).join('\n\n••••••••••••••••••••••••••••••••••••\n\n')
-//conn.sendFile(m.chat, results.all[0].thumbnail, 'yts.jpeg', textoInfo + '\n\n' + teks, fkontak, m)
-conn.sendFile(m.chat, results.all[0].thumbnail, 'yts.jpg', textoInfo + '\n\n' + teks, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: v.title, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: accountsgb.getRandom()}}})
+conn.sendFile(m.chat, results.all[0].thumbnail, 'yts.jpeg', textoInfo + '\n\n' + teks, fkontak, m)
 global.videoList.push(vids_);
 } catch {    
 }}
