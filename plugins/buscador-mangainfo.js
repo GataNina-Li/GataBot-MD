@@ -38,7 +38,7 @@ let animeingfo =
 ❣ ${url}`
 await conn.sendFile(m.chat, image_url, '', animeingfo, m) 
 let info = `💖 *Infórmate sobre las Novedades y recuerda tener la última versión.*\n\n💝 *Find out about what's new and remember to have the latest version.*`
-  
+conn.reply(m.chat, info, fkontak, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}})
 }
 handler.help = ['animeinfo <anime>']
 handler.tags = ['internet']
