@@ -60,7 +60,7 @@ let str = `💕 𝘽𝙄𝙀𝙉𝙑𝙀𝙉𝙄𝘿𝙊(𝘼) 𝘼 𝙇𝙊𝙎
 🐈 *${nnnttt5}*\n
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ➢ 🌟 𝐀.𝐓.𝐌.𝐌 🌟
-🐈 *${nnnttt6}*\n
+🐈 𝐒𝐈𝐍 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐂𝐈𝐎́𝐍
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 *Por favor, no ingresar con números de Bots, y mantener el respeto.*\n
 *Please, do not enter with Bot numbers, and maintain respect.*`
