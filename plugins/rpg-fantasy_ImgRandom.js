@@ -116,7 +116,7 @@ user = global.db.data.users[m.sender]
 }*/
 
 if (m.quoted && m.quoted.id === id_message && ['👍', '❤️', '👎'].includes(m.text)) {
-  try {
+  
     const emoji = m.text;
     userId = m.sender;
     const usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId);
