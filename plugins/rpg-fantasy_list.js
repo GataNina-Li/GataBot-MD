@@ -61,7 +61,7 @@ return conn.reply(m.chat, `Número de página inválido. Utiliza un número entr
 m.reply(getFormattedReply())
 
  
-function formatCharacterList(characterList) {
+/*function formatCharacterList(characterList) {
 let result = ''
 for (const [classType, characters] of Object.entries(characterList)) {
 if (characters.length <= numPersonaje) {
@@ -71,6 +71,19 @@ const pages = chunkArray(characters, numPersonaje);
 result += `*${classType}*\n${pages[currentPage - 1].join('\n')}\n\n`;
 }}
 return result.trim();
+}*/
+function formatCharacterList(characterList) {
+let result = ''
+for (const [classType, characters] of Object.entries(characterList)) {
+if (characters.length <= numPersonaje) {
+result += `*${classType}:*\n${characters.join('\n')}\n\n`
+} else {
+const pages = chunkArray(characters, numPersonaje)
+const currentPageContent = pages[currentPage - 1]
+if (currentPageContent) {
+result += `*${classType}*\n${currentPageContent.join('\n')}\n\n`
+}}}
+return result.trim()
 }
 
 function chunkArray(array, size) {
