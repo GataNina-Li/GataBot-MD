@@ -157,7 +157,7 @@ ${formatCharacterList(charactersByType)}
   }
 };
 
-handler.command = /^(fantasylist|fylist)$/i;
+handler.command = /^(fylista)$/i;
 export default handler;
 
 
