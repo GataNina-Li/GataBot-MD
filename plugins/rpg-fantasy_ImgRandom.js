@@ -127,10 +127,59 @@ fantasyDB.push(nuevoUsuario);
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8');
 }
 realizarCompra()
+   
 user.money -= dato.price
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.desp}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.url } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.name}*`, m, fake)
-}}}}
+}}}
+
+if (m.quoted && m.quoted.id === id_message && ['👍', '❤️', '👎'].includes(m.text)) {
+const emoji = m.text
+const userId = m.sender
+const usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
+
+if (usuarioExistente) {
+const idUsuarioExistente = Object.keys(usuarioExistente)[0]
+const nombrePersonaje = dato.name
+
+if (nombrePersonaje) {
+const flow = usuarioExistente[idUsuarioExistente].flow || []
+const votoExistente = flow.find((voto) => voto.character_name === nombrePersonaje && voto[emoji.toLowerCase()])
+
+if (votoExistente) {
+const errorMessage = `No puedes dar *${emoji}* a *${nombrePersonaje}* porque ya lo hiciste antes.`;
+conn.reply(m.chat, errorMessage, m)
+} else {
+const emojiAntes = flow.find((voto) => voto.character_name === nombrePersonaje && (voto.like || voto.dislike || voto.superlike))?.like ? '👍' : (voto.dislike ? '👎' : '❤️')
+const updatedFlow = [
+...flow.filter((voto) => voto.character_name !== nombrePersonaje),
+{
+character_name: nombrePersonaje,
+like: emoji === '👍',
+dislike: emoji === '👎',
+superlike: emoji === '❤️',
+},
+];
+usuarioExistente[idUsuarioExistente].flow = updatedFlow;
+if (!usuarioExistente[idUsuarioExistente].fantasy) {
+usuarioExistente[idUsuarioExistente].fantasy = [
+{
+id: false,
+status: false,
+},
+]
+}
+fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
+
+if (emojiAntes) {
+const cambioEmojiMessage = `Has decidido cambiar tu reacción anterior *${emojiAntes}* por *${emoji}* en *${nombrePersonaje}*.`
+conn.reply(m.chat, cambioEmojiMessage, m)
+} else {
+const confirmationMessage = `¡Has respondido *${emoji}* para *${nombrePersonaje}*! 🌟`
+conn.reply(m.chat, confirmationMessage, m)
+}}}}}
+
+}
 }
 handler.command = /^(fantasy|fy)$/i
 export default handler
