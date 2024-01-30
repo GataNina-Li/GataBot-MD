@@ -10,7 +10,7 @@ const s = [
 'https://media0.giphy.com/media/65ODCwM00NVmEyLsX3/giphy.gif?cid=ecf05e47p9z5h8ozpdu8cjem55qy6hc6mtjb1tjlyr9usjsy&rid=giphy.gif&ct=g',
 'content://media/external/downloads/1000593125',
 'https://telegra.ph/file/fab0eefe87ef1cd1a3b62.png',
-'https://media2.giphy.com/media/1LVd4P5P2Kpzi/giphy.gif?cid=ecf05e47nbn37e5sbo69h41lojwsdao7aoxnw2kmr07uwodi&rid=giphy.gif&ct=g',
+'https://telegra.ph/file/9c5b41124eb05ed7e8e0f.jpg',
 'https://media1.https://telegra.ph/file/154258d8b98975946ebb7.png',
 'http://pm1.narvii.com/7835/01726f9861b2f27c482de69e32537967613bb980r1-813-720v2_uhq.jpg',
 'http://pm1.narvii.com/7659/830884bd84986014140803b3425793f6fa39eb34r1-488-418v2_uhq.jpg',
@@ -18,13 +18,13 @@ const s = [
 'https://c.tenor.com/SlyuVaDqEdMAAAAd/lizard-dancing-xd.gif',
 'https://c.tenor.com/n_CQEVKGB1kAAAAC/dead-chat-xd-discord.gif',
 'https://c.tenor.com/woUBgv2VLKoAAAAC/didnt-xd.gif',
-'https://img.wattpad.com/2b0a1d3963768b68bf2a50af1206e0e3ed6e5d46/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f326b6174556d5a55542d777546413d3d2d38322e313634663337626661323934613934663433343634353630383138392e6a7067?s=fit&w=720&h=720',
+'https://telegra.ph/file/6f437c4970a34e2b55ae5.png',
 'https://pbs.twimg.com/media/ExhbbMvWUAAjaTJ.jpg',
 'https://i.pinimg.com/originals/51/ec/ca/51eccabf758cfa6ddf23a7d62b82fbcf.jpg',
 'https://i0.wp.com/ytimg.googleusercontent.com/vi/MwM7FPazq6Q/maxresdefault.jpg?resize=650,400',
 'https://i.gifer.com/99do.gif',
 'https://i.gifer.com/G0ph.gif',
-'https://i.gifer.com/VLgZ.gif',
+'https://telegra.ph/file/f2bd6c6b1dcf9a2811617.jpg',
 'https://i.gifer.com/4q.gif' 
 ];  
  
