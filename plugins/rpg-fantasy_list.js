@@ -58,7 +58,6 @@ ${formatCharacterList(charactersByType)}
 handler.command = /^(fylista)$/i;
 export default handler;*/
 
-
 import fetch from 'node-fetch';
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
@@ -98,6 +97,23 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
   let currentPage = text ? parseInt(text) : 1;
   let totalPages = 1;
 
+  // Calcular el total de páginas en base a la sección con más personajes
+  const maxSectionLength = Math.max(
+    allCharacters.split('\n').length,
+    ...Object.values(charactersByClass).map((characters) => characters.length),
+    ...Object.values(charactersByType).map((characters) => characters.length)
+  );
+
+  // Calcular el total de páginas
+  if (maxSectionLength > 5) {
+    totalPages = Math.ceil(maxSectionLength / 5);
+  }
+
+  // Validar número de página proporcionado
+  if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
+    return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m);
+  }
+
   // Imprimir resultados
   m.reply(getFormattedReply());
 
@@ -109,7 +125,6 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
         result += `${classType}:\n${characters.join('\n')}\n\n`;
       } else {
         const pages = chunkArray(characters, 5);
-        totalPages = pages.length;
         result += `${classType} - Página ${currentPage} de ${totalPages}:\n${pages[currentPage - 1].join('\n')}\n\n`;
       }
     }
@@ -142,8 +157,9 @@ ${formatCharacterList(charactersByType)}
   }
 };
 
-handler.command = /^(fylista)$/i;
+handler.command = /^(fantasylist|fylist)$/i;
 export default handler;
+
 
 
 
