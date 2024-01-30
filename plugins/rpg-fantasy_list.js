@@ -122,10 +122,10 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
     let result = '';
     for (const [classType, characters] of Object.entries(characterList)) {
       if (characters.length <= 5) {
-        result += `${classType}:\n${characters.join('\n')}\n\n`;
+        result += `*${classType}:*\n${characters.join('\n')}\n\n`;
       } else {
         const pages = chunkArray(characters, 5);
-        result += `${classType} - Página ${currentPage} de ${totalPages}:\n${pages[currentPage - 1].join('\n')}\n\n`;
+        result += `*${classType}*\n${pages[currentPage - 1].join('\n')}\n\n`;
       }
     }
     return result.trim();
