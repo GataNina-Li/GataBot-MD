@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-let numPersonaje = 10
+let numPersonaje = 5
 let currentPage = null
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
@@ -99,6 +99,7 @@ return result
 
 function getFormattedReply() {
 return `
+${totalPages !== 1 ? `_Para ir a la siguiente página escriba *${usedPrefix +command} 2*_\n\n` : ''}
 *❱❱ Número total de personajes:* ${totalCharacters}
 
 *❱❱ Personajes:*
