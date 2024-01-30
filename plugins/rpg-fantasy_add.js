@@ -45,7 +45,7 @@ const formattedName = name.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase()
 const formattedDesp = desp.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
 
 const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
-const formattedClass = classInput.trim().toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
+const formattedClass = classInput.trim().toLowerCase()
 if (validClasses.some(c => formattedClass.includes(c.toLowerCase()))) {
 return conn.reply(m.chat, '¡Solo puedes ingresar una clase a la vez!', m)
 }
