@@ -11,15 +11,15 @@ const groupAdmins = participants.filter(p => p.admin)
 const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
 let bot = global.db.data.settings[this.user.jid] || {}
 const isChannelLink = linkRegex.exec(m.text)
-const grupo = `https://whatsapp.com/channel/`
-if (isAdmin && chat.antiLink && m.text.includes(grupo)) return m.reply(`${lenguajeGB['smsAdwa']()}`)
-if (chat.antiLink && isGroupLink && !isAdmin) {
+const canal = `https://whatsapp.com/channel/`
+if (isAdmin && chat.antiLink && m.text.includes(canal)) return m.reply(`${lenguajeGB['smsAdwa']()}`)
+if (chat.antiLink && isChannelLink && !isAdmin) {
 if (isBotAdmin) {
-const linkThisGroup = `https://whatsapp.com/channel/${await this.groupInviteCode(m.chat)}`
-if (m.text.includes(linkThisGroup)) return !0
+const linkThisChannel = `https://whatsapp.com/channel/${await this.ChannelInviteCode(m.chat)}`
+if (m.text.includes(linkThisChannel)) return !0
 }    
 await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsEnlaceWat']()} ${user}`, mentions: [m.sender]}, {quoted: m})
-//await conn.sendButton(m.chat, `${lenguajeGB['smsEnlaceWat']()} ${await this.getName(m.sender)} ${isBotAdmin ? '' : `\n\n${lenguajeGB['smsAllAdmin']()}`}`, wm, [`${lenguajeGB['smsApagar']()}`, '/disable antilink'], m)    
+//await conn.sendButton(m.chat, `${lenguajeGB['smsEnlaceWat']()} ${await this.getName(m.sender)} ${isBotAdmin ? '' : `\n\n${lenguajeGB['smsAllAdmin']()}`}`, wm, [`${lenguajeGB['smsApagar']()}`, '/disable antichannel'], m)    
 if (!isBotAdmin) return conn.sendMessage(m.chat, {text: `*⛔ ${lenguajeGB.smsAddB4()} ⛔*\n${listAdmin}\n\n${lenguajeGB['smsAllAdmin']()}`, mentions: [...groupAdmins.map(v => v.id)] }, {quoted: m})
 // m.reply(`${lenguajeGB['smsAllAdmin']()}`)  
 if (isBotAdmin) {
