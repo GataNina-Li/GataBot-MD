@@ -55,9 +55,9 @@ if (maxSectionLength > numPersonaje) {
 totalPages = Math.ceil(maxSectionLength / numPersonaje)
 }
 
-if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
-return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
-}
+//if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
+//return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
+//}
 //m.reply(getFormattedReply())
 
 let reply = await conn.reply(m.chat, getFormattedReply(), m)
@@ -66,7 +66,7 @@ if (m.quoted && m.quoted.id === reply.id && currentPage === parseInt(m.text)) {
 if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
 return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
 }
-reply = await conn.reply(m.chat, getFormattedReply(), m)
+await conn.reply(m.chat, getFormattedReply(), m)
 }}
 
 function formatCharacterList(characterList) {
