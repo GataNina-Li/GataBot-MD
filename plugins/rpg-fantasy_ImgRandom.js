@@ -128,7 +128,7 @@ if (nombrePersonaje) {
 const flow = usuarioExistente[idUsuarioExistente].flow || [];
 const votoExistente = flow.find((voto) => voto && voto.character_name === nombrePersonaje && voto[emoji.toLowerCase()])
 
-//if (votoExistente && votoExistente[emoji.toLowerCase()] && votoExistente[emoji.toLowerCase()] !== m.text) {
+if (votoExistente && votoExistente[emoji.toLowerCase()] && votoExistente[emoji.toLowerCase()] !== m.text) {
         //const errorMessage = `No puedes dar *${emoji}* a *${nombrePersonaje}* porque ya lo hiciste antes.`;
         //conn.reply(m.chat, errorMessage, m);
       } else {
@@ -166,7 +166,7 @@ const votoExistente = flow.find((voto) => voto && voto.character_name === nombre
       }
     }
   }
-//}
+}
 
 
 
