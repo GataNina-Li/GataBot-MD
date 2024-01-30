@@ -72,7 +72,7 @@ title: `🌟 FANTASÍA RPG`,
 body: `🎈 Lista de personajes`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
-thumbnailUrl: 'https://telegra.ph/file/109a73eb9db6439ce6168.png'
+thumbnailUrl: 'https://telegra.ph/file/feb1553dffb7410556c8f.jpg'
 }}})
 
 function formatCharacterList(characterList) {
@@ -128,7 +128,7 @@ ${formatCharacterList(charactersByType)}
 `
 }}
 
-handler.command = /^(fylista)$/i
+handler.command = /^(fylista|fylist|fyl)$/i
 export default handler
 
 
