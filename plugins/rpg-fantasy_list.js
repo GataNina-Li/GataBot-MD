@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-let numPersonaje = 2
+let numPersonaje = 1
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 const response = await fetch(jsonURL)
