@@ -62,7 +62,7 @@ return conn.reply(m.chat, `Número de página inválido. Utiliza un número entr
 //m.reply(getFormattedReply())
 let pp = 'https://telegra.ph/file/343d26ea0d2621d47539c.jpg'
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-await conn.sendFile(m.chat, null, 'error.jpg', getFormattedReply(), fkontak, true, {
+await conn.sendFile(m.chat, pp, 'error.jpg', getFormattedReply(), fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
