@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-let numPersonaje = 2
+let numPersonaje = 10
 let currentPage = null
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
@@ -9,14 +9,6 @@ const data = await response.json()
 const allCharacters = data.infoImg.map((character) => `• ${character.name}`).join('\n')
 const totalCharacters = data.infoImg.length
 
-/*const charactersByClass = {};
-data.infoImg.forEach((character) => {
-const classType = character.class
-if (!charactersByClass[classType]) {
-charactersByClass[classType] = []
-}
-charactersByClass[classType].push(`• ${character.name}`)
-})*/
 const classOrder = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
 const charactersByClass = {}
 data.infoImg.forEach((character) => {
@@ -72,7 +64,7 @@ totalPages = Math.ceil(maxSectionLength / numPersonaje)
 if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
 return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
 }
-//m.reply(getFormattedReply())
+  
 let pp = 'https://telegra.ph/file/343d26ea0d2621d47539c.jpg'
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 await conn.sendFile(m.chat, pp, 'error.jpg', getFormattedReply(), fkontak, true, {
@@ -87,7 +79,7 @@ mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://telegra.ph/file/feb1553dffb7410556c8f.jpg'
 }}})
-console.log(sortedCharactersByClass)
+
 function formatCharacterList(characterList) {
 let result = ''
 for (const [classType, characters] of Object.entries(characterList)) {
