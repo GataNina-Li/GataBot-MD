@@ -122,7 +122,7 @@ ${formatCharacterList(charactersByType)}
 `
 }}
 
-handler.command = /^(fylista|listfy)$/i
+handler.command = /^(fylista|listfy|listafantasy|fantasylista|listfantasy|fantasylist)$/i
 export default handler
 
 
