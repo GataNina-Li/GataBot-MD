@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-let numPersonaje = 2
+let numPersonaje = 10
 let currentPage = null
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
@@ -56,25 +56,10 @@ if (maxSectionLength > numPersonaje) {
 totalPages = Math.ceil(maxSectionLength / numPersonaje)
 }
 
-//if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
-//return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
-//}
-//m.reply(getFormattedReply())
-
-let reply = await conn.reply(m.chat, getFormattedReply(), m)
-handler.before = async (m) => {
-if (m.quoted && m.quoted.id === reply.id && m.text) {
-const number = parseInt(m.text.replace(/[^0-9]/g, ''))
-if (!isNaN(number)) {
-let currentPage = number
-if (currentPage < 1 || currentPage > totalPages) {
+if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
 return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
 }
-await conn.reply(m.chat, getFormattedReply(), m)
-} else {
-conn.reply(m.chat, 'Número inválido.', m)
-}}
-}
+m.reply(getFormattedReply())
 
 function formatCharacterList(characterList) {
 let result = ''
