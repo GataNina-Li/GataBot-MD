@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
-let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen, fantasyDB, jsonURL, response, data, userId = null
+let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen, fantasyDB, jsonURL, response, data, userId, voto = null
 
 let handler = async (m, { command, usedPrefix, conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
