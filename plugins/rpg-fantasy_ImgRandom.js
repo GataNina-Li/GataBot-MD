@@ -126,47 +126,49 @@ if (m.quoted && m.quoted.id === id_message && ['👍', '❤️', '👎'].include
 
     if (nombrePersonaje) {
       const flow = usuarioExistente[idUsuarioExistente].flow || [];
-const votoExistente = flow.find((voto) => voto && voto.character_name === nombrePersonaje);
+      const votoExistente = flow.find((voto) => voto && voto.character_name === nombrePersonaje);
 
-if (votoExistente && votoExistente[emoji.toLowerCase()]) {
-  const errorMessage = `No puedes dar *${emoji}* a *${nombrePersonaje}* porque ya lo hiciste antes.`;
-  conn.reply(m.chat, errorMessage, m);
-} else {
-  const emojiAntes = votoExistente ? (votoExistente.like ? '👍' : (votoExistente.dislike ? '👎' : '❤️')) : undefined;
+      const nuevoVoto = {
+        character_name: nombrePersonaje,
+        like: emoji === '👍',
+        dislike: emoji === '👎',
+        superlike: emoji === '❤️',
+      };
 
-  if (emojiAntes) {
-    const cambioEmojiMessage = `Has decidido cambiar tu reacción anterior *${emojiAntes}* por *${emoji}* en *${nombrePersonaje}*.`;
-    conn.reply(m.chat, cambioEmojiMessage, m);
-  } else {
-          const updatedFlow = [
-            ...(flow || []).filter((voto) => voto.character_name !== nombrePersonaje),
-            {
-              character_name: nombrePersonaje,
-              like: emoji === '👍',
-              dislike: emoji === '👎',
-              superlike: emoji === '❤️',
-            },
-          ];
-          usuarioExistente[idUsuarioExistente].flow = updatedFlow;
-
-          if (!usuarioExistente[idUsuarioExistente].fantasy) {
-            usuarioExistente[idUsuarioExistente].fantasy = [
-              {
-                id: false,
-                status: false,
-              },
-            ];
-          }
-
-          fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8');
-
+      if (votoExistente && votoExistente[emoji.toLowerCase()]) {
+        const errorMessage = `No puedes dar *${emoji}* a *${nombrePersonaje}* porque ya lo hiciste antes.`;
+        conn.reply(m.chat, errorMessage, m);
+      } else {
+        if (votoExistente) {
+          // Cambiar un emoji existente
+          const emojiAntes = votoExistente.like ? '👍' : (votoExistente.dislike ? '👎' : '❤️');
+          const cambioEmojiMessage = `Has decidido cambiar tu reacción anterior *${emojiAntes}* por *${emoji}* en *${nombrePersonaje}*.`;
+          conn.reply(m.chat, cambioEmojiMessage, m);
+          flow[flow.indexOf(votoExistente)] = nuevoVoto; // Reemplazar el voto existente
+        } else {
+          // Agregar un nuevo emoji
           const confirmationMessage = `¡Has respondido *${emoji}* para *${nombrePersonaje}*! 🌟`;
           conn.reply(m.chat, confirmationMessage, m);
+          flow.push(nuevoVoto); // Agregar el nuevo voto
         }
+
+        usuarioExistente[idUsuarioExistente].flow = flow;
+
+        if (!usuarioExistente[idUsuarioExistente].fantasy) {
+          usuarioExistente[idUsuarioExistente].fantasy = [
+            {
+              id: false,
+              status: false,
+            },
+          ];
+        }
+
+        fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8');
       }
     }
   }
 }
+
 
 
         
