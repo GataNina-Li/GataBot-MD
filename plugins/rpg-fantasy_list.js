@@ -47,8 +47,8 @@ const maxSectionLength = Math.max(
 allCharacters.split('\n').length,
 ...Object.values(charactersByClass).map((characters) => characters.length),
 ...Object.values(charactersByType).map((characters) => characters.length),
-lowCostCharacters.split('\n').length,
-highCostCharacters.split('\n').length
+lowCostCharacters.length,
+highCostCharacters.length
 )
 
 if (maxSectionLength > 5) {
