@@ -126,7 +126,7 @@ ${formatCharacterList(charactersByClass)}
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 ${formatCharacterList(charactersByType)}
-`
+`.trim()
 }}
 
 handler.command = /^(fylista|fylist|fyl)$/i
