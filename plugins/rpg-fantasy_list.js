@@ -41,7 +41,7 @@ const highCostCharacters = data.infoImg
 .sort((a, b) => a.price - b.price)
 .map((character) => `- ${character.name} (${character.price})`)
 
-//let currentPage = text ? parseInt(text) : 1
+currentPage = text ? parseInt(text) : 1
 let totalPages = 1
 
 const maxSectionLength = Math.max(
