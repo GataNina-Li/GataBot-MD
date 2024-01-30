@@ -46,9 +46,9 @@ const formattedDesp = desp.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase()
 
 const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
 const formattedClass = classInput.trim().toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-if (formattedClass.split(' ').length > 1) {
-return conn.reply(m.chat, '¡Solo puedes ingresar una clase a la vez!', m)
-}
+//if (formattedClass.split(' ').length > 1) {
+//return conn.reply(m.chat, '¡Solo puedes ingresar una clase a la vez!', m)
+//}
 if (!validClasses.includes(formattedClass)) {
 return conn.reply(m.chat, '¡Clase no válida! Solo se aceptan las siguientes:\nComún, Poco Común, Raro, Épico, Legendario, Sagrado, Supremo, Transcendental', m)
 }
