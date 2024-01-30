@@ -34,30 +34,20 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
   });
 
   // Imprimir resultados
-console.log(`
-*⛱️ FANTASÍA RPG - LISTA DE PERSONAJES ⛱️*
-
-**Personajes Totales**
-${allCharacters.join('\n')}
-
-**Número total de personajes**
-${totalCharacters}
-
-**Personajes por Clase**
-${formatCharacterList(charactersByClass)}
-
-**Personajes por Tipo**
-${formatCharacterList(charactersByType)}
+  m.reply(`
+Personajes Totales: ${allCharacters.join(', ')}
+Número total de personajes: ${totalCharacters}
+Personajes por Clase: ${formatCharacterList(charactersByClass)}
+Personajes por Tipo: ${formatCharacterList(charactersByType)}
   `);
 
   // Función para formatear la lista de personajes
   function formatCharacterList(characterList) {
     return Object.entries(characterList)
-      .map(([classType, characters]) => `*${classType}*
-${characters.join('\n')}`)
-      .join('\n\n');
+      .map(([classType, characters]) => `*${classType}:* ${characters.join(', ')}`)
+      .join(' | ');
   }
 };
 
-handler.command = /^(fantasylist|fylist)$/i
-export default handler
+handler.command = /^(fantasylist|fylist)$/i;
+export default handler;
