@@ -112,8 +112,6 @@ const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 usuarioExistente[userId].fantasy.push({
 id: dato.code,
-like: false,
-dislike: false,
 status: true
 })
 } else {
@@ -122,8 +120,6 @@ const nuevoUsuario = {
 fantasy: [
 {
 id: dato.code,
-like: false,
-dislike: false,
 status: true
 }]}}
 fantasyDB.push(nuevoUsuario);
