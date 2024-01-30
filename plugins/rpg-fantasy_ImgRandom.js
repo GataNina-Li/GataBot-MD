@@ -128,16 +128,17 @@ if (m.quoted && m.quoted.id === id_message && ['👍', '❤️', '👎'].include
       const flow = usuarioExistente[idUsuarioExistente].flow || [];
       const votoExistente = flow.find((voto) => voto && voto.character_name === nombrePersonaje && voto[emoji.toLowerCase()]);
 
-      if (votoExistente && votoExistente[emoji.toLowerCase()]) {
-        const errorMessage = `No puedes dar *${emoji}* a *${nombrePersonaje}* porque ya lo hiciste antes.`;
-        conn.reply(m.chat, errorMessage, m);
-      } else {
-        const emojiAntes = flow.find((voto) => voto && voto.character_name === nombrePersonaje && (voto.like || voto.dislike || voto.superlike));
+      const emojiAntes = flow.find((voto) => voto && voto.character_name === nombrePersonaje && (voto.like || voto.dislike || voto.superlike));
+
+  if (emojiAntes) {
+    const cambioEmojiMessage = `Has decidido cambiar tu reacción anterior *${emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')}* por *${emoji}* en *${nombrePersonaje}*.`;
+    conn.reply(m.chat, cambioEmojiMessage, m);
+  } else {
 
         if (votoExistente) {
-          const cambioEmojiMessage = `Has decidido cambiar tu reacción anterior *${emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')}* por *${emoji}* en *${nombrePersonaje}*.`;
-          conn.reply(m.chat, cambioEmojiMessage, m);
-        } else {
+  const errorMessage = `No puedes dar *${emoji}* a *${nombrePersonaje}* porque ya lo hiciste antes.`;
+  conn.reply(m.chat, errorMessage, m);
+} else {
           const updatedFlow = [
             ...(flow || []).filter((voto) => voto.character_name !== nombrePersonaje),
             {
