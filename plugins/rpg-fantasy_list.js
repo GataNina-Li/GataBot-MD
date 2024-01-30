@@ -30,13 +30,15 @@ charactersByType[type].push(`- ${character.name}`)
 
 const lowCostCharacters = data.infoImg
 .filter((character) => character.price !== undefined && character.price >= 0 && character.price <= 700)
-.map((character) => `- ${character.name} (${character.price})`)
+.map((character) => ({ name: character.name, price: character.price }))
 .sort((a, b) => a.price - b.price)
+.map((character) => `- ${character.name} (${character.price})`)
 
 const highCostCharacters = data.infoImg
 .filter((character) => character.price !== undefined && character.price > 700)
-.map((character) => `- ${character.name} (${character.price})`)
+.map((character) => ({ name: character.name, price: character.price }))
 .sort((a, b) => a.price - b.price)
+.map((character) => `- ${character.name} (${character.price})`)
 
 let currentPage = text ? parseInt(text) : 1
 let totalPages = 1
@@ -91,12 +93,12 @@ ${chunkArray(allCharacters.split('\n'), 5)[currentPage - 1].join('\n')}
 *Personajes de Menor Costo:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
-${chunkArray(lowCostCharacters, 5)[currentPage - 1]?.join('\n') || ''}
+${chunkArray(lowCostCharacters, 5)[currentPage - 1] ? chunkArray(lowCostCharacters, 5)[currentPage - 1].join('\n') : lowCostCharacters.join('\n')}
 
 *Personajes de Mayor Costo:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
-${chunkArray(highCostCharacters, 5)[currentPage - 1]?.join('\n') || ''}
+${chunkArray(highCostCharacters, 5)[currentPage - 1] ? chunkArray(highCostCharacters, 5)[currentPage - 1].join('\n') : highCostCharacters.join('\n')}
 
 *Personajes por Clase:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
