@@ -94,7 +94,7 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
   });
 
   // Definir la página actual y el total de páginas
-  let currentPage = 1;
+  let currentPage = text ? parseInt(text) : 1;
   let totalPages = 1;
 
   // Imprimir resultados
@@ -137,10 +137,13 @@ ${formatCharacterList(charactersByClass)}
 
 Personajes por Tipo:
 ${formatCharacterList(charactersByType)}
+
+Para ver otra página, responde al mensaje con el número de página disponible.
   `;
   }
 };
 
-handler.command = /^(fylista)$/i;
+handler.command = /^(fantasylist|fylist)$/i;
 export default handler;
+
 
