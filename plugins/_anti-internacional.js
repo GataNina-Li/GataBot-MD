@@ -58,35 +58,30 @@ global.db.data.users[m.sender].block = true
 await conn.reply(m.chat, texto, m)
 await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')} 
 }}
-export default handler
 
 if (m.sender.startsWith('994' || '994')) {
 global.db.data.users[m.sender].block = true
 await conn.reply(m.chat, texto, m)
 await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')} 
 }}
-export default handler
 
 if (m.sender.startsWith('256' || '256')) {
 global.db.data.users[m.sender].block = true
 await conn.reply(m.chat, texto, m)
 await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')} 
 }}
-export default handler
 
 if (m.sender.startsWith('210' || '210')) {
 global.db.data.users[m.sender].block = true
 await conn.reply(m.chat, texto, m)
 await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')} 
 }}
-export default handler
 
 if (m.sender.startsWith('212' || '212')) {
 global.db.data.users[m.sender].block = true
 await conn.reply(m.chat, texto, m)
 await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')} 
 }}
-export default handler
 
 if (m.sender.startsWith('358' || '358')) {
 global.db.data.users[m.sender].block = true
