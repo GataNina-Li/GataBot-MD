@@ -34,7 +34,7 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
   });
 
   // Imprimir resultados
-  m.reply(`
+console.log(`
 *⛱️ FANTASÍA RPG - LISTA DE PERSONAJES ⛱️*
 
 **Personajes Totales**
