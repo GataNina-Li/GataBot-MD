@@ -9,14 +9,28 @@ const data = await response.json()
 const allCharacters = data.infoImg.map((character) => `• ${character.name}`).join('\n')
 const totalCharacters = data.infoImg.length
 
-const charactersByClass = {};
+/*const charactersByClass = {};
 data.infoImg.forEach((character) => {
 const classType = character.class
 if (!charactersByClass[classType]) {
 charactersByClass[classType] = []
 }
 charactersByClass[classType].push(`• ${character.name}`)
+})*/
+const classOrder = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
+const charactersByClass = {}
+data.infoImg.forEach((character) => {
+const classType = character.class;
+if (!charactersByClass[classType]) {
+charactersByClass[classType] = []
+}
+charactersByClass[classType].push(`• ${character.name}`)
 })
+
+const sortedCharactersByClass = Object.fromEntries(
+Object.entries(charactersByClass).sort(
+(a, b) => classOrder.indexOf(a[0]) - classOrder.indexOf(b[0])
+))
 
 const charactersByType = {};
 data.infoImg.forEach((character) => {
@@ -74,7 +88,7 @@ mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://telegra.ph/file/feb1553dffb7410556c8f.jpg'
 }}})
-
+console.log(sortedCharactersByClass)
 function formatCharacterList(characterList) {
 let result = ''
 for (const [classType, characters] of Object.entries(characterList)) {
