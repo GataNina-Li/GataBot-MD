@@ -298,7 +298,7 @@ message: {
 }}}
 
 
-global.multiplier = 200 // Cuanto más alto, más difícil subir de nivel 
+global.multiplier = 85 // Cuanto más alto, más difícil subir de nivel 
 
 //Emojis RPG - Referencias
 global.rpg = {
