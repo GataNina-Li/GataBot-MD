@@ -59,7 +59,21 @@ totalPages = Math.ceil(maxSectionLength / numPersonaje)
 if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
 return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
 }
-m.reply(getFormattedReply())
+//m.reply(getFormattedReply())
+let pp = 'https://telegra.ph/file/5413c3d098f748e7def77.jpg'
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+await conn.sendFile(m.chat, null, 'error.jpg', getFormattedReply, fkontak, true, {
+contextInfo: {
+'forwardingScore': 200,
+'isForwarded': false,
+externalAdReply: {
+showAdAttribution: false,
+title: `🌟 FANTASÍA RPG`,
+body: `🎈 Lista de personajes`,
+mediaType: 1,
+sourceUrl: accountsgb.getRandom(),
+thumbnailUrl: 'https://telegra.ph/file/343d26ea0d2621d47539c.jpg'
+}}})
 
 function formatCharacterList(characterList) {
 let result = ''
