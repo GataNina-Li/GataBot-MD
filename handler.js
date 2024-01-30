@@ -169,6 +169,7 @@ if (!isNumber(user.centaurlastfeed)) user.centaurlastfeed = 0
 if (!isNumber(user.clay)) user.clay = 0
 if (!isNumber(user.coal)) user.coal = 0
 if (!isNumber(user.coin)) user.coin = 0
+if (!isNumber(user.fantasy)) user.fantasy = 0
 if (!isNumber(user.common)) user.common = 0
 if (!isNumber(user.crystal)) user.crystal = 0
 if (!isNumber(user.cumi)) user.cumi = 0
