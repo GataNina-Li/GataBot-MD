@@ -6,7 +6,7 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
   const data = await response.json();
 
   // Obtener todos los personajes
-  const allCharacters = data.infoImg.map((character) => character.name);
+  const allCharacters = data.infoImg.map((character) => `- ${character.name}`).join('\n');
 
   // Obtener el número total de personajes
   const totalCharacters = data.infoImg.length;
@@ -18,7 +18,7 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
     if (!charactersByClass[classType]) {
       charactersByClass[classType] = [];
     }
-    charactersByClass[classType].push(character.name);
+    charactersByClass[classType].push(`- ${character.name}`);
   });
 
   // Obtener personajes por tipo
@@ -29,25 +29,31 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
       if (!charactersByType[type]) {
         charactersByType[type] = [];
       }
-      charactersByType[type].push(character.name);
+      charactersByType[type].push(`- ${character.name}`);
     });
   });
 
   // Imprimir resultados
-  m.reply(`
-Personajes Totales: ${allCharacters.join(', ')}
+  await m.reply(`
+Personajes Totales:
+${allCharacters}
+
 Número total de personajes: ${totalCharacters}
-Personajes por Clase: ${formatCharacterList(charactersByClass)}
-Personajes por Tipo: ${formatCharacterList(charactersByType)}
+
+Personajes por Clase:
+${formatCharacterList(charactersByClass)}
+
+Personajes por Tipo:
+${formatCharacterList(charactersByType)}
   `);
 
   // Función para formatear la lista de personajes
   function formatCharacterList(characterList) {
     return Object.entries(characterList)
-      .map(([classType, characters]) => `*${classType}:* ${characters.join(', ')}`)
-      .join(' | ');
+      .map(([classType, characters]) => `${classType}:\n${characters.join('\n')}`)
+      .join('\n\n');
   }
 };
 
-handler.command = /^(fantasylist|fylist)$/i;
+handler.command = /^(fylista)$/i;
 export default handler;
