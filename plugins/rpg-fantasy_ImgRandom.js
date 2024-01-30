@@ -1,22 +1,22 @@
 import fetch from 'node-fetch'
 import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
-let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen = null
+let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen, fantasyDB, jsonURL, response, data, userId = null
 
 let handler = async (m, { command, usedPrefix, conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
-const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
+jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 try {
-const response = await fetch(jsonURL)
-const data = await response.json()
+response = await fetch(jsonURL)
+data = await response.json()
 
 if (data.infoImg && data.infoImg.length > 0) {
 dato = data.infoImg[Math.floor(Math.random() * data.infoImg.length)]
 pp = await conn.profilePictureUrl(who, 'image').catch((_) => dato.url)
 
-let fantasyDB = []
+fantasyDB = []
 if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
 fantasyDB = JSON.parse(data)
@@ -75,10 +75,10 @@ fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emo
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.name}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
         
-const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
-const response = await fetch(jsonURL)
-const data = await response.json()
-let fantasyDB = []
+jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
+response = await fetch(jsonURL)
+data = await response.json()
+fantasyDB = []
 if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
 fantasyDB = JSON.parse(data)
@@ -107,7 +107,7 @@ conn.reply(m.chat, mensaje, m, fake)
         
 }}} else {        
 function realizarCompra() {
-const userId = m.sender
+userId = m.sender
 const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 usuarioExistente[userId].fantasy.push({
@@ -135,7 +135,7 @@ conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato
 
 if (m.quoted && m.quoted.id === id_message && ['👍', '❤️', '👎'].includes(m.text)) {
 const emoji = m.text
-const userId = m.sender
+userId = m.sender
 const usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 
 if (usuarioExistente) {
