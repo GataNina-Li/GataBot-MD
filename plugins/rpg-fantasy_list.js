@@ -28,19 +28,17 @@ charactersByType[type].push(`- ${character.name}`)
 })
 })
 
-const lowCostCharacters = data.infoImg
-.filter((character) => character.price >= 0 && character.price <= 700)
-.map((character) => ({ name: character.name, price: character.price }))
+ const lowCostCharacters = data.infoImg
+.filter((character) => character.price !== undefined && character.price >= 0 && character.price <= 700)
+.map((character) => `- ${character.name} (${character.price})`)
 .sort((a, b) => a.price - b.price)
 .map((character) => `- ${character.name} (${character.price})`)
-.join('\n')
 
- const highCostCharacters = data.infoImg
- .filter((character) => character.price > 700)
- .map((character) => ({ name: character.name, price: character.price }))
- .sort((a, b) => a.price - b.price)
- .map((character) => `- ${character.name} (${character.price})`)
- .join('\n')
+const highCostCharacters = data.infoImg
+.filter((character) => character.price !== undefined && character.price > 700)
+.map((character) => `- ${character.name} (${character.price})`)
+.sort((a, b) => a.price - b.price)
+.map((character) => `- ${character.name} (${character.price})`)
 
 let currentPage = text ? parseInt(text) : 1
 let totalPages = 1
