@@ -1,4 +1,4 @@
-/*import fetch from 'node-fetch';
+/*import fetch from 'node-fetch'; 
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
   const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json';
