@@ -143,7 +143,7 @@ Para ver otra página, responde al mensaje con el número de página disponible.
   }
 };
 
-handler.command = /^(fantasylist|fylist)$/i;
+handler.command = /^(fylista)$/i;
 export default handler;
 
 
