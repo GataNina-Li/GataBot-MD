@@ -64,6 +64,12 @@ handler.before = async (m) => {
 user = global.db.data.users[m.sender]
 
 if (m.quoted && m.quoted.id === id_message && ['👍', '❤️', '👎'].includes(m.text)) {
+fantasyDB = []
+if (fs.existsSync(fantasyDBPath)) {
+const data = fs.readFileSync(fantasyDBPath, 'utf8')
+fantasyDB = JSON.parse(data)
+}
+      
 const emoji = m.text
 userId = m.sender
 const usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
@@ -103,7 +109,7 @@ const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${
 const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
 conn.reply(m.chat, (emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')) === emoji ? errorMessage : cambioEmojiMessage, m)
 } else {
-const confirmationMessage = `¡*${conn.getName(m.sender)}* ha calificado a *${nombrePersonaje}* con *"${emoji}"*\n\n😉 _¡Sigue calificando a más personajes, es gratis!_`
+const confirmationMessage = `*${conn.getName(m.sender)}* ha calificado a *${nombrePersonaje}* con *"${emoji}"*\n\n😉 _¡Sigue calificando a más personajes, es gratis!_`
 conn.reply(m.chat, confirmationMessage, m)
 }}}}}
       
