@@ -58,20 +58,17 @@ totalPages = Math.ceil(maxSectionLength / numPersonaje)
 if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
 return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
 }
-m.reply(getFormattedReply())
+//m.reply(getFormattedReply())
 
- 
-/*function formatCharacterList(characterList) {
-let result = ''
-for (const [classType, characters] of Object.entries(characterList)) {
-if (characters.length <= numPersonaje) {
-result += `*${classType}:*\n${characters.join('\n')}\n\n`;
-} else {
-const pages = chunkArray(characters, numPersonaje);
-result += `*${classType}*\n${pages[currentPage - 1].join('\n')}\n\n`;
+let reply = await conn.reply(m.chat, getFormattedReply(), m)
+handler.before = async (m) => {
+if (m.quoted && m.quoted.id === reply.id && (text ? parseInt(text) : 1) === parseInt(m.text)) {
+if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
+return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
+}
+reply = await conn.reply(m.chat, getFormattedReply(), m)
 }}
-return result.trim();
-}*/
+
 function formatCharacterList(characterList) {
 let result = ''
 for (const [classType, characters] of Object.entries(characterList)) {
