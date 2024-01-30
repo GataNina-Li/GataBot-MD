@@ -161,7 +161,7 @@ if (m.quoted && m.quoted.id === id_message && ['👍', '❤️', '👎'].include
       }
     }
   }
-
+}
 
         
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
