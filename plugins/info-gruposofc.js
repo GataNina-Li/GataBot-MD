@@ -52,6 +52,9 @@ let str = `💕 𝘽𝙄𝙀𝙉𝙑𝙀𝙉𝙄𝘿𝙊(𝘼) 𝘼 𝙇𝙊𝙎
 ➢ 💝 𝐌𝐔𝐋𝐓𝐈-𝐁𝐎𝐓𝐒 💝
 🐈 *${nnnttt5}*\n
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+➢ 🌟 𝐀.𝐓.𝐌.𝐌 🌟
+🐈 *${nnnttt6}*\n
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 *Por favor, no ingresar con números de Bots, y mantener el respeto.*\n
 *Please, do not enter with Bot numbers, and maintain respect.*`
 await conn.sendFile(m.chat, media, 'gata.mp4', str, fkontak)}
