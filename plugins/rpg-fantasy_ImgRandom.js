@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
-let id_message, pp, dato, fake, user = null
+let id_message, pp, dato, fake, user, estado = null
 
 let handler = async (m, { command, usedPrefix, conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -21,7 +21,7 @@ if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
 fantasyDB = JSON.parse(data)
 }
-let estado = 'Libre'
+estado = 'Libre'
 const codigoActual = dato.code
 const usuarioExistente = fantasyDB.find(user => {
 const id = Object.keys(user)[0]
@@ -58,7 +58,7 @@ conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m }
 }} catch (error) {
 console.error('Error al obtener o procesar los datos: ', error)
 conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
-}}
+}
 
 handler.before = async (m) => {
 user = global.db.data.users[m.sender]
@@ -67,6 +67,9 @@ if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.t
 const cantidadFaltante = dato.price - user.money
 
 if (user.money < dato.price) {
+fake = { contextInfo: { externalAdReply: { title: `¡Ese Personaje ya fue comprado!`, body: `😅 Compra otro personaje`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }        
+let No_compra = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)}*`
+if (estado !== 'Libre') return conn.reply(m.chat, No_compra, m, fake)       
 fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.name}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
@@ -130,7 +133,7 @@ realizarCompra()
 user.money -= dato.price
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.desp}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.url } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.name}*`, m, fake)
-}}}
+}}}}
 }
 handler.command = /^(fantasy|fy)$/i
 export default handler
