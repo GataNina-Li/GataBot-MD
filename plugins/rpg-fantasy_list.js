@@ -26,7 +26,6 @@ charactersByClass[classType] = []
 }
 charactersByClass[classType].push(`• ${character.name}`)
 })
-
 const sortedCharactersByClass = Object.fromEntries(
 Object.entries(charactersByClass).sort(
 (a, b) => classOrder.indexOf(a[0]) - classOrder.indexOf(b[0])
@@ -60,7 +59,7 @@ let totalPages = 1
 
 const maxSectionLength = Math.max(
 allCharacters.split('\n').length,
-...Object.values(charactersByClass).map((characters) => characters.length),
+...Object.values(sortedCharactersByClass).map((characters) => characters.length),
 ...Object.values(charactersByType).map((characters) => characters.length),
 lowCostCharacters.length,
 highCostCharacters.length
@@ -134,7 +133,7 @@ ${chunkArray(highCostCharacters, numPersonaje)[currentPage - 1] ? chunkArray(hig
 *❱❱ Personajes por Clase:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
-${formatCharacterList(charactersByClass)}
+${formatCharacterList(sortedCharactersByClass)}
 
 *❱❱ Personajes por Tipo:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
