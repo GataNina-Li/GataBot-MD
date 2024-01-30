@@ -52,7 +52,8 @@ return conn.reply(m.chat, '¡Solo puedes ingresar una clase a la vez!', m)
 if (!validClasses.includes(formattedClass)) {
 return conn.reply(m.chat, '¡Clase no válida! Solo se aceptan las siguientes:\nComún, Poco Común, Raro, Épico, Legendario, Sagrado, Supremo, Transcendental', m)
 }
-const formattedType = typeInput.split(/[:;/]/).map((item) => item.trim().toLowerCase()).map((item) => item.replace(/\b\w/g, (c) => c.toUpperCase())).join(', ')
+const formattedType = typeInput.split(/[:;/]/).map((item) => item.trim().toLowerCase()).map((item) => item.replace(/^\w/, (c) => c.toUpperCase())).join(', ')
+
 
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 const response = await fetch(jsonURL)
