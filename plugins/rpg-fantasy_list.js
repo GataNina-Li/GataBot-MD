@@ -63,13 +63,18 @@ totalPages = Math.ceil(maxSectionLength / numPersonaje)
 
 let reply = await conn.reply(m.chat, getFormattedReply(), m)
 handler.before = async (m) => {
-if (m.quoted && m.quoted.id === reply.id && /^\d+$/.test(m.text.trim())) {
-currentPage = text ? parseInt(text) : 1
-if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
+if (reply && m.quoted && m.quoted.id === reply.id) {
+const number = parseInt(m.text.replace(/[^0-9]/g, ''))
+if (!isNaN(number)) {
+let currentPage = number
+if (currentPage < 1 || currentPage > totalPages) {
 return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
 }
 await conn.reply(m.chat, getFormattedReply(), m)
+} else {
+conn.reply(m.chat, 'Número inválido.', m)
 }}
+}
 
 function formatCharacterList(characterList) {
 let result = ''
