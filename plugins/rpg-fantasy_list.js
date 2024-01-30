@@ -40,7 +40,7 @@ const highCostCharacters = data.infoImg
 .sort((a, b) => a.price - b.price)
 .map((character) => `- ${character.name} (${character.price})`)
 
-let currentPage = text ? parseInt(text) : 1
+//let currentPage = text ? parseInt(text) : 1
 let totalPages = 1
 
 const maxSectionLength = Math.max(
@@ -62,7 +62,8 @@ totalPages = Math.ceil(maxSectionLength / numPersonaje)
 
 let reply = await conn.reply(m.chat, getFormattedReply(), m)
 handler.before = async (m) => {
-if (m.quoted && m.quoted.id === reply.id && (text ? parseInt(text) : 1).toString() === m.text.trim().toLowerCase()) {
+if (m.quoted && m.quoted.id === reply.id && /^\d+$/.test(m.text.trim())) {
+let currentPage = text ? parseInt(text) : 1
 if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
 return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
 }
@@ -122,7 +123,7 @@ ${formatCharacterList(charactersByType)}
 `
 }}
 
-handler.command = /^(fylista|listfy|listafantasy|fantasylista|listfantasy|fantasylist)$/i
+handler.command = /^(fylista)$/i
 export default handler
 
 
