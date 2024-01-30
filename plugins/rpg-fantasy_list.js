@@ -33,13 +33,13 @@ const lowCostCharacters = data.infoImg
 .filter((character) => character.price !== undefined && character.price >= 0 && character.price <= 700)
 .map((character) => ({ name: character.name, price: character.price }))
 .sort((a, b) => a.price - b.price)
-.map((character) => `• ${character.name} \`\`\`${character.price}\`\`\` ${rpgshop.emoticon('money')}`)
+.map((character) => `• ${character.name} » \`\`\`${character.price}\`\`\` *${rpggshop.emoticon('money')}*`)
 
 const highCostCharacters = data.infoImg
 .filter((character) => character.price !== undefined && character.price > 700)
 .map((character) => ({ name: character.name, price: character.price }))
 .sort((a, b) => a.price - b.price)
-.map((character) => `• ${character.name} \`\`\`${character.price}\`\`\` ${rpgshop.emoticon('money')}`)
+.map((character) => `• ${character.name} » \`\`\`${character.price}\`\`\` *${rpggshop.emoticon('money')}*`)
 
 currentPage = text ? parseInt(text) : 1
 let totalPages = 1
