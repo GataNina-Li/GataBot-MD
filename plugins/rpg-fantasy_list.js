@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-
+let numPersonaje = 2
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 const response = await fetch(jsonURL)
@@ -51,8 +51,8 @@ lowCostCharacters.length,
 highCostCharacters.length
 )
 
-if (maxSectionLength > 5) {
-totalPages = Math.ceil(maxSectionLength / 5)
+if (maxSectionLength > numPersonaje) {
+totalPages = Math.ceil(maxSectionLength / numPersonaje)
 }
 
 if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
@@ -64,10 +64,10 @@ m.reply(getFormattedReply())
 function formatCharacterList(characterList) {
 let result = ''
 for (const [classType, characters] of Object.entries(characterList)) {
-if (characters.length <= 5) {
+if (characters.length <= numPersonaje) {
 result += `*${classType}:*\n${characters.join('\n')}\n\n`;
 } else {
-const pages = chunkArray(characters, 5);
+const pages = chunkArray(characters, numPersonaje);
 result += `*${classType}*\n${pages[currentPage - 1].join('\n')}\n\n`;
 }}
 return result.trim();
@@ -88,17 +88,17 @@ return `
 *Personajes:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
-${chunkArray(allCharacters.split('\n'), 5)[currentPage - 1].join('\n')}
+${chunkArray(allCharacters.split('\n'), numPersonaje)[currentPage - 1].join('\n')}
 
 *Personajes de Menor Costo:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
-${chunkArray(lowCostCharacters, 5)[currentPage - 1] ? chunkArray(lowCostCharacters, 5)[currentPage - 1].join('\n') : lowCostCharacters.join('\n')}
+${chunkArray(lowCostCharacters, numPersonaje)[currentPage - 1] ? chunkArray(lowCostCharacters, numPersonaje)[currentPage - 1].join('\n') : lowCostCharacters.join('\n')}
 
 *Personajes de Mayor Costo:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
-${chunkArray(highCostCharacters, 5)[currentPage - 1] ? chunkArray(highCostCharacters, 5)[currentPage - 1].join('\n') : highCostCharacters.join('\n')}
+${chunkArray(highCostCharacters, numPersonaje)[currentPage - 1] ? chunkArray(highCostCharacters, numPersonaje)[currentPage - 1].join('\n') : highCostCharacters.join('\n')}
 
 *Personajes por Clase:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
