@@ -63,7 +63,7 @@ totalPages = Math.ceil(maxSectionLength / numPersonaje)
 
 let reply = await conn.reply(m.chat, getFormattedReply(), m)
 handler.before = async (m) => {
-if (reply && m.quoted && m.quoted.id === reply.id) {
+if (m.quoted && m.quoted.id === reply.id) {
 const number = parseInt(m.text.replace(/[^0-9]/g, ''))
 if (!isNaN(number)) {
 let currentPage = number
