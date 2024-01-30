@@ -6,7 +6,7 @@ const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/image
 const response = await fetch(jsonURL)
 const data = await response.json()
 
-const allCharacters = data.infoImg.map((character) => `- ${character.name}`).join('\n')
+const allCharacters = data.infoImg.map((character) => `• ${character.name}`).join('\n')
 const totalCharacters = data.infoImg.length
 
 const charactersByClass = {};
@@ -15,7 +15,7 @@ const classType = character.class
 if (!charactersByClass[classType]) {
 charactersByClass[classType] = []
 }
-charactersByClass[classType].push(`- ${character.name}`)
+charactersByClass[classType].push(`• ${character.name}`)
 })
 
 const charactersByType = {};
@@ -25,7 +25,7 @@ types.forEach((type) => {
 if (!charactersByType[type]) {
 charactersByType[type] = []
 }
-charactersByType[type].push(`- ${character.name}`)
+charactersByType[type].push(`• ${character.name}`)
 })
 })
 
@@ -33,13 +33,13 @@ const lowCostCharacters = data.infoImg
 .filter((character) => character.price !== undefined && character.price >= 0 && character.price <= 700)
 .map((character) => ({ name: character.name, price: character.price }))
 .sort((a, b) => a.price - b.price)
-.map((character) => `- ${character.name} (${character.price})`)
+.map((character) => `• ${character.name} (${character.price})`)
 
 const highCostCharacters = data.infoImg
 .filter((character) => character.price !== undefined && character.price > 700)
 .map((character) => ({ name: character.name, price: character.price }))
 .sort((a, b) => a.price - b.price)
-.map((character) => `- ${character.name} (${character.price})`)
+.map((character) => `• ${character.name} (${character.price})`)
 
 currentPage = text ? parseInt(text) : 1
 let totalPages = 1
@@ -60,9 +60,9 @@ if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
 return conn.reply(m.chat, `Número de página inválido. Utiliza un número entre 1 y ${totalPages}.`, m)
 }
 //m.reply(getFormattedReply())
-let pp = 'https://telegra.ph/file/5413c3d098f748e7def77.jpg'
+let pp = 'https://telegra.ph/file/343d26ea0d2621d47539c.jpg'
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-await conn.sendFile(m.chat, null, 'error.jpg', getFormattedReply, fkontak, true, {
+await conn.sendFile(m.chat, null, 'error.jpg', getFormattedReply(), fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
@@ -72,7 +72,7 @@ title: `🌟 FANTASÍA RPG`,
 body: `🎈 Lista de personajes`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
-thumbnailUrl: 'https://telegra.ph/file/343d26ea0d2621d47539c.jpg'
+thumbnailUrl: 'https://i.imgur.com/LkjsAXH.png'
 }}})
 
 function formatCharacterList(characterList) {
@@ -99,29 +99,29 @@ return result
 
 function getFormattedReply() {
 return `
-*Número total de personajes:* ${totalCharacters}
+*❱❱ Número total de personajes:* ${totalCharacters}
 
-*Personajes:*
+*❱❱ Personajes:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 ${chunkArray(allCharacters.split('\n'), numPersonaje)[currentPage - 1].join('\n')}
 
-*Personajes de Menor Costo:*
+*❱❱ Personajes de Menor Costo:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 ${chunkArray(lowCostCharacters, numPersonaje)[currentPage - 1] ? chunkArray(lowCostCharacters, numPersonaje)[currentPage - 1].join('\n') : lowCostCharacters.join('\n')}
 
-*Personajes de Mayor Costo:*
+*❱❱ Personajes de Mayor Costo:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 ${chunkArray(highCostCharacters, numPersonaje)[currentPage - 1] ? chunkArray(highCostCharacters, numPersonaje)[currentPage - 1].join('\n') : highCostCharacters.join('\n')}
 
-*Personajes por Clase:*
+*❱❱ Personajes por Clase:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 ${formatCharacterList(charactersByClass)}
 
-*Personajes por Tipo:*
+*❱❱ Personajes por Tipo:*
 \`\`\`Página ${currentPage} de ${totalPages}\`\`\`
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 ${formatCharacterList(charactersByType)}
