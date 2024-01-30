@@ -58,6 +58,7 @@ ${formatCharacterList(charactersByType)}
 handler.command = /^(fylista)$/i;
 export default handler;*/
 
+
 import fetch from 'node-fetch';
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
@@ -137,13 +138,12 @@ ${formatCharacterList(charactersByClass)}
 
 Personajes por Tipo:
 ${formatCharacterList(charactersByType)}
-
-Para ver otra página, responde al mensaje con el número de página disponible.
   `;
   }
 };
 
 handler.command = /^(fylista)$/i;
 export default handler;
+
 
 
