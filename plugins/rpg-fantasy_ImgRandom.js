@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
-let id_message, pp, dato, fake, user, estado = null
+let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen = null
 
 let handler = async (m, { command, usedPrefix, conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -30,8 +30,8 @@ return fantasy.some(personaje => personaje.id === codigoActual)
 })
 
 if (usuarioExistente) {
-const idUsuarioExistente = Object.keys(usuarioExistente)[0];
-const nombreImagen = data.infoImg.find(personaje => personaje.code === codigoActual)?.name
+idUsuarioExistente = Object.keys(usuarioExistente)[0];
+nombreImagen = data.infoImg.find(personaje => personaje.code === codigoActual)?.name
 
 if (nombreImagen) {
 estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)}*`
@@ -67,6 +67,7 @@ if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.t
 const cantidadFaltante = dato.price - user.money
 
 if (user.money < dato.price) {
+
 fake = { contextInfo: { externalAdReply: { title: `¡Ese Personaje ya fue comprado!`, body: `😅 Compra otro personaje`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }        
 let No_compra = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)}*`
 if (estado !== 'Libre') return conn.reply(m.chat, No_compra, m, fake)       
