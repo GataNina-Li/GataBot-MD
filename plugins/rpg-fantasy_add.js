@@ -42,7 +42,7 @@ return conn.reply(m.chat, '¡Por favor, ingresa un enlace de imagen válido!\n\n
 }
 
 const formattedName = name.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
-const formattedDesp = desp.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
+const formattedDesp = desp
 
 const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
 const formattedClass = classInput.trim().toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
