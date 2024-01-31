@@ -20,7 +20,7 @@ user.fantasy_character = [0, 0, 0]
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId && user[userId].fantasy)
 if (usuarioExistente && user.fantasy_character[0] <= 0) {
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} ahora puedes calificar personajes*`, m)
-user.fantasy_character[0]++
+user.fantasy_character[0] = 1
 }
 
 // Verifica si el conjunto fantasy tiene id como cadena de texto y status como true
