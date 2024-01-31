@@ -3,6 +3,12 @@ let usuarioExistente = null
 export async function before(m,{ conn }) {
 const userId = m.sender
 
+let fantasyDB = []
+if (fs.existsSync(fantasyDBPath)) {
+const data = fs.readFileSync(fantasyDBPath, 'utf8')
+fantasyDB = JSON.parse(data)
+}
+
 // Verifica si el usuario existe en la base de datos y si tiene la estructura fantasy
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId && user[userId].fantasy)
 if (usuarioExistente) {
