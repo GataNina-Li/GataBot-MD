@@ -18,7 +18,7 @@ user.fantasy_character3 = 0
 
 // Verifica si el usuario existe en la base de datos y si tiene la estructura fantasy
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId && user[userId].fantasy)
-if (usuarioExistente && user.fantasy_character === 1) {
+if (usuarioExistente && user.fantasy_character === 0) {
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} ahora puedes calificar personajes*`, m)
 user.fantasy_character++
 }
