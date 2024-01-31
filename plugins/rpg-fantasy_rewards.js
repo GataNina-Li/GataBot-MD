@@ -58,5 +58,5 @@ user.fantasy_character++
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por dar ${likesCount} veces "👍"*`, m)
 user.fantasy_character++
 }}
-  
+}  
 }
