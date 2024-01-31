@@ -57,6 +57,6 @@ user.fantasy_character++
 } else if (likesCount === 20 && user.fantasy_character <= 8) {
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por dar ${likesCount} veces "👍"*`, m)
 user.fantasy_character++
-}}
-}  
+}
+  
 }
