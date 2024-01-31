@@ -25,8 +25,8 @@ user.fantasy_character++
 
 // Verifica si el conjunto fantasy tiene id como cadena de texto y status como true
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
-const fantasyArray = usuarioExistente[userId].fantasy
 if (usuarioExistente) {
+const fantasyArray = usuarioExistente[userId].fantasy
 if (fantasyArray.length >= 1 && typeof fantasyArray[0].id === 'string' && fantasyArray[0].status === true && user.fantasy_character2 === 0) {
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personaje 1*`, m)
 user.fantasy_character2++
