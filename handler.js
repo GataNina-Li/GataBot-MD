@@ -201,7 +201,7 @@ if (!isNumber(user.foxexp)) user.foxexp = 0
 if (!isNumber(user.foxlastfeed)) user.foxlastfeed = 0
 if (!isNumber(user.fullatm)) user.fullatm = 0
 if (!isNumber(user.fantasy)) user.fantasy = []
-if (!isNumber(user.fantasy_character)) user.fantasy_character = 0
+if (!isNumber(user.fantasy_character)) user.fantasy_character = [0, 0, 0]
 if (!isNumber(user.gadodado)) user.gadodado = 0
 if (!isNumber(user.gajah)) user.gajah = 0
 if (!isNumber(user.gamemines)) user.gamemines = false
@@ -625,7 +625,7 @@ foxexp: 0,
 foxlastfeed: 0,
 fullatm: 0,
 fantasy: [],
-fantasy_character: 0,
+fantasy_character: [0, 0, 0],
 gadodado: 0,
 gajah: 0,
 gamemines: false,
