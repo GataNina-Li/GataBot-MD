@@ -120,7 +120,6 @@ if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.t
 const cantidadFaltante = dato.price - user.money
 
 if (user.money < dato.price) {
-
 fake = { contextInfo: { externalAdReply: { title: `¡Ese Personaje ya fue comprado!`, body: `😅 Compra otro personaje`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }        
 let No_compra = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)}*`
 if (estado !== 'Libre') return conn.reply(m.chat, No_compra, m, fake)       
@@ -185,7 +184,7 @@ user.money -= dato.price
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.desp}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.url } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.name}*`, m, fake)
 }}}
-user.fantasy = new Date * 1  
+//user.fantasy = new Date * 1  
 }}
 handler.command = /^(fantasy|fy)$/i
 export default handler
