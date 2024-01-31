@@ -10,7 +10,7 @@ const data = fs.readFileSync(fantasyDBPath, 'utf8')
 fantasyDB = JSON.parse(data)
 }
 
-// Si el usuario no existe en la abse de datos borra su contador de registro
+// Si el usuario no existe en la base de datos borra su contador de registro
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 if (!usuarioExistente) {
 user.fantasy_character = 0
@@ -19,13 +19,13 @@ user.fantasy_character = 0
 // Verifica si el usuario existe en la base de datos y si tiene la estructura fantasy
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId && user[userId].fantasy)
 if (usuarioExistente && user.fantasy_character <= 0) {
-conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} ahora puedes calificar personajes*`, m)}
+conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} ahora puedes calificar personajes*`, m)
 user.fantasy_character++
 }
 
 // Verifica si el conjunto fantasy tiene id como cadena de texto y status como true
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
-const fantasyArray = usuarioExistente[m.sender].fantasy
+const fantasyArray = usuarioExistente[userId].fantasy
 if (fantasyArray.length >= 1 && typeof fantasyArray[0].id === 'string' && fantasyArray[0].status === true && user.fantasy_character <= 1) {
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personaje 1*`, m)
 user.fantasy_character++
