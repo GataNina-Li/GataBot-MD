@@ -1,4 +1,4 @@
-/*const fantasyDBPath = './fantasy.json'
+const fantasyDBPath = './fantasy.json'
 let usuarioExistente = null
 export async function before(m,{ conn }) {
 const userId = m.sender
@@ -60,4 +60,4 @@ user.fantasy_character3++
 }}
 
 }
-*/
+
