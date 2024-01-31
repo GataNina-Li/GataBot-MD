@@ -116,7 +116,7 @@ const confirmationMessage = `*${conn.getName(m.sender)}* ha calificado a *${nomb
 conn.reply(m.chat, confirmationMessage, m)
 }}}}}
       
-if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
+if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text)) {
 const cantidadFaltante = dato.price - user.money
 
 if (user.money < dato.price) {
