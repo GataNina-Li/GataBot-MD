@@ -173,10 +173,24 @@ fantasy: [
 {
 id: dato.code,
 status: true
-}]}}
+}],
+record: [
+{
+total_character_transfer: false,
+total_change_character: false,
+total_vote: false,
+total_like: false,
+total_dislike: false,
+total_superlike: false,
+total_rewards: false,
+total_resell: false,
+total_purchased: false,
+total_spent_coins: false
+}]
+}}
 fantasyDB.push(nuevoUsuario);
 }
-fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8');
+fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 }
 realizarCompra()
    
