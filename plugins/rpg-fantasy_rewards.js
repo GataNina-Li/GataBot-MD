@@ -26,6 +26,7 @@ user.fantasy_character++
 // Verifica si el conjunto fantasy tiene id como cadena de texto y status como true
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 const fantasyArray = usuarioExistente[userId].fantasy
+if (usuarioExistente) {
 if (fantasyArray.length >= 1 && typeof fantasyArray[0].id === 'string' && fantasyArray[0].status === true && user.fantasy_character2 === 0) {
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personaje 1*`, m)
 user.fantasy_character2++
@@ -38,7 +39,7 @@ user.fantasy_character2++
 } else if (fantasyArray.length >= 15 && typeof fantasyArray[14].id === 'string' && fantasyArray[14].status === true && user.fantasy_character2 === 3) {
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personaje 15*`, m)
 user.fantasy_character2++
-}
+}}
 
 // Cuenta la cantidad de veces que se ha dado "like"
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
