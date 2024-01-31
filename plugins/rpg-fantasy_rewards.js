@@ -2,6 +2,7 @@ const fantasyDBPath = './fantasy.json'
 let usuarioExistente = null
 export async function before(m,{ conn }) {
 const userId = m.sender
+let user = global.db.data.users[userId]
 
 let fantasyDB = []
 if (fs.existsSync(fantasyDBPath)) {
@@ -9,23 +10,39 @@ const data = fs.readFileSync(fantasyDBPath, 'utf8')
 fantasyDB = JSON.parse(data)
 }
 
+// Si el usuario no existe en la abse de datos borra su contador de registro
+usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
+if (!usuarioExistente) {
+user.fantasy_character = 0
+}
+
 // Verifica si el usuario existe en la base de datos y si tiene la estructura fantasy
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId && user[userId].fantasy)
 if (usuarioExistente) {
+if (user.fantasy_character === 1) return
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} ahora puedes calificar personajes*`, m)
+user.fantasy_character++
 }
 
 // Verifica si el conjunto fantasy tiene id como cadena de texto y status como true
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 const fantasyArray = usuarioExistente[m.sender].fantasy
 if (fantasyArray.length >= 1 && typeof fantasyArray[0].id === 'string' && fantasyArray[0].status === true) {
+if (user.fantasy_character === 2) return
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personaje 1*`, m)
+user.fantasy_character++
 } else if (fantasyArray.length >= 3 && typeof fantasyArray[2].id === 'string' && fantasyArray[2].status === true) {
+if (user.fantasy_character === 3) return
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personaje 3*`, m)
+user.fantasy_character++
 } else if (fantasyArray.length >= 8 && typeof fantasyArray[7].id === 'string' && fantasyArray[7].status === true) {
+if (user.fantasy_character === 4) return
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personaje 8*`, m)
+user.fantasy_character++
 } else if (fantasyArray.length >= 15 && typeof fantasyArray[14].id === 'string' && fantasyArray[14].status === true) {
+if (user.fantasy_character === 5) return
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personaje 15*`, m)
+user.fantasy_character++
 }
 
 // Cuenta la cantidad de veces que se ha dado "like"
@@ -34,13 +51,21 @@ if (usuarioExistente) {
 const flowArray = usuarioExistente[userId].flow || []
 const likesCount = flowArray.filter(voto => voto.like).length
 if (likesCount === 1) {
+if (user.fantasy_character === 6) return
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por dar ${likesCount} vez "👍"*`, m)
+user.fantasy_character++
 } else if (likesCount === 5) {
+if (user.fantasy_character === 7) return
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por dar ${likesCount} veces "👍"*`, m)
+user.fantasy_character++
 } else if (likesCount === 10) {
+if (user.fantasy_character === 8) return
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por dar ${likesCount} veces "👍"*`, m)
+user.fantasy_character++
 } else if (likesCount === 20) {
+if (user.fantasy_character === 9) return
 conn.reply(m.chat, `\`\`\`Logro desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por dar ${likesCount} veces "👍"*`, m)
+user.fantasy_character++
 }}
   
 }
