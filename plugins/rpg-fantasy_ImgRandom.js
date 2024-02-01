@@ -181,16 +181,16 @@ status: true
 }],
 record: [
 {
-total_character_transfer: false,
-total_change_character: false,
-total_vote: false,
-total_like: false,
-total_dislike: false,
-total_superlike: false,
-total_rewards: false,
-total_resell: false,
-total_purchased: false,
-total_spent_coins: false
+total_character_transfer: 0,
+total_change_character: 0,
+total_vote: 0,
+total_like: 0,
+total_dislike: 0,
+total_superlike: 0,
+total_rewards: 0,
+total_resell: 0,
+total_purchased: 0,
+total_spent_coins: 0
 }]
 }}
 fantasyDB.push(nuevoUsuario);
