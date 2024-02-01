@@ -111,9 +111,41 @@ if (emojiAntes) {
 const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')}"* por *"${emoji}"* para *${nombrePersonaje}*.`
 const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
 conn.reply(m.chat, (emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')) === emoji ? errorMessage : cambioEmojiMessage, m)
+let userInDB = fantasyDB.find(userEntry => userEntry[userId]);
+if (userInDB) {
+const record = userInDB[userId].record[0]
+const emojiAnterior = emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')
+switch (emojiAnterior) {
+case '👍':
+record.total_like -= 1
+break
+case '👎':
+record.total_dislike -= 1
+break
+case '❤️':
+record.total_superlike -= 1;
+break
+}
+fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
 } else {
 const confirmationMessage = `*${conn.getName(m.sender)}* ha calificado a *${nombrePersonaje}* con *"${emoji}"*\n\n😉 _¡Sigue calificando a más personajes, es gratis!_`
 conn.reply(m.chat, confirmationMessage, m)
+let userInDB = fantasyDB.find(userEntry => userEntry[userId])
+if (userInDB) {
+const record = userInDB[userId].record[0]
+switch (emoji) {
+case '👍':
+record.total_like += 1
+break
+case '👎':
+record.total_dislike += 1
+break;
+case '❤️':
+record.total_superlike += 1
+break
+}
+fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
+
 }}}}}
       
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
@@ -204,9 +236,9 @@ realizarCompra()
 user.money -= dato.price
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.desp}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.url } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.name}*`, m, fake)
-const userInDB = fantasyDB.find(userEntry => userEntry[userId])
+let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
-userInDB[m.sender].record[0].total_purchased += 1
+userInDB[userId].record[0].total_purchased += 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
 
 }}}
