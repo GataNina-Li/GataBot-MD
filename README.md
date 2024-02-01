@@ -192,7 +192,7 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 [![YouTube](https://img.shields.io/badge/BoxMine_Host-GataBot-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/Ko019wvu2Tc)
 [![YouTube](https://img.shields.io/badge/BoxMine_Host-World-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@boxminehost)
 
-> Tutorial para activar **GataBot-MD** 24/7 en BoxMine Host
+> Tutorial para activar **GataBot-MD** en un servidor reconocido y para todos.
 
 <a href="https://boxmineworld.com"><img src="https://i.imgur.com/allAyd4.png" height="125px"></a>
 ### BoxMine World
@@ -221,18 +221,20 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/VPvoE5k.jpeg"></details>
 ----
-### 🟢 VORTEXUSCLOUD HOST
-> Activar GataBot-MD 24/7 en Vortexuscloud Host
+### ☁️ VORTEXUS CLOUD - HOST
+> Integra **GataBot** en un servicio de alojamiento eficiente.
 
 <a href="https://vortexuscloud.com"><img src="https://telegra.ph/file/4bd3d8d14e5683073d4f3.jpg" height="125px"></a>
 ### vortexus cloud
 
-- Pagina Oficial: [`https://vortexuscloud.com`](https://vortexuscloud.com)
-- Tutorial - Crea una cuenta en la Dashboard: [`https://youtu.be/U3CEj0OlB9U?si=IMQAcGfGgYOqqVyZ`](https://youtu.be/U3CEj0OlB9U?si=IMQAcGfGgYOqqVyZ)
-- Dashboard: [`https://dash.vortexuscloud.com`](https://dash.vortexuscloud.com)
-- Panel: [`https://panel.vortexuscloud.com`](https://panel.vortexuscloud.com)
-- Dudas UNICAMENTE SOBRE EL HOST: [`wa.me/258858119033`](wa.me/258858119033) (Creador: Mauro) 
-- Canal sobre informacion del host : [`https://whatsapp.com/channel/0029Va8ZD6O3mFXxTPl1m13A`](https://whatsapp.com/channel/0029Va8ZD6O3mFXxTPl1m13A)
+- **Pagina Oficial:** [`Vortexuscloud`](https://vortexuscloud.com)
+- **Crear cuenta en la Dashboard:** [`Dashboard`](https://youtu.be/JUg7DWUY6_Y?si=DHwk9dwjvWdPEIBJ)
+- **Dashboard:** [`Dash`](https://dash.vortexuscloud.com)
+- **Panel:** [`Aquí`](https://panel.vortexuscloud.com)
+- **Contacto:** [`Aquí`](https://wa.me/258858119033) 
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va8ZD6O3mFXxTPl1m13A)
+
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/Ly0MffH.jpeg"></details>
 ------------------
 ### 🌱 ACTIVAR EN KOYEB 
 
