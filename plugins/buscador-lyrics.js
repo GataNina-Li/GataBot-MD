@@ -4,7 +4,7 @@ import {googleImage} from '@bochilteam/scraper';
 const handler = async (m, {conn, text, usedPrefix, command}) => {
 const teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : '';
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-if (!teks) throw `${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝘿𝙀 𝙐𝙉𝘼 𝘾𝘼𝙉𝘾𝙄𝙊𝙉 𝙋𝘼𝙍𝘼 𝙊𝘽𝙏𝙀𝙉𝙀𝙍 𝙇𝘼 𝙇𝙀𝙏𝙍𝘼\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} Runaway*\n\n𝙀𝙉𝙏𝙀𝙍 𝙏𝙃𝙀 𝙉𝘼𝙈𝙀 𝙊𝙁 𝘼 𝙎𝙊𝙉𝙂 𝙏𝙊 𝙂𝙀𝙏 𝙏𝙃𝙀 𝙇𝙔𝙍𝙄𝘾𝙎\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} Billie Eilish bored*`
+if (!teks) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused3}\n*${usedPrefix + command} Billie Eilish bored*`
 try {
 const result = await getTracks(teks);
 const lyrics = await find_lyrics(`${result[0].artist} ${result[0].title}`);
@@ -20,13 +20,7 @@ img = json.thumbnail.genius;
 const bochil = await googleImage(`${result[0].artist} ${result[0].title}`);
 img = await bochil.getRandom();
 }}
-await conn.sendMessage(m.chat, {image: {url: img}, caption: `𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀 
-💚 *${result[0].title || ''}*
-
-𝘼𝙐𝙏𝙊𝙍(𝘼) | 𝘼𝙐𝙏𝙃𝙊𝙍
-💜 *${result[0].artist || ''}*
-
-${lyrics || ''}`}, {quoted: fkontak});
+await conn.sendMessage(m.chat, {image: {url: img}, caption: `${mid.smsYT1} :\n💚 *${result[0].title || ''}*\n\n${mid.smsYT2} :\n💜 *${result[0].artist || ''}*\n\n${mid.smsYT3} :\n${lyrics || ''}`}, {quoted: fkontak});
 await conn.sendMessage(m.chat, {audio: {url: result[0].preview}, fileName: `${result[0].artist} ${result[0].title}.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${usedPrefix + command}\n\n${wm}`, fkontak, m)
