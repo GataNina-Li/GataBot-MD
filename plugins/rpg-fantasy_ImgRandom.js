@@ -223,6 +223,7 @@ const nuevoUsuario = {
 fantasy: [
 {
 id: dato.code,
+name: dato.name,
 status: true
 }],
 record: [
