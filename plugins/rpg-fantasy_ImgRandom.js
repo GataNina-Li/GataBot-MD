@@ -202,6 +202,11 @@ realizarCompra()
 user.money -= dato.price
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.desp}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.url } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.name}*`, m, fake)
+const userInDB = fantasyDB.find(userEntry => userEntry[userId])
+if (userInDB) {
+userInDB[m.sender].record[0].total_purchased += 1
+fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
+
 }}}
 //user.fantasy = new Date * 1  
 }}
