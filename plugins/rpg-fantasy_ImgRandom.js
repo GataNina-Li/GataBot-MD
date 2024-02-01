@@ -111,7 +111,7 @@ if (emojiAntes) {
 const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')}"* por *"${emoji}"* para *${nombrePersonaje}*.`
 const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
 conn.reply(m.chat, (emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')) === emoji ? errorMessage : cambioEmojiMessage, m)
-let userInDB = fantasyDB.find(userEntry => userEntry[userId]);
+let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
 const record = userInDB[userId].record[0]
 const emojiAnterior = emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')
@@ -123,7 +123,18 @@ case '👎':
 record.total_dislike -= 1
 break
 case '❤️':
-record.total_superlike -= 1;
+record.total_superlike -= 1
+break
+}
+switch (emoji) {
+case '👍':
+record.total_like += 1
+break
+case '👎':
+record.total_dislike += 1
+break
+case '❤️':
+record.total_superlike += 1
 break
 }
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
@@ -203,6 +214,7 @@ const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 usuarioExistente[userId].fantasy.push({
 id: dato.code,
+name: dato.name,
 status: true
 })
 } else {
