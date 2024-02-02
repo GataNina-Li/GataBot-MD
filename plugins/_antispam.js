@@ -15,12 +15,12 @@ const messageLimit = 10 // cantidad de mensajes en dicho tiempo
 let time, time2, time3, mensaje, motive
 time = 30000 // 30 seg
 time2 = 60000 // 1 min
-time3 = 120000 // 2 min
+time3 = 120000 // 2 min 
 
 if (!(sender in userSpamData)) {
 userSpamData[sender] = {
 lastMessageTime: currentTime,
-messageCount: 1,
+messageCount: 1, 
 antiBan: 0, 
 message: 0,
 message2: 0,
