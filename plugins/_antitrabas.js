@@ -1,7 +1,7 @@
 //
 //By @NeKosmic || https://github.com/NeKosmic/
 //
-import * as fs from 'fs'
+/*import * as fs from 'fs'
 export async function before(m, { conn, isAdmin, isBotAdmin, text, participants, usedPrefix }) {
 if (m.isBaileys && m.fromMe)
 return !0
@@ -27,4 +27,5 @@ conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }, 1000)} else if (!bot.restrict) return m.reply(`${lenguajeGB['smsSoloOwner']()}`)
 }
 return !0
-} 
+} */
+
