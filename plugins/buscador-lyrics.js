@@ -20,7 +20,8 @@ img = json.thumbnail.genius;
 const bochil = await googleImage(`${result[0].artist} ${result[0].title}`);
 img = await bochil.getRandom();
 }}
-await conn.sendMessage(m.chat, {image: {url: img}, caption: `${mid.smsYT1} :\n💚 *${result[0].title || ''}*\n\n${mid.smsYT2} :\n💜 *${result[0].artist || ''}*\n\n${mid.smsYT3} :\n${lyrics || ''}`}, {quoted: fkontak});
+await conn.sendFile(m.chat, img, 'letra.jpg', `ღ ${mid.smsYT1} :\n💚 *${result[0].title || ''}*\n\nღ ${mid.smsYT2} :\n💜 *${result[0].artist || ''}*\n\nღ ${mid.smsYT3} :\n${lyrics || ''}`, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}})
+//conn.sendMessage(m.chat, {image: {url: img}, caption: `${mid.smsYT1} :\n💚 *${result[0].title || ''}*\n\n${mid.smsYT2} :\n💜 *${result[0].artist || ''}*\n\n${mid.smsYT3} :\n${lyrics || ''}`}, {quoted: fkontak});
 await conn.sendMessage(m.chat, {audio: {url: result[0].preview}, fileName: `${result[0].artist} ${result[0].title}.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${usedPrefix + command}\n\n${wm}`, fkontak, m)
@@ -32,7 +33,7 @@ handler.help = ['lirik','letra'].map(v => v + ' <Apa>')
 handler.tags = ['internet']
 handler.command = /^(lirik|lyrics|lyric|letra)$/i
 handler.limit = 1
-handler.level = 3
+handler.level = 2
 handler.exp = 55
 export default handler
 

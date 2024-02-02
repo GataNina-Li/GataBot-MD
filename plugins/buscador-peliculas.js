@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 import axios from 'axios';
 import {load} from 'cheerio';
 const handler = async (m, {text, usedPrefix, command, conn}) => {
-if (!text) throw`️${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}`
+if (!text) throw`️${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n${usedPrefix + command} El Gato con botas`
   let aaaa;
   let img;
   try {

@@ -31,7 +31,7 @@ conn.sendFile(m.chat, buff, ran, null, m, true, {
 type: 'audioMessage', 
 ptt: true 
 })})
-} else throw `${lenguajeGB['smsAvisoMG']()}𝙍𝙀𝙎𝙋𝙊𝙉𝘿𝘼 𝘼𝙇 𝘼𝙐𝘿𝙄𝙊 𝙊 𝙉𝙊𝙏𝘼 𝘿𝙀 𝙑𝙊𝙕 𝙋𝘼𝙍𝘼 𝙈𝙊𝘿𝙄𝙁𝙄𝘾𝘼𝙍𝙇𝙊 𝙐𝙎𝙀 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 *${usedPrefix + command}*\n\n𝙍𝙀𝙎𝙋𝙊𝙉𝘿 𝙏𝙊 𝙏𝙃𝙀 𝘼𝙐𝘿𝙄𝙊 𝙊𝙍 𝙑𝙊𝙄𝘾𝙀 𝙉𝙊𝙏𝙀 𝙏𝙊 𝙈𝙊𝘿𝙄𝙁𝙔 𝙄𝙏 𝙐𝙎𝙀 𝙏𝙃𝙄𝙎 𝘾𝙊𝙈𝙈𝘼𝙉𝘿 *${usedPrefix + command}*`
+} else throw `${lenguajeGB['smsAvisoMG']()}${mid.smsconvert16} *${usedPrefix + command}*`
 } catch (e) {
 throw e
 }}

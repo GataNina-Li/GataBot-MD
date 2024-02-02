@@ -9,39 +9,37 @@ const anime = await client.searchAnime(text);
 const result = anime.data[0];
 const resultes = await translate(`${result.background}`, {to: 'es', autoCorrect: true});
 const resultes2 = await translate(`${result.synopsis}`, {to: 'es', autoCorrect: true});
-const AnimeInfo = `${mid.smsYT1}
-❣ ${result.title}
+const AnimeInfo = `🌺 ${mid.smsYT1}
+• ${result.title}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
-${mid.buscador2}
-❣ ${result.episodes}
+🌺 ${mid.buscador2}
+• ${result.episodes}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
-${mid.buscador3}
-❣ ${result.type}
+🌺 ${mid.buscador3}
+• ${result.source.toUpperCase()}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
-${mid.smsYT5}
-❣ ${result.duration}
+🌺 ${mid.buscador4}
+• ${result.aired.from}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
-${mid.buscador3}
-❣ ${result.source.toUpperCase()}
+🌺 ${mid.buscador5}
+• ${result.popularity}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
-${mid.buscador4}
-❣ ${result.aired.from}
+🌺 ${mid.buscador6}
+• ${result.favorites}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
-${mid.buscador5}
-❣ ${result.popularity}
+🌺 ${mid.smsYT5}
+• ${result.duration}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
-${mid.buscador6}
-❣ ${result.favorites}
+🌺 ${mid.buscador7}
+• ${result.rating}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
-${mid.buscador7}
-❣ ${result.rating}
+🌺 ${mid.buscador8}
+• ${result.trailer.url}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
-${mid.buscador8}
-❣ ${result.trailer.url}
-┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
-${mid.smsYT4}
-❣ ${result.url}`;
-conn.sendFile(m.chat, result.images.jpg.image_url, 'error.jpg', AnimeInfo, fkontak);
+🌺 ${mid.smsYT4}
+• ${result.url}`;
+conn.sendFile(m.chat, result.images.jpg.image_url, 'error.jpg', AnimeInfo, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}})
+//conn.sendFile(m.chat, result.images.jpg.image_url, 'error.jpg', AnimeInfo, fkontak);
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
