@@ -136,25 +136,24 @@ function construirListaPersonajes(personajes) {
     const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental'];
     const personajesPorClase = {};
 
+    // Inicializar clases con un arreglo vacío
+    validClasses.forEach(clase => {
+        personajesPorClase[clase] = [];
+    });
+
     personajes.forEach(personaje => {
-        if (!personajesPorClase[personaje.class]) {
-            personajesPorClase[personaje.class] = [];
-        }
         personajesPorClase[personaje.class].push(personaje);
     });
 
-    for (const clase in personajesPorClase) {
-        personajesPorClase[clase] = personajesPorClase[clase].sort((a, b) => a.id.localeCompare(b.id));
-    }
+    let listaFinal = 'Personajes disponibles:\n';
 
-    let listaFinal = '';
-    for (const clase in personajesPorClase) {
+    validClasses.forEach(clase => {
         const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000);
         const mensajeClase = personajesPorClase[clase].length > 0 ?
             `${clase} | ${tiempoPremium} premium:\n${personajesPorClase[clase].map(personaje => `• ${personaje.name} (${personaje.id})`).join('\n')}\n` :
             `Personajes de esta clase no encontrados\n`;
         listaFinal += mensajeClase;
-    }
+    });
 
     return listaFinal.trim();
 }
