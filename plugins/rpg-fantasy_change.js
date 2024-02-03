@@ -131,7 +131,7 @@ function construirListaPersonajes(personajes, infoImg) {
     
     personajes.forEach(personaje => {
            
-        const info = data.infoImg.find(img => img.code === personaje.code);
+        const info = infoImg.find(img => img.code === personaje.code);
         if (!info) return;
 
         const imageClass = info.class;
