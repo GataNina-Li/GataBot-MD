@@ -136,7 +136,7 @@ function construirListaPersonajes(personajes) {
     const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental'];
     const personajesPorClase = {};
 
-    // Inicializar clases con un arreglo vacío
+    
     validClasses.forEach(clase => {
         personajesPorClase[clase] = [];
     });
@@ -151,10 +151,9 @@ function construirListaPersonajes(personajes) {
         const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000);
         const mensajeClase = personajesPorClase[clase].length > 0 ?
             `${clase} | ${tiempoPremium} premium:\n${personajesPorClase[clase].map(personaje => `• ${personaje.name} (${personaje.id})`).join('\n')}\n` :
-            `Personajes de esta clase no encontrados\n`;
+            `${clase} | ${tiempoPremium} premium:\nPersonajes de esta clase no encontrados\n`;
         listaFinal += mensajeClase;
     });
 
     return listaFinal.trim();
 }
-
