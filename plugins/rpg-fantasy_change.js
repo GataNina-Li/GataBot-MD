@@ -151,7 +151,7 @@ personajes.forEach(personaje => {
 personajesPorClase[personaje.class].push(personaje)
 })
 
-let listaFinal
+let listaFinal = ''
 validClasses.forEach(clase => {
 const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000, true)
 const mensajeClase = personajesPorClase[clase].length > 0 ?
