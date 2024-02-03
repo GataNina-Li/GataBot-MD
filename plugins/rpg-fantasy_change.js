@@ -130,6 +130,10 @@ function construirListaPersonajes(personajes) {
 
     
     personajes.forEach(personaje => {
+const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
+const response = await fetch(jsonURL)
+const data = await response.json()
+           
         const info = data.infoImg.find(img => img.code === personaje.code);
         if (!info) return;
 
