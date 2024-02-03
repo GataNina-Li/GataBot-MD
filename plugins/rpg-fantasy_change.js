@@ -18,8 +18,9 @@ return conn.reply(m.chat, `No se encontró la imagen con el nombre o código: ${
 }
 const imageCode = imageInfo.code
 const personaje = imageInfo.name
+const imageClass = imageInfo.class
 
-let fantasyDB = [];
+let fantasyDB = []
 if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
 fantasyDB = JSON.parse(data)
@@ -36,13 +37,51 @@ const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCod
 if (imagenUsuario) {
 fantasyUsuario.splice(fantasyUsuario.indexOf(imagenUsuario), 1)
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
+
+const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental'];
+const tiempoPremium = getTiempoPremium(imageClass, validClasses)
+
+asignarTiempoPremium(user, tiempoPremium)
 user.money += 100
-conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.`, m)
+
+const tiempoPremiumFormateado = formatearTiempo(tiempoPremium)
+conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium:\n\`\`\`${tiempoPremiumFormateado}\`\`\``, m)
 } else {
-conn.reply(m.chat, `No posees la imagen ${personaje} en tu colección.`, m)
+conn.reply(m.chat, `No posees a ${personaje} en tu colección.`, m)
 }} else {
-conn.reply(m.chat, 'No tienes ninguna imagen en tu colección.', m)
+conn.reply(m.chat, 'No tienes ninguna personaje en tu colección.', m)
 }}
 
 handler.command = /^(fantasychange|fychange)$/i
 export default handler
+
+// Obtener el tiempo premium según la clase del personaje
+function getTiempoPremium(imageClass, validClasses) {
+const index = validClasses.indexOf(imageClass)
+const tiempoPremiums = [30, 60, 90, 120, 240, 420, 600, 1440] // Tiempos en minutos correspondientes a cada clase
+return tiempoPremiums[index] || 0
+}
+
+// Asignar tiempo premium al usuario
+function asignarTiempoPremium(user, tiempoPremium) {
+const tiempo = tiempoPremium * 60 * 1000 // minutos a milisegundos
+const now = new Date() * 1
+if (now < user.premiumTime) user.premiumTime += tiempo
+else user.premiumTime = now + tiempo
+user.premium = true
+}
+
+// Formatear el tiempo en milisegundos 
+function formatearTiempo(tiempoEnMilisegundos) {
+const segundos = Math.floor(tiempoEnMilisegundos / 1000)
+const minutos = Math.floor(segundos / 60)
+const horas = Math.floor(minutos / 60)
+const dias = Math.floor(horas / 24)
+const tiempoFormateado = []
+
+if (dias > 0) tiempoFormateado.push(`${dias} día${dias > 1 ? 's' : ''}`)
+if (horas % 24 > 0) tiempoFormateado.push(`${horas % 24} hora${horas % 24 > 1 ? 's' : ''}`)
+if (minutos % 60 > 0) tiempoFormateado.push(`${minutos % 60} minuto${minutos % 60 > 1 ? 's' : ''}`)
+if (segundos % 60 > 0) tiempoFormateado.push(`${segundos % 60} segundo${segundos % 60 > 1 ? 's' : ''}`)
+return tiempoFormateado.join(', ')
+}
