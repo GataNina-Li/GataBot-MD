@@ -6,6 +6,11 @@ let id_message, pp, dato, fake, user = null
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 user = global.db.data.users[m.sender]
+
+const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
+const response = await fetch(jsonURL)
+const data = await response.json()
+
 if (!text) {
        
         const personajesDisponibles = obtenerPersonajesDisponibles(m.sender)
@@ -20,9 +25,7 @@ if (!text) {
         return;
     }
 
-const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
-const response = await fetch(jsonURL)
-const data = await response.json()
+
 
 const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === text.toLowerCase() || img.code === text)
 if (!imageInfo) {
