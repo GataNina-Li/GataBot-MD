@@ -6,7 +6,19 @@ let id_message, pp, dato, fake, user = null
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 user = global.db.data.users[m.sender]
-if (!text) return conn.reply(m.chat, 'Debes proporcionar el nombre o código de la imagen.', m)
+if (!text) {
+       
+        const personajesDisponibles = obtenerPersonajesDisponibles(m.sender)
+        
+        if (personajesDisponibles.length === 0) {
+            return conn.reply(m.chat, 'No tiene personajes comprados.', m);
+        }
+
+        
+        const listaPersonajes = construirListaPersonajes(personajesDisponibles);
+        conn.reply(m.chat, `Personajes disponibles:\n${listaPersonajes}`, m);
+        return;
+    }
 
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 const response = await fetch(jsonURL)
@@ -95,4 +107,47 @@ if (horas % 24 > 0) tiempoFormateado.push(`${horas % 24} hora${horas % 24 > 1 ? 
 if (minutos % 60 > 0) tiempoFormateado.push(`${minutos % 60} minuto${minutos % 60 > 1 ? 's' : ''}`)
 if (segundos % 60 > 0) tiempoFormateado.push(`${segundos % 60} segundo${segundos % 60 > 1 ? 's' : ''}`)
 return tiempoFormateado.length > 0 ? tiempoFormateado.join(', ') : '0 segundos'
+}
+
+function obtenerPersonajesDisponibles(userId) {
+    const fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'));
+    const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId);
+
+    if (!usuarioExistente) {
+        return [];
+    }
+
+    const fantasyUsuario = usuarioExistente[userId].fantasy;
+    return fantasyUsuario.map(personaje => ({ id: personaje.id, code: personaje.code }));
+}
+
+
+function construirListaPersonajes(personajes) {
+    const personajesPorClase = {};
+
+    
+    personajes.forEach(personaje => {
+        const info = data.infoImg.find(img => img.code === personaje.code);
+        if (!info) return;
+
+        const imageClass = info.class;
+        if (!personajesPorClase[imageClass]) {
+            personajesPorClase[imageClass] = [];
+        }
+        personajesPorClase[imageClass].push(info.name);
+    });
+
+    
+    for (const clase in personajesPorClase) {
+        personajesPorClase[clase] = personajesPorClase[clase].sort();
+    }
+
+    
+    let listaFinal = '';
+    for (const clase in personajesPorClase) {
+        const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000);
+        listaFinal += `\n${clase} | ${tiempoPremium} premium:\n• ${personajesPorClase[clase].join('\n• ')}\n`;
+    }
+
+    return listaFinal.trim();
 }
