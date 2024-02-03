@@ -150,8 +150,8 @@ function construirListaPersonajes(personajes) {
     validClasses.forEach(clase => {
         const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000);
         const mensajeClase = personajesPorClase[clase].length > 0 ?
-            `${clase} | ${tiempoPremium} premium:\n${personajesPorClase[clase].map(personaje => `• ${personaje.name} (${personaje.id})`).join('\n')}\n` :
-            `${clase} | ${tiempoPremium} premium:\nPersonajes de esta clase no encontrados\n`;
+            `\n${clase} | ${tiempoPremium} premium:\n${personajesPorClase[clase].map(personaje => `• ${personaje.name} (${personaje.id})`).join('\n')}\n` :
+            `\n${clase} | ${tiempoPremium} premium:\nPersonajes de esta clase no encontrados\n`;
         listaFinal += mensajeClase;
     });
 
