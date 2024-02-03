@@ -100,60 +100,64 @@ user.premium = true
 }
 
 // Formatear el tiempo en milisegundos 
-function formatearTiempo(tiempoEnMilisegundos) {
+function formatearTiempo(tiempoEnMilisegundos, usarAbreviaturas = false) {
 const segundos = Math.floor(tiempoEnMilisegundos / 1000)
 const minutos = Math.floor(segundos / 60)
 const horas = Math.floor(minutos / 60)
 const dias = Math.floor(horas / 24)
 const tiempoFormateado = []
 
+if (usarAbreviaturas) {
+if (dias > 0) tiempoFormateado.push(`${dias}d`)
+if (horas % 24 > 0) tiempoFormateado.push(`${horas % 24}h`)
+if (minutos % 60 > 0) tiempoFormateado.push(`${minutos % 60}min`)
+if (segundos % 60 > 0) tiempoFormateado.push(`${segundos % 60}seg`)
+} else {
 if (dias > 0) tiempoFormateado.push(`${dias} día${dias > 1 ? 's' : ''}`)
 if (horas % 24 > 0) tiempoFormateado.push(`${horas % 24} hora${horas % 24 > 1 ? 's' : ''}`)
 if (minutos % 60 > 0) tiempoFormateado.push(`${minutos % 60} minuto${minutos % 60 > 1 ? 's' : ''}`)
 if (segundos % 60 > 0) tiempoFormateado.push(`${segundos % 60} segundo${segundos % 60 > 1 ? 's' : ''}`)
+}
 return tiempoFormateado.length > 0 ? tiempoFormateado.join(', ') : '0 segundos'
 }
 
+
 function obtenerPersonajesDisponibles(userId, fantasyUsuario, infoImg) {
-    const personajesDisponibles = [];
+const personajesDisponibles = []
 
-    fantasyUsuario.forEach(personaje => {
-        const info = infoImg.find(img => img.code === personaje.id);
-        if (info) {
-            personajesDisponibles.push({
-                id: personaje.id,
-                name: personaje.name,
-                code: personaje.id,
-                class: info.class
-            });
-        }
-    });
-
-    return personajesDisponibles;
+fantasyUsuario.forEach(personaje => {
+const info = infoImg.find(img => img.code === personaje.id)
+if (info) {
+personajesDisponibles.push({
+id: personaje.id,
+name: personaje.name,
+code: personaje.id,
+class: info.class
+})
+}
+})
+return personajesDisponibles;
 }
 
 function construirListaPersonajes(personajes) {
-    const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental'];
-    const personajesPorClase = {};
+const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
+const personajesPorClase = {}
 
-    
-    validClasses.forEach(clase => {
-        personajesPorClase[clase] = [];
-    });
+validClasses.forEach(clase => {
+personajesPorClase[clase] = []
+})
 
-    personajes.forEach(personaje => {
-        personajesPorClase[personaje.class].push(personaje);
-    });
+personajes.forEach(personaje => {
+personajesPorClase[personaje.class].push(personaje)
+})
 
-    let listaFinal
-
-    validClasses.forEach(clase => {
-        const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000);
-        const mensajeClase = personajesPorClase[clase].length > 0 ?
-            `\n*${clase} | ${tiempoPremium} premium:*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n` :
-            `\n*${clase} | ${tiempoPremium} premium:*\n\`\`\`✘ Personajes no encontrados\`\`\`\n`
-        listaFinal += mensajeClase;
-    });
-
-    return listaFinal.trim();
+let listaFinal
+validClasses.forEach(clase => {
+const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000, true)
+const mensajeClase = personajesPorClase[clase].length > 0 ?
+`\n*${clase} | ${tiempoPremium} premium:*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n` :
+`\n*${clase} | ${tiempoPremium} premium:*\n\`\`\`✘ Personajes no encontrados\`\`\`\n`
+listaFinal += mensajeClase
+})
+return listaFinal.trim()
 }
