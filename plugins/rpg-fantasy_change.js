@@ -122,6 +122,7 @@ function obtenerPersonajesDisponibles(userId, fantasyUsuario, infoImg) {
         if (info) {
             personajesDisponibles.push({
                 id: personaje.id,
+                name: personaje.name,
                 code: personaje.id,
                 class: info.class
             });
