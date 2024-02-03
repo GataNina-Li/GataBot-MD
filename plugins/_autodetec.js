@@ -18,7 +18,7 @@ for (const file of files) {
 if (file.includes(uniqid)) {
 await fs.unlink(path.join(sessionPath, file));
 filesDeleted++;
-console.log(`⚠️ Eliminacion pre key que provocan el undefined el chat`)}}
+console.log(`⚠️ Eliminacion session (PreKey) que provocan el undefined el chat`)}}
 } else if (m.messageStubType == 21) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoAG']() + mid.smsAutodetec1(usuario, m), mentions: [m.sender], mentions: [...groupAdmins.map(v => v.id)] }, { quoted: fkontak })   
 } else if (m.messageStubType == 22) {
