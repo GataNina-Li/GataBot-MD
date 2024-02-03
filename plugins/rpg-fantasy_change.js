@@ -121,8 +121,9 @@ function obtenerPersonajesDisponibles(userId) {
     }
 
     const fantasyUsuario = usuarioExistente[userId].fantasy;
-    return fantasyUsuario.map(personaje => ({ id: personaje.id, code: personaje.code }));
+    return fantasyUsuario.map(personaje => ({ id: personaje.id, code: personaje.code }))
 }
+
 
 
 function construirListaPersonajes(personajes, infoImg) {
