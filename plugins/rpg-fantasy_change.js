@@ -45,7 +45,7 @@ asignarTiempoPremium(user, tiempoPremium)
 console.log("Tiempo Premium (minutos):", tiempoPremium)
 user.money += 100
   
-const tiempoPremiumFormateado = formatearTiempo(tiempoPremium)
+const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000)
 console.log("Tiempo Premium Formateado:", tiempoPremiumFormateado)
   
 conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium:\n\`\`\`${tiempoPremiumFormateado}\`\`\``, m)
@@ -85,7 +85,7 @@ user.premium = true
 }
 
 // Formatear el tiempo en milisegundos 
-function formatearTiempo(tiempoEnMilisegundos * 60 * 1000) {
+function formatearTiempo(tiempoEnMilisegundos) {
 const segundos = Math.floor(tiempoEnMilisegundos / 1000)
 const minutos = Math.floor(segundos / 60)
 const horas = Math.floor(minutos / 60)
