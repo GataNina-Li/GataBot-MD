@@ -13,7 +13,7 @@ const data = await response.json()
 var fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'))
 
 const userId = m.sender
-const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
+let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 
 if (!text) {
 if (!usuarioExistente) {
@@ -44,7 +44,7 @@ const data = fs.readFileSync(fantasyDBPath, 'utf8')
 fantasyDB = JSON.parse(data)
 }
 
-const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
+usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 
 if (usuarioExistente) {
 const idUsuario = Object.keys(usuarioExistente)[0]
