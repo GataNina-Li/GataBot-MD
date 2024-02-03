@@ -60,6 +60,16 @@ function getTiempoPremium(imageClass, validClasses) {
 const index = validClasses.indexOf(imageClass)
 const tiempoPremiums = [30, 60, 90, 120, 240, 420, 600, 1440] // Tiempos en minutos correspondientes a cada clase
 return tiempoPremiums[index] || 0
+/*
+Común = 30 min
+Poco Común = 1 hora
+Raro = 1 h 30 min
+Épico = 2 horas
+Legendario = 4 horas
+Sagrado = 7 horas
+Supremo = 10 horas
+Transcendental = 24 horas
+*/
 }
 
 // Asignar tiempo premium al usuario
