@@ -5,10 +5,11 @@ export async function before(m, { conn, participants}) {
 if (!m.messageStubType || !m.isGroup) return
 let usuario = `@${m.sender.split`@`[0]}`
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+let chat = global.db.data.chats[m.chat]
 let users = participants.map(u => conn.decodeJid(u.id))
 const groupAdmins = participants.filter(p => p.admin)
 const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
-if (m.messageStubType == 2) {
+/*if (chat.detect && m.messageStubType == 2) {
 const chatId = m.isGroup ? m.chat : m.sender;
 const uniqid = chatId.split('@')[0];
 const sessionPath = './GataBotSession/';
@@ -18,26 +19,26 @@ for (const file of files) {
 if (file.includes(uniqid)) {
 await fs.unlink(path.join(sessionPath, file));
 filesDeleted++;
-console.log(`⚠️ Eliminacion session (PreKey) que provocan el undefined el chat`)}}
-} else if (m.messageStubType == 21) {
+console.log(`⚠️ Eliminacion session (PreKey) que provocan el undefined el chat`)}}*/
+if (chat.detect && m.messageStubType == 21) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoAG']() + mid.smsAutodetec1(usuario, m), mentions: [m.sender], mentions: [...groupAdmins.map(v => v.id)] }, { quoted: fkontak })   
-} else if (m.messageStubType == 22) {
+} else if (chat.detect && m.messageStubType == 22) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec2(usuario, groupMetadata), mentions: [m.sender] }, { quoted: fkontak })  
-} else if (m.messageStubType == 23) {
+} else if (chat.detect && m.messageStubType == 23) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec5(groupMetadata, usuario), mentions: [m.sender] }, { quoted: fkontak }) 
-} else if (m.messageStubType == 24) {
+} else if (chat.detect && m.messageStubType == 24) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec3(usuario, m), mentions: [m.sender] }, { quoted: fkontak }) 
-} else if (m.messageStubType == 25) {
+} else if (chat.detect && m.messageStubType == 25) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec4(usuario, m, groupMetadata), mentions: [m.sender] }, { quoted: fkontak })
-} else if (m.messageStubType == 26) {
+} else if (chat.detect && m.messageStubType == 26) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec6(m), mentions: [m.sender] }, { quoted: fkontak })
-} else if (m.messageStubType == 29) {
+} else if (chat.detect && m.messageStubType == 29) {
 await this.sendMessage(m.chat, { text: mid.smsAutodetec7(m, usuario), mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak }) 
-} else if (m.messageStubType == 30) {
+} else if (chat.detect && m.messageStubType == 30) {
 await this.sendMessage(m.chat, { text: mid.smsAutodetec8(m, usuario), mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak }) 
-} else if (m.messageStubType == 72) {
+} else if (chat.detect && m.messageStubType == 72) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec9(usuario, m), mentions: [m.sender] }, { quoted: fkontak })
-} else if (m.messageStubType == 123) {
+} else if (chat.detect && m.messageStubType == 123) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec10(usuario, m), mentions: [m.sender] }, { quoted: fkontak })
 } else {
 console.log({messageStubType: m.messageStubType,
