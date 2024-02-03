@@ -85,7 +85,7 @@ user.premium = true
 }
 
 // Formatear el tiempo en milisegundos 
-function formatearTiempo(tiempoEnMilisegundos) {
+function formatearTiempo(tiempoEnMilisegundos * 60 * 1000) {
 const segundos = Math.floor(tiempoEnMilisegundos / 1000)
 const minutos = Math.floor(segundos / 60)
 const horas = Math.floor(minutos / 60)
