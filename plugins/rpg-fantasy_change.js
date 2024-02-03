@@ -43,7 +43,6 @@ const tiempoPremium = getTiempoPremium(imageClass, validClasses)
 
 asignarTiempoPremium(user, tiempoPremium)
 user.money += 100
-
 const tiempoPremiumFormateado = formatearTiempo(tiempoPremium)
 conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium:\n\`\`\`${tiempoPremiumFormateado}\`\`\``, m)
 } else {
@@ -93,5 +92,5 @@ if (dias > 0) tiempoFormateado.push(`${dias} día${dias > 1 ? 's' : ''}`)
 if (horas % 24 > 0) tiempoFormateado.push(`${horas % 24} hora${horas % 24 > 1 ? 's' : ''}`)
 if (minutos % 60 > 0) tiempoFormateado.push(`${minutos % 60} minuto${minutos % 60 > 1 ? 's' : ''}`)
 if (segundos % 60 > 0) tiempoFormateado.push(`${segundos % 60} segundo${segundos % 60 > 1 ? 's' : ''}`)
-return tiempoFormateado.join(', ')
+return tiempoFormateado.length > 0 ? tiempoFormateado.join(', ') : '0 segundos'
 }
