@@ -42,11 +42,9 @@ const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', '
 const tiempoPremium = getTiempoPremium(imageClass, validClasses)
 
 asignarTiempoPremium(user, tiempoPremium)
-console.log("Tiempo Premium (minutos):", tiempoPremium)
 user.money += 100
   
 const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000)
-console.log("Tiempo Premium Formateado:", tiempoPremiumFormateado)
   
 conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium:\n\`\`\`${tiempoPremiumFormateado}\`\`\``, m)
 } else {
