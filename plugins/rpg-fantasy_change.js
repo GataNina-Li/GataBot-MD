@@ -20,7 +20,7 @@ if (!text) {
         }
 
         
-        const listaPersonajes = construirListaPersonajes(personajesDisponibles);
+        const listaPersonajes = construirListaPersonajes(personajesDisponibles, data.infoImg);
         conn.reply(m.chat, `Personajes disponibles:\n${listaPersonajes}`, m);
         return;
     }
@@ -125,14 +125,11 @@ function obtenerPersonajesDisponibles(userId) {
 }
 
 
-function construirListaPersonajes(personajes) {
+function construirListaPersonajes(personajes, infoImg) {
     const personajesPorClase = {};
 
     
     personajes.forEach(personaje => {
-const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
-const response = await fetch(jsonURL)
-const data = await response.json()
            
         const info = data.infoImg.find(img => img.code === personaje.code);
         if (!info) return;
