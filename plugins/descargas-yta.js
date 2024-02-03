@@ -5,10 +5,9 @@ import ytdl from 'ytdl-core'
 let handler = async (m, { text, conn, args, usedPrefix, command }) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`, fkontak, m)
-
 let youtubeLink = '';
 if (args[0].includes('you')) {
-youtubeLink = args[0];
+youtubeLink = args[0]; 
 } else {
 const index = parseInt(args[0]) - 1;
 if (index >= 0) {
@@ -24,8 +23,7 @@ throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsYT2(usedPrefix, command)} ${usedPr
 }} else {
 throw `${lenguajeGB['smsAvisoMG']()}${mid.smsYT2(usedPrefix, command)} ${usedPrefix}playlist <texto>*`;
 }}}  
-  
-await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}${mid.smsAud}`, fkontak, m)
+await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, fkontak, m)
 try {
 let q = '128kbps'
 let v = youtubeLink
@@ -48,7 +46,7 @@ let infoo = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId)
 let ress = await ytdl.chooseFormat(infoo.formats, { filter: 'audioonly' })
 conn.sendMessage(m.chat, { audio: { url: ress.url }, fileName: __res[0].title + '.mp3', mimetype: 'audio/mp4' }, { quoted: m })  
 } catch (e) {
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${usedPrefix + command}\n\n${wm}`, fkontak, m)
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}
 }}}

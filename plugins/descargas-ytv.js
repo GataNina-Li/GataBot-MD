@@ -6,10 +6,9 @@ import axios from 'axios'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`, fkontak, m)
-  
 let youtubeLink = '';
 if (args[0].includes('you')) {
-youtubeLink = args[0];
+youtubeLink = args[0]; 
 } else {
 const index = parseInt(args[0]) - 1;
 if (index >= 0) {
@@ -25,8 +24,7 @@ throw `${lenguajeGB['smsAvisoMG']()}${mid.smsYT2(usedPrefix, command)} ${usedPre
 }} else {
 throw `${lenguajeGB['smsAvisoMG']()}${mid.smsYT2(usedPrefix, command)}${usedPrefix}playlist <texto>*`;
 }}}  
-  
-await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}${mid.smsVid}`, fkontak, m)
+await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m)
 try {
 let qu = args[1] || '360'
 let q = qu + 'p'
@@ -53,7 +51,7 @@ let n4 = lolh.result.thumbnail
 await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${n}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(n4) }, { quoted: m })
 } catch (E3) {
 //console.log('Error 3 ' + E3)   
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${usedPrefix + command}\n\n${wm}`, fkontak, m)
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(E3)}
 }}}

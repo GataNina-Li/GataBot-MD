@@ -11,7 +11,7 @@ const fkontak = {
             "fromMe": false,
             "id": "Halo"    
         }, 
-        "message": {
+        "message": { 
             "contactMessage": {
                 "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
             }
@@ -62,7 +62,7 @@ const shortUrl1 = await (await fetch(`https://tinyurl.com/api-create.php?url=${a
 const txt1 = `✨ *ENLACE | URL:* ${shortUrl1}\n\n${wm}`.trim();
 await conn.sendFile(m.chat, videoig, 'error.mp4', txt1, m);
 } catch (e) {
-conn.sendMessage(m.chat, {text: `${lenguajeGB['smsMalError3']()}#report ${usedPrefix + command}\n\n${wm}`, edit: key});
+conn.sendMessage(m.chat, {text: `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, edit: key});
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 handler.limit = 0

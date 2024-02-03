@@ -11,7 +11,7 @@ const resultes = await translate(`${result.background}`, {to: 'es', autoCorrect:
 const resultes2 = await translate(`${result.synopsis}`, {to: 'es', autoCorrect: true});
 const AnimeInfo = `🌺 ${mid.smsYT1}
 • ${result.title}
-┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈   
 🌺 ${mid.buscador2}
 • ${result.episodes}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
@@ -41,7 +41,7 @@ const AnimeInfo = `🌺 ${mid.smsYT1}
 conn.sendFile(m.chat, result.images.jpg.image_url, 'error.jpg', AnimeInfo, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}})
 //conn.sendFile(m.chat, result.images.jpg.image_url, 'error.jpg', AnimeInfo, fkontak);
 } catch (e) {
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${usedPrefix + command}\n\n${wm}`, fkontak, m)
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 }}

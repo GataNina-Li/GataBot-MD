@@ -11,7 +11,7 @@ let filename = (await fetch(url, { method: 'HEAD' })).headers.get('content-dispo
 m.reply(`${lenguajeGB['smsAvisoEG']()}${mid.smsgit2}`)
 conn.sendFile(m.chat, url, filename, null, m)
 } catch (e) { 
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${usedPrefix + command}\n\n${wm}`, m)
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 handler.limit = 0 //❌No gastada diamante si el comando falla

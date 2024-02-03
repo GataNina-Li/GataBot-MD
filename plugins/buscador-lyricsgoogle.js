@@ -14,13 +14,16 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     txt += ` *↬ ${mid.smsYT8}:* ${Generos}\n\n`;
     txt += `${letra}`;
 m.reply(txt);
-  } catch (e) {
-    await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '*\n*' + usedPrefix + `${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'}` + '* ' + `${lenguajeGB.smsMensError2()} ` + usedPrefix + command)
-  }
-};
+} catch (e) {
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+console.log(e)
+}};
 handler.command = handler.help = [
   "google-lyrics",
   "lyricsgoogle",
   "googlelyrics",
 ];
+handler.limit = 1
+handler.register = true
 export default handler;

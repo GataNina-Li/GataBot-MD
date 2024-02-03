@@ -6,7 +6,7 @@ const temaX = [
 ['hentai','pornohentai3', 'nsfwhentai3'], ['ass', 'pornoass2', 'nsfwass2'], ['pgif', 'pornosticker', 'nsfwsticker'], ['thigh', 'pornochica', 'nsfwsgirl'], ['hass', 'pornoass3', 'nsfwass3'], ['boobs', 'pornotetas2', 'nsfwboobs2'], //5
 ['hboobs', 'pornotetas3', 'nsfwboobs3'], ['pussy', 'pornopussy', 'nsfwpussy'], ['paizuri', 'pornopaizuri', 'nsfwpaizuri'], ['lewdneko', 'pornoneko', 'nsfwneko'], ['feet', 'pornopies2', 'nsfwfoot2'], //10
 ['hyuri', 'pornoyuri3', 'nsfwyuri3'], ['hthigh', 'pornomuslo', 'nsfwhthigh'], ['hmidriff', 'pornochica2', 'nsfwsgirl2'], ['anal', 'pornoanal', 'nsfwanal'], ['blowjob', 'pornomamada', 'nsfwblowjob'], //15
-['gonewild', 'pornogonewild', 'nsfwgonewild'], ['hkitsune', 'pornofurro2', 'nsfwfurry2'], ['tentacle', 'pornotentacle', 'nsfwtentacle'], ['4k', 'porno4k', 'porn4k'], ['kanna', 'pornokanna', 'nsfwkanna'], //20 
+['gonewild', 'pornogonewild', 'nsfwgonewild'], ['hkitsune', 'pornofurro2', 'nsfwfurry2'], ['tentacle', 'pornotentacle', 'nsfwtentacle'], ['4k', 'porno4k', 'porn4k'], ['kanna', 'pornokanna', 'nsfwkanna'], //20  
 ['hentai_anal', 'pornoanal2', 'nsfwanal2'], ['food', 'pornoalimento', 'nsfwfood'], ['holo', 'pornoholo', 'nsfwholo'], ['nsfw/anal/gif', 'pornoanal3', 'nsfwanal3'], ['nsfw/blowjob/gif', 'pornomamada2', 'nsfwblowjob2'], //25
 ['nsfw/cum/gif', 'pornocum2', 'nsfwcum2'], ['nsfw/fuck/gif', 'pornofuck', 'nsfwfuck'], ['nsfw/neko/gif', 'pornoneko2', 'nsfwneko2'], ['nsfw/pussylick/gif', 'pornopussy2', 'nsfwpussy2'], ['nsfw/solo/gif', 'pornosolo', 'nsfwsolo'], //30 
 ['nsfw/threesome_fff/gif', 'pornorgia2', 'nsfworgy2'], ['nsfw/threesome_ffm/gif', 'pornorgia3', 'nsfworgy3'], ['yaoi', 'pornoyaoi3', 'nsfwyaoi3'], [global.cosplay, 'pornocosplay', 'nsfwcosplay'], [global.dbz, 'pornodbz', 'nsfwdbz'], //35
@@ -467,12 +467,15 @@ let link = list[Math.floor(Math.random() * list.length)]
 await conn.sendFile(m.chat, link, null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, {viewOnce: true}, m)}
 
 } catch (e) {
-await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+/*await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)*/
 console.log(e)}
 }  
 handler.command = [temaX[0][1], temaX[0][2], temaX[1][1], temaX[1][2], temaX[2][1], temaX[2][2], temaX[3][1], temaX[3][2], temaX[4][1], temaX[4][2], temaX[5][1], temaX[5][2], temaX[6][1], temaX[6][2], temaX[7][1], temaX[7][2], temaX[8][1], temaX[8][2], temaX[9][1], temaX[9][2], temaX[10][1], temaX[10][2], temaX[11][1], temaX[11][2], temaX[12][1], temaX[12][2], temaX[13][1], temaX[13][2], temaX[14][1], temaX[14][2], temaX[15][1], temaX[15][2], temaX[16][1], temaX[16][2], temaX[17][1], temaX[17][2], temaX[18][1], temaX[18][2], temaX[19][1], temaX[19][2], temaX[20][1], temaX[20][2], temaX[21][1], temaX[21][2], temaX[22][1], temaX[22][2], temaX[23][1], temaX[23][2], temaX[24][1], temaX[24][2], temaX[25][1], temaX[25][2], temaX[26][1], temaX[26][2], temaX[27][1], temaX[27][2], temaX[28][1], temaX[28][2], temaX[29][1], temaX[29][2], temaX[30][1], temaX[30][2], temaX[31][1], temaX[31][2], temaX[32][1], temaX[32][2], temaX[33][1], temaX[33][2], temaX[34][1], temaX[34][2], temaX[35][1], temaX[35][2], temaX[36][1], temaX[36][2], temaX[37][1], temaX[37][2], temaX[38][1], temaX[38][2], temaX[39][1], temaX[39][2], temaX[40][1], temaX[40][2], temaX[41][1], temaX[41][2], temaX[42][1], temaX[42][2], temaX[43][1], temaX[43][2], temaX[44][1], temaX[44][2], temaX[45][1], temaX[45][2]]
 handler.premium = true
+handler.register = true
 export default  handler
 
 global.cosplay = ['https://img.nickpic.host/qDgksb.jpg',

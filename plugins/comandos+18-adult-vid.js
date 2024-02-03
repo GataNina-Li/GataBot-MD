@@ -10,7 +10,7 @@ let enlace4 = await pornovidbisexual[Math.floor(Math.random() * pornovidbisexual
 let enlace5 = await pornovidrandom[Math.floor(Math.random() * pornovidrandom.length)] 
 
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
-try{
+try{ 
 switch (command) {  
 case "pornovid": case "nsfwvid":    
 //await conn.sendFile(m.chat, enlace, null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, {viewOnce: true}, frep, m)
@@ -44,13 +44,13 @@ await conn.sendFile(m.chat, enlace5, null, `${lenguajeGB['smsCont18Porn']()}\n${
 break 
         
 }} catch (e) {
-await conn.sendButton(m.chat, `\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, null, [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]], m)
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}
-    
 }
 handler.command = ['pornovid', 'nsfwvid', 'pornovid2', 'nsfwvid2', 'pornovidlesbi', 'nsfwvidlesbi', 'pornovidgay', 'nsfwvidgay', 'pornovidbisexual', 'nsfwvidbisexual', 'pornovidrandom', 'nsfwvidrandom']
 handler.premium = true
+handler.register = true
 export default handler
 
 

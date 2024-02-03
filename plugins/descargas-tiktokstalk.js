@@ -8,7 +8,7 @@ let json = await res.json()
 if (res.status !== 200) throw await res.text()
 if (!json.status) throw json
 let thumb = await (await fetch(json.result.user_picture)).buffer()
-let gata = `👤 ${mid.user}
+let gata = `👤 ${mid.user} 
 ${json.result.username}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ✨ ${mid.name}
@@ -31,7 +31,7 @@ ${json.result.bio}
 `.trim()
 await conn.sendFile(m.chat, res2, 'error.jpg', gata, m, false)
 } catch (e) {
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${usedPrefix + command}\n\n${wm}`, fkontak, m)
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 }}

@@ -10,7 +10,7 @@ let xnxxLink = '';
       xnxxLink = args[0];
     } else {
       const index = parseInt(args[0]) - 1;
-      if (index >= 0) {
+      if (index >= 0) { 
         if (Array.isArray(global.videoListXXX) && global.videoListXXX.length > 0) {
           const matchingItem = global.videoListXXX.find((item) => item.from === m.sender);
           if (matchingItem) {
@@ -30,8 +30,9 @@ let xnxxLink = '';
     const res = await xnxxdl(xnxxLink);
     const json = await res.result.files;
     conn.sendMessage(m.chat, {document: {url: json.high}, mimetype: 'video/mp4', fileName: res.result.title}, {quoted: m});
-  } catch {
-m.reply(`${lenguajeGB['smsAvisoFG']()}${mid.smshorny3}`)
+  } catch (e) {
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 }};
 handler.command = /^(xnxxdl)$/i;
 handler.level = 6
