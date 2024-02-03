@@ -1,4 +1,6 @@
 let WAMessageStubType = (await import(global.baileys)).default
+import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
+import path from 'path';
 export async function before(m, { conn, participants}) {
 if (!m.messageStubType || !m.isGroup) return
 let usuario = `@${m.sender.split`@`[0]}`
@@ -6,7 +8,18 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 let users = participants.map(u => conn.decodeJid(u.id))
 const groupAdmins = participants.filter(p => p.admin)
 const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
-if (m.messageStubType == 21) {
+if (m.messageStubType == 2) {
+const chatId = m.isGroup ? m.chat : m.sender;
+const uniqid = chatId.split('@')[0];
+const sessionPath = './GataBotSession/';
+const files = await fs.readdir(sessionPath);
+let filesDeleted = 0;
+for (const file of files) {
+if (file.includes(uniqid)) {
+await fs.unlink(path.join(sessionPath, file));
+filesDeleted++;
+console.log(`⚠️ Eliminacion pre key que provocan el undefined el chat`)}}
+} else if (m.messageStubType == 21) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoAG']() + mid.smsAutodetec1(usuario, m), mentions: [m.sender], mentions: [...groupAdmins.map(v => v.id)] }, { quoted: fkontak })   
 } else if (m.messageStubType == 22) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec2(usuario, groupMetadata), mentions: [m.sender] }, { quoted: fkontak })  
