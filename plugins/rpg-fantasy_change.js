@@ -10,22 +10,25 @@ user = global.db.data.users[m.sender]
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 const response = await fetch(jsonURL)
 const data = await response.json()
+const fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'))
+
+const userId = m.sender
+const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 
 if (!text) {
-       
-        const personajesDisponibles = obtenerPersonajesDisponibles(m.sender)
-        
-        if (personajesDisponibles.length === 0) {
-            return conn.reply(m.chat, 'No tiene personajes comprados.', m);
-        }
+if (!usuarioExistente) {
+return conn.reply(m.chat, 'Use el comando #fy y compre un personaje.', m)
+}
 
-        
-        const listaPersonajes = construirListaPersonajes(personajesDisponibles, data.infoImg);
-        conn.reply(m.chat, `Personajes disponibles:\n${listaPersonajes}`, m);
-        return;
-    }
+const fantasyUsuario = usuarioExistente[userId].fantasy
+if (fantasyUsuario.length === 0) {
+return conn.reply(m.chat, 'Usted no ha comprado personajes.', m)
+}
 
-
+const personajesDisponibles = obtenerPersonajesDisponibles(userId, fantasyUsuario, data.infoImg)
+const listaPersonajes = construirListaPersonajes(personajesDisponibles)
+conn.reply(m.chat, `Personajes disponibles:\n${listaPersonajes}`, m)
+}}
 
 const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === text.toLowerCase() || img.code === text)
 if (!imageInfo) {
@@ -112,46 +115,45 @@ if (segundos % 60 > 0) tiempoFormateado.push(`${segundos % 60} segundo${segundos
 return tiempoFormateado.length > 0 ? tiempoFormateado.join(', ') : '0 segundos'
 }
 
-function obtenerPersonajesDisponibles(userId) {
-    const fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'));
-    const usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId);
+function obtenerPersonajesDisponibles(userId, fantasyUsuario, infoImg) {
+    const personajesDisponibles = [];
 
-    if (!usuarioExistente) {
-        return [];
-    }
-
-    const fantasyUsuario = usuarioExistente[userId].fantasy;
-    return fantasyUsuario.map(personaje => ({ id: personaje.id, code: personaje.code }))
-}
-
-
-
-function construirListaPersonajes(personajes, infoImg) {
-    const personajesPorClase = {};
-
-    
-    personajes.forEach(personaje => {
-           
-        const info = infoImg.find(img => img.code === personaje.code);
-        if (!info) return;
-
-        const imageClass = info.class;
-        if (!personajesPorClase[imageClass]) {
-            personajesPorClase[imageClass] = [];
+    fantasyUsuario.forEach(personaje => {
+        const info = infoImg.find(img => img.code === personaje.id);
+        if (info) {
+            personajesDisponibles.push({
+                id: personaje.id,
+                code: personaje.id,
+                class: info.class
+            });
         }
-        personajesPorClase[imageClass].push(info.name);
     });
 
-    
+    return personajesDisponibles;
+}
+
+function construirListaPersonajes(personajes) {
+    const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental'];
+    const personajesPorClase = {};
+
+    personajes.forEach(personaje => {
+        if (!personajesPorClase[personaje.class]) {
+            personajesPorClase[personaje.class] = [];
+        }
+        personajesPorClase[personaje.class].push(personaje.id);
+    });
+
     for (const clase in personajesPorClase) {
         personajesPorClase[clase] = personajesPorClase[clase].sort();
     }
 
-    
     let listaFinal = '';
     for (const clase in personajesPorClase) {
         const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000);
-        listaFinal += `\n${clase} | ${tiempoPremium} premium:\n• ${personajesPorClase[clase].join('\n• ')}\n`;
+        const mensajeClase = personajesPorClase[clase].length > 0 ?
+            `${clase} | ${tiempoPremium} premium:\n• ${personajesPorClase[clase].join('\n• ')}\n` :
+            `Personajes de esta clase no encontrados\n`;
+        listaFinal += mensajeClase;
     }
 
     return listaFinal.trim();
