@@ -41,12 +41,12 @@ externalAdReply: {
 showAdAttribution: false,
 renderLargerThumbnail: false,
 title: `🌟 FANTASÍA RPG`,
-body: `😼 Personajes disponibles`,
+body: `😼 Personajes disponibles de:\n» ${userId.split('@')[0]}`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
-thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jp'
+thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
 }}
-})
+}, { mentions: userId })
 return
 }
 
