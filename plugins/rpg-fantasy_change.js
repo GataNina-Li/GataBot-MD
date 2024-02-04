@@ -41,7 +41,7 @@ externalAdReply: {
 showAdAttribution: false,
 title: `🌟 FANTASÍA RPG`,
 body: `😼 Personajes disponibles`,
-mediaType: 2,
+mediaType: 3,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
 }}
