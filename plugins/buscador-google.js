@@ -9,7 +9,7 @@ if (!text) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()} ${mid.smsMal
 try {
 const url = 'https://google.com/search?q=' + encodeURIComponent(text);
 google({'query': text}).then(res => {
-let teks = `🔍 ${mid.buscador} ${text}\n\n*${url}*\n\n`
+let teks = `🔍 ${mid.buscador9} ${text}\n\n*${url}*\n\n`
 for (let g of res) {
 teks += `_${g.title}_\n_${g.link}_\n_${g.snippet}_\n\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n\n`
 } 
