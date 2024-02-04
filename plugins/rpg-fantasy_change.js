@@ -6,7 +6,7 @@ let id_message, pp, dato, fake, user = null
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 user = global.db.data.users[m.sender]
-
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 const response = await fetch(jsonURL)
 const data = await response.json()
@@ -32,7 +32,20 @@ return conn.reply(m.chat, `*No posee personajes.* Primero compre un personaje us
 
 const personajesDisponibles = obtenerPersonajesDisponibles(userId, fantasyUsuario, data.infoImg)
 const listaPersonajes = construirListaPersonajes(personajesDisponibles)
-conn.reply(m.chat, `Personajes disponibles:\n${listaPersonajes}`, m)
+//conn.reply(m.chat, `${listaPersonajes}`, m)
+await conn.sendFile(m.chat, null, null, listaPersonajes, fkontak, true, {
+contextInfo: {
+'forwardingScore': 200,
+'isForwarded': false,
+externalAdReply: {
+showAdAttribution: false,
+title: `🌟 FANTASÍA RPG`,
+body: `😼 Personajes disponibles`,
+mediaType: 1,
+sourceUrl: accountsgb.getRandom(),
+thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
+}}
+})
 return
 }
 
