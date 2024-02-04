@@ -38,7 +38,7 @@ mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://grxcwmcwbxwj.objectstorage.sa-saopaulo-1.oci.customer-oci.com/n/grxcwmcwbxwj/b/cafirexos/o/logos%2Flogo_2.png'
 }}
-}, { mentions: userId })
+}, { mentions: m.sender })
   
 }
 handler.command = /^(cafirexos)$/i
