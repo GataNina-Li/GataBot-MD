@@ -39,9 +39,10 @@ contextInfo: {
 'isForwarded': false,
 externalAdReply: {
 showAdAttribution: false,
+renderLargerThumbnail: true,
 title: `🌟 FANTASÍA RPG`,
 body: `😼 Personajes disponibles`,
-mediaType: 3,
+mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
 }}
