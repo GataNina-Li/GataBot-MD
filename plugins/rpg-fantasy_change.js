@@ -39,7 +39,7 @@ contextInfo: {
 'isForwarded': false,
 externalAdReply: {
 showAdAttribution: false,
-renderLargerThumbnail: false,
+renderLargerThumbnail: true,
 title: `🌟 FANTASÍA RPG`,
 body: `😼 Personajes disponibles de:\n» ${userId.split('@')[0]}`,
 mediaType: 1,
