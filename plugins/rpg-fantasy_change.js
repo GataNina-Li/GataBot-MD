@@ -22,12 +22,12 @@ let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 
 if (!text) {
 if (!usuarioExistente) {
-return conn.reply(m.chat, 'Use el comando #fy y compre un personaje.', m)
+return conn.reply(m.chat, `Use el comando *${usedPrefix}fantasy* o *${usedPrefix}fy* y compre un personaje`, m)
 }
 
 const fantasyUsuario = usuarioExistente[userId].fantasy
 if (fantasyUsuario.length === 0) {
-return conn.reply(m.chat, 'Usted no ha comprado personajes.', m)
+return conn.reply(m.chat, `*No posee personajes.* Primero compre un personaje usando *${usedPrefix}fantasy* o *${usedPrefix}fy* para cambiarlo por *Tiempo Premium*`, m)
 }
 
 const personajesDisponibles = obtenerPersonajesDisponibles(userId, fantasyUsuario, data.infoImg)
