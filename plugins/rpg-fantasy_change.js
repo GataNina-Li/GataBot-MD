@@ -10,7 +10,12 @@ user = global.db.data.users[m.sender]
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 const response = await fetch(jsonURL)
 const data = await response.json()
+
+if (fs.existsSync(fantasyDBPath)) {
+const data = fs.readFileSync(fantasyDBPath, 'utf8')
 var fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'))
+}
+//var fantasyDB = 
 
 const userId = m.sender
 let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
