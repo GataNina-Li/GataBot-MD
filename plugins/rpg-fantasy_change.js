@@ -36,7 +36,7 @@ conn.reply(m.chat, `Personajes disponibles:\n${listaPersonajes}`, m)
 }
 
 const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === text.toLowerCase() || img.code === text)
-if (!imageInfo) {
+if (!imageInfo && text) {
 return conn.reply(m.chat, `No se encontró la imagen con el nombre o código: ${text}`, m)
 }
 const imageCode = imageInfo.code
