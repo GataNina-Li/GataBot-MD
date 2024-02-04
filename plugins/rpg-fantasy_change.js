@@ -38,7 +38,7 @@ contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
 externalAdReply: {
-showAdAttribution: false,
+showAdAttribution: true,
 title: `🌟 FANTASÍA RPG`,
 body: `😼 Personajes disponibles`,
 mediaType: 1,
@@ -173,8 +173,8 @@ let listaFinal = ''
 validClasses.forEach(clase => {
 const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000, true)
 const mensajeClase = personajesPorClase[clase].length > 0 ?
-`\n*${clase} | ${tiempoPremium} premium:*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n` :
-`\n*${clase} | ${tiempoPremium} premium:*\n\`\`\`✘ Personajes no encontrados\`\`\`\n`
+`\n*${clase} | ${tiempoPremium} premium 🎟️*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n` :
+`\n*${clase} | ${tiempoPremium} premium 🎟️*\n\`\`\`✘ Personajes no encontrados\`\`\`\n`
 listaFinal += mensajeClase
 })
 return listaFinal.trim()
