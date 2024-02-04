@@ -33,10 +33,11 @@ return conn.reply(m.chat, 'Usted no ha comprado personajes.', m)
 const personajesDisponibles = obtenerPersonajesDisponibles(userId, fantasyUsuario, data.infoImg)
 const listaPersonajes = construirListaPersonajes(personajesDisponibles)
 conn.reply(m.chat, `Personajes disponibles:\n${listaPersonajes}`, m)
+return
 }
 
 const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === text.toLowerCase() || img.code === text)
-if (!imageInfo || text) return conn.reply(m.chat, `No se encontró la imagen con el nombre o código: ${text}`, m)
+if (!imageInfo && text) return conn.reply(m.chat, `No se encontró la imagen con el nombre o código: ${text}`, m)
 
 const imageCode = imageInfo.code
 const personaje = imageInfo.name
