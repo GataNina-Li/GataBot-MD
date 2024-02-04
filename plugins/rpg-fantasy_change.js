@@ -33,7 +33,7 @@ return conn.reply(m.chat, `*No posee personajes.* Primero compre un personaje us
 const personajesDisponibles = obtenerPersonajesDisponibles(userId, fantasyUsuario, data.infoImg)
 const listaPersonajes = construirListaPersonajes(personajesDisponibles)
 //conn.reply(m.chat, `${listaPersonajes}`, m)
-await conn.sendFile(m.chat, gataMenu.getRandom(), 'fantasy.jpg', listaPersonajes, fkontak, true, {
+await conn.sendFile(m.chat, gataImg.getRandom(), 'fantasy.jpg', listaPersonajes, fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
@@ -44,7 +44,7 @@ title: `🌟 FANTASÍA RPG`,
 body: `😼 Personajes disponibles`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
-thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
+thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jp'
 }}
 })
 return
