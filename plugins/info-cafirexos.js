@@ -4,6 +4,7 @@ let cafirexos = `
 _Optimice la implementación de *GataBot* mediante la integración en un servicio de alojamiento de alto rendimiento._
 
 🔵 \`\`\`Información del Host\`\`\`
+
 💻 *Página*
 https://www.cafirexos.com
 
@@ -30,8 +31,8 @@ contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
 externalAdReply: {
-showAdAttribution: false,
-renderLargerThumbnail: true,
+showAdAttribution: true,
+renderLargerThumbnail: false,
 title: `🔵 C A F I R E X O S 🔵`,
 body: `✅ Hosting de Calidad`,
 mediaType: 1,
