@@ -289,7 +289,7 @@ const idUsuario = Object.keys(usuarioExistente)[0];
             const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0);
             const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
             const mensajeConfirmacion = `Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n*¿Deseas cambiar todos los personajes por tiempo premium?*\n_Tiempo premium estimado si cambias todos tus personajes ahora:_ \`\`\`${tiempoTotalFormateado}\`\`\`\n\nResponde a este mensaje con *Si*, de lo contrario escribe *No* para solo consumir el personaje inicial: *${personaje}*`;
-            id_message = conn.reply(m.chat, mensajeConfirmacion, m);
+            id_message = (conn.reply(m.chat, mensajeConfirmacion, m)).key.id
             
         } else {
             const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode);
@@ -316,6 +316,8 @@ const idUsuario = Object.keys(usuarioExistente)[0];
 }
 
 handler.before = async (m) => {
+if (!(m.sender in usuarioExistente)) return
+  
     if (m.quoted && m.quoted.id === id_message && ['si'].includes(m.text)) {
         const personajesMismaClase = fantasyUsuario.filter(personaje => personaje.class === imageClass);
 
