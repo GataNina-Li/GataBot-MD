@@ -260,12 +260,29 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
     }
 
     usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId);
-const idUsuario = Object.keys(usuarioExistente)[0];
-const fantasyUsuario = usuarioExistente[idUsuario].fantasy;
-const personajesMismaClase = fantasyUsuario.filter(personaje => personaje.class === imageClass)
   
-    if (usuarioExistente && personajesMismaClase.length > 1) {
-        
+    if (usuarioExistente) {
+const idUsuario = Object.keys(usuarioExistente)[0];
+    const fantasyUsuario = usuarioExistente[idUsuario].fantasy;
+
+    
+    const nombresPersonajesFantasy = fantasyUsuario.map(personaje => personaje.name);
+
+    
+    const personajesInfoCoincidentes = data.infoImg.filter(img => nombresPersonajesFantasy.includes(img.name));
+
+    
+    const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === text.toLowerCase() || img.code === text);
+    const imageClass = imageInfo.class;
+
+    
+    const personajesMismaClase = personajesInfoCoincidentes.filter(personaje => personaje.class === imageClass);
+
+    
+    const personajesAEliminar = fantasyUsuario.filter(personaje => {
+        const infoCoincidente = personajesInfoCoincidentes.find(img => img.name === personaje.name);
+        return infoCoincidente && infoCoincidente.class === imageClass;
+    })
 
         if (personajesMismaClase.length > 1) {
             const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0);
