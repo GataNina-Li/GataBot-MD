@@ -185,7 +185,7 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 
 const fantasyDBPath = './fantasy.json';
-let id_message, pp, dato, fake, user = null;
+let pp, dato, fake, user = null;
 const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
@@ -289,7 +289,7 @@ const idUsuario = Object.keys(usuarioExistente)[0];
             const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0);
             const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
             const mensajeConfirmacion = `Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n*¿Deseas cambiar todos los personajes por tiempo premium?*\n_Tiempo premium estimado si cambias todos tus personajes ahora:_ \`\`\`${tiempoTotalFormateado}\`\`\`\n\nResponde a este mensaje con *"Si" o "👍"*, de lo contrario escribe *"No" o "👎"* para solo consumir el personaje inicial: *${personaje}*`;
-            id_message = conn.reply(m.chat, mensajeConfirmacion, m)
+            let id_message = conn.reply(m.chat, mensajeConfirmacion, m)
           
             
         } else {
@@ -318,7 +318,7 @@ const idUsuario = Object.keys(usuarioExistente)[0];
 handler.before = async (m) => {
 //if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
 
-    if (m.quoted && m.quoted.id === id_message && ['si', '👍'].includes(m.text.toLowerCase())) {
+    if (m.quoted && m.quoted.id === id_message.id && ['si', '👍'].includes(m.text.toLowerCase())) {
     
         const personajesMismaClase = fantasyUsuario.filter(personaje => personaje.class === imageClass);
 
@@ -334,9 +334,9 @@ handler.before = async (m) => {
 
         const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
 
-       await  conn.reply(m.chat, `Has cambiado a *${personajesMismaClase.length}* Personajes por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoTotalFormateado}\`\`\``, m);
+       await conn.reply(m.chat, `Has cambiado a *${personajesMismaClase.length}* Personajes por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoTotalFormateado}\`\`\``, m);
     }
-    if (m.quoted && m.quoted.id === id_message && ['no', '👎'].includes(m.text.toLowerCase())) {
+    if (m.quoted && m.quoted.id === id_message.id && ['no', '👎'].includes(m.text.toLowerCase())) {
     
         // Código si el usuario responde 'No'
         const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode);
