@@ -314,11 +314,13 @@ const idUsuario = Object.keys(usuarioExistente)[0];
     } else {
         conn.reply(m.chat, 'No tienes ninguna personaje en tu colección.', m);
     }
-//}
+
 handler.before = async (m) => {
 //if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
+if (!(m.quoted && m.quoted.id === id_message.id)) return
   
-    if (m.quoted && m.quoted.id === id_message.id && ['si', '👍'].includes(m.text.toLowerCase())) {
+    //if (m.quoted && m.quoted.id === id_message.id && ['si', '👍'].includes(m.text.toLowerCase())) {
+    if (['si', '👍'].includes(m.text.toLowerCase())) {
         const personajesMismaClase = fantasyUsuario.filter(personaje => personaje.class === imageClass);
 
         personajesMismaClase.forEach(p => {
@@ -335,7 +337,8 @@ handler.before = async (m) => {
 
        await  conn.reply(m.chat, `Has cambiado a *${personajesMismaClase.length}* Personajes por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoTotalFormateado}\`\`\``, m);
     }
-    if (m.quoted && m.quoted.id === id_message.id && ['no', '👎'].includes(m.text.toLowerCase())) {
+    //if (m.quoted && m.quoted.id === id_message.id && ['no', '👎'].includes(m.text.toLowerCase())) {
+    if (['no', '👎'].includes(m.text.toLowerCase())) {
         // Código si el usuario responde 'No'
         const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode);
 
