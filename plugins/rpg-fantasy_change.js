@@ -298,10 +298,8 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
 
 handler.before = async (m) => {
     if (m.quoted && m.quoted.id === id_message && ['si'].includes(m.text)) {
-        
         const personajesMismaClase = fantasyUsuario.filter(personaje => personaje.class === imageClass);
 
-       
         personajesMismaClase.forEach(p => {
             fantasyUsuario.splice(fantasyUsuario.indexOf(p), 1);
         });
@@ -330,101 +328,99 @@ handler.before = async (m) => {
 
             const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true);
 
-            conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium:\n\`\`\`${tiempoPremiumFormateado}\`\`\``, m);
+            conn.reply(m.Chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium:\n\`\`\`${tiempoPremiumFormateado}\`\`\``, m);
         } else {
-            conn.reply(m.chat, `No posees a ${personaje} en tu colección.`, m);
+            conn.reply(m.Chat, `No posees a ${personaje} en tu colección.`, m);
         }
     }
 }
 
-handler.command = /^(fantasychange|fychange)$/i
-export default handler
+handler.command = /^(fantasychange|fychange)$/i;
+export default handler;
 
 // Obtener el tiempo premium según la clase del personaje
 function getTiempoPremium(imageClass, validClasses) {
-const index = validClasses.indexOf(imageClass)
-const tiempoPremiums = [30, 60, 90, 120, 240, 420, 600, 1440] // Tiempos en minutos correspondientes a cada clase
-return tiempoPremiums[index] || 0
+    const index = validClasses.indexOf(imageClass);
+    const tiempoPremiums = [30, 60, 90, 120, 240, 420, 600, 1440]; // Tiempos en minutos correspondientes a cada clase
+    return tiempoPremiums[index] || 0;
 
-// Común = 30 min
-// Poco Común = 1 hora
-// Raro = 1 h 30 min
-// Épico = 2 horas
-// Legendario = 4 horas
-// Sagrado = 7 horas
-// Supremo = 10 horas
-// Transcendental = 24 horas
-
+    // Común = 30 min
+    // Poco Común = 1 hora
+    // Raro = 1 h 30 min
+    // Épico = 2 horas
+    // Legendario = 4 horas
+    // Sagrado = 7 horas
+    // Supremo = 10 horas
+    // Transcendental = 24 horas
 }
 
 // Asignar tiempo premium al usuario
 function asignarTiempoPremium(user, tiempoPremium) {
-const tiempo = tiempoPremium * 60 * 1000 // minutos a milisegundos
-const now = new Date() * 1
-if (now < user.premiumTime) user.premiumTime += tiempo
-else user.premiumTime = now + tiempo
-user.premium = true
+    const tiempo = tiempoPremium * 60 * 1000; // minutos a milisegundos
+    const now = new Date() * 1;
+    if (now < user.premiumTime) user.premiumTime += tiempo;
+    else user.premiumTime = now + tiempo;
+    user.premium = true;
 }
 
 // Formatear el tiempo en milisegundos 
 function formatearTiempo(tiempoEnMilisegundos, usarAbreviaturas = false) {
-const segundos = Math.floor(tiempoEnMilisegundos / 1000)
-const minutos = Math.floor(segundos / 60)
-const horas = Math.floor(minutos / 60)
-const dias = Math.floor(horas / 24)
-const tiempoFormateado = []
+    const segundos = Math.floor(tiempoEnMilisegundos / 1000);
+    const minutos = Math.floor(segundos / 60);
+    const horas = Math.floor(minutos / 60);
+    const dias = Math.floor(horas / 24);
+    const tiempoFormateado = [];
 
-if (usarAbreviaturas) {
-if (dias > 0) tiempoFormateado.push(`${dias}d`)
-if (horas % 24 > 0) tiempoFormateado.push(`${horas % 24}h`)
-if (minutos % 60 > 0) tiempoFormateado.push(`${minutos % 60}min`)
-if (segundos % 60 > 0) tiempoFormateado.push(`${segundos % 60}seg`)
-} else {
-if (dias > 0) tiempoFormateado.push(`${dias} día${dias > 1 ? 's' : ''}`)
-if (horas % 24 > 0) tiempoFormateado.push(`${horas % 24} hora${horas % 24 > 1 ? 's' : ''}`)
-if (minutos % 60 > 0) tiempoFormateado.push(`${minutos % 60} minuto${minutos % 60 > 1 ? 's' : ''}`)
-if (segundos % 60 > 0) tiempoFormateado.push(`${segundos % 60} segundo${segundos % 60 > 1 ? 's' : ''}`)
+    if (usarAbreviaturas) {
+        if (dias > 0) tiempoFormateado.push(`${dias}d`);
+        if (horas % 24 > 0) tiempoFormateado.push(`${horas % 24}h`);
+        if (minutos % 60 > 0) tiempoFormateado.push(`${minutos % 60}min`);
+        if (segundos % 60 > 0) tiempoFormateado.push(`${segundos % 60}seg`);
+    } else {
+        if (dias > 0) tiempoFormateado.push(`${dias} día${dias > 1 ? 's' : ''}`);
+        if (horas % 24 > 0) tiempoFormateado.push(`${horas % 24} hora${horas % 24 > 1 ? 's' : ''}`);
+        if (minutos % 60 > 0) tiempoFormateado.push(`${minutos % 60} minuto${minutos % 60 > 1 ? 's' : ''}`);
+        if (segundos % 60 > 0) tiempoFormateado.push(`${segundos % 60} segundo${segundos % 60 > 1 ? 's' : ''}`);
+    }
+    return tiempoFormateado.length > 0 ? tiempoFormateado.join(', ') : '0 segundos';
 }
-return tiempoFormateado.length > 0 ? tiempoFormateado.join(', ') : '0 segundos'
-}
-
 
 function obtenerPersonajesDisponibles(userId, fantasyUsuario, infoImg) {
-const personajesDisponibles = []
+    const personajesDisponibles = [];
 
-fantasyUsuario.forEach(personaje => {
-const info = infoImg.find(img => img.code === personaje.id)
-if (info) {
-personajesDisponibles.push({
-id: personaje.id,
-name: personaje.name,
-code: personaje.id,
-class: info.class
-})
-}
-})
-return personajesDisponibles;
+    fantasyUsuario.forEach(personaje => {
+        const info = infoImg.find(img => img.code === personaje.id);
+        if (info) {
+            personajesDisponibles.push({
+                id: personaje.id,
+                name: personaje.name,
+                code: personaje.id,
+                class: info.class
+            });
+        }
+    });
+    return personajesDisponibles;
 }
 
 function construirListaPersonajes(personajes) {
-const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
-const personajesPorClase = {}
+    const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental'];
+    const personajesPorClase = {};
 
-validClasses.forEach(clase => {
-personajesPorClase[clase] = []
-})
+    validClasses.forEach(clase => {
+        personajesPorClase[clase] = [];
+    });
 
-personajes.forEach(personaje => {
-personajesPorClase[personaje.class].push(personaje)
-})
+    personajes.forEach(personaje => {
+        personajesPorClase[personaje.class].push(personaje);
+    });
 
-let listaFinal = ''
-validClasses.forEach(clase => {
-const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000, true)
-const mensajeClase = personajesPorClase[clase].length > 0 ?
-`\n*${clase} | ${tiempoPremium} premium 🎟️*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n` :
-`\n*${clase} | ${tiempoPremium} premium 🎟️*\n\`\`\`✘ Personajes no encontrados\`\`\`\n`
-listaFinal += mensajeClase
-})
-return listaFinal.trim()
+    let listaFinal = '';
+    validClasses.forEach(clase => {
+        const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000, true);
+        const mensajeClase = personajesPorClase[clase].length > 0 ?
+            `\n*${clase} | ${tiempoPremium} premium 🎟️*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n` :
+            `\n*${clase} | ${tiempoPremium} premium 🎟️*\n\`\`\`✘ Personajes no encontrados\`\`\`\n`;
+        listaFinal += mensajeClase;
+    });
+    return listaFinal.trim();
 }
