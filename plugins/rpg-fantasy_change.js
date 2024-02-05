@@ -313,10 +313,10 @@ const idUsuario = Object.keys(usuarioExistente)[0];
     } else {
         conn.reply(m.chat, 'No tienes ninguna personaje en tu colección.', m);
     }
-}
+//}
 
 handler.before = async (m) => {
-if (!(m.sender in usuarioExistente)) return
+if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
   
     if (m.quoted && m.quoted.id === id_message && ['si'].includes(m.text)) {
         const personajesMismaClase = fantasyUsuario.filter(personaje => personaje.class === imageClass);
@@ -355,7 +355,7 @@ if (!(m.sender in usuarioExistente)) return
         }
     }
 }
-
+}
 handler.command = /^(fantasychange|fychange)$/i;
 export default handler;
 
