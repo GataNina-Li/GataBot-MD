@@ -290,30 +290,8 @@ const idUsuario = Object.keys(usuarioExistente)[0];
             const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
             const mensajeConfirmacion = `Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n*¿Deseas cambiar todos los personajes por tiempo premium?*\n_Tiempo premium estimado si cambias todos tus personajes ahora:_ \`\`\`${tiempoTotalFormateado}\`\`\`\n\nResponde a este mensaje con *"Si" o "👍"*, de lo contrario escribe *"No" o "👎"* para solo consumir el personaje inicial: *${personaje}*`;
             id_message = conn.reply(m.chat, mensajeConfirmacion, m)
-            
-        } else {
-            const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode);
 
-            if (imagenUsuario) {
-                
-                fantasyUsuario.splice(fantasyUsuario.indexOf(imagenUsuario), 1);
-                fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8');
 
-                const tiempoPremium = getTiempoPremium(imageClass, validClasses);
-                asignarTiempoPremium(user, tiempoPremium);
-                user.money += 100;
-
-                const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true);
-
-                conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m);
-            } else {
-                conn.reply(m.chat, `No posees a ${personaje} en tu colección.`, m);
-            }
-        }
-    } else {
-        conn.reply(m.chat, 'No tienes ninguna personaje en tu colección.', m);
-    }
-//}
 
 handler.before = async (m) => {
 //if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
@@ -355,6 +333,33 @@ handler.before = async (m) => {
         }
     }
 }
+          
+            
+        } else {
+            const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode);
+
+            if (imagenUsuario) {
+                
+                fantasyUsuario.splice(fantasyUsuario.indexOf(imagenUsuario), 1);
+                fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8');
+
+                const tiempoPremium = getTiempoPremium(imageClass, validClasses);
+                asignarTiempoPremium(user, tiempoPremium);
+                user.money += 100;
+
+                const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true);
+
+                conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m);
+            } else {
+                conn.reply(m.chat, `No posees a ${personaje} en tu colección.`, m);
+            }
+        }
+    } else {
+        conn.reply(m.chat, 'No tienes ninguna personaje en tu colección.', m);
+    }
+//}
+
+
 }
 handler.command = /^(fantasychange|fychange)$/i;
 export default handler;
