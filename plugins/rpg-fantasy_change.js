@@ -186,6 +186,7 @@ import fs from 'fs';
 
 const fantasyDBPath = './fantasy.json';
 let id_message, pp, dato, fake, user = null;
+const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
     user = global.db.data.users[m.sender];
@@ -294,7 +295,7 @@ const idUsuario = Object.keys(usuarioExistente)[0];
             const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode);
 
             if (imagenUsuario) {
-                const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental'];
+                
                 fantasyUsuario.splice(fantasyUsuario.indexOf(imagenUsuario), 1);
                 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8');
 
@@ -421,7 +422,7 @@ function obtenerPersonajesDisponibles(userId, fantasyUsuario, infoImg) {
 }
 
 function construirListaPersonajes(personajes) {
-    const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental'];
+    
     const personajesPorClase = {};
 
     validClasses.forEach(clase => {
