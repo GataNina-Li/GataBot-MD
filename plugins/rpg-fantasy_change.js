@@ -32,7 +32,6 @@ return conn.reply(m.chat, `*No posee personajes.* Primero compre un personaje us
 
 const personajesDisponibles = obtenerPersonajesDisponibles(userId, fantasyUsuario, data.infoImg)
 const listaPersonajes = construirListaPersonajes(personajesDisponibles)
-//conn.reply(m.chat, `${listaPersonajes}`, m)
 await conn.sendFile(m.chat, gataImg.getRandom(), 'fantasy.jpg', listaPersonajes, fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
