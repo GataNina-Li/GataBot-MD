@@ -276,6 +276,7 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
             const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode);
 
             if (imagenUsuario) {
+                const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental'];
                 fantasyUsuario.splice(fantasyUsuario.indexOf(imagenUsuario), 1);
                 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8');
 
