@@ -288,7 +288,7 @@ const idUsuario = Object.keys(usuarioExistente)[0];
         if (personajesMismaClase.length > 1) {
             const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0);
             const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
-            const mensajeConfirmacion = `Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*.\n\n*¿Deseas cambiar todos los personajes por tiempo premium?*\n_Tiempo premium estimado si cambias todos tus personajes ahora:_\n\`\`\`${tiempoTotalFormateado}\`\`\`.\n\nResponde a este mensaje con *Si*, de lo contrario escribe *No* para solo consumir el personaje inicial: *${personaje}*`;
+            const mensajeConfirmacion = `Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n*¿Deseas cambiar todos los personajes por tiempo premium?*\n_Tiempo premium estimado si cambias todos tus personajes ahora:_ \`\`\`${tiempoTotalFormateado}\`\`\`\n\nResponde a este mensaje con *Si*, de lo contrario escribe *No* para solo consumir el personaje inicial: *${personaje}*`;
             id_message = conn.reply(m.chat, mensajeConfirmacion, m);
             
         } else {
