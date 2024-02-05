@@ -314,7 +314,7 @@ const idUsuario = Object.keys(usuarioExistente)[0];
     } else {
         conn.reply(m.chat, 'No tienes ninguna personaje en tu colección.', m);
     }
-
+}
 handler.before = async (m) => {
 //if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
 
@@ -356,7 +356,7 @@ handler.before = async (m) => {
            await conn.reply(m.Chat, `No posees a ${personaje} en tu colección.`, m);
         }
     }
-}
+//}
 
 }
 handler.command = /^(fantasychange|fychange)$/i;
