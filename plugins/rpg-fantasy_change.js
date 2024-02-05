@@ -185,7 +185,7 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 
 const fantasyDBPath = './fantasy.json';
-let pp, dato, fake, user = null;
+let id_message, pp, dato, fake, user = null;
 const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
@@ -289,7 +289,7 @@ const idUsuario = Object.keys(usuarioExistente)[0];
             const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0);
             const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
             const mensajeConfirmacion = `Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n*¿Deseas cambiar todos los personajes por tiempo premium?*\n_Tiempo premium estimado si cambias todos tus personajes ahora:_ \`\`\`${tiempoTotalFormateado}\`\`\`\n\nResponde a este mensaje con *"Si" o "👍"*, de lo contrario escribe *"No" o "👎"* para solo consumir el personaje inicial: *${personaje}*`;
-            let id_message = conn.reply(m.chat, mensajeConfirmacion, m)
+            id_message = conn.reply(m.chat, mensajeConfirmacion, m)
           
             
         } else {
