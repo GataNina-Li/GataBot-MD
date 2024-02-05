@@ -316,7 +316,7 @@ const idUsuario = Object.keys(usuarioExistente)[0];
 //}
 
 handler.before = async (m) => {
-if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
+//if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
   
     if (m.quoted && m.quoted.id === id_message.id && ['si', '👍'].includes(m.text.toLowerCase())) {
         const personajesMismaClase = fantasyUsuario.filter(personaje => personaje.class === imageClass);
