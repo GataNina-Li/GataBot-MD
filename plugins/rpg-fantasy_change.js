@@ -288,7 +288,7 @@ const idUsuario = Object.keys(usuarioExistente)[0];
         if (personajesMismaClase.length > 1) {
             const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0);
             const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
-            const mensajeConfirmacion = `Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n*¿Deseas cambiar todos los personajes por tiempo premium?*\n_Tiempo premium estimado si cambias todos tus personajes ahora:_ \`\`\`${tiempoTotalFormateado}\`\`\`\n\nResponde a este mensaje con *Si*, de lo contrario escribe *No* para solo consumir el personaje inicial: *${personaje}*`;
+            const mensajeConfirmacion = `Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n*¿Deseas cambiar todos los personajes por tiempo premium?*\n_Tiempo premium estimado si cambias todos tus personajes ahora:_ \`\`\`${tiempoTotalFormateado}\`\`\`\n\nResponde a este mensaje con *"Si" o "👍"*, de lo contrario escribe *"No" o "👎"* para solo consumir el personaje inicial: *${personaje}*`;
             id_message = conn.reply(m.chat, mensajeConfirmacion, m)
             
         } else {
@@ -305,7 +305,7 @@ const idUsuario = Object.keys(usuarioExistente)[0];
 
                 const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true);
 
-                conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium:\n\`\`\`${tiempoPremiumFormateado}\`\`\``, m);
+                conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m);
             } else {
                 conn.reply(m.chat, `No posees a ${personaje} en tu colección.`, m);
             }
@@ -333,7 +333,7 @@ if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(
 
         const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
 
-        conn.reply(m.chat, `Has cambiado a *${personajesMismaClase.length}* Personajes por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium:\n\`\`\`${tiempoTotalFormateado}\`\`\``, m);
+        conn.reply(m.chat, `Has cambiado a *${personajesMismaClase.length}* Personajes por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoTotalFormateado}\`\`\``, m);
     }
     if (m.quoted && m.quoted.id === id_message.id && ['no', '👎'].includes(m.text.toLowerCase())) {
         // Código si el usuario responde 'No'
@@ -349,7 +349,7 @@ if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(
 
             const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true);
 
-            conn.reply(m.Chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium:\n\`\`\`${tiempoPremiumFormateado}\`\`\``, m);
+            conn.reply(m.Chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m);
         } else {
             conn.reply(m.Chat, `No posees a ${personaje} en tu colección.`, m);
         }
