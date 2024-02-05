@@ -313,7 +313,7 @@ const idUsuario = Object.keys(usuarioExistente)[0];
     } else {
         conn.reply(m.chat, 'No tienes ninguna personaje en tu colección.', m);
     }
-//}
+}
 
 handler.before = async (m) => {
 //if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
@@ -333,7 +333,7 @@ handler.before = async (m) => {
 
         const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
 
-        conn.reply(m.chat, `Has cambiado a *${personajesMismaClase.length}* Personajes por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoTotalFormateado}\`\`\``, m);
+       await  conn.reply(m.chat, `Has cambiado a *${personajesMismaClase.length}* Personajes por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoTotalFormateado}\`\`\``, m);
     }
     if (m.quoted && m.quoted.id === id_message.id && ['no', '👎'].includes(m.text.toLowerCase())) {
         // Código si el usuario responde 'No'
@@ -349,13 +349,13 @@ handler.before = async (m) => {
 
             const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true);
 
-            conn.reply(m.Chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m);
+           await conn.reply(m.Chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m);
         } else {
-            conn.reply(m.Chat, `No posees a ${personaje} en tu colección.`, m);
+           await conn.reply(m.Chat, `No posees a ${personaje} en tu colección.`, m);
         }
     }
 }
-}
+
 handler.command = /^(fantasychange|fychange)$/i;
 export default handler;
 
