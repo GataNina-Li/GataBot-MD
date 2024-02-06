@@ -152,7 +152,7 @@ asignarTiempoPremium(user, tiempoPremium)
 
 const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true)
 fake = { contextInfo: { externalAdReply: { title: `✅ ¡Personaje ${personaje} cambiado!`, body: `🎟️ Tienes Premium por: ${tiempoPremiumFormateado} `, sourceUrl: accountsgb.getRandom(), thumbnailUrl: imageURL }}}
-await conn.reply(m.chat, `*Has cambiado a ${personaje} por Tiempo premium*\n\n🎟️ *Tiempo premium:* \`\`\`${tiempoPremiumFormateado}\`\`\``, m)
+await conn.reply(m.chat, `*Has cambiado a ${personaje} por Tiempo premium*\n\n🎟️ *Tiempo premium:* \`\`\`${tiempoPremiumFormateado}\`\`\``, m, fake)
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
 userInDB[userId].record[0].total_purchased -= 1
