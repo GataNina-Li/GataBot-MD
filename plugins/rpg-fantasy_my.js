@@ -4,15 +4,22 @@ const fantasyDBPath = './fantasy.json'
 let fantasyDB = []
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
+const userId = m.sender
+  
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 const response = await fetch(jsonURL)
 const data = await response.json()
+
+if (fs.existsSync(fantasyDBPath)) {
+const data = fs.readFileSync(fantasyDBPath, 'utf8');
+var fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'))
+}
   
-    const userId = m.sender;
-    let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId);
+    
+    let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId) 
 
     if (!usuarioExistente) {
-        return conn.reply(m.chat, `No tienes personajes.`, m);
+        return conn.reply(m.chat, `No tienes personajes.`, m)
     }
 
     const idUsuario = Object.keys(usuarioExistente)[0];
