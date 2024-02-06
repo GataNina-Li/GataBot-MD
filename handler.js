@@ -204,6 +204,8 @@ if (!isNumber(user.fantasy)) user.fantasy = []
 if (!isNumber(user.fantasy_character)) user.fantasy_character = 0
 if (!isNumber(user.fantasy_character2)) user.fantasy_character2 = 0
 if (!isNumber(user.fantasy_character3)) user.fantasy_character3 = 0
+if (!isNumber(user.fantasy_character4)) user.fantasy_character4 = 0
+if (!isNumber(user.fantasy_character5)) user.fantasy_character5 = 0
 if (!isNumber(user.gadodado)) user.gadodado = 0
 if (!isNumber(user.gajah)) user.gajah = 0
 if (!isNumber(user.gamemines)) user.gamemines = false
@@ -631,6 +633,8 @@ fantasy: [],
 fantasy_character: 0,
 fantasy_character2: 0,
 fantasy_character3: 0,
+fantasy_character4: 0,
+fantasy_character5: 0,
 gadodado: 0,
 gajah: 0,
 gamemines: false,
