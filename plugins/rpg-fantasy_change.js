@@ -100,10 +100,11 @@ conn.reply(m.chat, 'No tienes ninguna personaje en tu colección.', m)
 }
 
 handler.before = async (m) => {
-//if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
+let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
+if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
 
 if (m.quoted && m.quoted.id == id_message && ['si', '👍'].includes(m.text.toLowerCase())) {
-let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId);
+let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 if (!usuarioExistente) return
     
 const idUsuario = Object.keys(usuarioExistente)[0]
