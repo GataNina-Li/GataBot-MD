@@ -54,7 +54,9 @@ let listaFinal = ''
 validClasses.forEach(clase => {
 if (personajesPorClase[clase].length > 0) {
 const mensajeClase = `\n*✦ ${clase}*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n`;
-listaFinal += mensajeClase;
+listaFinal += mensajeClase
+} else {
+listaFinal += `*✘* \`\`\`No tienes personajes\`\`\`\n`
 }})
 return listaFinal.trim()
 }
@@ -117,7 +119,7 @@ const mensaje = `
 *❰ Información de tus personajes ❱*
     
 *❰ Total de personajes ❱* 
-${fantasyUsuario.length > 0 ? `*✓* \`\`\`${fantasyUsuario.length}\`\`\`` : `*✘* \`\`\`No tiene personajes\`\`\``}
+${fantasyUsuario.length > 0 ? `*✓* \`\`\`${fantasyUsuario.length}\`\`\`` : `*✘* \`\`\`No tienes personajes\`\`\``}
 
 *❰ Tus personajes ❱*
 ${listaPersonajes}
