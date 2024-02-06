@@ -23,7 +23,8 @@ let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 
 if (!text) {
 if (!usuarioExistente) {
-return conn.reply(m.chat, `Use el comando *${usedPrefix}fantasy* o *${usedPrefix}fy* y compre un personaje`, m)
+fake = { contextInfo: { externalAdReply: { title: `🌟 ¡Empieza una aventura!`, body: `Compra un personaje y vuelve aquí`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+return conn.reply(m.chat, `Use el comando *${usedPrefix}fantasy* o *${usedPrefix}fy* y compre un personaje`, m, fake)
 }
 
 const fantasyUsuario = usuarioExistente[userId].fantasy
@@ -51,7 +52,7 @@ return
 
 const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === text.toLowerCase() || img.code === text)
 fake = { contextInfo: { externalAdReply: { title: `🤨 ¡Verifique el nombre o código!`, body: `Escriba ${usedPrefix + command} para ver sus personajes`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-if (!imageInfo && text) return conn.reply(m.chat, `No se encontró la imagen con el nombre o código: *${text}*`, m, fake)
+if (!imageInfo && text) return conn.reply(m.chat, `*No se encontró la imagen con el nombre o código:* \`\`\`${text}\`\`\``, m, fake)
 
 const imageCode = imageInfo.code
 const personaje = imageInfo.name
