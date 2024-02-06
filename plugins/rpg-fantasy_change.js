@@ -103,7 +103,7 @@ let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
 userInDB[userId].record[0].total_purchased -= 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
-}
+}}}
 
 handler.before = async (m) => {
 let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
