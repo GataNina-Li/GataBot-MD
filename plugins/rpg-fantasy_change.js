@@ -93,6 +93,10 @@ asignarTiempoPremium(user, tiempoPremium)
 user.money += 100
 const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true);
 conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m)
+let userInDB = fantasyDB.find(userEntry => userEntry[userId])
+if (userInDB) {
+userInDB[userId].record[0].total_purchased -= 1
+fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
 } else {
 conn.reply(m.chat, `No posees a ${personaje} en tu colección.`, m)
 }}} else {
@@ -124,6 +128,10 @@ asignarTiempoPremium(user, tiempoTotal)
 user.money += 100
 const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
 await conn.reply(m.chat, `Has cambiado a *${personajesMismaClase.length}* Personajes por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoTotalFormateado}\`\`\``, m)
+let userInDB = fantasyDB.find(userEntry => userEntry[userId])
+if (userInDB) {
+userInDB[userId].record[0].total_purchased -= personajesMismaClase.length
+fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
 }
   
 if (m.quoted && m.quoted.id == id_message && ['no', '👎'].includes(m.text.toLowerCase())) {
@@ -142,6 +150,10 @@ user.money += 100
 
 const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true)
 await conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m)
+let userInDB = fantasyDB.find(userEntry => userEntry[userId])
+if (userInDB) {
+userInDB[userId].record[0].total_purchased -= 1
+fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
 } else {
 await conn.reply(m.chat, `No posees a ${personaje} en tu colección.`, m)
 }}}
