@@ -135,6 +135,7 @@ Recompensas por desbloquear:
 `
 
 // Por personaje
+mensajeDesafiosPendientes += 'Por personaje:\n'
 if (user.fantasy_character2 < 5) {
     mensajeDesafiosPendientes += `Compra ${5 - user.fantasy_character2 * 5} Personajes más para obtener una recompensa, ${user.fantasy_character2 * 5}/5\n`
 } else if (user.fantasy_character2 < 10) {
@@ -150,6 +151,7 @@ if (user.fantasy_character2 < 5) {
 }
 
 // Por dar 👍
+mensajeDesafiosPendientes += '\nPor dar 👍:\n'
 if (user.fantasy_character3 < 10) {
     mensajeDesafiosPendientes += `Califica a ${3 + user.fantasy_character3 * 5} personajes más con "👍", ${user.fantasy_character3 * 5}/8\n`
 } else if (user.fantasy_character3 < 35) {
@@ -169,6 +171,7 @@ if (user.fantasy_character3 < 10) {
 }
 
 // Por dar ❤️
+mensajeDesafiosPendientes += '\nPor dar ❤️:\n'
 if (user.fantasy_character4 < 10) {
     mensajeDesafiosPendientes += `Califica a ${3 + user.fantasy_character4 * 5} personajes más con "❤️", ${user.fantasy_character4 * 5}/8\n`
 } else if (user.fantasy_character4 < 35) {
@@ -188,6 +191,7 @@ if (user.fantasy_character4 < 10) {
 }
 
 // Por dar 👎
+mensajeDesafiosPendientes += '\nPor dar 👎:\n'
 if (user.fantasy_character5 < 10) {
     mensajeDesafiosPendientes += `Califica a ${3 + user.fantasy_character5 * 5} personajes más con "👎", ${user.fantasy_character5 * 5}/8\n`
 } else if (user.fantasy_character5 < 35) {
