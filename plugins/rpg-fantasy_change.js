@@ -23,12 +23,13 @@ let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 
 if (!text) {
 if (!usuarioExistente) {
-fake = { contextInfo: { externalAdReply: { title: `🌟 ¡Empieza una aventura!`, body: `Compra un personaje y vuelve aquí`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-return conn.reply(m.chat, `Use el comando *${usedPrefix}fantasy* o *${usedPrefix}fy* y compre un personaje`, m, fake)
+fake = { contextInfo: { externalAdReply: { title: `🌟 ¡Colecciona Personajes!`, body: `Compra un personaje y vuelve aquí`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+return conn.reply(m.chat, `Use el comando *${usedPrefix}fantasy* o *${usedPrefix}fy* para comprar un personaje`, m, fake)
 }
 
 const fantasyUsuario = usuarioExistente[userId].fantasy
 if (fantasyUsuario.length === 0) {
+fake = { contextInfo: { externalAdReply: { title: `😅 ¡No tienes Personajes!`, body: `Vuelve a comprar y regresa aquí`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
 return conn.reply(m.chat, `*No posee personajes.* Primero compre un personaje usando *${usedPrefix}fantasy* o *${usedPrefix}fy* para cambiarlo por *Tiempo Premium*`, m)
 }
 
@@ -82,7 +83,8 @@ return infoCoincidente && infoCoincidente.class === imageClass
 if (personajesMismaClase.length > 1) {
 const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0)
 const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true)
-const mensajeConfirmacion = `Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n*¿Deseas cambiar todos los personajes por tiempo premium?*\n_Tiempo premium estimado si cambias todos tus personajes ahora:_ \`\`\`${tiempoTotalFormateado}\`\`\`\n\nResponde a este mensaje con *"Si"* o *"👍"*, de lo contrario escribe *"No"* o *"👎"* para solo consumir el personaje inicial: *${personaje}*`
+fake = { contextInfo: { externalAdReply: { title: `🌟 Personajes de clase: ${imageClass}`, body: `Puedes hacer un solo cambio por 🤩🎟️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+const mensajeConfirmacion = `*${conn.getName(m.sender)}* Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n🤗 *¿Deseas cambiar todos los personajes por tiempo premium 🎟️?*\n😻 _Tiempo premium estimado si cambias todos tus personajes ahora:_ 🎟️ \`\`\`${tiempoTotalFormateado}\`\`\`\n\n🌟 Responde a este mensaje con *"Si"* o *"👍"*, de lo contrario escriba *"No"* o *"👎"* para sólo cambiar el personaje inicial: *${personaje}*`
 id_message = (await conn.reply(m.chat, mensajeConfirmacion, m)).key.id
 } else {
 const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode)
