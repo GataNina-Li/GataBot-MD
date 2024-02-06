@@ -349,6 +349,15 @@ throw false
 bot.antiSpam = isEnable
 break
  
+case 'antispam2':
+isAll = true
+if (!isOwner) {
+global.dfail('owner', m, conn)
+throw false
+}
+bot.antiSpam2 = isEnable
+break
+
 case 'modoadmin': case 'soloadmin':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {

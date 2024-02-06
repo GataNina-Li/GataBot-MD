@@ -4,22 +4,9 @@ import instagramGetUrl from 'instagram-url-direct';
 import {instagram} from '@xct007/frieren-scraper';
 import {instagramdl} from '@bochilteam/scraper';
 const handler = async (m, {conn, args, command, usedPrefix}) => {
-const fkontak = {
-        "key": {
-        "participants":"0@s.whatsapp.net",
-            "remoteJid": "status@broadcast",
-            "fromMe": false,
-            "id": "Halo"    
-        }, 
-        "message": { 
-            "contactMessage": {
-                "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
-            }
-        }, 
-        "participant": "0@s.whatsapp.net"
-    }
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsInsta}\n*${usedPrefix + command} https://www.instagram.com/p/CCoI4DQBGVQ/?igshid=YmMyMTA2M2Y=*`
-  const { key } = await conn.sendMessage(m.chat, {text: wait}, {quoted: fkontak});
+const { key } = await conn.sendMessage(m.chat, {text: wait}, {quoted: fkontak});
 // await delay(1000 * 2);
 await conn.sendMessage(m.chat, {text: waitt, edit: key});
 await conn.sendMessage(m.chat, {text: waittt, edit: key});
@@ -32,6 +19,7 @@ for (const item of resultl.message) {
 const shortUrRRl = await (await fetch(`https://tinyurl.com/api-create.php?url=${item.thumbnail}`)).text();
 let tXXxt = `✨ *ENLACE | URL:* ${shortUrRRl}\n\n${wm}`.trim()  
 conn.sendFile(m.chat, item._url, null, tXXxt, m);
+await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 await new Promise((resolve) => setTimeout(resolve, 10000));
 }} catch {    
 try {
@@ -40,6 +28,7 @@ for (const urRRl of datTa) {
 const shortUrRRl = await (await fetch(`https://tinyurl.com/api-create.php?url=${args[0]}`)).text();
 const tXXxt = `✨ *ENLACE | URL:* ${shortUrRRl}\n\n${wm}`.trim();
 conn.sendFile(m.chat, urRRl.url, 'error.mp4', tXXxt, m);
+await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 await new Promise((resolve) => setTimeout(resolve, 10000));
 }} catch {
 try {
@@ -47,12 +36,14 @@ const resultss = await instagramGetUrl(args[0]).url_list[0];
 const shortUrl2 = await (await fetch(`https://tinyurl.com/api-create.php?url=${args[0]}`)).text();
 const txt2 = `✨ *ENLACE | URL:* ${shortUrl2}\n\n${wm}`.trim();
 await conn.sendFile(m.chat, resultss, 'error.mp4', txt2, m);
+await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 } catch {
 try {
 const resultssss = await instagramdl(args[0]);
 const shortUrl3 = await (await fetch(`https://tinyurl.com/api-create.php?url=${args[0]}`)).text();
 const txt4 = `✨ *ENLACE | URL:* ${shortUrl3}\n\n${wm}`.trim();
 for (const {url} of resultssss) await conn.sendFile(m.chat, url, 'error.mp4', txt4, m);
+await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 } catch {
 try {
 const human = await fetch(`https://api.lolhuman.xyz/api/instagram?apikey=${lolkeysapi}&url=${args[0]}`);
@@ -61,6 +52,7 @@ const videoig = json.result;
 const shortUrl1 = await (await fetch(`https://tinyurl.com/api-create.php?url=${args[0]}`)).text();
 const txt1 = `✨ *ENLACE | URL:* ${shortUrl1}\n\n${wm}`.trim();
 await conn.sendFile(m.chat, videoig, 'error.mp4', txt1, m);
+await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 } catch (e) {
 conn.sendMessage(m.chat, {text: `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, edit: key});
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)

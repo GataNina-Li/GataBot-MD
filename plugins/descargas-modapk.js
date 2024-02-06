@@ -1,7 +1,7 @@
 import {search, download} from 'aptoide-scraper';
 const handler = async (m, {conn, usedPrefix: prefix, command, text}) => {
- if (!text) throw `${lenguajeGB['smsAvisoMG']()} *${mid.smsApk}*`;
-  try {    
+if (!text) throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsApk}`;
+try {    
 const searchA = await search(text);
 const data5 = await download(searchA[0].id);
 let response = `${eg}┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃💫 ${mid.name}: ${data5.name}\n┃📦 𝙋𝘼𝘾𝙆𝘼𝙂𝙀: ${data5.package}\n┃🕒 ${mid.smsApk2}: ${data5.lastup}\n┃💪 ${mid.smsYT11} ${data5.size}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ ${mid.smsApk3} 🚀🚀🚀`

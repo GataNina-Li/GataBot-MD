@@ -1,10 +1,16 @@
 let handler = async (m, { conn, usedPrefix, command, args: [event], text }) => {
-if (!event) return await conn.sendButton(m.chat, `*EJEMPLO:*
+if (!event) return await m.reply(`${mid.smsMalused7}
 
 ${usedPrefix + command} welcome @user
 ${usedPrefix + command} bye @user
 ${usedPrefix + command} promote @user
-${usedPrefix + command} demote @user`.trim(), wm, null, [['WELCOME', '#simulate welcome'], ['BYE', '#simulate bye']])
+${usedPrefix + command} demote @user`) 
+/*conn.sendButton(m.chat, `${mid.smsMalused7}
+
+${usedPrefix + command} welcome @user
+${usedPrefix + command} bye @user
+${usedPrefix + command} promote @user
+${usedPrefix + command} demote @user`.trim(), wm, null, [['WELCOME', '#simulate welcome'], ['BYE', '#simulate bye']])*/
 let mentions = text.replace(event, '').trimStart()
 let who = mentions ? conn.parseMention(mentions) : []
 let part = who.length ? who : [m.sender]

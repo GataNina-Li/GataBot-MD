@@ -12,7 +12,7 @@ anu = anu.result
 if (anu.length == 0) throw Error('Error : no data')
 let c = 0 
 for (let x of anu) {
-if (c == 0) await conn.sendMessage(m.chat, { image: { url: x }, caption: `✅ ${mid.smsTikTok4(anu)}` }, { quoted : m })
+if (c == 0) await conn.sendMessage(m.chat, { image: { url: x }, caption: `✅ ${mid.smsTikTok5(anu)}` }, { quoted : m })
 else await conn.sendMessage(m.sender, { image: { url: x } }, { quoted : m })
 c += 1
 }
@@ -21,10 +21,10 @@ await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['s
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 }}
-
 handler.menu = ['tiktokslide <url>']
 handler.tags = ['search']
 handler.command = /^((tt|tiktok)imagen)$/i
 //handler.premium = true
-handler.limit = true
+handler.level = 4
+handler.limit = 3
 export default handler

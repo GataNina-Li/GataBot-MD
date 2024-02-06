@@ -3,8 +3,8 @@
 */
 
 let handler = async (m, { conn, args, groupMetadata, participants, usedPrefix, command, isBotAdmin, isSuperAdmin }) => {
-if (!args[0]) return m.reply(`${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙀𝙇 𝙋𝙍𝙀𝙁𝙄𝙅𝙊 𝘿𝙀 𝙐𝙉 𝙋𝘼𝙄𝙎 𝙋𝘼𝙍𝘼 𝘽𝙐𝙎𝘾𝘼𝙍 𝙉𝙐𝙈𝙀𝙍𝙊𝙎 𝙀𝙉 𝙀𝙇 𝙂𝙍𝙐𝙋𝙊 𝘿𝙀 𝙀𝙎𝙀 𝙋𝘼𝙄𝙎, 𝙀𝙅𝙀𝙈𝙋𝙇𝙊: ${usedPrefix + command} 593*`) 
-if (isNaN(args[0])) return m.reply(`${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙀𝙇 𝙋𝙍𝙀𝙁𝙄𝙅𝙊 𝘿𝙀 𝙐𝙉 𝙋𝘼𝙄𝙎 𝙋𝘼𝙍𝘼 𝘽𝙐𝙎𝘾𝘼𝙍 𝙉𝙐𝙈𝙀𝙍𝙊𝙎 𝙀𝙉 𝙀𝙇 𝙂𝙍𝙐𝙋𝙊 𝘿𝙀 𝙀𝙎𝙀 𝙋𝘼𝙄𝙎, 𝙀𝙅𝙀𝙈𝙋𝙇𝙊: ${usedPrefix + command} 593*`) 
+if (!args[0]) return m.reply(`${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7} ${usedPrefix + command} 593*`) 
+if (isNaN(args[0])) return m.reply(`${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7} ${usedPrefix + command} 593*`) 
 let lol = args[0].replace(/[+]/g, '')
 let ps = participants.map(u => u.id).filter(v => v !== conn.user.jid && v.startsWith(lol || lol)) 
 let bot = global.db.data.settings[conn.user.jid] || {}
