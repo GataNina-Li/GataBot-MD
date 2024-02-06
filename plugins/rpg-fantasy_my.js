@@ -7,6 +7,7 @@ const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', '
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 const userId = m.sender
+let user = global.db.data.users[userId]
 
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 const response = await fetch(jsonURL)
@@ -122,8 +123,7 @@ let mensajeDesafiosPendientes = `
 
 Puedes calificar personajes:
 `
-const userId = m.sender
-let user = global.db.data.users[userId]
+
 if (user.fantasy_character === 1) {
     mensajeDesafiosPendientes += "✓ Sí\n"
 } else {
