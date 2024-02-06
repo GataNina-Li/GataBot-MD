@@ -103,9 +103,17 @@ handler.before = async (m) => {
 //if (!(m.sender in usuarioExistente) || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
 
 if (m.quoted && m.quoted.id == id_message && ['si', '👍'].includes(m.text.toLowerCase())) {
-let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
-const fantasyUsuario = usuarioExistente[userId].fantasy
-const personajesMismaClase = fantasyUsuario.filter(personaje => personaje.class === imageClass)
+let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId);
+if (!usuarioExistente) return
+    
+const idUsuario = Object.keys(usuarioExistente)[0]
+const fantasyUsuario = usuarioExistente[idUsuario].fantasy
+const nombresPersonajesFantasy = fantasyUsuario.map(personaje => personaje.name)
+const personajesInfoCoincidentes = data.infoImg.filter(img => nombresPersonajesFantasy.includes(img.name))
+const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === text.toLowerCase() || img.code === text)
+const imageClass = imageInfo.class
+const personajesMismaClase = personajesInfoCoincidentes.filter(personaje => personaje.class === imageClass)
+
 personajesMismaClase.forEach(p => {
 fantasyUsuario.splice(fantasyUsuario.indexOf(p), 1)
 })
@@ -114,10 +122,10 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0)
 asignarTiempoPremium(user, tiempoTotal)
 user.money += 100
-
-const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true)
+const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
 await conn.reply(m.chat, `Has cambiado a *${personajesMismaClase.length}* Personajes por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoTotalFormateado}\`\`\``, m)
 }
+  
 if (m.quoted && m.quoted.id == id_message && ['no', '👎'].includes(m.text.toLowerCase())) {
 let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 const fantasyUsuario = usuarioExistente[userId].fantasy
