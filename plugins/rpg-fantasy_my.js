@@ -99,7 +99,7 @@ let maxCount = 0, minCount = Infinity
 Object.entries(clases).forEach(([clase, count]) => {
 if (count > maxCount) {
 maxCount = count
-//claseMasPersonajes = ${maxCount == minCount ? `*✘* \`\`\`No hay una clase con mayor perosnajes\`\`\`` : `*✓* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${clase == 1 ? '' : 's'}`}
+claseMasPersonajes = `${maxCount == minCount ? `*✘* \`\`\`No hay una clase con mayor perosnajes\`\`\`` : `*✓* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${clase == 1 ? '' : 's'}`}`
 }
 if (count < minCount && count > 0) {
 minCount = count
