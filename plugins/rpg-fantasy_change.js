@@ -103,10 +103,6 @@ let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
 userInDB[userId].record[0].total_purchased -= 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
-} else {
-conn.reply(m.chat, `No posees a ${personaje} en tu colección.`, m)
-}}} else {
-conn.reply(m.chat, 'No tienes ninguna personaje en tu colección.', m)
 }
 
 handler.before = async (m) => {
