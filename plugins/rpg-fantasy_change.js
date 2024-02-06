@@ -50,7 +50,8 @@ return
 }
 
 const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === text.toLowerCase() || img.code === text)
-if (!imageInfo && text) return conn.reply(m.chat, `No se encontró la imagen con el nombre o código: ${text}`, m)
+fake = { contextInfo: { externalAdReply: { title: `🤨 ¡Verifique el nombre o código!`, body: `Escriba ${usedPrefix + command} para ver sus personajes`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+if (!imageInfo && text) return conn.reply(m.chat, `No se encontró la imagen con el nombre o código: *${text}*`, m, fake)
 
 const imageCode = imageInfo.code
 const personaje = imageInfo.name
@@ -80,7 +81,7 @@ return infoCoincidente && infoCoincidente.class === imageClass
 if (personajesMismaClase.length > 1) {
 const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0)
 const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true)
-const mensajeConfirmacion = `Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n*¿Deseas cambiar todos los personajes por tiempo premium?*\n_Tiempo premium estimado si cambias todos tus personajes ahora:_ \`\`\`${tiempoTotalFormateado}\`\`\`\n\nResponde a este mensaje con *"Si" o "👍"*, de lo contrario escribe *"No" o "👎"* para solo consumir el personaje inicial: *${personaje}*`
+const mensajeConfirmacion = `Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n*¿Deseas cambiar todos los personajes por tiempo premium?*\n_Tiempo premium estimado si cambias todos tus personajes ahora:_ \`\`\`${tiempoTotalFormateado}\`\`\`\n\nResponde a este mensaje con *"Si"* o *"👍"*, de lo contrario escribe *"No"* o *"👎"* para solo consumir el personaje inicial: *${personaje}*`
 id_message = (await conn.reply(m.chat, mensajeConfirmacion, m)).key.id
 } else {
 const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode)
@@ -154,9 +155,7 @@ let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
 userInDB[userId].record[0].total_purchased -= 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
-} else {
-await conn.reply(m.chat, `No posees a ${personaje} en tu colección.`, m)
-}}}
+}}
 
 }
 handler.command = /^(fantasychange|fychange)$/i
@@ -210,10 +209,8 @@ if (segundos % 60 > 0) tiempoFormateado.push(`${segundos % 60} segundo${segundos
 return tiempoFormateado.length > 0 ? tiempoFormateado.join(', ') : '0 segundos'
 }
 
-
 function obtenerPersonajesDisponibles(userId, fantasyUsuario, infoImg) {
 const personajesDisponibles = []
-
 fantasyUsuario.forEach(personaje => {
 const info = infoImg.find(img => img.code === personaje.id)
 if (info) {
@@ -229,17 +226,13 @@ return personajesDisponibles;
 }
 
 function construirListaPersonajes(personajes) {
-const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
 const personajesPorClase = {}
-
 validClasses.forEach(clase => {
 personajesPorClase[clase] = []
 })
-
 personajes.forEach(personaje => {
 personajesPorClase[personaje.class].push(personaje)
 })
-
 let listaFinal = ''
 validClasses.forEach(clase => {
 const tiempoPremium = formatearTiempo(getTiempoPremium(clase, validClasses) * 60 * 1000, true)
