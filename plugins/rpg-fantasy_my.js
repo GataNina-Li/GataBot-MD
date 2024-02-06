@@ -82,7 +82,10 @@ return { name: personaje.name, price: infoPersonaje ? infoPersonaje.price : Infi
 preciosPersonajes.sort((a, b) => a.price - b.price);
 
 const personajeMasBarato = preciosPersonajes.length > 0 ? `✓ _${preciosPersonajes[0].name}_ » \`\`\`${preciosPersonajes[0].price}\`\`\` 🐱` : `*✘* \`\`\`No tienes personajes\`\`\``
-const personajeMasCaro = preciosPersonajes.length > 0 ? `✓ _${preciosPersonajes[preciosPersonajes.length - 1].name}_ » \`\`\`${preciosPersonajes[preciosPersonajes.length - 1].price}\`\`\` 🐱` : `*✘* \`\`\`No tienes personajes\`\`\``
+let personajeMasCaro = preciosPersonajes.length > 0 ? `✓ _${preciosPersonajes[preciosPersonajes.length - 1].name}_ » \`\`\`${preciosPersonajes[preciosPersonajes.length - 1].price}\`\`\` 🐱` : `*✘* \`\`\`No tienes personajes\`\`\``
+if (preciosPersonajes[0].price === preciosPersonajes[preciosPersonajes.length - 1].price) {
+personajeMasCaro = `*✘* \`\`\`No hay un Personaje más caro\`\`\``
+}
 
 const clases = {}
 fantasyUsuario.forEach(personaje => {
