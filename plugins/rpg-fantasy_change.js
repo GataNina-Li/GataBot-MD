@@ -85,7 +85,7 @@ const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoP
 const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true)
 fake = { contextInfo: { externalAdReply: { title: `🌟 Personajes de clase: ${imageClass}`, body: `Puedes hacer un solo cambio por 🤩🎟️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
 const mensajeConfirmacion = `*${conn.getName(m.sender)}* Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n🤗 *¿Deseas cambiar todos los personajes por tiempo premium 🎟️?*\n😻 _Tiempo premium estimado si cambias todos tus personajes ahora:_ 🎟️ \`\`\`${tiempoTotalFormateado}\`\`\`\n\n🌟 Responde a este mensaje con *"Si"* o *"👍"*, de lo contrario escriba *"No"* o *"👎"* para sólo cambiar el personaje inicial: *${personaje}*`
-id_message = (await conn.reply(m.chat, mensajeConfirmacion, m)).key.id
+id_message = (await conn.reply(m.chat, mensajeConfirmacion, m, fake)).key.id
 } else {
 const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode)
 if (imagenUsuario) {
