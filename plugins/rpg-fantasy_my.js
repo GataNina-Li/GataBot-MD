@@ -53,7 +53,7 @@ personajesPorClase[personaje.class].push(personaje)
 let listaFinal = ''
 validClasses.forEach(clase => {
 if (personajesPorClase[clase].length > 0) {
-const mensajeClase = `\n*✓ ${clase}*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n`;
+const mensajeClase = `\n*✦ ${clase}*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n`;
 listaFinal += mensajeClase;
 }})
 return listaFinal.trim()
@@ -99,11 +99,11 @@ let maxCount = 0, minCount = Infinity
 Object.entries(clases).forEach(([clase, count]) => {
 if (count > maxCount) {
 maxCount = count
-claseMasPersonajes = `${minCount === maxCount ? `*✘* \`\`\`No hay una clase con mayor perosnajes\`\`\`` : `*✓* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${clase == 1 ? '' : 's'}`}`
+claseMasPersonajes = minCount === maxCount ? '*✘* No hay una clase con más personajes' : `*✓* La clase *${clase}* tiene ${count} personaje${count === 1 ? '' : 's'}`
 }
 if (count < minCount && count > 0) {
 minCount = count
-claseMenosPersonajes = `*✓* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${clase == 1 ? '' : 's'}`
+claseMenosPersonajes = `*✓* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${clase > 0 ? '' : 's'}`
 }
 })
 
