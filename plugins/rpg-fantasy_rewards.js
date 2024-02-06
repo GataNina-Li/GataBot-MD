@@ -97,7 +97,7 @@ if (usuarioExistente) {
 const flowArray = usuarioExistente[userId].flow || []
 const superlikesCount = flowArray.filter(voto => voto.superlike).length
 fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO ❤️`, body: `Califica persoanjes, es gratis ❤️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-logro = conn.reply(m.chat, `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${likesCount} veces "❤️"*`, m, fake)   
+logro = conn.reply(m.chat, `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${superlikesCount} veces "❤️"*`, m, fake)   
 if (superlikesCount === 3 && user.fantasy_character4 === 0) {
 await logro
 user.fantasy_character4++
