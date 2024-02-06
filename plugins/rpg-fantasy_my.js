@@ -116,7 +116,7 @@ const mensaje = `
 *❰ Total de personajes ❱* 
 ${fantasyUsuario.length > 0 ? `*✓* \`\`\`${fantasyUsuario.length}\`\`\`` : `*✘* \`\`\`No tiene personajes\`\`\``}
 
-*❰ Tus persoanjes ❱*
+*❰ Tus personajes ❱*
 ${listaPersonajes}
     
 *❰ Calificación total de personajes ❱* 
