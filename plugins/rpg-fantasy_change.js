@@ -140,7 +140,6 @@ let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 const fantasyUsuario = usuarioExistente[userId].fantasy
 const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode)
 
-if (imagenUsuario) {
 fantasyUsuario.splice(fantasyUsuario.indexOf(imagenUsuario), 1)
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 
