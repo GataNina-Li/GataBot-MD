@@ -310,6 +310,7 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 
 const tiempoPremium = getTiempoPremium(imageClass, validClasses)
 asignarTiempoPremium(user, tiempoPremium)
+user = global.db.data.users[userId]
 user.money += 100
 
 const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true)
