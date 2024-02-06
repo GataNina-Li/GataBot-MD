@@ -152,7 +152,9 @@ if (user.fantasy_character2 < 5) {
 
 // Por dar 👍
 mensajeDesafiosPendientes += '\nPor dar 👍:\n'
-if (user.fantasy_character3 < 10) {
+if (user.fantasy_character3 === 0) {
+    mensajeDesafiosPendientes += `Califica a 3 personajes con "👍", 0/3\n`
+} else if (user.fantasy_character3 < 10) {
     mensajeDesafiosPendientes += `Califica a ${3 + user.fantasy_character3 * 5} personajes más con "👍", ${user.fantasy_character3 * 5}/8\n`
 } else if (user.fantasy_character3 < 35) {
     mensajeDesafiosPendientes += `Califica a ${8 + (user.fantasy_character3 - 1) * 5} personajes más con "👍", ${user.fantasy_character3 * 5}/25\n`
@@ -172,7 +174,9 @@ if (user.fantasy_character3 < 10) {
 
 // Por dar ❤️
 mensajeDesafiosPendientes += '\nPor dar ❤️:\n'
-if (user.fantasy_character4 < 10) {
+if (user.fantasy_character4 === 0) {
+    mensajeDesafiosPendientes += `Califica a 3 personajes con "❤️", 0/3\n`
+} else if (user.fantasy_character4 < 10) {
     mensajeDesafiosPendientes += `Califica a ${3 + user.fantasy_character4 * 5} personajes más con "❤️", ${user.fantasy_character4 * 5}/8\n`
 } else if (user.fantasy_character4 < 35) {
     mensajeDesafiosPendientes += `Califica a ${8 + (user.fantasy_character4 - 1) * 5} personajes más con "❤️", ${user.fantasy_character4 * 5}/25\n`
@@ -192,7 +196,9 @@ if (user.fantasy_character4 < 10) {
 
 // Por dar 👎
 mensajeDesafiosPendientes += '\nPor dar 👎:\n'
-if (user.fantasy_character5 < 10) {
+if (user.fantasy_character5 === 0) {
+    mensajeDesafiosPendientes += `Califica a 3 personajes con "👎", 0/3\n`
+} else if (user.fantasy_character5 < 10) {
     mensajeDesafiosPendientes += `Califica a ${3 + user.fantasy_character5 * 5} personajes más con "👎", ${user.fantasy_character5 * 5}/8\n`
 } else if (user.fantasy_character5 < 35) {
     mensajeDesafiosPendientes += `Califica a ${8 + (user.fantasy_character5 - 1) * 5} personajes más con "👎", ${user.fantasy_character5 * 5}/25\n`
@@ -210,16 +216,6 @@ if (user.fantasy_character5 < 10) {
     mensajeDesafiosPendientes += "✓ Has completado todas las misiones\n"
 }
 
-// Desafíos iniciales
-if (user.fantasy_character3 === 0) {
-    mensajeDesafiosPendientes += `Califica a 3 personajes con "👍", 0/3\n`
-}
-if (user.fantasy_character4 === 0) {
-    mensajeDesafiosPendientes += `Califica a 3 personajes con "❤️", 0/3\n`
-}
-if (user.fantasy_character5 === 0) {
-    mensajeDesafiosPendientes += `Califica a 3 personajes con "👎", 0/3\n`
-}
 
 const mensaje = `
 *❰ Información de tus personajes ❱*
