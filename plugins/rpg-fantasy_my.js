@@ -55,9 +55,11 @@ validClasses.forEach(clase => {
 if (personajesPorClase[clase].length > 0) {
 const mensajeClase = `\n*✦ ${clase}*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n`;
 listaFinal += mensajeClase
-} else {
-listaFinal += `*✘* \`\`\`No tienes personajes\`\`\`\n`
+seEncontraronPersonajes = true
 }})
+if (!seEncontraronPersonajes) {
+listaFinal += '*✘* \`\`\`No tienes personajes\`\`\`\n'
+}
 return listaFinal.trim()
 }
 const personajesDisponibles = obtenerPersonajesDisponibles(userId, fantasyUsuario, data.infoImg)
