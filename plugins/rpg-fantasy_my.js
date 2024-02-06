@@ -1,37 +1,70 @@
-import fetch from 'node-fetch'
-import fs from 'fs'
-const fantasyDBPath = './fantasy.json'
-let fantasyDB = []
+import fetch from 'node-fetch';
+import fs from 'fs';
+
+const fantasyDBPath = './fantasy.json';
+let fantasyDB = [];
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
-const userId = m.sender
-  
-const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
-const response = await fetch(jsonURL)
-const data = await response.json()
+    const userId = m.sender;
 
-if (fs.existsSync(fantasyDBPath)) {
-const data = fs.readFileSync(fantasyDBPath, 'utf8');
-var fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'))
-}
-  
-    
-    let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId) 
+    const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json';
+    const response = await fetch(jsonURL);
+    const data = await response.json();
+
+    if (fs.existsSync(fantasyDBPath)) {
+        const data = fs.readFileSync(fantasyDBPath, 'utf8');
+        var fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'));
+    }
+
+    let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId);
 
     if (!usuarioExistente) {
-        return conn.reply(m.chat, `No tienes personajes.`, m)
+        return conn.reply(m.chat, `No tienes personajes.`, m);
     }
 
     const idUsuario = Object.keys(usuarioExistente)[0];
-    const fantasyUsuario = usuarioExistente[idUsuario].fantasy;
+    const fantasyUsuario = usuarioExistente[idUsuario].fantasy
 
-    // Información del usuario
-    const totalPersonajes = fantasyUsuario.length;
+    const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental'];
 
-    let tusPersonajes = `Tus personajes:\n`;
+function obtenerPersonajesDisponibles(userId, fantasyUsuario, infoImg) {
+    const personajesDisponibles = [];
     fantasyUsuario.forEach(personaje => {
-        tusPersonajes += `• ${personaje.name} (${personaje.id})\n`;
+        const info = infoImg.find(img => img.code === personaje.id);
+        if (info) {
+            personajesDisponibles.push({
+                id: personaje.id,
+                name: personaje.name,
+                code: personaje.id,
+                class: info.class
+            });
+        }
     });
+    return personajesDisponibles;
+}
+
+function construirListaPersonajes(personajes) {
+    const personajesPorClase = {};
+    validClasses.forEach(clase => {
+        personajesPorClase[clase] = [];
+    });
+    personajes.forEach(personaje => {
+        personajesPorClase[personaje.class].push(personaje);
+    });
+    let listaFinal = '';
+    validClasses.forEach(clase => {
+        if (personajesPorClase[clase].length > 0) {
+            const mensajeClase = `\n*${clase}*\n${personajesPorClase[clase].map(personaje => `• ${personaje.name} » (${personaje.id})`).join('\n')}\n`;
+            listaFinal += mensajeClase;
+        }
+    });
+    return listaFinal.trim();
+}
+
+const personajesDisponibles = obtenerPersonajesDisponibles(userId, fantasyUsuario, data.infoImg);
+const listaPersonajes = construirListaPersonajes(personajesDisponibles);
+
+  
 
     let totalLikes = 0, totalSuperlikes = 0, totalDislikes = 0;
     if (usuarioExistente[idUsuario].flow) {
@@ -83,8 +116,8 @@ var fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'))
     const mensaje = `
     Información de tus personajes:
     
-    Total de personajes: ${totalPersonajes}
-    ${tusPersonajes}
+    Total de personajes: ${fantasyUsuario.length}
+    ${listaPersonajes}
     
     Calificación total de personajes: ${calificacionTotal}
     
