@@ -58,6 +58,7 @@ if (!imageInfo && text) return conn.reply(m.chat, `*No se encontró la imagen co
 const imageCode = imageInfo.code
 const personaje = imageInfo.name
 const imageClass = imageInfo.class
+const imageURL = imageInfo.url
 
 var fantasyDB = []
 if (fs.existsSync(fantasyDBPath)) {
@@ -148,11 +149,10 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 
 const tiempoPremium = getTiempoPremium(imageClass, validClasses)
 asignarTiempoPremium(user, tiempoPremium)
-user = global.db.data.users[userId]
-user.money += 100
 
 const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true)
-await conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m)
+fake = { contextInfo: { externalAdReply: { title: `✅ ¡Personaje ${personaje} cambiado!`, body: `🎟️ Tienes Premium por: ${tiempoPremiumFormateado} `, sourceUrl: accountsgb.getRandom(), thumbnailUrl: imageURL }}}
+await conn.reply(m.chat, `*Has cambiado a ${personaje} por Tiempo premium*\n\n🎟️ *Tiempo premium:* \`\`\`${tiempoPremiumFormateado}\`\`\``, m)
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
 userInDB[userId].record[0].total_purchased -= 1
