@@ -108,18 +108,17 @@ let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 if (!usuarioExistente) return
     
 const idUsuario = Object.keys(usuarioExistente)[0]
-const fantasyUsuario = usuarioExistente[idUsuario].fantasy
+const fantasyUsuario = usuarioExistente[idUsuario].fantasy;
 const nombresPersonajesFantasy = fantasyUsuario.map(personaje => personaje.name)
 const personajesInfoCoincidentes = data.infoImg.filter(img => nombresPersonajesFantasy.includes(img.name))
-const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === text.toLowerCase() || img.code === text)
-const imageClass = imageInfo.class
 const personajesMismaClase = personajesInfoCoincidentes.filter(personaje => personaje.class === imageClass)
-
 personajesMismaClase.forEach(p => {
-fantasyUsuario.splice(fantasyUsuario.indexOf(p), 1)
-})
+const index = fantasyUsuario.findIndex(personaje => personaje.name === p.name)
+if (index !== -1) {
+fantasyUsuario.splice(index, 1)
+}})
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
-
+  
 const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0)
 asignarTiempoPremium(user, tiempoTotal)
 user.money += 100
