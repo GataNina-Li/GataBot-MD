@@ -314,9 +314,9 @@ user = global.db.data.users[userId]
 user.money += 100
 
 const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true)
-await conn.reply(m.Chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m)
+await conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m)
 } else {
-await conn.reply(m.Chat, `No posees a ${personaje} en tu colección.`, m)
+await conn.reply(m.chat, `No posees a ${personaje} en tu colección.`, m)
 }}}
 
 }
