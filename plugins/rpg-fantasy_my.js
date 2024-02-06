@@ -81,8 +81,8 @@ return { name: personaje.name, price: infoPersonaje ? infoPersonaje.price : Infi
 })
 preciosPersonajes.sort((a, b) => a.price - b.price);
 
-const personajeMasBarato = preciosPersonajes.length > 0 ? `✔ _${preciosPersonajes[0].name}_ » \`\`\`${preciosPersonajes[0].price}\`\`\` 🐱` : `*✘* \`\`\`No tienes personajes\`\`\``
-const personajeMasCaro = preciosPersonajes.length > 0 ? `✔ _${preciosPersonajes[preciosPersonajes.length - 1].name}_ » \`\`\`${preciosPersonajes[preciosPersonajes.length - 1].price}\`\`\` 🐱` : `*✘* \`\`\`No tienes personajes\`\`\``
+const personajeMasBarato = preciosPersonajes.length > 0 ? `✓ _${preciosPersonajes[0].name}_ » \`\`\`${preciosPersonajes[0].price}\`\`\` 🐱` : `*✘* \`\`\`No tienes personajes\`\`\``
+const personajeMasCaro = preciosPersonajes.length > 0 ? `✓ _${preciosPersonajes[preciosPersonajes.length - 1].name}_ » \`\`\`${preciosPersonajes[preciosPersonajes.length - 1].price}\`\`\` 🐱` : `*✘* \`\`\`No tienes personajes\`\`\``
 
 const clases = {}
 fantasyUsuario.forEach(personaje => {
@@ -99,11 +99,11 @@ let maxCount = 0, minCount = Infinity
 Object.entries(clases).forEach(([clase, count]) => {
 if (count > maxCount) {
 maxCount = count
-claseMasPersonajes = `*✔* La clase *${clase}* tiene \`\`\`${count}\`\`\` personajes`
+claseMasPersonajes = ${maxCount == minCount ? `*✘* \`\`\`No hay una clase con mayor perosnajes\`\`\`` : `*✓* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${clase == 1 ? '' : 's'}`}
 }
 if (count < minCount && count > 0) {
-minCount = count;
-claseMenosPersonajes = `*✔* La clase *${clase}* tiene \`\`\`${count}\`\`\` personajes`
+minCount = count
+claseMenosPersonajes = `*✔* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${clase == 1 ? '' : 's'}`
 }
 })
 
@@ -111,22 +111,22 @@ const mensaje = `
 *Información de tus personajes*
     
 *Total de personajes* 
-${fantasyUsuario.length > 0 ? `*✔* \`\`\`${fantasyUsuario.length}\`\`\`` : `*✘* \`\`\`No tiene personajes\`\`\``}
+${fantasyUsuario.length > 0 ? `*✓* \`\`\`${fantasyUsuario.length}\`\`\`` : `*✘* \`\`\`No tiene personajes\`\`\``}
 
 *Tus persoanjes*
 ${listaPersonajes}
     
 *Calificación total de personajes* 
-${calificacionTotal}
+${calificacionTotal > 0 ? `*✓* \`\`\`${calificacionTotal}\`\`\`` : `*✘* \`\`\`No tiene personajes\`\`\``}
     
 *Personajes que has dado 👍* 
-${personajesGustados > 0 ? `*✔* \`\`\`${personajesGustados}\`\`\`` : personajesGustados}
+${personajesGustados > 0 ? `*✓* \`\`\`${personajesGustados}\`\`\`` : personajesGustados}
     
 *Personajes que has dado ❤️* 
-${personajesSuperlike > 0 ? `*✔* \`\`\`${personajesSuperlike}\`\`\`` : personajesSuperlike}
+${personajesSuperlike > 0 ? `*✓* \`\`\`${personajesSuperlike}\`\`\`` : personajesSuperlike}
     
 *Personajes que has dado 👎*
-${personajesNoGustados > 0 ? `*✔* \`\`\`${personajesNoGustados}\`\`\`` : personajesNoGustados}
+${personajesNoGustados > 0 ? `*✓* \`\`\`${personajesNoGustados}\`\`\`` : personajesNoGustados}
     
 *Tú personaje más barato* 
 ${personajeMasBarato}
