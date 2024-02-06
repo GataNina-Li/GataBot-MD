@@ -36,7 +36,7 @@ id: personaje.id,
 name: personaje.name,
 code: personaje.id,
 class: info.class
-})
+})}
 })
 return personajesDisponibles
 }
