@@ -300,6 +300,7 @@ const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true)
 await conn.reply(m.chat, `Has cambiado a *${personajesMismaClase.length}* Personajes por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoTotalFormateado}\`\`\``, m)
 }
 if (m.quoted && m.quoted.id == id_message && ['no', '👎'].includes(m.text.toLowerCase())) {
+let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 const fantasyUsuario = usuarioExistente[userId].fantasy
 const imagenUsuario = fantasyUsuario.find(personaje => personaje.id === imageCode)
 
