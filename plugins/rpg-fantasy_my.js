@@ -117,6 +117,106 @@ claseMasPersonajes = `*✘* \`\`\`No hay una clase con mayor personajes\`\`\``
 }
 })
 
+let mensajeDesafiosPendientes = `
+*❰ Desafíos pendientes ❱*
+
+Puedes calificar personajes:
+`
+const userId = m.sender
+let user = global.db.data.users[userId]
+if (user.fantasy_character === 1) {
+    mensajeDesafiosPendientes += "✓ Sí\n"
+} else {
+    mensajeDesafiosPendientes += "✘ No\n"
+}
+
+mensajeDesafiosPendientes += `
+Recompensas por desbloquear:
+`
+
+// Por personaje
+if (user.fantasy_character2 < 5) {
+    mensajeDesafiosPendientes += `Compra ${5 - user.fantasy_character2 * 5} Personajes más para obtener una recompensa, ${user.fantasy_character2 * 5}/5\n`
+} else if (user.fantasy_character2 < 10) {
+    mensajeDesafiosPendientes += `Compra ${10 - user.fantasy_character2 * 5} Personajes más para obtener una recompensa, ${user.fantasy_character2 * 5}/10\n`
+} else if (user.fantasy_character2 < 15) {
+    mensajeDesafiosPendientes += `Compra ${15 - user.fantasy_character2 * 5} Personajes más para obtener una recompensa, ${user.fantasy_character2 * 5}/15\n`
+} else if (user.fantasy_character2 < 20) {
+    mensajeDesafiosPendientes += `Compra ${20 - user.fantasy_character2 * 5} Personajes más para obtener una recompensa, ${user.fantasy_character2 * 5}/20\n`
+} else if (user.fantasy_character2 < 30) {
+    mensajeDesafiosPendientes += `Compra ${30 - user.fantasy_character2 * 5} Personajes más para obtener una recompensa, ${user.fantasy_character2 * 5}/30\n`
+} else {
+    mensajeDesafiosPendientes += "✓ Has completado todas las misiones\n"
+}
+
+// Por dar 👍
+if (user.fantasy_character3 < 10) {
+    mensajeDesafiosPendientes += `Califica a ${3 + user.fantasy_character3 * 5} personajes más con "👍", ${user.fantasy_character3 * 5}/8\n`
+} else if (user.fantasy_character3 < 35) {
+    mensajeDesafiosPendientes += `Califica a ${8 + (user.fantasy_character3 - 1) * 5} personajes más con "👍", ${user.fantasy_character3 * 5}/25\n`
+} else if (user.fantasy_character3 < 40) {
+    mensajeDesafiosPendientes += `Califica a ${13 + (user.fantasy_character3 - 1) * 5} personajes más con "👍", ${user.fantasy_character3 * 5}/30\n`
+} else if (user.fantasy_character3 < 55) {
+    mensajeDesafiosPendientes += `Califica a ${18 + (user.fantasy_character3 - 1) * 5} personajes más con "👍", ${user.fantasy_character3 * 5}/40\n`
+} else if (user.fantasy_character3 < 65) {
+    mensajeDesafiosPendientes += `Califica a ${25 + (user.fantasy_character3 - 1) * 5} personajes más con "👍", ${user.fantasy_character3 * 5}/50\n`
+} else if (user.fantasy_character3 < 80) {
+    mensajeDesafiosPendientes += `Califica a ${35 + (user.fantasy_character3 - 1) * 5} personajes más con "👍", ${user.fantasy_character3 * 5}/65\n`
+} else if (user.fantasy_character3 < 100) {
+    mensajeDesafiosPendientes += `Califica a ${40 + (user.fantasy_character3 - 1) * 5} personajes más con "👍", ${user.fantasy_character3 * 5}/80\n`
+} else {
+    mensajeDesafiosPendientes += "✓ Has completado todas las misiones\n"
+}
+
+// Por dar ❤️
+if (user.fantasy_character4 < 10) {
+    mensajeDesafiosPendientes += `Califica a ${3 + user.fantasy_character4 * 5} personajes más con "❤️", ${user.fantasy_character4 * 5}/8\n`
+} else if (user.fantasy_character4 < 35) {
+    mensajeDesafiosPendientes += `Califica a ${8 + (user.fantasy_character4 - 1) * 5} personajes más con "❤️", ${user.fantasy_character4 * 5}/25\n`
+} else if (user.fantasy_character4 < 40) {
+    mensajeDesafiosPendientes += `Califica a ${13 + (user.fantasy_character4 - 1) * 5} personajes más con "❤️", ${user.fantasy_character4 * 5}/30\n`
+} else if (user.fantasy_character4 < 55) {
+    mensajeDesafiosPendientes += `Califica a ${18 + (user.fantasy_character4 - 1) * 5} personajes más con "❤️", ${user.fantasy_character4 * 5}/40\n`
+} else if (user.fantasy_character4 < 65) {
+    mensajeDesafiosPendientes += `Califica a ${25 + (user.fantasy_character4 - 1) * 5} personajes más con "❤️", ${user.fantasy_character4 * 5}/50\n`
+} else if (user.fantasy_character4 < 80) {
+    mensajeDesafiosPendientes += `Califica a ${35 + (user.fantasy_character4 - 1) * 5} personajes más con "❤️", ${user.fantasy_character4 * 5}/65\n`
+} else if (user.fantasy_character4 < 100) {
+    mensajeDesafiosPendientes += `Califica a ${40 + (user.fantasy_character4 - 1) * 5} personajes más con "❤️", ${user.fantasy_character4 * 5}/80\n`
+} else {
+    mensajeDesafiosPendientes += "✓ Has completado todas las misiones\n"
+}
+
+// Por dar 👎
+if (user.fantasy_character5 < 10) {
+    mensajeDesafiosPendientes += `Califica a ${3 + user.fantasy_character5 * 5} personajes más con "👎", ${user.fantasy_character5 * 5}/8\n`
+} else if (user.fantasy_character5 < 35) {
+    mensajeDesafiosPendientes += `Califica a ${8 + (user.fantasy_character5 - 1) * 5} personajes más con "👎", ${user.fantasy_character5 * 5}/25\n`
+} else if (user.fantasy_character5 < 40) {
+    mensajeDesafiosPendientes += `Califica a ${13 + (user.fantasy_character5 - 1) * 5} personajes más con "👎", ${user.fantasy_character5 * 5}/30\n`
+} else if (user.fantasy_character5 < 55) {
+    mensajeDesafiosPendientes += `Califica a ${18 + (user.fantasy_character5 - 1) * 5} personajes más con "👎", ${user.fantasy_character5 * 5}/40\n`
+} else if (user.fantasy_character5 < 65) {
+    mensajeDesafiosPendientes += `Califica a ${25 + (user.fantasy_character5 - 1) * 5} personajes más con "👎", ${user.fantasy_character5 * 5}/50\n`
+} else if (user.fantasy_character5 < 80) {
+    mensajeDesafiosPendientes += `Califica a ${35 + (user.fantasy_character5 - 1) * 5} personajes más con "👎", ${user.fantasy_character5 * 5}/65\n`
+} else if (user.fantasy_character5 < 100) {
+    mensajeDesafiosPendientes += `Califica a ${40 + (user.fantasy_character5 - 1) * 5} personajes más con "👎", ${user.fantasy_character5 * 5}/80\n`
+} else {
+    mensajeDesafiosPendientes += "✓ Has completado todas las misiones\n"
+}
+
+// Desafíos iniciales
+if (user.fantasy_character3 === 0) {
+    mensajeDesafiosPendientes += `Califica a 3 personajes con "👍", 0/3\n`
+}
+if (user.fantasy_character4 === 0) {
+    mensajeDesafiosPendientes += `Califica a 3 personajes con "❤️", 0/3\n`
+}
+if (user.fantasy_character5 === 0) {
+    mensajeDesafiosPendientes += `Califica a 3 personajes con "👎", 0/3\n`
+}
+
 const mensaje = `
 *❰ Información de tus personajes ❱*
     
@@ -149,6 +249,8 @@ ${claseMenosPersonajes}
     
 *❰ Clase con más personajes ❱* 
 ${claseMasPersonajes}
+
+${mensajeDesafiosPendientes}
 `
 conn.reply(m.chat, mensaje.trim(), m)
 }
