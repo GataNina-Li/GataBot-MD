@@ -106,11 +106,11 @@ let maxCount = 0, minCount = Infinity
 Object.entries(clases).forEach(([clase, count]) => {
 if (count > maxCount) {
 maxCount = count
-claseMasPersonajes = `*✓* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${count === 1 ? '' : 's'}`
+claseMasPersonajes = `*✓* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${maxCount === 1 ? '' : 's'}`
 }
 if (count < minCount && count > 0) {
 minCount = count
-claseMenosPersonajes = `*✓* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${clase === 1 ? '' : 's'}`
+claseMenosPersonajes = `*✓* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${minCount === 1 ? '' : 's'}`
 }
 if (maxCount === minCount) {
 claseMasPersonajes = `*✘* \`\`\`No hay una clase con mayor personajes\`\`\``
