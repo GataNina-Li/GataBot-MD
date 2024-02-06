@@ -95,9 +95,10 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 
 const tiempoPremium = getTiempoPremium(imageClass, validClasses)
 asignarTiempoPremium(user, tiempoPremium)
-user.money += 100
-const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true);
-conn.reply(m.chat, `Has cambiado a *${personaje}* por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoPremiumFormateado}\`\`\``, m)
+const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true)
+  
+fake = { contextInfo: { externalAdReply: { title: `✅ ¡Personaje ${personaje} cambiado!`, body: `🎟️ Tienes Premium por: ${tiempoPremiumFormateado} `, sourceUrl: accountsgb.getRandom(), thumbnailUrl: imageURL }}}
+await conn.reply(m.chat, `*Has cambiado a ${personaje} por Tiempo premium*\n\n🎟️ *Tiempo premium:* \`\`\`${tiempoPremiumFormateado}\`\`\``, m, fake)
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
 userInDB[userId].record[0].total_purchased -= 1
@@ -130,9 +131,10 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
   
 const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0)
 asignarTiempoPremium(user, tiempoTotal)
-user.money += 100
-const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true);
-await conn.reply(m.chat, `Has cambiado a *${personajesMismaClase.length}* Personajes por monedas. Ahora tienes *${user.money}* monedas.\n\nTiempo premium: \`\`\`${tiempoTotalFormateado}\`\`\``, m)
+
+const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true)
+fake = { contextInfo: { externalAdReply: { title: `✅ ¡${personajesMismaClase.length} Personajes cambiados!`, body: `🎟️ Tienes Premium por: ${tiempoPremiumFormateado} `, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+await conn.reply(m.chat, `*Has cambiado a ${personajesMismaClase.length} Personajes por Tiempo premium\n\n🎟️ *Tiempo premium:* \`\`\`${tiempoTotalFormateado}\`\`\``, m, fake)
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
 userInDB[userId].record[0].total_purchased -= personajesMismaClase.length
