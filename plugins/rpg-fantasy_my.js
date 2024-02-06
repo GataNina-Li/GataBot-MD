@@ -40,13 +40,13 @@ class: info.class
 })
 return personajesDisponibles
 }
-
+    
+let seEncontraronPersonajes = null
 function construirListaPersonajes(personajes) {
 const personajesPorClase = {}
 validClasses.forEach(clase => {
 personajesPorClase[clase] = []
 })
-    
 personajes.forEach(personaje => {
 personajesPorClase[personaje.class].push(personaje)
 })
