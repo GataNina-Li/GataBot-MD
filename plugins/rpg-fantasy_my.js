@@ -106,42 +106,42 @@ minCount = count
 claseMenosPersonajes = `*✓* La clase *${clase}* tiene \`\`\`${count}\`\`\` personaje${clase === 1 ? '' : 's'}`
 }
 if (maxCount === minCount) {
-claseMasPersonajes = '*✘* No hay una clase con mayor personajes';
+claseMasPersonajes = `*✘* \`\`\`No hay una clase con mayor personajes\`\`\``
 }
 })
 
 const mensaje = `
-*Información de tus personajes*
+*❰ Información de tus personajes ❱*
     
-*Total de personajes* 
+*❰ Total de personajes ❱* 
 ${fantasyUsuario.length > 0 ? `*✓* \`\`\`${fantasyUsuario.length}\`\`\`` : `*✘* \`\`\`No tiene personajes\`\`\``}
 
-*Tus persoanjes*
+*❰ Tus persoanjes ❱*
 ${listaPersonajes}
     
-*Calificación total de personajes* 
-${calificacionTotal > 0 ? `*✓* \`\`\`${calificacionTotal}\`\`\`` : `*✘* \`\`\`No tiene personajes\`\`\``}
+*❰ Calificación total de personajes ❱* 
+${calificacionTotal > 0 ? `*✓* \`\`\`${calificacionTotal}\`\`\`` : `*✘* \`\`\`No has calificado personajes\`\`\``}
     
-*Personajes que has dado 👍* 
+*❰ Personajes que has dado 👍 ❱* 
 ${personajesGustados > 0 ? `*✓* \`\`\`${personajesGustados}\`\`\`` : personajesGustados}
     
-*Personajes que has dado ❤️* 
+*❰ Personajes que has dado ❤️ ❱* 
 ${personajesSuperlike > 0 ? `*✓* \`\`\`${personajesSuperlike}\`\`\`` : personajesSuperlike}
     
-*Personajes que has dado 👎*
+*❰ Personajes que has dado 👎 ❱*
 ${personajesNoGustados > 0 ? `*✓* \`\`\`${personajesNoGustados}\`\`\`` : personajesNoGustados}
     
-*Tú personaje más barato* 
+*❰ Tú personaje más barato ❱* 
 ${personajeMasBarato}
     
-*Tú personaje más caro* 
+*❰ Tú personaje más caro ❱* 
 ${personajeMasCaro}
-    
-*Clase con más personajes* 
-${claseMasPersonajes}
-    
-*Clase con menos personajes* 
+
+*❰ Clase con menos personajes ❱* 
 ${claseMenosPersonajes}
+    
+*❰ Clase con más personajes ❱* 
+${claseMasPersonajes}
 `
 conn.reply(m.chat, mensaje.trim(), m)
 }
