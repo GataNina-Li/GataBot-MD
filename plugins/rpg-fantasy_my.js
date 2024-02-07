@@ -237,9 +237,8 @@ let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todaví
 
 usuariosActivos.sort((a, b) => b.totalCalificaciones - a.totalCalificaciones)
 
-let topUsuariosCalificaciones = usuariosActivos.slice(0, cantidadUsuariosRanking).map((usuario, index) => `${index + 1}. @${usuario.userId.split('@')[0]} (Realizó ${usuario.totalCalificaciones} calificaciones)`).join('\n')
-
-let rankingCalificaciones = topUsuariosCalificaciones ? topUsuariosCalificaciones : 'Todavía no hay usuarios aquí'
+let topUsuariosPersonajes = usuariosConMasPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => `*${index + 1}.* @${usuario.userId.split('@')[0]} » *${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`).join('\n')
+let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todavía no hay usuarios aquí'
     
 // Obtener usuarios con el personaje más caro
 preciosPersonajes = []
