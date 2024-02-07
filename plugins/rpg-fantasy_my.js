@@ -78,7 +78,7 @@ personajesPorClase[personaje.class].push(personaje)
 let listaFinal = ''
 validClasses.forEach(clase => {
 if (personajesPorClase[clase].length > 0) {
-const mensajeClase = `\n*✦ ${clase}*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n`;
+const mensajeClase = `\n*✦ Clase: ${clase}*\n${personajesPorClase[clase].map(personaje => `• _${personaje.name}_ » \`\`\`(${personaje.id})\`\`\``).join('\n')}\n`;
 listaFinal += mensajeClase
 seEncontraronPersonajes = true
 }})
@@ -345,7 +345,7 @@ ${rankingClases}
 *❰ Total de personajes ❱* 
 ${fantasyUsuario.length > 0 ? `*✓* \`\`\`${fantasyUsuario.length}\`\`\`` : `*✘* \`\`\`No tienes personajes\`\`\``}
 
-*❰ Tus personajes ❱*
+*❰ Personajes comprados ❱*
 ${listaPersonajes}
     
 *❰ Calificación total de personajes ❱* 
