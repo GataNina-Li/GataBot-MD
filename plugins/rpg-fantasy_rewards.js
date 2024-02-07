@@ -45,7 +45,7 @@ usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 const fantasyArray = usuarioExistente[userId].fantasy
 fake = { contextInfo: { externalAdReply: { title: `🌟 RECOMPENSA 🌟`, body: `Usa #fymy para ver más desafíos`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personajes*\n\n*Recompensas:*`
+logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personajes*\n\n🌟 *Recompensas:*`
 for (const [reward, icon] of Object.entries(rewards)) {
 let min, max
 switch (reward) {
@@ -70,7 +70,7 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 // Multiplicar la cantidad de acuerdo a user.fantasy_character2
 const multipliedAmount = amount * (user.fantasy_character2 + 1)
 user[reward] += multipliedAmount
-logro += `\n${icon} = ${multipliedAmount}`
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 }
 if (fantasyArray.length >= 5 && typeof fantasyArray[4].id === 'string' && fantasyArray[4].status === true && user.fantasy_character2 === 0) {
 await conn.reply(m.chat, logro, m, fake)
