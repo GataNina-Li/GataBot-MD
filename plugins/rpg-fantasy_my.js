@@ -20,13 +20,14 @@ if (m.isGroup) {
 } else {
     if (args && args.length >= 1) {
         // Si se proporcionan argumentos, se asume que el usuario los está mencionando o proporcionando un número
-        who = args[0].includes('@') ? args[0] : args[0].includes('@') + '@s.whatsapp.net';
+        let userArg = args[0].replace(/[^\d]/g, ''); // Eliminar todos los caracteres que no sean dígitos
+        who = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net';
     } else if (m.quoted && m.quoted.sender) {
         // Si el mensaje está respondiendo a otro mensaje, se obtiene el identificador del remitente del mensaje original
         who = m.quoted.sender;
     } else {
         // Si no se proporcionan argumentos y no se está respondiendo a otro mensaje, se toma el remitente del mensaje actual
-        who = m.sender
+        who = m.sender;
     }
 }
 console.log(who)
