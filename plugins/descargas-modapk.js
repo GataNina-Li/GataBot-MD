@@ -1,5 +1,5 @@
 import {search, download} from 'aptoide-scraper';
-const handler = async (m, {conn, usedPrefix: prefix, command, text}) => {
+const handler = async (m, {conn, usedPrefix, command, text}) => {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsApk}`;
 try {    
 const searchA = await search(text);
