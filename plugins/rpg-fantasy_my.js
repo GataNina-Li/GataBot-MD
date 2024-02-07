@@ -12,7 +12,9 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 let who;
 
 // Obtener el identificador del usuario según el contexto
-if (m.isGroup) {
+if (!m.isGroup && !args) {
+who = m.sender    
+} else if (m.isGroup) {
     who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
 } else {
     if (args && args.length >= 1) {
@@ -23,9 +25,10 @@ if (m.isGroup) {
         who = m.quoted.sender;
     } else {
         // Si no se proporcionan argumentos y no se está respondiendo a otro mensaje, se toma el remitente del mensaje actual
-        who = m.sender;
+        who = m.sender
     }
 }
+
 
 const userId = who
 let user = global.db.data.users[userId]
