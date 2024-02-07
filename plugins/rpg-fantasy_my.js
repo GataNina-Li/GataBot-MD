@@ -325,16 +325,16 @@ mentions.push({
 const mensaje = `
 🔥 *RPG FANTASY - TENDENCIAS* 🔥
 
-*❰ Usuarios con más personajes comprados ❱*
-${rankingPersonajes}
+*❰ Más personajes comprados ❱*
+${rankingPersonajes}\n
 
-*❰ Usuarios activos en calificación de personajes ❱*
-${rankingCalificaciones}
+*❰ Calificando personajes ❱*
+${rankingCalificaciones}\n
 
-*❰ Usuarios con el personaje más caro ❱*
-${rankingCaros}
+*❰ Personaje más caro ❱*
+${rankingCaros}\n
 
-*❰ Usuarios con mejor clase de personaje ❱*
+*❰ Mejor clase en personaje ❱*
 ${rankingClases}
 
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
