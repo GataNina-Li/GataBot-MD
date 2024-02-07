@@ -360,7 +360,7 @@ ${personajesGustados > 0 ? txtSuperLike : personajesGustados}
 ${personajesNoGustados > 0 ? txtDislike : personajesNoGustados}
 `
 //conn.reply(m.chat, mensaje.trim(), m)
-await conn.sendFile(m.chat, 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg', 'fantasy.jpg', mensaje.trim(), fkontak, false, { mentions: conn.parseMention(mensaje) }, {
+await conn.sendFile(m.chat, 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg', 'fantasy.jpg', mensaje.trim(), fkontak, true, { mentions: conn.parseMention(mensaje) }, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
