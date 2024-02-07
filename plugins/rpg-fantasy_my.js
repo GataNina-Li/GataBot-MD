@@ -360,7 +360,7 @@ ${personajesGustados > 0 ? txtSuperLike : personajesGustados}
 ${personajesNoGustados > 0 ? txtDislike : personajesNoGustados}
 `
 //conn.reply(m.chat, mensaje.trim(), m)
-await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg' }, caption: mensaje.trim(), mentions: conn.parseMention(mensaje), contextInfo: {
+await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg' }, mentions: conn.parseMention(mensaje), caption: mensaje.trim(), contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
 externalAdReply: {
