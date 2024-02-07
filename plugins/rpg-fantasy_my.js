@@ -217,7 +217,91 @@ txtDislike += `_Califica a *${calificacion[10] - personajesNoGustados}* personaj
 txtDislike += "*✓* _Has completado todas las misiones_"
 }
 
+// Obtener usuarios con más personajes comprados
+    let usuariosConMasPersonajes = fantasyDB.map(entry => ({
+        userId: Object.keys(entry)[0],
+        numPersonajes: entry[Object.keys(entry)[0]].fantasy.length
+    }))
+    usuariosConMasPersonajes.sort((a, b) => b.numPersonajes - a.numPersonajes)
+    let topUsuariosPersonajes = usuariosConMasPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => `${index + 1}. @${usuario.userId.split('@')[0]} (${usuario.numPersonajes} personajes)`).join('\n')
+    let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todavía no hay usuarios aquí'
+
+    // Obtener usuarios activos en calificación de personajes
+    let usuariosActivos = fantasyDB.map(entry => ({
+        userId: Object.keys(entry)[0],
+        totalCalificaciones: entry[Object.keys(entry)[0]].record.total_like + entry[Object.keys(entry)[0]].record.total_dislike + entry[Object.keys(entry)[0]].record.total_superlike
+    }))
+    usuariosActivos.sort((a, b) => b.totalCalificaciones - a.totalCalificaciones)
+    let topUsuariosCalificaciones = usuariosActivos.slice(0, cantidadUsuariosRanking).map((usuario, index) => `${index + 1}. @${usuario.userId.split('@')[0]} (Realizó ${usuario.totalCalificaciones} calificaciones)`).join('\n')
+    let rankingCalificaciones = topUsuariosCalificaciones ? topUsuariosCalificaciones : 'Todavía no hay usuarios aquí'
+
+    // Obtener usuarios con el personaje más caro
+    let preciosPersonajes = []
+    fantasyDB.forEach(entry => {
+        entry[Object.keys(entry)[0]].fantasy.forEach(personaje => {
+            let infoPersonaje = data.infoImg.find(img => img.name.toLowerCase() === personaje.name.toLowerCase())
+            if (infoPersonaje) {
+                preciosPersonajes.push({
+                    userId: Object.keys(entry)[0],
+                    personaje: personaje.name,
+                    precio: infoPersonaje.price
+                })
+            }
+        })
+    })
+    preciosPersonajes.sort((a, b) => b.precio - a.precio)
+    let topUsuariosCaros = preciosPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => `${index + 1}. @${usuario.userId.split('@')[0]} (${usuario.personaje} - ${usuario.precio})`).join('\n')
+    let rankingCaros = topUsuariosCaros ? topUsuariosCaros : 'Todavía no hay usuarios aquí'
+
+    // Obtener usuarios con mejor clase de personaje
+    let clasesPorUsuario = {}
+    fantasyDB.forEach(entry => {
+        entry[Object.keys(entry)[0]].fantasy.forEach(personaje => {
+            let infoPersonaje = data.infoImg.find(img => img.name.toLowerCase() === personaje.name.toLowerCase())
+            if (infoPersonaje) {
+                if (!clasesPorUsuario[Object.keys(entry)[0]]) {
+                    clasesPorUsuario[Object.keys(entry)[0]] = {}
+                }
+                if (!clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class]) {
+                    clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class] = 0
+                }
+                clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class]++
+            }
+        })
+    })
+    let topClasePorUsuario = {}
+    Object.keys(clasesPorUsuario).forEach(userId => {
+        let claseMax = Object.keys(clasesPorUsuario[userId]).reduce((a, b) => clasesPorUsuario[userId][a] > clasesPorUsuario[userId][b] ? a : b)
+        topClasePorUsuario[userId] = { clase: claseMax, count: clasesPorUsuario[userId][claseMax] }
+    })
+    let topUsuariosClases = Object.keys(topClasePorUsuario).sort((a, b) => topClasePorUsuario[b].count - topClasePorUsuario[a].count).slice(0, cantidadUsuariosRanking).map((userId, index) => {
+        return `${index + 1}. @${userId.split('@')[0]} (${topClasePorUsuario[userId].clase} - ${topClasePorUsuario[userId].count} personajes)`
+    }).join('\n')
+    let rankingClases = topUsuariosClases ? topUsuariosClases : 'Todavía no hay usuarios aquí'
+
+let mentions = []
+    fantasyDB.forEach(entry => {
+        mentions.push({
+            "userId": Object.keys(entry)[0]
+        })
+    })
+
 const mensaje = `
+🌟 *RPG TENDENCIAS* 🌟
+
+*❰ Usuarios con más personajes comprados ❱*
+${rankingPersonajes}
+
+*❰ Usuarios activos en calificación de personajes ❱*
+${rankingCalificaciones}
+
+*❰ Usuarios con el personaje más caro ❱*
+${rankingCaros}
+
+*❰ Usuarios con mejor clase de personaje ❱*
+${rankingClases}
+
+
 🌟 *❰ Información de tus personajes ❱* 🌟
     
 *❰ Total de personajes ❱* 
@@ -281,7 +365,7 @@ body: `😼 RPG de: » ${conn.getName(userId)}`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg'
-}}}, { mentions: userId })
+}}}, { mentions: [mentions], [userId] })
     
 }
 
