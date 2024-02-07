@@ -8,7 +8,11 @@ let cantidadUsuariosRanking = 5
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-const userId = m.sender
+
+let who
+if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
+else who = m.sender   
+const userId = who
 let user = global.db.data.users[userId]
 
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
