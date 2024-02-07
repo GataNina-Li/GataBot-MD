@@ -15,8 +15,15 @@ let who;
 //if (!m.isGroup && args.length === 0) {
 //who = m.sender    
 //} else 
+let who;
+
+// Obtener el identificador del usuario según el contexto
 if (m.isGroup) {
-    who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
+    if (m.quoted && m.quoted.sender) {
+        who = m.quoted.sender;
+    } else {
+        who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
+    }
 } else {
     if (text) {
         // Si se proporciona texto, se asume que el usuario está ingresando un número de teléfono
