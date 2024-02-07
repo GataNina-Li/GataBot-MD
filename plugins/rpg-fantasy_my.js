@@ -8,28 +8,35 @@ let cantidadUsuariosRanking = 5
 
 let handler = async (m, { command, usedPrefix, conn, text, args }) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let who
+let who;
 
 // Obtener el identificador del usuario según el contexto
 if (m.isGroup) {
-    if (m.quoted && m.quoted.sender) {
-        who = m.quoted.sender;
-    } else {
-        who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
-    }
-} else {
     if (text) {
-        // Si se proporciona texto, se asume que el usuario está ingresando un número de teléfono
+        // Si es un grupo y hay texto, se asume que el usuario está ingresando un número de teléfono
         let userArg = text.replace(/[^\d]/g, ''); // Eliminar todos los caracteres que no sean dígitos
         who = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net';
     } else if (m.quoted && m.quoted.sender) {
         // Si el mensaje está respondiendo a otro mensaje, se obtiene el identificador del remitente del mensaje original
         who = m.quoted.sender;
     } else {
-        // Si no se proporciona texto y no se está respondiendo a otro mensaje, se toma el remitente del mensaje actual
+        // Si no hay texto ni mensaje citado, se toma el remitente del mensaje actual
+        who = m.sender;
+    }
+} else {
+    if (text) {
+        // Si no es un grupo y hay texto, se asume que el usuario está ingresando un número de teléfono
+        let userArg = text.replace(/[^\d]/g, ''); // Eliminar todos los caracteres que no sean dígitos
+        who = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net';
+    } else if (m.quoted && m.quoted.sender) {
+        // Si el mensaje está respondiendo a otro mensaje, se obtiene el identificador del remitente del mensaje original
+        who = m.quoted.sender;
+    } else {
+        // Si no hay texto ni mensaje citado, se toma el remitente del mensaje actual
         who = m.sender;
     }
 }
+
 console.log(who)
 
 const userId = who
