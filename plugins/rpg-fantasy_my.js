@@ -252,8 +252,8 @@ let topUsuariosPersonajes = usuariosConMasPersonajes
 .slice(0, cantidadUsuariosRanking)
 .map((usuario, index) => {
 let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
-return `*${positionEmoji}* @${usuario.userId.split('@')[0]} *${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`
-}).join('\n')
+return `*${positionEmoji}* @${usuario.userId.split('@')[0]}\n *✓ ${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`
+}).join('\n\n')
 let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todavía no hay usuarios aquí'
 
 // Obtener usuarios activos en calificación de personajes
@@ -283,7 +283,10 @@ precio: infoPersonaje.price
 })
 })
 preciosPersonajes.sort((a, b) => b.precio - a.precio)
-let topUsuariosCaros = preciosPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => `*${index + 1}.* @${usuario.userId.split('@')[0]} *${usuario.personaje}* » \`\`\`${usuario.precio}\`\`\` 🐈`).join('\n')
+let topUsuariosCaros = preciosPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => {
+let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
+return `*${positionEmoji}* @${usuario.userId.split('@')[0]} *${usuario.personaje}* » \`\`\`${usuario.precio}\`\`\` 🐈`
+}).join('\n')
 let rankingCaros = topUsuariosCaros ? topUsuariosCaros : 'Todavía no hay usuarios aquí'
 
 // Obtener usuarios con mejor clase de personaje
@@ -308,7 +311,8 @@ return bClass - aClass
 }).slice(0, cantidadUsuariosRanking).map((userId, index) => {
 let clase = Object.keys(clasesPorUsuario[userId])[0]
 let count = clasesPorUsuario[userId][clase]
-return `*${index + 1}.* @${userId.split('@')[0]} *${clase}* » *${count}* personaje${count === 1 ? '' : 's'}`
+let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
+return `*${positionEmoji}* @${userId.split('@')[0]} *${clase}* » *${count}* personaje${count === 1 ? '' : 's'}`
 }).join('\n')
 let rankingClases = topUsuariosClases ? topUsuariosClases : 'Todavía no hay usuarios aquí'
 
