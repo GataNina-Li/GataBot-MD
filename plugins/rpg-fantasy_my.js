@@ -366,7 +366,7 @@ body: `😼 RPG de: » ${conn.getName(userId)}`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg'
-}}}, { mentions: [mentions, userId] })
+}}}, { mentions: conn.parseMention(mensaje) })
     
 }
 
