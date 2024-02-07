@@ -339,6 +339,11 @@ ${rankingClases}
 
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 
+⛱️ *❰ Consejo / Ayuda ❱* ⛱️
+🫂 Si desea conocer más de los personajes, escriba *#fylista* o *#fyl*
+
+*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
+
 🌟 *❰ Información de personajes ❱* 🌟
 *✓ @${userId.split('@')[0]}*
     
@@ -391,8 +396,13 @@ ${personajesSuperlike > 0 ? txtSuperLike : personajesSuperlike}
 *❰ Por dar 👎 ❱* 
 ${personajesNoGustados > 0 ? txtDislike : personajesNoGustados}
 `
-let fake = { contextInfo: { externalAdReply: { title: `🌟 FANTASÍA RPG`, body: `😼 RPG de: » ${conn.getName(userId)}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg' }}}
-let image = ['https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg', 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg'].getRandom()
+//let fake = { contextInfo: { externalAdReply: { title: `🌟 FANTASÍA RPG`, body: `😼 RPG de: » ${conn.getName(userId)}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg' }}}
+let image = [
+'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg', 
+'https://telegra.ph/file/feb1553dffb7410556c8f.jpg',
+'https://telegra.ph/file/343d26ea0d2621d47539c.jpg',
+'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg'
+].getRandom()
 await conn.sendMessage(m.chat, {image: { url: image }, caption: mensaje.trim(), mentions: conn.parseMention(mensaje) }, fkontak)   
 /*await conn.sendFile(m.chat, 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg', 'fantasy.jpg', mensaje.trim(), fkontak, null, {
 contextInfo: {
