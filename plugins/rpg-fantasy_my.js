@@ -252,7 +252,7 @@ let topUsuariosPersonajes = usuariosConMasPersonajes
 .slice(0, cantidadUsuariosRanking)
 .map((usuario, index) => {
 let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
-return `*${positionEmoji}* @${usuario.userId.split('@')[0]}\n *✓ ${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`
+return `*${positionEmoji}* @${usuario.userId.split('@')[0]}\n *✪ ${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`
 }).join('\n\n')
 let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todavía no hay usuarios aquí'
 
@@ -264,8 +264,8 @@ totalCalificaciones: entry[Object.keys(entry)[0]].record[0].total_like + entry[O
 usuariosActivos.sort((a, b) => b.totalCalificaciones - a.totalCalificaciones)
 let topUsuariosCalificaciones = usuariosActivos.slice(0, cantidadUsuariosRanking).map((usuario, index) => {
 let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
-return `*${positionEmoji}* @${usuario.userId.split('@')[0]} realizó *${usuario.totalCalificaciones}* ${usuario.totalCalificaciones === 1 ? 'calificación' : 'calificaciones'}`
-}).join('\n')
+return `*${positionEmoji}* @${usuario.userId.split('@')[0]}\n*✪* Realizó *${usuario.totalCalificaciones}* ${usuario.totalCalificaciones === 1 ? 'calificación' : 'calificaciones'}`
+}).join('\n\n')
 let rankingCalificaciones = topUsuariosCalificaciones ? topUsuariosCalificaciones : 'Todavía no hay usuarios aquí'
 
     
