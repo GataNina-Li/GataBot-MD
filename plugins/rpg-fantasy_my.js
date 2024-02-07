@@ -236,7 +236,7 @@ txtDislike += "*✓* _Has completado todas las misiones_"
     let rankingCalificaciones = topUsuariosCalificaciones ? topUsuariosCalificaciones : 'Todavía no hay usuarios aquí'
 
     // Obtener usuarios con el personaje más caro
-    let preciosPersonajes = []
+    preciosPersonajes = []
     fantasyDB.forEach(entry => {
         entry[Object.keys(entry)[0]].fantasy.forEach(personaje => {
             let infoPersonaje = data.infoImg.find(img => img.name.toLowerCase() === personaje.name.toLowerCase())
