@@ -360,7 +360,7 @@ ${personajesGustados > 0 ? txtSuperLike : personajesGustados}
 ${personajesNoGustados > 0 ? txtDislike : personajesNoGustados}
 `
 //conn.reply(m.chat, mensaje.trim(), m)
-/*await conn.sendFile(m.chat, 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg', 'fantasy.jpg', mensaje.trim(), fkontak, true, {
+await conn.sendFile(m.chat, 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg', 'fantasy.jpg', mensaje.trim(), fkontak, null, { mentions: conn.parseMention(mensaje) }, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
@@ -372,31 +372,7 @@ body: `😼 RPG de: » ${conn.getName(userId)}`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg'
-}}})*/
-await conn.sendFile(
-    m.chat,
-    'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg',
-    'fantasy.jpg',
-    mensaje.trim(),
-    fkontak,
-    {
-        mentions: conn.parseMention(mensaje),
-        contextInfo: {
-            forwardingScore: 200,
-            isForwarded: false,
-            externalAdReply: {
-                showAdAttribution: false,
-                renderLargerThumbnail: true,
-                title: '🌟 FANTASÍA RPG',
-                body: `😼 RPG de: » ${conn.getName(userId)}`,
-                mediaType: 1,
-                sourceUrl: accountsgb.getRandom(),
-                thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg'
-            }
-        }
-    }
-);
-
+}}})
 //await m.reply(mensaje.trim(), null, { mentions: conn.parseMention(mensaje) })
     
 }
