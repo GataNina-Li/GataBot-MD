@@ -68,7 +68,7 @@ break
 }
 const amount = Math.floor(Math.random() * (max - min + 1) + min)
 // Multiplicar la cantidad de acuerdo a user.fantasy_character2
-const multipliedAmount = amount * (user.fantasy_character2 + 1)
+const multipliedAmount = amount * (user.fantasy_character2 + 2)
 user[reward] += multipliedAmount
 logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 }
