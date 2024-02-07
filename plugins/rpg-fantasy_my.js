@@ -6,6 +6,7 @@ let fantasyDB = []
 const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 const userId = m.sender
 let user = global.db.data.users[userId]
 
@@ -267,7 +268,21 @@ ${personajesGustados > 0 ? txtSuperLike : personajesGustados}
 *❰ Por dar 👎 ❱* 
 ${personajesNoGustados > 0 ? txtDislike : personajesNoGustados}
 `
-conn.reply(m.chat, mensaje.trim(), m)
+//conn.reply(m.chat, mensaje.trim(), m)
+await conn.sendFile(m.chat, 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg', 'fantasy.jpg', mensaje.trim(), fkontak, true, {
+contextInfo: {
+'forwardingScore': 200,
+'isForwarded': false,
+externalAdReply: {
+showAdAttribution: false,
+renderLargerThumbnail: true,
+title: `🌟 FANTASÍA RPG`,
+body: `😼 RPG de: » ${conn.getName(userId)}`,
+mediaType: 1,
+sourceUrl: accountsgb.getRandom(),
+thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg'
+}}}, { mentions: userId })
+    
 }
 
 handler.command = /^(fantasymy|fymy)$/i
