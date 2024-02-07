@@ -29,7 +29,7 @@ if (m.isGroup) {
         who = m.sender
     }
 }
-
+console.log(who)
 
 const userId = who
 let user = global.db.data.users[userId]
