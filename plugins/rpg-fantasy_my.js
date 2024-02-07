@@ -230,7 +230,7 @@ txtDislike += "*✓* _Has completado todas las misiones_"
     // Obtener usuarios activos en calificación de personajes
     let usuariosActivos = fantasyDB.map(entry => ({
         userId: Object.keys(entry)[0],
-        totalCalificaciones: entry[Object.keys(entry)[0]].record.total_like + entry[Object.keys(entry)[0]].record.total_dislike + entry[Object.keys(entry)[0]].record.total_superlike
+        totalCalificaciones: entry[Object.keys(entry)[0]].record[0].total_like + entry[Object.keys(entry)[0]].record[0].total_dislike + entry[Object.keys(entry)[0]].record[0].total_superlike
     }))
     usuariosActivos.sort((a, b) => b.totalCalificaciones - a.totalCalificaciones)
     let topUsuariosCalificaciones = usuariosActivos.slice(0, cantidadUsuariosRanking).map((usuario, index) => `${index + 1}. @${usuario.userId.split('@')[0]} (Realizó ${usuario.totalCalificaciones} calificaciones)`).join('\n')
@@ -270,13 +270,15 @@ txtDislike += "*✓* _Has completado todas las misiones_"
             }
         })
     })
-    let topClasePorUsuario = {}
-    Object.keys(clasesPorUsuario).forEach(userId => {
-        let claseMax = Object.keys(clasesPorUsuario[userId]).reduce((a, b) => clasesPorUsuario[userId][a] > clasesPorUsuario[userId][b] ? a : b)
-        topClasePorUsuario[userId] = { clase: claseMax, count: clasesPorUsuario[userId][claseMax] }
-    })
-    let topUsuariosClases = Object.keys(topClasePorUsuario).sort((a, b) => topClasePorUsuario[b].count - topClasePorUsuario[a].count).slice(0, cantidadUsuariosRanking).map((userId, index) => {
-        return `${index + 1}. @${userId.split('@')[0]} (${topClasePorUsuario[userId].clase} - ${topClasePorUsuario[userId].count} personajes)`
+
+    let topUsuariosClases = Object.keys(clasesPorUsuario).sort((a, b) => {
+        let aClass = validClasses.indexOf(Object.keys(clasesPorUsuario[a])[0])
+        let bClass = validClasses.indexOf(Object.keys(clasesPorUsuario[b])[0])
+        return bClass - aClass
+    }).slice(0, cantidadUsuariosRanking).map((userId, index) => {
+        let clase = Object.keys(clasesPorUsuario[userId])[0]
+        let count = clasesPorUsuario[userId][clase]
+        return `${index + 1}. @${userId.split('@')[0]} (${clase} - ${count} personajes)`
     }).join('\n')
     let rankingClases = topUsuariosClases ? topUsuariosClases : 'Todavía no hay usuarios aquí'
 
@@ -302,6 +304,7 @@ ${rankingCaros}
 *❰ Usuarios con mejor clase de personaje ❱*
 ${rankingClases}
 
+*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 
 🌟 *❰ Información de tus personajes ❱* 🌟
     
@@ -335,6 +338,7 @@ ${claseMenosPersonajes}
 *❰ Clase con más personajes ❱* 
 ${claseMasPersonajes}
 
+*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 
 🔒 *❰ Desafíos por desbloquear ❱* 🔒
 
