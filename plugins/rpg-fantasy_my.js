@@ -250,8 +250,10 @@ numPersonajes: entry[Object.keys(entry)[0]].fantasy.length
 .sort((a, b) => b.numPersonajes - a.numPersonajes)
 let topUsuariosPersonajes = usuariosConMasPersonajes
 .slice(0, cantidadUsuariosRanking)
-.map((usuario, index) => `*${index + 1}.* @${usuario.userId.split('@')[0]} *${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`)
-.join('\n')
+.map((usuario, index) => {
+let positionEmoji = index === 0 ? "🥇." : index === 1 ? "🥈." : index === 2 ? "🥉." : `${index + 1}.`
+return `*${positionEmoji}* @${usuario.userId.split('@')[0]} *${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`
+}).join('\n')
 let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todavía no hay usuarios aquí'
 
 // Obtener usuarios activos en calificación de personajes
