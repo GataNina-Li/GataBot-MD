@@ -360,7 +360,6 @@ ${personajesGustados > 0 ? txtSuperLike : personajesGustados}
 ${personajesNoGustados > 0 ? txtDislike : personajesNoGustados}
 `
 let fake = { contextInfo: { externalAdReply: { title: `🌟 FANTASÍA RPG`, body: `😼 RPG de: » ${conn.getName(userId)}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg' }}}
-await conn.sendMessage(m.chat, {video: { url: 'https://telegra.ph/file/c82d5c358495e8ef15916.mp4' }, gifPlayback: true, caption: mensaje.trim(), mentions: conn.parseMention(mensaje) }, {quoted: fkontak })
 //await conn.sendMessage(m.chat, {image: { url: 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg' }, caption: mensaje.trim(), mentions: conn.parseMention(mensaje) }, fkontak, fake)   
 /*await conn.sendFile(m.chat, 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg', 'fantasy.jpg', mensaje.trim(), fkontak, null, {
 contextInfo: {
@@ -375,6 +374,7 @@ mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg'
 }}})*/
+await conn.reply(m.chat, mensaje.trim(), { mentions: conn.parseMention(mensaje) }, fkontak, fake)
 //await m.reply(mensaje.trim(), null, { mentions: conn.parseMention(mensaje) })
     
 }
