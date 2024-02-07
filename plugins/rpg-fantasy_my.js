@@ -218,49 +218,42 @@ txtDislike += `_Califica a *${calificacion[10] - personajesNoGustados}* personaj
 txtDislike += "*✓* _Has completado todas las misiones_"
 }
 
-// Obtener usuarios con más personajes comprados
+// Usuarios con más personajes comprados
 let usuariosConMasPersonajes = fantasyDB
-    .map(entry => ({
-        userId: Object.keys(entry)[0],
-        numPersonajes: entry[Object.keys(entry)[0]].fantasy.length
-    }))
-    .filter(usuario => usuario.numPersonajes > 0) // Filtrar solo usuarios con al menos un personaje comprado
-    .sort((a, b) => b.numPersonajes - a.numPersonajes);
-
+.map(entry => ({
+userId: Object.keys(entry)[0],
+numPersonajes: entry[Object.keys(entry)[0]].fantasy.length
+}))
+.filter(usuario => usuario.numPersonajes > 0) // Filtrar solo usuarios con al menos un personaje comprado
+.sort((a, b) => b.numPersonajes - a.numPersonajes)
 let topUsuariosPersonajes = usuariosConMasPersonajes
-    .slice(0, cantidadUsuariosRanking)
-    .map((usuario, index) => `*${index + 1}.* @${usuario.userId.split('@')[0]} *${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`)
-    .join('\n');
-
-let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todavía no hay usuarios aquí';
-
+.slice(0, cantidadUsuariosRanking)
+.map((usuario, index) => `*${index + 1}.* @${usuario.userId.split('@')[0]} *${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`)
+.join('\n')
+let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todavía no hay usuarios aquí'
 
 // Obtener usuarios activos en calificación de personajes
 let usuariosActivos = fantasyDB.map(entry => ({
-    userId: Object.keys(entry)[0],
-    totalCalificaciones: entry[Object.keys(entry)[0]].record[0].total_like + entry[Object.keys(entry)[0]].record[0].total_dislike + entry[Object.keys(entry)[0]].record[0].total_superlike
+userId: Object.keys(entry)[0],
+totalCalificaciones: entry[Object.keys(entry)[0]].record[0].total_like + entry[Object.keys(entry)[0]].record[0].total_dislike + entry[Object.keys(entry)[0]].record[0].total_superlike
 })).filter(usuario => usuario.totalCalificaciones > 0)
-
 usuariosActivos.sort((a, b) => b.totalCalificaciones - a.totalCalificaciones)
-
 let topUsuariosCalificaciones = usuariosActivos.slice(0, cantidadUsuariosRanking).map((usuario, index) => `*${index + 1}.* @${usuario.userId.split('@')[0]} realizó *${usuario.totalCalificaciones}* ${usuario.totalCalificaciones === 1 ? 'calificación' : 'calificaciones'}`).join('\n')
-
 let rankingCalificaciones = topUsuariosCalificaciones ? topUsuariosCalificaciones : 'Todavía no hay usuarios aquí'
 
     
 // Obtener usuarios con el personaje más caro
 preciosPersonajes = []
 fantasyDB.forEach(entry => {
-    entry[Object.keys(entry)[0]].fantasy.forEach(personaje => {
-        let infoPersonaje = data.infoImg.find(img => img.name.toLowerCase() === personaje.name.toLowerCase())
-        if (infoPersonaje) {
-            preciosPersonajes.push({
-                userId: Object.keys(entry)[0],
-                personaje: personaje.name,
-                precio: infoPersonaje.price
-            })
-        }
-    })
+entry[Object.keys(entry)[0]].fantasy.forEach(personaje => {
+let infoPersonaje = data.infoImg.find(img => img.name.toLowerCase() === personaje.name.toLowerCase())
+if (infoPersonaje) {
+preciosPersonajes.push({
+userId: Object.keys(entry)[0],
+personaje: personaje.name,
+precio: infoPersonaje.price
+})}
+})
 })
 preciosPersonajes.sort((a, b) => b.precio - a.precio)
 let topUsuariosCaros = preciosPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => `*${index + 1}.* @${usuario.userId.split('@')[0]} *${usuario.personaje}* » \`\`\`${usuario.precio}\`\`\` 🐈`).join('\n')
@@ -269,38 +262,34 @@ let rankingCaros = topUsuariosCaros ? topUsuariosCaros : 'Todavía no hay usuari
 // Obtener usuarios con mejor clase de personaje
 let clasesPorUsuario = {}
 fantasyDB.forEach(entry => {
-    entry[Object.keys(entry)[0]].fantasy.forEach(personaje => {
-        let infoPersonaje = data.infoImg.find(img => img.name.toLowerCase() === personaje.name.toLowerCase())
-        if (infoPersonaje) {
-            if (!clasesPorUsuario[Object.keys(entry)[0]]) {
-                clasesPorUsuario[Object.keys(entry)[0]] = {}
-            }
-            if (!clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class]) {
-                clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class] = 0
-            }
-            clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class]++
-        }
-    })
+entry[Object.keys(entry)[0]].fantasy.forEach(personaje => {
+let infoPersonaje = data.infoImg.find(img => img.name.toLowerCase() === personaje.name.toLowerCase())
+if (infoPersonaje) {
+if (!clasesPorUsuario[Object.keys(entry)[0]]) {
+clasesPorUsuario[Object.keys(entry)[0]] = {}
+}
+if (!clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class]) {
+clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class] = 0
+}
+clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class]++
+}})
 })
-
 let topUsuariosClases = Object.keys(clasesPorUsuario).filter(userId => Object.values(clasesPorUsuario[userId]).length > 0).sort((a, b) => {
-    let aClass = validClasses.indexOf(Object.keys(clasesPorUsuario[a])[0])
-    let bClass = validClasses.indexOf(Object.keys(clasesPorUsuario[b])[0])
-    return bClass - aClass
+let aClass = validClasses.indexOf(Object.keys(clasesPorUsuario[a])[0])
+let bClass = validClasses.indexOf(Object.keys(clasesPorUsuario[b])[0])
+return bClass - aClass
 }).slice(0, cantidadUsuariosRanking).map((userId, index) => {
-    let clase = Object.keys(clasesPorUsuario[userId])[0]
-    let count = clasesPorUsuario[userId][clase]
-    return `*${index + 1}.* @${userId.split('@')[0]} *${clase}* » ${count} personaje${count === 1 ? '' : 's'}`
+let clase = Object.keys(clasesPorUsuario[userId])[0]
+let count = clasesPorUsuario[userId][clase]
+return `*${index + 1}.* @${userId.split('@')[0]} *${clase}* » *${count}* personaje${count === 1 ? '' : 's'}`
 }).join('\n')
 let rankingClases = topUsuariosClases ? topUsuariosClases : 'Todavía no hay usuarios aquí'
 
-
 let mentions = []
-    fantasyDB.forEach(entry => {
-        mentions.push({
-            "userId": Object.keys(entry)[0]
-        })
-    })
+fantasyDB.forEach(entry => {
+mentions.push({
+"userId": Object.keys(entry)[0]
+})})
 
 const mensaje = `
 🔥 *RPG FANTASY - TENDENCIAS* 🔥
@@ -371,7 +360,7 @@ ${personajesGustados > 0 ? txtSuperLike : personajesGustados}
 ${personajesNoGustados > 0 ? txtDislike : personajesNoGustados}
 `
 //conn.reply(m.chat, mensaje.trim(), m)
-/*await conn.sendFile(m.chat, 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg', 'fantasy.jpg', mensaje.trim(), fkontak, true, {
+await conn.sendFile(m.chat, 'https://telegra.ph/file/77cd4b654273b5cde1ce8.jpg', 'fantasy.jpg', mensaje.trim(), fkontak, false, { mentions: conn.parseMention(mensaje) }, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
@@ -383,8 +372,8 @@ body: `😼 RPG de: » ${conn.getName(userId)}`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg'
-}}}, { mentions: conn.parseMention(mensaje) })*/
-await m.reply(mensaje.trim(), null, { mentions: conn.parseMention(mensaje) })
+}}})
+//await m.reply(mensaje.trim(), null, { mentions: conn.parseMention(mensaje) })
     
 }
 
