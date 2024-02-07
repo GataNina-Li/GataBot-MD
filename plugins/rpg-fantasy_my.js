@@ -219,17 +219,6 @@ txtDislike += "*✓* _Has completado todas las misiones_"
 }
 
 // Usuarios con más personajes comprados
-let usuariosConMasPersonajes = fantasyDB.map(entry => ({
-    userId: Object.keys(entry)[0],
-    numPersonajes: entry[Object.keys(entry)[0]].fantasy.length
-})).filter(usuario => usuario.numPersonajes > 0)
-
-usuariosConMasPersonajes.sort((a, b) => b.numPersonajes - a.numPersonajes)
-
-let topUsuariosPersonajes = usuariosConMasPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => `*${index + 1}.* @${usuario.userId.split('@')[0]} » *${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`).join('\n')
-let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todavía no hay usuarios aquí'
-
-// Obtener usuarios activos en calificación de personajes
     let usuariosActivos = fantasyDB.map(entry => ({
     userId: Object.keys(entry)[0],
     totalCalificaciones: entry[Object.keys(entry)[0]].record[0].total_like + entry[Object.keys(entry)[0]].record[0].total_dislike + entry[Object.keys(entry)[0]].record[0].total_superlike
