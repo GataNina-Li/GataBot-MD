@@ -374,7 +374,7 @@ mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg'
 }}})*/
-await conn.reply(m.chat, mensaje.trim(), null, { mentions: conn.parseMention(mensaje) }, fake, fkontak)
+await conn.reply(m.chat, mensaje.trim(), null, { mentions: conn.parseMention(mensaje) }, fkontak, fake)
 //await m.reply(mensaje.trim(), null, { mentions: conn.parseMention(mensaje) })
     
 }
