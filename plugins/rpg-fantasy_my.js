@@ -10,6 +10,7 @@ let handler = async (m, { command, usedPrefix, conn, text }) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
 let who
+
 // Obtener el identificador del usuario según el contexto
 if (m.isGroup) {
     who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
@@ -21,7 +22,7 @@ if (m.isGroup) {
         // Si el mensaje está respondiendo a otro mensaje, se obtiene el identificador del remitente del mensaje original
         who = m.quoted.sender;
     } else {
-        // En otros casos, se utiliza el remitente del mensaje actual
+        // Si no se proporcionan argumentos y no se está respondiendo a otro mensaje, se toma el remitente del mensaje actual
         who = m.sender;
     }
 }
