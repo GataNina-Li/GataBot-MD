@@ -20,7 +20,7 @@ if (m.isGroup) {
 } else {
     if (args && args.length >= 1) {
         // Si se proporcionan argumentos, se asume que el usuario los está mencionando o proporcionando un número
-        who = args[0].includes('@') ? args[0] : args[0] + '@s.whatsapp.net';
+        who = args[0].includes('@') ? args[0] : args[0].includes('@') + '@s.whatsapp.net';
     } else if (m.quoted && m.quoted.sender) {
         // Si el mensaje está respondiendo a otro mensaje, se obtiene el identificador del remitente del mensaje original
         who = m.quoted.sender;
