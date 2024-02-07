@@ -218,16 +218,22 @@ txtDislike += `_Califica a *${calificacion[10] - personajesNoGustados}* personaj
 txtDislike += "*✓* _Has completado todas las misiones_"
 }
 
-// Usuarios con más personajes comprados
-    let usuariosActivos = fantasyDB.map(entry => ({
-    userId: Object.keys(entry)[0],
-    totalCalificaciones: entry[Object.keys(entry)[0]].record[0].total_like + entry[Object.keys(entry)[0]].record[0].total_dislike + entry[Object.keys(entry)[0]].record[0].total_superlike
-})).filter(usuario => usuario.totalCalificaciones > 0)
+// Obtener usuarios con más personajes comprados
+let usuariosConMasPersonajes = fantasyDB
+    .map(entry => ({
+        userId: Object.keys(entry)[0],
+        numPersonajes: entry[Object.keys(entry)[0]].fantasy.length
+    }))
+    .filter(usuario => usuario.numPersonajes > 0) // Filtrar solo usuarios con al menos un personaje comprado
+    .sort((a, b) => b.numPersonajes - a.numPersonajes);
 
-usuariosActivos.sort((a, b) => b.totalCalificaciones - a.totalCalificaciones)
+let topUsuariosPersonajes = usuariosConMasPersonajes
+    .slice(0, cantidadUsuariosRanking)
+    .map((usuario, index) => `*${index + 1}.* @${usuario.userId.split('@')[0]} *${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`)
+    .join('\n');
 
-let topUsuariosPersonajes = usuariosConMasPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => `*${index + 1}.* @${usuario.userId.split('@')[0]} » *${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`).join('\n')
-let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todavía no hay usuarios aquí'
+let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todavía no hay usuarios aquí';
+
 
 // Obtener usuarios activos en calificación de personajes
 let usuariosActivos = fantasyDB.map(entry => ({
