@@ -118,9 +118,8 @@ claseMasPersonajes = `*✘* \`\`\`No hay una clase con mayor personajes\`\`\``
 }
 })
 
-let calificacion, mensajeDesafiosPendientes = null    
-calificacion = [5, 10, 15, 20, 30]
-mensajeDesafiosPendientes += ''
+let calificacion = [5, 10, 15, 20, 30]
+let mensajeDesafiosPendientes += ''
 if (user.fantasy_character2 === 0) {
 mensajeDesafiosPendientes += `_Compra *${calificacion[0] - fantasyUsuario.length}* Personajes más para obtener una recompensa_\n*Progreso:* \`\`\`(${fantasyUsuario.length}/${calificacion[0]})\`\`\``
 } else if (user.fantasy_character2 === 1) {
