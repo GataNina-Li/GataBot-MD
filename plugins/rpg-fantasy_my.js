@@ -9,13 +9,13 @@ let cantidadUsuariosRanking = 5
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
-let who
+let who;
 
 // Obtener el identificador del usuario según el contexto
 if (m.isGroup) {
     who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
 } else {
-    if (args.length >= 1) {
+    if (args && args.length >= 1) {
         // Si se proporcionan argumentos, se asume que el usuario los está mencionando o proporcionando un número
         who = args[0].includes('@') ? args[0] : args[0] + '@s.whatsapp.net';
     } else if (m.quoted && m.quoted.sender) {
