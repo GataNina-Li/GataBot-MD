@@ -8,36 +8,27 @@ let cantidadUsuariosRanking = 5
 
 let handler = async (m, { command, usedPrefix, conn, text, args }) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let who;
 
-// Obtener el identificador del usuario según el contexto
+// Aquí explico como se maneja los remitentes Jjjj
+let who
 if (m.isGroup) {
-    if (text) {
-        // Si es un grupo y hay texto, se asume que el usuario está ingresando un número de teléfono
-        let userArg = text.replace(/[^\d]/g, ''); // Eliminar todos los caracteres que no sean dígitos
-        who = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net';
-    } else if (m.quoted && m.quoted.sender) {
-        // Si el mensaje está respondiendo a otro mensaje, se obtiene el identificador del remitente del mensaje original
-        who = m.quoted.sender;
-    } else {
-        // Si no hay texto ni mensaje citado, se toma el remitente del mensaje actual
-        who = m.sender;
-    }
-} else {
-    if (text) {
-        // Si no es un grupo y hay texto, se asume que el usuario está ingresando un número de teléfono
-        let userArg = text.replace(/[^\d]/g, ''); // Eliminar todos los caracteres que no sean dígitos
-        who = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net';
-    } else if (m.quoted && m.quoted.sender) {
-        // Si el mensaje está respondiendo a otro mensaje, se obtiene el identificador del remitente del mensaje original
-        who = m.quoted.sender;
-    } else {
-        // Si no hay texto ni mensaje citado, se toma el remitente del mensaje actual
-        who = m.sender;
-    }
+if (text) { // Si es un grupo y hay texto, se asume que el usuario está ingresando un número de teléfono
+let userArg = text.replace(/[^\d]/g, '') // Eliminar todos los caracteres que no sean dígitos
+who = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net'
+} else if (m.quoted && m.quoted.sender) { // Si el mensaje está respondiendo a otro mensaje, se obtiene el identificador del remitente del mensaje original
+who = m.quoted.sender
+} else { // Si no hay texto ni mensaje citado, se toma el remitente del mensaje actual
+who = m.sender
 }
-
-console.log(who)
+} else {
+if (text) { // Si no es un grupo y hay texto, se asume que el usuario está ingresando un número de teléfono
+let userArg = text.replace(/[^\d]/g, '') // Eliminar todos los caracteres que no sean dígitos
+who = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net'
+} else if (m.quoted && m.quoted.sender) { // En chat privado, si el mensaje está respondiendo a otro mensaje, se obtiene el identificador del remitente del mensaje original
+who = m.quoted.sender
+} else { // Si no hay texto ni mensaje citado, se toma el remitente del mensaje actual
+who = m.sender
+}}
 
 const userId = who
 let user = global.db.data.users[userId]
@@ -386,7 +377,7 @@ ${fantasyUsuario.length > 0 ? mensajeDesafiosPendientes : `*✘* \`\`\`No tienes
 ${personajesGustados > 0 ? txtLike : personajesGustados}
 
 *❰ Por dar ❤️ ❱* 
-${personajesGustados > 0 ? txtSuperLike : personajesGustados}
+${personajesSuperlike > 0 ? txtSuperLike : personajesSuperlike}
 
 *❰ Por dar 👎 ❱* 
 ${personajesNoGustados > 0 ? txtDislike : personajesNoGustados}
@@ -406,10 +397,8 @@ mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg'
 }}})*/
-await conn.reply(m.chat, mensaje.trim(), fkontak, { mentions: conn.parseMention(mensaje) })
-//await m.reply(mensaje.trim(), null, { mentions: conn.parseMention(mensaje) })
-    
+await conn.reply(m.chat, mensaje.trim(), fkontak, { mentions: conn.parseMention(mensaje) })    
 }
 
-handler.command = /^(fantasymy|fymy)$/i
+handler.command = /^(fantasymy|fymy|fytop)$/i
 export default handler
