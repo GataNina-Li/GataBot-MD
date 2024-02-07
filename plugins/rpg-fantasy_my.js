@@ -285,8 +285,8 @@ precio: infoPersonaje.price
 preciosPersonajes.sort((a, b) => b.precio - a.precio)
 let topUsuariosCaros = preciosPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => {
 let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
-return `*${positionEmoji}* @${usuario.userId.split('@')[0]} *${usuario.personaje}* » \`\`\`${usuario.precio}\`\`\` 🐈`
-}).join('\n')
+return `*${positionEmoji}* @${usuario.userId.split('@')[0]}\n*✪ ${usuario.personaje}* » \`\`\`${usuario.precio}\`\`\` 🐈`
+}).join('\n\n')
 let rankingCaros = topUsuariosCaros ? topUsuariosCaros : 'Todavía no hay usuarios aquí'
 
 // Obtener usuarios con mejor clase de personaje
@@ -312,8 +312,8 @@ return bClass - aClass
 let clase = Object.keys(clasesPorUsuario[userId])[0]
 let count = clasesPorUsuario[userId][clase]
 let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
-return `*${positionEmoji}* @${userId.split('@')[0]} *${clase}* » *${count}* personaje${count === 1 ? '' : 's'}`
-}).join('\n')
+return `*${positionEmoji}* @${userId.split('@')[0]}\n*✪ ${clase}* » *${count}* personaje${count === 1 ? '' : 's'}`
+}).join('\n\n')
 let rankingClases = topUsuariosClases ? topUsuariosClases : 'Todavía no hay usuarios aquí'
 
 let mentions = []
