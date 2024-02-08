@@ -96,18 +96,18 @@ let min, max
 switch (reward) {
 case 'exp':
 min = 100
-max = 2000
+max = 1500
 break
 case 'money':
 min = 100
-max = 1000
+max = 800
 break
 case 'limit':
 min = 5
 max = 30
 break
 default:
-min = 1
+min = 5
 max = 25
 break
 }
@@ -146,8 +146,8 @@ for (const [reward, icon] of Object.entries(rewards2)) {
 let min, max
 switch (reward) {
 case 'potion':
-min = 1
-max = 20
+min = 4
+max = 15
 break
 case 'string':
 min = 10
@@ -214,19 +214,19 @@ for (const [reward, icon] of Object.entries(rewards3)) {
 let min, max
 switch (reward) {
 case 'eleksirb':
-min = 100
-max = 300
+min = 50
+max = 100
 break
 case 'umpan':
-min = 70
-max = 100
+min = 30
+max = 90
 break
 case 'healtmonster':
 min = 1
 max = 30
 break
 default:
-min = 20
+min = 10
 max = 40
 break
 }
