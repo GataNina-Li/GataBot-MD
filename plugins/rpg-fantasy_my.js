@@ -48,7 +48,7 @@ return
 let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 
 if (!usuarioExistente) {
-return conn.reply(m.chat, `No tienes personajes.`, m)
+return conn.reply(m.chat, `No hemos encontrado personajes. Para ver el Top o tú información debes de comprar un personaje, use *${usedPrefix}fantasy* o *${usedPrefix}fy*`, m)
 }
 
 const idUsuario = Object.keys(usuarioExistente)[0];
