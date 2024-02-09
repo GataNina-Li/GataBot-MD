@@ -114,26 +114,32 @@ break
 const amount = Math.floor(Math.random() * (max - min + 1) + min)
 // Multiplicar la cantidad de acuerdo a user.fantasy_character2
 const multipliedAmount = amount * (user.fantasy_character2 + 1)
-if (user.fantasy_character2 < 5) {
+if (fantasyArray.length >= 5 && typeof fantasyArray[4].id === 'string' && fantasyArray[4].status === true && user.fantasy_character2 === 0) {
 user[reward] += multipliedAmount
 logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
-}}
-if (fantasyArray.length >= 5 && typeof fantasyArray[4].id === 'string' && fantasyArray[4].status === true && user.fantasy_character2 === 0) {
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character2++
 } else if (fantasyArray.length >= 10 && typeof fantasyArray[9].id === 'string' && fantasyArray[9].status === true && user.fantasy_character2 === 1) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character2++
 } else if (fantasyArray.length >= 15 && typeof fantasyArray[14].id === 'string' && fantasyArray[14].status === true && user.fantasy_character2 === 2) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character2++
 } else if (fantasyArray.length >= 20 && typeof fantasyArray[19].id === 'string' && fantasyArray[19].status === true && user.fantasy_character2 === 3) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character2++
 } else if (fantasyArray.length >= 30 && typeof fantasyArray[29].id === 'string' && fantasyArray[29].status === true && user.fantasy_character2 === 4) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character2++
-}}
+}}}
 
 // Cuenta la cantidad de veces que se ha dado "like"
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
@@ -164,44 +170,62 @@ break
 }
 const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character3 + 1)
-if (user.fantasy_character3 < 11) {
+if (likesCount === 3 && user.fantasy_character3 === 0) {
 user[reward] += multipliedAmount
 logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
-}}
-if (likesCount === 3 && user.fantasy_character3 === 0) {
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character3++
 } else if (likesCount === 8 && user.fantasy_character3 === 1) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character3++
 } else if (likesCount === 13 && user.fantasy_character3 === 2) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character3++
 } else if (likesCount === 18 && user.fantasy_character3 === 3) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character3++
 } else if (likesCount === 25 && user.fantasy_character3 === 4) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character3++
 } else if (likesCount === 35 && user.fantasy_character3 === 5) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character3++
 } else if (likesCount === 40 && user.fantasy_character3 === 6) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character3++
 } else if (likesCount === 55 && user.fantasy_character3 === 7) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character3++
 } else if (likesCount === 65 && user.fantasy_character3 === 8) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character3++
 } else if (likesCount === 80 && user.fantasy_character3 === 9) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character3++
 } else if (likesCount === 100 && user.fantasy_character3 === 10) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character3++
-}}
+}}}
 
 // Cuenta la cantidad de veces que se ha dado "superlike"
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
@@ -232,44 +256,62 @@ break
 }
 const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character4 + 1)
-if (user.fantasy_character4 < 11) {
+if (superlikesCount === 3 && user.fantasy_character4 === 0) {
 user[reward] += multipliedAmount
 logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
-}}
-if (superlikesCount === 3 && user.fantasy_character4 === 0) {
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character4++
 } else if (superlikesCount === 8 && user.fantasy_character4 === 1) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character4++
 } else if (superlikesCount === 13 && user.fantasy_character4 === 2) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character4++
 } else if (superlikesCount === 18 && user.fantasy_character4 === 3) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character4++
 } else if (superlikesCount === 25 && user.fantasy_character4 === 4) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character4++
 } else if (superlikesCount === 35 && user.fantasy_character4 === 5) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character4++
 } else if (superlikesCount === 40 && user.fantasy_character4 === 6) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character4++
 } else if (superlikesCount === 55 && user.fantasy_character4 === 7) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character4++
 } else if (superlikesCount === 65 && user.fantasy_character4 === 8) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character4++
 } else if (superlikesCount === 80 && user.fantasy_character4 === 9) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character4++
 } else if (superlikesCount === 100 && user.fantasy_character4 === 10) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character4++
-}}
+}}}
 
 // Cuenta la cantidad de veces que se ha dado "dislike"
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
@@ -300,43 +342,61 @@ break
 }
 const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character5 + 1)
-if (user.fantasy_character5 < 11) {
+if (disLikeCount === 3 && user.fantasy_character5 === 0) {
 user[reward] += multipliedAmount
 logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
-}}
-if (disLikeCount === 3 && user.fantasy_character5 === 0) {
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character5++
 } else if (disLikeCount === 8 && user.fantasy_character5 === 1) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character5++
 } else if (disLikeCount === 13 && user.fantasy_character5 === 2) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character5++
 } else if (disLikeCount === 18 && user.fantasy_character5 === 3) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character5++
 } else if (disLikeCount === 25 && user.fantasy_character5 === 4) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character5++
 } else if (disLikeCount === 35 && user.fantasy_character5 === 5) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character5++
 } else if (disLikeCount === 40 && user.fantasy_character5 === 6) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character5++
 } else if (disLikeCount === 55 && user.fantasy_character5 === 7) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character5++
 } else if (disLikeCount === 65 && user.fantasy_character5 === 8) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character5++
 } else if (disLikeCount === 80 && user.fantasy_character5 === 9) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character5++
 } else if (disLikeCount === 100 && user.fantasy_character5 === 10) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character5++
-}}
+}}}
 
 }
