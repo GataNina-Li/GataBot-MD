@@ -41,7 +41,8 @@ if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
 var fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'))
 } else {
-m.reply(`*Para usar este comando primero debe de comprar al menos un personaje, use ${usedPrefix}fy*`)
+m.reply(`Para usar este comando primero debe de comprar al menos un personaje, use *${usedPrefix}fy*`)
+return
 }
 
 let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
