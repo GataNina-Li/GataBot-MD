@@ -90,7 +90,7 @@ usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 const fantasyArray = usuarioExistente[userId].fantasy
 fake = { contextInfo: { externalAdReply: { title: `🌟 RECOMPENSA 🌟`, body: `Usa #fymy para ver más desafíos`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personajes*`
+logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personajes*\n\n🌟 *Recompensas:*`
 for (const [reward, icon] of Object.entries(rewards)) {
 let min, max
 switch (reward) {
@@ -116,7 +116,7 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character2 + 1)
 if (user.fantasy_character2 < 5) {
 user[reward] += multipliedAmount
-logro += `\n\n🌟 *Recompensas:*\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 }}
 if (fantasyArray.length >= 5 && typeof fantasyArray[4].id === 'string' && fantasyArray[4].status === true && user.fantasy_character2 === 0) {
 await conn.reply(m.chat, logro, m, fake)
@@ -141,7 +141,7 @@ if (usuarioExistente) {
 const flowArray = usuarioExistente[userId].flow || []
 const likesCount = flowArray.filter(voto => voto.like).length
 fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO 👍`, body: `Califica persoanjes, es gratis 👍`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${likesCount} veces "👍"*`
+logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${likesCount} veces "👍"*\n\n🌟 *Recompensas:*`
 for (const [reward, icon] of Object.entries(rewards2)) {
 let min, max
 switch (reward) {
@@ -166,7 +166,7 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character3 + 1)
 if (user.fantasy_character3 < 11) {
 user[reward] += multipliedAmount
-logro += `\n\n🌟 *Recompensas:*\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 }}
 if (likesCount === 3 && user.fantasy_character3 === 0) {
 await conn.reply(m.chat, logro, m, fake)
@@ -209,7 +209,7 @@ if (usuarioExistente) {
 const flowArray = usuarioExistente[userId].flow || []
 const superlikesCount = flowArray.filter(voto => voto.superlike).length
 fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO ❤️`, body: `Califica persoanjes, es gratis ❤️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${superlikesCount} veces "❤️"*`
+logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${superlikesCount} veces "❤️"*\n\n🌟 *Recompensas:*`
 for (const [reward, icon] of Object.entries(rewards3)) {
 let min, max
 switch (reward) {
@@ -234,7 +234,7 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character4 + 1)
 if (user.fantasy_character4 < 11) {
 user[reward] += multipliedAmount
-logro += `\n\n🌟 *Recompensas:*\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 }}
 if (superlikesCount === 3 && user.fantasy_character4 === 0) {
 await conn.reply(m.chat, logro, m, fake)
@@ -277,7 +277,7 @@ if (usuarioExistente) {
 const flowArray = usuarioExistente[userId].flow || []
 const disLikeCount = flowArray.filter(voto => voto.dislike).length
 fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO 👎`, body: `Califica persoanjes, es gratis 😅`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${disLikeCount} veces "👎"*`   
+logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${disLikeCount} veces "👎"*\n\n🌟 *Recompensas:*`   
 for (const [reward, icon] of Object.entries(rewards4)) {
 let min, max
 switch (reward) {
@@ -302,7 +302,7 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character5 + 1)
 if (user.fantasy_character5 < 11) {
 user[reward] += multipliedAmount
-logro += `\n\n🌟 *Recompensas:*\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 }}
 if (disLikeCount === 3 && user.fantasy_character5 === 0) {
 await conn.reply(m.chat, logro, m, fake)
