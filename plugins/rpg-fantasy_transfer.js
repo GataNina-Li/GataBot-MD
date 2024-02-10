@@ -12,7 +12,7 @@ return
 }
 
 let user, character
-if (m.sender === m.quoted.sender) {
+if (m.quoted && m.sender === m.quoted.sender) {
 return conn.reply(m.chat, 'No puedes hacer una transferencia a ti mismo', m)
 }
 if (m.quoted && m.quoted.sender && text) {
