@@ -146,7 +146,16 @@ claseMasPersonajes = `*✘* \`\`\`No hay una clase con mayor personajes\`\`\``
 })
 
 let calificacion = [5, 10, 15, 20, 30]
-let mensajeDesafiosPendientes = ''
+let mensajeDesafiosPendientes = '';
+if (user.fantasy_character2 < calificacion.length) {
+  const remainingCharacters = calificacion[user.fantasy_character2] - fantasyUsuario.length;
+  const remainingCharactersText = remainingCharacters > 0 ? `${remainingCharacters}` : '0';
+  mensajeDesafiosPendientes += `_Compra *${remainingCharactersText}* Personajes más para obtener una recompensa_\n*Progreso:* \`\`\`(${fantasyUsuario.length}/${calificacion[user.fantasy_character2]})\`\`\``;
+} else {
+  mensajeDesafiosPendientes += "*✓* _Has completado todas las misiones_";
+}
+
+/*let mensajeDesafiosPendientes = ''
 if (user.fantasy_character2 === 0) {
 mensajeDesafiosPendientes += `_Compra *${calificacion[0] - fantasyUsuario.length}* Personajes más para obtener una recompensa_\n*Progreso:* \`\`\`(${fantasyUsuario.length}/${calificacion[0]})\`\`\``
 } else if (user.fantasy_character2 === 1) {
@@ -159,7 +168,7 @@ mensajeDesafiosPendientes += `_Compra *${calificacion[3] - fantasyUsuario.length
 mensajeDesafiosPendientes += `_Compra *${calificacion[4] - fantasyUsuario.length}* Personajes más para obtener una recompensa_\n*Progreso:* \`\`\`(${fantasyUsuario.length}/${calificacion[4]})\`\`\``
 } else {
 mensajeDesafiosPendientes += "*✓* _Has completado todas las misiones_"
-}
+}*/
 
 /*calificacion = [3, 8, 13, 18, 25, 35, 40, 55, 65, 80, 100]    
 let txtLike = ''
@@ -200,7 +209,7 @@ txtLike += "*✓* _Has completado todas las misiones_"
 }
 
 
-let txtSuperLike = ''
+/*let txtSuperLike = ''
 if (user.fantasy_character4 === 0) {
 txtSuperLike += `_Califica a *${calificacion[0]}* personajes con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[0]})\`\`\``
 } else if (user.fantasy_character4 === 1) {
@@ -225,9 +234,19 @@ txtSuperLike += `_Califica a *${calificacion[9] - personajesSuperlike}* personaj
 txtSuperLike += `_Califica a *${calificacion[10] - personajesSuperlike}* personajes más con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[10]})\`\`\``
 } else {
 txtSuperLike += "*✓* _Has completado todas las misiones_"
+}*/
+let txtSuperLike = '';
+
+if (user.fantasy_character4 <= 10) {
+  const remainingSuperlikes = calificacion[user.fantasy_character4] - personajesSuperlike;
+  const remainingSuperlikesText = remainingSuperlikes > 0 ? `${remainingSuperlikes}` : '0';
+  const moreOrWith = user.fantasy_character4 === 0 ? '' : ' más';
+  txtSuperLike += `_Califica a *${remainingSuperlikesText}* personajes${moreOrWith} con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[user.fantasy_character4]})\`\`\``;
+} else {
+  txtSuperLike += "*✓* _Has completado todas las misiones_";
 }
 
-let txtDislike = ''
+/*let txtDislike = ''
 if (user.fantasy_character5 === 0) {
 txtDislike += `_Califica a *${calificacion[0]}* personajes con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[0]})\`\`\``
 } else if (user.fantasy_character5 === 1) {
@@ -252,7 +271,17 @@ txtDislike += `_Califica a *${calificacion[9] - personajesNoGustados}* personaje
 txtDislike += `_Califica a *${calificacion[10] - personajesNoGustados}* personajes más con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[10]})\`\`\``
 } else {
 txtDislike += "*✓* _Has completado todas las misiones_"
+}*/
+let txtDislike = '';
+if (user.fantasy_character5 <= 10) {
+  const remainingDislikes = calificacion[user.fantasy_character5] - personajesNoGustados;
+  const remainingDislikesText = remainingDislikes > 0 ? `${remainingDislikes}` : '0';
+  const moreOrWith = user.fantasy_character5 === 0 ? '' : ' más';
+  txtDislike += `_Califica a *${remainingDislikesText}* personajes${moreOrWith} con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[user.fantasy_character5]})\`\`\``;
+} else {
+  txtDislike += "*✓* _Has completado todas las misiones_";
 }
+
 
 // Usuarios con más personajes comprados
 let usuariosConMasPersonajes = fantasyDB
