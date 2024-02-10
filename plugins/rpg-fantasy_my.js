@@ -161,7 +161,7 @@ mensajeDesafiosPendientes += `_Compra *${calificacion[4] - fantasyUsuario.length
 mensajeDesafiosPendientes += "*✓* _Has completado todas las misiones_"
 }
 
-calificacion = [3, 8, 13, 18, 25, 35, 40, 55, 65, 80, 100]    
+/*calificacion = [3, 8, 13, 18, 25, 35, 40, 55, 65, 80, 100]    
 let txtLike = ''
 if (user.fantasy_character3 === 0) {
 txtLike += `_Califica a *${calificacion[0]}* personajes con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[0]})\`\`\``
@@ -187,7 +187,18 @@ txtLike += `_Califica a *${calificacion[9] - personajesGustados}* personajes má
 txtLike += `_Califica a *${calificacion[10] - personajesGustados}* personajes más con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[10]})\`\`\``
 } else {
 txtLike += "*✓* _Has completado todas las misiones_"
+}*/
+calificacion = [3, 8, 13, 18, 25, 35, 40, 55, 65, 80, 100]
+let txtLike = ''
+if (user.fantasy_character3 <= 10) {
+const remainingLikes = calificacion[user.fantasy_character3] - personajesGustados
+const remainingLikesText = remainingLikes > 0 ? `${remainingLikes}` : '0'
+const moreOrWith = user.fantasy_character3 === 0 ? '' : ' más'
+txtLike += `_Califica a *${remainingLikesText}* personajes${moreOrWith} con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[user.fantasy_character3]})\`\`\``
+} else {
+txtLike += "*✓* _Has completado todas las misiones_"
 }
+
 
 let txtSuperLike = ''
 if (user.fantasy_character4 === 0) {
@@ -285,19 +296,18 @@ precio: infoPersonaje.price
 })}
 })
 })
-let processedUsers = new Set();
-preciosPersonajes.sort((a, b) => b.precio - a.precio);
-let topUsuariosCaros = [];
+let processedUsers = new Set()
+preciosPersonajes.sort((a, b) => b.precio - a.precio)
+let topUsuariosCaros = []
 for (const usuario of preciosPersonajes) {
-  if (!processedUsers.has(usuario.userId)) {
-    let positionEmoji = topUsuariosCaros.length === 0 ? "🥇 »" : topUsuariosCaros.length === 1 ? "🥈 »" : topUsuariosCaros.length === 2 ? "🥉 »" : `${topUsuariosCaros.length + 1}.`;
-    topUsuariosCaros.push(`*${positionEmoji}* @${usuario.userId.split('@')[0]}\n*✪ ${usuario.personaje}* » \`\`\`${usuario.precio}\`\`\` 🐈`);
-    processedUsers.add(usuario.userId);
-  }
-  if (topUsuariosCaros.length >= cantidadUsuariosRanking) break;
+if (!processedUsers.has(usuario.userId)) {
+let positionEmoji = topUsuariosCaros.length === 0 ? "🥇 »" : topUsuariosCaros.length === 1 ? "🥈 »" : topUsuariosCaros.length === 2 ? "🥉 »" : `${topUsuariosCaros.length + 1}.`
+topUsuariosCaros.push(`*${positionEmoji}* @${usuario.userId.split('@')[0]}\n*✪ ${usuario.personaje}* » \`\`\`${usuario.precio}\`\`\` 🐈`)
+processedUsers.add(usuario.userId)
 }
-let rankingCaros = topUsuariosCaros.length > 0 ? topUsuariosCaros.join('\n\n') : 'Todavía no hay usuarios aquí';
-
+if (topUsuariosCaros.length >= cantidadUsuariosRanking) break
+}
+let rankingCaros = topUsuariosCaros.length > 0 ? topUsuariosCaros.join('\n\n') : 'Todavía no hay usuarios aquí'
 /*preciosPersonajes.sort((a, b) => b.precio - a.precio)
 let topUsuariosCaros = preciosPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => {
 let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
