@@ -146,57 +146,15 @@ claseMasPersonajes = `*✘* \`\`\`No hay una clase con mayor personajes\`\`\``
 })
 
 let calificacion = [5, 10, 15, 20, 30]
-let mensajeDesafiosPendientes = '';
+let mensajeDesafiosPendientes = ''
 if (user.fantasy_character2 < calificacion.length) {
-  const remainingCharacters = calificacion[user.fantasy_character2] - fantasyUsuario.length;
-  const remainingCharactersText = remainingCharacters > 0 ? `${remainingCharacters}` : '0';
-  mensajeDesafiosPendientes += `_Compra *${remainingCharactersText}* Personajes más para obtener una recompensa_\n*Progreso:* \`\`\`(${fantasyUsuario.length}/${calificacion[user.fantasy_character2]})\`\`\``;
-} else {
-  mensajeDesafiosPendientes += "*✓* _Has completado todas las misiones_";
-}
-
-/*let mensajeDesafiosPendientes = ''
-if (user.fantasy_character2 === 0) {
-mensajeDesafiosPendientes += `_Compra *${calificacion[0] - fantasyUsuario.length}* Personajes más para obtener una recompensa_\n*Progreso:* \`\`\`(${fantasyUsuario.length}/${calificacion[0]})\`\`\``
-} else if (user.fantasy_character2 === 1) {
-mensajeDesafiosPendientes += `_Compra *${calificacion[1] - fantasyUsuario.length}* Personajes más para obtener una recompensa_\n*Progreso:* \`\`\`(${fantasyUsuario.length}/${calificacion[1]})\`\`\``
-} else if (user.fantasy_character2 === 2) {
-mensajeDesafiosPendientes += `_Compra *${calificacion[2] - fantasyUsuario.length}* Personajes más para obtener una recompensa_\n*Progreso:* \`\`\`(${fantasyUsuario.length}/${calificacion[2]})\`\`\``
-} else if (user.fantasy_character2 === 3) {
-mensajeDesafiosPendientes += `_Compra *${calificacion[3] - fantasyUsuario.length}* Personajes más para obtener una recompensa_\n*Progreso:* \`\`\`(${fantasyUsuario.length}/${calificacion[3]})\`\`\``
-} else if (user.fantasy_character2 === 4) {
-mensajeDesafiosPendientes += `_Compra *${calificacion[4] - fantasyUsuario.length}* Personajes más para obtener una recompensa_\n*Progreso:* \`\`\`(${fantasyUsuario.length}/${calificacion[4]})\`\`\``
+const remainingCharacters = calificacion[user.fantasy_character2] - fantasyUsuario.length
+const remainingCharactersText = remainingCharacters > 0 ? `${remainingCharacters}` : '0'
+mensajeDesafiosPendientes += `_Compra *${remainingCharactersText}* Personajes más para obtener una recompensa_\n*Progreso:* \`\`\`(${fantasyUsuario.length}/${calificacion[user.fantasy_character2]})\`\`\``
 } else {
 mensajeDesafiosPendientes += "*✓* _Has completado todas las misiones_"
-}*/
+}
 
-/*calificacion = [3, 8, 13, 18, 25, 35, 40, 55, 65, 80, 100]    
-let txtLike = ''
-if (user.fantasy_character3 === 0) {
-txtLike += `_Califica a *${calificacion[0]}* personajes con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[0]})\`\`\``
-} else if (user.fantasy_character3 === 1) {
-txtLike += `_Califica a *${calificacion[1] - personajesGustados}* personajes más con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[1]})\`\`\``
-} else if (user.fantasy_character3 === 2) {
-txtLike += `_Califica a *${calificacion[2] - personajesGustados}* personajes más con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[2]})\`\`\``
-} else if (user.fantasy_character3 === 3) {
-txtLike += `_Califica a *${calificacion[3] - personajesGustados}* personajes más con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[3]})\`\`\``
-} else if (user.fantasy_character3 === 4) {
-txtLike += `_Califica a *${calificacion[4] - personajesGustados}* personajes más con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[4]})\`\`\``
-} else if (user.fantasy_character3 === 5) {
-txtLike += `_Califica a *${calificacion[5] - personajesGustados}* personajes más con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[5]})\`\`\``
-} else if (user.fantasy_character3 === 6) {
-txtLike += `_Califica a *${calificacion[6] - personajesGustados}* personajes más con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[6]})\`\`\``
-} else if (user.fantasy_character3 === 7) {
-txtLike += `_Califica a *${calificacion[7] - personajesGustados}* personajes más con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[7]})\`\`\``
-} else if (user.fantasy_character3 === 8) {
-txtLike += `_Califica a *${calificacion[8] - personajesGustados}* personajes más con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[8]})\`\`\``
-} else if (user.fantasy_character3 === 9) {
-txtLike += `_Califica a *${calificacion[9] - personajesGustados}* personajes más con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[9]})\`\`\``
-} else if (user.fantasy_character3 === 10) {
-txtLike += `_Califica a *${calificacion[10] - personajesGustados}* personajes más con "👍"_\n*Progreso:* \`\`\`(${personajesGustados}/${calificacion[10]})\`\`\``
-} else {
-txtLike += "*✓* _Has completado todas las misiones_"
-}*/
 calificacion = [3, 8, 13, 18, 25, 35, 40, 55, 65, 80, 100]
 let txtLike = ''
 if (user.fantasy_character3 <= 10) {
@@ -208,80 +166,25 @@ txtLike += `_Califica a *${remainingLikesText}* personajes${moreOrWith} con "�
 txtLike += "*✓* _Has completado todas las misiones_"
 }
 
-
-/*let txtSuperLike = ''
-if (user.fantasy_character4 === 0) {
-txtSuperLike += `_Califica a *${calificacion[0]}* personajes con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[0]})\`\`\``
-} else if (user.fantasy_character4 === 1) {
-txtSuperLike += `_Califica a *${calificacion[1] - personajesSuperlike}* personajes más con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[1]})\`\`\``
-} else if (user.fantasy_character4 === 2) {
-txtSuperLike += `_Califica a *${calificacion[2] - personajesSuperlike}* personajes más con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[2]})\`\`\``
-} else if (user.fantasy_character4 === 3) {
-txtSuperLike += `_Califica a *${calificacion[3] - personajesSuperlike}* personajes más con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[3]})\`\`\``
-} else if (user.fantasy_character4 === 4) {
-txtSuperLike += `_Califica a *${calificacion[4] - personajesSuperlike}* personajes más con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[4]})\`\`\``
-} else if (user.fantasy_character4 === 5) {
-txtSuperLike += `_Califica a *${calificacion[5] - personajesSuperlike}* personajes más con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[5]})\`\`\``
-} else if (user.fantasy_character4 === 6) {
-txtSuperLike += `_Califica a *${calificacion[6] - personajesSuperlike}* personajes más con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[6]})\`\`\``
-} else if (user.fantasy_character4 === 7) {
-txtSuperLike += `_Califica a *${calificacion[7] - personajesSuperlike}* personajes más con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[7]})\`\`\``
-} else if (user.fantasy_character4 === 8) {
-txtSuperLike += `_Califica a *${calificacion[8] - personajesSuperlike}* personajes más con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[8]})\`\`\``
-} else if (user.fantasy_character4 === 9) {
-txtSuperLike += `_Califica a *${calificacion[9] - personajesSuperlike}* personajes más con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[9]})\`\`\``
-} else if (user.fantasy_character4 === 10) {
-txtSuperLike += `_Califica a *${calificacion[10] - personajesSuperlike}* personajes más con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[10]})\`\`\``
+let txtSuperLike = ''
+if (user.fantasy_character4 <= 10) {
+const remainingSuperlikes = calificacion[user.fantasy_character4] - personajesSuperlike
+const remainingSuperlikesText = remainingSuperlikes > 0 ? `${remainingSuperlikes}` : '0'
+const moreOrWith = user.fantasy_character4 === 0 ? '' : ' más'
+txtSuperLike += `_Califica a *${remainingSuperlikesText}* personajes${moreOrWith} con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[user.fantasy_character4]})\`\`\``
 } else {
 txtSuperLike += "*✓* _Has completado todas las misiones_"
-}*/
-let txtSuperLike = '';
-
-if (user.fantasy_character4 <= 10) {
-  const remainingSuperlikes = calificacion[user.fantasy_character4] - personajesSuperlike;
-  const remainingSuperlikesText = remainingSuperlikes > 0 ? `${remainingSuperlikes}` : '0';
-  const moreOrWith = user.fantasy_character4 === 0 ? '' : ' más';
-  txtSuperLike += `_Califica a *${remainingSuperlikesText}* personajes${moreOrWith} con "❤️"_\n*Progreso:* \`\`\`(${personajesSuperlike}/${calificacion[user.fantasy_character4]})\`\`\``;
-} else {
-  txtSuperLike += "*✓* _Has completado todas las misiones_";
 }
 
-/*let txtDislike = ''
-if (user.fantasy_character5 === 0) {
-txtDislike += `_Califica a *${calificacion[0]}* personajes con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[0]})\`\`\``
-} else if (user.fantasy_character5 === 1) {
-txtDislike += `_Califica a *${calificacion[1] - personajesNoGustados}* personajes más con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[1]})\`\`\``
-} else if (user.fantasy_character5 === 2) {
-txtDislike += `_Califica a *${calificacion[2] - personajesNoGustados}* personajes más con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[2]})\`\`\``
-} else if (user.fantasy_character5 === 3) {
-txtDislike += `_Califica a *${calificacion[3] - personajesNoGustados}* personajes más con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[3]})\`\`\``
-} else if (user.fantasy_character5 === 4) {
-txtDislike += `_Califica a *${calificacion[4] - personajesNoGustados}* personajes más con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[4]})\`\`\``
-} else if (user.fantasy_character5 === 5) {
-txtDislike += `_Califica a *${calificacion[5] - personajesNoGustados}* personajes más con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[5]})\`\`\``
-} else if (user.fantasy_character5 === 6) {
-txtDislike += `_Califica a *${calificacion[6] - personajesNoGustados}* personajes más con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[6]})\`\`\``
-} else if (user.fantasy_character5 === 7) {
-txtDislike += `_Califica a *${calificacion[7] - personajesNoGustados}* personajes más con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[7]})\`\`\``
-} else if (user.fantasy_character5 === 8) {
-txtDislike += `_Califica a *${calificacion[8] - personajesNoGustados}* personajes más con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[8]})\`\`\``
-} else if (user.fantasy_character5 === 9) {
-txtDislike += `_Califica a *${calificacion[9] - personajesNoGustados}* personajes más con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[9]})\`\`\``
-} else if (user.fantasy_character5 === 10) {
-txtDislike += `_Califica a *${calificacion[10] - personajesNoGustados}* personajes más con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[10]})\`\`\``
+let txtDislike = ''
+if (user.fantasy_character5 <= 10) {
+const remainingDislikes = calificacion[user.fantasy_character5] - personajesNoGustados
+const remainingDislikesText = remainingDislikes > 0 ? `${remainingDislikes}` : '0'
+const moreOrWith = user.fantasy_character5 === 0 ? '' : ' más'
+txtDislike += `_Califica a *${remainingDislikesText}* personajes${moreOrWith} con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[user.fantasy_character5]})\`\`\``
 } else {
 txtDislike += "*✓* _Has completado todas las misiones_"
-}*/
-let txtDislike = '';
-if (user.fantasy_character5 <= 10) {
-  const remainingDislikes = calificacion[user.fantasy_character5] - personajesNoGustados;
-  const remainingDislikesText = remainingDislikes > 0 ? `${remainingDislikes}` : '0';
-  const moreOrWith = user.fantasy_character5 === 0 ? '' : ' más';
-  txtDislike += `_Califica a *${remainingDislikesText}* personajes${moreOrWith} con "👎"_\n*Progreso:* \`\`\`(${personajesNoGustados}/${calificacion[user.fantasy_character5]})\`\`\``;
-} else {
-  txtDislike += "*✓* _Has completado todas las misiones_";
 }
-
 
 // Usuarios con más personajes comprados
 let usuariosConMasPersonajes = fantasyDB
