@@ -90,7 +90,8 @@ if (lugarMoment) {
 fechaMoment = lugarMoment.format('llll [(]a[)]')
 formatDate = fechaMoment.charAt(0).toUpperCase() + fechaMoment.slice(1) 
 nombreLugar = countryData.name
-ciudad = zonaHoraria.split('/')[1]
+const partes = zonaHoraria.split('/')
+ciudad = partes[partes.length - 1]
 }else{
 lugarMoment = moment().tz('America/Lima')
 fechaMoment = lugarMoment.format('llll [(]a[)]')
