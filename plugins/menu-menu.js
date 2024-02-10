@@ -75,7 +75,7 @@ const numberToEmoji = { "0": "0️⃣", "1": "1️⃣", "2": "2️⃣", "3": "3�
 let lvl = level
 let emoji = Array.from(lvl.toString()).map((digit) => numberToEmoji[digit] || "❓").join("")
 
-moment.locale('en')
+moment.locale('es')
 const lugarMoment = moment().tz('America/Lima')
 let fechaMoment = lugarMoment.format('llll a')	
 let formatDate = fechaMoment[0].toUpperCase() + fechaMoment.slice(1)
