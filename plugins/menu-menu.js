@@ -78,7 +78,7 @@ let lvl = level
 let emoji = Array.from(lvl.toString()).map((digit) => numberToEmoji[digit] || "❓").join("")
 
 let fechaMoment, formatDate, nombreLugar, ciudad = null
-const phoneNumber = '+505 8535 4431' //+ m.sender
+const phoneNumber = '+' + m.sender
 const parsedPhoneNumber = parsePhoneNumber(phoneNumber)
 const countryCode = parsedPhoneNumber.country
 const countryData = ct.getCountry(countryCode)
