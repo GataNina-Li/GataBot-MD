@@ -3,7 +3,7 @@ import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
 let fantasyDB = []
 
-let handler = async (m, { text, usedPrefix, conn }) => {
+let handler = async (m, { text, usedPrefix, command, conn }) => {
 if (fs.existsSync(fantasyDBPath)) {
 fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'))
 } else {
@@ -12,6 +12,9 @@ return
 }
 
 let user, character
+if (m.sender === m.quoted.sender) {
+return conn.reply(m.chat, 'No puedes hacer una transferencia a ti mismo', m)
+}
 if (m.quoted && m.quoted.sender && text) {
 user = m.quoted.sender
 character = text.trim()
@@ -31,11 +34,13 @@ character = userText
 } else {
 return conn.reply(m.chat, 'Recuerda usar "|, /, y" para separar el usuario y nombre del personaje 2', m)
 }} else {
-return conn.reply(m.chat, 'Escriba el personaje que desea transferir', m)
+return conn.reply(m.chat, `Etiqueta o escriba el número del usuario y nombre o código del personaje 
+> *Ejemplo:*
+\`${usedPrefix + command} usuario | personaje\`
+
+> _También puede responder al mensaje del usuario escribiendo el nombre o código del personaje_`, m)
 }
-if (m.sender === m.quoted.sender) {
-return conn.reply(m.chat, 'No puedes hacer una transferencia a ti mismo', m)
-}
+
 
 let senderIndex = fantasyDB.findIndex(obj => obj.hasOwnProperty(m.sender))
 if (senderIndex == -1) return conn.reply(m.chat, 'No estás en la base de datos', m)
