@@ -148,6 +148,19 @@ const flowArray = usuarioExistente[userId].flow || []
 const likesCount = flowArray.filter(voto => voto.like).length
 fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO 👍`, body: `Califica persoanjes, es gratis 👍`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
 logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${likesCount} veces "👍"*\n\n🌟 *Recompensas:*`
+const conditionMet = [
+(likesCount === 3 && user.fantasy_character3 === 0),
+(likesCount === 8 && user.fantasy_character3 === 1),
+(likesCount === 13 && user.fantasy_character3 === 2),
+(likesCount === 18 && user.fantasy_character3 === 3),
+(likesCount === 25 && user.fantasy_character3 === 4),
+(likesCount === 35 && user.fantasy_character3 === 5),
+(likesCount === 40 && user.fantasy_character3 === 6),
+(likesCount === 55 && user.fantasy_character3 === 7),
+(likesCount === 65 && user.fantasy_character3 === 8),
+(likesCount === 80 && user.fantasy_character3 === 9),
+(likesCount === 100 && user.fantasy_character3 === 10)
+].some(condition => condition)
 for (const [reward, icon] of Object.entries(rewards2)) {
 let min, max
 switch (reward) {
@@ -170,19 +183,6 @@ break
 }
 const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character3 + 1)
-const conditionMet = [
-(likesCount === 3 && user.fantasy_character3 === 0),
-(likesCount === 8 && user.fantasy_character3 === 1),
-(likesCount === 13 && user.fantasy_character3 === 2),
-(likesCount === 18 && user.fantasy_character3 === 3),
-(likesCount === 25 && user.fantasy_character3 === 4),
-(likesCount === 35 && user.fantasy_character3 === 5),
-(likesCount === 40 && user.fantasy_character3 === 6),
-(likesCount === 55 && user.fantasy_character3 === 7),
-(likesCount === 65 && user.fantasy_character3 === 8),
-(likesCount === 80 && user.fantasy_character3 === 9),
-(likesCount === 100 && user.fantasy_character3 === 10)
-].some(condition => condition)
 if (conditionMet) {
 user[reward] += multipliedAmount
 logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
