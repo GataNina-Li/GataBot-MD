@@ -69,4 +69,4 @@ conn.reply(m.chat, `Hemos transferido el personaje ${characterData.name} a ${use
 }
 
 handler.command = /^(fantasytransfer|fytransfer|fyregalar)$/i
-module.exports = handler
+export default handler
