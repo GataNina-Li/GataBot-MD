@@ -91,7 +91,52 @@ if (usuarioExistente) {
 const fantasyArray = usuarioExistente[userId].fantasy
 fake = { contextInfo: { externalAdReply: { title: `🌟 RECOMPENSA 🌟`, body: `Usa #fymy para ver más desafíos`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
 logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personajes*\n\n🌟 *Recompensas:*`
-for (const [reward, icon] of Object.entries(rewards)) {
+for (const [reward, icon] of Object.entries(rewards2)) {
+let min, max
+switch (reward) {
+case 'potion':
+min = 4
+max = 15
+break
+case 'string':
+min = 10
+max = 30
+break
+case 'iron':
+min = 15
+max = 40
+break
+default:
+ min = 1
+max = 25
+break
+}
+const amount = Math.floor(Math.random() * (max - min + 1) + min)
+const multipliedAmount = amount * (user.fantasy_character3 + 1)
+const conditionMet = [
+(likesCount === 3 && user.fantasy_character3 === 0),
+(likesCount === 8 && user.fantasy_character3 === 1),
+(likesCount === 13 && user.fantasy_character3 === 2),
+(likesCount === 18 && user.fantasy_character3 === 3),
+(likesCount === 25 && user.fantasy_character3 === 4),
+(likesCount === 35 && user.fantasy_character3 === 5),
+(likesCount === 40 && user.fantasy_character3 === 6),
+(likesCount === 55 && user.fantasy_character3 === 7),
+(likesCount === 65 && user.fantasy_character3 === 8),
+(likesCount === 80 && user.fantasy_character3 === 9),
+(likesCount === 100 && user.fantasy_character3 === 10)
+].some(condition => condition)
+if (conditionMet) {
+user[reward] += multipliedAmount
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
+user.fantasy_character3++
+}}
+
+if (logro !== '') {
+await conn.reply(m.chat, logro, m, fake);
+}}
+
+/*for (const [reward, icon] of Object.entries(rewards)) {
 let min, max
 switch (reward) {
 case 'exp':
@@ -139,7 +184,7 @@ user[reward] += multipliedAmount
 logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 await conn.reply(m.chat, logro, m, fake)
 user.fantasy_character2++
-}}}
+}}}*/
 
 // Cuenta la cantidad de veces que se ha dado "like"
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
