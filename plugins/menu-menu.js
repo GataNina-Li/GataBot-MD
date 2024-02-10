@@ -78,7 +78,7 @@ let lvl = level
 let emoji = Array.from(lvl.toString()).map((digit) => numberToEmoji[digit] || "❓").join("")
 
 let fechaMoment, formatDate, nombreLugar, ciudad = null
-const phoneNumber = '+54 3564 1354 7901' //+ m.sender
+const phoneNumber = '+' + m.sender
 const parsedPhoneNumber = parsePhoneNumber(phoneNumber)
 const countryCode = parsedPhoneNumber.country
 const countryData = ct.getCountry(countryCode)
@@ -103,7 +103,7 @@ ciudad = 'Lima'
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : taguser}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
 > *_${formatDate}_*
-> *_Lugar:_* \`${nombreLugar} - ${ciudad}\`
+> \`${nombreLugar} - ${ciudad}\`
 
 ⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
 ⎔ *Registrados »* ${rtotalreg}/${totalreg}    
