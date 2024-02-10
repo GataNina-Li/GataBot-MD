@@ -285,12 +285,24 @@ precio: infoPersonaje.price
 })}
 })
 })
+let processedUsers = new Set()
 preciosPersonajes.sort((a, b) => b.precio - a.precio)
-let topUsuariosCaros = preciosPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => {
+let topUsuariosCaros = preciosPersonajes
+.filter(usuario => !processedUsers.has(usuario.userId))
+.slice(0, cantidadUsuariosRanking)
+.map((usuario, index) => {
+processedUsers.add(usuario.userId)
 let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
 return `*${positionEmoji}* @${usuario.userId.split('@')[0]}\n*✪ ${usuario.personaje}* » \`\`\`${usuario.precio}\`\`\` 🐈`
 }).join('\n\n')
 let rankingCaros = topUsuariosCaros ? topUsuariosCaros : 'Todavía no hay usuarios aquí'
+
+/*preciosPersonajes.sort((a, b) => b.precio - a.precio)
+let topUsuariosCaros = preciosPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => {
+let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
+return `*${positionEmoji}* @${usuario.userId.split('@')[0]}\n*✪ ${usuario.personaje}* » \`\`\`${usuario.precio}\`\`\` 🐈`
+}).join('\n\n')
+let rankingCaros = topUsuariosCaros ? topUsuariosCaros : 'Todavía no hay usuarios aquí'*/
 
 // Obtener usuarios con mejor clase de personaje
 let clasesPorUsuario = {}
