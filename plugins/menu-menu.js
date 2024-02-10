@@ -1,5 +1,7 @@
 import fs from 'fs'
-import moment from 'moment-timezone'
+import moment from 'moment-timezone';
+import ct from 'countries-and-timezones'
+import { parsePhoneNumber } from 'libphonenumber-js'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 const { levelling } = '../lib/levelling.js'
@@ -75,10 +77,17 @@ const numberToEmoji = { "0": "0️⃣", "1": "1️⃣", "2": "2️⃣", "3": "3�
 let lvl = level
 let emoji = Array.from(lvl.toString()).map((digit) => numberToEmoji[digit] || "❓").join("")
 
+const phoneNumber = '+' + m.sender
+const parsedPhoneNumber = parsePhoneNumber(phoneNumber)
+const countryCode = parsedPhoneNumber.country
+const countryData = ct.getCountry(countryCode)
+const timezones = countryData.timezones
+const zonaHoraria = timezones.length > 0 ? timezones[0] : 'UTC'
+const nombreLugar = countryData.name
 moment.locale('es')
-const lugarMoment = moment().tz('America/Lima')
-let fechaMoment = lugarMoment.format('llll a')	
-let formatDate = fechaMoment[0].toUpperCase() + fechaMoment.slice(1)
+const lugarMoment = moment().tz(zonaHoraria)
+const fechaMoment = lugarMoment.format('llll [(]a[)]')
+const formatDate = fechaMoment.charAt(0).toUpperCase() + fechaMoment.slice(1) + `\n> *_Lugar: ${nombreLugar}_*`
 	
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : taguser}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
