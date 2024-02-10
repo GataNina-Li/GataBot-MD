@@ -78,13 +78,13 @@ let lvl = level
 let emoji = Array.from(lvl.toString()).map((digit) => numberToEmoji[digit] || "❓").join("")
 
 let fechaMoment, formatDate, nombreLugar, ciudad = null
-const phoneNumber = '+' + m.sender
+const phoneNumber = '+54 3564 1354 7901' //+ m.sender
 const parsedPhoneNumber = parsePhoneNumber(phoneNumber)
 const countryCode = parsedPhoneNumber.country
 const countryData = ct.getCountry(countryCode)
 const timezones = countryData.timezones
 const zonaHoraria = timezones.length > 0 ? timezones[0] : 'UTC'
-moment.locale('en')
+moment.locale('es')
 let lugarMoment = moment().tz(zonaHoraria)
 if (lugarMoment) {
 fechaMoment = lugarMoment.format('llll [(]a[)]')
