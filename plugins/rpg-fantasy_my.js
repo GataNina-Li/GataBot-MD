@@ -200,7 +200,7 @@ let topUsuariosPersonajes = usuariosConMasPersonajes
 let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
 return `*${positionEmoji}* @${usuario.userId.split('@')[0]}\n *✪ ${usuario.numPersonajes}* personaje${usuario.numPersonajes === 1 ? '' : 's'}`
 }).join('\n\n')
-let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : 'Todavía no hay usuarios aquí'
+let rankingPersonajes = topUsuariosPersonajes ? topUsuariosPersonajes : '```Todavía no hay usuarios aquí```'
 
 // Obtener usuarios activos en calificación de personajes
 let usuariosActivos = fantasyDB.map(entry => ({
@@ -212,7 +212,7 @@ let topUsuariosCalificaciones = usuariosActivos.slice(0, cantidadUsuariosRanking
 let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
 return `*${positionEmoji}* @${usuario.userId.split('@')[0]}\n*✪* Realizó *${usuario.totalCalificaciones}* ${usuario.totalCalificaciones === 1 ? 'calificación' : 'calificaciones'}`
 }).join('\n\n')
-let rankingCalificaciones = topUsuariosCalificaciones ? topUsuariosCalificaciones : 'Todavía no hay usuarios aquí'
+let rankingCalificaciones = topUsuariosCalificaciones ? topUsuariosCalificaciones : '```Todavía no hay usuarios aquí```'
 
     
 // Obtener usuarios con el personaje más caro
@@ -239,7 +239,7 @@ processedUsers.add(usuario.userId)
 }
 if (topUsuariosCaros.length >= cantidadUsuariosRanking) break
 }
-let rankingCaros = topUsuariosCaros.length > 0 ? topUsuariosCaros.join('\n\n') : 'Todavía no hay usuarios aquí'
+let rankingCaros = topUsuariosCaros.length > 0 ? topUsuariosCaros.join('\n\n') : '```Todavía no hay usuarios aquí```'
 /*preciosPersonajes.sort((a, b) => b.precio - a.precio)
 let topUsuariosCaros = preciosPersonajes.slice(0, cantidadUsuariosRanking).map((usuario, index) => {
 let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
@@ -272,7 +272,7 @@ let count = clasesPorUsuario[userId][clase]
 let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
 return `*${positionEmoji}* @${userId.split('@')[0]}\n*✪ ${clase}* » *${count}* personaje${count === 1 ? '' : 's'}`
 }).join('\n\n')
-let rankingClases = topUsuariosClases ? topUsuariosClases : 'Todavía no hay usuarios aquí'
+let rankingClases = topUsuariosClases ? topUsuariosClases : '```Todavía no hay usuarios aquí```'
 
 let mentions = []
 fantasyDB.forEach(entry => {
