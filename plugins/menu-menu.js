@@ -84,6 +84,7 @@ const countryData = ct.getCountry(countryCode)
 const timezones = countryData.timezones
 const zonaHoraria = timezones.length > 0 ? timezones[0] : 'UTC'
 const nombreLugar = countryData.name
+const ciudadRegion = countryData.city || countryData.region || ''
 moment.locale('en')
 const lugarMoment = moment().tz(zonaHoraria)
 const fechaMoment = lugarMoment.format('llll [(]a[)]')
@@ -92,7 +93,7 @@ const formatDate = fechaMoment.charAt(0).toUpperCase() + fechaMoment.slice(1)
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : taguser}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
 > *_${formatDate}_*
-> *_Lugar:_* \`${nombreLugar}\`
+> *_Lugar:_* \`${nombreLugar} - ${ciudadRegion}\`
 
 ⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
 ⎔ *Registrados »* ${rtotalreg}/${totalreg}    
