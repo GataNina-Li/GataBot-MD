@@ -66,7 +66,6 @@ bibitmangga: 0,
 bibitpisang: 0,
 }
 
-  
 // Si el usuario no existe en la base de datos borra su contador de registro
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 if (!usuarioExistente) {
@@ -80,7 +79,7 @@ user.fantasy_character5 = 0
 // Verifica si el usuario existe en la base de datos y si tiene la estructura fantasy
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId && user[userId].fantasy)
 if (usuarioExistente && user.fantasy_character === 0) {
-fake = { contextInfo: { externalAdReply: { title: `🌟 RECOMPENSA 🌟`, body: `Califica persoanjes, es gratis ❤️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `🌟 NUEVO LOGRO 🌟`, body: `Califica persoanjes, es gratis ❤️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
 await conn.reply(m.chat, `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} ahora puedes calificar personajes*`, m, fake)
 user.fantasy_character++
 }
