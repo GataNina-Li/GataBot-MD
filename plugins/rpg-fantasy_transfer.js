@@ -27,10 +27,7 @@ return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*
 \`(|), (,), (\\), (&), y (/)\`
 
 > *Ejemplos:*
-» \`${usedPrefix + command} @${m.sender.split('@')[0]} | Personaje\`
-» \`${usedPrefix + command} @${m.sender.split('@')[0]} & Personaje\`
-» \`${usedPrefix + command} @${m.sender.split('@')[0]}, Personaje\`
-`, m, { mentions: { mentionedJid: [m.sender] }})
+» \`${usedPrefix + command} Usuario | Personaje\``, m)
 }
 let userArg = userText.replace(/[^\d]/g, '')
 user = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net'
