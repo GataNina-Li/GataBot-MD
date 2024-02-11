@@ -618,9 +618,11 @@ ${m.isGroup ? `` : `${lenguajeGB.smsConfi9()}`}
 
 ✦ ${lenguajeGB.smsParaOw()} ${global.opts['antiprivado'] ? '✅' : '❌'}
 ✦ ${usedPrefix + command} antiprivado
+✦ Activa/Desactiva el antiprivado en el Bot
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-${wm}`, fkontak, { mentions: [aa,] })
+antiprivado
+ntak, { mentions: [aa,] })
 //conn.sendMessage(m.chat, { text: texto }, { quoted: fkontak })
 //conn.sendMessage(m.chat, texto, {quoted: fkontak})	
 throw false
