@@ -616,6 +616,12 @@ ${m.isGroup ? `` : `${lenguajeGB.smsConfi9()}`}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
+✦ ${lenguajeGB.smsParaOw()} ${global.opts['antiprivado'] ? '✅' : '❌'}
+✦ ${usedPrefix + command} antiprivado
+✦ ${lenguajeGB.smsSOLOG2()}
+
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+
 ${wm}`, fkontak, { mentions: [aa,] })
 //conn.sendMessage(m.chat, { text: texto }, { quoted: fkontak })
 //conn.sendMessage(m.chat, texto, {quoted: fkontak})	
