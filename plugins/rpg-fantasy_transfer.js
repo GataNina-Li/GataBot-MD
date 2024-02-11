@@ -51,7 +51,7 @@ return conn.reply(m.chat, `*Etiqueta o escriba el número del usuario y nombre o
 
 let senderIndex = fantasyDB.findIndex(obj => obj.hasOwnProperty(m.sender))
 let senderData = fantasyDB[senderIndex][m.sender]
-if (!senderData.fantasy || senderData.fantasy.length == 0) return conn.reply(m.chat, 'No hemos encontrado personajes en tu colección', m)       
+//if (!senderData.fantasy || senderData.fantasy.length == 0) return conn.reply(m.chat, 'No hemos encontrado personajes en tu colección', m)       
 if (senderIndex == -1) return conn.reply(m.chat, `> *Primero compra un personaje usando:*\n\n\`${usedPrefix}fantasy o ${usedPrefix}fy\``, m)
 let recipientIndex = fantasyDB.findIndex(obj => obj.hasOwnProperty(user))
 if (recipientIndex == -1) return conn.reply(m.chat, `*El usuario @${user.split('@')[0]} no puede recibir transferencias de personajes*\n\n> *Motivo:* _Sólo puedes transferir tus personajes a usuarios que hayan comprado mínimo un personaje_\n\n*@${user.split('@')[0]} Compra un personaje para recibir/enviar transferencias*\n\`${usedPrefix}fantasy o ${usedPrefix}fy\``, m, { mentions: [user] })
