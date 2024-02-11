@@ -13,30 +13,38 @@ return
 
 let user, character
 if (m.quoted && m.sender === m.quoted.sender) {
-return conn.reply(m.chat, 'No puedes hacer una transferencia a ti mismo', m)
+    return conn.reply(m.chat, 'No puedes hacer una transferencia a ti mismo', m);
 }
+
 if (m.quoted && m.quoted.sender && text) {
-user = m.quoted.sender
-character = text.trim()
+    user = m.quoted.sender;
+    character = text.trim();
 } else if (text) {
-let [userText, characterText] = text.split(/[|,&\/\\]+/).map(v => v.trim())
-if (!userText || !characterText) {
-return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver sus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
+    let [userText, characterText] = text.split(/[|,&\/\\]+/).map(v => v.trim());
+
+    if (!userText || !characterText) {
+        return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver sus personajes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m);
+    }
+
+    let isUserNumber = userText.endsWith('@s.whatsapp.net');
+    let isCharNumber = characterText.endsWith('@s.whatsapp.net');
+
+    if (isUserNumber) {
+        user = userText.includes('@') ? userText : userText + '@s.whatsapp.net';
+        character = characterText;
+    } else if (isCharNumber) {
+        user = characterText.includes('@') ? characterText : characterText + '@s.whatsapp.net';
+        character = userText;
+    } else {
+        return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver sus personajes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m);
+    }
+} else {
+    if (m.quoted && !text) {
+        return conn.reply(m.chat, 'Escriba el nombre o código del personaje', m);
+    }
+    return conn.reply(m.chat, `*Etiqueta o escriba el número del usuario y nombre o código del personaje*\n\n> *Ejemplo:*\n\`${usedPrefix + command} usuario | personaje\`\n\n> _También puede responder al mensaje del usuario escribiendo el nombre o código del personaje_\n\n> *Para ver sus personajes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m);
 }
-let userArg = userText.replace(/[^\d]/g, '')
-user = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net'
-if (userText.endsWith('@s.whatsapp.net')) {
-user = userText.includes('@') ? userText : userText + '@s.whatsapp.net'
-character = characterText
-} else if (characterText.endsWith('@s.whatsapp.net')) {
-user = characterText.includes('@') ? characterText : characterText + '@s.whatsapp.net'
-character = userText
-}} else {
-if(m.quoted && !text) {
-return conn.reply(m.chat, 'Escriba el nombre o código del personaje', m)
-}
-return conn.reply(m.chat, `*Etiqueta o escriba el número del usuario y nombre o código del personaje*\n\n> *Ejemplo:*\n\`${usedPrefix + command} usuario | personaje\`\n\n> _También puede responder al mensaje del usuario escribiendo el nombre o código del personaje_\n\n> *Para ver sus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
-}
+
 
 
 let senderIndex = fantasyDB.findIndex(obj => obj.hasOwnProperty(m.sender))
