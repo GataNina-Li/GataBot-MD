@@ -577,6 +577,9 @@ ${readMore}
 ┃⚗️➺ _${usedPrefix}cadames | mes | monthly_
 ┃⚗️➺ _${usedPrefix}cofre | abrircofre | coffer_
 ┃⚗️➺ _${usedPrefix}trabajar | work_
+┃⚗️➺ _${usedPrefix}fantasy | fy_
+┃⚗️➺ _${usedPrefix}fantasyinfo | fyinfo_
+┃⚗️➺ _${usedPrefix}fylista_
 *╰━━━━━━━━━━━━⬣*
 
 *╭━━━[ TOP EN GATABOT ]━━⬣*
