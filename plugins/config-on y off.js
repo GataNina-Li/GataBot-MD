@@ -618,8 +618,6 @@ ${m.isGroup ? `` : `${lenguajeGB.smsConfi9()}`}
 
 ✦ ${lenguajeGB.smsParaOw()} ${global.opts['antiprivado'] ? '✅' : '❌'}
 ✦ ${usedPrefix + command} antiprivado
-✦ ${lenguajeGB.sms()}
-
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
 ${wm}`, fkontak, { mentions: [aa,] })
