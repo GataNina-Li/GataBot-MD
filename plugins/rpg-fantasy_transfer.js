@@ -58,10 +58,10 @@ if (m.quoted && m.quoted.sender && text) {
     let isCharNumber = characterText.endsWith('@s.whatsapp.net');
 
     if (isUserNumber) {
-        user = userText;
+        user = userText.includes('@') ? userText : userText + '@s.whatsapp.net';
         character = characterText;
     } else if (isCharNumber) {
-        user = characterText;
+        user = characterText.includes('@') ? characterText : characterText + '@s.whatsapp.net';
         character = userText;
     } else {
         // Verifica si uno de los textos tiene al menos 5 dígitos
@@ -69,10 +69,10 @@ if (m.quoted && m.quoted.sender && text) {
         let hasFiveDigitsChar = (characterText.match(/\d/g) || []).length >= 5;
 
         if (hasFiveDigitsUser) {
-            user = userText + '@s.whatsapp.net';
+            user = userText.replace(/[^\d]/g, '') + '@s.whatsapp.net';
             character = characterText;
         } else if (hasFiveDigitsChar) {
-            user = characterText + '@s.whatsapp.net';
+            user = characterText.replace(/[^\d]/g, '') + '@s.whatsapp.net';
             character = userText;
         } else {
             return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver sus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m);
@@ -84,6 +84,7 @@ if (m.quoted && m.quoted.sender && text) {
     }
     return conn.reply(m.chat, `*Etiqueta o escriba el número del usuario y nombre o código del personaje*\n\n> *Ejemplo:*\n\`${usedPrefix + command} usuario | personaje\`\n\n> _También puede responder al mensaje del usuario escribiendo el nombre o código del personaje_\n\n> *Para ver sus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m);
 }
+
 
 
 
