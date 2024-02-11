@@ -12,14 +12,14 @@ const participants = groupMetadata.participants || [];
 const bot = participants.find((u) => conn.decodeJid(u.id) === conn.user.jid) || {};
 const isBotAdmin = bot?.admin || false;
 const isParticipant = participants.some((u) => conn.decodeJid(u.id) === conn.user.jid);
-const participantStatus = isParticipant ? '✅ *SIGO AQUÍ | YES*' : '❌ *SIN ESTAR AQUÍ | NO*';
+const participantStatus = isParticipant ? '✅ *ESTOY AQUÍ | YES*' : '❌ *NO ESTA AQUÍ | NO*';
 const totalParticipants = participants.length;
 txt += `🐈 *${i + 1}*
 ${lenguajeGB.smsLisC()} ${await conn.getName(jid)} ${participantStatus}
 ${lenguajeGB.smsLisD()} ${jid}
 ${lenguajeGB.smsLisF()} ${isBotAdmin ? '✅' : '❌'}
 ${lenguajeGB.smsLisE()}  ${totalParticipants}
-${lenguajeGB.smsLisG()} ${isBotAdmin ? `https://chat.whatsapp.com/${await conn.groupInviteCode(jid) || 'Error'}` : 'NO SOY ADMIN'}\n\n`;
+${lenguajeGB.smsLisG()} ${isBotAdmin ? `https://chat.whatsapp.com/${await conn.groupInviteCode(jid) || 'Error'}` : 'NO SOY ADMINISTRADOR'}\n\n`;
 }
 m.reply(`${packname} ${lenguajeGB.smsLisA()}
 ${lenguajeGB.smsLisB()} ${totalGroups}\n\n${txt}`.trim());
@@ -33,14 +33,14 @@ const participants = groupMetadata.participants || [];
 const bot = participants.find((u) => conn.decodeJid(u.id) === conn.user.jid) || {};
 const isBotAdmin = bot?.admin || false;
 const isParticipant = participants.some((u) => conn.decodeJid(u.id) === conn.user.jid);
-const participantStatus = isParticipant ? '✅ *SIGO AQUÍ | YES*' : '❌ *SIN ESTAR AQUÍ | NO*';
+const participantStatus = isParticipant ? '✅ *ESTOY AQUÍ | YES*' : '❌ *NO ESTA AQUÍ | NO*';
 const totalParticipants = participants.length;    
     txt += `🐈 ${i + 1}
 ${lenguajeGB.smsLisC()} ${await conn.getName(jid)} ${participantStatus}
 ${lenguajeGB.smsLisD()} ${jid}
 ${lenguajeGB.smsLisF()} ${isBotAdmin ? '✅' : '❌'}
 ${lenguajeGB.smsLisE()} ${totalParticipants}
-${lenguajeGB.smsLisG()} ${isBotAdmin ? 'Error' : 'NO SOY ADMINS'}\n\n`
+${lenguajeGB.smsLisG()} ${isBotAdmin ? 'Error' : 'NO SOY ADMINISTRADOR'}\n\n`
 }
 m.reply(`${packname} ${lenguajeGB.smsLisA()}
 ${lenguajeGB.smsLisB()} ${totalGroups}\n\n${txt}`.trim());
