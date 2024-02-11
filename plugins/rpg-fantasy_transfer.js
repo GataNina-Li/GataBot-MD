@@ -58,28 +58,40 @@ let senderData = fantasyDB[senderIndex][m.sender]
 let characterIndex = senderData.fantasy.findIndex(obj => obj.name == character || obj.id == character)
 if (characterIndex == -1) return conn.reply(m.chat, `*No hemos encontrado "${character}"*\n\n> *Motivo:* _Puede deberse a que no tiene ese personaje o está mal escrito el nombre o código del personaje_\n\n> *Para ver tus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
     
-let senderCharacter = senderData.fantasy[characterIndex];
-if (senderCharacter.id === character || senderCharacter.name === character) {
-    let receiverData = fantasyDB.fantasy[user];
+let senderData = fantasyDB[senderIndex][m.sender];
+let senderCharacter;
+
+// Buscar el personaje en la estructura fantasy del usuario remitente
+for (let character of senderData.fantasy) {
+    if (character.id === character || character.name === character) {
+        senderCharacter = character;
+        break;
+    }
+}
+
+// Verificar si se encontró el personaje
+if (senderCharacter) {
+    let receiverData = fantasyDB[receiverIndex][user];
+
+    // Verificar si el usuario receptor existe en la base de datos
     if (receiverData) {
-        // Verificar si existe fantasy en el usuario receptor y si no está vacía
-        if (receiverData.fantasy && receiverData.fantasy.length > 0) {
-            // Agregar el personaje transferido a la fantasy del usuario receptor
-            receiverData.fantasy.push(senderCharacter);
-        } else {
-            // Si no existe o está vacía, inicializarla como una matriz con el personaje transferido
-            receiverData.fantasy = [senderCharacter];
+        // Verificar si la propiedad fantasy existe en el usuario receptor
+        if (!receiverData.fantasy) {
+            receiverData.fantasy = [];
         }
-        
+
+        // Agregar el personaje transferido a la fantasy del usuario receptor
+        receiverData.fantasy.push(senderCharacter);
+
         // Eliminar el personaje de la fantasy del usuario remitente
-        senderData.fantasy.splice(characterIndex, 1);
-        
+        senderData.fantasy.splice(senderData.fantasy.indexOf(senderCharacter), 1);
+
         // Actualizar los datos del usuario remitente en la base de datos
-        FantasyDB[senderIndex][m.sender] = senderData;
-        
+        fantasyDB[senderIndex][m.sender] = senderData;
+
         // Actualizar los datos del usuario receptor en la base de datos
-        FantasyDB.fantasy[user] = receiverData;
-        
+        fantasyDB[receiverIndex][user] = receiverData;
+
         // Enviar un mensaje de confirmación
         conn.reply(m.chat, `Hemos transferido el personaje ${senderCharacter.name} a ${user}`, m);
     } else {
@@ -88,6 +100,7 @@ if (senderCharacter.id === character || senderCharacter.name === character) {
 } else {
     return conn.reply(m.chat, 'El personaje especificado no pertenece al usuario remitente', m);
 }
+
 
 }
 
