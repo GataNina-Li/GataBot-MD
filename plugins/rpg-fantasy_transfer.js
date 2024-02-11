@@ -21,7 +21,7 @@ character = text.trim()
 } else if (text) {
 let [userText, characterText] = text.split(/[|,&\/\\]+/).map(v => v.trim())
 if (!userText || !characterText) {
-return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n» \`${usedPrefix + command} Usuario | Personaje\``, m)
+return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\``, m)
 }
 let userArg = userText.replace(/[^\d]/g, '')
 user = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net'
