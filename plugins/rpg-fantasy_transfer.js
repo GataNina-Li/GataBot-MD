@@ -27,7 +27,7 @@ let userArg = userText.replace(/[^\d]/g, '')
 user = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net'
 if (userText.endsWith('@s.whatsapp.net')) {
 user = userText.includes('@') ? userText : userText + '@s.whatsapp.net'
-character = characterText;
+character = characterText
 } else if (characterText.endsWith('@s.whatsapp.net')) {
 user = characterText.includes('@') ? characterText : characterText + '@s.whatsapp.net'
 character = userText
