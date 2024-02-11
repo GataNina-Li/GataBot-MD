@@ -23,16 +23,16 @@ let gata = `𝙄𝙉𝙎𝙏𝘼𝙇𝘼𝘾𝙄𝙊𝙉 𝘿𝙀 𝙂𝘼𝙏�
 *𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 : 𝘽𝙤𝙭𝙈𝙞𝙣𝙚*
 *_https://youtu.be/Ko019wvu2Tc_*
 *⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯*
-_Pagina Oficial_ 
+_PAGINA OFICIAL_ 
 _https://boxmineworld.com_
 *⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯*
 _Tutorial - Crea una cuenta en la Dashboard_
 _https://www.youtube.com/watch?v=ZAwBLuNmIlI_
 *⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯*
-_Dashboard_
+_DASHBOARD_
 _https://dash.boxmineworld.com_
 *⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯*
-_Panel_
+_PANEL_
 _https://panel.boxmineworld.com_
 *━━━━━━━━━━━━━⬣*
 
