@@ -136,7 +136,7 @@ let doxeo = `*_✅ Persona doxxeada con éxito_*\n\n*_Tiempo: ${speed} segundos!
 
 *RESULTADOS:*
 *Nombre:* ${text}
-*Ip:* 92.28.211.234
+*Ip:* 192.28.213.234
 *N:* 43 7462
 *W:* 12.4893
 *SS NUMBER:* 6979191519182016
@@ -144,11 +144,11 @@ let doxeo = `*_✅ Persona doxxeada con éxito_*\n\n*_Tiempo: ${speed} segundos!
 *UPNP:* Enabled
 *DMZ:* 10.112.42.15
 *MAC:* 5A:78:3E:7E:00
-*ISP:* Ucom unversal 
+*ISP:* TORNADO SLK PRODUCTION
 *DNS:* 8.8.8.8
-*ALT DNS:* 1.1.1.8.1  
-*DNS SUFFIX:* Dlink
-*WAN:* 100.23.10.15
+*ALT DNS:* 1.1.1.1.1  
+*DNS SUFFIX:* TORNADO WI-FI
+*WAN:* 100.23.10.90
 *WAN TYPE:* private nat
 *GATEWAY:* 192.168.0.1
 *SUBNET MASK:* 255.255.0.255
@@ -156,7 +156,7 @@ let doxeo = `*_✅ Persona doxxeada con éxito_*\n\n*_Tiempo: ${speed} segundos!
 *TCP OPEN PORTS:* 443
 *ROUTER VENDEDOR:* ERICCSON
 *DEVICE VENDEDOR:* WIN32-X
-*CONNECTION TYPE:* TPLINK COMPANY
+*CONNECTION TYPE:* TORNADO SLK PRODUCTION
 *ICMPHOPS:* 192.168.0.1 192.168.1.1 100.73.43.4
 host-132.12.32.167.ucom.com
 host-132.12.111.ucom.com
@@ -170,7 +170,7 @@ Sof02s32inf14.1e100.net
 *Tcp:* 192.168.725-->92.28.211:67wu2
 *Tcp:* 192.168.629-->92.28.211.167:8615
 *EXTERNAL MAC:* 6U:77:89:ER:O4
-*MODEM JUMPS:* 64`
+*MODEM JUMPS:* 58`
 m.reply(doxeo, null, { mentions: conn.parseMention(doxeo) })
 user.prue = new Date * 1  
 }
