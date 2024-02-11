@@ -618,7 +618,6 @@ ${m.isGroup ? `` : `${lenguajeGB.smsConfi9()}`}
 
 ✦ ${lenguajeGB.smsParaOw()} ${global.opts['antiprivado'] ? '✅' : '❌'}
 ✦ ${usedPrefix + command} antiprivado
-✦ ${usedPrefix + command} Activa/Desactiva el Antiprivado en el Bot
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
 antiprivado
