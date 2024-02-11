@@ -26,15 +26,12 @@ return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\
 let userArg = userText.replace(/[^\d]/g, '')
 user = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net'
 if (userText.endsWith('@s.whatsapp.net')) {
-user = userText
-character = characterText
+user = userText.includes('@') ? userText : userText + '@s.whatsapp.net'
+character = characterText;
 } else if (characterText.endsWith('@s.whatsapp.net')) {
-user = characterText
+user = characterText.includes('@') ? characterText : characterText + '@s.whatsapp.net'
 character = userText
-} //else {
-//return conn.reply(m.chat, 'Recuerda usar "|, /, y" para separar el usuario y nombre del personaje 2', m)
-//}
-} else {
+}} else {
 if(m.quoted && !text) {
 return conn.reply(m.chat, 'Escriba el nombre o código del personaje', m)
 }
