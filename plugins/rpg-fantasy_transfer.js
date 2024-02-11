@@ -58,8 +58,8 @@ let senderData = fantasyDB[senderIndex][m.sender]
 let characterIndex = senderData.fantasy.findIndex(obj => obj.name == character || obj.id == character)
 if (characterIndex == -1) return conn.reply(m.chat, `*No hemos encontrado "${character}"*\n\n> *Motivo:* _Puede deberse a que no tiene ese personaje o está mal escrito el nombre o código del personaje_\n\n> *Para ver tus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
     
-let senderData = fantasyDB[senderIndex][m.sender];
-let senderCharacter;
+
+let senderCharacter
 
 // Buscar el personaje en la estructura fantasy del usuario remitente
 for (let character of senderData.fantasy) {
