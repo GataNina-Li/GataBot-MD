@@ -31,9 +31,10 @@ character = characterText
 } else if (characterText.endsWith('@s.whatsapp.net')) {
 user = characterText
 character = userText
+} //else {
+//return conn.reply(m.chat, 'Recuerda usar "|, /, y" para separar el usuario y nombre del personaje 2', m)
+//}
 } else {
-return conn.reply(m.chat, 'Recuerda usar "|, /, y" para separar el usuario y nombre del personaje 2', m)
-}} else {
 if(m.quoted && !text) {
 return conn.reply(m.chat, 'Escriba el nombre o código del personaje', m)
 }
