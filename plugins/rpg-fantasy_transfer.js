@@ -58,7 +58,7 @@ let senderData = fantasyDB[senderIndex][m.sender]
 if (!senderData.fantasy || senderData.fantasy.length == 0) return conn.reply(m.chat, 'No hemos encontrado personajes en tu colección', m)   
     
 let characterIndex = senderData.fantasy.findIndex(obj => obj.name == character || obj.id == character)
-if (characterIndex == -1) return conn.reply(m.chat, `No hemos encontrado ${character}, esto puede ser porque no lo tienes, o has escrito mal el nombre o código del personaje`, m)
+if (characterIndex == -1) return conn.reply(m.chat, `*No hemos encontrado "${character}"*\n\n> *Motivo:* _Puede deberse a que no tiene ese personaje o está mal escrito el nombre o código del personaje_\n\n> *Para ver tus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
     
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 let response = await fetch(jsonURL)
