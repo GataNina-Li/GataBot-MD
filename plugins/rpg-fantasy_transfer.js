@@ -50,8 +50,6 @@ return conn.reply(m.chat, `*Etiqueta o escriba el número del usuario y nombre o
 }
 
 let senderIndex = fantasyDB.findIndex(obj => obj.hasOwnProperty(m.sender))
-let senderData = fantasyDB[senderIndex][m.sender]
-//if (!senderData.fantasy || senderData.fantasy.length == 0) return conn.reply(m.chat, 'No hemos encontrado personajes en tu colección', m)       
 if (senderIndex == -1) return conn.reply(m.chat, `> *Primero compra un personaje usando:*\n\n\`${usedPrefix}fantasy o ${usedPrefix}fy\``, m)
 let recipientIndex = fantasyDB.findIndex(obj => obj.hasOwnProperty(user))
 if (recipientIndex == -1) return conn.reply(m.chat, `*El usuario @${user.split('@')[0]} no puede recibir transferencias de personajes*\n\n> *Motivo:* _Sólo puedes transferir tus personajes a usuarios que hayan comprado mínimo un personaje_\n\n*@${user.split('@')[0]} Compra un personaje para recibir/enviar transferencias*\n\`${usedPrefix}fantasy o ${usedPrefix}fy\``, m, { mentions: [user] })
@@ -59,23 +57,22 @@ if (recipientIndex == -1) return conn.reply(m.chat, `*El usuario @${user.split('
 let characterIndex = senderData.fantasy.findIndex(obj => obj.name == character || obj.id == character)
 if (characterIndex == -1) return conn.reply(m.chat, `*No hemos encontrado "${character}"*\n\n> *Motivo:* _Puede deberse a que no tiene ese personaje o está mal escrito el nombre o código del personaje_\n\n> *Para ver tus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
     
-const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
-let response = await fetch(jsonURL)
-let data = await response.json()
+let senderData = fantasyDB[senderIndex][m.sender];
+let senderCharacter = senderData.fantasy[characterIndex];
 
-let senderCharacter = senderData.fantasy[characterIndex]
-let found
+let receiverData = fantasyDB[receiverIndex][user]
 if (senderCharacter.id === character || senderCharacter.name === character) {
-found = data.find(({ code }) => senderCharacter.id === code)
+if (receiverData) {
+receiverData.fantasy.push(senderCharacter)
+senderData.fantasy.splice(characterIndex, 1)
+FantasyDB[senderIndex][m.sender] = senderData
+FantasyDB[receiverIndex][user] = receiverData
+conn.reply(m.chat, `Hemos transferido el personaje ${senderCharacter.name} a ${user}`, m)
 } else {
-found = data.find(({ name }) => senderCharacter.name === name)
-}
+return conn.reply(m.chat, `El usuario @${user.split('@')[0]} no existe en la base de datos`, m)
+}} else {
+return conn.reply(m.chat, 'El personaje especificado no pertenece al usuario remitente', m)
+}}
 
-let characterData = senderData.fantasy.splice(characterIndex, 1)[0]
-fantasyDB[recipientIndex][user].fantasy.push(characterData)
-fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
-conn.reply(m.chat, `Hemos transferido el personaje ${characterData.name} a ${user}`, m)
-}
-
-handler.command = /^(fantasytransfer|fytransfer|fyregalar)$/i
+handler.command = /^(fantasytransfer|fytransfer|fyregalar|fydar)$/i
 export default handler
