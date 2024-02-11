@@ -46,6 +46,9 @@ return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\
 if (m.quoted && !text) {
 return conn.reply(m.chat, `*Responda a un mensaje de @${m.quoted.sender.split('@')[0]} escribiendo el nombre o código del personaje*\n\n> *Para ver tus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m, { mentions: [m.quoted.sender] })
 }
+if (!userText.includes('@s.whatsapp.net') || !characterText.includes('@s.whatsapp.net')) {
+return conn.reply(m.chat, '*Algo salió mal, asegúrese de etiquetar al usuario o escribir el número completo del usuario*', m)
+}
 return conn.reply(m.chat, `*Etiqueta o escriba el número del usuario y nombre o código del personaje*\n\n> *Ejemplo:*\n\`${usedPrefix + command} usuario | personaje\`\n\n> _También puede responder al mensaje del usuario escribiendo el nombre o código del personaje_\n\n> *Para ver tus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
 }
 
