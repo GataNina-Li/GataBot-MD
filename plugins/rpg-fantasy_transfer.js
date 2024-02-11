@@ -60,17 +60,36 @@ if (characterIndex == -1) return conn.reply(m.chat, `*No hemos encontrado "${cha
     
 let senderCharacter = senderData.fantasy[characterIndex];
 if (senderCharacter.id === character || senderCharacter.name === character) {
-let receiverData = fantasyDB.fantasy[user]
-if (receiverData) {
-receiverData.fantasy.push(senderCharacter)
-senderData.fantasy.splice(characterIndex, 1)
-FantasyDB[senderIndex][m.sender] = senderData
-conn.reply(m.chat, `Hemos transferido el personaje ${senderCharacter.name} a ${user}`, m)
+    let receiverData = fantasyDB.fantasy[user];
+    if (receiverData) {
+        // Verificar si existe fantasy en el usuario receptor y si no está vacía
+        if (receiverData.fantasy && receiverData.fantasy.length > 0) {
+            // Agregar el personaje transferido a la fantasy del usuario receptor
+            receiverData.fantasy.push(senderCharacter);
+        } else {
+            // Si no existe o está vacía, inicializarla como una matriz con el personaje transferido
+            receiverData.fantasy = [senderCharacter];
+        }
+        
+        // Eliminar el personaje de la fantasy del usuario remitente
+        senderData.fantasy.splice(characterIndex, 1);
+        
+        // Actualizar los datos del usuario remitente en la base de datos
+        FantasyDB[senderIndex][m.sender] = senderData;
+        
+        // Actualizar los datos del usuario receptor en la base de datos
+        FantasyDB.fantasy[user] = receiverData;
+        
+        // Enviar un mensaje de confirmación
+        conn.reply(m.chat, `Hemos transferido el personaje ${senderCharacter.name} a ${user}`, m);
+    } else {
+        return conn.reply(m.chat, 'El usuario receptor no existe en la base de datos', m);
+    }
 } else {
-return conn.reply(m.chat, 'El usuario receptor no existe en la base de datos', m);
-}} else {
-return conn.reply(m.chat, 'El personaje especificado no pertenece al usuario remitente', m);
-}}
+    return conn.reply(m.chat, 'El personaje especificado no pertenece al usuario remitente', m);
+}
+
+}
 
 handler.command = /^(fantasytransfer|fytransfer|fyregalar|fydar)$/i
 export default handler
