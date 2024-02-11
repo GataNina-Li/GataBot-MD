@@ -58,19 +58,18 @@ let senderData = fantasyDB[senderIndex][m.sender]
 let characterIndex = senderData.fantasy.findIndex(obj => obj.name == character || obj.id == character)
 if (characterIndex == -1) return conn.reply(m.chat, `*No hemos encontrado "${character}"*\n\n> *Motivo:* _Puede deberse a que no tiene ese personaje o está mal escrito el nombre o código del personaje_\n\n> *Para ver tus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
     
-let senderCharacter = senderData.fantasy[characterIndex]
-let receiverData = fantasyDB.fantasy[user]
+let senderCharacter = senderData.fantasy[characterIndex];
 if (senderCharacter.id === character || senderCharacter.name === character) {
+let receiverData = fantasyDB.fantasy[user]
 if (receiverData) {
 receiverData.fantasy.push(senderCharacter)
 senderData.fantasy.splice(characterIndex, 1)
 FantasyDB[senderIndex][m.sender] = senderData
-FantasyDB.fantasy[user] = receiverData
 conn.reply(m.chat, `Hemos transferido el personaje ${senderCharacter.name} a ${user}`, m)
 } else {
-return conn.reply(m.chat, `El usuario @${user.split('@')[0]} no existe en la base de datos`, m)
+return conn.reply(m.chat, 'El usuario receptor no existe en la base de datos', m);
 }} else {
-return conn.reply(m.chat, 'El personaje especificado no pertenece al usuario remitente', m)
+return conn.reply(m.chat, 'El personaje especificado no pertenece al usuario remitente', m);
 }}
 
 handler.command = /^(fantasytransfer|fytransfer|fyregalar|fydar)$/i
