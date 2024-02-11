@@ -60,7 +60,7 @@ if (characterIndex == -1) return conn.reply(m.chat, `*No hemos encontrado "${cha
     
 
 let senderCharacter
-
+console.log('Valor de character:', character)
 // Buscar el personaje en la estructura fantasy del usuario remitente
 for (let character of senderData.fantasy) {
     if (character.id === character || character.name === character) {
