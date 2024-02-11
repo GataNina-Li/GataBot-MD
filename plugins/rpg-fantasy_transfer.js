@@ -19,9 +19,18 @@ if (m.quoted && m.quoted.sender && text) {
 user = m.quoted.sender
 character = text.trim()
 } else if (text) {
-let [userText, characterText] = text.split(/[|/]+/).map(v => v.trim())
+let [userText, characterText] = text.split(/[|,&\/\\]+/).map(v => v.trim())
 if (!userText || !characterText) {
-return conn.reply(m.chat, 'Recuerda usar "|, /, y" para separar el usuario y nombre del personaje', m)
+return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*
+
+> *Caracteres aceptados:*
+\`(|), (,), (\\), (&), y (/)\`
+
+> *Ejemplos:*
+» \`${usedPrefix + command} @${m.sender.split('@')[0]} | Personaje\`
+» \`${usedPrefix + command} @${m.sender.split('@')[0]} & Personaje\`
+» \`${usedPrefix + command} @${m.sender.split('@')[0]}, Personaje\`
+`, m, { mentions: m.sender })
 }
 let userArg = userText.replace(/[^\d]/g, '')
 user = userArg.endsWith('@s.whatsapp.net') ? userArg : userArg + '@s.whatsapp.net'
