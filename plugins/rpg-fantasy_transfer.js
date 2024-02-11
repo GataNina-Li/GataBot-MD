@@ -34,6 +34,9 @@ character = userText
 } else {
 return conn.reply(m.chat, 'Recuerda usar "|, /, y" para separar el usuario y nombre del personaje 2', m)
 }} else {
+if(m.quoted && !text) {
+return conn.reply(m.chat, 'Escriba el nombre o código del personaje', m)
+}
 return conn.reply(m.chat, `*Etiqueta o escriba el número del usuario y nombre o código del personaje*\n\n> *Ejemplo:*\n\`${usedPrefix + command} usuario | personaje\`\n\n> _También puede responder al mensaje del usuario escribiendo el nombre o código del personaje_\n\n> *Para ver sus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
 }
 
