@@ -368,7 +368,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ✓ _${usedPrefix}vervotos | cekvoto_
 ✓ _${usedPrefix}delvoto | deletevoto_
 
-> *CONTENIDO 🔞*
+> 🔞 *CONTENIDO* 🔞
 
 ✓ _${usedPrefix}hornymenu_
 
@@ -578,7 +578,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ✓ _${usedPrefix}besar | kiss *@tag*_
 ✓ _${usedPrefix}alimentar | food *@tag*_
 
-> 💎 *COMANDOS PARA MI CREADOR/A* 💎
+> 💎 *PARA MI CREADOR/A* 💎
 
 ✓ _${usedPrefix}join *enlace*_
 ✓ _${usedPrefix}unete *enlace*_
