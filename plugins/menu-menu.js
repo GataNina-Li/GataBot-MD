@@ -153,7 +153,6 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 *❰❰ Pasatiempo(s) ❱❱* 
 ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
 ${readMore}
-
 > 💫 *INFORMACIÓN* 💫
 
 ✓ _${usedPrefix}cuentasgatabot | cuentasgb_
@@ -168,16 +167,13 @@ ${readMore}
 ✓ _Bot_ 
 ✓ _términos y condiciones_
 
-*╭━〔 FUNCIÓN SUB BOT 〕━⬣*
-┃ *Ya puedes convertir tú*
-┃ *Número en GataBot!!*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃💻 _${usedPrefix}serbot | jadibot_
-┃💻 _${usedPrefix}serbot --code | jadibot --code_
-┃💻 _${usedPrefix}bots | listjadibots_
-┃💻 _${usedPrefix}detener | stop_
-┃💻 _${usedPrefix}bcbot_
-*╰━━━━━━━━━━━━⬣*
+> 💻 *COMMANDOS - SUB BOT*
+
+✓ _${usedPrefix}serbot | jadibot_
+✓ _${usedPrefix}serbot --code | jadibot --code_
+✓ _${usedPrefix}bots | listjadibots_
+✓ _${usedPrefix}detener | stop_
+✓ _${usedPrefix}bcbot_
 
 *╭━〔 REPORTAR COMANDO 〕━⬣*
 ┃ *Reporta con este comando de haber*
