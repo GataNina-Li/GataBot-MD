@@ -66,14 +66,14 @@ if (!isNumber(user.IDregister)) user.IDregister = 0
 	
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
-if (!('age' in user)) user.age = m.age
-if (!('descripcion' in user)) user.descripcion = m.descripcion
-if (!('genero' in user)) user.genero = m.genero
-if (!('identidad' in user)) user.identidad = m.identidad
-if (!('pasatiempo' in user)) user.pasatiempo = m.pasatiempo
-if (!('tiempo' in user)) user.tiempo = m.tiempo
-if (!('miestado' in user)) user.miestado = m.miestado	
-if (!('midLanguage' in user)) user.midLanguage = m.midLanguage
+if (!('age' in user)) user.age = 0
+if (!('descripcion' in user)) user.descripcion = 0
+if (!('genero' in user)) user.genero = 0
+if (!('identidad' in user)) user.identidad = 0
+if (!('pasatiempo' in user)) user.pasatiempo = 0
+if (!('tiempo' in user)) user.tiempo = 0 
+if (!('miestado' in user)) user.miestado = 0
+if (!('midLanguage' in user)) user.midLanguage = 0
 if (!isNumber(user.premLimit)) user.premLimit = 0
 if (!isNumber(user.anggur)) user.anggur = 0
 if (!isNumber(user.apel)) user.apel = 0
@@ -517,13 +517,13 @@ afk: -1,
 afkReason: '',
 reporte: 0,
 name: m.name,
-age: m.age,
-genero: m.genero,
-identidad: m.identidad,
-pasatiempo: m.pasatiempo,
-tiempo: m.tiempo,
-miestado: m.miestado,	
-descripcion: m.descripcion,
+age: 0,
+genero: 0,
+identidad: 0,
+pasatiempo: 0,
+tiempo: 0,
+miestado: 0,	
+descripcion: 0,
 premLimit: 0,
 agility: 16,
 juegos: 0,
