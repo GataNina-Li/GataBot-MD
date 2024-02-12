@@ -130,10 +130,10 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 > ✨ *INFORMACIÓN DEL USUARIO* ✨
 
 *❰❰ Tipo de registro ❱❱*
-➺ ${user.registered === true ? `_${user.registroC === true ? '🗂️ Registro Completo ' : '📑 Registro Rápido '}_` : '❌ _Sin registro_'}
+➺ ${user.registered === true ? `_${user.registroC === true ? '🗂️ Registro Completo' : '📑 Registro Rápido'}_` : '❌ _Sin registro_'}
 
 *❰❰ Mi estado ❱❱*
-➺ ${typeof user.miestado !== 'string' ? '❌ *Establecer usuando:* _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
+➺ ${typeof user.miestado !== 'string' ? '❌ *Establecer usando:* _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
 
 *❰❰ Registrado ❱❱*
 ➺ ${user.registered === true ? '✅ Verificado' : '❌ *Establecer registro usando:* _' + usedPrefix + 'verificar_'}
@@ -152,21 +152,21 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 
 *❰❰ Pasatiempo(s) ❱❱* 
 ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
-
 ${readMore}
-*╭━〔 INFORMACIÓN DE GATABOT 〕⬣*
-┃💫➺ _${usedPrefix}cuentasgatabot | cuentasgb_
-┃💫➺ _${usedPrefix}gruposgb | grupos | groupgb_
-┃💫➺ _${usedPrefix}donar | donate_
-┃💫➺ _${usedPrefix}listagrupos | grouplist_
-┃💫➺ _${usedPrefix}estado | heygata | status_
-┃💫➺ _${usedPrefix}infogata | infobot_
-┃💫➺ _${usedPrefix}instalarbot | installbot_
-┃💫➺ _${usedPrefix}creadora | owner_
-┃💫➺ _${usedPrefix}velocidad | ping_
-┃💫➺ _Bot_ 
-┃💫➺ _términos y condiciones_
-*╰━━━━━━━━━━━━⬣*
+
+> 💫 *INFORMACIÓN* 💫
+
+✓ _${usedPrefix}cuentasgatabot | cuentasgb_
+✓ _${usedPrefix}gruposgb | grupos | groupgb_
+✓ _${usedPrefix}donar | donate_
+✓ _${usedPrefix}listagrupos | grouplist_
+✓ _${usedPrefix}estado | heygata | status_
+✓ _${usedPrefix}infogata | infobot_
+✓ _${usedPrefix}instalarbot | installbot_
+✓ _${usedPrefix}creadora | owner_
+✓ _${usedPrefix}velocidad | ping_
+✓ _Bot_ 
+✓ _términos y condiciones_
 
 *╭━〔 FUNCIÓN SUB BOT 〕━⬣*
 ┃ *Ya puedes convertir tú*
