@@ -98,8 +98,7 @@ fechaMoment = lugarMoment.format('llll [(]a[)]')
 formatDate = fechaMoment.charAt(0).toUpperCase() + fechaMoment.slice(1) 
 nombreLugar = 'America'
 ciudad = 'Lima'
-}
-	
+}	
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : taguser}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
 > *_${formatDate}_*
