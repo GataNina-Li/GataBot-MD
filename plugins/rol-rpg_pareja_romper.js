@@ -5,6 +5,7 @@ let name = await conn.getName(who)
 let romper = global.db.data.users[m.sender].pasangan
 var ayg = global.db.data.users[m.sender]
 var beb = global.db.data.users[global.db.data.users[m.sender].pasangan]
+try {
 
 if(ayg.pasangan == ""){
 return await conn.reply(m.chat, `𝙐𝙎𝙏𝙀𝘿 *${name}* 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙋𝘼𝙍𝙀𝙅𝘼\n\n𝘿𝙊𝙀𝙎 𝙉𝙊𝙏 𝙃𝘼𝙑𝙀 𝘼 𝙋𝘼𝙍𝙏𝙉𝙀𝙍`, fkontak,  m)    
@@ -25,8 +26,10 @@ beb.pasangan = ""
 }else {
 await conn.reply(m.chat, `𝙐𝙎𝙏𝙀𝘿 *${name}* 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙋𝘼𝙍𝙀𝙅𝘼\n\n𝘿𝙊𝙀𝙎 𝙉𝙊𝙏 𝙃𝘼𝙑𝙀 𝘼 𝙋𝘼𝙍𝙏𝙉𝙀𝙍`, fkontak,  m)    
 //await conn.sendButton(m.chat, `𝙐𝙎𝙏𝙀𝘿 *${name}* 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙋𝘼𝙍𝙀𝙅𝘼\n\n𝘿𝙊𝙀𝙎 𝙉𝙊𝙏 𝙃𝘼𝙑𝙀 𝘼 𝙋𝘼𝙍𝙏𝙉𝙀𝙍`, wm, null, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], fkontak, m)
-}}
-
+}} catch (e) {
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+console.log(e)}}
 handler.command = /^(cortar|romper|finish|terminar)$/i
 handler.group = true
 
