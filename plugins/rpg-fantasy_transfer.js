@@ -71,16 +71,14 @@ id_message = (await conn.reply(m.chat, mensajeConfirmacion, m, { mentions: [user
 }
 
 handler.before = async (m) => {  
-//const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
-//const response = await fetch(jsonURL)
-//const data = await response.json()
-//const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === text.toLowerCase() || img.code === text)
+const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
+const response = await fetch(jsonURL)
+const data = await response.json()
+const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === character.toLowerCase() || img.code === character)
   
 let senderCharacter
-//let usuarioExistente = fantasyDB.find(usuario => Object.keys(usuario)[0] === user)
-senderData = fantasyDB[senderIndex][userId]
-characterIndex = senderData.fantasy.findIndex(obj => obj.name == character || obj.id == character)
-if (!characterIndex) return
+let usuarioExistente = fantasyDB.find(usuario => Object.keys(usuario)[0] === m.sender)
+if (!usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code) return
 if (m.quoted && m.quoted.id == id_message && ['si', '👍'].includes(m.text.toLowerCase())) {
 let receiverIndex = recipientIndex
 
