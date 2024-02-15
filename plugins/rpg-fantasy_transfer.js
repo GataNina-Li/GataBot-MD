@@ -70,15 +70,14 @@ let mensajeConfirmacion = `> *Esto pasará si transfieres "${senderData.fantasy[
 id_message = (await conn.reply(m.chat, mensajeConfirmacion, m, { mentions: [user] })).key.id
 }
 
-handler.before = async (m) => {  
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 const response = await fetch(jsonURL)
 const data = await response.json()
 const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === character.toLowerCase() || img.code === character)
-  
+let usuarioExistente = fantasyDB.find(usuario => Object.keys(usuario)[0] === m.sender)  
+handler.before = async (m) => {    
 let senderCharacter
-let usuarioExistente = fantasyDB.find(usuario => Object.keys(usuario)[0] === m.sender)
-if (!usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
+if (!usuarioExistente || !usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
 if (m.quoted && m.quoted.id == id_message && ['si', '👍'].includes(m.text.toLowerCase())) {
 let receiverIndex = recipientIndex
 
@@ -103,7 +102,6 @@ let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 let userReceiverDB = fantasyDB.find(userEntry => userEntry[user])
 if (senderCharacter && userInDB && userReceiverDB) {
 fantasyDB[senderIndex][userId] = senderData
-userInDB[userId].record[0].total_character_transfer -= 1
 userReceiverDB[user].record[0].total_character_transfer += 1
 userInDB[userId].record[0].total_purchased -= 1
 userReceiverDB[user].record[0].total_purchased += 1
