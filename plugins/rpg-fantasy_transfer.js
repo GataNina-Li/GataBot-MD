@@ -99,9 +99,9 @@ let userReceiverDB = fantasyDB.find(userEntry => userEntry[user])
 if (senderCharacter && userInDB && userReceiverDB) {
 fantasyDB[senderIndex][userId] = senderData
 userInDB[userId].record[0].total_character_transfer -= 1
-userInDB[user].record[0].total_character_transfer += 1
+userReceiverDB[user].record[0].total_character_transfer += 1
 userInDB[userId].record[0].total_purchased -= 1
-userInDB[user].record[0].total_purchased += 1
+userReceiverDB[user].record[0].total_purchased += 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 await conn.reply(m.chat, `> *Transferencia completada* ✅\n
 El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`, m, { mentions: [user] })
