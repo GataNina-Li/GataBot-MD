@@ -108,11 +108,12 @@ El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*
 } else {
 return conn.reply(m.chat, '*El personaje no te pertenece*', m)
 }}
+  
 if (m.quoted && m.quoted.id == id_message && ['no', '👎'].includes(m.text.toLowerCase())) {
 return conn.reply(m.chat, `La transferencia de *"${senderCharacter.name}"* fue cancelada`, m)    
 }
 
-}
+}}
 
 handler.command = /^(fantasytransfer|fytransfer|fyregalar|fydar)$/i
 export default handler
