@@ -70,11 +70,10 @@ id_message = (await conn.reply(m.chat, mensajeConfirmacion, m, { mentions: [user
 }
 
 handler.before = async (m) => {  
+let senderCharacter
 let usuarioExistente = fantasyDB.find(usuario => Object.keys(usuario)[0] === userId)
 if (!(userId in usuarioExistente) || characterIndex == -1) return
-
 if (m.quoted && m.quoted.id == id_message && ['si', '👍'].includes(m.text.toLowerCase())) {
-let senderCharacter
 let receiverIndex = recipientIndex
 
 for (let i = 0; i < senderData.fantasy.length; i++) {
@@ -110,7 +109,7 @@ return conn.reply(m.chat, '*El personaje no te pertenece*', m)
 }}
   
 if (m.quoted && m.quoted.id == id_message && ['no', '👎'].includes(m.text.toLowerCase())) {
-return conn.reply(m.chat, `La transferencia de *"${senderCharacter.name}"* fue cancelada`, m)    
+return conn.reply(m.chat, `La transferencia de *"${senderData.fantasy[characterIndex].name}"* fue cancelada`, m)    
 }
 
 }}
