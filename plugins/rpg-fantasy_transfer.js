@@ -72,7 +72,7 @@ id_message = (await conn.reply(m.chat, mensajeConfirmacion, m, { mentions: [user
 
 handler.before = async (m) => {  
 let senderCharacter
-let usuarioExistente = fantasyDB.find(usuario => Object.keys(usuario)[0] === userId)
+let usuarioExistente = fantasyDB.find(usuario => Object.keys(usuario)[0] === user)
 if (!(userId in usuarioExistente) || characterIndex == -1) return
 if (m.quoted && m.quoted.id == id_message && ['si', '👍'].includes(m.text.toLowerCase())) {
 let receiverIndex = recipientIndex
