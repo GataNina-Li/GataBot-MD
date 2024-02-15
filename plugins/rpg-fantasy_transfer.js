@@ -60,47 +60,32 @@ if (characterIndex == -1) return conn.reply(m.chat, `*No hemos encontrado "${cha
     
 
 let senderCharacter
+let receiverIndex = recipientIndex
 console.log('Valor de character:', character)
-// Buscar el personaje en la estructura fantasy del usuario remitente
-for (let character of senderData.fantasy) {
-    if (character.id === character || character.name === character) {
-        senderCharacter = character;
-        break;
-    }
-}
 
-// Verificar si se encontró el personaje
+for (let characterData of senderData.fantasy) {
+if (characterData.id === character || characterData.name === character) {
+senderCharacter = characterData
+break
+}}
+
 if (senderCharacter) {
-    let receiverData = fantasyDB[receiverIndex][user];
-
-    // Verificar si el usuario receptor existe en la base de datos
-    if (receiverData) {
-        // Verificar si la propiedad fantasy existe en el usuario receptor
-        if (!receiverData.fantasy) {
-            receiverData.fantasy = [];
-        }
-
-        // Agregar el personaje transferido a la fantasy del usuario receptor
-        receiverData.fantasy.push(senderCharacter);
-
-        // Eliminar el personaje de la fantasy del usuario remitente
-        senderData.fantasy.splice(senderData.fantasy.indexOf(senderCharacter), 1);
-
-        // Actualizar los datos del usuario remitente en la base de datos
-        fantasyDB[senderIndex][m.sender] = senderData;
-
-        // Actualizar los datos del usuario receptor en la base de datos
-        fantasyDB[receiverIndex][user] = receiverData;
-
-        // Enviar un mensaje de confirmación
-        conn.reply(m.chat, `Hemos transferido el personaje ${senderCharacter.name} a ${user}`, m);
-    } else {
-        return conn.reply(m.chat, 'El usuario receptor no existe en la base de datos', m);
-    }
-} else {
-    return conn.reply(m.chat, 'El personaje especificado no pertenece al usuario remitente', m);
+let receiverData = fantasyDB[receiverIndex][user]
+if (receiverData) {
+if (!receiverData.fantasy) {
+receiverData.fantasy = []
 }
 
+receiverData.fantasy.push(senderCharacter)
+senderData.fantasy.splice(senderData.fantasy.indexOf(senderCharacter), 1)
+fantasyDB[senderIndex][m.sender] = senderData
+fantasyDB[receiverIndex][user] = receiverData
+conn.reply(m.chat, `Hemos transferido el personaje ${senderCharacter.name} a ${user}`, m)
+} else {
+return conn.reply(m.chat, 'El usuario receptor no existe en la base de datos', m)
+}} else {
+return conn.reply(m.chat, 'El personaje especificado no pertenece al usuario remitente', m)
+}
 
 }
 
