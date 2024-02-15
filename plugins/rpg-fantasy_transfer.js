@@ -78,7 +78,7 @@ const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === character.
   
 let senderCharacter
 let usuarioExistente = fantasyDB.find(usuario => Object.keys(usuario)[0] === m.sender)
-if (!usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code) return
+if (!usuarioExistente[m.sender].fantasy.some(personaje => personaje.id === imageInfo.code)) return
 if (m.quoted && m.quoted.id == id_message && ['si', '👍'].includes(m.text.toLowerCase())) {
 let receiverIndex = recipientIndex
 
