@@ -114,9 +114,9 @@ return conn.reply(m.chat, '*El personaje no te pertenece*', m)
   
 if (m.quoted && m.quoted.id == id_message && ['no', '👎'].includes(m.text.toLowerCase())) {
 return conn.reply(m.chat, `La transferencia de *"${senderData.fantasy[characterIndex].name}"* fue cancelada`, m)  
-}
-return
 }}
+return
+}
 
 handler.command = /^(fantasytransfer|fytransfer|fyregalar|fydar)$/i
 export default handler
