@@ -92,6 +92,7 @@ for (let i = 0; i < senderData.fantasy.length; i++) {
 if (senderCharacter) {
     // Actualizar los datos del remitente en la base de datos
     fantasyDB[senderIndex][m.sender] = senderData;
+    fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
     
     conn.reply(m.chat, `Hemos transferido el personaje ${senderCharacter.name} a ${user}`, m);
 } else {
