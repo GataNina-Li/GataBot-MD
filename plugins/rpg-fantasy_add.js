@@ -139,7 +139,7 @@ conn.reply(m.chat, '¡Ocurrió un error al procesar la solicitud!', m)
 function generarCodigo() {
 const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 const numeros = '0123456789'
-const caracteresEspeciales = '#@%_*!^><'
+const caracteresEspeciales = '#@%_*!^<'
 let codigo = ''
 for (let i = 0; i < 3; i++) {
 codigo += letras.charAt(Math.floor(Math.random() * letras.length))
