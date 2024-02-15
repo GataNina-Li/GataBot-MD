@@ -78,6 +78,8 @@ handler.before = async (m) => {
   
 let senderCharacter
 //let usuarioExistente = fantasyDB.find(usuario => Object.keys(usuario)[0] === user)
+senderData = fantasyDB[senderIndex][userId]
+characterIndex = senderData.fantasy.findIndex(obj => obj.name == character || obj.id == character)
 if (!characterIndex) return
 if (m.quoted && m.quoted.id == id_message && ['si', '👍'].includes(m.text.toLowerCase())) {
 let receiverIndex = recipientIndex
