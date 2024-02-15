@@ -60,7 +60,7 @@ let characterIndex = senderData.fantasy.findIndex(obj => obj.name == character |
 if (characterIndex == -1) return conn.reply(m.chat, `*No hemos encontrado "${character}"*\n\n> *Motivo:* _Puede deberse a que no tiene ese personaje o está mal escrito el nombre o código del personaje_\n\n> *Para ver tus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
 
 let id_message
-if (characterIndex) {
+if (characterIndex != -1) {
 let mensajeConfirmacion = `> *Esto pasará si transfieres "${senderData.fantasy[characterIndex].name}" a @${user.split('@')[0]}*\n
 - _Los datos del personaje ya no serán tuyos_
 - _También se transferirán marcadores del personaje_
