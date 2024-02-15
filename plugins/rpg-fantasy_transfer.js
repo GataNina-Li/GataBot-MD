@@ -64,7 +64,8 @@ if (characterIndex != -1) {
 let mensajeConfirmacion = `> *Esto pasará si transfieres "${senderData.fantasy[characterIndex].name}" a @${user.split('@')[0]}*\n
 - _Los datos del personaje ya no serán tuyos_
 - _También se transferirán marcadores del personaje_
-- _No se te restará ni reembolsará la compra por el personaje_\n
+- _No se te restará ni reembolsará la compra por el personaje_
+- _Tú calificación del personaje no se cambiará_\n
 > _Si deseas continuar con la transferencia, escriba *"Si"* respondiendo a este mensaje, de lo contrario escriba *"No"*_`
 id_message = (await conn.reply(m.chat, mensajeConfirmacion, m, { mentions: [user] })).key.id
 }
