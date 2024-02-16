@@ -8,7 +8,7 @@ export default handler*/
 
 const handler = async (m, { conn, text, args, participants, usedPrefix, command }) => {
 let caption = 'Selecciona una opción:' 
-let comandos = ['menu', 'estado', 'ping']
+let comandos = ['.menu', '.estado', '.ping']
 
 /*const pollMessage = {
 name: caption,
