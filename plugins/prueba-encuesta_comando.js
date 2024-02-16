@@ -19,6 +19,12 @@ selectableCount: 1
 await conn.sendMessage(m.chat, { poll: pollMessage })*/
 await conn.sendPoll(m.chat, caption, comandos)
     
+conn.on('message-new', async (message) => {
+if (message.pollReply && message.pollReply.fromMe) {
+const texto = message.text.trim()
+console.log("Respuesta a la votación:", texto)
+}})
+    
 }
 
 handler.command = ['pruebapoll']
