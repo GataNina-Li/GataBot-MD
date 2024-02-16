@@ -53,7 +53,7 @@ function nullish(args) {
 
     try {
         // Usar la función para enviar encuestas
-        await enviarEncuesta(jid, pregunta, m)
+        await enviarEncuesta(jid, pregunta, { mentions: m })
         console.log("Encuesta enviada correctamente.")
     } catch (error) {
         console.error("Error al enviar la encuesta:", error)
