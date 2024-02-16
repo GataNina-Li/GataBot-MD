@@ -7,7 +7,7 @@ handler.command = ['pruebapoll']
 export default handler*/
 
 const handler = async (m, { conn, text, args, participants, usedPrefix, command }) => {
-  
+ let sock = conn
     const prefix = usedPrefix
 
     async function getMessage(key) {
