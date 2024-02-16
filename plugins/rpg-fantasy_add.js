@@ -153,5 +153,5 @@ codigo += caracteresEspeciales.charAt(Math.floor(Math.random() * caracteresEspec
 codigo = codigo.split('').sort(() => Math.random() - 0.5).join('');
 return codigo
 }
-handler.command = /^(fantasyadd|fyadd)$/i
+handler.command = /^(fantasyadd|fyadd|fyagregar)$/i
 export default handler
