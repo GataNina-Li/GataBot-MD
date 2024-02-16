@@ -7,7 +7,7 @@ handler.command = ['pruebapoll']
 export default handler*/
 
 const handler = async (m, { conn, text, args, participants, usedPrefix, command }) => {
- let sock = conn
+    let sock = conn
     const prefix = usedPrefix
 
     async function getMessage(key) {
@@ -34,8 +34,8 @@ const handler = async (m, { conn, text, args, participants, usedPrefix, command 
         }
     });
 
-    
-    conn.sendPoll = async (jid, name = '', optiPoll, selectableCount = 1) => {
+    // Crear una función para enviar encuestas
+    const enviarEncuesta = async (jid, name = '', optiPoll, selectableCount = 1) => {
         if (!Array.isArray(optiPoll[0]) && typeof optiPoll[0] === 'string') optiPoll = [optiPoll];
         const values = optiPoll.map(btn => ({
             optionName: !nullish(btn[0]) ? btn[0] : ''
@@ -43,13 +43,13 @@ const handler = async (m, { conn, text, args, participants, usedPrefix, command 
         await conn.sendMessage(jid, { poll: { name, values, selectableCount }});
     };
 
-    
     const jid = m.chat
     const pregunta = "Selecciona una opción:"
     const opciones = [["menu"], ["estado"], ["ping"]]
 
     try {
-        await conn.sendPoll(jid, pregunta, opciones);
+        // Usar la función para enviar encuestas
+        await enviarEncuesta(jid, pregunta, opciones)
         console.log("Encuesta enviada correctamente.")
     } catch (error) {
         console.error("Error al enviar la encuesta:", error)
@@ -58,4 +58,3 @@ const handler = async (m, { conn, text, args, participants, usedPrefix, command 
 
 handler.command = ['pruebapoll']
 export default handler
-
