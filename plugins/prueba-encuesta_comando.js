@@ -8,6 +8,10 @@ export default handler*/
 
 const handler = async (m, { conn, text, args, participants, usedPrefix, command }) => {
 let sock = conn
+    
+function nullish(args) {
+    return !(args !== null && args !== undefined)
+}
 
 async function getMessage(key){
     if (store) {
