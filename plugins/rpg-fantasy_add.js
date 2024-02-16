@@ -3,25 +3,25 @@ import fs from 'fs'
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 const helpMessage = `
-*Comando Fantasy Add*
+> *Fantasy - Agregar personaje*
 
-Este comando te permite agregar nuevos personajes a un archivo Json llamado *"fantasyAdd.json"*.
+_Este comando te permite agregar nuevos personajes a la base de datos._
 
 *Uso:*
-*${usedPrefix + command}* enlace + nombre + descripción + clase + tipo
+\`${usedPrefix + command}\` enlace + nombre + descripción + clase + tipo
 
 *Parámetros:*
-*- url:* Enlace de la imagen (debe comenzar con 'https://telegra.ph/file/').\n
-*- name:* Nombre del anime o personaje (primera letra de cada palabra en mayúscula).\n
-*- desp:* Descripción del anime o personaje o de donde proviene (primera letra de cada palabra en mayúscula).\n
-*- class:* Clase del personaje (Común, Poco Común, Raro, Épico, Legendario, Sagrado, Supremo, o Transcendental).\n
-*- type:* Etiquetas del personaje, separadas por ":" o ";" o "/" (primera letra de cada etiqueta en mayúscula).
+\`url:\` » Enlace de la imagen (debe comenzar con 'https://telegra.ph/file/').\n
+\`name\` » Nombre del anime o personaje (primera letra de cada palabra en mayúscula).\n
+\`desp\` » Descripción del anime o personaje o de donde proviene (primera letra de cada palabra en mayúscula).\n
+\`class\` » Clase del personaje (Común, Poco Común, Raro, Épico, Legendario, Sagrado, Supremo, o Transcendental).\n
+\`type\` » Etiquetas del personaje, separadas por ":" o ";" o "/" (primera letra de cada etiqueta en mayúscula).
 
-*Nota*
-_Para obtener el enlace a la imagen puedes usar el coamndo *${usedPrefix}tourl* respondiendo a la imgen, también puedes mejorar la calidad de imagen respondiendo a la imagen *${usedPrefix}hd*_
+> *Nota*
+> _Para obtener el enlace a la imagen puedes usar el coamndo *${usedPrefix}tourl* respondiendo a la imgen, también puedes mejorar la calidad de imagen respondiendo a la imagen *${usedPrefix}hd*_
 
 *Ejemplo:*
-*${usedPrefix + command}* https://telegra.ph/file/abcd1234.jpg + Son Goku + Dragon Ball + Épico + Aventura / Acción
+\`${usedPrefix + command}\` https://telegra.ph/file/abcd1234.jpg + Son Goku + Dragon Ball + Épico + Aventura / Acción
 `.trim()
 if (!text) return conn.reply(m.chat, helpMessage, m)
   
