@@ -1,5 +1,7 @@
 import fetch from 'node-fetch'
 import fs from 'fs'
+const fantasyAddPath = './fantasyAdd.json'
+let fantasyAddData = []
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 const helpMessage = `
@@ -13,7 +15,7 @@ _Este comando te permite agregar nuevos personajes a la base de datos._
 *Parámetros:*
 \`url:\` » Enlace de la imagen (debe comenzar con 'https://telegra.ph/file/').\n
 \`name\` » Nombre del anime o personaje (primera letra de cada palabra en mayúscula).\n
-\`desp\` » Descripción del anime o personaje o de donde proviene (primera letra de cada palabra en mayúscula).\n
+\`desp\` » Descripción del anime o personaje o de donde proviene.\n
 \`class\` » Clase del personaje (Común, Poco Común, Raro, Épico, Legendario, Sagrado, Supremo, o Transcendental).\n
 \`type\` » Etiquetas del personaje, separadas por ":" o ";" o "/" (primera letra de cada etiqueta en mayúscula).
 
@@ -26,19 +28,17 @@ _Este comando te permite agregar nuevos personajes a la base de datos._
 if (!text) return conn.reply(m.chat, helpMessage, m)
   
 try {
-const fantasyAddPath = './fantasyAdd.json'
-let fantasyAddData = []
 if (fs.existsSync(fantasyAddPath)) {
 const data = fs.readFileSync(fantasyAddPath, 'utf8')
 fantasyAddData = JSON.parse(data)
 }
 const [url, name, desp, classInput, typeInput] = text.split('+').map((item) => item.trim())
 if (!url || !name || !desp || !classInput || !typeInput) {
-return conn.reply(m.chat, 'Faltan parámetros. Asegúrate de proporcionar todos los datos requeridos.', m)
+return conn.reply(m.chat, '> *Faltan parámetros.* Asegúrate de proporcionar todos los datos requeridos.', m)
 }
 
 if (!url.startsWith('https://telegra.ph/file/')) {
-return conn.reply(m.chat, '¡Por favor, ingresa un enlace de imagen válido!\n\n*Ejemplo:*\nhttps://telegra.ph/file/13739fe030f0a5c8cdd9c.jpg', m)
+return conn.reply(m.chat, '> *¡Por favor, ingresa un enlace de imagen válido!*\n\n*Ejemplo:*\nhttps://telegra.ph/file/13739fe030f0a5c8cdd9c.jpg', m)
 }
 
 const formattedName = name.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
@@ -50,7 +50,7 @@ const formattedClass = classInput.trim().toLowerCase().split(' ').map(word => wo
 //return conn.reply(m.chat, '¡Solo puedes ingresar una clase a la vez!', m)
 //}
 if (!validClasses.includes(formattedClass)) {
-return conn.reply(m.chat, '¡Clase no válida! Solo se aceptan las siguientes:\nComún, Poco Común, Raro, Épico, Legendario, Sagrado, Supremo, Transcendental', m)
+return conn.reply(m.chat, `> *¡Clase no válida!* Sólo se aceptan las siguientes:\n\n\`Común, Poco Común, Raro, Épico, Legendario, Sagrado, Supremo, Transcendental\``, m)
 }
 
 const formattedType = typeInput.split(/[:;/]/).map((item) => item.trim().toLowerCase()).map((item) => item.replace(/^\w/, (c) => c.toUpperCase())).join(', ')
@@ -116,16 +116,11 @@ code: codigoImagen,
 })
 
 fs.writeFileSync(fantasyAddPath, JSON.stringify(fantasyAddData, null, 2), 'utf8')
-const reply = await conn.reply(m.chat, '*¡Personaje agregado exitosamente!*\n\nResponde a este mensaje con "enviar" o "👍" sólo si deseas enviar los personajes a mis creadores para que lo agreguen en *GataBot*.', m)
+const reply = await conn.reply(m.chat, '> *¡Personaje agregado exitosamente!*\n\nResponde a este mensaje con "enviar" o "👍" sólo si deseas enviar los personajes a mis creadores para que lo agreguen en *GataBot*.', m)
 handler.before = async (m) => {
 if (m.quoted && m.quoted.id === reply.id && ['enviar', '👍'].includes(m.text.toLowerCase())) {
 const databaseFantasyAdd = Buffer.from(JSON.stringify(fantasyAddData, null, 2), 'utf-8')
 const jsonString = JSON.stringify(fantasyAddData, null, 2)
-//Solo dos personas, si más se agregan puede provocar soporte
-await conn.reply('51906662557@s.whatsapp.net', `*Solicitud de @${m.sender.split("@")[0]} Para agregar personajes de Fantasy RPG en GataBot*`, null, { mentions: [m.sender] })
-await conn.sendMessage('51906662557@s.whatsapp.net', { document: databaseFantasyAdd, mimetype: 'application/json', fileName: `fantasyAdd_${m.sender}.json` }, { quoted: m })
-await conn.reply('51906662557@s.whatsapp.net', `${jsonString}`, m)
-
 await conn.reply('593968263524@s.whatsapp.net', `*Solicitud de @${m.sender.split("@")[0]} Para agregar personajes de Fantasy RPG en GataBot*`, null, { mentions: [m.sender] })
 await conn.sendMessage('593968263524@s.whatsapp.net', { document: databaseFantasyAdd, mimetype: 'application/json', fileName: `fantasyAdd_${m.sender}.json` }, { quoted: m })
 await conn.reply('593968263524@s.whatsapp.net', `${jsonString}`, m)
