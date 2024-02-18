@@ -291,7 +291,7 @@ let rankingClases = topUsuariosClases ? topUsuariosClases : '```Todavía no hay 
 let usuariosTransferencias = fantasyDB
 .map(entry => ({
 userId: Object.keys(entry)[0],
-totalTransferencias: entry[Object.keys(entry)[0]].total_character_transfer || 0
+totalTransferencias: usuario.record[0].total_character_transfer || 0
 }))
 .filter(usuario => usuario.totalTransferencias > 0) // Filtrar usuarios con al menos una transferencia
 .sort((a, b) => b.totalTransferencias - a.totalTransferencias)
