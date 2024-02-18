@@ -113,7 +113,7 @@ userInDB[userId].record[0].total_purchased -= 1
 userReceiverDB[user].record[0].total_purchased += 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 let fytxt = `> *Transferencia completada* ✅\n
-El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*\n\n> _Use *${usedPrefix}fytop* para ver su ranking_`
+El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*\n\n> _Use *${usedPrefix}fyranking* para ver su ranking_`
 await conn.sendMessage(m.chat, { image: { url: imageURL }, caption: fytxt, mentions: [user] }, { quoted: fkontak })
   
 } else {
