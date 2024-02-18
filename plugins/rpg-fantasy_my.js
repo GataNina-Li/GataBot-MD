@@ -287,6 +287,23 @@ return `*${positionEmoji}* @${userId.split('@')[0]}\n*✪ ${clase}* » *${count}
 }).join('\n\n')
 let rankingClases = topUsuariosClases ? topUsuariosClases : '```Todavía no hay usuarios aquí```'
 
+// Usuarios por cantidad de transferencias
+let usuariosTransferencias = fantasyDB
+.map(entry => ({
+userId: Object.keys(entry)[0],
+totalTransferencias: entry[Object.keys(entry)[0]].total_character_transfer || 0
+}))
+.filter(usuario => usuario.totalTransferencias > 0) // Filtrar usuarios con al menos una transferencia
+.sort((a, b) => b.totalTransferencias - a.totalTransferencias)
+.slice(0, cantidadUsuariosRanking)
+.map((usuario, index) => {
+let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
+return `*${positionEmoji}* @${usuario.userId.split('@')[0]}\n*✪* Realizó *${usuario.totalTransferencias}* transferencia${usuario.totalTransferencias === 1 ? '' : 's'}`
+}).join('\n\n')
+
+let rankingTransferencias = usuariosTransferencias ? usuariosTransferencias : '```Todavía no hay usuarios aquí```'
+
+
 let mentions = []
 fantasyDB.forEach(entry => {
 mentions.push({
@@ -301,6 +318,9 @@ ${rankingPersonajes}\n
 
 *❰ Calificando personajes ❱ ("👍", "❤️", "👎")*
 ${rankingCalificaciones}\n
+
+❇️ *❰ Personajes transferidos ❱* ❇️
+${rankingTransferencias}\n
 
 🤑 *❰ Personaje más caro ❱* 🤑
 ${rankingCaros}\n
