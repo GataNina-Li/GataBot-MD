@@ -4,6 +4,7 @@ const fantasyDBPath = './fantasy.json'
 let fantasyDB = []
 let fake
 let handler = async (m, { text, usedPrefix, command, conn }) => {
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 let userId = m.sender
 if (fs.existsSync(fantasyDBPath)) {
 fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'))
@@ -111,11 +112,25 @@ userReceiverDB[user].record[0].total_character_transfer += 1
 userInDB[userId].record[0].total_purchased -= 1
 userReceiverDB[user].record[0].total_purchased += 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
-fake = { contextInfo: { externalAdReply: { title: `🆕 Realizó una transferencia`, body: `Use ${usedPrefix}fytop para ver su ranking`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: imageURL }}}
 //await conn.reply(m.chat, `> *Transferencia completada* ✅\n
 //El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`, m, { mentions: [user] })
-await conn.sendMessage(m.chat, { image: { url: imageURL }, caption: `> *Transferencia completada* ✅\n
-//El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`, mentions: [user] }, { quoted: m }, fake)
+let fytxt = `> *Transferencia completada* ✅\n
+El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`
+await conn.sendFile(m.chat, imageURL, 'fantasy.jpg', fytxt, fkontak, true, {
+contextInfo: {
+'forwardingScore': 200,
+'isForwarded': false,
+externalAdReply: {
+showAdAttribution: false,
+renderLargerThumbnail: false,
+title: `🆕 Realizó una transferencia`,
+body: `Use "${usedPrefix}fytop" para ver su ranking`,
+mediaType: 1,
+sourceUrl: accountsgb.getRandom(),
+thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
+}}}, { mentions: [user] })
+
+  
 } else {
 return conn.reply(m.chat, '*El personaje no te pertenece*', m)
 }}
