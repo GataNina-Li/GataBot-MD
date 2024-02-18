@@ -250,47 +250,42 @@ let rankingCaros = topUsuariosCaros ? topUsuariosCaros : 'Todavía no hay usuari
 // Obtener usuarios con mejor clase de personaje
 let clasesPorUsuario = {}
 fantasyDB.forEach(entry => {
-    entry[Object.keys(entry)[0]].fantasy.forEach(personaje => {
-        let infoPersonaje = data.infoImg.find(img => img.name.toLowerCase() === personaje.name.toLowerCase())
-        if (infoPersonaje) {
-            if (!clasesPorUsuario[Object.keys(entry)[0]]) {
-                clasesPorUsuario[Object.keys(entry)[0]] = {}
-            }
-            if (!clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class]) {
-                clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class] = 0
-            }
-            clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class]++
-        }
-    })
+entry[Object.keys(entry)[0]].fantasy.forEach(personaje => {
+let infoPersonaje = data.infoImg.find(img => img.name.toLowerCase() === personaje.name.toLowerCase())
+if (infoPersonaje) {
+if (!clasesPorUsuario[Object.keys(entry)[0]]) {
+clasesPorUsuario[Object.keys(entry)[0]] = {}
+}
+if (!clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class]) {
+clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class] = 0
+}
+clasesPorUsuario[Object.keys(entry)[0]][infoPersonaje.class]++
+}
 })
-
-// Obtener la mejor clase de personaje para cada usuario
+})
+// La mejor clase de personaje
 let mejoresClasesPorUsuario = {}
 Object.keys(clasesPorUsuario).forEach(userId => {
-    let clasesUsuario = clasesPorUsuario[userId]
-    let mejorClase = Object.keys(clasesUsuario).reduce((a, b) => clasesUsuario[a] > clasesUsuario[b] ? a : b)
-    mejoresClasesPorUsuario[userId] = mejorClase
+let clasesUsuario = clasesPorUsuario[userId]
+let mejorClase = Object.keys(clasesUsuario).reduce((a, b) => clasesUsuario[a] > clasesUsuario[b] ? a : b)
+mejoresClasesPorUsuario[userId] = mejorClase
 })
-
 // Ordenar a los usuarios según la cantidad de personajes en su mejor clase
 let topUsuariosClases = Object.keys(mejoresClasesPorUsuario)
-    .filter(userId => Object.values(clasesPorUsuario[userId]).length > 0)
-    .sort((a, b) => {
-        let aClass = validClasses.indexOf(mejoresClasesPorUsuario[a])
-        let bClass = validClasses.indexOf(mejoresClasesPorUsuario[b])
-        return bClass - aClass
-    })
-    .slice(0, cantidadUsuariosRanking)
-    .map((userId, index) => {
-        let clase = mejoresClasesPorUsuario[userId]
-        let count = clasesPorUsuario[userId][clase]
-        let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
-        return `*${positionEmoji}* @${userId.split('@')[0]}\n*✪ ${clase}* » *${count}* personaje${count === 1 ? '' : 's'}`
-    })
-    .join('\n\n')
-
+.filter(userId => Object.values(clasesPorUsuario[userId]).length > 0)
+.sort((a, b) => {
+let aClass = validClasses.indexOf(mejoresClasesPorUsuario[a])
+let bClass = validClasses.indexOf(mejoresClasesPorUsuario[b])
+return bClass - aClass
+})
+.slice(0, cantidadUsuariosRanking)
+.map((userId, index) => {
+let clase = mejoresClasesPorUsuario[userId]
+let count = clasesPorUsuario[userId][clase]
+let positionEmoji = index === 0 ? "🥇 »" : index === 1 ? "🥈 »" : index === 2 ? "🥉 »" : `${index + 1}.`
+return `*${positionEmoji}* @${userId.split('@')[0]}\n*✪ ${clase}* » *${count}* personaje${count === 1 ? '' : 's'}`
+}).join('\n\n')
 let rankingClases = topUsuariosClases ? topUsuariosClases : '```Todavía no hay usuarios aquí```'
-
 
 let mentions = []
 fantasyDB.forEach(entry => {
