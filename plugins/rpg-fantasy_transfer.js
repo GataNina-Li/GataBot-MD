@@ -72,7 +72,7 @@ let mensajeConfirmacion = `> *Esto pasará si transfieres "${senderData.fantasy[
 - _Tú calificación del personaje no se cambiará_\n
 > _Si deseas continuar con la transferencia, escriba *"Si"* respondiendo a este mensaje, de lo contrario escriba *"No"*_`
 fake = { contextInfo: { externalAdReply: { title: `⚠️ Preste atención ⚠️`, body: `Al aceptar no puede revertirse`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-id_message = (await conn.reply(m.chat, mensajeConfirmacion, fake, m, { mentions: [user] })).key.id
+id_message = (await conn.reply(m.chat, mensajeConfirmacion, fake, { mentions: [user] })).key.id
 }
 
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
