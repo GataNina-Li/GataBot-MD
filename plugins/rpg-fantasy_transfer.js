@@ -112,24 +112,9 @@ userReceiverDB[user].record[0].total_character_transfer += 1
 userInDB[userId].record[0].total_purchased -= 1
 userReceiverDB[user].record[0].total_purchased += 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
-//await conn.reply(m.chat, `> *Transferencia completada* ✅\n
-//El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`, m, { mentions: [user] })
 let fytxt = `> *Transferencia completada* ✅\n
-El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`
-await conn.sendFile(m.chat, imageURL, 'fantasy.jpg', fytxt, fkontak, { mentions: [user] }, {
-contextInfo: {
-'forwardingScore': 200,
-'isForwarded': false,
-externalAdReply: {
-showAdAttribution: false,
-renderLargerThumbnail: false,
-title: `🆕 Realizó una transferencia`,
-body: `Use "${usedPrefix}fytop" para ver su ranking`,
-mediaType: 1,
-sourceUrl: accountsgb.getRandom(),
-thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
-}}})
-
+El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*\n\n> _Use *${usedPrefix}fytop* para ver su ranking_`
+await conn.sendMessage(m.chat, { image: { url: imageURL }, caption: fytxt, mentions: [user] }, { quoted: fkontak })
   
 } else {
 return conn.reply(m.chat, '*El personaje no te pertenece*', m)
