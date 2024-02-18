@@ -116,7 +116,7 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 //El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`, m, { mentions: [user] })
 let fytxt = `> *Transferencia completada* ✅\n
 El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`
-await conn.sendFile(m.chat, imageURL, 'fantasy.jpg', fytxt, fkontak, true, {
+await conn.sendFile(m.chat, imageURL, 'fantasy.jpg', fytxt, fkontak, { mentions: [user] }, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
@@ -128,7 +128,7 @@ body: `Use "${usedPrefix}fytop" para ver su ranking`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
-}}}, { mentions: [user] })
+}}})
 
   
 } else {
