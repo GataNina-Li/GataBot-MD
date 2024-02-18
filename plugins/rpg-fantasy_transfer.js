@@ -71,7 +71,7 @@ let mensajeConfirmacion = `> *Esto pasará si transfieres "${senderData.fantasy[
 - _No se te restará ni reembolsará la compra por el personaje_
 - _Tú calificación del personaje no se cambiará_\n
 > _Si deseas continuar con la transferencia, escriba *"Si"* respondiendo a este mensaje, de lo contrario escriba *"No"*_`
-id_message = (await conn.reply(m.chat, mensajeConfirmacion, null, fake, { mentions: [user] })).key.id
+id_message = (await conn.reply(m.chat, mensajeConfirmacion, m, { mentions: [user] })).key.id
 }
 
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
@@ -111,8 +111,11 @@ userReceiverDB[user].record[0].total_character_transfer += 1
 userInDB[userId].record[0].total_purchased -= 1
 userReceiverDB[user].record[0].total_purchased += 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
-await conn.reply(m.chat, `> *Transferencia completada* ✅\n
-El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`, null, fake, { mentions: [user] })
+fake = { contextInfo: { externalAdReply: { title: `🆕 Realizó una transferencia`, body: `Use ${usedPrefix}fytop para ver su ranking`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: imageURL }}}
+//await conn.reply(m.chat, `> *Transferencia completada* ✅\n
+//El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`, m, { mentions: [user] })
+await conn.sendMessage(m.chat, { image: { url: imageURL }, caption: `> *Transferencia completada* ✅\n
+//El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`, mentions: [user] }, { quoted: m }, fake)
 } else {
 return conn.reply(m.chat, '*El personaje no te pertenece*', m)
 }}
