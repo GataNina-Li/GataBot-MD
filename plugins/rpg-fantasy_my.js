@@ -305,6 +305,8 @@ return `*${positionEmoji}* @${usuario.userId.split('@')[0]}\n*✪* Realizó *${u
 }).join('\n\n')
 let rankingTransferencias = usuariosTransferencias ? usuariosTransferencias : '```Todavía no hay usuarios aquí```'
 
+const personajesTransferencias = usuarioExistente[idUsuario].record[0].total_character_transfer
+
 let mentions = []
 fantasyDB.forEach(entry => {
 mentions.push({
@@ -336,7 +338,7 @@ ${rankingClases}
 
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 
-🌟 *❰ Información de personajes ❱* 🌟
+> 🌟 *❰ Información de personajes ❱* 🌟
 *✓ @${userId.split('@')[0]}*
     
 *❰ Total de personajes ❱* 
@@ -347,6 +349,9 @@ ${listaPersonajes}
     
 *❰ Calificación total de personajes ❱* 
 ${calificacionTotal > 0 ? `*✓* \`\`\`${calificacionTotal}\`\`\`` : `*✘* \`\`\`No has calificado personajes\`\`\``}
+
+*❰ Personajes transferidos ❱* 
+${personajesTransferencias > 0 ? `*✓* \`\`\`${personajesTransferencias}\`\`\`` : `*✘* \`\`\`No has transferido personajes\`\`\``}
     
 *❰ Personajes que has dado 👍 ❱* 
 ${personajesGustados > 0 ? `*✓* \`\`\`${personajesGustados}\`\`\`` : personajesGustados}
