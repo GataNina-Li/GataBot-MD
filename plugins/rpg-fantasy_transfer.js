@@ -108,7 +108,7 @@ let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 let userReceiverDB = fantasyDB.find(userEntry => userEntry[user])
 if (senderCharacter && userInDB && userReceiverDB) {
 fantasyDB[senderIndex][userId] = senderData
-userReceiverDB[userId].record[0].total_character_transfer += 1
+userInDB[userId].record[0].total_character_transfer += 1
 userInDB[userId].record[0].total_purchased -= 1
 userReceiverDB[user].record[0].total_purchased += 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
