@@ -317,7 +317,7 @@ const mensaje = `
 > 🤩 *❰ Más personajes comprados ❱* 🤩
 ${rankingPersonajes}\n
 
-> *❰ Calificando personajes ❱ ("👍", "❤️", "👎")*
+> *❰ Calificando ("👍", "❤️", "👎") ❱*
 ${rankingCalificaciones}\n
 
 > ❇️ *❰ Personajes transferidos ❱* ❇️
