@@ -72,7 +72,7 @@ let mensajeConfirmacion = `> *Esto pasará si transfieres "${senderData.fantasy[
 - _Tú calificación del personaje no se cambiará_\n
 > _Si deseas continuar con la transferencia, escriba *"Si"* respondiendo a este mensaje, de lo contrario escriba *"No"*_`
 fake = { contextInfo: { externalAdReply: { title: `⚠️ Preste atención ⚠️`, body: `Al aceptar no puede revertirse`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-id_message = (await conn.reply(m.chat, mensajeConfirmacion, fake, { mentions: [user] })).key.id
+id_message = (await conn.reply(m.chat, mensajeConfirmacion, m, { mentions: [user] })).key.id
 }
 
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
@@ -112,9 +112,8 @@ userReceiverDB[user].record[0].total_character_transfer += 1
 userInDB[userId].record[0].total_purchased -= 1
 userReceiverDB[user].record[0].total_purchased += 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
-fake = { contextInfo: { externalAdReply: { title: `🆕 Realizó una transferencia`, body: `Use ${usedPrefix}fytop para ver su ranking`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: imageURL }}}
 await conn.reply(m.chat, `> *Transferencia completada* ✅\n
-El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`, m, fake, { mentions: [user] })
+El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`, null, fake, { mentions: [user] })
 } else {
 return conn.reply(m.chat, '*El personaje no te pertenece*', m)
 }}
