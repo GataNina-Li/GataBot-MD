@@ -314,19 +314,19 @@ mentions.push({
 const mensaje = `
 🔥 *RPG FANTASY - TENDENCIAS* 🔥
 
-🤩 *❰ Más personajes comprados ❱* 🤩
+> 🤩 *❰ Más personajes comprados ❱* 🤩
 ${rankingPersonajes}\n
 
-*❰ Calificando personajes ❱ ("👍", "❤️", "👎")*
+> *❰ Calificando personajes ❱ ("👍", "❤️", "👎")*
 ${rankingCalificaciones}\n
 
-❇️ *❰ Personajes transferidos ❱* ❇️
+> ❇️ *❰ Personajes transferidos ❱* ❇️
 ${rankingTransferencias}\n
 
-🤑 *❰ Personaje más caro ❱* 🤑
+> 🤑 *❰ Personaje más caro ❱* 🤑
 ${rankingCaros}\n
 
-😎 *❰ Mejor clase en personaje ❱* 😎
+> 😎 *❰ Mejor clase en personaje ❱* 😎
 ${rankingClases}
 
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
