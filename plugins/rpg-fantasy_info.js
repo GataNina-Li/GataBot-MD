@@ -5,7 +5,7 @@ const fantasyDBPath = './fantasy.json'
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 
 let handler = async (m, { command, usedPrefix, text, conn }) => {
-
+let user = global.db.data.users[m.sender]
 const response = await fetch(jsonURL)
 const data = await response.json()
 
@@ -61,7 +61,7 @@ estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)
 }}}
 
 await conn.reply(m.chat, '> *Obteniendo información del personaje...*\n\n_Esto puede tomar tiempo, paciencia por favor_', m)
-const preguntas = obtenerPreguntas(nombre, 5)
+const preguntas = obtenerPreguntas(nombre, !user.premiumTime ? 1 : 5)
 const respuestas = []
 const modo = `Responderás a esta pregunta únicamente`
 for (const pregunta of preguntas) {
@@ -74,7 +74,7 @@ respuestas.push('err-gb')
 }}
 
 let mensaje = `
-> *Detalles del personaje*
+> 🌟 *Detalles del personaje* 🌟
 
 *Nombre:* 
 ✓ ${nombre}
@@ -109,9 +109,10 @@ mensaje += `
 ${respuestas.some(respuesta => respuesta === 'err-gb') ? '`En este momento no se puede acceder a este recurso`' :
 preguntas.map((pregunta, index) => `*✪ ${pregunta}*\n${respuestas[index]}`).join('\n\n')}
 `
-
+if (!user.premiumTime) {
 mensaje += `${respuestas.some(respuesta => respuesta === 'err-gb') ? '' :
 `\n\n*¡Sé un usuario 🎟️ premium para liberar más contenido de la IA! ✨*\n\n> Puedes usar *${usedPrefix}fychange* o *${usedPrefix}fycambiar* para obtener ⏳🎟️ Tiempo Premium\n\n> También puedes comprar un pase 🎟️ usando *${usedPrefix}pase premium*`}`
+}
         
 await conn.sendFile(m.chat, imagen, 'fantasy.jpg', mensaje.trim(), m, true, {
 contextInfo: {
