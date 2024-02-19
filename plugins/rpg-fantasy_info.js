@@ -61,7 +61,7 @@ estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)
 }}}
 
 await conn.reply(m.chat, '> *Obteniendo información del personaje...*\n\n_Esto puede tomar tiempo, paciencia por favor_', m)
-const preguntas = obtenerPreguntas(nombre, 4)
+const preguntas = obtenerPreguntas(nombre, 1)
 const respuestas = []
 const modo = `Responderás a esta pregunta únicamente`
 for (const pregunta of preguntas) {
