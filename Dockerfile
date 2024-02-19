@@ -1,7 +1,7 @@
 FROM node:20.10.0-alpine3.18
 
-#La distribucion alpine3 es mas optima para contenedores
-#se agrega GIT porque alpine3 no lo trae por defecto
+#Kurt18 La distribucion alpine3 es mas optima para contenedores
+#Kurt18 se agrega GIT porque alpine3 no lo trae por defecto
 RUN apk update && \
   apk add --no-cache \
   git \
@@ -18,5 +18,5 @@ COPY . .
 
 EXPOSE 5000
 
-# Iniciará con el QR
+#Kurt18 Iniciará con el QR
 CMD ["npm", "run", "qr"]
