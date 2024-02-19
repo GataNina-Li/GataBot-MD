@@ -59,7 +59,8 @@ const nombreImagen = data.infoImg.find(personaje => personaje.code === codigo)?.
 if (nombreImagen) {
 estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)}*`
 }}}
-        
+
+await conn.reply(m.chat, '> *Obteniendo información del personaje...*\n\n_Esto puede tomar tiempo, paciencia por favor_', m)
 const preguntas = [
 `¿Cuál es el nombre completo del personaje ${nombre}?`,
 `¿En qué obra (libro, película, serie, videojuego, etc.) aparece este personaje ${nombre}?`,
@@ -98,7 +99,6 @@ mensaje += `
 ${respuestas.some(respuesta => respuesta === 'error') ? '`En este momento no se puede acceder a este recurso`' :
 preguntas.map((pregunta, index) => `*${pregunta}*\n_${respuestas[index]}_`).join('\n\n')}
 `
-await conn.reply(m.chat, '> *Obteniendo información del personaje...*\n\n_Esto puede tomar tiempo, paciencia por favor_', m)
 await conn.reply(m.chat, mensaje.trim(), m)
 }
 
