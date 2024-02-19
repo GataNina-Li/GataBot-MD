@@ -4,7 +4,7 @@ import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 
-let handler = async (m, { command, text, conn }) => {
+let handler = async (m, { command, usedPrefix, text, conn }) => {
 
 const response = await fetch(jsonURL)
 const data = await response.json()
@@ -78,22 +78,22 @@ let mensaje = `
 
 *Imagen:* ${imagen}
 *Nombre:* 
-✔ ${nombre}
+✓ ${nombre}
 
 *Precio:* 
-✔ \`${precio}\` *${rpgshop.emoticon('money')}*
+✓ \`${precio}\` *${rpgshop.emoticon('money')}*
 
 *Clase:* 
-✔ ${clase}
+✓ ${clase}
 
 *Tipo:* 
-✔ ${tipo}
+✓ ${tipo}
 
 *Código:* 
-✔ ${codigo}
+✓ ${codigo}
 
 *Descripción:* 
-✔ ${descripcion}
+✓ ${descripcion}
 
 ⟡ *Calificación total del personaje »* \`${calificacionTotal}\`
 ⟡ *Cantidad de 👍 (Me gusta) »* \`${cantidadLikes}\`
@@ -101,14 +101,18 @@ let mensaje = `
 ⟡ *Cantidad de 👎 (No me gusta) »* \`${cantidadDislikes}\`
 
 *Comprado:* 
-✔ ${estado}
+✓ ${estado}
 `
 
 mensaje += `
-> ✨ *Información basada en IA* ✨
+> ✨ *Información basada en IA* ✨\n
 ${respuestas.some(respuesta => respuesta === 'err-gb') ? '`En este momento no se puede acceder a este recurso`' :
 preguntas.map((pregunta, index) => `*${pregunta}*\n${respuestas[index]}`).join('\n\n')}
 `
+
+mensaje += `${respuestas.some(respuesta => respuesta === 'err-gb') ? '' :
+`\n\n*Sé un usuario 🎟️ premium para liberar más contenido de la IA ✨*\n\n> Puedes usar *${usedPrefix}fychange* o *${usedPrefix}fycambiar* para obtener ⏳🎟️ Tiempo Premium\n\n> También puedes comprar un pase 🎟️ usando *${usedPrefix}pase premium*`}`
+        
 await conn.reply(m.chat, mensaje.trim(), m)
 }
 
