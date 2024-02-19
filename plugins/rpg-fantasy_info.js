@@ -67,8 +67,9 @@ const preguntas = [
 `¿Cuál es la historia o trasfondo del personaje ${nombre}?`
 ]
 const respuestas = []
+const modo = `Responderás a esta pregunta únicamente`
 for (const pregunta of preguntas) {
-const response = await fetch(`https://api.cafirexos.com/api/chatgpt?text=${pregunta}&name=${m.name}`)
+const response = await fetch(`https://api.cafirexos.com/api/chatgpt?text=${pregunta}&name=${m.name}&prompt=${modo}`)
 const data = await response.json()
 respuestas.push(data.resultado || 'En este momento no se puede acceder a este recurso')
 }
