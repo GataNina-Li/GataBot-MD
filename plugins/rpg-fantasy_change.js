@@ -158,7 +158,7 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
 }}
 
 }
-handler.command = /^(fantasychange|fychange)$/i
+handler.command = /^(fantasychange|fychange|fantasycambiar|fycambiar)$/i
 export default handler
 
 // Obtener el tiempo premium según la clase del personaje
