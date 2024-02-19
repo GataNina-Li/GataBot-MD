@@ -72,5 +72,5 @@ thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
 }}})
 }
 
-handler.command = /^(fantasyinfo|fyinfo)$/i
+handler.command = /^(fantasyguia|fyguia|fantasyguide|fyguide)$/i
 export default handler
