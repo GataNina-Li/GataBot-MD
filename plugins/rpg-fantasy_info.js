@@ -70,10 +70,13 @@ const preguntas = [
 const respuestas = []
 const modo = `Responderás a esta pregunta únicamente`
 for (const pregunta of preguntas) {
+try {
 const response = await fetch(`https://api.cafirexos.com/api/chatgupt?text=${pregunta}&name=${m.name}&prompt=${modo}`)
 const data = await response.json()
-respuestas.push(data.resultado || 'error')
-}
+respuestas.push(data.resultado || 'err-gb')
+} catch (error) {
+respuestas.push('err-gb')
+}}
 
 let mensaje = `
 *Detalles del personaje:*
@@ -96,7 +99,7 @@ let mensaje = `
 
 mensaje += `
 > *Información basada en IA*
-${respuestas.some(respuesta => respuesta === 'error') ? '`En este momento no se puede acceder a este recurso`' :
+${respuestas.some(respuesta => respuesta === 'err-gb') ? '`En este momento no se puede acceder a este recurso`' :
 preguntas.map((pregunta, index) => `*${pregunta}*\n${respuestas[index]}`).join('\n\n')}
 `
 await conn.reply(m.chat, mensaje.trim(), m)
