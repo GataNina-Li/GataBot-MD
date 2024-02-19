@@ -1,3 +1,5 @@
+// Código elaborado por: https://github.com/GataNina-Li
+
 import fetch from 'node-fetch'
 let numPersonaje = 10
 let currentPage = null
