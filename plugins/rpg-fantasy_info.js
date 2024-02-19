@@ -95,7 +95,7 @@ let mensaje = `
 
 mensaje += `
 > *Información basada en IA*
-${respuestas.some(respuesta => respuesta === 'error' ? '`En este momento no se puede acceder a este recurso`' :
+${respuestas.some(respuesta => respuesta === 'error') ? '`En este momento no se puede acceder a este recurso`' :
 preguntas.map((pregunta, index) => `*${pregunta}*\n_${respuestas[index]}_`).join('\n\n')}
 `
 await conn.reply(m.chat, '> *Obteniendo información del personaje...*\n\n_Esto puede tomar tiempo, paciencia por favor_', m)
