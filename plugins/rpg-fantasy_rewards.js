@@ -1,3 +1,5 @@
+// Código elaborado por: https://github.com/GataNina-Li
+
 const fantasyDBPath = './fantasy.json'
 let usuarioExistente, logro, fake = null
 export async function before(m,{ conn }) {
