@@ -10,7 +10,7 @@ const response = await fetch(jsonURL)
 const data = await response.json()
 
 let personajeInfo = null
-let calificacionTotal, cantidadLikes, cantidadSuperlikes, cantidadDislikes = 0
+let calificacionTotal = 0, cantidadLikes = 0, cantidadSuperlikes = 0, cantidadDislikes = 0
 const personaje = data.infoImg.find(p => p.name.toLowerCase() === text.toLowerCase() || p.code === text)
 
 if (!personaje) {
