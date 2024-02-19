@@ -78,7 +78,7 @@ const preguntas = [
 `¿Qué lecciones o valores representa el personaje ${nombre} dentro de la historia?`
 ]
 const respuestas = []
-const modo = `Mediante un resumen o respuesta directa a la pregunta, responde` //`Responderás a esta pregunta únicamente`
+const modo = `Responderás a esta pregunta únicamente`
 for (const pregunta of preguntas) {
 try {
 const response = await fetch(`https://api.cafirexos.com/api/chatgpt?text=${pregunta}&name=${m.name}&prompt=${modo}`)
