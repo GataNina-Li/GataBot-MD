@@ -74,26 +74,38 @@ respuestas.push('err-gb')
 }}
 
 let mensaje = `
-*Detalles del personaje:*
+> *Detalles del personaje*
 
 *Imagen:* ${imagen}
-*Nombre:* ${nombre}
-*Descripción:* ${descripcion}
-*Precio:* ${precio} coins
-*Clase:* ${clase}
-*Tipo:* ${tipo}
-*Código:* ${codigo}
+*Nombre:* 
+✔ ${nombre}
 
-*Calificación total del personaje:* ${calificacionTotal}
-*Cantidad de 👍 (Likes):* ${cantidadLikes}
-*Cantidad de ❤️ (Superlikes):* ${cantidadSuperlikes}
-*Cantidad de 👎 (Dislikes):* ${cantidadDislikes}
+*Precio:* 
+✔ \`${precio}\` *${rpgshop.emoticon('money')}*
 
-*Comprado por:* ${estado}
+*Clase:* 
+✔ ${clase}
+
+*Tipo:* 
+✔ ${tipo}
+
+*Código:* 
+✔ ${codigo}
+
+*Descripción:* 
+✔ ${descripcion}
+
+⟡ *Calificación total del personaje »* \`${calificacionTotal}\`
+⟡ *Cantidad de 👍 (Me gusta) »* \`${cantidadLikes}\`
+⟡ *Cantidad de ❤️ (Me encanta) »* \`${cantidadSuperlikes}\`
+⟡ *Cantidad de 👎 (No me gusta) »* \`${cantidadDislikes}\`
+
+*Comprado:* 
+✔ ${estado}
 `
 
 mensaje += `
-> *Información/Preguntas basada en IA*
+> ✨ *Información basada en IA* ✨
 ${respuestas.some(respuesta => respuesta === 'err-gb') ? '`En este momento no se puede acceder a este recurso`' :
 preguntas.map((pregunta, index) => `*${pregunta}*\n${respuestas[index]}`).join('\n\n')}
 `
@@ -104,7 +116,7 @@ handler.command = /^(fantasyinfo|fyinfo)$/i
 export default handler
 
 function getRandom(min, max) {
-return Math.floor(Math.random() * (max - min) + min);
+return Math.floor(Math.random() * (max - min) + min)
 }
 
 function obtenerPreguntas(nombre, cantidadPreguntas) {
@@ -205,13 +217,13 @@ const totalPreguntas = [[
 `¿Qué lecciones o valores representa el personaje ${nombre} dentro de la historia?`,
 `¿Existe alguna página web o comunidad en línea dedicada al personaje ${nombre} o al actor?`
 ]]
-const preguntasSeleccionadas = totalPreguntas[getRandom(0, totalPreguntas.length)];
+const preguntasSeleccionadas = totalPreguntas[getRandom(0, totalPreguntas.length)]
 const preguntasAleatorias = []
 while (preguntasAleatorias.length < cantidadPreguntas) {
-const randomIndex = Math.floor(Math.random() * preguntasSeleccionadas.length);
-const pregunta = preguntasSeleccionadas[randomIndex];
+const randomIndex = Math.floor(Math.random() * preguntasSeleccionadas.length)
+const pregunta = preguntasSeleccionadas[randomIndex]
 if (!preguntasAleatorias.includes(pregunta)) {
-preguntasAleatorias.push(pregunta);
+preguntasAleatorias.push(pregunta)
 }}
-return preguntasAleatorias;
+return preguntasAleatorias
 }
