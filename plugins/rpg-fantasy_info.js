@@ -71,7 +71,7 @@ const modo = `Responderás a esta pregunta únicamente`
 for (const pregunta of preguntas) {
 const response = await fetch(`https://api.cafirexos.com/api/chatgpt?text=${pregunta}&name=${m.name}&prompt=${modo}`)
 const data = await response.json()
-respuestas.push(data.resultado || 'En este momento no se puede acceder a este recurso')
+respuestas.push(data.resultado || 'error')
 }
 
 let mensaje = `
@@ -95,10 +95,11 @@ let mensaje = `
 
 mensaje += `
 > *Información basada en IA*
-${preguntas.map((pregunta, index) => `*${pregunta}*\n_${respuestas[index]}_`).join('\n\n')}
+${respuestas.some(respuesta => respuesta === 'error' ? '`En este momento no se puede acceder a este recurso`' :
+preguntas.map((pregunta, index) => `*${pregunta}*\n_${respuestas[index]}_`).join('\n\n')}
 `
-
-conn.reply(m.chat, mensaje.trim(), m)
+await conn.reply(m.chat, '> *Obteniendo información del personaje...*\n\n_Esto puede tomar tiempo, paciencia por favor_', m)
+await conn.reply(m.chat, mensaje.trim(), m)
 }
 
 handler.command = /^(fantasyinfo|fyinfo)$/i
