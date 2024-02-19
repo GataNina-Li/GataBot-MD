@@ -65,9 +65,9 @@ const preguntas = [
 `¿Cuál es el nombre completo del personaje ${nombre}?`,
 `¿En qué obra (libro, película, serie, videojuego, etc.) aparece este personaje ${nombre}?`,
 `¿Cuál es el papel o función del personaje ${nombre} en la historia?`,
-`¿Cuál es la historia o trasfondo del personaje ${nombre}?`,
-`¿Cuáles son las características físicas del personaje ${nombre} (edad, género, apariencia)?`,
-`¿Qué habilidades o rasgos distintivos tiene el personaje ${nombre}?`,
+//`¿Cuál es la historia o trasfondo del personaje ${nombre}?`,
+//`¿Cuáles son las características físicas del personaje ${nombre} (edad, género, apariencia)?`,
+//`¿Qué habilidades o rasgos distintivos tiene el personaje ${nombre}?`,
 `¿Cuál es la personalidad del personaje ${nombre}?`,
 `¿Quién es el autor o creador del personaje ${nombre}?`,
 `¿Existen adaptaciones o reinterpretaciones del personaje ${nombre} en diferentes medios?`,
@@ -75,13 +75,13 @@ const preguntas = [
 `¿Hay algún detalle interesante o curioso sobre el personaje ${nombre} que valga la pena conocer?`,
 `¿Dónde puedo ver al personaje ${nombre} (plataformas, libros, páginas, etc.)?`,
 `Muestra la lista completa de los personajes que están relacionados con ${nombre}`,
-`¿El personaje ${nombre} es una persona real? En ese caso, ¿cuál es su ocupación, logros, historia personal, etc.?`,
+//`¿El personaje ${nombre} es una persona real? En ese caso, ¿cuál es su ocupación, logros, historia personal, etc.?`,
 `Si el personaje ${nombre} es de un anime o serie, ¿hay información sobre el estudio de animación o la producción de la serie?`,
 `¿Cuál es la fecha de nacimiento y lugar de origen del actor o del personaje ${nombre}? (en caso de ser una persona real)`,
-`¿Ha participado el actor/personaje ${nombre} en obras de teatro? En ese caso, ¿cuáles?`,
+//`¿Ha participado el actor/personaje ${nombre} en obras de teatro? En ese caso, ¿cuáles?`,
 `¿Cuándo se hizo (fecha) la obra (libro, película, serie, videojuego, etc.) del personaje ${nombre}?`,
-`¿Qué lecciones o valores representa el personaje ${nombre} dentro de la historia?`,
-`¿Existe alguna página web o comunidad en línea dedicada al personaje ${nombre} o al actor?`
+`¿Qué lecciones o valores representa el personaje ${nombre} dentro de la historia?`
+//`¿Existe alguna página web o comunidad en línea dedicada al personaje ${nombre} o al actor?`
 ]
 const respuestas = []
 const modo = `Mediante un resumen o respuesta directa a la pregunta, responde` //`Responderás a esta pregunta únicamente`
