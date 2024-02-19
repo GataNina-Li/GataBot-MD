@@ -77,7 +77,7 @@ const preguntas = [
 `Muestra la lista completa de los personajes que están relacionados con ${nombre}`,
 `¿El personaje ${nombre} es una persona real? En ese caso, ¿cuál es su ocupación, logros, historia personal, etc.?`,
 `Si el personaje ${nombre} es de un anime o serie, ¿hay información sobre el estudio de animación o la producción de la serie?`,
-`¿Cuál es la fecha de nacimiento y lugar de origen del actor o del personaje ${nombre}? (si es una persona real)`,
+`¿Cuál es la fecha de nacimiento y lugar de origen del actor o del personaje ${nombre}? (en caso de ser una persona real)`,
 `¿Ha participado el actor/personaje ${nombre} en obras de teatro? En ese caso, ¿cuáles?`,
 `¿Cuándo se hizo (fecha) la obra (libro, película, serie, videojuego, etc.) del personaje ${nombre}?`,
 `¿Qué lecciones o valores representa el personaje ${nombre} dentro de la historia?`,
