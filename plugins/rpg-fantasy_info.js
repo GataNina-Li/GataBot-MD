@@ -76,7 +76,6 @@ respuestas.push('err-gb')
 let mensaje = `
 > *Detalles del personaje*
 
-*Imagen:* ${imagen}
 *Nombre:* 
 ✓ ${nombre}
 
@@ -105,6 +104,7 @@ let mensaje = `
 `
 
 mensaje += `
+> 👩‍🔬 Función Experimental 🧪
 > ✨ *Información basada en IA* ✨\n
 ${respuestas.some(respuesta => respuesta === 'err-gb') ? '`En este momento no se puede acceder a este recurso`' :
 preguntas.map((pregunta, index) => `*✪ ${pregunta}*\n${respuestas[index]}`).join('\n\n')}
@@ -113,7 +113,19 @@ preguntas.map((pregunta, index) => `*✪ ${pregunta}*\n${respuestas[index]}`).jo
 mensaje += `${respuestas.some(respuesta => respuesta === 'err-gb') ? '' :
 `\n\n*¡Sé un usuario 🎟️ premium para liberar más contenido de la IA! ✨*\n\n> Puedes usar *${usedPrefix}fychange* o *${usedPrefix}fycambiar* para obtener ⏳🎟️ Tiempo Premium\n\n> También puedes comprar un pase 🎟️ usando *${usedPrefix}pase premium*`}`
         
-await conn.reply(m.chat, mensaje.trim(), m)
+await conn.sendFile(m.chat, imagen, 'fantasy.jpg', mensaje.trim(), m, true, {
+contextInfo: {
+'forwardingScore': 200,
+'isForwarded': false,
+externalAdReply: {
+showAdAttribution: false,
+renderLargerThumbnail: false,
+title: `🌟 FANTASÍA RPG`,
+body: `😼 Usuario: » ${conn.getName(m.sender)}`,
+mediaType: 1,
+sourceUrl: accountsgb.getRandom(),
+thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
+}}})
 }
 
 handler.command = /^(fantasyinfo|fyinfo)$/i
