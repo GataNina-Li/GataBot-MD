@@ -99,7 +99,7 @@ let mensaje = `
 ⟡ *Cantidad de ❤️ (Me encanta) »* \`${cantidadSuperlikes}\`
 ⟡ *Cantidad de 👎 (No me gusta) »* \`${cantidadDislikes}\`
 
-*Comprado:* 
+*Estado:* 
 ✓ ${estado}
 `
 
