@@ -84,7 +84,7 @@ const preguntas = [
 `¿Existe alguna página web o comunidad en línea dedicada al personaje ${nombre} o al actor?`
 ]
 const respuestas = []
-const modo = `Responderás a esta pregunta únicamente`
+const modo = `Mediante un resumen o respuesta directa a la pregunta, responde` //`Responderás a esta pregunta únicamente`
 for (const pregunta of preguntas) {
 try {
 const response = await fetch(`https://api.cafirexos.com/api/chatgpt?text=${pregunta}&name=${m.name}&prompt=${modo}`)
