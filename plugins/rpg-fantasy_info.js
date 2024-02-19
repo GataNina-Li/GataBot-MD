@@ -64,17 +64,13 @@ await conn.reply(m.chat, '> *Obteniendo información del personaje...*\n\n_Esto 
 const preguntas = [
 `¿Cuál es el nombre completo del personaje ${nombre}?`,
 `¿En qué obra (libro, película, serie, videojuego, etc.) aparece este personaje ${nombre}?`,
-//`¿Cuál es el papel o función del personaje ${nombre} en la historia?`,
-//`¿Cuál es la personalidad del personaje ${nombre}?`,
 `¿Quién es el autor o creador del personaje ${nombre}?`,
-//`¿Existen adaptaciones o reinterpretaciones del personaje ${nombre} en diferentes medios?`,
 `¿Cuál es la recepción crítica o popular del personaje ${nombre}?`,
-`¿Hay algún detalle interesante o curioso sobre el personaje ${nombre} que valga la pena conocer?`,
-//`¿Dónde puedo ver al personaje ${nombre} (plataformas, libros, páginas, etc.)?`,
-`Muestra la lista completa de los personajes que están relacionados con ${nombre}`,
-`Si el personaje ${nombre} es de un anime o serie, ¿hay información sobre el estudio de animación o la producción de la serie?`,
-`¿Cuál es la fecha de nacimiento y lugar de origen del actor o del personaje ${nombre}? (en caso de ser una persona real)`,
-`¿Cuándo se hizo (fecha) la obra (libro, película, serie, videojuego, etc.) del personaje ${nombre}?`,
+//`¿Hay algún detalle interesante o curioso sobre el personaje ${nombre} que valga la pena conocer?`,
+//`Muestra la lista completa de los personajes que están relacionados con ${nombre}`,
+//`Si el personaje ${nombre} es de un anime o serie, ¿hay información sobre el estudio de animación o la producción de la serie?`,
+//`¿Cuál es la fecha de nacimiento y lugar de origen del actor o del personaje ${nombre}? (en caso de ser una persona real)`,
+//`¿Cuándo se hizo (fecha) la obra (libro, película, serie, videojuego, etc.) del personaje ${nombre}?`,
 `¿Qué lecciones o valores representa el personaje ${nombre} dentro de la historia?`
 ]
 const respuestas = []
