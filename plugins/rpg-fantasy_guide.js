@@ -1,3 +1,5 @@
+// Código elaborado por: https://github.com/GataNina-Li
+
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 let fantasy = `
 *¡Bienvenido a la fascinante bitácora de Fantasy!*
