@@ -103,14 +103,8 @@ await conn.reply(m.chat, mensaje.trim(), m)
 handler.command = /^(fantasyinfo|fyinfo)$/i
 export default handler
 
-function getRandom(min, max, cantidadPreguntas) {
-const preguntasSeleccionadas = []
-while (preguntasSeleccionadas.length < cantidadPreguntas) {
-const randomIndex = Math.floor(Math.random() * (max - min) + min)
-if (!preguntasSeleccionadas.includes(randomIndex)) {
-preguntasSeleccionadas.push(randomIndex)
-}}
-return preguntasSeleccionadas
+function getRandom(min, max) {
+return Math.floor(Math.random() * (max - min) + min);
 }
 
 function obtenerPreguntas(nombre, cantidadPreguntas) {
@@ -211,5 +205,13 @@ const totalPreguntas = [[
 `¿Qué lecciones o valores representa el personaje ${nombre} dentro de la historia?`,
 `¿Existe alguna página web o comunidad en línea dedicada al personaje ${nombre} o al actor?`
 ]]
-return totalPreguntas[getRandom(0, totalPreguntas.length, cantidadPreguntas)]
+const preguntasSeleccionadas = totalPreguntas[getRandom(0, totalPreguntas.length)];
+const preguntasAleatorias = []
+while (preguntasAleatorias.length < cantidadPreguntas) {
+const randomIndex = Math.floor(Math.random() * preguntasSeleccionadas.length);
+const pregunta = preguntasSeleccionadas[randomIndex];
+if (!preguntasAleatorias.includes(pregunta)) {
+preguntasAleatorias.push(pregunta);
+}}
+return preguntasAleatorias;
 }
