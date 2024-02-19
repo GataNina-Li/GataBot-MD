@@ -65,10 +65,26 @@ const preguntas = [
 `¿Cuál es el nombre completo del personaje ${nombre}?`,
 `¿En qué obra (libro, película, serie, videojuego, etc.) aparece este personaje ${nombre}?`,
 `¿Cuál es el papel o función del personaje ${nombre} en la historia?`,
-`¿Cuál es la historia o trasfondo del personaje ${nombre}?`
+`¿Cuál es la historia o trasfondo del personaje ${nombre}?`,
+`¿Cuáles son las características físicas del personaje ${nombre} (edad, género, apariencia)?`,
+`¿Qué habilidades o rasgos distintivos tiene el personaje ${nombre}?`,
+`¿Cuál es la personalidad del personaje ${nombre}?`,
+`¿Quién es el autor o creador del personaje ${nombre}?`,
+`¿Existen adaptaciones o reinterpretaciones del personaje ${nombre} en diferentes medios?`,
+`¿Cuál es la recepción crítica o popular del personaje ${nombre}?`,
+`¿Hay algún detalle interesante o curioso sobre el personaje ${nombre} que valga la pena conocer?`,
+`¿Dónde puedo ver al personaje ${nombre} (plataformas, libros, páginas, etc.)?`,
+`Muestra la lista completa de los personajes que están relacionados con ${nombre}`,
+`¿El personaje ${nombre} es una persona real? En ese caso, ¿cuál es su ocupación, logros, historia personal, etc.?`,
+`Si el personaje ${nombre} es de un anime o serie, ¿hay información sobre el estudio de animación o la producción de la serie?`,
+`¿Cuál es la fecha de nacimiento y lugar de origen del actor o del personaje ${nombre}? (si es una persona real)`,
+`¿Ha participado el actor/personaje ${nombre} en obras de teatro? En ese caso, ¿cuáles?`,
+`¿Cuándo se hizo (fecha) la obra (libro, película, serie, videojuego, etc.) del personaje ${nombre}?`,
+`¿Qué lecciones o valores representa el personaje ${nombre} dentro de la historia?`,
+`¿Existe alguna página web o comunidad en línea dedicada al personaje ${nombre} o al actor?`
 ]
 const respuestas = []
-const modo = `Responderás a esta pregunta diciendo directamente la respuesta`
+const modo = `Responderás a esta pregunta únicamente`
 for (const pregunta of preguntas) {
 try {
 const response = await fetch(`https://api.cafirexos.com/api/chatgpt?text=${pregunta}&name=${m.name}&prompt=${modo}`)
@@ -98,7 +114,7 @@ let mensaje = `
 `
 
 mensaje += `
-> *Información basada en IA*
+> *Información/Preguntas basada en IA*
 ${respuestas.some(respuesta => respuesta === 'err-gb') ? '`En este momento no se puede acceder a este recurso`' :
 preguntas.map((pregunta, index) => `*${pregunta}*\n${respuestas[index]}`).join('\n\n')}
 `
