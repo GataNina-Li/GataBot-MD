@@ -1,3 +1,5 @@
+// Código elaborado por: https://github.com/GataNina-Li
+
 import fetch from 'node-fetch'
 import fs from 'fs'
 
@@ -13,8 +15,8 @@ let personajeInfo = null
 let calificacionTotal = 0, cantidadLikes = 0, cantidadSuperlikes = 0, cantidadDislikes = 0
 const personaje = data.infoImg.find(p => p.name.toLowerCase() === text.toLowerCase() || p.code === text)
 
-if (!personaje) {
-return conn.reply(m.chat, 'No se encontró información para el personaje especificado.', m)
+if (!personaje || !text) {
+return conn.reply(m.chat, `> *No se encontró información para el personaje especificado.*\n\n_Ingrese el nombre o código del personaje_\n\n> Puede ver la lista de personajes disponibles usando *${usedPrefix}fantasyl* o *${usedPrefix}fyl*`, m)
 }
 
 const imagen = personaje.url
@@ -40,8 +42,7 @@ flow.forEach(voto => {
 if (voto.character_name === nombre && voto.like) cantidadLikes++
 if (voto.character_name === nombre && voto.superlike) cantidadSuperlikes++
 if (voto.character_name === nombre && voto.dislike) cantidadDislikes++
-})
-}
+})}
 })
 calificacionTotal = cantidadLikes + cantidadSuperlikes + cantidadDislikes
 }
