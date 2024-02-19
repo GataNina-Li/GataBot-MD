@@ -58,8 +58,7 @@ const idUsuarioExistente = Object.keys(usuarioExistente)[0];
 const nombreImagen = data.infoImg.find(personaje => personaje.code === codigo)?.name
 if (nombreImagen) {
 estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)}*`
-}}
-]
+}}}
         
 let mensaje = `
 *Detalles del personaje:*
