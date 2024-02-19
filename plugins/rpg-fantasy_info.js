@@ -61,7 +61,7 @@ estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)
 }}}
 
 await conn.reply(m.chat, '> *Obteniendo información del personaje...*\n\n_Esto puede tomar tiempo, paciencia por favor_', m)
-const preguntas = obtenerPreguntas(nombre, 1)
+const preguntas = obtenerPreguntas(nombre, 5)
 const respuestas = []
 const modo = `Responderás a esta pregunta únicamente`
 for (const pregunta of preguntas) {
@@ -107,11 +107,11 @@ let mensaje = `
 mensaje += `
 > ✨ *Información basada en IA* ✨\n
 ${respuestas.some(respuesta => respuesta === 'err-gb') ? '`En este momento no se puede acceder a este recurso`' :
-preguntas.map((pregunta, index) => `*${pregunta}*\n${respuestas[index]}`).join('\n\n')}
+preguntas.map((pregunta, index) => `*✪ ${pregunta}*\n${respuestas[index]}`).join('\n\n')}
 `
 
 mensaje += `${respuestas.some(respuesta => respuesta === 'err-gb') ? '' :
-`\n\n*Sé un usuario 🎟️ premium para liberar más contenido de la IA ✨*\n\n> Puedes usar *${usedPrefix}fychange* o *${usedPrefix}fycambiar* para obtener ⏳🎟️ Tiempo Premium\n\n> También puedes comprar un pase 🎟️ usando *${usedPrefix}pase premium*`}`
+`\n\n*¡Sé un usuario 🎟️ premium para liberar más contenido de la IA! ✨*\n\n> Puedes usar *${usedPrefix}fychange* o *${usedPrefix}fycambiar* para obtener ⏳🎟️ Tiempo Premium\n\n> También puedes comprar un pase 🎟️ usando *${usedPrefix}pase premium*`}`
         
 await conn.reply(m.chat, mensaje.trim(), m)
 }
