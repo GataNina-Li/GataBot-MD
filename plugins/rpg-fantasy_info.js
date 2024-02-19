@@ -60,6 +60,19 @@ if (nombreImagen) {
 estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)}*`
 }}}
         
+const preguntas = [
+`¿Cuál es el nombre completo del personaje ${nombre}?`,
+`¿En qué obra (libro, película, serie, videojuego, etc.) aparece este personaje ${nombre}?`,
+`¿Cuál es el papel o función del personaje ${nombre} en la historia?`,
+`¿Cuál es la historia o trasfondo del personaje ${nombre}?`
+]
+const respuestas = []
+for (const pregunta of preguntas) {
+const response = await fetch(`https://api.cafirexos.com/api/chatgpt?text=${pregunta}&name=${m.name}`)
+const data = await response.json()
+respuestas.push(data.resultado || 'En este momento no se puede acceder a este recurso')
+}
+
 let mensaje = `
 *Detalles del personaje:*
 
@@ -78,7 +91,13 @@ let mensaje = `
 
 *Comprado por:* ${estado}
 `
-conn.reply(m.chat, mensaje, m)   
+
+mensaje += `
+> *Información basada en IA*
+${preguntas.map((pregunta, index) => `*${pregunta}*\n_${respuestas[index]}_`).join('\n\n')}
+`
+
+conn.reply(m.chat, mensaje.trim(), m)
 }
 
 handler.command = /^(fantasyinfo|fyinfo)$/i
