@@ -46,8 +46,8 @@ const personaje = dato.name
 let calificacionesPersonaje = []
       
 async function calcularPrecio() {
-for (const usuario in usuarioExistente) {
-const flow = usuarioExistente[usuario]?.flow || []
+for (const usuario of usuarioExistente) {
+const flow = usuario[Object.keys(usuario)[0]].flow || []
 const calificaciones = flow.filter(voto => voto.character_name === personaje)
 calificacionesPersonaje = calificacionesPersonaje.concat(calificaciones)
 }
