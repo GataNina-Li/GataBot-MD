@@ -51,7 +51,7 @@ const flow = usuarioExistente[usuario]?.flow || []
 const calificaciones = flow.filter(voto => voto.character_name === personaje)
 calificacionesPersonaje = calificacionesPersonaje.concat(calificaciones)
 }
-await console.log(calificacionesPersonaje)
+console.log(calificacionesPersonaje)
 const likes = calificacionesPersonaje.filter(voto => voto.like).length || 0
 const superlikes = calificacionesPersonaje.filter(voto => voto.superlike).length || 0
 const dislikes = calificacionesPersonaje.filter(voto => voto.dislike).length || 0
