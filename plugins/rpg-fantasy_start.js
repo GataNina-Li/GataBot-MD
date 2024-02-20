@@ -44,22 +44,13 @@ estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)
 
 const personaje = dato.name
 let calificacionesPersonaje = []
-      
-async function calcularPrecio() {
 for (const idUsuario in usuarioExistente) {
-    if (Object.hasOwnProperty.call(usuarioExistente, idUsuario)) {
-        const usuario = usuarioExistente[idUsuario]
-
-        
-        const flow = usuario.flow || []
-
-        
-        const calificaciones = flow.filter(voto => voto.character_name === personaje)
-
-        
-        calificacionesPersonaje = calificacionesPersonaje.concat(calificaciones)
-    }
-}
+if (Object.hasOwnProperty.call(usuarioExistente, idUsuario)) {
+const usuario = usuarioExistente[idUsuario]
+const flow = usuario.flow || []
+const calificaciones = flow.filter(voto => voto.character_name === personaje)
+calificacionesPersonaje = calificacionesPersonaje.concat(calificaciones)
+}}
 //for (const usuario in usuarioExistente) {
 //const flow = usuarioExistente[usuario]?.flow || [];
 //const calificaciones = flow.filter(voto => voto.character_name === personaje)
@@ -80,9 +71,7 @@ nuevoPrecio = Math.round(nuevoPrecio) // Nuevo precio a un entero
 if (nuevoPrecio < 50) {
 nuevoPrecio = 50
 }
-return nuevoPrecio
-}
-nuevoPrecio = await calcularPrecio()      
+    
 let txtNewPrice = nuevoPrecio ? `\n✓ *Precio anterior:* ~\`${dato.price}\`~ *${rpgshop.emoticon('money')}*\n✓ *Nuevo Precio:* \`${nuevoPrecio}\` *${rpgshop.emoticon('money')}*` : `\n✓ *Precio:* \`\`\`${dato.price}\`\`\` *${rpgshop.emoticon('money')}*`
 let info = `*⛱️ FANTASÍA RPG ⛱️*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Nombre:* ${dato.name}\n✓ *Origen:* ${dato.desp}${txtNewPrice}\n✓ *Clase:* ${dato.class}\n✓ *Tipo:* ${dato.type}\n✓ *ID:* \`\`\`${codigoActual}\`\`\`\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Estado:* ${estado}`
 info += `\n\n${estado === 'Libre' ? '_Responde a este mensaje con "c", "🛒", o "🐱" para comprarlo_' : ''}`
