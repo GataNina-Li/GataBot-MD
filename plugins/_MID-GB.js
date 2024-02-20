@@ -12,5 +12,4 @@ MID_GB = en
 MID_GB = mid || es
 }
 global.mid = MID_GB	
-
 }
