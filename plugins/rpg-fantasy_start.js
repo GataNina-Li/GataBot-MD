@@ -45,7 +45,7 @@ estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)
 const personaje = dato.name
 let calificacionesPersonaje = []
 //for (const idUsuario in usuarioExistente) {
-for (const usuarioObj of usuarioExistente) {
+for (const usuarioObj in usuarioExistente) {
 //if (Object.hasOwnProperty.call(usuarioExistente, idUsuario)) {
 //const usuario = usuarioExistente[idUsuario]
 const usuario = Object.values(usuarioObj)[0]
