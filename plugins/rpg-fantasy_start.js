@@ -46,11 +46,19 @@ const personaje = dato.name
 let calificacionesPersonaje = []
       
 async function calcularPrecio() {
-for (const usuarioObj of usuarioExistente) {
-const usuario = Object.values(usuarioObj)[0]
-const flow = usuario.flow || []
-const calificaciones = flow.filter(voto => voto.character_name === personaje)
-calificacionesPersonaje = calificacionesPersonaje.concat(calificaciones)
+for (const idUsuario in usuarioExistente) {
+    if (Object.hasOwnProperty.call(usuarioExistente, idUsuario)) {
+        const usuario = usuarioExistente[idUsuario]
+
+        
+        const flow = usuario.flow || []
+
+        
+        const calificaciones = flow.filter(voto => voto.character_name === personaje)
+
+        
+        calificacionesPersonaje = calificacionesPersonaje.concat(calificaciones)
+    }
 }
 //for (const usuario in usuarioExistente) {
 //const flow = usuarioExistente[usuario]?.flow || [];
