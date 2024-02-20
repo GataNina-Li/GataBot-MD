@@ -43,20 +43,21 @@ estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)
 }}
 
 const personaje = dato.name
-const calificacionesPersonaje = usuarioExistente[idUsuarioExistente]?.flow.filter(voto => voto.character_name === personaje) || []
-
+let calificacionesPersonaje = []
+for (const usuario in usuarioExistente) {
+const flow = usuarioExistente[usuario]?.flow || []
+const calificaciones = flow.filter(voto => voto.character_name === personaje)
+calificacionesPersonaje = calificacionesPersonaje.concat(calificaciones)
+}
 const likes = calificacionesPersonaje.filter(voto => voto.like).length || 0
 const superlikes = calificacionesPersonaje.filter(voto => voto.superlike).length || 0
 const dislikes = calificacionesPersonaje.filter(voto => voto.dislike).length || 0
-
 const incrementos_like = Math.floor(likes / 3)
 const incrementos_superlike = Math.floor(superlikes / 3)
 const incrementos_dislike = Math.floor(dislikes / 3)
-
 const aumento_por_like = incrementos_like * 0.02 // 2% por cada 3 likes
 const aumento_por_superlike = incrementos_superlike * 0.05 // 5% por cada 3 superlikes
 const decremento_por_dislike = incrementos_dislike * 0.01 // -1% por cada 3 dislikes
-
 global.nuevoPrecio = dato.price + (dato.price * aumento_por_like) + (dato.price * aumento_por_superlike) - (dato.price * decremento_por_dislike)
 nuevoPrecio = Math.round(nuevoPrecio) // Nuevo precio a un entero
 if (nuevoPrecio < 50) {
