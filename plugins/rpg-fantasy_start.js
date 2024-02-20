@@ -54,12 +54,12 @@ calificacionesPersonaje = calificacionesPersonaje.concat(calificaciones)
 const likes = calificacionesPersonaje.filter(voto => voto.like).length || 0
 const superlikes = calificacionesPersonaje.filter(voto => voto.superlike).length || 0
 const dislikes = calificacionesPersonaje.filter(voto => voto.dislike).length || 0
-const incrementos_like = Math.floor(likes / 1) //likes
+const incrementos_like = Math.floor(likes / 1) 
 const incrementos_superlike = Math.floor(superlikes / 1)
 const incrementos_dislike = Math.floor(dislikes / 1)
-const aumento_por_like = incrementos_like * 0.02 // 2% por cada 3 likes
-const aumento_por_superlike = incrementos_superlike * 0.05 // 5% por cada 3 superlikes
-const decremento_por_dislike = incrementos_dislike * 0.01 // -1% por cada 3 dislikes
+const aumento_por_like = (likes >= 50) ? incrementos_like * 0.01 : incrementos_like * 0.02 // Por defecto, 2% por cada like (+4 puntos). Si hay 50 o más likes, 1% por cada like (+2 puntos)
+const aumento_por_superlike = (superlikes >= 50) ? incrementos_superlike * 0.03 : incrementos_superlike * 0.05 // Por defecto, 5% por cada superlike (+10 puntos). Si hay 50 o más superlikes, 3% por cada superlike (+6 puntos)
+const decremento_por_dislike = incrementos_dislike * 0.01 // -1% por cada dislike (-2 puntos)
 global.nuevoPrecio = dato.price + (dato.price * aumento_por_like) + (dato.price * aumento_por_superlike) - (dato.price * decremento_por_dislike)
 nuevoPrecio = Math.round(nuevoPrecio) // Nuevo precio a un entero
 if (nuevoPrecio < 50) {
