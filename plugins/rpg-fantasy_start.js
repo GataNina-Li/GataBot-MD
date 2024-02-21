@@ -44,20 +44,12 @@ estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)
 
 const personaje = dato.name
 let calificacionesPersonaje = []
-//for (const idUsuario in usuarioExistente) {
-for (const usuarioObj in usuarioExistente) {
-//if (Object.hasOwnProperty.call(usuarioExistente, idUsuario)) {
-//const usuario = usuarioExistente[idUsuario]
+for (const usuarioObj of usuarioExistente) {
 const usuario = Object.values(usuarioObj)[0]
 const flow = usuario.flow || []
 const calificaciones = flow.filter(voto => voto.character_name === personaje)
-calificacionesPersonaje = calificacionesPersonaje.concat(calificaciones)
-}//}
-//for (const usuario in usuarioExistente) {
-//const flow = usuarioExistente[usuario]?.flow || [];
-//const calificaciones = flow.filter(voto => voto.character_name === personaje)
-//calificacionesPersonaje.push(...calificaciones)
-//}
+calificacionesPersonaje.push(...calificaciones)
+}
 console.log(calificacionesPersonaje)
 const likes = calificacionesPersonaje.filter(voto => voto.like).length || 0
 const superlikes = calificacionesPersonaje.filter(voto => voto.superlike).length || 0
