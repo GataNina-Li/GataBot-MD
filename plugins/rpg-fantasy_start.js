@@ -44,7 +44,7 @@ estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)
 
 const personaje = dato.name
 let calificacionesPersonaje = []
-for (const usuarioObj of usuarioExistente) {
+for (const usuarioObj of fantasyDB) {
 const usuario = Object.values(usuarioObj)[0]
 const flow = usuario.flow || []
 const calificaciones = flow.filter(voto => voto.character_name === personaje)
