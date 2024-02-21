@@ -4,7 +4,9 @@ import fetch from 'node-fetch'
 import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
 let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen, fantasyDB, jsonURL, response, data, userId, voto = null
-
+const likeEmojisArrays = ['👍', '👍🏻', '👍🏼', '👍🏽', '👍🏾', '👍🏿']
+const dislikeEmojisArrays = ['👎', '👎🏻', '👎🏼', '👎🏽', '👎🏾', '👎🏿']
+const superlikeEmojisArrays = ['🩷', '❤️', '🧡', '💛', '💚', '🩵', '💙', '💜', '🖤', '🩶', '🤍', '🤎']
 let handler = async (m, { command, usedPrefix, conn }) => {
 let user = global.db.data.users[m.sender]
 //let time = user.fantasy + 300000 //5 min
@@ -91,8 +93,7 @@ conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
 
 handler.before = async (m) => {
 user = global.db.data.users[m.sender]
-
-if (m.quoted && m.quoted.id === id_message && ['👍', '❤️', '👎'].includes(m.text)) {
+if (m.quoted && m.quoted.id === id_message && likeEmojisArrays.concat(dislikeEmojisArrays, superlikeEmojisArrays).includes(m.text)) {
 fantasyDB = []
 if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
@@ -118,9 +119,9 @@ const updatedFlow = [
 ...(flow || []).filter((voto) => voto.character_name !== nombrePersonaje),
 {
 character_name: nombrePersonaje,
-like: emoji === '👍',
-dislike: emoji === '👎',
-superlike: emoji === '❤️',
+like: likeEmojisArrays.includes(emoji),
+dislike: dislikeEmojisArrays.includes(emoji),
+superlike: superlikeEmojisArrays.includes(emoji),
 },
 ];
 usuarioExistente[idUsuarioExistente].flow = updatedFlow
@@ -136,31 +137,47 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 if (emojiAntes) {
 const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')}"* por *"${emoji}"* para *${nombrePersonaje}*.`
 const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
-conn.reply(m.chat, (emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')) === emoji ? errorMessage : cambioEmojiMessage, m)
+//conn.reply(m.chat, (emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')) === emoji ? errorMessage : cambioEmojiMessage, m)
+function determinarEmoji(voto) {
+if (voto.like) {
+return likeEmojisArrays
+} else if (voto.dislike) {
+return dislikeEmojisArrays
+} else {
+return superlikeEmojisArrays
+}}
+function emojisCoinciden(emoji1, emoji2) {
+return emoji1 === emoji2
+}
+const emojisAnteriores = determinarEmoji(emojiAntes)
+const coincide = emojisAnteriores.some(emoji => emojisCoinciden(emoji, emojiActual))
+const mensaje = coincide ? errorMessage : cambioEmojiMessage
+conn.reply(m.chat, mensaje, m)
+    
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
 const record = userInDB[userId].record[0]
 const emojiAnterior = emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')
-switch (emojiAnterior) {
-case '👍':
+switch (true) {
+case likeEmojisArrays.includes(emojiAnterior):
 record.total_like -= 1
 break
-case '👎':
+case dislikeEmojisArrays.includes(emojiAnterior):
 record.total_dislike -= 1
 break
-case '❤️':
+case superlikeEmojisArrays.includes(emojiAnterior):
 record.total_superlike -= 1
 break
 }
-switch (emoji) {
-case '👍':
+switch (true) {
+case likeEmojisArrays.includes(emoji)
 record.total_like += 1
 break
-case '👎':
+case dislikeEmojisArrays.includes(emoji):
 record.total_dislike += 1
 break
-case '❤️':
-record.total_superlike += 1
+case superlikeEmojisArrays.includes(emoji):
+record.total_superlike += 1;
 break
 }
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
@@ -169,20 +186,19 @@ const confirmationMessage = `*${conn.getName(m.sender)}* ha calificado a *${nomb
 conn.reply(m.chat, confirmationMessage, m)
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
-const record = userInDB[userId].record[0]
-switch (emoji) {
-case '👍':
+const record = userInDB[userId].record[0];
+switch (true) {
+case likeEmojisArrays.includes(emoji):
 record.total_like += 1
 break
-case '👎':
+case dislikeEmojisArrays.includes(emoji):
 record.total_dislike += 1
-break;
-case '❤️':
+break
+case superlikeEmojisArrays.includes(emoji):
 record.total_superlike += 1
 break
 }
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
-
 }}}}}
       
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
@@ -251,7 +267,8 @@ fantasy: [
 {
 id: dato.code,
 name: dato.name,
-status: true
+status: true,
+newDesp: false 
 }],
 record: [
 {
