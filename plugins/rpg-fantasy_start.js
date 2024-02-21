@@ -50,7 +50,6 @@ const flow = usuario.flow || []
 const calificaciones = flow.filter(voto => voto.character_name === personaje)
 calificacionesPersonaje.push(...calificaciones)
 }
-console.log(calificacionesPersonaje)
 const likes = calificacionesPersonaje.filter(voto => voto.like).length || 0
 const superlikes = calificacionesPersonaje.filter(voto => voto.superlike).length || 0
 const dislikes = calificacionesPersonaje.filter(voto => voto.dislike).length || 0
@@ -187,8 +186,9 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
 }}}}}
       
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
-const cantidadFaltante = dato.price - user.money
-if (user.money < dato.price) {
+console.log(nuevoPrecio)
+const cantidadFaltante = nuevoPrecio - user.money
+if (user.money < nuevoPrecio) {
 const codigoActual = dato.code
 const usuarioExistente = fantasyDB.find(user => {
 const id = Object.keys(user)[0]
