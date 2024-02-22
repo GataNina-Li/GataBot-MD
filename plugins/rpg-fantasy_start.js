@@ -147,7 +147,7 @@ return superlikeEmojisArrays
 }}
 const emojisAnteriores = determinarEmoji(emojiAntes)
 emojiSaved = emojisAnteriores.emoji    
-const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiAntes.like ? emojiGuardado : (emojiAntes.dislike ? emojiGuardado : emojiGuardado)}"* por *"${emoji}"* para *${nombrePersonaje}*.`
+const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiAntes.like ? emojiSaved : (emojiAntes.dislike ? emojiSaved : emojiSaved)}"* por *"${emoji}"* para *${nombrePersonaje}*.`
 const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
     
 function emojisCoinciden(emoji, emojiSaved) {
