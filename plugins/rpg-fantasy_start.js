@@ -171,7 +171,7 @@ record.total_superlike -= 1
 break
 }
 switch (true) {
-case likeEmojisArrays.includes(emoji)
+case likeEmojisArrays.includes(emoji):
 record.total_like += 1
 break
 case dislikeEmojisArrays.includes(emoji):
