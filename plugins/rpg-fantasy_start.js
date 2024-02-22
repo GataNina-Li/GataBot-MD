@@ -148,17 +148,18 @@ return dislikeEmojisArrays
 } else {
 return superlikeEmojisArrays
 }}
-function emojisCoinciden(emoji1, emoji2) {
-const sonDelMismoTipo = (emoji, arrayReferencia) => arrayReferencia.includes(emoji);
-const coincidenLike = sonDelMismoTipo(emoji1, likeEmojisArrays) && sonDelMismoTipo(emoji2, likeEmojisArrays);
-const coincidenDislike = sonDelMismoTipo(emoji1, dislikeEmojisArrays) && sonDelMismoTipo(emoji2, dislikeEmojisArrays);
-const coincidenSuperlike = sonDelMismoTipo(emoji1, superlikeEmojisArrays) && sonDelMismoTipo(emoji2, superlikeEmojisArrays);
-return coincidenLike || coincidenDislike || coincidenSuperlike;
+function emojisCoinciden(emoji, emojiActual) {
+const esDelMismoTipo = (emoji, arrayReferencia) => arrayReferencia.some(refEmoji => emoji === refEmoji)
+const coincideLike = esDelMismoTipo(emoji, likeEmojisArrays) && esDelMismoTipo(emojiActual, likeEmojisArrays)
+const coincideDislike = esDelMismoTipo(emoji, dislikeEmojisArrays) && esDelMismoTipo(emojiActual, dislikeEmojisArrays)
+const coincideSuperlike = esDelMismoTipo(emoji, superlikeEmojisArrays) && esDelMismoTipo(emojiActual, superlikeEmojisArrays)
+return coincideLike || coincideDislike || coincideSuperlike
 }
 const emojisAnteriores = determinarEmoji(emojiAntes)
 const mensaje = emojisCoinciden(emoji, emojiActual) ? errorMessage : cambioEmojiMessage;
 conn.reply(m.chat, mensaje, m)
-    
+console.log(emoji)
+console.log(emojiActual)    
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
 const record = userInDB[userId].record[0]
