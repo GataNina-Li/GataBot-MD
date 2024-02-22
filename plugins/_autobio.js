@@ -1,5 +1,5 @@
 let handler = m => m
-handler.all = async function (m) {
+handler.all = async function (m, bot) {
 let setting = global.db.data.settings[this.user.jid]
 	
 let _uptime = process.uptime() * 1000
