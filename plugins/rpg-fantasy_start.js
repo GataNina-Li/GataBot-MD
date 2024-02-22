@@ -156,7 +156,7 @@ const coincidenSuperlike = sonDelMismoTipo(emoji1, superlikeEmojisArrays) && son
 return coincidenLike || coincidenDislike || coincidenSuperlike;
 }
 const emojisAnteriores = determinarEmoji(emojiAntes)
-const mensaje = emojisCoinciden(emoji, emojiActual) ? errorMessage : cambioEmojiMessage;
+const mensaje = emojisCoinciden(emojiAntes, emojiActual) ? errorMessage : cambioEmojiMessage;
 conn.reply(m.chat, mensaje, m)
     
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
