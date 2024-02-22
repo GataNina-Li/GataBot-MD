@@ -149,11 +149,15 @@ return dislikeEmojisArrays
 return superlikeEmojisArrays
 }}
 function emojisCoinciden(emoji1, emoji2) {
-return emoji1 === emoji2
+const mismoTipoEmoji = (emoji, arrayReferencia) => arrayReferencia.some(refEmoji => refEmoji === emoji)
+const coincidenLike = mismoTipoEmoji(emoji1, likeEmojisArrays) && mismoTipoEmoji(emoji2, likeEmojisArrays)
+const coincidenDislike = mismoTipoEmoji(emoji1, dislikeEmojisArrays) && mismoTipoEmoji(emoji2, dislikeEmojisArrays)
+const coincidenSuperlike = mismoTipoEmoji(emoji1, superlikeEmojisArrays) && mismoTipoEmoji(emoji2, superlikeEmojisArrays)
+return coincidenLike || coincidenDislike || coincidenSuperlike
 }
 const emojisAnteriores = determinarEmoji(emojiAntes)
-const coincide = emojisAnteriores.some(emoji => emojisCoinciden(emoji, emojiActual))
-const mensaje = coincide ? cambioEmojiMessage : errorMessage
+const coinciden = emojisCoinciden(emoji, emojiActual)
+const mensaje = coinciden ? errorMessage : cambioEmojiMessage 
 conn.reply(m.chat, mensaje, m)
     
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
