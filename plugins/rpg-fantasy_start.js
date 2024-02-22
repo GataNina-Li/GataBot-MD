@@ -135,7 +135,7 @@ status: false,
 },
 ]}
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
-emojiSaved = emojiAntes.emoji    
+emojiSaved = emojiAntes?.emoji    
 const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiSaved}"* por *"${emoji}"* para *${nombrePersonaje}*.`
 const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
 if (emojiAntes) {
