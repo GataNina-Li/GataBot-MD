@@ -123,6 +123,7 @@ character_name: nombrePersonaje,
 like: likeEmojisArrays.includes(emoji),
 dislike: dislikeEmojisArrays.includes(emoji),
 superlike: superlikeEmojisArrays.includes(emoji),
+//emoji: emoji
 },
 ];
 usuarioExistente[idUsuarioExistente].flow = updatedFlow
@@ -152,7 +153,7 @@ return emoji1 === emoji2
 }
 const emojisAnteriores = determinarEmoji(emojiAntes)
 const coincide = emojisAnteriores.some(emoji => emojisCoinciden(emoji, emojiActual))
-const mensaje = coincide ? errorMessage : cambioEmojiMessage
+const mensaje = coincide ? cambioEmojiMessage : errorMessage
 conn.reply(m.chat, mensaje, m)
     
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
