@@ -3,7 +3,7 @@
 import fetch from 'node-fetch'  
 import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
-let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen, fantasyDB, jsonURL, response, data, userId, voto, emojiGuardado = null
+let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen, fantasyDB, jsonURL, response, data, userId, voto, emojiSaved = null
 const likeEmojisArrays = ['👍', '👍🏻', '👍🏼', '👍🏽', '👍🏾', '👍🏿']
 const dislikeEmojisArrays = ['👎', '👎🏻', '👎🏼', '👎🏽', '👎🏾', '👎🏿']
 const superlikeEmojisArrays = ['🩷', '❤️', '🧡', '💛', '💚', '🩵', '💙', '💜', '🖤', '🩶', '🤍', '🤎']
@@ -157,7 +157,7 @@ const coincideDislike = esDelMismoTipo(emoji, dislikeEmojisArrays) && esDelMismo
 const coincideSuperlike = esDelMismoTipo(emoji, superlikeEmojisArrays) && esDelMismoTipo(emojiSaved, superlikeEmojisArrays);
 return coincideLike || coincideDislike || coincideSuperlike;
 }
-const coinciden = emojisCoinciden(emoji, emojiGuardado)
+const coinciden = emojisCoinciden(emoji, emojiSaved)
 const mensaje = coinciden ? errorMessage : cambioEmojiMessage
 conn.reply(m.chat, mensaje, m)
 if (!coinciden) {
