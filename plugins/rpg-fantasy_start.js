@@ -146,6 +146,7 @@ return dislikeEmojisArrays
 return superlikeEmojisArrays
 }}
 const emojisAnteriores = determinarEmoji(emojiAntes)
+console.log(emojisAnteriores)
 emojiSaved = emojisAnteriores.emoji    
 const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiSaved}"* por *"${emoji}"* para *${nombrePersonaje}*.`
 const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
