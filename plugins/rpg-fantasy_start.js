@@ -1,5 +1,5 @@
 // Código elaborado por: https://github.com/GataNina-Li
-
+/*
 import fetch from 'node-fetch'  
 import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
@@ -316,4 +316,4 @@ minutes = (minutes < 10) ? "0" + minutes : minutes
 seconds = (seconds < 10) ? "0" + seconds : seconds
 
 return minutes + " m y " + seconds + " s " 
-}  
+}  */
