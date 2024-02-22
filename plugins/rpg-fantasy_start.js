@@ -135,7 +135,9 @@ status: false,
 },
 ]}
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
-
+emojiSaved = emojiAntes.emoji    
+const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiSaved}"* por *"${emoji}"* para *${nombrePersonaje}*.`
+const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
 if (emojiAntes) {
 function determinarEmoji(voto) {
 if (voto.like) {
@@ -145,12 +147,7 @@ return dislikeEmojisArrays
 } else {
 return superlikeEmojisArrays
 }}
-const emojisAnteriores = determinarEmoji(emojiAntes)
-console.log(emojiAntes)
-emojiSaved = emojisAnteriores.emoji    
-const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiSaved}"* por *"${emoji}"* para *${nombrePersonaje}*.`
-const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
-    
+const emojisAnteriores = determinarEmoji(emojiAntes)  
 function emojisCoinciden(emoji, emojiSaved) {
 const esDelMismoTipo = (emoji, arrayReferencia) => arrayReferencia.some(refEmoji => emoji === refEmoji);
 const coincideLike = esDelMismoTipo(emoji, likeEmojisArrays) && esDelMismoTipo(emojiSaved, likeEmojisArrays);
