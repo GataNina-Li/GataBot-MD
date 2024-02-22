@@ -7,6 +7,7 @@ let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen, 
 const likeEmojisArrays = ['👍', '👍🏻', '👍🏼', '👍🏽', '👍🏾', '👍🏿']
 const dislikeEmojisArrays = ['👎', '👎🏻', '👎🏼', '👎🏽', '👎🏾', '👎🏿']
 const superlikeEmojisArrays = ['🩷', '❤️', '🧡', '💛', '💚', '🩵', '💙', '💜', '🖤', '🩶', '🤍', '🤎']
+
 let handler = async (m, { command, usedPrefix, conn }) => {
 let user = global.db.data.users[m.sender]
 //let time = user.fantasy + 300000 //5 min
