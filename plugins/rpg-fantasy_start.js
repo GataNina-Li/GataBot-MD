@@ -158,9 +158,15 @@ return coincideLike || coincideDislike || coincideSuperlike;
 const coinciden = emojisCoinciden(emoji, emojiSaved)
 const mensaje = coinciden ? errorMessage : cambioEmojiMessage
 conn.reply(m.chat, mensaje, m)
+if (likeEmojisArrays.includes(emoji)) {
+emojiSaved = emoji
+} if (dislikeEmojisArrays.includes(emoji)) {
+emojiSaved = emoji
+} else {
+emojiSaved = emoji
+}
 if (!coinciden) {
 emojiSaved = emoji
-//fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 }
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
