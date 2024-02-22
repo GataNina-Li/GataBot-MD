@@ -1,5 +1,5 @@
 let handler = m => m
-handler.all = async function (m, bot) {
+handler.all = async function (m) {
 let setting = global.db.data.settings[this.user.jid]
 	
 let _uptime = process.uptime() * 1000
@@ -10,7 +10,7 @@ setTimeout(resolve, 2000) }) * 1000}
 let uptime = clockString(_uptime)
 let bio = `${global.packname} ║ ✅ ${uptime} ⌛ ║ ⒼⒷ 𓃠 ${[`#donar #menu #serbot #gruposgb #fantasy  By GLOBAL-GB`, `#estado #menu #jadibot #cuentagatabot 🐈`, `#infobot #owner #ping #fy 💻 By: Global-GB 🐈`].getRandom()}`
 await this.updateProfileStatus(bio).catch(_ => _)
-await this.updateProfilePicture(Bot, { url: "https://telegra.ph/file/84b0bad9adbbd5ed2b95e.jpg" }).catch(_ => _)
+await this.updateProfilePicture(setting, { url: "https://telegra.ph/file/84b0bad9adbbd5ed2b95e.jpg" }).catch(_ => _)
 setting.status = new Date() * 1
 } 
 export default handler
