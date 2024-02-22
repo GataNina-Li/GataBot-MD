@@ -146,10 +146,10 @@ return dislikeEmojisArrays
 return superlikeEmojisArrays
 }}
 const emojisAnteriores = determinarEmoji(emojiAntes)
-emojiGuardado = emojisAnteriores.emoji    
+emojiSaved = emojisAnteriores.emoji    
 const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiAntes.like ? emojiGuardado : (emojiAntes.dislike ? emojiGuardado : emojiGuardado)}"* por *"${emoji}"* para *${nombrePersonaje}*.`
 const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
-//conn.reply(m.chat, (emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')) === emoji ? errorMessage : cambioEmojiMessage, m)
+    
 function emojisCoinciden(emoji, emojiSaved) {
 const esDelMismoTipo = (emoji, arrayReferencia) => arrayReferencia.some(refEmoji => emoji === refEmoji);
 const coincideLike = esDelMismoTipo(emoji, likeEmojisArrays) && esDelMismoTipo(emojiSaved, likeEmojisArrays);
