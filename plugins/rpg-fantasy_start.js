@@ -161,7 +161,7 @@ const coinciden = emojisCoinciden(emoji, emojiSaved)
 const mensaje = coinciden ? errorMessage : cambioEmojiMessage
 conn.reply(m.chat, mensaje, m)
 if (!coinciden) {
-emojiGuardado = emoji
+emojiSaved = emoji
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 }
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
