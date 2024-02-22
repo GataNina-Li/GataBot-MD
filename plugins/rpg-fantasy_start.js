@@ -147,7 +147,7 @@ return superlikeEmojisArrays
 }}
 const emojisAnteriores = determinarEmoji(emojiAntes)
 emojiSaved = emojisAnteriores.emoji    
-const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiAntes.like ? emojiSaved : (emojiAntes.dislike ? emojiSaved : emojiSaved)}"* por *"${emoji}"* para *${nombrePersonaje}*.`
+const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiSaved}"* por *"${emoji}"* para *${nombrePersonaje}*.`
 const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
     
 function emojisCoinciden(emoji, emojiSaved) {
@@ -162,7 +162,7 @@ const mensaje = coinciden ? errorMessage : cambioEmojiMessage
 conn.reply(m.chat, mensaje, m)
 if (!coinciden) {
 emojiSaved = emoji
-fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
+//fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 }
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
