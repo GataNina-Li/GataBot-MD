@@ -159,6 +159,7 @@ return coincideLike || coincideDislike || coincideSuperlike;
 }
 const coinciden = emojisCoinciden(emoji, emojiGuardado)
 const mensaje = coinciden ? errorMessage : cambioEmojiMessage
+conn.reply(m.chat, mensaje, m)
 if (!coinciden) {
 emojiGuardado = emoji
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
