@@ -3,7 +3,7 @@
 import fetch from 'node-fetch'  
 import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
-let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen, fantasyDB, jsonURL, response, data, userId, voto, emojiActual = null
+let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen, fantasyDB, jsonURL, response, data, userId, voto, emojiGuardado = null
 const likeEmojisArrays = ['👍', '👍🏻', '👍🏼', '👍🏽', '👍🏾', '👍🏿']
 const dislikeEmojisArrays = ['👎', '👎🏻', '👎🏼', '👎🏽', '👎🏾', '👎🏿']
 const superlikeEmojisArrays = ['🩷', '❤️', '🧡', '💛', '💚', '🩵', '💙', '💜', '🖤', '🩶', '🤍', '🤎']
@@ -123,7 +123,7 @@ character_name: nombrePersonaje,
 like: likeEmojisArrays.includes(emoji),
 dislike: dislikeEmojisArrays.includes(emoji),
 superlike: superlikeEmojisArrays.includes(emoji),
-//emoji: emoji
+emoji: emoji,
 },
 ];
 usuarioExistente[idUsuarioExistente].flow = updatedFlow
@@ -137,9 +137,6 @@ status: false,
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 
 if (emojiAntes) {
-const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')}"* por *"${emoji}"* para *${nombrePersonaje}*.`
-const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
-//conn.reply(m.chat, (emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')) === emoji ? errorMessage : cambioEmojiMessage, m)
 function determinarEmoji(voto) {
 if (voto.like) {
 return likeEmojisArrays
@@ -148,18 +145,24 @@ return dislikeEmojisArrays
 } else {
 return superlikeEmojisArrays
 }}
-function emojisCoinciden(emoji, emojiActual) {
-const esDelMismoTipo = (emoji, arrayReferencia) => arrayReferencia.some(refEmoji => emoji === refEmoji)
-const coincideLike = esDelMismoTipo(emoji, likeEmojisArrays) && esDelMismoTipo(emojiActual, likeEmojisArrays)
-const coincideDislike = esDelMismoTipo(emoji, dislikeEmojisArrays) && esDelMismoTipo(emojiActual, dislikeEmojisArrays)
-const coincideSuperlike = esDelMismoTipo(emoji, superlikeEmojisArrays) && esDelMismoTipo(emojiActual, superlikeEmojisArrays)
-return coincideLike || coincideDislike || coincideSuperlike
-}
 const emojisAnteriores = determinarEmoji(emojiAntes)
-const mensaje = emojisCoinciden(emoji, emojiAntes) ? errorMessage : cambioEmojiMessage;
-conn.reply(m.chat, mensaje, m)
-console.log(emoji)
-console.log(emojiAntes)    
+emojiGuardado = emojisAnteriores.emoji    
+const cambioEmojiMessage = `Has decidido cambiar tú calificación anterior *"${emojiAntes.like ? emojiGuardado : (emojiAntes.dislike ? emojiGuardado : emojiGuardado)}"* por *"${emoji}"* para *${nombrePersonaje}*.`
+const errorMessage = `*${nombrePersonaje}* ya fue calificado por ti con *"${emoji}"*`
+//conn.reply(m.chat, (emojiAntes.like ? '👍' : (emojiAntes.dislike ? '👎' : '❤️')) === emoji ? errorMessage : cambioEmojiMessage, m)
+function emojisCoinciden(emoji, emojiSaved) {
+const esDelMismoTipo = (emoji, arrayReferencia) => arrayReferencia.some(refEmoji => emoji === refEmoji);
+const coincideLike = esDelMismoTipo(emoji, likeEmojisArrays) && esDelMismoTipo(emojiSaved, likeEmojisArrays);
+const coincideDislike = esDelMismoTipo(emoji, dislikeEmojisArrays) && esDelMismoTipo(emojiSaved, dislikeEmojisArrays);
+const coincideSuperlike = esDelMismoTipo(emoji, superlikeEmojisArrays) && esDelMismoTipo(emojiSaved, superlikeEmojisArrays);
+return coincideLike || coincideDislike || coincideSuperlike;
+}
+const coinciden = emojisCoinciden(emoji, emojiGuardado)
+const mensaje = coinciden ? errorMessage : cambioEmojiMessage
+if (!coinciden) {
+emojiGuardado = emoji
+fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
+}
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
 const record = userInDB[userId].record[0]
