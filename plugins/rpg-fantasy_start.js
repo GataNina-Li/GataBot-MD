@@ -216,7 +216,7 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
 }}}}}
       
 if (m.quoted && m.quoted.id === id_message && ['c', '🛒', '🐱'].includes(m.text.toLowerCase())) {
-console.log(nuevoPrecio)
+//console.log(nuevoPrecio)
 const cantidadFaltante = nuevoPrecio - user.money
 if (user.money < nuevoPrecio) {
 const codigoActual = dato.code
