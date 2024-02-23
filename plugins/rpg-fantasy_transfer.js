@@ -129,5 +129,5 @@ return conn.reply(m.chat, `La transferencia de *"${senderData.fantasy[characterI
 return
 }
 
-handler.command = /^(fantasytransfer|fytransfer|fydar)$/i
+handler.command = /^(fantasytransfer|fytransfer|fyregalar|fytr)$/i
 export default handler
