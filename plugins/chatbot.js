@@ -33,12 +33,12 @@ conn.reply(m.chat,  `\`⚡¿Quieres un bot para tu grupo?\`
 * #serbot (escanea el QR) 
 * #jadibot --code (Código de 8 dígitos)
 
-💖 Puedes solicitarlo haciendo una donación voluntaria a través de PayPal o Mercado Pago arg.*
+*💖 Puedes solicitarlo haciendo una donación voluntaria a través de PayPal o Mercado Pago arg.*
 
 > 🚀 El bot estará activo 24/7 para tu grupo.
 
 \`⚡ ¿Por dónde puedo donar?\`
-A través de nuestro PayPal o Mercado Pago.
+> A través de nuestro PayPal o Mercado Pago.
 
 *❇️PayPal:*
 • https://www.paypal.com/paypalme/OficialGD
@@ -50,15 +50,16 @@ A través de nuestro PayPal o Mercado Pago.
 
 \`⏩ Siguiente paso ⏩\`
 
-Una vez realizado el pago, puedes enviar un comprobante de envío del dinero (captura de pantalla) para que pueda agregar el bot a tu grupo.
-• ${ig}
+> Una vez realizado el pago, puedes enviar un comprobante de envío del dinero (captura de pantalla) para que pueda agregar el bot a tu grupo:
+
 • https://chat.whatsapp.com/FDRfhecUGrCEQswkg8FUYz
+• ${ig}
 • https://www.facebook.com/elrebelde21
 
 \`⚡ ¿El bot estará activo 24/7?\`
-Sí, nuestro bot está alojado en un servidor de pago para mantenerlo activo 24/7 (por eso también solicitamos donaciones para mantenerlo en funcionamiento) 💞.
+_*Sí, nuestro bot está alojado en un servidor de pago para mantenerlo activo 24/7 (por eso también solicitamos donaciones para mantenerlo en funcionamiento) 💞*_
 
-> *𝙂𝙧𝙖𝙘𝙞𝙖𝙨 𝙥𝙤𝙧 𝙨𝙪𝙨 𝙥𝙧𝙚𝙛𝙚𝙧𝙚𝙣𝙘𝙞𝙖𝙨 𝙚𝙣 ${wm} 🐈💞*`, fkontak, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: `Hola ${name} 👋`, body: wm, previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}})}
+> *𝙂𝙧𝙖𝙘𝙞𝙖𝙨 𝙥𝙤𝙧 𝙨𝙪𝙨 𝙥𝙧𝙚𝙛𝙚𝙧𝙚𝙣𝙘𝙞𝙖𝙨 𝙚𝙣 ${gt} 🐈💞*`, fkontak, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: `Hola ${name} 👋`, body: wm, previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}})}
  
 if (/^¿Qué es un Bot?|¿Qué es Bot?|Qué es Bot|qué es Bot|QUÉ ES UN BOT|¿QUÉ ES UN BOT?|¿qué es un Bot?|qué es un Bot|que es un Bot|Qué es un Bot?|Que es un Bot? $/i.test(m.text) ) {
 conn.reply(m.chat, `\`✨ ¿𝐐𝐮𝐞́ 𝐞𝐬 𝐮𝐧 𝐁𝐨𝐭 𝐝𝐞 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩? ✨\`
