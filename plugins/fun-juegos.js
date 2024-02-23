@@ -178,7 +178,7 @@ if (ruleta === 'text6') return m.reply(`👑 𝙂𝙐𝘼𝘼 𝙀𝙎𝙏𝘼�
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 if (command == 'gay') {    
-let vn = './media/gay2.mp3';
+let vn = 'https://qu.ax/HfeP.mp3';
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 conn.sendFile(m.chat, global.API('https://some-random-api.com', '/canvas/gay', {  
 avatar: await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'),   
@@ -273,7 +273,7 @@ await conn.reply(m.chat, juego, m, m.mentionedJid ? { mentions: m.mentionedJid }
  // ------------------------------------------------------------------------------------------------------------------------------------------------   
  
  if (command == 'topgays') {
-let vn = './media/gay2.mp3'
+let vn = 'https://qu.ax/HfeP.mp3'
 let top = `*🌈TOP 10 GAYS/LESBIANAS DEL GRUPO🌈*
     
 *_1.- 🏳️‍🌈 ${user(a)}_* 🏳️‍🌈
@@ -294,7 +294,7 @@ ptt: true })}
  // ------------------------------------------------------------------------------------------------------------------------------------------------   
      
 if (command == 'topotakus') {
-let vn = './media/otaku.mp3'
+let vn = 'https://qu.ax/ZgFZ.mp3'
 let top = `*🌸 TOP 10 OTAKUS DEL GRUPO 🌸*
     
 *_1.- 💮 ${user(a)}_* 💮
