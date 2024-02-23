@@ -331,18 +331,18 @@ return minutes + " m y " + seconds + " s "
 function listaAvisos(usedPrefix, personaje) {
 const avisos = [
 `> 🤩 ¡Agrega un personaje ahora! usando *${usedPrefix}fyagregar* o *${usedPrefix}fyadd*`,
-`> 👀 *¿Qué tal ${personaje}?* ¡Calififcalo!\n_Responde a este mensaje con: "${likeEmojisArrays.getRandom()}", "${dislikeEmojisArrays.getRandom()}", o "${superlikeEmojisArrays.getRandom()}"_`,
+`> 👀 *¿Qué tal ${personaje}?* ¡Califica!\n_Responde a este mensaje con:\n"${likeEmojisArrays.getRandom()}", "${dislikeEmojisArrays.getRandom()}", o "${superlikeEmojisArrays.getRandom()}"_\n\n> ⚠️ *Solo puede calificar si ha comprado mínimo un Personaje*`,
 `> *¿Sabías que puedes cambiar un Personaje por tiempo premium 🎟️?*\n_¡Inténtalo! usa *${usedPrefix}fycambiar* o *${usedPrefix}fychange*_`,
 `> ¡Para ser un Pro 😎 en *RPG Fantasy* visita la guía 📜!\n*Comienza a explorar usando:*\n\`${usedPrefix}fyguia o ${usedPrefix}fyguide\``,
 `> *Conoce más de ${personaje} usando:*\n\`${usedPrefix}fyinfo\``,
 `> *¿Quieres saber la lista de personajes 🤭?*\n*Consulta usando:* \`${usedPrefix}fylista o ${usedPrefix}fyl\``,
-`> 🛒 Compra, ${superlikeEmojisArrays.getRandom()} califica, 🔄 cambia  y mucho más para ganar *recompensas 🎁 extras*`,
+`> 🛒 Compra, ${superlikeEmojisArrays.getRandom()} califica, 🔄 cambia  y mucho más para ganar *recompensas extras 🎁*`,
 `> 🌟 *¡Mira quien es tendencia!*\n\`${usedPrefix}fytendencia o ${usedPrefix}fyranking\`\n\n👀 _Mira avances de otros respondiendo al mensaje de alguien con *${usedPrefix}fytendencia*_`,
 `> *Te digo un secreto* 😳\n_Mientras más uses los comandos *RPG Fantasy*, las 🎁 Recomepesas futuras se multiplican ☝️🤑_`,
 `> 🌟 *Mira avances, misiones, datos de lo que has conseguido usando:*\n\`${usedPrefix}fymy\``,
 `> *¡Recuerda responder a este mensaje con "c", "🛒", o "🐱" para comprar personajes!*`,
 `> 😁 *¡Pensamos en todo!* Transfiere cualquier personaje a tú Amigo/a usando:\n*${usedPrefix}fyentregar*, *${usedPrefix}fytransfer* o *${usedPrefix}fytr*`,
-`> ⚠️ *Alerta* ⚠️ Calififcar a *${personaje}* puede hacer que el precio suba o baje 😱 !Califica con sabiduría! 😸`
+`> ⚠️ *Alerta* ⚠️ Calificar a *${personaje}* puede hacer que el precio suba o baje 😱 !Califica con sabiduría! 😸`
 ].getRandom()
 return avisos
 }
