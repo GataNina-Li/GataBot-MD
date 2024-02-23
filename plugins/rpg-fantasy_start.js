@@ -69,7 +69,7 @@ nuevoPrecio = 50
     
 let txtNewPrice = nuevoPrecio !== dato.price ? `\n✓ *Precio anterior:* ~\`${dato.price}\`~ *${rpgshop.emoticon('money')}*\n✓ *Nuevo Precio:* \`${nuevoPrecio}\` *${rpgshop.emoticon('money')}*` : `\n✓ *Precio:* \`\`\`${dato.price}\`\`\` *${rpgshop.emoticon('money')}*`
 let info = `*⛱️ FANTASÍA RPG ⛱️*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Nombre:* ${dato.name}${txtNewPrice}\n✓ *Clase:* ${dato.class}\n✓ *Tipo:* ${dato.type}\n✓ *ID:* \`\`\`${codigoActual}\`\`\`\n✓ *Origen/info:* ${dato.desp}\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Estado:* ${estado}`
-info += `\n\n${estado === 'Libre' ? '_Responde a este mensaje con "c", "🛒", o "🐱" para comprarlo_' : ''}`
+info += `\n\n${estado === 'Libre' ? '_Responde a este mensaje con "c", "🛒", o "🐱" para comprarlo_' : listaAvisos(usedPrefix, personaje)}`
 id_message = (await conn.sendFile(m.chat, dato.url, 'error.jpg', info.trim(), fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
@@ -327,3 +327,22 @@ seconds = (seconds < 10) ? "0" + seconds : seconds
 
 return minutes + " m y " + seconds + " s " 
 }  
+
+function listaAvisos(usedPrefix, personaje) {
+const avisos = [
+`> 🤩 ¡Agrega un personaje ahora! usando *${usedPrefix}fyagregar* o *${usedPrefix}fyadd*`,
+`> 👀 *¿Qué tal ${personaje}?* ¡Calififcalo!\n_Responde a este mensaje con: "${likeEmojisArrays.getRandom()}", "${dislikeEmojisArrays.getRandom()}", o "${superlikeEmojisArrays.getRandom()}"_`,
+`> *¿Sabías que puedes cambiar un Personaje por tiempo premium 🎟️?*\n_¡Inténtalo! usa *${usedPrefix}fycambiar* o *${usedPrefix}fychange*_`,
+`> ¡Para ser un Pro 😎 en *RPG Fantasy* visita la guía 📜!\n*Comienza a explorar usando:*\n\`${usedPrefix}fyguia o ${usedPrefix}fyguide\``,
+`> *Conoce más de ${personaje} usando:*\n\`${usedPrefix}fyinfo\``,
+`> *¿Quieres saber la lista de personajes 🤭?*\n*Consulta usando:* \`${usedPrefix}fylista o ${usedPrefix}fyl\``,
+`> 🛒 Compra, ${superlikeEmojisArrays.getRandom()} califica, 🔄 cambia  y mucho más para ganar *recompensas 🎁 extras*`,
+`> 🌟 *¡Mira quien es tendencia!*\n\`${usedPrefix}fytendencia o ${usedPrefix}fyranking\`\n\n👀 _Mira avances de otros respondiendo al mensaje de alguien con *${usedPrefix}fytendencia*_`,
+`> *Te digo un secreto* 😳\n_Mientras más uses los comandos *RPG Fantasy*, las 🎁 Recomepesas futuras se multiplican ☝️🤑_`,
+`> 🌟 *Mira avances, misiones, datos de lo que has conseguido usando:*\n\`${usedPrefix}fymy\``,
+`> *¡Recuerda responder a este mensaje con "c", "🛒", o "🐱" para comprar personajes!*`,
+`> 😁 *¡Pensamos en todo!* Transfiere cualquier personaje a tú Amigo/a usando:\n*${usedPrefix}fyregalar*, *${usedPrefix}fytransfer* o *${usedPrefix}fytr*`,
+`> ⚠️ *Alerta* ⚠️ Calififcar a *${personaje}* puede hacer que el precio suba o baje 😱 !Califica con sabiduría! 😸`
+].getRandom()
+return avisos
+}
