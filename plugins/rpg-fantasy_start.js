@@ -41,7 +41,7 @@ idUsuarioExistente = Object.keys(usuarioExistente)[0];
 nombreImagen = data.infoImg.find(personaje => personaje.code === codigoActual)?.name
 
 if (nombreImagen) {
-estado = `*${nombreImagen}* fue comprado por *${conn.getName(idUsuarioExistente)}*`
+estado = `Vendido\n✓ *Comprado por: ${conn.getName(idUsuarioExistente)}*`
 }}
 
 const personaje = dato.name
