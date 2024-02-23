@@ -341,7 +341,7 @@ const avisos = [
 `> *Te digo un secreto* 😳\n_Mientras más uses los comandos *RPG Fantasy*, las 🎁 Recomepesas futuras se multiplican ☝️🤑_`,
 `> 🌟 *Mira avances, misiones, datos de lo que has conseguido usando:*\n\`${usedPrefix}fymy\``,
 `> *¡Recuerda responder a este mensaje con "c", "🛒", o "🐱" para comprar personajes!*`,
-`> 😁 *¡Pensamos en todo!* Transfiere cualquier personaje a tú Amigo/a usando:\n*${usedPrefix}fyenviar*, *${usedPrefix}fytransfer* o *${usedPrefix}fytr*`,
+`> 😁 *¡Pensamos en todo!* Transfiere cualquier personaje a tú Amigo/a usando:\n*${usedPrefix}fyentregar*, *${usedPrefix}fytransfer* o *${usedPrefix}fytr*`,
 `> ⚠️ *Alerta* ⚠️ Calififcar a *${personaje}* puede hacer que el precio suba o baje 😱 !Califica con sabiduría! 😸`
 ].getRandom()
 return avisos
