@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 var handler = async (m, { text,  usedPrefix, command }) => {
-if (!text) throw `INGRESE UN TEXTO!`
+if (!text) throw `INGRESA UN TEXTO!`
 try {
 var apii = await fetch(`https://aemt.me/bard?text=${text}`)
 var res = await apii.json()
@@ -10,8 +10,8 @@ await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['s
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 }}
-handler.command = ['bard']
-handler.help = ['bard']
+handler.command = ['bard', 'gemini']
+handler.help = ['bard', 'gemini']
 handler.tags = ['herramientas']
 
 handler.premium = false
