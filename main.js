@@ -474,14 +474,14 @@ if (stopped === 'close' || !conn || !conn.user) return
 await clearTmp()
 console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4) // 4 min 
 
-setInterval(async () => {
-if (stopped === 'close' || !conn || !conn.user) return
-await purgeSession()
-console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 10) // 10 min
+//setInterval(async () => {
+//if (stopped === 'close' || !conn || !conn.user) return
+//await purgeSession()
+//console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 10) // 10 min
 
-setInterval(async () => {
-if (stopped === 'close' || !conn || !conn.user) return
-await purgeSessionSB()}, 1000 * 60 * 10)
+//setInterval(async () => {
+//if (stopped === 'close' || !conn || !conn.user) return
+//await purgeSessionSB()}, 1000 * 60 * 10) 
 
 setInterval(async () => {
 if (stopped === 'close' || !conn || !conn.user) return
