@@ -3,6 +3,7 @@
 import fetch from 'node-fetch'  
 import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
+let jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 let id_message, pp, dato, fake, user, estado, idUsuarioExistente, nombreImagen, fantasyDB, jsonURL, response, data, userId, voto, emojiSaved = null
 const likeEmojisArrays = ['👍', '👍🏻', '👍🏼', '👍🏽', '👍🏾', '👍🏿']
 const dislikeEmojisArrays = ['👎', '👎🏻', '👎🏼', '👎🏽', '👎🏾', '👎🏿']
@@ -14,8 +15,6 @@ let user = global.db.data.users[m.sender]
 //if (new Date - user.fantasy < 300000) return await conn.reply(m.chat, `⏱️ 𝙑𝙪𝙚𝙡𝙫𝙖 𝙚𝙣 ${msToTime(time - new Date())} 𝙉𝙊 𝙃𝘼𝙂𝘼 𝙎𝙋𝘼𝙈`, m)
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-
-jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 try {
 response = await fetch(jsonURL)
 data = await response.json()
@@ -233,8 +232,6 @@ if (usuarioExistente) return conn.reply(m.chat, No_compra, m, fake)
 fake = { contextInfo: { externalAdReply: { title: `¡Insuficientes ${rpgshop.emoticon('money')}!`, body: `😼 Completa misiones del RPG`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() } } }
 conn.reply(m.chat, `Te falta *${cantidadFaltante} ${rpgshop.emoticon('money')}* para comprar a *${dato.name}*\n\n*Actualmente tienes ${user.money} ${rpgshop.emoticon('money')}*`, m, fake)
 } else {
-        
-jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 response = await fetch(jsonURL)
 data = await response.json()
 fantasyDB = []
@@ -305,7 +302,6 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
 realizarCompra()
    
 user.money -= nuevoPrecio
-console.log(nuevoPrecio)
 fake = { contextInfo: { externalAdReply: { title: `¡Disfruta de tú personaje!`, body: `${dato.desp}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: dato.url } } }
 conn.reply(m.chat, `El usuario *${conn.getName(m.sender)}* ha comprado a *${dato.name}*`, m, fake)
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
