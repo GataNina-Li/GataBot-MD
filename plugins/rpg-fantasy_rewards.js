@@ -137,7 +137,7 @@ usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 const flowArray = usuarioExistente[userId].flow || []
 const likesCount = flowArray.filter(voto => voto.like).length
-fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO 👍`, body: `Califica persoanjes, es gratis 👍`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO 👍`, body: `Califica personajes, es gratis 👍`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
 logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${likesCount} veces "👍"*\n\n🌟 *Recompensas:* \`\`\`(X${user.fantasy_character3 + 1})\`\`\``
 const conditionMet = [
 (likesCount === 3 && user.fantasy_character3 === 0),
@@ -188,7 +188,7 @@ usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 const flowArray = usuarioExistente[userId].flow || []
 const superlikesCount = flowArray.filter(voto => voto.superlike).length
-fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO ❤️`, body: `Califica persoanjes, es gratis ❤️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO ❤️`, body: `Califica personajes, es gratis ❤️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
 logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${superlikesCount} veces "❤️"*\n\n🌟 *Recompensas:* \`\`\`(X${user.fantasy_character4 + 1})\`\`\``
 const conditionMet = [
 (superlikesCount === 3 && user.fantasy_character4 === 0),
@@ -239,7 +239,7 @@ usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 const flowArray = usuarioExistente[userId].flow || []
 const disLikeCount = flowArray.filter(voto => voto.dislike).length
-fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO 👎`, body: `Califica persoanjes, es gratis 😅`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO 👎`, body: `Califica personajes, es gratis 😅`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
 logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${disLikeCount} veces "👎"*\n\n🌟 *Recompensas:* \`\`\`(X${user.fantasy_character5 + 1})\`\`\`` 
 const conditionMet = [
 (disLikeCount === 3 && user.fantasy_character5 === 0),
