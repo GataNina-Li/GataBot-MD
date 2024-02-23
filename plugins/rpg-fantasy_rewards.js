@@ -71,13 +71,13 @@ bibitpisang: 0,
 
 // Si el usuario no existe en la base de datos borra su contador de registro
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
-//if (!usuarioExistente) {
-//user.fantasy_character = 0
-//user.fantasy_character2 = 0
-//user.fantasy_character3 = 0
-//user.fantasy_character4 = 0
-//user.fantasy_character5 = 0
-//}
+if (!usuarioExistente) {
+user.fantasy_character = 0
+user.fantasy_character2 = 0
+user.fantasy_character3 = 0
+user.fantasy_character4 = 0
+user.fantasy_character5 = 0
+}
 
 // Verifica si el usuario existe en la base de datos y si tiene la estructura fantasy
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId && user[userId].fantasy)
