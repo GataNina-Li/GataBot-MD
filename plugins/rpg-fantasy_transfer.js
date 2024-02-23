@@ -28,7 +28,7 @@ character = text.trim()
 let [userText, characterText] = text.split(/[|,&\/\\]+/).map(v => v.trim())
 if (!userText || !characterText) {
 fake = { contextInfo: { externalAdReply: { title: `❌ Parámetros incompletos`, body: `Algo no salió bien...`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
-return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver sus Personajes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m, fake)
+return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver tus Personajes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m, fake)
 }
 let isUserNumber = userText.endsWith('@s.whatsapp.net')
 let isCharNumber = characterText.endsWith('@s.whatsapp.net')
