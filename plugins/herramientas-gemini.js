@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 var handler = async (m, { text,  usedPrefix, command }) => {
 if (!text) throw `INGRESA UN TEXTO!`
 try {
-var apii = await fetch(`https://aemt.me/bard?text=${text}`)
+var apii = await fetch(`https://aemt.me/gemini?text=${text}`)
 var res = await apii.json()
 await m.reply(res.result)
 } catch (e) {
