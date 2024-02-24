@@ -537,11 +537,24 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ✓ _${usedPrefix}cadames | mes | monthly_
 ✓ _${usedPrefix}cofre | abrircofre | coffer_
 ✓ _${usedPrefix}trabajar | work_
-✓ _${usedPrefix}fantasy | fy_
-✓ _${usedPrefix}fantasyinfo | fyinfo_
-✓ _${usedPrefix}fylista_
 
-> 🏆 *TOP EN GATABOT* 🏆
+> 🌟 *RPG Fnatasy* 🌟
+
+✓ _${usedPrefix}fantasy | fy_
+✓ _c_
+✓ _${usedPrefix}fyguia | fyguide_
+✓ _${usedPrefix}fantasyinfo | fyinfo_
+✓ _${usedPrefix}fyagregar | fyadd_
+✓ _${usedPrefix}fycambiar | fychange_
+✓ _${usedPrefix}fylista | fyl_
+✓ _${usedPrefix}fantasymy | fymy_
+✓ _${usedPrefix}fyentregar | fytransfer_
+
+> 🏆 *TOP en RPG Fnatasy* 🏆
+
+✓ _${usedPrefix}fytendencia | fyranking_
+
+> 🏆 *TOP en GATABOT* 🏆
 
 ✓ _${usedPrefix}top | lb | leaderboard_
 
