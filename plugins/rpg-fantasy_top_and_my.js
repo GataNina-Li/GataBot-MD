@@ -346,7 +346,7 @@ ${rankingCaros}\n
 > 😎 *❰ Mejor clase en personaje ❱* 😎
 ${rankingClases}
 
-*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*` : `> 🤩 *RPG FANTASY*` 🤩`}`
+*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*` : `> 🤩 *RPG FANTASY* 🤩`}
 
 > ⛱️ *❰ Consejo / Ayuda ❱* ⛱️
 ${listaAvisos(usedPrefix, personaje)} 
