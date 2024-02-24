@@ -125,7 +125,7 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character2 + 1)
 if (conditionMet) {
 user[reward] += multipliedAmount
-logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\`\n\n> Mira tus avances usando *#fymy*`
 }}  
 if (conditionMet) {
 await conn.reply(m.chat, logro, null, fake)
@@ -176,7 +176,7 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character3 + 1)
 if (conditionMet) {
 user[reward] += multipliedAmount
-logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\`\n\n> Mira tus avances usando *#fymy*`
 }}  
 if (conditionMet) {
 await conn.reply(m.chat, logro, null, fake)
@@ -227,7 +227,7 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character4 + 1)
 if (conditionMet) {
 user[reward] += multipliedAmount
-logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\`\n\n> Mira tus avances usando *#fymy*`
 }}  
 if (conditionMet) {
 await conn.reply(m.chat, logro, null, fake)
@@ -278,7 +278,7 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character5 + 1)
 if (conditionMet) {
 user[reward] += multipliedAmount
-logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\`\n\n> Mira tus avances usando *#fymy*`
 }}  
 if (conditionMet) {
 await conn.reply(m.chat, logro, null, fake)
