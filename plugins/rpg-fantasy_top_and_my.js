@@ -341,14 +341,14 @@ user.fantasy_character3 === 7 ? '📦 Recompensa millonaria' :
 user.fantasy_character3 >= 8 && user.fantasy_character3 <= 9 ? '⚗️ Recompensa multimillonaria' :
 '💸 Recompensa magistral 💸'
 
-let contexto4 = user.fantasy_character4 === 0 ? '¡Califica a varios personajes!'' :
+let contexto4 = user.fantasy_character4 === 0 ? '¡Califica a varios personajes!' :
 user.fantasy_character4 >= 1 && user.fantasy_character4 <= 3 ? '🧺 Recompensa pequeña' :
 user.fantasy_character4 >= 4 && user.fantasy_character4 <= 6 ? '🛍️ Recompensa mediana' :
 user.fantasy_character4 === 7 ? '📦 Recompensa millonaria' :
 user.fantasy_character4 >= 8 && user.fantasy_character4 <= 9 ? '⚗️ Recompensa multimillonaria' :
 '💸 Recompensa magistral 💸'
 
-let contexto5 = user.fantasy_character5 === 0 ? '¡Califica a varios personajes!'' :
+let contexto5 = user.fantasy_character5 === 0 ? '¡Califica a varios personajes!' :
 user.fantasy_character5 >= 1 && user.fantasy_character5 <= 3 ? '🧺 Recompensa pequeña' :
 user.fantasy_character5 >= 4 && user.fantasy_character5 <= 6 ? '🛍️ Recompensa mediana' :
 user.fantasy_character5 === 7 ? '📦 Recompensa millonaria' :
