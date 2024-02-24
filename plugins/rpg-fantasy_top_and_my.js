@@ -348,7 +348,7 @@ ${rankingClases}
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 
 > ⛱️ *❰ Consejo / Ayuda ❱* ⛱️
-${listaAvisos(usedPrefix, personaje)}
+${listaAvisos(usedPrefix, personaje)} 
 
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 
