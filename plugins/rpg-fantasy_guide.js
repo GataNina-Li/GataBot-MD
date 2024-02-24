@@ -75,7 +75,7 @@ También puedes calificar un personaje utilizando el comando \`${usedPrefix}fant
 
 Al calificar personajes, puedes influir en su precio. *Por ejemplo:*
 
-- Si das "👍🏽" a un personaje en estado vendido o libre, su precio aumentará un \`2%\` de acuerdo al precio base del personaje.
+- Si das "👍🏽" a un personaje que cuesta \`200\` *${rpgshop.emoticon('money')}* en estado vendido o libre, su precio aumentará un \`2%\` es decir, su nuevo preio será de \`204\` *${rpgshop.emoticon('money')}*.
 - Si el personaje está vendido, la próxima vez que esté libre, tendrá el nuevo precio.
 - Si el personaje está libre, la próxima vez que aparezca, tendrá un nuevo precio.
 
@@ -120,5 +120,5 @@ thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
 }}})
 }
 
-handler.command = /^(fantasyguia|fyguia|fantasyguide|fyguide)$/i
+handler.command = /^(fantasyguia|fyguia|fyguía|fantasyguide|fyguide)$/i
 export default handler
