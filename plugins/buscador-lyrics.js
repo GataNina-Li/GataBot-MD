@@ -33,7 +33,7 @@ handler.tags = ['internet']
 handler.command = /^(lirik|lyrics|lyric|letra)$/i
 handler.limit = 1
 handler.level = 2
-handler.exp = 55
+handler.register = true
 export default handler
 
 /*import fetch from 'node-fetch'

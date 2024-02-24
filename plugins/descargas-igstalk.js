@@ -44,11 +44,12 @@ sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}})
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(e)}}
+console.log(e)
+handler.money = false
+}}
 handler.help = ['igstalk'].map(v => v + ' <username>')
 handler.tags = ['downloader']
 handler.command = /^(igstalk|verig|igver)$/i
-handler.exp = 80
 handler.money = 150
 handler.level = 3
 handler.register = true

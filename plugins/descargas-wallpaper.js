@@ -9,11 +9,13 @@ conn.sendFile(m.chat, img, 'error.jpg', `*💞 ${mid.buscador} ${text}*\n${wm}`,
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(e)}}
+console.log(e)
+handler.limit = false
+}}
 handler.help = ['', '2'].map(v => 'wallpaper' + v + ' <query>')
 handler.tags = ['downloader']
 handler.command = /^(wp|wallpaper2?)$/i
-handler.exp = 29 
+handler.register = true
 handler.limit = 1
 handler.level = 3
 export default handler 

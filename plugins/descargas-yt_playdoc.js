@@ -28,7 +28,7 @@ const texto1 = `𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 ও  ${mid.smsYT10}
 » ${MilesNumber(yt_play[0].views)}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও ${mid.smsYT2}
+ও  ${mid.smsYT2}
 » ${yt_play[0].author.name}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
 ও ${mid.smsYT4}
@@ -66,6 +66,7 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })   
+handler.limit = 1
 } catch {
 try {
 const lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${yt_play[0].url}`);
@@ -81,6 +82,7 @@ showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })   
 //await conn.sendMessage(m.chat, {document: {url: lolh.result.link}, caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 YOUTUBE DL 📥\n┃ও *TÍTULO | TITLE:* \n┃» ${n}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *PESO | SIZE:*\n┃» ${n2}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, fileName: `${n}.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
+handler.limit = 1
 } catch {
 try {
 const searchh = await yts(yt_play[0].url);
@@ -96,6 +98,7 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })   
+handler.limit = 2
 } catch {
 }}}}
 if (command == 'play4' || command == 'playvideodoc') {
@@ -116,10 +119,12 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })   
+handler.limit = 2
 } catch {
 try {
 const mediaa = await ytMp4(yt_play[0].url);
 await await conn.sendMessage(m.chat, {document: {url: dl_url}, caption: cap, mimetype: 'video/mp4', fileName: ttl + `.mp4`}, {quoted: m});
+handler.limit = 3
 } catch {
 try {
 const lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolkeysapi}&url=${yt_play[0].url}`);
@@ -129,6 +134,7 @@ const n2 = lolh.result.link;
 const n3 = lolh.result.size;
 const n4 = lolh.result.thumbnail;
 await conn.sendMessage(m.chat, {document: {url: n2}, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃» ${n}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *${mid.smsYT11}:*\n┃» ${n3}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(n4)}, {quoted: m});
+handler.limit = 3
 } catch {
 }}}}
 } catch (e) {
@@ -140,7 +146,8 @@ handler.limit = 0
 handler.help = ['play3', 'play4'].map((v) => v + ' < busqueda >');
 handler.tags = ['downloader'];
 handler.command = /^(playaudiodoc|playdoc|playdoc2|play3|play4|playvideodoc)$/i;
-handler.limit = 3
+//handler.limit = 3
+handler.register = true
 export default handler;
 
 async function search(query, options = {}) {

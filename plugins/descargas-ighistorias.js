@@ -19,12 +19,14 @@ sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}})
 }} catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(e)}}
+console.log(e)
+handler.limit = false
+}}
 handler.help = ['igstory <username>']
 handler.tags = ['downloader']
 handler.command = ['igstory', 'ighistoria', 'ighistorias' ]
 handler.limit = 3
-handler.exp = 87
+handler.register = true
 export default handler
 
 

@@ -2,7 +2,7 @@ import yts from 'yt-search';
 import fs from 'fs';
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-if (!text) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}`, fkontak,  m)
+if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}`
 try {
 let vids_ = { 
 from: m.sender, 
@@ -27,14 +27,16 @@ return `[${i + 1}]\n❤️꙰༻ *${mid.smsYT1}:*  ${v.title}
 ⁖🧡꙰༻ *${mid.smsYT10}:* ${v.views}`}).join('\n\n••••••••••••••••••••••••••••••••••••\n\n')
 conn.sendFile(m.chat, results.all[0].thumbnail, 'yts.jpeg', textoInfo + '\n\n' + teks, fkontak, m)
 global.videoList.push(vids_);
-} catch {    
+} catch (e)  {    
+console.log(e)
+handler.limit = 0
 }}
 handler.help = ['', 'earch'].map(v => 'yts' + v + ' <pencarian>')
 handler.tags = ['tools']
 handler.command = /^playlist|ytbuscar|yts(earch)?$/i
-handler.exp = 70
+handler.register = true
 handler.limit = 1
-handler.level = 0
+handler.level = 3
 export default handler
 
 

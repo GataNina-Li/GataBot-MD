@@ -20,9 +20,9 @@ youtubeLink = matchingItem.urls[index];
 } else {
 throw `${lenguajeGB['smsAvisoFG']()} ${mid.smsYT} ${matchingItem.urls.length}*`;
 }} else {
-throw `${lenguajeGB['smsAvisoMG']()}${mid.smsYT2(usedPrefix, command)} ${usedPrefix}playlist <texto>*`;
+throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)} ${usedPrefix}playlist <texto>*`;
 }} else {
-throw `${lenguajeGB['smsAvisoMG']()}${mid.smsYT2(usedPrefix, command)}${usedPrefix}playlist <texto>*`;
+throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)}${usedPrefix}playlist <texto>*`;
 }}}  
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m)
 try {

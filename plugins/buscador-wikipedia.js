@@ -10,6 +10,7 @@ conn.reply(m.chat, `${mid.buscador9}\n\n` + res.result.isi, fkontak, { contextIn
 conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
+handler.limit = false
 })};
 handler.help = ['wikipedia'].map((v) => v + ' <apa>');
 handler.tags = ['internet'];
@@ -17,6 +18,7 @@ handler.command = /^(wiki|wikipedia)$/i;
 handler.exp = 40
 handler.level = 3
 handler.limit = 1
+handler.register = true
 export default handler;
 
 async function wikipedia(querry) {

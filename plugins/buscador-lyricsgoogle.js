@@ -18,6 +18,7 @@ m.reply(txt);
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
+handler.limit = false
 }};
 handler.command = handler.help = [
   "google-lyrics",

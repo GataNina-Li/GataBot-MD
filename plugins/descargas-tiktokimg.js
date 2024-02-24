@@ -2,8 +2,8 @@ import fetch from 'node-fetch'
 
 let handler = async(m, { conn, text, usedPrefix, command }) => {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n${usedPrefix + command} https://vm.tiktok.com/`
-if (!(text.includes('http://') || text.includes('https://'))) return m.reply(`${mid.smsTikTok3}`)
-if (!text.includes('tiktok.com')) return m.reply(`${mid.smsTikTok3}`)
+if (!(text.includes('http://') || text.includes('https://'))) throw `${mid.smsTikTok3}`
+if (!text.includes('tiktok.com')) throw `${mid.smsTikTok3}`
 try {
 let res = await fetch(`https://api.lolhuman.xyz/api/tiktokslide?apikey=${global.lolkeysapi}&url=${text}`)
 let anu = await res.json()
@@ -20,11 +20,12 @@ c += 1
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
+handler.limit = false
 }}
 handler.menu = ['tiktokslide <url>']
 handler.tags = ['search']
 handler.command = /^((tt|tiktok)imagen)$/i
-//handler.premium = true
+handler.register = true
 handler.level = 4
 handler.limit = 3
 export default handler
