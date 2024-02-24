@@ -328,7 +328,7 @@ seconds = (seconds < 10) ? "0" + seconds : seconds
 return minutes + " m y " + seconds + " s " 
 }  
 
-function listaAvisos(usedPrefix, personaje) {
+export function listaAvisos(usedPrefix, personaje) {
 const avisos = [
 `> 🤩 ¡Agrega un personaje ahora! usando *${usedPrefix}fyagregar* o *${usedPrefix}fyadd*`,
 `> 👀 *¿Qué tal ${personaje}?* ¡Califica!\n_Responde a este mensaje con:_\n*"${likeEmojisArrays.getRandom()}", "${dislikeEmojisArrays.getRandom()}", o "${superlikeEmojisArrays.getRandom()}"*\n\n> ⚠️ *Solo puede calificar si ha comprado mínimo un Personaje*`,
