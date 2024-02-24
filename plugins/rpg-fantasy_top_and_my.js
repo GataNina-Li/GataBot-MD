@@ -2,7 +2,7 @@
 
 import { listaAvisos } from './rpg-fantasy_start.js'
 import fetch from 'node-fetch'
-import fs from 'fs'
+import fs from 'fs' 
 
 const fantasyDBPath = './fantasy.json'
 let fantasyDB = []
