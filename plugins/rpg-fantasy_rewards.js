@@ -125,10 +125,10 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character2 + 1)
 if (conditionMet) {
 user[reward] += multipliedAmount
-logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\`\n\n> Mira tus avances usando *#fymy*`
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 }}  
 if (conditionMet) {
-await conn.reply(m.chat, logro, null, fake)
+await conn.reply(m.chat, logro + `\n\n> Mira tus avances usando *#fymy*`, null, fake)
 user.fantasy_character2++
 }}
 
@@ -176,10 +176,10 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character3 + 1)
 if (conditionMet) {
 user[reward] += multipliedAmount
-logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\`\n\n> Mira tus avances usando *#fymy*`
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 }}  
 if (conditionMet) {
-await conn.reply(m.chat, logro, null, fake)
+await conn.reply(m.chat, logro + `\n\n> Mira tus avances usando *#fymy*`, null, fake)
 user.fantasy_character3++
 }}
 
@@ -227,10 +227,10 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character4 + 1)
 if (conditionMet) {
 user[reward] += multipliedAmount
-logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\`\n\n> Mira tus avances usando *#fymy*`
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 }}  
 if (conditionMet) {
-await conn.reply(m.chat, logro, null, fake)
+await conn.reply(m.chat, logro + `\n\n> Mira tus avances usando *#fymy*`, null, fake)
 user.fantasy_character4++
 }}
 
@@ -278,10 +278,10 @@ const amount = Math.floor(Math.random() * (max - min + 1) + min)
 const multipliedAmount = amount * (user.fantasy_character5 + 1)
 if (conditionMet) {
 user[reward] += multipliedAmount
-logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\`\n\n> Mira tus avances usando *#fymy*`
+logro += `\n*${rpgshop.emoticon(reward)}* » \`\`\`${multipliedAmount}\`\`\``
 }}  
 if (conditionMet) {
-await conn.reply(m.chat, logro, null, fake)
+await conn.reply(m.chat, logro + `\n\n> Mira tus avances usando *#fymy*`, null, fake)
 user.fantasy_character5++
 }}
 
