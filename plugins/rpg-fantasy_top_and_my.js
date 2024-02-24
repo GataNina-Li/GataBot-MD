@@ -348,7 +348,7 @@ ${rankingClases}
 
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*` : `> 🤩 *RPG FANTASY* 🤩`}
 
-> ⛱️ *❰ Consejo / Ayuda ❱* ⛱️
+> ⛱️ *❰ Consejo / Ayuda ❱* ⛱️\n
 ${listaAvisos(usedPrefix, personaje)} 
 
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
@@ -391,13 +391,13 @@ ${claseMasPersonajes}
 
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 
-🔒 *❰ Desafíos por desbloquear ❱* 🔒
+> 🔒 *❰ Desafíos por desbloquear ❱* 🔒
 
 *❰ ¿Puede calificar personajes? ❱*
 ${user.fantasy_character === 1 ? '*✓* \`\`\`Sí\`\`\`' : '*✘* \`\`\`No\`\`\`'}
 
-*❰ Por personajes ❱*
-${fantasyUsuario.length > 0 ? mensajeDesafiosPendientes : `*✘* \`\`\`No tienes personajes\`\`\``}
+*❰ Por comprar personajes ❱*
+${fantasyUsuario.length > 0 ? mensajeDesafiosPendientes : `*✘* \`\`\`Primero compra usando:\`\`\`\n\`${usedPrefix}fantasy o ${usedPrefix}fy\``}
 
 *❰ Por dar 👍 ❱* 
 ${personajesGustados > 0 ? txtLike : personajesGustados}
