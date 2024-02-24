@@ -1,5 +1,6 @@
 // Código elaborado por: https://github.com/GataNina-Li
 
+import { listaAvisos } from './rpg-fantasy_start.js'
 import fetch from 'node-fetch'
 import fs from 'fs'
 
@@ -48,10 +49,21 @@ return
 }
 
 let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
-
 if (!usuarioExistente) {
 return conn.reply(m.chat, `No hemos encontrado personajes. Para ver el Top o tú información debes de comprar un personaje, use *${usedPrefix}fantasy* o *${usedPrefix}fy*`, m)
 }
+
+async function obtenerPersonajeAleatorio() {
+if (usuarioExistente && usuarioExistente[userId] && usuarioExistente[userId].fantasy && usuarioExistente[userId].fantasy.length > 0) {
+let personajes = usuarioExistente[userId].fantasy
+let personajeAleatorio = personajes[Math.floor(Math.random() * personajes.length)].name
+return personajeAleatorio
+} else {
+let personajes = data.infoImg
+let personajeAleatorio = personajes[Math.floor(Math.random() * personajes.length)].name
+return personajeAleatorio
+}}
+let personaje = await obtenerPersonajeAleatorio()
 
 const idUsuario = Object.keys(usuarioExistente)[0];
 const fantasyUsuario = usuarioExistente[idUsuario].fantasy
@@ -335,8 +347,8 @@ ${rankingClases}
 
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 
-⛱️ *❰ Consejo / Ayuda ❱* ⛱️
-🫂 Si desea conocer más de los personajes, escriba *#fylista* o *#fyl*
+> ⛱️ *❰ Consejo / Ayuda ❱* ⛱️
+${listaAvisos(usedPrefix, personaje)}
 
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 
