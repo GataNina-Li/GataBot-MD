@@ -1,6 +1,6 @@
 // Código elaborado por: https://github.com/GataNina-Li
 
-import { listaAvisos } from '../rpg-fantasy_start.js'
+import { listaAvisos } from './plugins/rpg-fantasy_start.js'
 import fetch from 'node-fetch'
 import fs from 'fs' 
 
