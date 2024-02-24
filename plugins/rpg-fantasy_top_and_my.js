@@ -327,6 +327,34 @@ mentions.push({
 "userId": Object.keys(entry)[0]
 })})
 
+let contexto2 = user.fantasy_character2 === 0 ? '¡Compra varios personajes!' :
+user.fantasy_character2 === 1 ? '🧺 Recompensa pequeña' :
+user.fantasy_character2 === 2 ? '🛍️ Recompensa mediana' :
+user.fantasy_character2 === 3 ? '📦 Recompensa millonaria' :
+user.fantasy_character2 === 4 ? '⚗️ Recompensa multimillonaria' :
+'💸 Recompensa magistral 💸';
+
+let contexto3 = user.fantasy_character3 === 0 ? '¡Califica a varios personajes!' :
+user.fantasy_character3 >= 1 && user.fantasy_character3 <= 3 ? '🧺 Recompensa pequeña' :
+user.fantasy_character3 >= 4 && user.fantasy_character3 <= 6 ? '🛍️ Recompensa mediana' :
+user.fantasy_character3 === 7 ? '📦 Recompensa millonaria' :
+user.fantasy_character3 >= 8 && user.fantasy_character3 <= 9 ? '⚗️ Recompensa multimillonaria' :
+'💸 Recompensa magistral 💸'
+
+let contexto4 = user.fantasy_character4 === 0 ? '¡Califica a varios personajes!'' :
+user.fantasy_character4 >= 1 && user.fantasy_character4 <= 3 ? '🧺 Recompensa pequeña' :
+user.fantasy_character4 >= 4 && user.fantasy_character4 <= 6 ? '🛍️ Recompensa mediana' :
+user.fantasy_character4 === 7 ? '📦 Recompensa millonaria' :
+user.fantasy_character4 >= 8 && user.fantasy_character4 <= 9 ? '⚗️ Recompensa multimillonaria' :
+'💸 Recompensa magistral 💸'
+
+let contexto5 = user.fantasy_character5 === 0 ? '¡Califica a varios personajes!'' :
+user.fantasy_character5 >= 1 && user.fantasy_character5 <= 3 ? '🧺 Recompensa pequeña' :
+user.fantasy_character5 >= 4 && user.fantasy_character5 <= 6 ? '🛍️ Recompensa mediana' :
+user.fantasy_character5 === 7 ? '📦 Recompensa millonaria' :
+user.fantasy_character5 >= 8 && user.fantasy_character5 <= 9 ? '⚗️ Recompensa multimillonaria' :
+'💸 Recompensa magistral 💸'
+
 const mensaje = `
 ${(command != 'fantasymy' && command != 'fymy') ?
 `🔥 *RPG FANTASY - TENDENCIAS* 🔥
@@ -407,6 +435,24 @@ ${personajesSuperlike > 0 ? txtSuperLike : personajesSuperlike}
 
 *❰ Por dar 👎 ❱* 
 ${personajesNoGustados > 0 ? txtDislike : personajesNoGustados}
+
+> 🎁 *❰ Recompensas extras 🔓 ❱* 🎁
+
+*❰ Por personajes comprados 🪅 ❱*
+*✓ Nivel:* \`(${user.fantasy_character2}/5)\`
+*✓ Tipo:* _${contexto2}_
+
+*❰ Por dar 👍 ❱* 
+*✓ Nivel:* \`(${user.fantasy_character3}/11)\`
+*✓ Tipo:* _${contexto3}_
+
+*❰ Por dar ❤️ ❱* 
+*✓ Nivel:* \`(${user.fantasy_character4}/11)\`
+*✓ Tipo:* _${contexto4}_
+
+*❰ Por dar 👎 ❱* 
+*✓ Nivel:* \`(${user.fantasy_character5}/11)\`
+*✓ Tipo:* _${contexto5}_
 `
 //let fake = { contextInfo: { externalAdReply: { title: `🌟 FANTASÍA RPG`, body: `😼 RPG de: » ${conn.getName(userId)}`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: 'https://telegra.ph/file/2bc10639d4f5cf5685185.jpg' }}}
 let image = [
