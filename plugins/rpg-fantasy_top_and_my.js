@@ -328,7 +328,8 @@ mentions.push({
 })})
 
 const mensaje = `
-🔥 *RPG FANTASY - TENDENCIAS* 🔥
+${(command != 'fantasymy' || command != 'fymy') ?
+`🔥 *RPG FANTASY - TENDENCIAS* 🔥
 
 > 🤩 *❰ Más personajes comprados ❱* 🤩
 ${rankingPersonajes}\n
@@ -345,14 +346,14 @@ ${rankingCaros}\n
 > 😎 *❰ Mejor clase en personaje ❱* 😎
 ${rankingClases}
 
-*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
+*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*` : `> 🤩 *RPG FANTASY*` 🤩`}
 
-> ⛱️ *❰ Consejo / Ayuda ❱* ⛱️
+`> ⛱️ *❰ Consejo / Ayuda ❱* ⛱️
 ${listaAvisos(usedPrefix, personaje)} 
 
 *⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*
 
-> 🌟 *❰ Información de personajes ❱* 🌟
+> 🌟 *❰ Información de personaje ❱* 🌟
 *✓ @${userId.split('@')[0]}*
     
 *❰ Total de personajes ❱* 
