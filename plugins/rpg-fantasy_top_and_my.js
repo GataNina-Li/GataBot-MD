@@ -328,7 +328,7 @@ mentions.push({
 })})
 
 const mensaje = `
-${(command != 'fantasymy' || command != 'fymy') ?
+${(command != 'fantasymy' && command != 'fymy') ?
 `🔥 *RPG FANTASY - TENDENCIAS* 🔥
 
 > 🤩 *❰ Más personajes comprados ❱* 🤩
