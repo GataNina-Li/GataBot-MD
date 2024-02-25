@@ -1,4 +1,4 @@
-/*let handler = m => m
+/*let handler = m => m 
 handler.all = async function (m) {
 let setting = global.db.data.settings[this.user.jid]
 	
