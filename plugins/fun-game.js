@@ -166,7 +166,7 @@ throw `${lenguajeGB['smsAvisoFG']()}𝙉𝙊 𝘼𝙇𝘾𝘼𝙉𝙕𝘼 𝙋�
 }
 if (command == 'slot1') {
 let time = global.db.data.users[m.sender].lastslot + 60000
-if (new Date - users.lastslot < 60000) throw `*𝙑𝙐𝙀𝙇𝙑𝘼 𝙀𝙉 ${msToTime(time - new Date())} 𝙋𝘼𝙍𝘼 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝘼𝙍 𝘼𝙋𝙊𝙎𝙏𝘼𝙉𝘿𝙊 𝙀𝙓𝙋* 🎰\n\n*𝘾𝙊𝙈𝙀 𝘽𝘼𝘾𝙆 𝙄𝙉 ${msToTime(time - new Date())} 𝙏𝙊 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝙀 𝘽𝙀𝙏𝙏𝙄𝙉𝙂* 💰`
+if (new Date - users.lastslot < 60000) return m.reply(`*𝙑𝙐𝙀𝙇𝙑𝘼 𝙀𝙉 ${msToTime(time - new Date())} 𝙋𝘼𝙍𝘼 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝘼𝙍 𝘼𝙋𝙊𝙎𝙏𝘼𝙉𝘿𝙊 𝙀𝙓𝙋* 🎰\n\n*𝘾𝙊𝙈𝙀 𝘽𝘼𝘾𝙆 𝙄𝙉 ${msToTime(time - new Date())} 𝙏𝙊 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝙀 𝘽𝙀𝙏𝙏𝙄𝙉𝙂* 💰`) 
 users.lastslot = new Date * 1
     
 let emojis = ["🍁", "⚡", "🍇"];
@@ -202,19 +202,40 @@ users.exp += 50
 end = `😿 *HA PERDIDO!! ❌ -${apuesta} EXP*\n\n*HAS LOST!! ❌ -${apuesta} EXP*`
 users.exp -= apuesta
 }
-//users.lastslot = new Date * 1
-//return await m.reply(
-    //    `
-let s = `🎰 | *RANURAS* | 🎰 
- ────────
-  ${x[0]} : ${y[0]} : ${z[0]}
-  ${x[1]} : ${y[1]} : ${z[1]}
-  ${x[2]} : ${y[2]} : ${z[2]}
- ────────
-🎰 |   *SLOTS*   | 🎰
 
-${end}`
-await conn.reply(m.chat, s, m)}
+var hawemod = [
+`${x[1]} : ${y[0]} : ${z[0]}
+${z[0]} : ${y[1]} : ${x[1]}
+${z[1]} : ${x[2]} : ${y[0]}`, 
+`${x[0]} : ${y[1]} : ${z[2]}
+${y[1]} : ${z[2]} : ${x[1]}
+${x[2]} : ${y[0]} : ${z[0]}`, 
+`${x[1]} : ${y[2]} : ${z[1]}
+${y[0]} : ${z[0]} : ${x[2]}
+${x[2]} : ${y[1]} : ${z[0]}`
+]
+
+const maxIterations = 25;
+const arrayCasuale = generaArrayCasuale(hawemod, maxIterations);
+
+const array = [...arrayCasuale, ];
+  
+let { key } = await conn.sendMessage(m.chat, { text: `*A cruzar los dedos*` }, { quoted: m });
+
+for (let i = 0; i < maxIterations; i++) {
+
+await conn.sendMessage(m.chat, { text: `🎰 | *RANURAS* | 🎰\n────────\n` + `${array[i]}` + `\n ────────\n🎰 |   *SLOTS*   | 🎰`, edit: key }, { quoted: m });
+await new Promise((resolve) => setTimeout(resolve, 1))}
+  
+return await conn.sendMessage(m.chat, {text: `
+🎰 | *RANURAS* | 🎰 
+────────
+${x[0]} : ${y[0]} : ${z[0]}
+${x[1]} : ${y[1]} : ${z[1]}
+${x[2]} : ${y[2]} : ${z[2]}
+ ────────
+🎰 |   *SLOTS*   | 🎰\n\n${end}`, edit: key}, {quoted: m})}
+
 /*await conn.sendHydrated(m.chat, `${s}\n\n${end}`, wm, null, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
 ['⚡ 𝘼𝙋𝙊𝙎𝙏𝘼𝙍 𝙊𝙏𝙍𝘼 𝙑𝙀𝙕 | 𝘼𝙂𝘼𝙄𝙉', `${usedPrefix}slot1 ${apuesta}`],
 ['🐈 𝘼𝙋𝙊𝙎𝙏𝘼𝙍 𝘾𝙊𝙉 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎', `${usedPrefix}slot2 ${apuesta}`],
@@ -227,7 +248,7 @@ throw `${lenguajeGB['smsAvisoFG']()}𝙉𝙊 𝘼𝙇𝘾𝘼𝙉𝙕𝘼 𝙋�
 }
 if (command == 'slot2') {
 let time = global.db.data.users[m.sender].lastslot + 60000
-if (new Date - users.lastslot < 60000) throw `*𝙑𝙐𝙀𝙇𝙑𝘼 𝙀𝙉 ${msToTime(time - new Date())} 𝙋𝘼𝙍𝘼 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝘼𝙍 𝘼𝙋𝙊𝙎𝙏𝘼𝙉𝘿𝙊 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎* 🎰\n\n*𝘾𝙊𝙈𝙀 𝘽𝘼𝘾𝙆 𝙄𝙉 ${msToTime(time - new Date())} 𝙏𝙊 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝙀 𝘽𝙀𝙏𝙏𝙄𝙉𝙂* 💰`
+if (new Date - users.lastslot < 60000) return m.reply(`*𝙑𝙐𝙀𝙇𝙑𝘼 𝙀𝙉 ${msToTime(time - new Date())} 𝙋𝘼𝙍𝘼 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝘼𝙍 𝘼𝙋𝙊𝙎𝙏𝘼𝙉𝘿𝙊 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎* 🎰\n\n*𝘾𝙊𝙈𝙀 𝘽𝘼𝘾𝙆 𝙄𝙉 ${msToTime(time - new Date())} 𝙏𝙊 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝙀 𝘽𝙀𝙏𝙏𝙄𝙉𝙂* 💰`) 
 users.lastslot = new Date * 1
     
 let emojis = ["🐈", "🐓", "🐙"];
@@ -263,18 +284,38 @@ users.money += 30
 end = `😿 *HA PERDIDO!! ❌ -${apuesta} GataCoins*\n\n*HAS LOST!! ❌ -${apuesta} GataCoins*`
 users.money -= apuesta
 }
-//users.lastslot = new Date * 1
-//return await m.reply(
-    //    `
-let ss = `
+
+var hawemod = [
+`${x[0]} : ${y[1]} : ${z[0]}
+${z[0]} : ${y[0]} : ${x[1]}
+${z[2]} : ${x[2]} : ${y[2]}`, 
+`${x[0]} : ${y[0]} : ${z[0]}
+${y[1]} : ${z[1]} : ${x[1]}
+${x[2]} : ${y[2]} : ${z[2]}`, 
+`${x[0]} : ${y[1]} : ${z[0]}
+${y[1]} : ${z[0]} : ${x[1]}
+${x[2]} : ${y[1]} : ${z[0]}`
+]
+
+const maxIterations = 25;
+const arrayCasuale = generaArrayCasuale(hawemod, maxIterations);
+
+const array = [...arrayCasuale, ];
+  
+let { key } = await conn.sendMessage(m.chat, { text: `*A cruzar los dedos*` }, { quoted: m });
+
+for (let i = 1; i <= maxIterations; i++) {
+await conn.sendMessage(m.chat, { text: `🎰 | *RANURAS* | 🎰\n────────\n` + `${array[i]}` + `\n ────────\n🎰 |   *SLOTS*   | 🎰`, edit: key }, { quoted: m });
+await new Promise((resolve) => setTimeout(resolve, 50))}
+  
+return await conn.sendMessage(m.chat, {text: `
 🎰 | *RANURAS* | 🎰 
+────────
+${x[0]} : ${y[0]} : ${z[0]}
+${x[1]} : ${y[1]} : ${z[1]}
+${x[2]} : ${y[2]} : ${z[2]}
  ────────
-  ${x[0]} : ${y[0]} : ${z[0]}
-  ${x[1]} : ${y[1]} : ${z[1]}
-  ${x[2]} : ${y[2]} : ${z[2]}
- ────────
-🎰 |   *SLOTS*   | 🎰\n\n${end}`
-await conn.reply(m.chat, ss, m)}
+🎰 |   *SLOTS*   | 🎰\n\n${end}`, edit: key}, {quoted: m})}
 /*await conn.sendHydrated(m.chat, `${ss}\n\n${end}`, wm, null, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
 ['🐈 𝘼𝙋𝙊𝙎𝙏𝘼𝙍 𝙊𝙏𝙍𝘼 𝙑𝙀𝙕 | 𝘼𝙂𝘼𝙄𝙉', `${usedPrefix}slot2 ${apuesta}`],
 ['⚡ 𝘼𝙋𝙊𝙎𝙏𝘼𝙍 𝘾𝙊𝙉 𝙀𝙓𝙋', `${usedPrefix}slot1 ${apuesta}`],
@@ -287,7 +328,7 @@ throw `${lenguajeGB['smsAvisoFG']()}𝙉𝙊 𝘼𝙇𝘾𝘼𝙉𝙕𝘼 𝙋�
 }
 if (command == 'slot3') {
 let time = global.db.data.users[m.sender].lastslot + 30000
-if (new Date - users.lastslot < 30000) throw `*𝙑𝙐𝙀𝙇𝙑𝘼 𝙀𝙉 ${msToTime(time - new Date())} 𝙋𝘼𝙍𝘼 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝘼𝙍 𝘼𝙋𝙊𝙎𝙏𝘼𝙉𝘿𝙊 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎* 🎰\n\n*𝘾𝙊𝙈𝙀 𝘽𝘼𝘾𝙆 𝙄𝙉 ${msToTime(time - new Date())} 𝙏𝙊 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝙀 𝘽𝙀𝙏𝙏𝙄𝙉𝙂* 💰`
+if (new Date - users.lastslot < 30000) return m.reply(`*𝙑𝙐𝙀𝙇𝙑𝘼 𝙀𝙉 ${msToTime(time - new Date())} 𝙋𝘼𝙍𝘼 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝘼𝙍 𝘼𝙋𝙊𝙎𝙏𝘼𝙉𝘿𝙊 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎* 🎰\n\n*𝘾𝙊𝙈𝙀 𝘽𝘼𝘾𝙆 𝙄𝙉 ${msToTime(time - new Date())} 𝙏𝙊 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝙀 𝘽𝙀𝙏𝙏𝙄𝙉𝙂* 💰`) 
 users.lastslot = new Date * 1
     
 let emojis = ["🪵", "💣", "💎"];
@@ -323,18 +364,38 @@ users.limit += 2
 end = `😿 *HA PERDIDO!! ❌ -${apuesta} Diamantes*\n\n*HAS LOST!! ❌ -${apuesta} Diamantes*`
 users.limit -= apuesta
 }
-//users.lastslot = new Date * 1
-//return await m.reply(
-    //    `
-let sss = `
+
+var hawemod = [
+`${x[0]} : ${y[1]} : ${z[0]}
+${z[1]} : ${y[0]} : ${x[0]}
+${z[2]} : ${x[1]} : ${y[2]}`, 
+`${x[0]} : ${y[1]} : ${z[0]}
+${y[1]} : ${z[2]} : ${x[1]}
+${x[2]} : ${y[1]} : ${z[2]}`, 
+`${x[0]} : ${y[0]} : ${z[1]}
+${y[1]} : ${z[2]} : ${x[0]}
+${x[0]} : ${y[2]} : ${z[1]}`
+]
+
+const maxIterations = 25;
+const arrayCasuale = generaArrayCasuale(hawemod, maxIterations);
+
+const array = [...arrayCasuale, ];
+  
+let { key } = await conn.sendMessage(m.chat, { text: `*A cruzar los dedos*` }, { quoted: m });
+
+for (let i = 1; i <= maxIterations; i++) {
+await conn.sendMessage(m.chat, { text: `🎰 | *RANURAS* | 🎰\n────────\n` + `${array[i]}` + `\n ────────\n🎰 |   *SLOTS*   | 🎰`, edit: key }, { quoted: m });
+await new Promise((resolve) => setTimeout(resolve, 50))}
+  
+return await conn.sendMessage(m.chat, {text: `
 🎰 | *RANURAS* | 🎰 
+────────
+${x[0]} : ${y[0]} : ${z[0]}
+${x[1]} : ${y[1]} : ${z[1]}
+${x[2]} : ${y[2]} : ${z[2]}
  ────────
-  ${x[0]} : ${y[0]} : ${z[0]}
-  ${x[1]} : ${y[1]} : ${z[1]}
-  ${x[2]} : ${y[2]} : ${z[2]}
- ────────
-🎰 |   *SLOTS*   | 🎰\n\n${end}`
-await conn.reply(m.chat, sss, m)}
+🎰 |   *SLOTS*   | 🎰\n\n${end}`, edit: key}, {quoted: m})}
 /*await conn.sendHydrated(m.chat, `${sss}\n\n${end}`, wm, null, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
 ['💎 𝘼𝙋𝙊𝙎𝙏𝘼𝙍 𝙊𝙏𝙍𝘼 𝙑𝙀𝙕 | 𝘼𝙂𝘼𝙄𝙉', `${usedPrefix}slot3 ${apuesta}`],
 ['⚡ 𝘼𝙋𝙊𝙎𝙏𝘼𝙍 𝘾𝙊𝙉 𝙀𝙓𝙋', `${usedPrefix}slot1 ${apuesta}`],
@@ -523,6 +584,14 @@ time,
 bonus,
 result
 }}
+
+function generaArrayCasuale(array, ripetizioni) {
+  let risultato = [];
+  for (let i = 0; i < ripetizioni; i++) {
+    risultato = risultato.concat(array);
+  }
+  return risultato;
+}
 
 function randomInt(from, to) {
 if (from > to) [from, to] = [to, from]
