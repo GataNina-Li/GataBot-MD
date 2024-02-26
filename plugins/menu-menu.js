@@ -654,7 +654,7 @@ if (formattedDescription !== '') {
 message += ` *${formattedDescription}*`
 }
 if (command.contexto && command.contexto.trim() !== '') {
-message += '\n_*' + command.contexto + '*_' + (index !== array.length - 1 ? '\n' : '')
+message += '\nⓘ _' + command.contexto + '_' + (index !== array.length - 1 ? '\n' : '')
 }
 return message
 })
