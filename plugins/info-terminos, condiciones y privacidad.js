@@ -131,7 +131,7 @@ conn.sendHydrated(m.chat, Terminos,  `${wm}\nEstamos de acuerdo en Hacer Colabor
 ['饾檲饾櫄饾櫍饾櫔 饾檵饾櫑饾櫈饾櫍饾櫂饾櫈饾櫏饾櫀饾櫋 | 饾檲饾櫀饾櫈饾櫍 饾櫌饾櫄饾櫍饾櫔 鈿?', '#menu']
 ], m,)*/
 }
-handler.customPrefix = /terminos|t茅rminos|t茅rminos, condiciones y privacidad|terminos, condiciones y privacidad|t茅rminos y condiciones y privacidad|terminosycondicionesyprivacidad|terminosycondiciones|terminos y condiciones y privacidad|terminos y condiciones|terminos y condiciones|terminos de uso|Terminos de uso|Termin贸 se uso|t茅rminos de uso|T茅rminos de uso|T茅rminos y condiciones/i
+handler.customPrefix = /terms and conditions|terms|terminos|términos|términos, condiciones y privacidad|terminos, condiciones y privacidad|términos y condiciones y privacidad|terminosycondicionesyprivacidad|terminosycondiciones|terminos y condiciones y privacidad|terminos y condiciones|terminos y condiciones|terminos de uso|Terminos de uso|Terminó se uso|términos de uso|Términos de uso|Términos y condiciones/i
 handler.command = new RegExp
 handler.register = true
 handler.exp = 70
