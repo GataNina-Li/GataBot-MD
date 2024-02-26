@@ -8,6 +8,7 @@ const { levelling } = '../lib/levelling.js'
 import PhoneNumber from 'awesome-phonenumber'
 import { promises } from 'fs'
 import { join } from 'path'
+
 let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, command }) => {
 try {
 let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
@@ -100,30 +101,6 @@ nombreLugar = 'America'
 ciudad = 'Lima'
 }	
 
-export function generateCommand(commandsArray, usedPrefix) {
-const formattedCommands = commandsArray
-.filter(command => command.comando) 
-.map((command, index, array) => {
-const prefix = (command.showPrefix === true && command.comando.trim() !== '') ? usedPrefix : ''
-let formattedCommand = command.comando ? command.comando.trim() : ''
-if (formattedCommand.includes(',')) {
-formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].trim() : formattedCommand.split(',')[1].trim()
-}
-let formattedDescription = command.descripcion ? command.descripcion.trim() : ''
-if (formattedDescription.includes(',')) {
-formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split(',')[0].trim() : formattedDescription.split(',')[1].trim()
-}
-let message = `✓ \`${prefix}${formattedCommand}\``
-if (formattedDescription !== '') {
-message += ` *${formattedDescription}*`
-}
-if (command.contexto && command.contexto.trim() !== '') {
-message += '\n_*' + command.contexto + '*_' + (index !== array.length - 1 ? '\n' : '')
-}
-return message
-})
-return formattedCommands.join('\n')
-}
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : taguser}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
 > *_${formatDate}_*
@@ -658,6 +635,37 @@ let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
 let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
 return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}  
 
+// Función para formatear arrays de comandos
+function generateCommand(commandsArray, usedPrefix) {
+const formattedCommands = commandsArray
+.filter(command => command.comando) 
+.map((command, index, array) => {
+const prefix = (command.showPrefix === true && command.comando.trim() !== '') ? usedPrefix : ''
+let formattedCommand = command.comando ? command.comando.trim() : ''
+if (formattedCommand.includes(',')) {
+formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].trim() : formattedCommand.split(',')[1].trim()
+}
+let formattedDescription = command.descripcion ? command.descripcion.trim() : ''
+if (formattedDescription.includes(',')) {
+formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split(',')[0].trim() : formattedDescription.split(',')[1].trim()
+}
+let message = `✓ \`${prefix}${formattedCommand}\``
+if (formattedDescription !== '') {
+message += ` *${formattedDescription}*`
+}
+if (command.contexto && command.contexto.trim() !== '') {
+message += '\n_*' + command.contexto + '*_' + (index !== array.length - 1 ? '\n' : '')
+}
+return message
+})
+return formattedCommands.join('\n')
+}
+
+// comando: Si hay comando en español y inglés separar por (,) máximo 2 comandos 
+// descripcion: Parámetros para usar el comando
+// contexto: Explicación de que trata el comando
+// showPrefix: Usar true para que muestre el prefijo, de lo contrario usar false
+// Si algún objeto no se va usar dejar en false, menos el objeto "comando" ya que si es false no mostrará nada
 const commandsInfo = [
 { comando: 'cuentasgatabot , accounts', descripcion: false, contexto: 'Cuentas oficiales', showPrefix: true },
 { comando: 'grupos , linkgc', descripcion: false, contexto: 'Grupos oficiales', showPrefix: true },
