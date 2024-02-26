@@ -171,7 +171,7 @@ npm start
 ```
 ----
 ### `🔵 OBTENER OTRO CODIGO QR EN TERMUX`
-> **Warning** deten el bot, haz click en el símbolo (ctrl) [default=z] ? usar la letra "z" + "ENTER" hasta que salga algo verdes similar a : GataBot-MD $
+> **Warning** deten el bot, haz click en el símbolo (ctrl) [default=z] usar la letra "z" + "ENTER" hasta que salga algo verdes similar a : GataBot-MD $
 > escribe los siguientes comando uno x uno :
 ```bash 
 cd GataBot-MD
