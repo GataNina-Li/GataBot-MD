@@ -155,9 +155,13 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 *❰❰ Pasatiempo(s) ❱❱* 
 ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
 
+*··················································*
+
 > 💫 *INFORMACIÓN* 💫
 
 ${generateCommand(commandsInfo, usedPrefix)}
+
+*··················································*
 
 > 💻 *COMANDOS - SUB BOT*
 
