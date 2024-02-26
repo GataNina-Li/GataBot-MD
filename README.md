@@ -162,8 +162,10 @@ pm2 start index
 > **Note** Si despues que ya instalastes tu bot y termux te salta en blanco, se fue tu internet o reiniciaste tu celular, solo realizaras estos pasos :
 ```bash
 > cd
+```
 ```bash
 > GataBot-MD
+```
 ```bash
 > npm start
 ```
@@ -173,8 +175,10 @@ pm2 start index
 > escribe los siguientes comando uno x uno :
 ```bash 
 > cd GataBot-MD
+```
 ```bash
 > rm -rf GataBotSession
+```
 ```bash
 > npm start
 ```
