@@ -99,6 +99,46 @@ formatDate = fechaMoment.charAt(0).toUpperCase() + fechaMoment.slice(1)
 nombreLugar = 'America'
 ciudad = 'Lima'
 }	
+
+function generateCommand(commandsArray, usedPrefix) {
+const formattedCommands = commandsArray
+.filter(command => command.comando) 
+.map((command, index, array) => {
+const prefix = (command.showPrefix === true && command.comando.trim() !== '') ? usedPrefix : ''
+let formattedCommand = command.comando ? command.comando.trim() : ''
+if (formattedCommand.includes(',')) {
+formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].trim() : formattedCommand.split(',')[1].trim()
+}
+let formattedDescription = command.descripcion ? command.descripcion.trim() : ''
+if (formattedDescription.includes(',')) {
+formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split(',')[0].trim() : formattedDescription.split(',')[1].trim()
+}
+let message = `✓ _${prefix}${formattedCommand}_`
+if (formattedDescription !== '') {
+message += ` *${formattedDescription}*`
+}
+if (command.contexto && command.contexto.trim() !== '') {
+message += '\n> *' + command.contexto + '*' + (index !== array.length - 1 ? '\n' : '')
+}
+return message
+})
+return formattedCommands.join('\n')
+}
+
+const commandsInfo = [
+{ comando: 'cuentasgatabot , accounts', descripcion: false, contexto: 'Cuentas oficiales', showPrefix: true },
+{ comando: 'grupos , linkgc', descripcion: false, contexto: 'Grupos oficiales', showPrefix: true },
+{ comando: 'donar , donate', descripcion: false, contexto: 'Apoya al proyecto donando', showPrefix: true },
+{ comando: 'listagrupos , grouplist', descripcion: false, contexto: 'Grupos en donde estoy', showPrefix: true },
+{ comando: 'estado , status', descripcion: false, contexto: 'Información de mí estado', showPrefix: true },
+{ comando: 'infogata , infobot', descripcion: false, contexto: 'Información sobre el Bot', showPrefix: true },
+{ comando: 'instalarbot , installbot', descripcion: false, contexto: 'Información y métodos de instalación', showPrefix: true },
+{ comando: 'creadora , owner', descripcion: false, contexto: 'Información sobre mí Creadora', showPrefix: true },
+{ comando: 'velocidad , ping', descripcion: false, contexto: 'Verifica la velocidad de este Bot', showPrefix: true },
+{ comando: 'Bot', descripcion: false, contexto: 'Mensaje predeterminado del Bot', showPrefix: false },
+{ comando: 'términos y condiciones , terms and conditions', descripcion: false, contexto: 'Revisa detalles al usar este Bot', showPrefix: false },
+]
+
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : taguser}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
 > *_${formatDate}_*
@@ -155,17 +195,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 
 > 💫 *INFORMACIÓN* 💫
 
-✓ _${usedPrefix}cuentasgatabot | cuentasgb_
-✓ _${usedPrefix}gruposgb | grupos | groupgb_
-✓ _${usedPrefix}donar | donate_
-✓ _${usedPrefix}listagrupos | grouplist_
-✓ _${usedPrefix}estado | heygata | status_
-✓ _${usedPrefix}infogata | infobot_
-✓ _${usedPrefix}instalarbot | installbot_
-✓ _${usedPrefix}creadora | owner_
-✓ _${usedPrefix}velocidad | ping_
-✓ _Bot_ 
-✓ _términos y condiciones_
+${generateCommand(commandsInfo, usedPrefix)}
 
 > 💻 *COMANDOS - SUB BOT*
 
