@@ -161,26 +161,26 @@ pm2 start index
 ### `🟢 ACTIVAR EN CASO DE DETENERSE EN TERMUX`
 > **Note** Si despues que ya instalastes tu bot y termux te salta en blanco, se fue tu internet o reiniciaste tu celular, solo realizaras estos pasos :
 ```bash
-> cd
+cd
 ```
 ```bash
-> GataBot-MD
+GataBot-MD
 ```
 ```bash
-> npm start
+npm start
 ```
 ----
 ### `🔵 OBTENER OTRO CODIGO QR EN TERMUX`
 > **Warning** deten el bot, haz click en el símbolo (ctrl) [default=z] ? usar la letra "z" + "ENTER" hasta que salga algo verdes similar a : GataBot-MD $
 > escribe los siguientes comando uno x uno :
 ```bash 
-> cd GataBot-MD
+cd GataBot-MD
 ```
 ```bash
-> rm -rf GataBotSession
+rm -rf GataBotSession
 ```
 ```bash
-> npm start
+npm start
 ```
 ----
 ### 😼 ACTUALIZAR GATABOT
