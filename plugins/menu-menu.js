@@ -113,12 +113,12 @@ let formattedDescription = command.descripcion ? command.descripcion.trim() : ''
 if (formattedDescription.includes(',')) {
 formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split(',')[0].trim() : formattedDescription.split(',')[1].trim()
 }
-let message = `✓ _${prefix}${formattedCommand}_`
+let message = `✓ \`${prefix}${formattedCommand}\``
 if (formattedDescription !== '') {
 message += ` *${formattedDescription}*`
 }
 if (command.contexto && command.contexto.trim() !== '') {
-message += '\n> *' + command.contexto + '*' + (index !== array.length - 1 ? '\n' : '')
+message += '\n_*' + command.contexto + '*_' + (index !== array.length - 1 ? '\n' : '')
 }
 return message
 })
