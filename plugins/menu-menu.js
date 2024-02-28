@@ -658,7 +658,7 @@ if (formattedDescription !== '') {
 message += `\n≡ \`\`\`${formattedDescription}\`\`\``
 }
 if (command.contexto && command.contexto.trim() !== '') {
-let des = await translate(`${command.contexto}`, { to: 'en', autoCorrect: true })
+let des = await translate(`${command.contexto}`, { to: 'en', autoCorrect: true }) || command.contexto
 message += '\nⓘ _' + des + '_' + (index !== array.length - 1 ? '\n' : '')
 }
 return message
