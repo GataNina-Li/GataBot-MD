@@ -165,11 +165,7 @@ ${generateCommand(commandsInfo, usedPrefix)}
 
 > 💻 *COMANDOS - SUB BOT*
 
-✓ _${usedPrefix}serbot | jadibot_
-✓ _${usedPrefix}serbot --code | jadibot --code_
-✓ _${usedPrefix}bots | listjadibots_
-✓ _${usedPrefix}detener | stop_
-✓ _${usedPrefix}bcbot_
+${generateCommand(commandsJadiBot, usedPrefix)}
 
 > 🆘 *REPORTAR COMANDOS* 🆘
 
@@ -682,4 +678,13 @@ const commandsInfo = [
 { comando: 'velocidad , ping', descripcion: false, contexto: 'Verifica la velocidad de este Bot', showPrefix: true },
 { comando: 'Bot', descripcion: false, contexto: 'Mensaje predeterminado del Bot', showPrefix: false },
 { comando: 'términos y condiciones , terms and conditions', descripcion: false, contexto: 'Revisa detalles al usar este Bot', showPrefix: false },
+]
+
+const commandsJadiBot = [
+{ comando: 'serbot , jadibot', descripcion: false, contexto: 'Reactiva o Conviértete en Bot secundario', showPrefix: true },
+{ comando: 'serbot --code , jadibot --code', descripcion: false, contexto: 'Solicita código de 8 dígitos', showPrefix: true },
+{ comando: 'detener , stop', descripcion: false, contexto: 'Dejar de ser temporalmente Sub Bot', showPrefix: true },
+{ comando: 'bots , listjadibots', descripcion: false, contexto: 'Lista de Bots secundarios', showPrefix: true },
+{ comando: 'borrarsesion , delsession', descripcion: false, contexto: 'Borrar datos de Bot secuandario', showPrefix: true },
+{ comando: 'bcbot', descripcion: false, contexto: 'Notificar a usuarios Sub Bots', showPrefix: true },
 ]
