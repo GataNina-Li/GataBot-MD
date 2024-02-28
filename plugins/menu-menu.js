@@ -176,17 +176,15 @@ ${generateCommand(commandsReport, usedPrefix)}
 
 ${margen}
 
-> 🪅 *GATABOT TEMPORAL* 🪅
-
+> 🪅 *GATABOT TEMPORAL* 🪅\n
 ${generateCommand(commandsLink, usedPrefix)}
 
 ${margen}
 
-> 🎟️ *SER PREMIUM* 🎟️
+> 🎟️ *SER PREMIUM* 🎟️\n
+${generateCommand(commandsPrem, usedPrefix)}
 
-✓ _${usedPrefix}listapremium | listprem_
-✓ _${usedPrefix}pase premium_
-✓ _${usedPrefix}pass premium_
+${margen}
 
 > 🎡 *JUEGOS* 🎡
 
@@ -697,4 +695,9 @@ const commandsReport = [
 ]
 const commandsLink = [
 { comando: 'botemporal , addbot', descripcion: '[enlace] [cantidad] || [link] [amount]', contexto: 'Agregar Bot temporalmente a un grupo', showPrefix: true },
+]
+const commandsPrem = [
+{ comando: 'pase premium , pass premium', descripcion: false, contexto: 'Planes para adquirir premium', showPrefix: true },
+{ comando: 'listavip , listprem', descripcion: false, contexto: 'Usuarios con tiempo premium', showPrefix: true },
+{ comando: 'listapremium , listpremium', descripcion: false, contexto: 'Lista de usuarios premium', showPrefix: true },
 ]
