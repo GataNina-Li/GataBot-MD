@@ -641,9 +641,9 @@ return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
 
 // Función para formatear arrays de comandos
 async function generateCommand(commandsArray, usedPrefix) {
-const formattedCommands = commandsArray
+const formattedCommands = await Promise.all(commandsArray
 .filter(command => command.comando) 
-.map((command, index, array) => {
+.map(async (command, index, array) => {
 const prefix = (command.showPrefix === true && command.comando.trim() !== '') ? usedPrefix : ''
 let formattedCommand = command.comando ? command.comando.trim() : ''
 if (formattedCommand.includes(',')) {
@@ -662,7 +662,7 @@ let des = await translate(`${command.contexto}`, { to: 'en', autoCorrect: true }
 message += '\nⓘ _' + des + '_' + (index !== array.length - 1 ? '\n' : '')
 }
 return message
-})
+}))
 return formattedCommands.join('\n')
 }
 
