@@ -106,6 +106,8 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 > *_${formatDate}_*
 > \`${nombreLugar} - ${ciudad}\`
 
+${margen}
+
 > 🌟 *INFORMACIÓN GENERAL* 🌟 
 
 *❰❰ ${lenguajeGB['smsTotalUsers']()} ❱❱* 
@@ -128,6 +130,8 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 
 *❰❰ ${lenguajeGB['smsBanUsers']()} ❱❱* 
 ➺ \`\`\`${Object.entries(global.db.data.users).filter(user => user[1].banned).length}\`\`\`
+
+${margen}
 
 > ✨ *INFORMACIÓN DEL USUARIO* ✨
 
@@ -172,10 +176,11 @@ ${generateCommand(commandsReport, usedPrefix)}
 
 ${margen}
 
-> 🪅 *UNIR GATABOT A UN GRUPO* 🪅
+> 🪅 *GATABOT TEMPORAL* 🪅
 
-✓ _${usedPrefix}botemporal *enlace* *cantidad*_
-✓ _${usedPrefix}addbot *enlace* *cantidad*_
+${generateCommand(commandsLink, usedPrefix)}
+
+${margen}
 
 > 🎟️ *SER PREMIUM* 🎟️
 
@@ -689,4 +694,7 @@ const commandsJadiBot = [
 ]
 const commandsReport = [
 { comando: 'reporte , report', descripcion: '[texto] || [text]', contexto: 'Reportar comandos con errores', showPrefix: true },
+]
+const commandsLink = [
+{ comando: 'botemporal , addbot', descripcion: '[enlace] [cantidad] || [link] [amount]', contexto: 'Agregar Bot temporalmente a un grupo', showPrefix: true },
 ]
