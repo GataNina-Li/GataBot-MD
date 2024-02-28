@@ -100,7 +100,7 @@ formatDate = fechaMoment.charAt(0).toUpperCase() + fechaMoment.slice(1)
 nombreLugar = 'America'
 ciudad = 'Lima'
 }	
-
+let margen = '*··················································*'
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : taguser}* ${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
 > *_${formatDate}_*
@@ -155,21 +155,25 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 *❰❰ Pasatiempo(s) ❱❱* 
 ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
 
-*··················································*
+${margen}
 
 > 💫 *INFORMACIÓN* 💫
 
 ${generateCommand(commandsInfo, usedPrefix)}
 
-*··················································*
+${margen}
 
 > 💻 *COMANDOS - SUB BOT*
 
 ${generateCommand(commandsJadiBot, usedPrefix)}
 
+${margen}
+
 > 🆘 *REPORTAR COMANDOS* 🆘
 
 ${generateCommand(commandsReport, usedPrefix)}
+
+${margen}
 
 > 🪅 *UNIR GATABOT A UN GRUPO* 🪅
 
@@ -646,7 +650,7 @@ formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].tri
 }
 let formattedDescription = command.descripcion ? command.descripcion.trim() : ''
 if (formattedDescription.includes('||')) {
-formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split(',')[0].trim() : formattedDescription.split(',')[1].trim()
+formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split('||')[0].trim() : formattedDescription.split('||')[1].trim()
 }
 let message = `✓ \`${prefix}${formattedCommand}\``
 if (formattedDescription !== '') {
