@@ -169,8 +169,7 @@ ${generateCommand(commandsJadiBot, usedPrefix)}
 
 > 🆘 *REPORTAR COMANDOS* 🆘
 
-✓ _${usedPrefix}reporte *texto*_
-✓ _${usedPrefix}report *texto*_
+${generateCommand(commandsReport, usedPrefix)}
 
 > 🪅 *UNIR GATABOT A UN GRUPO* 🪅
 
@@ -646,12 +645,12 @@ if (formattedCommand.includes(',')) {
 formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].trim() : formattedCommand.split(',')[1].trim()
 }
 let formattedDescription = command.descripcion ? command.descripcion.trim() : ''
-if (formattedDescription.includes(',')) {
+if (formattedDescription.includes('||')) {
 formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split(',')[0].trim() : formattedDescription.split(',')[1].trim()
 }
 let message = `✓ \`${prefix}${formattedCommand}\``
 if (formattedDescription !== '') {
-message += ` *${formattedDescription}*`
+message += `\n⌘ \`\`\`${formattedDescription}\`\`\``
 }
 if (command.contexto && command.contexto.trim() !== '') {
 message += '\nⓘ _' + command.contexto + '_' + (index !== array.length - 1 ? '\n' : '')
@@ -662,7 +661,7 @@ return formattedCommands.join('\n')
 }
 
 // comando: Si hay comando en español y inglés separar por (,) máximo 2 comandos 
-// descripcion: Parámetros para usar el comando
+// descripcion: Parámetros para usar el comando. Separar por (||) máximo 2 descripciones 
 // contexto: Explicación de que trata el comando
 // showPrefix: Usar true para que muestre el prefijo, de lo contrario usar false
 // Si algún objeto no se va usar dejar en false, menos el objeto "comando" ya que si es false no mostrará nada
@@ -679,7 +678,6 @@ const commandsInfo = [
 { comando: 'Bot', descripcion: false, contexto: 'Mensaje predeterminado del Bot', showPrefix: false },
 { comando: 'términos y condiciones , terms and conditions', descripcion: false, contexto: 'Revisa detalles al usar este Bot', showPrefix: false },
 ]
-
 const commandsJadiBot = [
 { comando: 'serbot , jadibot', descripcion: false, contexto: 'Reactiva o Conviértete en Bot secundario', showPrefix: true },
 { comando: 'serbot --code , jadibot --code', descripcion: false, contexto: 'Solicita código de 8 dígitos', showPrefix: true },
@@ -687,4 +685,7 @@ const commandsJadiBot = [
 { comando: 'bots , listjadibots', descripcion: false, contexto: 'Lista de Bots secundarios', showPrefix: true },
 { comando: 'borrarsesion , delsession', descripcion: false, contexto: 'Borrar datos de Bot secuandario', showPrefix: true },
 { comando: 'bcbot', descripcion: false, contexto: 'Notificar a usuarios Sub Bots', showPrefix: true },
+]
+const commandsReport = [
+{ comando: 'reporte , report', descripcion: '[texto] || [text]', contexto: 'Reportar comandos con errores', showPrefix: true },
 ]
