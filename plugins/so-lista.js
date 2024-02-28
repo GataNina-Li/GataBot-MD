@@ -159,10 +159,14 @@ let vn = 'https://qu.ax/fnTL.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m })}
     
-if (chat.audios && m.text.match(/(Y este quien es|Y este quien poronga es|Y este quien porongas es|vida)/gi)) {    
+if (chat.audios && m.text.match(/(Y este quien es|Y este quien poronga es|Y este quien porongas es|vida)/gi)) { 
 let vn = 'https://qu.ax/QnET.mp3'
-this.sendPresenceUpdate('recording', m.chat)   
-this.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m })}
+let randow = 'https://qu.ax/yHJn.webp'
+this.sendPresenceUpdate('recording', m.chat)
+let or = ['audio', 'sticker'];
+let media = or[Math.floor(Math.random() * 2)]
+if (media === 'audio') await this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true });
+if (media === 'sticker') await conn.sendFile(m.chat, randow, 'error.webp', '', m)}
     
 if (chat.audios && m.text.match(/(Goku pervertido|pervertido|pervertida|goku|antojen|antogen|😈|👿|👉👌|👌👈)/gi)) {    
 let vn = 'https://qu.ax/CUmZ.mp3'
