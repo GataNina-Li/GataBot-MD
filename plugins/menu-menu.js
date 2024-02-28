@@ -654,7 +654,7 @@ formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split('||
 }
 let message = `✓ \`${prefix}${formattedCommand}\``
 if (formattedDescription !== '') {
-message += `\n⌘ \`\`\`${formattedDescription}\`\`\``
+message += `\n≡ \`\`\`${formattedDescription}\`\`\``
 }
 if (command.contexto && command.contexto.trim() !== '') {
 message += '\nⓘ _' + command.contexto + '_' + (index !== array.length - 1 ? '\n' : '')
