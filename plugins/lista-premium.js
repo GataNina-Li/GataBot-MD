@@ -11,6 +11,6 @@ await conn.reply(m.chat, caption, m, { mentions: await conn.parseMention(caption
 /*await conn.sendButton(m.chat, caption, `🎟️ 𝗣 𝗥 𝗘 𝗠 𝗜 𝗨 𝗠 ⇢ ${vip ? '✅' : '❌'}\n${wm}`, null, [ 
 [`${vip ? '✦ 𝘿𝙄𝙎𝙁𝙍𝙐𝙏𝘼𝙍 𝙋𝙍𝙀𝙈𝙄𝙐𝙈 ✦': '✦ 𝘾𝙊𝙈𝙋𝙍𝘼𝙍 𝙋𝘼𝙎𝙀 𝙋𝙍𝙀𝙈𝙄𝙐𝙈 ✦'}`, `${vip ? '.allmenu': '.pase premium'}`]], m, { mentions: await conn.parseMention(caption) })*/
 }
-handler.command = /^(listapremium)$/i
+handler.command = /^(listapremium|listpremium)$/i
 
 export default handler
