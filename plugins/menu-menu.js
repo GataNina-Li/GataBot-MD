@@ -1,5 +1,6 @@
 import fs from 'fs'
-import moment from 'moment-timezone';
+import translate from '@vitalets/google-translate-api'
+import moment from 'moment-timezone'
 import ct from 'countries-and-timezones'
 import { parsePhoneNumber } from 'libphonenumber-js'
 import fetch from 'node-fetch'
@@ -639,7 +640,7 @@ let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
 return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}  
 
 // Función para formatear arrays de comandos
-function generateCommand(commandsArray, usedPrefix) {
+async function generateCommand(commandsArray, usedPrefix) {
 const formattedCommands = commandsArray
 .filter(command => command.comando) 
 .map((command, index, array) => {
@@ -657,7 +658,8 @@ if (formattedDescription !== '') {
 message += `\n≡ \`\`\`${formattedDescription}\`\`\``
 }
 if (command.contexto && command.contexto.trim() !== '') {
-message += '\nⓘ _' + command.contexto + '_' + (index !== array.length - 1 ? '\n' : '')
+let des = await translate(`${command.contexto}`, { to: 'en', autoCorrect: true })
+message += '\nⓘ _' + des + '_' + (index !== array.length - 1 ? '\n' : '')
 }
 return message
 })
