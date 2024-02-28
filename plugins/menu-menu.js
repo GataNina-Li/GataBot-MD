@@ -640,10 +640,10 @@ let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
 return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}  
 
 // Función para formatear arrays de comandos
-async function generateCommand(commandsArray, usedPrefix) {
-const formattedCommands = await Promise.all(commandsArray
+function generateCommand(commandsArray, usedPrefix) {
+const formattedCommands = commandsArray
 .filter(command => command.comando) 
-.map(async (command, index, array) => {
+.map((command, index, array) => {
 const prefix = (command.showPrefix === true && command.comando.trim() !== '') ? usedPrefix : ''
 let formattedCommand = command.comando ? command.comando.trim() : ''
 if (formattedCommand.includes(',')) {
@@ -658,11 +658,10 @@ if (formattedDescription !== '') {
 message += `\n≡ \`\`\`${formattedDescription}\`\`\``
 }
 if (command.contexto && command.contexto.trim() !== '') {
-let des = await translate(`${command.contexto}`, { to: 'en', autoCorrect: true }) || command.contexto
-message += '\nⓘ _' + des + '_' + (index !== array.length - 1 ? '\n' : '')
+message += '\nⓘ _' + command.contexto + '_' + (index !== array.length - 1 ? '\n' : '')
 }
 return message
-}))
+})
 return formattedCommands.join('\n')
 }
 
