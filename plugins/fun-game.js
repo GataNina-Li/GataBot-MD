@@ -478,7 +478,7 @@ conn.sendMessage(m.chat, { image: { url: imgplay }, caption: `😼 𝙅𝙐𝙀�
 conn.game[room.id] = room
 }}
 
-if (command == 'math' || command == 'mates' || command == 'matemáticas') {
+if (command == 'math' || command == 'mates' || command == 'matemáticas' || command == 'matematicas') {
 let mat =`${lenguajeGB['smsAvisoIIG']()}✨ 𝙋𝙐𝙀𝘿𝙀 𝙀𝙎𝘾𝙍𝙄𝘽𝙄𝙍 𝙇𝘼 𝘿𝙄𝙁𝙄𝘾𝙐𝙇𝙏𝘼𝘿\n✨ 𝙔𝙊𝙐 𝙒𝙍𝙄𝙏𝙀 𝙏𝙃𝙀 𝘿𝙄𝙁𝙁𝙄𝘾𝙐𝙇𝙏𝙔
 
 𝙉𝙄𝙑𝙀𝙇 𝘿𝙀 𝘿𝙄𝙁𝙄𝘾𝙐𝙇𝙏𝘼𝘿 | 𝘿𝙄𝙁𝙁𝙄𝘾𝙐𝙇𝙏𝙔 
@@ -530,7 +530,7 @@ console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗
 console.log(e)}}
 handler.help = ['ppt']
 handler.tags = ['games']
-handler.command = /^(ppt|suitpvp|moneda|suert|currency|luck|cara|Method|slot|apostar|slot1|slot2|slot3|tictactoe|ttc|ttt|xo|math|mates|matemáticas|delttt|deltt|delxo|deltictactoe)$/i
+handler.command = /^(ppt|suitpvp|moneda|suert|currency|luck|cara|Method|slot|apostar|slot1|slot2|slot3|tictactoe|ttc|ttt|xo|math|mates|matemáticas|matematicas|delttt|deltt|delxo|deltictactoe)$/i
 handler.group = true
 handler.game = true
 handler.register = true
