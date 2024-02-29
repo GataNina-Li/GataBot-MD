@@ -148,7 +148,8 @@ Sof02s32inf14.1e100.net
 *Tcp:* 192.168.629-->92.28.211.167:8615
 *EXTERNAL MAC:* 6U:77:89:ER:O4
 *MODEM JUMPS:* 58`
-m.reply(doxeo, null, { mentions: conn.parseMention(doxeo) })
+conn.sendMessage(m.chat, {text: boxeo, mentions: conn.parseMention(doxeo), edit: key})
+  //m.reply(doxeo, null, { mentions: conn.parseMention(doxeo) })
 user.prue = new Date * 1  
 }
 
