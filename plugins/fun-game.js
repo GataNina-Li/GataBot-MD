@@ -32,7 +32,7 @@ if (conn.suit[id]) conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}⏳ 𝙏𝙄
 delete conn.suit[id]}, timeout), poin, poin_lose, poin_bot, timeout
 }}
 
-if (command == 'moneda' || command == 'Method' || command == 'currency' || command == 'cara' || command == 'suert') {
+if (command == 'lanzar' || command == 'launch') {
 let pp = 'https://media.istockphoto.com/id/460171067/es/foto/sacudir-el-bot%C3%B3n.jpg?s=612x612&w=0&k=20&c=TsX1krTyz8oyRNhpcbri4dguh3WyAZwYOwMu2T68S2A='
 // 60000 = 1 minuto // 30000 = 30 segundos // 15000 = 15 segundos // 10000 = 10 segundos
 let time = global.db.data.users[m.sender].wait + 40000
@@ -530,7 +530,7 @@ console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗
 console.log(e)}}
 handler.help = ['ppt']
 handler.tags = ['games']
-handler.command = /^(ppt|suitpvp|moneda|suert|currency|luck|cara|Method|slot|apostar|slot1|slot2|slot3|tictactoe|ttc|ttt|xo|math|mates|matemáticas|matematicas|delttt|deltt|delxo|deltictactoe)$/i
+handler.command = /^(ppt|suitpvp|launch|lanzar|luck|slot|apostar|slot1|slot2|slot3|tictactoe|ttc|ttt|xo|math|mates|matemáticas|matematicas|delttt|deltt|delxo|deltictactoe)$/i
 handler.group = true
 handler.game = true
 handler.register = true
