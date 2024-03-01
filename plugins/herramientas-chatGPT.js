@@ -39,6 +39,6 @@ if (empireApijson1.resultado == 'error' || empireApijson1.resultado == '' || !em
 m.reply(`${empireApijson1.resultado}`.trim());
 } catch {
 }}}};
-handler.command = /^(openai|chatgpt|ia|openai2|chatgpt2|ia2|Gata)$/i;
+handler.command = /^(openai|chatgpt|ia|ai|openai2|chatgpt2|ia2)$/i;
 export default handler;
 
