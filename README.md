@@ -261,8 +261,12 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va8ZD6O3mFXxTPl1m13A)
 
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/Ly0MffH.jpeg"></details>
-------------------
-### 🌱 ACTIVAR EN KOYEB 
+------------------------
+🟢 ACTIVAR EN CODES SPACES 
+[`CREAR SERVIDOR`](https://github.com/codespaces/new?skip_quickstart=true&machine=basicLinux32gb&repo=733291595&ref=main&geo=UsEast)
+### 🟢Tutorial pronto 
+----- 
+ACTIVAR EN KOYEB 
 
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/GataNina-Li/GataBot-MD&branch=master&name=gatabot-md)
 
