@@ -264,7 +264,7 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 ------------------------
 🟢 ACTIVAR EN CODES SPACES 
 
-[`CREAR SERVIDOR`](https://github.com/codespaces/new?skip_quickstart=true&machine=basicLinux32gb&repo=https://github.com/GataNina-Li/GataBot-MD&ref=main&geo=UsEast)
+[`CREAR SERVIDOR`](https://github.com/codespaces/new?skip_quickstart=true&machine=basicLinux32gb&repo=GataNina-Li/GataBot-MD&ref=main&geo=UsEast)
 ### 🟢Tutorial pronto 
 ----- 
 ACTIVAR EN KOYEB 
