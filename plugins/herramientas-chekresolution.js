@@ -25,6 +25,6 @@ m.reply(`_*RESOLUTION :*_ ${width} x ${height}
 }
 handler.help = ['cekresolution <reply | caption>', 'cekreso <reply | caption>']
 handler.tags = ['tool']
-handler.command = /^(cekreso(lution)?)$/i
+handler.command = /^(cekreso(lution)?|calidadimg|qualityimg)$/i
 
 export default handler
