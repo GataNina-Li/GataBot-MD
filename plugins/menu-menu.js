@@ -188,50 +188,10 @@ ${generateCommand(commandsPrem, usedPrefix)}
 
 ${margen}
 
-> 🎡 *JUEGOS* 🎡
+> 🎡 *JUEGOS* 🎡\n
+${generateCommand(commandsGames, usedPrefix)}
 
-✓ _${usedPrefix}mates | matemáticas | math_
-✓ _${usedPrefix}lanzar *cara* | *cruz*_
-✓ _${usedPrefix}ppt *piedra : papel : tijera*_
-✓ _${usedPrefix}tictactoe | ttt *sala*_
-✓ _${usedPrefix}deltictactoe | delttt_
-✓ _${usedPrefix}topgays_
-✓ _${usedPrefix}topotakus_
-✓ _${usedPrefix}toppajer@s_
-✓ _${usedPrefix}topput@s_
-✓ _${usedPrefix}topintegrantes | topintegrante_
-✓ _${usedPrefix}toplagrasa | topgrasa_
-✓ _${usedPrefix}toppanasfrescos | toppanafresco_
-✓ _${usedPrefix}topshiposters | topshipost_
-✓ _${usedPrefix}toplindos | toplind@s_
-✓ _${usedPrefix}topfamosos | topfamos@s_
-✓ _${usedPrefix}topparejas | top5parejas_
-✓ _${usedPrefix}gay | gay *@tag*_
-✓ _${usedPrefix}gay2 *nombre : @tag*_
-✓ _${usedPrefix}lesbiana *nombre : @tag*_
-✓ _${usedPrefix}manca *nombre : @tag*_
-✓ _${usedPrefix}manco *nombre : @tag*_
-✓ _${usedPrefix}pajero *nombre : @tag*_
-✓ _${usedPrefix}pajera *nombre : @tag*_
-✓ _${usedPrefix}puto *nombre : @tag*_
-✓ _${usedPrefix}puta *nombre : @tag*_
-✓ _${usedPrefix}rata *nombre : @tag*_
-✓ _${usedPrefix}love *nombre : @tag*_
-✓ _${usedPrefix}doxear *nombre : @tag*_
-✓ _${usedPrefix}doxxeame_
-✓ _${usedPrefix}pregunta *texto*_
-✓ _${usedPrefix}apostar | slot *cantidad*_
-✓ _${usedPrefix}formarpareja_
-✓ _${usedPrefix}dado_
-✓ _${usedPrefix}verdad_
-✓ _${usedPrefix}acertijo_
-✓ _${usedPrefix}cancion_
-✓ _${usedPrefix}trivia_
-✓ _${usedPrefix}pelicula_
-✓ _${usedPrefix}adivinanza_
-✓ _${usedPrefix}reto_
-✓ _${usedPrefix}ruleta_
-✓ _${usedPrefix}suerte_
+${margen}
 
 > ✨ *IA* ✨
 
@@ -701,4 +661,48 @@ const commandsPrem = [
 { comando: 'pase premium , pass premium', descripcion: false, contexto: 'Planes para adquirir premium', showPrefix: true },
 { comando: 'listavip , listprem', descripcion: false, contexto: 'Usuarios con tiempo premium', showPrefix: true },
 { comando: 'listapremium , listpremium', descripcion: false, contexto: 'Lista de usuarios premium', showPrefix: true },
+]
+const commandsGames = [
+{ comando: 'matematicas , math', descripcion: '"noob, medium, hard"', contexto: 'Operaciones matemáticas 🧮', showPrefix: true },
+{ comando: 'lanzar , launch', descripcion: '"cara" o "cruz"', contexto: 'Moneda de la suerte 🪙', showPrefix: true },
+{ comando: 'ppt', descripcion: '"piedra", "papel" o "tijera"', contexto: 'Un clásico 🪨📄✂️', showPrefix: true },
+{ comando: 'ttt', descripcion: '[Nombre de la sala] || [Room name]', contexto: 'Tres en línea/rayas ❌⭕', showPrefix: true },
+{ comando: 'delttt', descripcion: false, contexto: 'Cerrar/abandonar la partida 🚪', showPrefix: true },
+{ comando: 'topgays', descripcion: false, contexto: 'Clasificación de usuarios Gays 🏳️‍🌈', showPrefix: true },
+{ comando: 'topotakus', descripcion: false, contexto: 'Clasificación de usuarios Otakus 🎌', showPrefix: true },
+{ comando: 'toppajer@s', descripcion: false, contexto: 'Clasificación de usuarios pajeros 🥵', showPrefix: true },
+{ comando: 'topintegrantes', descripcion: false, contexto: 'Mejores usuarios 👑', showPrefix: true },
+{ comando: 'toplagrasa', descripcion: false, contexto: 'Usuarios más grasosos XD', showPrefix: true },
+{ comando: 'toplind@s', descripcion: false, contexto: 'Los más lindos 😻', showPrefix: true },
+{ comando: 'topput@s', descripcion: false, contexto: 'Los más p**** 🫣', showPrefix: true },
+{ comando: 'toppanafrescos', descripcion: false, contexto: 'Los que más critican 🗿', showPrefix: true },
+{ comando: 'topshiposters', descripcion: false, contexto: 'Los que se creen graciosos 🤑', showPrefix: true },
+{ comando: 'topfamosos', descripcion: false, contexto: 'Los más conocidos ☝️', showPrefix: true },
+{ comando: 'topparejas', descripcion: false, contexto: 'Las 5 mejores 💕', showPrefix: true },
+{ comando: 'gay', descripcion: '[@tag]', contexto: 'Perfil Gay 😲', showPrefix: true },
+{ comando: 'gay2', descripcion: '[@tag] o [nombre] || [@tag] or [name]', contexto: '(%) de Gay', showPrefix: true },
+{ comando: 'lesbiana', descripcion: '[@tag] o [nombre] || [@tag] or [name]', contexto: '(%) de Lesbiana', showPrefix: true },
+{ comando: 'manca', descripcion: '[@tag] o [nombre] || [@tag] or [name]', contexto: '(%) de Manca', showPrefix: true },
+{ comando: 'manco', descripcion: '[@tag] o [nombre] || [@tag] or [name]', contexto: '(%) de Manco', showPrefix: true },
+{ comando: 'pajero', descripcion: '[@tag] o [nombre] || [@tag] or [name]', contexto: '(%) de Pajero', showPrefix: true },
+{ comando: 'pajera', descripcion: '[@tag] o [nombre] || [@tag] or [name]', contexto: '(%) de Pajera', showPrefix: true },
+{ comando: 'puto', descripcion: '[@tag] o [nombre] || [@tag] or [name]', contexto: '(%) de Puto', showPrefix: true },
+{ comando: 'puta', descripcion: '[@tag] o [nombre] || [@tag] or [name]', contexto: '(%) de Puta', showPrefix: true },
+{ comando: 'rata', descripcion: '[@tag] o [nombre] || [@tag] or [name]', contexto: '(%) de Rata', showPrefix: true },
+{ comando: 'love', descripcion: '[@tag] o [nombre] || [@tag] or [name]', contexto: '(%) de Love', showPrefix: true },
+{ comando: 'doxxear', descripcion: '[@tag]', contexto: 'Simular Doxxeo falso 🕵️‍♀️', showPrefix: true },
+{ comando: 'pregunta', descripcion: '[texto] || [text]', contexto: 'Pregunta ❔ y responderá', showPrefix: true },
+{ comando: 'apostar , slot', descripcion: '[cantidad] || [amount]', contexto: 'Apuesta a la suerte 🎰', showPrefix: true },
+{ comando: 'formarpareja', descripcion: false, contexto: 'Une a dos personas 💞', showPrefix: true },
+{ comando: 'dado', descripcion: false, contexto: 'Envía un dado aleatorio 🎲', showPrefix: true },
+{ comando: 'piropo', descripcion: false, contexto: 'Enviar un piropo 🫢', showPrefix: true },
+{ comando: 'chiste', descripcion: false, contexto: 'Envía chistes 🤡', showPrefix: true },
+{ comando: 'reto', descripcion: false, contexto: 'Pondrá un reto 😏', showPrefix: true },
+{ comando: 'frases', descripcion: '[cantidad 1 al 99] || [amount 1-99]', contexto: 'Envía frases aleatorias 💐', showPrefix: true },
+{ comando: 'acertijo', descripcion: false, contexto: 'Responde al mensaje del acertijo 👻', showPrefix: true },
+{ comando: 'cancion', descripcion: false, contexto: 'Adivina la canción 🎼', showPrefix: true },
+{ comando: 'trivia', descripcion: false, contexto: 'Preguntas con opciones 💭', showPrefix: true },
+{ comando: 'pelicula', descripcion: false, contexto: 'Descubre la película con emojis 🎬', showPrefix: true },
+{ comando: 'adivinanza', descripcion: false, contexto: 'Adivina adivinador 🧞‍♀️', showPrefix: true },
+{ comando: 'ruleta', descripcion: false, contexto: 'Suerte inesperada 💫', showPrefix: true },
 ]
