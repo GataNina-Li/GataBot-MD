@@ -83,7 +83,8 @@ const lowCostCharacters = data.infoImg
             calificacionesPersonaje.push(...calificaciones);
         }
         const finalPrice = calculatePrice(calificacionesPersonaje, character);
-        return `• ${character.name} » ~\`${character.price}\`~ -> \`${finalPrice}\` ${rpgshopp.emoticon('money')}`;
+        const priceText = (finalPrice !== character.price) ? `~\`${character.price}\`~ -> \`${finalPrice}\` ${rpgshopp.emoticon('money')}` : `\`\`\`${character.price}\`\`\` *${rpgshopp.emoticon('money')}*`;
+        return `• ${character.name} » ${priceText}`;
     });
 
 const highCostCharacters = data.infoImg
@@ -98,8 +99,10 @@ const highCostCharacters = data.infoImg
             calificacionesPersonaje.push(...calificaciones);
         }
         const finalPrice = calculatePrice(calificacionesPersonaje, character);
-        return `• ${character.name} » ~\`${character.price}\`~ -> \`${finalPrice}\` ${rpgshopp.emoticon('money')}`;
+        const priceText = (finalPrice !== character.price) ? `~\`${character.price}\`~ -> \`${finalPrice}\` ${rpgshopp.emoticon('money')}` : `\`\`\`${character.price}\`\`\` *${rpgshopp.emoticon('money')}*`;
+        return `• ${character.name} » ${priceText}`;
     });
+
 
 
 currentPage = text ? parseInt(text) : 1
