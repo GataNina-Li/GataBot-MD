@@ -90,7 +90,7 @@ const flow = usuario.flow || [];
 const calificaciones = flow.filter(voto => voto.character_name === personaje)
 calificacionesPersonaje.push(...calificaciones)}
 const finalPrice = calculatePrice(calificacionesPersonaje, character)
-const priceText = (finalPrice !== character.price) ? `~\`${character.price}\`~ -> \`${finalPrice}\` ${rpgshopp.emoticon('money')}` : `\`\`\`${character.price}\`\`\` *${rpgshopp.emoticon('money')}*`
+const priceText = (finalPrice !== character.price) ? `~\`${character.price}\`~ 👉 \`${finalPrice}\` ${rpgshopp.emoticon('money')}` : `\`\`\`${character.price}\`\`\` *${rpgshopp.emoticon('money')}*`
 return { name: character.name, price: priceText, finalPrice }
 }).sort((a, b) => {
 if (a.finalPrice !== b.finalPrice) {
