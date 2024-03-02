@@ -21,7 +21,8 @@ return conn.reply(m.chat, `> *No se encontró información para el personaje esp
 
 const imagen = personaje.url
 const nombre = personaje.name
-const descripcion = personaje.desp
+const origen = personaje.desp
+const descripcion = personaje.info
 const precio = personaje.price
 const clase = personaje.class
 const tipo = personaje.type
@@ -79,6 +80,9 @@ let mensaje = `
 
 *Nombre:* 
 ✓ ${nombre}
+
+*Origen:*
+✓ ${origen}
 
 *Precio:* 
 ✓ \`${precio}\` *${rpgshop.emoticon('money')}*
