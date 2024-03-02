@@ -193,8 +193,10 @@ ${generateCommand(commandsGames, usedPrefix)}
 
 ${margen}
 
-> ✨ *IA* ✨
+> ✨ *IA* ✨\n
+${generateCommand(commandsAI, usedPrefix)}
 
+${margen}
 
 > ⚙️ *AJUSTES* ⚙️
 
