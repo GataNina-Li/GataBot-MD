@@ -70,9 +70,7 @@ const lowCostCharacters = data.infoImg
         const finalPrice = calculatePrice(calificacionesPersonaje, character);
         const priceText = (finalPrice !== character.price) ? `~\`${character.price}\`~ -> \`${finalPrice}\` 💰` : `\`\`\`${character.price}\`\`\` 💰`;
         return `• ${character.name} » ${priceText}`;
-    })
-    .sort((a, b) => a.finalPrice - b.finalPrice)
-    .map(character => `• ${character.name} » ${character.price}`);
+    });
 
 const highCostCharacters = data.infoImg
     .filter(character => character.price !== undefined && character.price > 700)
@@ -81,9 +79,7 @@ const highCostCharacters = data.infoImg
         const finalPrice = calculatePrice(calificacionesPersonaje, character);
         const priceText = (finalPrice !== character.price) ? `~\`${character.price}\`~ -> \`${finalPrice}\` 💰` : `\`\`\`${character.price}\`\`\` 💰`;
         return `• ${character.name} » ${priceText}`;
-    })
-    .sort((a, b) => a.finalPrice - b.finalPrice)
-    .map(character => `• ${character.name} » ${character.price}`);
+    });
 
         
 currentPage = text ? parseInt(text) : 1
