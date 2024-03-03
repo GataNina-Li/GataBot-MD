@@ -12,12 +12,13 @@ const helpMessage = `
 _Este comando te permite agregar nuevos personajes a la base de datos._
 
 *Uso:*
-\`${usedPrefix + command}\` enlace + nombre + descripción + clase + tipo
+\`${usedPrefix + command}\` enlace + nombre + origen + info + clase + tipo
 
 *Parámetros:*
 \`url:\` » Enlace de la imagen (debe comenzar con 'https://telegra.ph/file/').\n
 \`name\` » Nombre del anime o personaje (primera letra de cada palabra en mayúscula).\n
-\`desp\` » Descripción del anime o personaje o de donde proviene.\n
+\`desp\` » Origen del personaje (Nombre del Anime, serie, película, etc...\n
+\`info\` » Realiza una breve descripción del personaje.\n
 \`class\` » Clase del personaje (Común, Poco Común, Raro, Épico, Legendario, Sagrado, Supremo, o Transcendental).\n
 \`type\` » Etiquetas del personaje, separadas por ":" o ";" o "/" (primera letra de cada etiqueta en mayúscula).
 
@@ -25,7 +26,7 @@ _Este comando te permite agregar nuevos personajes a la base de datos._
 > _Para obtener el enlace a la imagen puedes usar el coamndo *${usedPrefix}tourl* respondiendo a la imgen, también puedes mejorar la calidad de imagen respondiendo a la imagen *${usedPrefix}hd*_
 
 *Ejemplo:*
-\`${usedPrefix + command}\` https://telegra.ph/file/abcd1234.jpg + Son Goku + Dragon Ball + Épico + Aventura / Acción
+\`${usedPrefix + command}\` https://telegra.ph/file/abcd1234.jpg + Son Goku + Dragon Ball + Son Goku es el protagonista principal de la franquicia Dragon Ball. Es un Saiyan enviado a la Tierra cuando era un bebé con la misión de conquistar el planeta, pero debido a un golpe en la cabeza pierde la memoria y se convierte en un héroe. + Épico + Aventura / Acción
 `.trim()
 if (!text) return conn.reply(m.chat, helpMessage, m)
   
@@ -34,8 +35,8 @@ if (fs.existsSync(fantasyAddPath)) {
 const data = fs.readFileSync(fantasyAddPath, 'utf8')
 fantasyAddData = JSON.parse(data)
 }
-const [url, name, desp, classInput, typeInput] = text.split('+').map((item) => item.trim())
-if (!url || !name || !desp || !classInput || !typeInput) {
+const [url, name, desp, info, classInput, typeInput] = text.split('+').map((item) => item.trim())
+if (!url || !name || !desp || !info || !classInput || !typeInput) {
 return conn.reply(m.chat, '> *Faltan parámetros.* Asegúrate de proporcionar todos los datos requeridos.', m)
 }
 
@@ -45,6 +46,7 @@ return conn.reply(m.chat, '> *¡Por favor, ingresa un enlace de imagen válido!*
 
 const formattedName = name.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
 const formattedDesp = desp
+const formattedInfo = info
 
 const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
 const formattedClass = classInput.trim().toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
@@ -111,6 +113,7 @@ index: true,
 url,
 name: formattedName,
 desp: formattedDesp,
+info: formattedInfo,
 class: formattedClass,
 type: formattedType,
 price,
