@@ -15,7 +15,7 @@ const exp = Math.floor(Math.random() * 9000)
 const diamond = Math.floor(Math.random() * 150)
 const money = Math.floor(Math.random() * 9000)
 let or = ['text', 'text2', 'text3', 'text4', 'text5']; 
-let media = or[Math.floor(Math.random() * 4)]
+let media = or[Math.floor(Math.random() * 5)]
 global.db.data.users[m.sender].crime = new Date * 1;
 if (media === 'text') return m.reply(`《💰》${pickRandom(global.robar)} ${exp} XP`).catch(global.db.data.users[m.sender].exp += exp) 
 if (media === 'text2') return m.reply(`《🚓》${pickRandom(global.robmal)} ${exp} XP`).catch(global.db.data.users[m.sender].exp -= crime) 
