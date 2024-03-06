@@ -202,7 +202,7 @@ ${margen}
 
 > ⚙️ *AJUSTES* ⚙️
 ${m?.isGroup ? `_✅ ➤ Activado_
-_❌ ➤ Desactivado_` : `Para ver la configuración completa sólo use: *${usedPrefix}on* o *${usedPrefix}off*`
+_❌ ➤ Desactivado_` : `Para ver la configuración completa sólo use: *${usedPrefix}on* o *${usedPrefix}off*`}
 ${generateCommand(commandsConfig, usedPrefix)}
 
 > 🧾 *AJUSTES/INFO - GRUPO* 🧾
