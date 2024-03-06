@@ -578,23 +578,29 @@ return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
 // Función para formatear arrays de comandos
 function generateCommand(commandsArray, usedPrefix) {
 const formattedCommands = commandsArray
-.filter(command => command.comando) 
+.filter(command => {
+const comandoValido = command.comando && typeof command.comando === 'function' && command.comando()
+const descripcionValida = command.descripcion && typeof command.descripcion === 'function'
+const contextoValido = typeof command.contexto === 'string' && command.contexto.trim() !== ''
+return comandoValido || descripcionValida || contextoValido
+})
 .map((command, index, array) => {
-const prefix = (command.showPrefix === true && command.comando.trim() !== '') ? usedPrefix : ''
-let formattedCommand = command.comando ? command.comando.trim() : ''
+const prefix = (command.showPrefix === true && command.comando && typeof command.comando === 'function' && command.comando().trim() !== '') ? usedPrefix : ''
+let formattedCommand = (command.comando && typeof command.comando === 'function') ? command.comando().trim() : ''
 if (formattedCommand.includes(',')) {
 formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].trim() : formattedCommand.split(',')[1].trim()
 }
-let formattedDescription = command.descripcion ? command.descripcion.trim() : ''
+let formattedDescription = (command.descripcion && typeof command.descripcion === 'function') ? command.descripcion() : ''
 if (formattedDescription.includes('||')) {
 formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split('||')[0].trim() : formattedDescription.split('||')[1].trim()
 }
+let formattedContext = (typeof command.contexto === 'string' && command.contexto.trim() !== '') ? command.contexto.trim() : ''
 let message = `✓ \`${prefix}${formattedCommand}\``
 if (formattedDescription !== '') {
 message += `\n≡ \`\`\`${formattedDescription}\`\`\``
 }
-if (command.contexto && command.contexto.trim() !== '') {
-message += '\nⓘ _' + command.contexto + '_' + (index !== array.length - 1 ? '\n' : '')
+if (formattedContext !== '') {
+message += '\nⓘ _' + formattedContext + '_' + (index !== array.length - 1 ? '\n' : '')
 }
 return message
 })
@@ -695,8 +701,9 @@ const commandsAI = [
 ]
 
 const commandsConfig = [
-{ comando: m.isGroup ? chat.welcome ? 'off' : 'on' : false, descripcion: `(${m.isGroup ? chat.welcome ? '✅' : '❌' : ''})`, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
+{ comando: () => m.isGroup ? (chat.welcome ? 'off' : 'on') : false, descripcion: () => `(${m.isGroup ? (chat.welcome ? '✅' : '❌') : ''})`, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
 ]
+
 /*
 ✓ _${usedPrefix}on *o* off *bienvenida | welcome*_
 ✓ _${usedPrefix}on *o* off *avisos | detect*_
