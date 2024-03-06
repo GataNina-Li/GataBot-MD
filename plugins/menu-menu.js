@@ -13,6 +13,9 @@ import chalk from 'chalk'
 
 let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, command }) => {
 try {
+let chat = global.db.data.chats[m.chat]
+let user = global.db.data.users[m.sender]
+let bot = global.db.data.settings[conn.user.jid] || {}
 let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
 let { exp, limit, level, role } = global.db.data.users[m.sender]
 let { min, xp, max } = xpRange(level, global.multiplier)
@@ -199,34 +202,9 @@ ${generateCommand(commandsAI, usedPrefix)}
 ${margen}
 
 > ⚙️ *AJUSTES* ⚙️
-
-✓ _${usedPrefix}on *o* off *bienvenida | welcome*_
-✓ _${usedPrefix}on *o* off *avisos | detect*_
-✓ _${usedPrefix}on *o* off *autonivel | autolevelup*_
-✓ _${usedPrefix}on *o* off *restringir | restrict*_
-✓ _${usedPrefix}on *o* off *antillamar | anticall*_
-✓ _${usedPrefix}on *o* off *publico | public*_
-✓ _${usedPrefix}on *o* off *autovisto | autoread*_
-✓ _${usedPrefix}on *o* off *temporal*_
-✓ _${usedPrefix}on *o* off *stickers*_
-✓ _${usedPrefix}on *o* off *autosticker*_
-✓ _${usedPrefix}on *o* off *reacciones | reaction*_
-✓ _${usedPrefix}on *o* off *audios*_
-✓ _${usedPrefix}on *o* off *modocaliente | modohorny*_
-✓ _${usedPrefix}on *o* off *antitoxicos | antitoxic*_
-✓ _${usedPrefix}on *o* off *antiver | antiviewonce*_
-✓ _${usedPrefix}on *o* off *antieliminar | antidelete*_
-✓ _${usedPrefix}on *o* off *antinternacional | antifake*_
-✓ _${usedPrefix}on *o* off *antienlace | antilink*_
-✓ _${usedPrefix}on *o* off *antienlace2 | antilink2*_
-✓ _${usedPrefix}on *o* off *antitiktok | antitk*_
-✓ _${usedPrefix}on *o* off *antiyoutube | antiyt*_
-✓ _${usedPrefix}on *o* off *antitelegram | antitel*_
-✓ _${usedPrefix}on *o* off *antifacebook | antifb*_
-✓ _${usedPrefix}on *o* off *antinstagram | antig*_
-✓ _${usedPrefix}on *o* off *antitwitter | antitw*_
-✓ _${usedPrefix}on *o* off *soloprivados | pconly*_
-✓ _${usedPrefix}on *o* off *sologrupos | gconly*_
+_✅ = Activado_
+_❌ = Desactivado_
+${generateCommand(commandsConfig, usedPrefix)}
 
 > 🧾 *AJUSTES/INFO - GRUPO* 🧾
 
@@ -716,3 +694,35 @@ const commandsAI = [
 { comando: 'geminimg', descripcion: '(imagen) + [texto] || (image) + [text]', contexto: 'Busca información de una imagen', showPrefix: true },
 { comando: 'hd', descripcion: '(responde con una imagen) || (responds with an image)', contexto: 'Mejorar calidad de imagen', showPrefix: true },
 ]
+
+const commandsConfig = [
+{ comando: m.isGroup ? chat.welcome ? 'off' : 'on' : false, descripcion: `(${m.isGroup ? chat.welcome ? '✅' : '❌' : '')`, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
+]
+/*
+✓ _${usedPrefix}on *o* off *bienvenida | welcome*_
+✓ _${usedPrefix}on *o* off *avisos | detect*_
+✓ _${usedPrefix}on *o* off *autonivel | autolevelup*_
+✓ _${usedPrefix}on *o* off *restringir | restrict*_
+✓ _${usedPrefix}on *o* off *antillamar | anticall*_
+✓ _${usedPrefix}on *o* off *publico | public*_
+✓ _${usedPrefix}on *o* off *autovisto | autoread*_
+✓ _${usedPrefix}on *o* off *temporal*_
+✓ _${usedPrefix}on *o* off *stickers*_
+✓ _${usedPrefix}on *o* off *autosticker*_
+✓ _${usedPrefix}on *o* off *reacciones | reaction*_
+✓ _${usedPrefix}on *o* off *audios*_
+✓ _${usedPrefix}on *o* off *modocaliente | modohorny*_
+✓ _${usedPrefix}on *o* off *antitoxicos | antitoxic*_
+✓ _${usedPrefix}on *o* off *antiver | antiviewonce*_
+✓ _${usedPrefix}on *o* off *antieliminar | antidelete*_
+✓ _${usedPrefix}on *o* off *antinternacional | antifake*_
+✓ _${usedPrefix}on *o* off *antienlace | antilink*_
+✓ _${usedPrefix}on *o* off *antienlace2 | antilink2*_
+✓ _${usedPrefix}on *o* off *antitiktok | antitk*_
+✓ _${usedPrefix}on *o* off *antiyoutube | antiyt*_
+✓ _${usedPrefix}on *o* off *antitelegram | antitel*_
+✓ _${usedPrefix}on *o* off *antifacebook | antifb*_
+✓ _${usedPrefix}on *o* off *antinstagram | antig*_
+✓ _${usedPrefix}on *o* off *antitwitter | antitw*_
+✓ _${usedPrefix}on *o* off *soloprivados | pconly*_
+✓ _${usedPrefix}on *o* off *sologrupos | gconly*_*/
