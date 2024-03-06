@@ -9,7 +9,7 @@ let chat = global.db.data.chats[m.chat]
 let users = participants.map(u => conn.decodeJid(u.id))
 const groupAdmins = participants.filter(p => p.admin)
 const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
-/*if (chat.detect && m.messageStubType == 2) {
+if (chat.detect && m.messageStubType == 2) {
 const chatId = m.isGroup ? m.chat : m.sender;
 const uniqid = chatId.split('@')[0];
 const sessionPath = './GataBotSession/';
@@ -19,7 +19,7 @@ for (const file of files) {
 if (file.includes(uniqid)) {
 await fs.unlink(path.join(sessionPath, file));
 filesDeleted++;
-console.log(`⚠️ Eliminacion session (PreKey) que provocan el undefined el chat`)}}*/
+console.log(`⚠️ Eliminacion session (PreKey) que provocan el undefined el chat`)}}
 if (chat.detect && m.messageStubType == 21) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoAG']() + mid.smsAutodetec1(usuario, m), mentions: [m.sender], mentions: [...groupAdmins.map(v => v.id)] }, { quoted: fkontak })   
 } else if (chat.detect && m.messageStubType == 22) {
