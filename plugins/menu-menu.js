@@ -203,7 +203,7 @@ ${margen}
 > ⚙️ *AJUSTES* ⚙️
 _✅ = Activado_
 _❌ = Desactivado_
-${generateCommand(commandsConfig, usedPrefix, chat)}
+${generateCommand(commandsConfig, usedPrefix)}
 
 > 🧾 *AJUSTES/INFO - GRUPO* 🧾
 
@@ -737,7 +737,7 @@ const commandsConfig = [
 { comando: (m, chat) => m?.isGroup ? (chat.modoadmin  ? 'off ' : 'on ') + 'modoadmin , modeadmin' : false, descripcion: (m, chat) => m?.isGroup ? (chat.modoadmin  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Sólo admins podrán usar en grupo', showPrefix: true },
 { comando: () => (global.opts['autoread'] ? 'off ' : 'on ') + 'autovisto , autoread', descripcion: () => global.opts['autoread'] ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Mensajes leídos automáticamente', showPrefix: true },
 { comando: () => (bot.temporal ? 'off ' : 'on ') + 'temporal', descripcion: () => bot.temporal ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Ingreso del Bot temporalmente en grupos', showPrefix: true },
-{ comando: (m, chat) => (chat.stickers ? 'off ' : 'on ') + 'stickers', descripcion: (m, chat) => (chat.stickers ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Stickers automáticos en chats', showPrefix: true }, 
+{ comando: () => (chat.stickers ? 'off ' : 'on ') + 'stickers', descripcion: () => (chat.stickers ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Stickers automáticos en chats', showPrefix: true }, 
 { comando: (chat) => (chat.autosticker ? 'off ' : 'on ') + 'autosticker', descripcion: (chat) => (chat.autosticker ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Multimedia a stickers automáticamente', showPrefix: true }, 
 { comando: (chat) => (chat.reaction ? 'off ' : 'on ') + 'reacciones , reaction', descripcion: (chat) => (chat.reaction ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Reaccionar a mensajes automáticamente', showPrefix: true }, 
 { comando: (chat) => (chat.audios ? 'off ' : 'on ') + 'audios', descripcion: (chat) => (chat.audios ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Audios automáticos en chats', showPrefix: true }, 
