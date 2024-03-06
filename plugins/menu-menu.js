@@ -695,7 +695,7 @@ const commandsAI = [
 ]
 
 const commandsConfig = [
-{ comando: m.isGroup ? chat.welcome ? 'off' : 'on' : false, descripcion: `(${m.isGroup ? chat.welcome ? '✅' : '❌' : '')`, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
+{ comando: m.isGroup ? chat.welcome ? 'off' : 'on' : false, descripcion: `(${m.isGroup ? chat.welcome ? '✅' : '❌' : ''})`, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
 ]
 /*
 ✓ _${usedPrefix}on *o* off *bienvenida | welcome*_
