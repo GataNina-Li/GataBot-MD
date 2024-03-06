@@ -556,7 +556,7 @@ text: `🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
 😼 *REGISTRADO POR*
 ❱❱ ${wm}\n
 📑 *TIPO DE REGISTRO* 
-❱❱ ${user.registroC === true ? '𝘙𝘌𝘎𝘐𝘚𝘛𝘙𝘖 𝘊𝘖𝘔𝘗𝘓𝘌𝘛𝘖' : '𝘙𝘌𝘎𝘐𝘚𝘛𝘙𝘖 𝘙𝘈𝘗𝘐𝘋𝘖'}\n
+❱❱ ${user.registroC === true ? 'REGISTRO COMPLETO' : 'REGISTRO RÁPIDO'}\n
 ⌛ *FECHA/HORA*
 ❱❱ ${user.tiempo}\n
 🛅 *CÓDIGO DE REGISTRO*
@@ -569,7 +569,7 @@ text: `🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
 ❱❱ ${user.descripcion}\n
 🔢 *EDAD* 
 ❱❱ ${user.age}\n
-${user.registroC === true ? `☘️ *GENERO*
+${user.registroC === true ? `☘️ *GÉNERO*
 ❱❱ ${user.genero}\n
 🌱 *ORIENTACIÓN SEXUAL*
 ❱❱ ${user.identidad}\n
