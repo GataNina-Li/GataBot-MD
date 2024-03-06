@@ -727,7 +727,7 @@ const commandsAI = [
 ]
 
 const commandsConfig = [
-{ comando: (m) => m?.isGroup ? (chat.welcome ? 'off' : 'on') : false, descripcion: (m) => m?.isGroup ? (chat.welcome ? '✅ Activado || ✅ Activated' : '❌ Desactivado || ❌ Disabled') : false, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
+{ comando: false, descripcion: (m) => m?.isGroup ? (chat.welcome ? '✅ Activado || ✅ Activated' : '❌ Desactivado || ❌ Disabled') : false, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
 ]
 
 /*
