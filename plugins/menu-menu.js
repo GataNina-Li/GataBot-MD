@@ -728,10 +728,10 @@ const commandsAI = [
 ]
 
 const commandsConfig = [
-{ comando: (m) => m?.isGroup ? (chat.welcome ? 'off' : 'on') + 'bienvenida , welcome' : false, descripcion: (m) => m?.isGroup ? (chat.welcome ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
-{ comando: (m) => m?.isGroup ? (chat.detect  ? 'off' : 'on') + 'avisos , detect' : false, descripcion: (m) => m?.isGroup ? (chat.detect  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Avisos importantes en grupos', showPrefix: true },
-{ comando: (m) => m?.isGroup ? (chat.detect  ? 'off' : 'on') + 'autonivel , autolevelup' : false, descripcion: (m) => m?.isGroup ? (chat.detect  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Subir de nivel automáticamente', showPrefix: true },
-{ comando: (m) => (bot.restrict ? 'off' : 'on') + 'restringir , restrict', descripcion: (m) => bot.restrict ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Permisos para el Bot', showPrefix: true },
+{ comando: (m) => m?.isGroup ? (chat.welcome ? 'off ' : 'on ') + 'bienvenida , welcome' : false, descripcion: (m) => m?.isGroup ? (chat.welcome ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
+{ comando: (m) => m?.isGroup ? (chat.detect  ? 'off ' : 'on ') + 'avisos , detect' : false, descripcion: (m) => m?.isGroup ? (chat.detect  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Avisos importantes en grupos', showPrefix: true },
+{ comando: (m) => m?.isGroup ? (chat.detect  ? 'off ' : 'on ') + 'autonivel , autolevelup' : false, descripcion: (m) => m?.isGroup ? (chat.detect  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Subir de nivel automáticamente', showPrefix: true },
+{ comando: (m) => (bot.restrict ? 'off ' : 'on ') + 'restringir , restrict', descripcion: (m) => bot.restrict ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Permisos para el Bot', showPrefix: true },
 ]
  
 /*
