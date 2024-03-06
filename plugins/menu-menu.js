@@ -49,7 +49,6 @@ setTimeout(resolve, 1000)
 }) * 1000
 }
 let { money, joincount } = global.db.data.users[m.sender]
-let user = global.db.data.users[m.sender]
 let muptime = clockString(_muptime)
 let uptime = clockString(_uptime)
 let totalreg = Object.keys(global.db.data.users).length
