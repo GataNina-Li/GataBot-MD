@@ -629,7 +629,7 @@ message += `\n${(command.descripcion && typeof command.descripcion === 'function
 if (formattedContext) {
 message += '\nⓘ _' + formattedContext + '_' + (index !== array.length - 1 ? '\n' : '')
 }}
-return message.trim()
+return message
 })
 return formattedCommands.join('\n')
 }
@@ -732,24 +732,21 @@ const commandsConfig = [
 { comando: (m) => m?.isGroup ? (chat.detect  ? 'off ' : 'on ') + 'avisos , detect' : false, descripcion: (m) => m?.isGroup ? (chat.detect  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Avisos importantes en grupos', showPrefix: true },
 { comando: (m) => m?.isGroup ? (chat.detect  ? 'off ' : 'on ') + 'autonivel , autolevelup' : false, descripcion: (m) => m?.isGroup ? (chat.detect  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Subir de nivel automáticamente', showPrefix: true },
 { comando: (m) => (bot.restrict ? 'off ' : 'on ') + 'restringir , restrict', descripcion: (m) => bot.restrict ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Permisos para el Bot', showPrefix: true },
+{ comando: (m) => (bot.antiCall ? 'off ' : 'on ') + 'antillamar , anticall', descripcion: (m) => bot.antiCall ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Evitar recibir llamadas en el Bot', showPrefix: true },
+{ comando: (m) => (global.opts['self'] ? 'on ' : 'off ') + 'publico , public', descripcion: (m) => global.opts['self'] ? '❌' + 'Desactivado || Disabled' : '✅' + 'Activado || Activated', contexto: 'Permitir que todos usen el Bot', showPrefix: true },
+{ comando: (m) => m?.isGroup ? (chat.modoadmin  ? 'off ' : 'on ') + 'modoadmin , modeadmin' : false, descripcion: (m) => m?.isGroup ? (chat.modoadmin  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Sólo admins podrán usar en grupo', showPrefix: true },
+{ comando: (m) => (global.opts['autoread'] ? 'off ' : 'on ') + 'autovisto , autoread', descripcion: (m) => global.opts['autoread'] ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Mensajes leídos automáticamente', showPrefix: true },
+{ comando: (m) => (bot.temporal ? 'off ' : 'on ') + 'temporal', descripcion: (m) => bot.temporal ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Ingreso del Bot temporalmente en grupos', showPrefix: true },
+{ comando: (m) => (chat.stickers ? 'off ' : 'on ') + 'stickers', descripcion: (m) => (chat.stickers ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Stickers automáticos en chats', showPrefix: true }, 
+{ comando: (m) => (chat.autosticker ? 'off ' : 'on ') + 'autosticker', descripcion: (m) => (chat.autosticker ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Multimedia a stickers automáticamente', showPrefix: true }, 
+{ comando: (m) => (chat.reaction ? 'off ' : 'on ') + 'reacciones , reaction', descripcion: (m) => (chat.reaction ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Reaccionar a mensajes automáticamente', showPrefix: true }, 
+{ comando: (m) => (chat.audios ? 'off ' : 'on ') + 'audios', descripcion: (m) => (chat.audios ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Audios automáticos en chats', showPrefix: true }, 
+{ comando: (m) => (chat.modohorny ? 'off ' : 'on ') + 'modocaliente , modehorny', descripcion: (m) => (chat.modohorny ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Comandos con contenido para adultos', showPrefix: true }, 
+{ comando: (m) => m?.isGroup ? (chat.antitoxic ? 'off ' : 'on ') + 'antitoxicos , antitoxic' : false, descripcion: (m) => m?.isGroup ? (chat.antitoxic ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Sancionar/eliminar a usuarios tóxicos', showPrefix: true },
+{ comando: (m) => (chat.antiver ? 'off ' : 'on ') + 'antiver , antiviewonce', descripcion: (m) => (chat.antiver ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: ' No acultar mensajes de \"una sola vez\"', showPrefix: true }, 
 ]
  
 /*
-✓ _${usedPrefix}on *o* off *bienvenida | welcome*_
-✓ _${usedPrefix}on *o* off *avisos | detect*_
-✓ _${usedPrefix}on *o* off *autonivel | autolevelup*_
-✓ _${usedPrefix}on *o* off *restringir | restrict*_
-✓ _${usedPrefix}on *o* off *antillamar | anticall*_
-✓ _${usedPrefix}on *o* off *publico | public*_
-✓ _${usedPrefix}on *o* off *autovisto | autoread*_
-✓ _${usedPrefix}on *o* off *temporal*_
-✓ _${usedPrefix}on *o* off *stickers*_
-✓ _${usedPrefix}on *o* off *autosticker*_
-✓ _${usedPrefix}on *o* off *reacciones | reaction*_
-✓ _${usedPrefix}on *o* off *audios*_
-✓ _${usedPrefix}on *o* off *modocaliente | modohorny*_
-✓ _${usedPrefix}on *o* off *antitoxicos | antitoxic*_
-✓ _${usedPrefix}on *o* off *antiver | antiviewonce*_
 ✓ _${usedPrefix}on *o* off *antieliminar | antidelete*_
 ✓ _${usedPrefix}on *o* off *antinternacional | antifake*_
 ✓ _${usedPrefix}on *o* off *antienlace | antilink*_
