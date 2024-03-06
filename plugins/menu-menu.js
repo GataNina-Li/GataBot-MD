@@ -620,14 +620,15 @@ formattedContext = contextResult.trim()
 }} else if (typeof command.contexto === 'string' && command.contexto.trim() !== '') {
 formattedContext = command.contexto.trim()
 }}
-
-let message = `✓ \`${prefix}${formattedCommand}\``
+let message = ''
+if (formattedCommand) {
+message += `✓ \`${prefix}${formattedCommand}\``
 if (formattedDescription) {
 message += `\n${(command.descripcion && typeof command.descripcion === 'function') ? '𖡡' : '≡'} \`\`\`${formattedDescription}\`\`\``
 }
 if (formattedContext) {
 message += '\nⓘ _' + formattedContext + '_' + (index !== array.length - 1 ? '\n' : '')
-}
+}}
 return message
 })
 return formattedCommands.join('\n')
@@ -727,7 +728,7 @@ const commandsAI = [
 ]
 
 const commandsConfig = [
-{ comando: false, descripcion: (m) => m?.isGroup ? (chat.welcome ? '✅ Activado || ✅ Activated' : '❌ Desactivado || ❌ Disabled') : false, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
+{ comando: (m) => m?.isGroup ? (chat.welcome ? 'off' : 'on') : false, descripcion: (m) => m?.isGroup ? (chat.welcome ? '✅ Activado || ✅ Activated' : '❌ Desactivado || ❌ Disabled') : false, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
 ]
 
 /*
