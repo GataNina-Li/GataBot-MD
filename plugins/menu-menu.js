@@ -587,26 +587,43 @@ return comandoValido || descripcionValida || contextoValido
 .map((command, index, array) => {
 const prefix = (command.showPrefix === true && ((typeof command.comando === 'function' && typeof command.comando() === 'string' && command.comando().trim() !== '') ||
 (typeof command.comando === 'string' && command.comando.trim() !== ''))) ? usedPrefix : ''
-let formattedCommand = '';
+let formattedCommand = ''
 if (command.comando) {
-    if (typeof command.comando === 'function') {
-        const commandResult = command.comando();
-        if (typeof commandResult === 'string') {
-            formattedCommand = commandResult.trim();
-        }
-    } else if (typeof command.comando === 'string') {
-        formattedCommand = command.comando.trim();
-    }
-}
+if (typeof command.comando === 'function') {
+const commandResult = command.comando()
+if (typeof commandResult === 'string') {
+formattedCommand = commandResult.trim()
+}} else if (typeof command.comando === 'string') {
+formattedCommand = command.comando.trim()
+}}
 if (formattedCommand.includes(',')) {
 formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].trim() : formattedCommand.split(',')[1].trim()
 }
-let formattedDescription = (command.descripcion && typeof command.descripcion === 'function' &&
-typeof command.descripcion() === 'string') ? command.descripcion().trim() : ''
+let formattedDescription = ''
+if (command.descripcion) {
+if (typeof command.descripcion === 'function') {
+const descriptionResult = command.descripcion()
+if (typeof descriptionResult === 'string') {
+formattedDescription = descriptionResult.trim()
+}} else if (typeof command.descripcion === 'string') {
+formattedDescription = command.descripcion.trim()
+}}
+
 if (formattedDescription.includes('||')) {
 formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split('||')[0].trim() : formattedDescription.split('||')[1].trim()
 }
-let formattedContext = (typeof command.contexto === 'string' && command.contexto.trim() !== '') ? command.contexto.trim() : ''
+let formattedContext = ''
+if (command.contexto) {
+    if (typeof command.contexto === 'function') {
+        const contextResult = command.contexto();
+        if (typeof contextResult === 'string') {
+            formattedContext = contextResult.trim();
+        }
+    } else if (typeof command.contexto === 'string' && command.contexto.trim() !== '') {
+        formattedContext = command.contexto.trim();
+    }
+}
+
 let message = `✓ \`${prefix}${formattedCommand}\``
 if (formattedDescription !== '') {
 message += `\n${(command.descripcion && typeof command.descripcion === 'function') ? '𖡡' : '≡'} \`\`\`${formattedDescription}\`\`\``
