@@ -16,6 +16,25 @@ let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
 let bot = global.db.data.settings[conn.user.jid] || {}
 try {
+const commandsConfig = [
+{ comando: (m, chat) => m?.isGroup ? (chat.welcome ? 'off ' : 'on ') + 'bienvenida , welcome' : false, descripcion: (m, chat) => m?.isGroup ? (chat.welcome ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
+{ comando: (m, chat) => m?.isGroup ? (chat.detect  ? 'off ' : 'on ') + 'avisos , detect' : false, descripcion: (m, chat) => m?.isGroup ? (chat.detect  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Avisos importantes en grupos', showPrefix: true },
+{ comando: (m, chat) => m?.isGroup ? (chat.detect  ? 'off ' : 'on ') + 'autonivel , autolevelup' : false, descripcion: (m, chat) => m?.isGroup ? (chat.detect  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Subir de nivel automáticamente', showPrefix: true },
+{ comando: () => (bot.restrict ? 'off ' : 'on ') + 'restringir , restrict', descripcion: () => bot.restrict ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Permisos para el Bot', showPrefix: true },
+{ comando: () => (bot.antiCall ? 'off ' : 'on ') + 'antillamar , anticall', descripcion: () => bot.antiCall ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Evitar recibir llamadas en el Bot', showPrefix: true },
+{ comando: () => (global.opts['self'] ? 'on ' : 'off ') + 'publico , public', descripcion: () => global.opts['self'] ? '❌' + 'Desactivado || Disabled' : '✅' + 'Activado || Activated', contexto: 'Permitir que todos usen el Bot', showPrefix: true },
+{ comando: (m, chat) => m?.isGroup ? (chat.modoadmin  ? 'off ' : 'on ') + 'modoadmin , modeadmin' : false, descripcion: (m, chat) => m?.isGroup ? (chat.modoadmin  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Sólo admins podrán usar en grupo', showPrefix: true },
+{ comando: () => (global.opts['autoread'] ? 'off ' : 'on ') + 'autovisto , autoread', descripcion: () => global.opts['autoread'] ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Mensajes leídos automáticamente', showPrefix: true },
+{ comando: () => (bot.temporal ? 'off ' : 'on ') + 'temporal', descripcion: () => bot.temporal ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Ingreso del Bot temporalmente en grupos', showPrefix: true },
+{ comando: (chat) => (chat.stickers ? 'off ' : 'on ') + 'stickers', descripcion: () => (chat.stickers ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Stickers automáticos en chats', showPrefix: true }, 
+{ comando: (chat) => (chat.autosticker ? 'off ' : 'on ') + 'autosticker', descripcion: (chat) => (chat.autosticker ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Multimedia a stickers automáticamente', showPrefix: true }, 
+{ comando: (chat) => (chat.reaction ? 'off ' : 'on ') + 'reacciones , reaction', descripcion: (chat) => (chat.reaction ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Reaccionar a mensajes automáticamente', showPrefix: true }, 
+{ comando: (chat) => (chat.audios ? 'off ' : 'on ') + 'audios', descripcion: (chat) => (chat.audios ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Audios automáticos en chats', showPrefix: true }, 
+{ comando: (chat) => (chat.modohorny ? 'off ' : 'on ') + 'modocaliente , modehorny', descripcion: (chat) => (chat.modohorny ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Comandos con contenido para adultos', showPrefix: true }, 
+{ comando: (m, chat) => m?.isGroup ? (chat.antitoxic ? 'off ' : 'on ') + 'antitoxicos , antitoxic' : false, descripcion: (m, chat) => m?.isGroup ? (chat.antitoxic ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Sancionar/eliminar a usuarios tóxicos', showPrefix: true },
+{ comando: (chat) => (chat.antiver ? 'off ' : 'on ') + 'antiver , antiviewonce', descripcion: (chat) => (chat.antiver ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: ' No acultar mensajes de \"una sola vez\"', showPrefix: true }, 
+]
+ 
 let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
 let { exp, limit, level, role } = global.db.data.users[m.sender]
 let { min, xp, max } = xpRange(level, global.multiplier)
@@ -562,24 +581,7 @@ await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() 
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}
 
-const commandsConfig = [
-{ comando: (m, chat) => m?.isGroup ? (chat.welcome ? 'off ' : 'on ') + 'bienvenida , welcome' : false, descripcion: (m, chat) => m?.isGroup ? (chat.welcome ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Establecer bienvenida en grupos', showPrefix: true },
-{ comando: (m, chat) => m?.isGroup ? (chat.detect  ? 'off ' : 'on ') + 'avisos , detect' : false, descripcion: (m, chat) => m?.isGroup ? (chat.detect  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Avisos importantes en grupos', showPrefix: true },
-{ comando: (m, chat) => m?.isGroup ? (chat.detect  ? 'off ' : 'on ') + 'autonivel , autolevelup' : false, descripcion: (m, chat) => m?.isGroup ? (chat.detect  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Subir de nivel automáticamente', showPrefix: true },
-{ comando: () => (bot.restrict ? 'off ' : 'on ') + 'restringir , restrict', descripcion: () => bot.restrict ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Permisos para el Bot', showPrefix: true },
-{ comando: () => (bot.antiCall ? 'off ' : 'on ') + 'antillamar , anticall', descripcion: () => bot.antiCall ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Evitar recibir llamadas en el Bot', showPrefix: true },
-{ comando: () => (global.opts['self'] ? 'on ' : 'off ') + 'publico , public', descripcion: () => global.opts['self'] ? '❌' + 'Desactivado || Disabled' : '✅' + 'Activado || Activated', contexto: 'Permitir que todos usen el Bot', showPrefix: true },
-{ comando: (m, chat) => m?.isGroup ? (chat.modoadmin  ? 'off ' : 'on ') + 'modoadmin , modeadmin' : false, descripcion: (m, chat) => m?.isGroup ? (chat.modoadmin  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Sólo admins podrán usar en grupo', showPrefix: true },
-{ comando: () => (global.opts['autoread'] ? 'off ' : 'on ') + 'autovisto , autoread', descripcion: () => global.opts['autoread'] ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Mensajes leídos automáticamente', showPrefix: true },
-{ comando: () => (bot.temporal ? 'off ' : 'on ') + 'temporal', descripcion: () => bot.temporal ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Ingreso del Bot temporalmente en grupos', showPrefix: true },
-{ comando: (chat) => (chat.stickers ? 'off ' : 'on ') + 'stickers', descripcion: () => (chat.stickers ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Stickers automáticos en chats', showPrefix: true }, 
-{ comando: (chat) => (chat.autosticker ? 'off ' : 'on ') + 'autosticker', descripcion: (chat) => (chat.autosticker ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Multimedia a stickers automáticamente', showPrefix: true }, 
-{ comando: (chat) => (chat.reaction ? 'off ' : 'on ') + 'reacciones , reaction', descripcion: (chat) => (chat.reaction ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Reaccionar a mensajes automáticamente', showPrefix: true }, 
-{ comando: (chat) => (chat.audios ? 'off ' : 'on ') + 'audios', descripcion: (chat) => (chat.audios ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Audios automáticos en chats', showPrefix: true }, 
-{ comando: (chat) => (chat.modohorny ? 'off ' : 'on ') + 'modocaliente , modehorny', descripcion: (chat) => (chat.modohorny ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: 'Comandos con contenido para adultos', showPrefix: true }, 
-{ comando: (m, chat) => m?.isGroup ? (chat.antitoxic ? 'off ' : 'on ') + 'antitoxicos , antitoxic' : false, descripcion: (m, chat) => m?.isGroup ? (chat.antitoxic ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Sancionar/eliminar a usuarios tóxicos', showPrefix: true },
-{ comando: (chat) => (chat.antiver ? 'off ' : 'on ') + 'antiver , antiviewonce', descripcion: (chat) => (chat.antiver ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled'), contexto: ' No acultar mensajes de \"una sola vez\"', showPrefix: true }, 
-]
+
 }
 
 //handler.command = /^(menu|menú|memu|memú|help|info|comandos|2help|menu1.2|ayuda|commands|commandos|menucompleto|allmenu|allm|m|\?)$/i
