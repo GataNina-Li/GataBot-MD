@@ -587,8 +587,7 @@ return comandoValido || descripcionValida || contextoValido
 .map((command, index, array) => {
 const prefix = (command.showPrefix === true && ((typeof command.comando === 'function' && typeof command.comando() === 'string' && command.comando().trim() !== '') ||
 (typeof command.comando === 'string' && command.comando.trim() !== ''))) ? usedPrefix : ''
-let formattedCommand = (command.comando && typeof command.comando === 'function' && typeof command.comando() === 'string' &&
-command.comando().trim() !== '') ? command.comando().trim() : '' 
+let formattedCommand = (typeof command.comando === 'function') ? command.comando().trim() : command.comando.trim()
 if (formattedCommand.includes(',')) {
 formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].trim() : formattedCommand.split(',')[1].trim()
 }
