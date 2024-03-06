@@ -186,7 +186,7 @@ throw false
 chat.antiTwitter = isEnable 
 break
     
-case 'modohorny': case 'modocaliente':
+case 'modohorny': case 'modocaliente': case 'modehorny':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -358,7 +358,7 @@ throw false
 bot.antiSpam2 = isEnable
 break
 
-case 'modoadmin': case 'soloadmin':
+case 'modoadmin': case 'soloadmin': case 'modeadmin':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
