@@ -608,27 +608,24 @@ formattedDescription = descriptionResult.trim()
 }} else if (typeof command.descripcion === 'string') {
 formattedDescription = command.descripcion.trim()
 }}
-
 if (formattedDescription.includes('||')) {
 formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split('||')[0].trim() : formattedDescription.split('||')[1].trim()
 }
 let formattedContext = ''
 if (command.contexto) {
-    if (typeof command.contexto === 'function') {
-        const contextResult = command.contexto();
-        if (typeof contextResult === 'string') {
-            formattedContext = contextResult.trim();
-        }
-    } else if (typeof command.contexto === 'string' && command.contexto.trim() !== '') {
-        formattedContext = command.contexto.trim();
-    }
-}
+if (typeof command.contexto === 'function') {
+const contextResult = command.contexto()
+if (typeof contextResult === 'string') {
+formattedContext = contextResult.trim()
+}} else if (typeof command.contexto === 'string' && command.contexto.trim() !== '') {
+formattedContext = command.contexto.trim()
+}}
 
 let message = `✓ \`${prefix}${formattedCommand}\``
-if (formattedDescription !== '') {
+if (formattedDescription) {
 message += `\n${(command.descripcion && typeof command.descripcion === 'function') ? '𖡡' : '≡'} \`\`\`${formattedDescription}\`\`\``
 }
-if (formattedContext !== '') {
+if (formattedContext) {
 message += '\nⓘ _' + formattedContext + '_' + (index !== array.length - 1 ? '\n' : '')
 }
 return message
