@@ -587,11 +587,13 @@ return comandoValido || descripcionValida || contextoValido
 .map((command, index, array) => {
 const prefix = (command.showPrefix === true && ((typeof command.comando === 'function' && typeof command.comando() === 'string' && command.comando().trim() !== '') ||
 (typeof command.comando === 'string' && command.comando.trim() !== ''))) ? usedPrefix : ''
-let formattedCommand = (command.comando && typeof command.comando === 'function') ? command.comando().trim() : ''
+let formattedCommand = (command.comando && typeof command.comando === 'function' && typeof command.comando() === 'string' &&
+command.comando().trim() !== '') ? command.comando().trim() : '' 
 if (formattedCommand.includes(',')) {
 formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].trim() : formattedCommand.split(',')[1].trim()
 }
-let formattedDescription = (command.descripcion && typeof command.descripcion === 'function') ? command.descripcion() : ''
+let formattedDescription = (command.descripcion && typeof command.descripcion === 'function' &&
+typeof command.descripcion() === 'string') ? command.descripcion().trim() : ''
 if (formattedDescription.includes('||')) {
 formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split('||')[0].trim() : formattedDescription.split('||')[1].trim()
 }
