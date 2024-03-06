@@ -593,7 +593,7 @@ const prefix = (command.showPrefix === true && ((typeof command.comando === 'fun
 let formattedCommand = ''
 if (command.comando) {
 if (typeof command.comando === 'function') {
-const commandResult = command.comando()
+const commandResult = command.comando().trim()
 if (typeof commandResult === 'string') {
 formattedCommand = commandResult.trim()
 }} else if (typeof command.comando === 'string') {
@@ -605,7 +605,7 @@ formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].tri
 let formattedDescription = ''
 if (command.descripcion) {
 if (typeof command.descripcion === 'function') {
-const descriptionResult = command.descripcion()
+const descriptionResult = command.descripcion().trim()
 if (typeof descriptionResult === 'string') {
 formattedDescription = descriptionResult.trim()
 }} else if (typeof command.descripcion === 'string') {
@@ -617,7 +617,7 @@ formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split('||
 let formattedContext = ''
 if (command.contexto) {
 if (typeof command.contexto === 'function') {
-const contextResult = command.contexto()
+const contextResult = command.contexto().trim()
 if (typeof contextResult === 'string') {
 formattedContext = contextResult.trim()
 }} else if (typeof command.contexto === 'string' && command.contexto.trim() !== '') {
