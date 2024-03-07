@@ -605,7 +605,7 @@ formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].tri
 let formattedDescription = ''
 if (command.descripcion) {
 if (typeof command.descripcion === 'function') {
-const descriptionResult = command.trim().descripcion()
+const descriptionResult = command.descripcion()
 if (typeof descriptionResult === 'string') {
 formattedDescription = descriptionResult.trim()
 }} else if (typeof command.descripcion === 'string') {
