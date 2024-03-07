@@ -203,7 +203,7 @@ ${margen}
 > ⚙️ *AJUSTES* ⚙️
 ${m?.isGroup ? `_✅ ➤ Activado_
 _❌ ➤ Desactivado_` : `Para ver la configuración completa sólo use: *${usedPrefix}on* o *${usedPrefix}off*`}\n
-${generateCommand(commandsConfig, usedPrefix)}
+${generateCommand(commandsConfig, usedPrefix, m, chat)}
 
 ${margen}
 
@@ -581,7 +581,7 @@ let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
 return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}  
 
 // Función para formatear arrays de comandos
-function generateCommand(commandsArray, usedPrefix) {
+function generateCommand(commandsArray, usedPrefix, m, chat) {
 const formattedCommands = commandsArray
 .filter(command => {
 const comandoValido = command.comando && typeof command.comando === 'function' && command.comando()
