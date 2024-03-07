@@ -342,10 +342,11 @@ break
 		
 case 'antispam':
 isAll = true
-if (!isOwner) {
-global.dfail('owner', m, conn)
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
 throw false
-}
+}}
 bot.antiSpam = isEnable
 break
 
