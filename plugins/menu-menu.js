@@ -15,6 +15,11 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, com
 let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
 let bot = global.db.data.settings[conn.user.jid] || {}
+
+const commandsConfig = [
+{ comando: m.isGroup ? (chat.stickers ? 'off ' : 'on ') + 'stickers' : false, descripcion:  m.isGroup ? (chat.stickers ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Stickers automáticos en chats', showPrefix: true }, 
+]
+ 
 try {
 let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
 let { exp, limit, level, role } = global.db.data.users[m.sender]
@@ -203,7 +208,7 @@ ${margen}
 > ⚙️ *AJUSTES* ⚙️
 ${m?.isGroup ? `_✅ ➤ Activado_
 _❌ ➤ Desactivado_` : `Para ver la configuración completa sólo use: *${usedPrefix}on* o *${usedPrefix}off*`}\n
-${generateCommand(commandsConfig, usedPrefix, m, chat)}
+${generateCommand(commandsConfig, usedPrefix)}
 
 ${margen}
 
@@ -581,7 +586,7 @@ let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
 return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}  
 
 // Función para formatear arrays de comandos
-function generateCommand(commandsArray, usedPrefix, m, chat) {
+function generateCommand(commandsArray, usedPrefix) {
 const formattedCommands = commandsArray
 .filter(command => {
 const comandoValido = command.comando && typeof command.comando === 'function' && command.comando()
@@ -731,8 +736,8 @@ const commandsAI = [
 { comando: 'gemini', descripcion: '[texto] || [text]', contexto: 'IA, Tecnología de Google', showPrefix: true },
 { comando: 'geminimg', descripcion: '(imagen) + [texto] || (image) + [text]', contexto: 'Busca información de una imagen', showPrefix: true },
 { comando: 'hd', descripcion: '(responde con una imagen) || (responds with an image)', contexto: 'Mejorar calidad de imagen', showPrefix: true },
-]
-const commandsConfig = [
+] 
+/*const commandsConfig = [
 { comando: () => (bot.restrict ? 'off ' : 'on ') + 'restringir , restrict', descripcion: () => bot.restrict ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Permisos para el Bot', showPrefix: true },
 { comando: () => (bot.antiCall ? 'off ' : 'on ') + 'antillamar , anticall', descripcion: () => bot.antiCall ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Evitar recibir llamadas en el Bot', showPrefix: true },
 { comando: () => (bot.temporal ? 'off ' : 'on ') + 'temporal', descripcion: () => bot.temporal ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Ingreso del Bot temporalmente en grupos', showPrefix: true },
@@ -771,4 +776,4 @@ const commandsConfig = [
 { comando: (m, chat) => m?.isGroup ? (chat.antiFacebook ? 'off ' : 'on ') + 'antifacebook , antifb' : false, descripcion: (m, chat) => m?.isGroup ? (chat.antiFacebook ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Eliminar enlaces de Facebook', showPrefix: true },
 { comando: (m, chat) => m?.isGroup ? (chat.antiInstagram ? 'off ' : 'on ') + 'antinstagram , antig' : false, descripcion: (m, chat) => m?.isGroup ? (chat.antiInstagram ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Eliminar enlaces de Instagram', showPrefix: true },
 { comando: (m, chat) => m?.isGroup ? (chat.antiTwitter ? 'off ' : 'on ') + 'antiX' : false, descripcion: (m, chat) => m?.isGroup ? (chat.antiTwitter ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Eliminar enlaces de X (Twitter)', showPrefix: true },
-]
+]*/
