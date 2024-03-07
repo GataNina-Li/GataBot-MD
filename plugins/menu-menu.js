@@ -630,10 +630,11 @@ if (formattedDescription) {
 message += `\n${(command.descripcion && typeof command.descripcion === 'function') ? '𖡡' : '≡'} \`\`\`${formattedDescription}\`\`\``
 }
 if (formattedContext) {
-message += '\nⓘ _' + formattedContext + '_' + (index !== array.length - 1 ? '' : '')
+message += '\nⓘ _' + formattedContext + '_' + (index !== array.length - 1 ? '\n' : '')
 }}
 return message
 })
+.filter(message => message !== '')
 return formattedCommands.join('\n')
 }
 
