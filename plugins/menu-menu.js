@@ -593,7 +593,7 @@ const prefix = (command.showPrefix === true && ((typeof command.comando === 'fun
 let formattedCommand = ''
 if (command.comando) {
 if (typeof command.comando === 'function') {
-const commandResult = command.comando().trim()
+const commandResult = command.comando()
 if (typeof commandResult === 'string') {
 formattedCommand = commandResult.trim()
 }} else if (typeof command.comando === 'string') {
@@ -605,7 +605,7 @@ formattedCommand = mid.idioma_code === 'es' ? formattedCommand.split(',')[0].tri
 let formattedDescription = ''
 if (command.descripcion) {
 if (typeof command.descripcion === 'function') {
-const descriptionResult = command.descripcion().trim()
+const descriptionResult = command.trim().descripcion()
 if (typeof descriptionResult === 'string') {
 formattedDescription = descriptionResult.trim()
 }} else if (typeof command.descripcion === 'string') {
@@ -617,7 +617,7 @@ formattedDescription = mid.idioma_code === 'es' ? formattedDescription.split('||
 let formattedContext = ''
 if (command.contexto) {
 if (typeof command.contexto === 'function') {
-const contextResult = command.contexto().trim()
+const contextResult = command.contexto()
 if (typeof contextResult === 'string') {
 formattedContext = contextResult.trim()
 }} else if (typeof command.contexto === 'string' && command.contexto.trim() !== '') {
@@ -739,7 +739,7 @@ const commandsConfig = [
 { comando: (m, chat) => m?.isGroup ? (chat.modoadmin  ? 'off ' : 'on ') + 'modoadmin , modeadmin' : false, descripcion: (m, chat) => m?.isGroup ? (chat.modoadmin  ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Sólo admins podrán usar en grupo', showPrefix: true },
 { comando: () => (global.opts['autoread'] ? 'off ' : 'on ') + 'autovisto , autoread', descripcion: () => global.opts['autoread'] ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Mensajes leídos automáticamente', showPrefix: true },
 { comando: () => (bot.temporal ? 'off ' : 'on ') + 'temporal', descripcion: () => bot.temporal ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled', contexto: 'Ingreso del Bot temporalmente en grupos', showPrefix: true },
-{ comando: (m, chat) => m?.isGroup ? (chat.stickers ? 'off ' : 'on ') + 'stickers' : false, descripcion: (m, chat) =>  m?.isGroup ? (chat.stickers ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Stickers automáticos en chats', showPrefix: true }, 
+{ comando: (m, chat, user) => m?.isGroup ? (chat.stickers ? 'off ' : 'on ') + 'stickers' : (user.stickers ? 'off ' : 'on ') + 'stickers' : false, descripcion: (m, chat) =>  m?.isGroup ? (chat.stickers ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : (user.stickers ? '✅ ' : '❌') : false, contexto: 'Stickers automáticos en chats', showPrefix: true }, 
 { comando: (m, chat) => m?.isGroup ? (chat.autosticker ? 'off ' : 'on ') + 'autosticker' : false, descripcion: (m, chat) =>  m?.isGroup ? (chat.autosticker ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Multimedia a stickers automáticamente', showPrefix: true }, 
 { comando: (m, chat) => m?.isGroup ? (chat.reaction ? 'off ' : 'on ') + 'reacciones , reaction' : false, descripcion: (m, chat) =>  m?.isGroup ? (chat.reaction ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Reaccionar a mensajes automáticamente', showPrefix: true }, 
 { comando: (m, chat) => m?.isGroup ? (chat.audios ? 'off ' : 'on ') + 'audios' : false, descripcion: (m, chat) =>  m?.isGroup ? (chat.audios ? '✅ ' + 'Activado || Activated' : '❌ ' + 'Desactivado || Disabled') : false, contexto: 'Audios automáticos en chats', showPrefix: true }, 
