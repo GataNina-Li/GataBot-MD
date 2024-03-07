@@ -41,7 +41,8 @@ await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAuto
 } else if (chat.detect && m.messageStubType == 123) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec10(usuario, m), mentions: [m.sender] }, { quoted: fkontak })
 } else {
-console.log({messageStubType: m.messageStubType,
-messageStubParameters: m.messageStubParameters,
-type: WAMessageStubType[m.messageStubType], 
-})}}
+//console.log({messageStubType: m.messageStubType,
+//messageStubParameters: m.messageStubParameters,
+//type: WAMessageStubType[m.messageStubType], 
+//})
+}}
