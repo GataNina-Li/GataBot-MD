@@ -1003,12 +1003,12 @@ sWelcome: '',
 sBye: '',
 sPromote: '',
 sDemote: '', 
-delete: false,
+delete: true,
 modohorny: true,
 stickers: false,
 autosticker: false,
-audios: true,
-antiver: false,
+audios: false,
+antiver: true,
 antiLink: false,
 antiLink2: false,
 antiTiktok: false,
@@ -1019,7 +1019,7 @@ antiInstagram: false,
 antiTwitter: false,
 antifake: false,
 reaction: true,
-viewonce: false,
+viewonce: true,
 modoadmin: false,
 antitoxic: false,
 game: true, 
@@ -1041,7 +1041,7 @@ if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('antiCall' in settings)) settings.antiCall = true
 if (!('antiSpam' in settings)) settings.antiSpam = true 
 if (!('modoia' in settings)) settings.modoia = false
-if (!('jadibotmd' in settings)) settings.jadibotmd = true  
+if (!('jadibotmd' in settings)) settings.jadibotmd = false  
 } else global.db.data.settings[this.user.jid] = {
 self: false,
 autoread: false,
