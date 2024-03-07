@@ -177,7 +177,7 @@ throw false
 chat.antiInstagram = isEnable 
 break
 		
-case 'antitwitter': case 'antitw': case 'antitwit': case 'antitwter': case 'antitwiter': case 'antiTwr':
+case 'antitwitter': case 'antitw': case 'antitwit': case 'antitwter': case 'antitwiter': case 'antix':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -294,7 +294,7 @@ throw false
 chat.antifake = isEnable          
 break
 		
-case 'jadibotmd': case 'modojadibot': case 'serbotmd': case 'modoserbot': 
+case 'jadibot': case 'modojadibot': case 'serbot': case 'modoserbot': 
 isAll = true
 if (!isROwner) {
 global.dfail('rowner', m, conn)
@@ -342,11 +342,10 @@ break
 		
 case 'antispam':
 isAll = true
-if (m.isGroup) {
-if (!(isAdmin || isOwner)) {
-global.dfail('admin', m, conn)
+if (!isOwner) {
+global.dfail('owner', m, conn)
 throw false
-}}
+}
 bot.antiSpam = isEnable
 break
 
@@ -385,7 +384,7 @@ throw false
 }
 global.opts['gconly'] = isEnable
 break
-case 'antiprivado':
+case 'antiprivado': case 'antiprivate':
 case 'privado':
 isAll = true
 if (!isROwner) {
@@ -394,8 +393,7 @@ throw false
 }
 bot.antiPrivate = isEnable
 break
-case 'antitrabas':
-case 'antitraba':
+case 'antitrabas': case 'antitraba': case 'antilag':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -411,9 +409,7 @@ throw false
 }}
 chat.simi = isEnable
 break
-case 'modoia':
-case 'chatgpt':
-case 'ia':
+case 'modoia': case 'chatgpt': case 'ia':
 isAll = true;
 if (!isOwner) {
 global.dfail('owner', m, conn);
