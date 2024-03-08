@@ -225,7 +225,7 @@ phoneNumber = phoneNumber.replace(/\D/g,'')
 } while (!Object.keys(PHONENUMBER_MCC).some(v => phoneNumber.startsWith(v)))
 rl.close()
 addNumber = phoneNumber.replace(/\D/g, '')
-}}}
+
 setTimeout(async () => {
 let codeBot = await conn.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
