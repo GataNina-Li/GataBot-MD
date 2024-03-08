@@ -119,21 +119,20 @@ const MethodMobile = process.argv.includes("mobile")
 //const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 //const rl = readline.createInterface({ input: process.stdin, output: process.stdout, prompt: '' })
 
-//const rl = readline.createInterface({
-//input: process.stdin,
-//output: process.stdout,
-//terminal: true
-//})
-//const question = (texto) => {
-//return new Promise((resolver) => {
-//rl.question(texto, (respuesta) => {
-//resolver(respuesta.trim())
-//}) })
-//}
-//rl.clearLine(rl.input, 0)
+const rl = readline.createInterface({
+input: process.stdin,
+output: process.stdout,
+terminal: true
+})
+const question = (texto) => {
+return new Promise((resolver) => {
+rl.question(texto, (respuesta) => {
+resolver(respuesta.trim())
+}) })
+}
+rl.clearLine(rl.input, 0)
 
-
-/*let opcion
+let opcion
 if (methodCodeQR) {
 opcion = '1'
 }
@@ -166,61 +165,9 @@ opcion = await question(`╭${lineM}
 //console.log(chalk.bold.redBright(`PRIMERO BORRE EL ARCHIVO ${chalk.bold.greenBright("creds.json")} QUE SE ENCUENTRA EN LA CARPETA ${chalk.bold.greenBright(authFile)} Y REINICIE.`))
 //process.exit()
 if (!/^[1-2]$/.test(opcion)) {
-//rl.clearLine(rl.input, 0)
 console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
-}} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
-}*/
-
-let opcion;
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: true,
-});
 rl.clearLine(rl.input, 0)
-
-if (methodCodeQR) {
-  opcion = '1';
-} else if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) {
-  const lineM = '⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》'
-
-  const question = async () => {
-    return new Promise((resolve) => {
-      rl.question(`╭${lineM}\n  
-┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
-┊ ${chalk.blueBright('┊')} ${chalk.blue.bgBlue.bold.cyan(mid.methodCode1)}
-┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}  
-┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}   
-┊ ${chalk.blueBright('┊')} ${chalk.green.bgMagenta.bold.yellow(mid.methodCode2)}
-┊ ${chalk.blueBright('┊')} ${chalk.bold.redBright(`⇢ ${mid.methodCode3} 1:`)} ${chalk.greenBright(mid.methodCode4)}
-┊ ${chalk.blueBright('┊')} ${chalk.bold.redBright(`⇢ ${mid.methodCode3} 2:`)} ${chalk.greenBright(mid.methodCode5)}
-┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
-┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}   
-┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta(mid.methodCode6)}
-┊ ${chalk.blueBright('┊')} ${chalk.italic.magenta(mid.methodCode7)}
-┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
-┊ ${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}   
-┊ ${chalk.blueBright('┊')} ${chalk.red.bgRed.bold.green(mid.methodCode8)}
-┊ ${chalk.blueBright('┊')} ${chalk.italic.cyan(mid.methodCode9)}
-┊ ${chalk.blueBright('┊')} ${chalk.italic.cyan(mid.methodCode10)}
-┊ ${chalk.blueBright('┊')} ${chalk.bold.yellow(`npm run qr ${chalk.italic.magenta(`(${mid.methodCode12})`)}`)}
-┊ ${chalk.blueBright('┊')} ${chalk.bold.yellow(`npm run code ${chalk.italic.magenta(`(${mid.methodCode13})`)}`)}
-┊ ${chalk.blueBright('┊')} ${chalk.bold.yellow(`npm start ${chalk.italic.magenta(`(${mid.methodCode14})`)}`)}
-┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
-╰${lineM}\n${chalk.bold.magentaBright('---> ')}`, (answer) => {
-        resolve(answer.trim());
-      })
-    })
-  }
-
-  do {
-    opcion = await question();
-
-    if (!/^[1-2]$/.test(opcion)) {
-      rl.clearLine(rl.input, 0)
-      console.log(chalk.bold.redBright(mid.methodCode11(chalk)));
-    }
-  } while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`));
+}} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }
   
 const connectionOptions = {
