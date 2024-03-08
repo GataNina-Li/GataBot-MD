@@ -160,7 +160,7 @@ opcion = await question(`╭${lineM}
 ┊ ${chalk.blueBright('┊')} ${chalk.bold.yellow(`npm run code ${chalk.italic.magenta(`(${mid.methodCode13})`)}`)}
 ┊ ${chalk.blueBright('┊')} ${chalk.bold.yellow(`npm start ${chalk.italic.magenta(`(${mid.methodCode14})`)}`)}
 ┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
-╰${lineM}\n${chalk.bold.magentaBright('---> ')}`)
+╰${lineM}\n${chalk.bold.magentaBright('\n---> ')}`)
 //if (fs.existsSync(`./${authFile}/creds.json`)) {
 //console.log(chalk.bold.redBright(`PRIMERO BORRE EL ARCHIVO ${chalk.bold.greenBright("creds.json")} QUE SE ENCUENTRA EN LA CARPETA ${chalk.bold.greenBright(authFile)} Y REINICIE.`))
 //process.exit()
