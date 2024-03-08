@@ -216,6 +216,7 @@ console.log(chalk.bold.redBright(mid.phNumber3))
 rl.close()  
 }*/
 if (!conn.authState.creds.registered) {
+let addNumber
 if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
 } else {
