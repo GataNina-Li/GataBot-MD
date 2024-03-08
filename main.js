@@ -125,6 +125,7 @@ output: process.stdout,
 terminal: true
 })
 const question = (texto) => {
+rl.clearLine(rl.input, 0)
 return new Promise((resolver) => {
 rl.question(texto, (respuesta) => {
 resolver(respuesta.trim())
