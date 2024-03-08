@@ -115,7 +115,7 @@ const methodCodeQR = process.argv.includes("qr")
 const methodCode = !!phoneNumber || process.argv.includes("code")
 const MethodMobile = process.argv.includes("mobile")
 
-/*const rl = readline.createInterface({
+const rl = readline.createInterface({
 input: process.stdin,
 output: process.stdout,
 })
@@ -125,13 +125,8 @@ return new Promise((resolver) => {
 rl.question(texto, (respuesta) => {
 rl.clearLine(rl.input, 0)
 resolver(respuesta.trim())
-}) })
-}*/
-var question = function (text) {
-return new Promise(function (resolve) {
-rl.question(text, resolve);
-})}
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+})})
+}
 
 let opcion
 if (methodCodeQR) {
