@@ -202,7 +202,7 @@ if (opcion === '2' || methodCode) {
 opcion = '2'
 if (!conn.authState.creds.registered) {  
 //if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
-
+rl.clearLine(rl.input, 0)
 let addNumber
 if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
@@ -211,6 +211,7 @@ console.log(chalk.bgBlack(chalk.bold.redBright(mid.phNumber)))
 process.exit(0)
 }} else {
 while (true) {
+rl.clearLine(rl.input, 0)
 addNumber = await question(chalk.bgBlack(chalk.bold.greenBright(mid.phNumber2(chalk))))
 addNumber = addNumber.replace(/[^0-9]/g, '')
 
@@ -218,6 +219,7 @@ if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber
 break 
 } else {
 console.log(chalk.bold.redBright(mid.phNumber3))
+rl.clearLine(rl.input, 0)
 }}
 rl.close()  
 } 
