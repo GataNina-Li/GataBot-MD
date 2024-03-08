@@ -243,9 +243,9 @@ ${generateCommand(commandsAI, usedPrefix)}
 ${margen}
 
 > ⚙️ *AJUSTES* ⚙️
-${m?.isGroup ? `_✅ ➤ Activado_
+${m.isGroup ? `_✅ ➤ Activado_
 _❌ ➤ Desactivado_` : `Para ver la configuración completa sólo use: *${usedPrefix}on* o *${usedPrefix}off*`}\n
-${generateCommand(commandsConfig, usedPrefix)}
+${generateCommand(commandsConfig, usedPrefix).replace(/≡/g, '𖡡')}
 
 ${margen}
 
