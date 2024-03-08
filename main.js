@@ -117,7 +117,11 @@ const MethodMobile = process.argv.includes("mobile")
 
 //const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 //const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout, prompt: '' })
+//const rl = readline.createInterface({ input: process.stdin, output: process.stdout, prompt: '' })
+const rl = readline.createInterface({
+input: process.stdin,
+output: process.stdout
+})
 const question = (texto) => {
 return new Promise((resolver) => {
 rl.question(texto, (respuesta) => {
@@ -158,6 +162,7 @@ opcion = await question(`╭${lineM}
 //console.log(chalk.bold.redBright(`PRIMERO BORRE EL ARCHIVO ${chalk.bold.greenBright("creds.json")} QUE SE ENCUENTRA EN LA CARPETA ${chalk.bold.greenBright(authFile)} Y REINICIE.`))
 //process.exit()
 if (!/^[1-2]$/.test(opcion)) {
+rl.clearLine(rl.input, 0)
 console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }
