@@ -118,7 +118,6 @@ const MethodMobile = process.argv.includes("mobile")
 const rl = readline.createInterface({
 input: process.stdin,
 output: process.stdout,
-terminal: true
 })
 const question = (texto) => {
 rl.clearLine(rl.input, 0)
