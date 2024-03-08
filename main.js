@@ -195,7 +195,7 @@ if (opcion === '2' || methodCode) {
 //process.exit()
 //}
 opcion = '2'
-if (!conn.authState.creds.registered) {  
+/*if (!conn.authState.creds.registered) {  
 //if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
 let addNumber
 if (!!phoneNumber) {
@@ -214,8 +214,18 @@ break
 console.log(chalk.bold.redBright(mid.phNumber3))
 }}
 rl.close()  
-} 
-
+}*/
+if (!conn.authState.creds.registered) {
+if (!!phoneNumber) {
+addNumber = phoneNumber.replace(/[^0-9]/g, '')
+} else {
+do {
+phoneNumber = await question(chalk.bgBlack(chalk.bold.greenBright(mid.phNumber2(chalk))))
+phoneNumber = phoneNumber.replace(/\D/g,'')
+} while (!Object.keys(PHONENUMBER_MCC).some(v => phoneNumber.startsWith(v)))
+rl.close()
+addNumber = phoneNumber.replace(/\D/g, '')
+}}}
 setTimeout(async () => {
 let codeBot = await conn.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
