@@ -177,6 +177,7 @@ const rl = readline.createInterface({
   output: process.stdout,
   terminal: true,
 });
+rl.clearLine(rl.input, 0)
 
 if (methodCodeQR) {
   opcion = '1';
