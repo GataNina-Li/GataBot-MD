@@ -148,7 +148,7 @@ global.bot = 'wa.me/5214431086138\n* wa.me/17866739002' //𝙂𝙖𝙩𝙖𝘽�
 
 global.nna = 'https://www.atom.bio/GataBot/' // Cuentas
 global.nn2 = 'https://t.me/supergatabot' // Grupo tg GataBot
-global.nna2 = 'https://chat.whatsapp.com/KaTeeaexrGSHBzPm4s945b' // Help
+global.nna2 = 'https://chat.whatsapp.com/GKF5QSNRbCpLVmFVbJ0PjZ' // Help
 global.nn = 'https://chat.whatsapp.com/KVB5vgltNZCDtRWN3ZUTuZ' // Grupo 1
 global.nnn = 'https://chat.whatsapp.com/CtA2nopOZor0bRwV3FCYH3' // Grupo 2
 global.nnnt = 'https://chat.whatsapp.com/HVLk7c3ZlNN0mJjodw4NkV' // Grupo 3
