@@ -104,18 +104,10 @@ loadChatgptDB();
 
 /* ------------------------------------------------*/
 
-if (!opts['test']) {
-if (global.db) setInterval(async () => {
-if (global.db.data) await global.db.write()
-if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "GataJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, 30 * 1000)}
-if (global.obtenerQrWeb === 1) (await import('./server.js')).default(global.conn, PORT)
-
-/* ------------------------------------------------*/
-
 global.authFile = `GataBotSession`
 const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile)
 const msgRetryCounterMap = (MessageRetryMap) => { };
-const msgRetryCounterCache = new NodeCache() 
+const msgRetryCounterCache = new NodeCache()
 const {version} = await fetchLatestBaileysVersion();
 let phoneNumber = global.botNumberCode
 
@@ -171,15 +163,18 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }
   
-console.info = () => {}
-
+console.info = () => {} 
 const connectionOptions = {
-printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 logger: pino({ level: 'silent' }),
+printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
 browser: opcion == '1' ? ['GataBot-MD', 'Edge', '2.0.0'] : methodCodeQR ? ['GataBot-MD', 'Edge', '2.0.0'] : ['Ubuntu', 'Edge', '110.0.1587.56'],
-auth: {creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
+auth: {
+creds: state.creds,
+keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
 },
+markOnlineOnConnect: true, 
+generateHighQualityLinkPreview: true, 
 version,
 syncFullHistory: true,
 getMessage: async (clave) => {
@@ -190,11 +185,8 @@ return msg?.message || ""
 msgRetryCounterCache, //Resolver mensajes en espera
 defaultQueryTimeoutMs: undefined,
 }
-  
-global.conn = makeWASocket(connectionOptions)
-conn.isInit = false
-conn.well = false
 
+global.conn = makeWASocket(connectionOptions)
 if (!fs.existsSync(`./${authFile}/creds.json`)) {
 if (opcion === '2' || methodCode) {
 opcion = '2'
@@ -217,6 +209,15 @@ console.log(chalk.bold.white(chalk.bgMagenta(mid.pairingCode)), chalk.bold.white
 }, 2000)
 }}}
 }
+
+conn.isInit = false
+conn.well = false
+
+if (!opts['test']) {
+if (global.db) setInterval(async () => {
+if (global.db.data) await global.db.write()
+if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "GataJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, 30 * 1000)}
+if (global.obtenerQrWeb === 1) (await import('./server.js')).default(global.conn, PORT)
 
 async function connectionUpdate(update) {  
 const {connection, lastDisconnect, isNewLogin} = update
