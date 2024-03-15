@@ -1489,10 +1489,11 @@ export async function deleteUpdate(message) {
 try {
 const { fromMe, id, participant } = message
 if (fromMe) return 
-let msg = this.serializeM(this.loadMessage(id))
+let msg = mconn.conn.serializeM(mconn.conn.loadMessage(id))
 let chat = global.db.data.chats[msg?.chat] || {}
 if (!chat?.delete) return 
 if (!msg) return 
+if (!msg?.isGroup) return 
 const antideleteMessage = `*╭━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━ 𓃠*
 ${lenguajeGB['smsCont20']()} @${participant.split`@`[0]}
 ${lenguajeGB['smsCont21']()}
