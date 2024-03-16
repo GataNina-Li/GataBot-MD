@@ -8,7 +8,10 @@ let json
 let q = m.quoted ? m.quoted : m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
 if (/image/g.test(mime) && !/webp/g.test(mime)) {
-await m.reply(wait)
+const { key } = await conn.sendMessage(m.chat, { text: wait }, {quoted: m })
+await conn.sendMessage(m.chat, { text: waitt, edit: key })
+await conn.sendMessage(m.chat, { text: waittt, edit: key })
+await conn.sendMessage(m.chat, { text: waitttt, edit: key })
 let buffer = await q.download()
 let media = await (uploadImage)(buffer)
 json = await (await fetch(`https://aemt.me/removebg?url=${media}`)).json()
