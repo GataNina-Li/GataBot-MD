@@ -1,4 +1,4 @@
-import uploadImage from '../lib/uploadImage.js'
+import uploadImage, uploader from '../lib/uploadImage.js'
 import { sticker } from '../lib/sticker.js'
 
 let handler = async (m, { conn, text, args }) => {
