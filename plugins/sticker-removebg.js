@@ -1,4 +1,4 @@
-import { uploadImage, uploader } from '../lib/uploadImage.js'
+import uploadImage from '../lib/uploadImage.js'
 import { sticker } from '../lib/sticker.js'
 
 let handler = async (m, { conn, text, args }) => {
@@ -12,7 +12,7 @@ let mime = (q.msg || q).mimetype || q.mediaType || ''
 if (/image/g.test(mime) && !/webp/g.test(mime)) {
 await m.reply(wait)
 let buffer = await q.download()
-let media = await (uploader)(buffer)
+let media = await (uploadImage)(buffer)
 json = await (await fetch(`https://aemt.me/removebg?url=${media}`)).json()
 stiker = await sticker(false, json.url.result, global.packname, global.author)
 } else return m.reply(`*Responde a una imagen o ingresa una url que sea \`(jpg, jpeg o png)\` para quitar el fondo*`)
