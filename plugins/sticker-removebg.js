@@ -7,6 +7,7 @@ let json
 if (text) {
 json = await (await fetch(`https://aemt.me/removebg?url=${text}`)).json()
 if (isUrl(text)) stiker = await sticker(false, json.url.result, global.packname, global.author)
+await conn.sendMessage(m.chat, { image: { url: json.url.result }, caption: null }, { quoted: m })
 } else {
 let q = m.quoted ? m.quoted : m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
