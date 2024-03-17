@@ -1463,7 +1463,7 @@ return
 for (const groupUpdate of groupsUpdate) {
 const id = groupUpdate.id
 if (!id) continue
-let chats = global.db.data.chats[id], text = ''
+let chats = global.db.data?.chats?.[id], text = ''
 if (!chats?.detect) continue
 // if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '```Description has been changed to```\n@desc').replace('@desc', groupUpdate.desc)
 //if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '```Subject has been changed to```\n@subject').replace('@subject', groupUpdate.subject)
