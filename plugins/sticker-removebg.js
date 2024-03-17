@@ -17,7 +17,6 @@ stiker = await sticker(false, json.url.result, global.packname, global.author)
 json = await (await fetch(`https://aemt.me/removebg?url=${text}`)).json()
 } else return m.reply(`*Responde a una imagen o ingresa una url que sea \`(jpg, jpeg o png)\` para quitar el fondo*`)
 
-await conn.sendMessage(m.chat, { text: waittttt, edit: key })
 await conn.sendMessage(m.chat, { image: { url: json.url.result }, caption: null }, { quoted: m })
 await conn.sendFile(m.chat, stiker ? stiker : await sticker(false, json.url.result, global.packname, global.author), 'sticker.webp', '', null, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: packname, body: '• STICKER •', mediaType: 2, sourceUrl: redesMenu.getRandom(), thumbnail: gataImg.getRandom()}}})
 }
@@ -29,7 +28,7 @@ return text.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[
 }
 
 async function mensajesEditados(conn, m) {
-const mensajes = [ waitt, waittt, waitttt ]
+const mensajes = [ waitt, waitt, waittt, waitttt ]
 const { key } = await conn.sendMessage(m.chat, { text: wait, quoted: m })
 for (let i = 1; i < mensajes.length; i++) {
 await conn.sendMessage(m.chat, { text: mensajes[i], edit: key })
