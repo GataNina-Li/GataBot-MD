@@ -29,7 +29,7 @@ return urlRegex.test(text)
 }
 
 async function mensajesEditados(conn, m) {
-const mensajes = [ waitt, waitt, waittt, waitttt ]
+const mensajes = [ waitt, waittt, waitttt, waittttt ]
 const { key } = await conn.sendMessage(m.chat, { text: wait, quoted: m })
 await new Promise(resolve => setTimeout(resolve, 1000))
 for (let i = 1; i < mensajes.length; i++) {
