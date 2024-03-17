@@ -30,6 +30,7 @@ return text.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[
 async function mensajesEditados(conn, m) {
 const mensajes = [ waitt, waitt, waittt, waitttt ]
 const { key } = await conn.sendMessage(m.chat, { text: wait, quoted: m })
+await new Promise(resolve => setTimeout(resolve, 1000))
 for (let i = 1; i < mensajes.length; i++) {
 await conn.sendMessage(m.chat, { text: mensajes[i], edit: key })
 await new Promise(resolve => setTimeout(resolve, 1000))
