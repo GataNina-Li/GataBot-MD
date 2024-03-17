@@ -175,7 +175,6 @@ keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ l
 },
 markOnlineOnConnect: true, 
 generateHighQualityLinkPreview: true, 
-version,
 syncFullHistory: true,
 getMessage: async (clave) => {
 let jid = jidNormalizedUser(clave.remoteJid)
@@ -184,6 +183,8 @@ return msg?.message || ""
 },
 msgRetryCounterCache, //Resolver mensajes en espera
 defaultQueryTimeoutMs: undefined,
+msgRetry,
+version,  
 }
 
 global.conn = makeWASocket(connectionOptions)
