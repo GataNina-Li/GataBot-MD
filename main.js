@@ -183,7 +183,6 @@ return msg?.message || ""
 },
 msgRetryCounterCache, //Resolver mensajes en espera
 defaultQueryTimeoutMs: undefined,
-msgRetry,
 version,  
 }
 
