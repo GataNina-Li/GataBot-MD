@@ -24,7 +24,7 @@ handler.command = /^(s?removebg)$/i
 export default handler
 
 const isUrl = (text) => {
-const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#]+\.(jpe?g|png)$/i
+const urlRegex = /^(https?):\/\/[^\s/$.?#]+\.(jpe?g|png)$/i
 return urlRegex.test(text)
 }
 
