@@ -13,7 +13,7 @@ let media = await (uploadImage)(buffer)
 json = await (await fetch(`https://aemt.me/removebg?url=${media}`)).json()
 stiker = await sticker(false, json.url.result, global.packname, global.author)
 } else if (text) {
-json = await (await fetch(`https://aemt.me/removebg?url=${text}`)).json()
+json = await (await fetch(`https://aemt.me/removebg?url=${text.trim()}`)).json()
 } else return m.reply(`*Responde a una imagen o ingresa una url que sea \`(jpg, jpeg o png)\` para quitar el fondo*`)
 
 await mensajesEditados(conn, m, key)
