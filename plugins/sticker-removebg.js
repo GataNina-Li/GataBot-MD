@@ -27,10 +27,11 @@ const isUrl = (text) => {
 return text.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|png)/, 'gi'))
 }
 
-async function mensajesEditados(conn, m) {
+async function enviarMensajesEditados(conn, m) {
 const mensajes = [ waitt, waittt, waitttt, waittttt ]
-for (let i = 0; i < mensajes.length; i++) {
 const { key } = await conn.sendMessage(m.chat, { text: wait, quoted: m })
 await new Promise(resolve => setTimeout(resolve, 1000))
+for (let i = 1; i < mensajes.length; i++) {
 await conn.sendMessage(m.chat, { text: mensajes[i], edit: key })
+await new Promise(resolve => setTimeout(resolve, 1000))
 }}
