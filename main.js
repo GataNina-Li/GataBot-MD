@@ -164,16 +164,7 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 }
   
 console.info = () => {} 
-//console.log = () => {}
 console.warn = () => {}
-/*const originalConsoleLog = console.log
-console.log = function() {
-const message = arguments[0]
-if (typeof message === 'string' && (message.includes("Closing stale open") || message.includes("Closing open session") || message.includes("Bad MAC Error: Bad MAC"))) {
-arguments[0] = ""
-}
-originalConsoleLog.apply(console, arguments)
-}*/
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
