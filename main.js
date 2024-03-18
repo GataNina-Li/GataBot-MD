@@ -165,22 +165,22 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
   
 console.info = () => {} 
 //console.log = () => {}
-/*const originalConsoleLog = console.log
+const originalConsoleLog = console.log
 console.log = function() {
 const message = arguments[0]
 if (typeof message === 'string' && (message.includes("Closing stale open session for new outgoing prekey bundle") || message.includes("Closing open session in favor of incoming prekey bundle"))) {
 arguments[0] = message.replace(/(Closing\s(stale\sopen\ssession\sfor\snew\soutgoing\sprekey\sbundle|open\ssession\sin\sfavor\sof\sincoming\sprekey\sbundle))/g, "")
 }
 originalConsoleLog.apply(console, arguments)
-}*/
-const originalConsoleLog = console.log
+}
+/*const originalConsoleLog = console.log
 console.log = function() {
 const message = arguments[0]
 if (typeof message === 'string' && (message.includes("Closing stale open") || message.includes("Closing open session") || message.includes("Bad MAC Error: Bad MAC"))) {
 arguments[0] = ""
 }
 originalConsoleLog.apply(console, arguments)
-}
+}*/
 
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
