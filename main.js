@@ -163,7 +163,7 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }
   
-//console.info = () => {} 
+console.info = () => {} 
 //console.log = () => {}
 const originalConsoleLog = console.log
 console.log = function() {
