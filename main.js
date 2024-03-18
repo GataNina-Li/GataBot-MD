@@ -181,7 +181,7 @@ let jid = jidNormalizedUser(clave.remoteJid)
 let msg = await store.loadMessage(jid, clave.id)
 const mensaje = msg?.message || ""
 if (mensaje.includes("Closing stale open") || mensaje.includes("Closing open session")) {
-return mensaje.replace(/.*/g, "")
+return ""
 } else {
 return mensaje
 }},
