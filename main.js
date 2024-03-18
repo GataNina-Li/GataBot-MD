@@ -164,14 +164,21 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 }
   
 console.info = () => {} 
-//console.warn = () => {}
 const originalConsoleWarn = console.warn
 console.warn = function() {
-const message = arguments[0];
+const message = arguments[0]
 if (typeof message === 'string' && (message.includes("Closing stale open") || message.includes("Closing open session"))) {
 arguments[0] = ""
 }
 originalConsoleWarn.apply(console, arguments)
+}
+const originalConsoleError = console.error
+console.error = function() {
+const message = arguments[0];
+if (typeof message === 'string' && (message.includes("Failed to decrypt message"))) {
+arguments[0] = ""
+}
+originalConsoleError.apply(console, arguments)
 }
 
 const connectionOptions = {
