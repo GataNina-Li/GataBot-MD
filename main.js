@@ -178,7 +178,7 @@ generateHighQualityLinkPreview: true,
 syncFullHistory: true,
 getMessage: async (clave) => {
 let jid = jidNormalizedUser(clave.remoteJid)
-let msg = await store.loadMessage(jid, clave.id)
+//let msg = await store.loadMessage(jid, clave.id)
 //return msg?.message || ""
 },
 msgRetryCounterCache, // Resolver mensajes en espera
@@ -222,7 +222,7 @@ if (global.obtenerQrWeb === 1) (await import('./server.js')).default(global.conn
 
 async function getMessage(key) {
 if (store) {
-const msg = store.loadMessage(key.remoteJid, key.id)
+//const msg = store.loadMessage(key.remoteJid, key.id)
 //return msg.message
 } return {
 conversation: 'SimpleBot',
