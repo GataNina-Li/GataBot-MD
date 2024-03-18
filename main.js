@@ -163,8 +163,15 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }
   
-console.info = () => {} 
-console.log = () => {}
+//console.info = () => {} 
+//console.log = () => {}
+const originalConsoleLog = console.log
+console.log = function() {
+const message = arguments[0]
+if (!message.includes("Closing stale open") || !message.includes("Closing open session")) {
+originalConsoleLog.apply(console, arguments)
+}}
+
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
