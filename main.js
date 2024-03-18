@@ -179,12 +179,8 @@ syncFullHistory: true,
 getMessage: async (clave) => {
 let jid = jidNormalizedUser(clave.remoteJid)
 let msg = await store.loadMessage(jid, clave.id)
-const mensaje = msg?.message || ""
-if (mensaje.includes("Closing stale open") || mensaje.includes("Closing open session")) {
-return ""
-} else {
-return mensaje
-}},
+return (msg?.message || "").includes("Closing stale open") || (msg?.message || "").includes("Closing open session") ? msg?.message.replace(/.*/g, "") : msg?.message
+},
 msgRetryCounterCache, // Resolver mensajes en espera
 msgRetryCounterMap, // Determinar si se debe volver a intentar enviar un mensaje o no
 defaultQueryTimeoutMs: undefined,
