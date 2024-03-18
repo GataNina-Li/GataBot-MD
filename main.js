@@ -223,7 +223,7 @@ if (global.obtenerQrWeb === 1) (await import('./server.js')).default(global.conn
 async function getMessage(key) {
 if (store) {
 const msg = store.loadMessage(key.remoteJid, key.id)
-return msg.message
+//return msg.message
 } return {
 conversation: 'SimpleBot',
 }}
