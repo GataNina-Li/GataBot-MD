@@ -164,6 +164,7 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 }
   
 console.info = () => {} 
+console.debug = () => {} 
 const originalConsoleWarn = console.warn
 console.warn = function() {
 const message = arguments[0]
