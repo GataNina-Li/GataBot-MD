@@ -166,14 +166,17 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 console.info = () => {} 
 //console.log = () => {}
 const originalConsoleLog = console.log
-console.log = function() {
-const message = arguments[0]
+async function asyncConsoleLog(...args) {
+const message = args[0]
 if (typeof message === 'string' && (message.includes("Closing stale open") || message.includes("Closing open session") || message.includes("Failed to decrypt"))) {
 console.log = () => {}
-//arguments[0] = message.replace(/(Closing\s(stale\sopen\ssession\sfor\snew\soutgoing\sprekey\sbundle|open\ssession\sin\sfavor\sof\sincoming\sprekey\sbundle)|Failed\sto\sdecrypt).*/g, "")
 }
-originalConsoleLog.apply(console, arguments)
+originalConsoleLog.apply(console, args)
 }
+console.log = async function(...args) {
+await asyncConsoleLog(...args)
+}
+
 /*const originalConsoleLog = console.log
 console.log = function() {
 const message = arguments[0]
