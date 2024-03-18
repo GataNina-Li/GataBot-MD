@@ -167,7 +167,7 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 //console.log = () => {}
 const originalConsoleLog = console.log
 console.log = function() {
-const message = arguments[0]
+const message = arguments[0].toString()
 if (!message.includes("Closing stale open") || !message.includes("Closing open session")) {
 originalConsoleLog.apply(console, arguments)
 }}
