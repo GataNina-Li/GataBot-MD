@@ -167,11 +167,10 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 //console.log = () => {}
 const originalConsoleLog = console.log
 console.log = function() {
-if (typeof arguments[0] === 'string') {
 const message = arguments[0]
-if (!message.includes("Closing stale open") && !message.includes("Closing open session")) {
+if (typeof message === 'string' && (!message.includes("Closing stale open") || !message.includes("Closing open session"))) {
 originalConsoleLog.apply(console, arguments)
-}}}
+}}
 
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
