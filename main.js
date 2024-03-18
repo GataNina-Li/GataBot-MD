@@ -164,6 +164,7 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 }
   
 console.info = () => {} 
+console.log = () => {}
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
