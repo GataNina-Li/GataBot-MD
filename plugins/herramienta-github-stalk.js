@@ -17,7 +17,7 @@ let gata = `*⬤── 「 𝙂𝙄𝙏𝙃𝙐𝘽 𝙎𝙏𝘼𝙇𝙆 」 ─
 ➸ *Blog:* ${blog}
 ➸ *Ubicación:* ${location}`
 conn.sendMessage(m.chat, {text: `🐈 𝘼𝙌𝙐𝙄 𝙀𝙎𝙏𝘼 𝙏𝙐 𝙋𝙀𝙍𝘿𝙄𝘿𝙊𝙎 👇`, edit: key})
-await conn.sendFile(m.chat, logogit, 'githubstalk.jpg', gata, m)
+await conn.sendFile(m.chat, logogit, 'githubstalk.jpg', gata, m
 } catch (e) {
 await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, edit: key})
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
