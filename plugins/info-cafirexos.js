@@ -1,5 +1,5 @@
 let handler = async (m, { conn, command, usedPrefix }) => {
-let cafirexos = `
+let cafirexostxt = `
 _Optimice la implementación de *GataBot* mediante la integración en un servicio de alojamiento de alto rendimiento._
 
 *🐈 Compatible con GataBot*
@@ -28,7 +28,7 @@ contacto@cafirexos.com
 🧑‍💻 *Contacto (Diego Flores)*
 https://wa.me/50497150165
 `
-await conn.sendFile(m.chat, 'https://grxcwmcwbxwj.objectstorage.sa-saopaulo-1.oci.customer-oci.com/n/grxcwmcwbxwj/b/cafirexos/o/logos%2Flogo.png', 'fantasy.jpg', cafirexos.trim(), fkontak, true, {
+await conn.sendFile(m.chat, 'https://grxcwmcwbxwj.objectstorage.sa-saopaulo-1.oci.customer-oci.com/n/grxcwmcwbxwj/b/cafirexos/o/logos%2Flogo.png', 'fantasy.jpg', cafirexostxt.trim(), fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
