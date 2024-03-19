@@ -96,6 +96,7 @@ await conn.sendFile(m.chat, gataImg.getRandom(), 'pp.jpg', caption, fkontak, fal
 //await conn.sendButton(m.chat, wm, caption, gata.getRandom(), [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], m, dos.getRandom())
 } catch (e) {
 await conn.reply(m.chat, `${fg}*ALGO SALIÓ MAL. ERRORS FOUND.*\n\n\`\`\`REPORTE ESTE COMANDO ${usedPrefix + command} CON EL COMANDO ${usedPrefix}reporte\`\`\``, m)
+console.log(e)
 }}
 handler.help = ['ping', 'speed']
 handler.tags = ['info', 'tools']
