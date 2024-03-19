@@ -6,19 +6,18 @@ const fantasyDBPath = './fantasy.json'
 let fantasyDB = []
 let fake
 let handler = async (m, { text, usedPrefix, command, conn }) => {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 let userId = m.sender
 if (fs.existsSync(fantasyDBPath)) {
 fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'))
 } else {
-fake = { contextInfo: { externalAdReply: { title: `🌟 ¡Colecciona Personajes!`, body: `Compra un personaje y vuelve aquí`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `🌟 ¡Colecciona Personajes!`, body: `Compra un personaje y vuelve aquí`, sourceUrl: accountsgb, thumbnailUrl: gataMenu }}}
 conn.reply(m.chat, `Para usar este comando primero debes comprar al menos un personaje. Usa *${usedPrefix}fy*`, m, fake)
 return
 }
 
 let user, character
 if (m.quoted && userId === m.quoted.sender) {
-fake = { contextInfo: { externalAdReply: { title: `Transfiera a otro Usuario 🧐`, body: `Algo no salió bien...`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `Transfiera a otro Usuario 🧐`, body: `Algo no salió bien...`, sourceUrl: accountsgb, thumbnailUrl: gataMenu }}}
 return conn.reply(m.chat, '> *No puedes hacer una transferencia a ti mismo* ⚠️', m, fake)
 }
 if (m.quoted && m.quoted.sender && text) {
@@ -27,7 +26,7 @@ character = text.trim()
 } else if (text) {
 let [userText, characterText] = text.split(/[|,&\/\\]+/).map(v => v.trim())
 if (!userText || !characterText) {
-fake = { contextInfo: { externalAdReply: { title: `❌ Parámetros incompletos`, body: `Algo no salió bien...`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `❌ Parámetros incompletos`, body: `Algo no salió bien...`, sourceUrl: accountsgb, thumbnailUrl: gataMenu }}}
 return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver tus Personajes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m, fake)
 }
 let isUserNumber = userText.endsWith('@s.whatsapp.net')
@@ -48,7 +47,7 @@ character = characterText
 user = characterText.replace(/[^\d]/g, '') + '@s.whatsapp.net'
 character = userText
 } else {
-fake = { contextInfo: { externalAdReply: { title: `❌ Parámetros incompletos`, body: `Algo no salió bien...`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `❌ Parámetros incompletos`, body: `Algo no salió bien...`, sourceUrl: accountsgb, thumbnailUrl: gataMenu }}}
 return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver tus Personajes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m, fake)
 }}} else {
 if (m.quoted && !text) {
@@ -123,7 +122,7 @@ return conn.reply(m.chat, '*El personaje no te pertenece*', m)
 }}
   
 if (m.quoted && m.quoted.id == id_message && ['no', '👎'].includes(m.text.toLowerCase())) {
-fake = { contextInfo: { externalAdReply: { title: `✋ Decidió no continuar`, body: `No se hizo transferencia`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `✋ Decidió no continuar`, body: `No se hizo transferencia`, sourceUrl: accountsgb, thumbnailUrl: gataMenu }}}
 return conn.reply(m.chat, `La transferencia de *"${senderData.fantasy[characterIndex].name}"* fue cancelada`, m, fake)  
 }}
 return
