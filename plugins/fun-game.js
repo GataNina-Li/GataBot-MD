@@ -8,7 +8,6 @@ global.suit = global.suit ? global.suit : {}
 let MessageType = (await import(global.baileys)).default
 let handler = async (m, { conn, text, command, usedPrefix, args }) => { 
 let pp = 'https://telegra.ph/file/c7924bf0e0d839290cc51.jpg'
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }  
 if (!db.data.chats[m.chat].game) throw `${lenguajeGB['smsAvisoAG']()}𝙇𝙊𝙎 𝙅𝙐𝙀𝙂𝙊𝙎 𝙀𝙎𝙏𝘼𝙎 𝘿𝙀𝙎𝘼𝘾𝙏𝙄𝙑𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝙂𝙍𝙐𝙋𝙊, 𝙎𝙄 𝙀𝙍𝙀𝙎 𝘼𝘿𝙈𝙄𝙉𝙎 𝙋𝙐𝙀𝘿𝙀 𝘼𝘾𝙏𝙄𝙑𝘼𝙍𝙇𝙊 𝘾𝙊𝙉 : #on juegos` 
 try {
 
@@ -31,34 +30,34 @@ astro = 'papel';
 if (text == astro) {
 let money = global.db.data.users[who].money
 let money0 = global.db.data.users[m.sender].money += 2
-conn.reply(m.chat, `╭━━━━[ 𝙀𝙈𝙋𝘼𝙏𝙀! 🤝 ]━━━━⬣\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃💸 𝘽𝙤𝙣𝙤: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}})
+conn.reply(m.chat, `╭━━━━[ 𝙀𝙈𝙋𝘼𝙏𝙀! 🤝 ]━━━━⬣\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃💸 𝘽𝙤𝙣𝙤: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
 } else if (text == 'papel') {
 if (astro == 'piedra') {
 let money = global.db.data.users[who].money
 let money0 = global.db.data.users[m.sender].money += 100
-conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙂𝘼𝙉𝘼𝘿𝙊! 🎉 ]━━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃💰 𝙋𝙧𝙚𝙢𝙞𝙤: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}});
+conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙂𝘼𝙉𝘼𝘿𝙊! 🎉 ]━━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃💰 𝙋𝙧𝙚𝙢𝙞𝙤: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}});
 } else {
 let money = global.db.data.users[who].money
 let money0 = global.db.data.users[m.sender].money -= 25
-conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙋𝙀𝙍𝘿𝙄𝘿𝙊! 🤡 ]━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃📈 𝙋𝙚𝙧𝙙𝙞𝙙𝙖: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}})
+conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙋𝙀𝙍𝘿𝙄𝘿𝙊! 🤡 ]━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃📈 𝙋𝙚𝙧𝙙𝙞𝙙𝙖: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
 }} else if (text == 'tijera') {
 if (astro == 'papel') {
 let money = global.db.data.users[who].money
 let money0 = global.db.data.users[m.sender].money += 900
-conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙂𝘼𝙉𝘼𝘿𝙊! 🎉 ]━━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃💰 𝙋𝙧𝙚𝙢𝙞𝙤: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}})
+conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙂𝘼𝙉𝘼𝘿𝙊! 🎉 ]━━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃💰 𝙋𝙧𝙚𝙢𝙞𝙤: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
 } else {
 let money = global.db.data.users[who].money
 let money0 = global.db.data.users[m.sender].money -= 300
-conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙋𝙀𝙍𝘿𝙄𝘿𝙊! 🤡 ]━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃📈 𝙋𝙚𝙧𝙙𝙞𝙙𝙖: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}})
+conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙋𝙀𝙍𝘿𝙄𝘿𝙊! 🤡 ]━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃📈 𝙋𝙚𝙧𝙙𝙞𝙙𝙖: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
 }} else if (text == 'tijera') {
 if (astro == 'papel') {
 let money = global.db.data.users[who].money
 let money0 = global.db.data.users[m.sender].money += 1000
-conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙂𝘼𝙉𝘼𝘿𝙊! 🎉 ]━━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃💰 𝙋𝙧𝙚𝙢𝙞𝙤: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}})
+conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙂𝘼𝙉𝘼𝘿𝙊! 🎉 ]━━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃💰 𝙋𝙧𝙚𝙢𝙞𝙤: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
 } else {
 let money = global.db.data.users[who].money
 let money0 = global.db.data.users[m.sender].money -= 300
-conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙋𝙀𝙍𝘿𝙄𝘿𝙊! 🤡 ]━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃📈 𝙋𝙚𝙧𝙙𝙞𝙙𝙖: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}});
+conn.reply(m.chat, `*╭━━━━[ 𝙃𝘼 𝙋𝙀𝙍𝘿𝙄𝘿𝙊! 🤡 ]━━⬣*\n┃${name} 𝙐𝙨𝙩𝙚𝙙: ${text}\n┃🐱 𝙂𝙖𝙩𝙖𝘽𝙤𝙩: ${astro}\n┃📈 𝙋𝙚𝙧𝙙𝙞𝙙𝙖: ${[money0].getRandom()} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n┃💵 𝙎𝙪 𝘿𝙞𝙣𝙚𝙧𝙤: ${money} 𝙂𝙖𝙩𝙖𝘾𝙤𝙞𝙣𝙨\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}});
 }} else if (text == 'papel') {
 if (astro == 'piedra') {
 let money = global.db.data.users[who].money
