@@ -105,7 +105,6 @@ Utiliza el comando \`${usedPrefix}fantasyinfo o ${usedPrefix}fyinfo\` seguido de
 
 Con el comando \`${usedPrefix}fyentregar o ${usedPrefix}fytr\`, y mencionando el nombre del personaje y etiquentando a alguien o respondiendo al mensaje de un usuario, podrás transferir la propiedad del personaje al usuario deseado.`.trim()
 let pp = 'https://telegra.ph/file/5413c3d098f748e7def77.jpg'
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 await conn.sendFile(m.chat, pp, 'error.jpg', fantasy, fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
@@ -115,7 +114,7 @@ showAdAttribution: false,
 title: `🌟 FANTASÍA RPG`,
 body: `😻 Una aventura nos espera...`,
 mediaType: 1,
-sourceUrl: accountsgb.getRandom(),
+sourceUrl: accountsgb,
 thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
 }}})
 }
