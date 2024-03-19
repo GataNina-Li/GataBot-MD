@@ -4,7 +4,7 @@ import fs from 'fs'
 
 var handler = m => m
 handler.all = async function (m) {
-global.key
+global.key = ''
 
 // Cuentas
 const response = await fetch('https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/official_accounts.json')  
