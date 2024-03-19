@@ -1,7 +1,7 @@
 const linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})( [0-9]{1,3})?/i
+let handler = async (m, { conn, text, usedPrefix, command, participants, groupMetadata }) => {
 const grupo = grupo1
 const grupo2 = grupo2
-let handler = async (m, { conn, text, usedPrefix, command, participants, groupMetadata }) => {
 let users = m.sender.split`@`[0]
 let [_, code] = grupo.match(linkRegex) || []
 let [_2, code2] = grupo2.match(linkRegex) || []
