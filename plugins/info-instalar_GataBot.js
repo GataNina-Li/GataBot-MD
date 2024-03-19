@@ -1,5 +1,4 @@
 let handler  = async (m, { conn, usedPrefix, command }) => {
-let picture = './media/menus/Menu1.jpg'
 let gata = `𝙄𝙉𝙎𝙏𝘼𝙇𝘼𝘾𝙄𝙊𝙉 𝘿𝙀 𝙂𝘼𝙏𝘼𝘽𝙊𝙏 🐈
 
 *━━━━━━━━━━━━━⬣*

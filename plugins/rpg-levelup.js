@@ -7,7 +7,6 @@ import { promises } from 'fs'
 import { join } from 'path'
 let handler = async (m, { conn, usedPrefix, command, args, usedPrefix: _p, __dirname, isOwner, text, isAdmin, isROwner }) => {
   
-  
 const { levelling } = '../lib/levelling.js'
 //let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text }) => {
 
@@ -61,25 +60,19 @@ level, limit, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
 readmore: readMore
 }
 text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-  
-  
 //let name = await conn.getName(m.sender)
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
 //let user = global.db.data.users[m.sender]
 //user.registered = false
-
-
-
 //let handler = async (m, { conn }) => {
 //let { role } = global.db.data.users[m.sender]
 let name = conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
-    if (!canLevelUp(user.level, user.exp, global.multiplier)) {
-        let { min, xp, max } = xpRange(user.level, global.multiplier)
-        throw `
-╭━━━[ *𝙉𝙄𝙑𝙀𝙇 | 𝙇𝙀𝙑𝙀𝙇* ]━━━━⬣
+if (!canLevelUp(user.level, user.exp, global.multiplier)) {
+let { min, xp, max } = xpRange(user.level, global.multiplier)
+throw `╭━━━[ *𝙉𝙄𝙑𝙀𝙇 | 𝙇𝙀𝙑𝙀𝙇* ]━━━━⬣
 ┃ *NOMBRE | NAME*
 ┃ ${name}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -91,15 +84,13 @@ let user = global.db.data.users[m.sender]
 ╰━━━〔 *𓃠 ${vs}* 〕━━━━━⬣
 
 *Te falta ${max - user.exp} de XP para subir de nivel*
-`.trim()
-    }
+`.trim()}
         
-    let before = user.level * 1
-    while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
-    if (before !== user.level) {
-        let teks = `Bien hecho! ${conn.getName(m.sender)} Nivel: ${user.level}`
-        let str = `
-╭━━━[ *𝙉𝙄𝙑𝙀𝙇 | 𝙇𝙀𝙑𝙀𝙇* ]━━━━⬣
+let before = user.level * 1
+while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
+if (before !== user.level) {
+let teks = `Bien hecho! ${conn.getName(m.sender)} Nivel: ${user.level}`
+let str = `╭━━━[ *𝙉𝙄𝙑𝙀𝙇 | 𝙇𝙀𝙑𝙀𝙇* ]━━━━⬣
 ┃ *NIVEL ANTERIOR:* *${before}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *NIVEL ACTUAL:* *${user.level}*
@@ -110,23 +101,17 @@ let user = global.db.data.users[m.sender]
 ╰━━━〔 *𓃠 ${vs}* 〕━━━━━⬣
 
 *_Cuanto más interactúes con GataBot-MD, mayor será tu nivel!!_*
-*_Actualiza tú rango con el comando ${usedPrefix}rol!!_*
-`.trim()
-        try {
-            const img = await levelup(teks, user.level)
-            conn.sendMessage(m.chat, {image: {url: img}, caption: str, mentions: conn.parseMention(str)}, {quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-            //conn.sendFile(m.chat, img, 'levelup.jpg', str, m)
-        } catch (e) {
-            m.reply(str)
-      }
-    }
-  }
-
+*_Actualiza tú rango con el comando ${usedPrefix}rol!!_*`.trim()
+try {
+const img = await levelup(teks, user.level)
+conn.sendMessage(m.chat, {image: {url: gataImg}, caption: str, mentions: conn.parseMention(str)}, {quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+//conn.sendFile(m.chat, img, 'levelup.jpg', str, m)
+} catch (e) {
+m.reply(str)
+}}}
 handler.help = ['levelup']
 handler.tags = ['xp']
-
 handler.command = ['nivel', 'lvl', 'levelup', 'level'] 
-handler.exp = 0
 export default handler
     
 const more = String.fromCharCode(8206)

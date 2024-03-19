@@ -1,24 +1,9 @@
 let handler = async (m, { conn }) => {
   
-  const fkontak = {
-	"key": {
-    "participants":"0@s.whatsapp.net",
-		"remoteJid": "status@broadcast",
-		"fromMe": false,
-		"id": "Halo"
-	},
-	"message": {
-		"contactMessage": {
-			"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
-		}
-	},
-	"participant": "0@s.whatsapp.net"
-}
+let user = global.db.data.users[m.sender]
   
-        let user = global.db.data.users[m.sender]
-  
-		let randomaku1 = `${Math.floor(Math.random() * 5)}`
-		let randomaku2 = `${Math.floor(Math.random() * 5)}`
+let randomaku1 = `${Math.floor(Math.random() * 5)}`
+let randomaku2 = `${Math.floor(Math.random() * 5)}`
 		let randomaku4 = `${Math.floor(Math.random() * 5)}`
 		let randomaku3 = `${Math.floor(Math.random() * 5)}`
 		let randomaku5 = `${Math.floor(Math.random() * 5)}`
