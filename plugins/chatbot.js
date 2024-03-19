@@ -5,6 +5,14 @@ handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
 let name = conn.getName(m.sender)
 if (chat.isBanned) return
+let vn = 'https://qu.ax/Ocxm.mp3'
+let bot = `${pickRandom([`*¡𝑬𝒚! 𝑨𝒒𝒖í 𝒆𝒔𝒕𝒐𝒚. 𝒀𝒐 𝒑𝒖𝒆𝒅𝒐 𝒂𝒚𝒖𝒅𝒂𝒓 👉👈 𝑯𝒆𝒚! 𝑰'𝒎 𝒉𝒆𝒓𝒆. 𝑰 𝒄𝒂𝒏 𝒉𝒆𝒍𝒑 🙌*`, `Aqui estoy 😼`, `*Hola Aqui estoy yo puedo ayudar? 😸*`])}`.trim()
+
+if (/^bot$/i.test(m.text)) {
+conn.sendPresenceUpdate('recording', m.chat)    
+await conn.sendMessage(m.chat, {text: bot, mentions: [m.sender]}, {quoted: fkontak})
+conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: estiloaudio })   
+}
 
 if (/^e$/i.test(m.text) ) { //sin prefijo 
 let teks = `${pickRandom([`Que bueno sabe la letra E`, `eeeeee`])}`.trim()
