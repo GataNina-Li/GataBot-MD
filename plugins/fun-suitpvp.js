@@ -1,7 +1,6 @@
 let handler = m => m
 handler.before = async function (m) {
 let pp = 'https://telegra.ph/file/c7924bf0e0d839290cc51.jpg'
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }  
 this.suit = this.suit ? this.suit : {}
 if (db.data.users[m.sender].suit < 0) db.data.users[m.sender].suit = 0
 let room = Object.values(this.suit).find(room => room.id && room.status && [room.p, room.p2].includes(m.sender))
