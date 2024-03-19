@@ -104,7 +104,7 @@ const estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(m.c
 const estiloaudio = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { "audioMessage": { "mimetype":"audio/ogg; codecs=opus", "seconds": "99569", "ptt": "true"   
 }}} 
 
-let bottime = `${name} 𝗧𝗜𝗠𝗘: ${moment.tz('America/Bogota').format('HH:mm:ss')}`//America/Los_Angeles
+//let bottime = `${name} 𝗧𝗜𝗠𝗘: ${moment.tz('America/Bogota').format('HH:mm:ss')}`//America/Los_Angeles
 
 let ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { itemCount: 99, status: 1, surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
 let fgif = {key: {participant : '0@s.whatsapp.net'}, message: {"videoMessage": { "title": wm, "h": `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./media/menus/Menu3.jpg')}}}
@@ -130,7 +130,7 @@ li.DESTRAVip.to
 export default handler
 
 // Mensaje de espera
-// await mensajesEditados(conn, m, key)
+// await mensajesEditados(conn, m)
 global.mensajesEditados = async function(conn, m) {
 const mensajes = [waitt, waittt, waitttt, waittttt]
 key = await conn.sendMessage(m.chat, { text: wait, quoted: m })
