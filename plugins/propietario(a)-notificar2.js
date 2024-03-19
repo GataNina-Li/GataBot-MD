@@ -1,4 +1,4 @@
-const linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})( [0-9]{1,3})?/i
+/*const linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})( [0-9]{1,3})?/i
 const grupoOficial1 = nn
 const grupoOficial2 = nnn
 const grupoOficial3 = nnnt
@@ -64,4 +64,4 @@ handler.command = ['mensajeoficial2']
 handler.owner = true
 
 export default handler
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))*/
