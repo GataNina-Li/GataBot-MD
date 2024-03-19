@@ -6,7 +6,6 @@ let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0
 let handler = async function (m, { conn, text, command, usedPrefix }) {
 let key 
 let sinDefinir = '😿 No encontrada'
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }	
 let d = new Date(new Date + 3600000)
 let locale = 'es'
 let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
@@ -22,7 +21,7 @@ minute: 'numeric',
 second: 'numeric'
 }) 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let pp = await conn.profilePictureUrl(who, 'image').catch((_) => gataMenu.getRandom())
+let pp = await conn.profilePictureUrl(who, 'image').catch((_) => gataMenu)
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
 let nombreWA = await usedPrefix + conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0]
