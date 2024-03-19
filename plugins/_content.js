@@ -115,7 +115,8 @@ export default handler
 
 // Mensaje de espera
 // await mensajesEditados(conn, m, key)
-global.mensajesEditados = async function(conn, m, key) {
+global.mensajesEditados = async function(conn, m) {
+let key
 const mensajes = [waitt, waittt, waitttt, waittttt]
 key = await conn.sendMessage(m.chat, { text: wait, quoted: m })
 for (let i = 0; i < mensajes.length; i++) {
