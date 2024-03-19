@@ -28,6 +28,7 @@ global.canal2 = channels.channel2
 global.canal3 = channels.channel3
 global.canal4 = channels.channel4
 
+global.soporteGB = others.group_support
 global.grupo1 = groups.group1
 global.grupo2 = groups.group2
 global.grupo3 = groups.group3
@@ -47,8 +48,8 @@ global.patrocinador4 = sponsors.asif
 
 global.canales = [canal1, canal2, canal3, canal4].getRandom()
 global.welgata = [tk, ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb, tk, ths, asistencia].getRandom()
-global.redesMenu = [canal1, canal2, canal3, canal4, grupo1, grupo2, grupo3, grupo4, grupo5, grupo6, md, ig, paypal, yt, asistencia, fb, tk].getRandom()
-global.accountsgb = [canal1, canal2, canal3, canal4, tk, ig, yt, paypal, fb, ths, md, nna, asistencia].getRandom()
+global.redesMenu = [canal1, canal2, canal3, canal4, soporteGB, grupo1, grupo2, grupo3, grupo4, grupo5, grupo6, md, ig, paypal, yt, asistencia, fb, tk].getRandom()
+global.accountsgb = [canal1, canal2, canal3, canal4, tk, ig, yt, paypal, fb, ths, md, asistencia].getRandom()
 
 // Imágenes 
 global.imagen1 = fs.readFileSync("./media/menus/Menu3.jpg")
