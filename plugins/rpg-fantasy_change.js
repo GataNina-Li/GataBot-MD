@@ -8,7 +8,6 @@ const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', '
 
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 user = global.db.data.users[m.sender]
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
 const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
 const response = await fetch(jsonURL)
@@ -25,13 +24,13 @@ let usuarioExistente = fantasyDB.find(user => Object.keys(user)[0] === userId)
 
 if (!text) {
 if (!usuarioExistente) {
-fake = { contextInfo: { externalAdReply: { title: `🌟 ¡Colecciona Personajes!`, body: `Compra un personaje y vuelve aquí`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `🌟 ¡Colecciona Personajes!`, body: `Compra un personaje y vuelve aquí`, sourceUrl: accountsgb, thumbnailUrl: gataMenu }}}
 return conn.reply(m.chat, `Use el comando *${usedPrefix}fantasy* o *${usedPrefix}fy* para comprar un personaje`, m, fake)
 }
 
 const fantasyUsuario = usuarioExistente[userId].fantasy
 if (fantasyUsuario.length === 0) {
-fake = { contextInfo: { externalAdReply: { title: `😅 ¡No tienes Personajes!`, body: `Vuelve a comprar y regresa aquí`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `😅 ¡No tienes Personajes!`, body: `Vuelve a comprar y regresa aquí`, sourceUrl: accountsgb, thumbnailUrl: gataMenu }}}
 return conn.reply(m.chat, `*No posee personajes.* Primero compre un personaje usando *${usedPrefix}fantasy* o *${usedPrefix}fy* para cambiarlo por *Tiempo Premium*`, m)
 }
 
@@ -54,7 +53,7 @@ return
 }
 
 const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === text.toLowerCase() || img.code === text)
-fake = { contextInfo: { externalAdReply: { title: `🤨 ¡Verifique el nombre o código!`, body: `Escriba ${usedPrefix + command} para ver sus personajes`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `🤨 ¡Verifique el nombre o código!`, body: `Escriba ${usedPrefix + command} para ver sus personajes`, sourceUrl: accountsgb, thumbnailUrl: gataMenu }}}
 if (!imageInfo && text) return conn.reply(m.chat, `*No se encontró la imagen con el nombre o código:* \`\`\`${text}\`\`\``, m, fake)
 
 const imageCode = imageInfo.code
@@ -86,7 +85,7 @@ return infoCoincidente && infoCoincidente.class === imageClass
 if (personajesMismaClase.length > 1) {
 const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoPremium(p.class, validClasses), 0)
 const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true)
-fake = { contextInfo: { externalAdReply: { title: `🌟 Personajes de clase: ${imageClass}`, body: `Puedes hacer un solo cambio por 🤩🎟️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `🌟 Personajes de clase: ${imageClass}`, body: `Puedes hacer un solo cambio por 🤩🎟️`, sourceUrl: accountsgb, thumbnailUrl: gataMenu }}}
 const mensajeConfirmacion = `*${conn.getName(m.sender)}* Hemos encontrado que tienes *${personajesMismaClase.length}* personajes en la *Clase ${imageClass}*\n\n🤗 *¿Deseas cambiar todos los personajes por tiempo premium 🎟️?*\n😻 _Tiempo premium estimado si cambias todos tus personajes ahora:_ 🎟️ \`\`\`${tiempoTotalFormateado}\`\`\`\n\n🌟 Responde a este mensaje con *"Si"* o *"👍"*, de lo contrario escriba *"No"* o *"👎"* para sólo cambiar el personaje inicial: *${personaje}*`
 id_message = (await conn.reply(m.chat, mensajeConfirmacion, m, fake)).key.id
 } else {
@@ -99,7 +98,7 @@ const tiempoPremium = getTiempoPremium(imageClass, validClasses)
 asignarTiempoPremium(user, tiempoPremium)
 const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true)
   
-fake = { contextInfo: { externalAdReply: { title: `✅ ¡Personaje ${personaje} cambiado!`, body: `🎟️ Tienes Premium por: ${tiempoPremiumFormateado} `, sourceUrl: accountsgb.getRandom(), thumbnailUrl: imageURL }}}
+fake = { contextInfo: { externalAdReply: { title: `✅ ¡Personaje ${personaje} cambiado!`, body: `🎟️ Tienes Premium por: ${tiempoPremiumFormateado} `, sourceUrl: accountsgb, thumbnailUrl: imageURL }}}
 await conn.reply(m.chat, `*Has cambiado a ${personaje} por Tiempo premium*\n\n🎟️ *Tiempo premium:* \`\`\`${tiempoPremiumFormateado}\`\`\``, m, fake)
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
@@ -131,7 +130,7 @@ const tiempoTotal = personajesMismaClase.reduce((total, p) => total + getTiempoP
 asignarTiempoPremium(user, tiempoTotal)
 
 const tiempoTotalFormateado = formatearTiempo(tiempoTotal * 60 * 1000, true)
-fake = { contextInfo: { externalAdReply: { title: `✅ ¡${personajesMismaClase.length} Personajes cambiados!`, body: `🎟️ Tienes Premium por: ${tiempoPremiumFormateado} `, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `✅ ¡${personajesMismaClase.length} Personajes cambiados!`, body: `🎟️ Tienes Premium por: ${tiempoPremiumFormateado} `, sourceUrl: accountsgb, thumbnailUrl: gataMenu }}}
 await conn.reply(m.chat, `*Has cambiado a ${personajesMismaClase.length} Personajes por Tiempo premium\n\n🎟️ *Tiempo premium:* \`\`\`${tiempoTotalFormateado}\`\`\``, m, fake)
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
@@ -151,7 +150,7 @@ const tiempoPremium = getTiempoPremium(imageClass, validClasses)
 asignarTiempoPremium(user, tiempoPremium)
 
 const tiempoPremiumFormateado = formatearTiempo(tiempoPremium * 60 * 1000, true)
-fake = { contextInfo: { externalAdReply: { title: `✅ ¡Personaje ${personaje} cambiado!`, body: `🎟️ Tienes Premium por: ${tiempoPremiumFormateado} `, sourceUrl: accountsgb.getRandom(), thumbnailUrl: imageURL }}}
+fake = { contextInfo: { externalAdReply: { title: `✅ ¡Personaje ${personaje} cambiado!`, body: `🎟️ Tienes Premium por: ${tiempoPremiumFormateado} `, sourceUrl: accountsgb, thumbnailUrl: imageURL }}}
 await conn.reply(m.chat, `*Has cambiado a ${personaje} por Tiempo premium*\n\n🎟️ *Tiempo premium:* \`\`\`${tiempoPremiumFormateado}\`\`\``, m, fake)
 let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 if (userInDB) {
