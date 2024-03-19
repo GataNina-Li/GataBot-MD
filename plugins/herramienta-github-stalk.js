@@ -2,7 +2,7 @@ import axios from 'axios'
 var handler = async(m, { conn, text, usedPrefix, command }) => {
 if (!text) return conn.reply(m.chat, '*⚠️ INGRESE EL NOMBRE DE UN USUARIO DE GITHUB*', m)
 try {
-await mensajesEditados(conn, m, key)
+await mensajesEditados(conn, m)
 let request = await githubstalk(text) 
 let { username, following, followers, type, bio, company, blog, location, email, public_repo, public_gists, profile_pic } = request
 let thumb = await (profile_pic)
