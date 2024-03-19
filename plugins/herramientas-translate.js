@@ -1,7 +1,6 @@
 import translate from '@vitalets/google-translate-api'
 import fetch from 'node-fetch'
 let handler = async (m, { args, usedPrefix, command, conn }) => {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 let user = global.db.data.users[m.sender]
 let msg = `${mg}𝙀𝙇 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙎𝙀 𝙐𝙎𝘼 𝘿𝙀 𝙀𝙎𝙏𝘼 𝙈𝘼𝙉𝙀𝙍𝘼\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} (idioma) (texto)*\n*${usedPrefix + command} es Hola Bot*\n\n𝙏𝙃𝙀 𝘾𝙊𝙈𝙈𝘼𝙉𝘿 𝙄𝙎 𝙐𝙎𝙀𝘿 𝙏𝙃𝙄𝙎 𝙒𝘼𝙔\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} (language) (text)*\n*${usedPrefix + command} en Hello Bot*\n\n𝙄𝘿𝙄𝙊𝙈𝘼𝙎 𝘼𝘿𝙈𝙄𝙏𝙄𝘿𝙊𝙎 | 𝙎𝙐𝙋𝙋𝙊𝙍𝙏𝙀𝘿 𝙇𝘼𝙉𝙂𝙐𝘼𝙂𝙀𝙎\n*https://cloud.google.com/translate/docs/languages*`
 if (!args || !args[0]) return m.reply(msg)  
