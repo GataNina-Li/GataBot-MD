@@ -5,7 +5,8 @@ import { fileURLToPath } from 'url'
 import path, { join } from 'path'
 import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'   
-import fetch from 'node-fetch' 
+import fetch from 'node-fetch'
+import './plugins/_content.js' 
  
 /**
  * @type {import('@adiwajshing/baileys')}  
@@ -1401,7 +1402,7 @@ case 'remove':
 if (chat.welcome) {
 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
 for (let user of participants) {
-let pp = gataMenu.getRandom()
+let pp = gataMenu
 try {
 pp = await this.profilePictureUrl(user, 'image')
 } catch (e) {
