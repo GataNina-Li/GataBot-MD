@@ -3,8 +3,9 @@ import moment from 'moment-timezone'
 import axios from 'axios'
 import fs from 'fs'
 
-var handler = m => m
-handler.all = async function (m) {
+//var handler = m => m
+//handler.all = async function (m) {
+export async function before(m, { conn, usedPrefix }) { 
 global.key = ''
 
 // Cuentas
