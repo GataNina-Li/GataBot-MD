@@ -170,7 +170,7 @@ const originalConsoleWarn = console.warn
 console.warn = function() {
 const message = arguments[0]
 if (typeof message === 'string' && (message.includes(atob("Q2xvc2luZyBzdGFsZSBvcGVu")) || message.includes(atob("Q2xvc2luZyBvcGVuIHNlc3Npb24=")))) {
-arguments[0] = ""
+console.warn = () => {}  //arguments[0] = ""
 }
 originalConsoleWarn.apply(console, arguments)
 }
@@ -178,7 +178,7 @@ const originalConsoleError = console.error
 console.error = function() {
 const message = arguments[0]
 if (typeof message === 'string' && (message.includes(atob("RmFpbGVkIHRvIGRlY3J5cHQ=")) || message.includes(atob("U2Vzc2lvbiBlcnJvcg==")))) {
-arguments[0] = ""
+console.error = () => {} //arguments[0] = ""
 }
 originalConsoleError.apply(console, arguments)
 }
@@ -186,7 +186,7 @@ const originalConsoleLog = console.log
 console.log = function() {
 const message = arguments[0]
 if (typeof message === 'string' && (message.includes(atob("RXJyb3I6IEJhZCBNQUM=")))) {
-arguments[0] = ""
+console.log = () => {} //arguments[0] = ""
 }
 originalConsoleLog.apply(console, arguments)
 }
