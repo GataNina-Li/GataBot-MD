@@ -1,7 +1,7 @@
 let WAMessageStubType = (await import(global.baileys)).default
 import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
 import path from 'path';
-export async function before(m, { conn, participants}) {
+export async function before(m, { conn, participants, groupMetadata}) {
 if (!m.messageStubType || !m.isGroup) return
 let usuario = `@${m.sender.split`@`[0]}`
 let chat = global.db.data.chats[m.chat]
