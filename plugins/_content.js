@@ -3,9 +3,9 @@ import moment from 'moment-timezone'
 import axios from 'axios'
 import fs from 'fs'
 
-//var handler = m => m
-//handler.all = async function (m) {
-export async function before(m, { conn, usedPrefix }) { 
+var handler = m => m
+handler.all = async function (m) {
+//export async function before(m, { conn, usedPrefix }) { 
 global.key = ''
 
 // Cuentas
@@ -128,7 +128,7 @@ li.DESTRAVip.to
 ☣✝ﾚⅰɬ◊D͠Я◊ⅰD͠  D͠∑ㄅɬЯ∆√✝☣`
   
 }
-//export default handler
+export default handler
 
 // Mensaje de espera
 // await mensajesEditados(conn, m)
