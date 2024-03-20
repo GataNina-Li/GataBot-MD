@@ -127,7 +127,7 @@ li.DESTRAVip.to
 ☣✝ﾚⅰɬ◊D͠Я◊ⅰD͠  D͠∑ㄅɬЯ∆√✝☣`
   
 }
-export default handler
+//export default handler
 
 // Mensaje de espera
 // await mensajesEditados(conn, m)
