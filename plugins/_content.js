@@ -7,6 +7,28 @@ var handler = m => m
 handler.all = async function (m) {
 global.key = ''
 
+global.getBuffer = async function getBuffer(url, options) {
+try {
+options ? options : {}
+var res = await axios({
+method: "get",
+url,
+headers: {
+'DNT': 1,
+'User-Agent': 'GoogleBot',
+'Upgrade-Insecure-Request': 1
+},
+...options,
+responseType: 'arraybuffer'
+})
+return res.data
+} catch (e) {
+console.log(`Error : ${e}`)
+}}
+
+let pp = ''
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
+
 // Cuentas
 const response = await fetch('https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/official_accounts.json')  
 const data = await response.json()
