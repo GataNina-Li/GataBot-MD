@@ -10,7 +10,8 @@ let bot = `${pickRandom([`*¡𝑬𝒚! 𝑨𝒒𝒖í 𝒆𝒔𝒕𝒐𝒚. 𝒀
 
 if (/^bot$/i.test(m.text)) {
 conn.sendPresenceUpdate('recording', m.chat)    
-await conn.sendMessage(m.chat, {text: bot, mentions: [m.sender]}, {quoted: fake})
+await conn.reply(m.chat, bot, fake)
+ //conn.sendMessage(m.chat, {text: bot, mentions: [m.sender]}, {quoted: fake})
 conn.sendFile(m.chat, vn, 'bot.mp3', null, fake, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: estiloaudio })   
 }
 
