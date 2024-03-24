@@ -1,16 +1,11 @@
-let handler = async (m, { conn, participants, command, usedPrefix }) => { 
+const handler = async (m, {conn, participants, usedPrefix, command}) => {
 if (!global.db.data.settings[conn.user.jid].restrict) throw `${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsSoloOwner']()}`
-try {
-let texto = `${lenguajeGB['smskick1']()}${usedPrefix + command} @${global.owner[0][0]}*`
-if (!m.mentionedJid[0] && !m.quoted) return return m.reply(texto, m.chat, { mentions: conn.parseMention(texto)}) 
-if (m.mentionedJid.includes(conn.user.jid)) return;
-const user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
-const owr = m.chat.split`-`[0];
-await conn.groupParticipantsUpdate(m.chat, [user], 'remove')
-} catch (e) {
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
-console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(e)}}
+let texto = `${lenguajeGB['smskick1']()}${usedPrefix + command} @0*`
+if (!m.mentionedJid[0] && !m.quoted) return m.reply(texto, m.chat, {mentions: conn.parseMention(texto)})
+if (m.mentionedJid.includes(conn.user.jid)) return
+const user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender
+const owr = m.chat.split`-`[0]
+await conn.groupParticipantsUpdate(m.chat, [user], 'remove')}
 handler.command = /^(kick|echar|hechar|sacar|ban)$/i
 handler.admin = true
 handler.group = true
