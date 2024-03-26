@@ -1,5 +1,8 @@
 let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
-export async function before(m, { isAdmin, isBotAdmin, participants }) {
+
+let handler = m => m
+handler.before = async function (m, { conn, isAdmin, isBotAdmin, participants }) {
+  
 if (m.isBaileys && m.fromMe)
 return !0
 if (!m.isGroup) return !1
@@ -29,3 +32,4 @@ await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }
 return !0
 }
+export default handler
