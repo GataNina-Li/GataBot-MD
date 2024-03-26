@@ -7,23 +7,7 @@ let str = `💖 𝙃𝙤𝙡𝙖!! 𝘼𝙜𝙧𝙖𝙙𝙚𝙯𝙘𝙤 𝙨𝙞
 𝙋𝙖𝙮𝙋𝙖𝙡 - 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨
 *https://paypal.me/OficialGD*
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
-await conn.sendMessage(m.chat, { 
-text: str, 
-contextInfo:{
-forwardingScore: 9999999,
-isForwarded: true, 
-mentionedJid:[m.sender],
-"externalAdReply": {
-"showAdAttribution": true,
-"renderLargerThumbnail": true,
-"thumbnail": imagen1, 
-"title": `𝙂𝘼𝙏𝘼 𝘿𝙄𝙊𝙎 - 𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼`, 
-body: ig, 
-"containsAutoReply": true,
-"mediaType": 1, 
-"mediaUrl": paypal, 
-"sourceUrl": paypal, 
-}}}, { quoted: fkontak })}
+await conn.reply(m.chat, str, fakeChannel)}
 /*conn.sendHydrated(m.chat, str, `𝙂𝘼𝙏𝘼 𝘿𝙄𝙊𝙎 - 𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼\n${asistencia}\n\n` + wm, media, 'https://paypal.me/OficialGD', '🎁 𝘿𝙤𝙣𝙖𝙧 | 𝘿𝙤𝙣𝙖𝙩𝙚', null, null, [
 ['𝙂𝙧𝙪𝙥𝙤𝙨 𝙊𝙛𝙞𝙘𝙞𝙖𝙡𝙚𝙨 | 𝙂𝙧𝙤𝙪𝙥𝙨 🔰', '.grupos'],
 ['𝘾𝙧𝙚𝙖𝙙𝙤𝙧𝙖 | 𝘾𝙧𝙚𝙖𝙩𝙤𝙧 💗', '#owner'],
