@@ -1,4 +1,6 @@
-export async function before(m, { match }) {
+let handler = m => m
+handler.before = async function (m, { conn }) {
+  
 if (!m.chat.endsWith('@s.whatsapp.net'))
 return !0
 this.anonymous = this.anonymous ? this.anonymous : {}
@@ -11,3 +13,4 @@ await m.copyNForward(other, true)
 }
 return !0
 }
+export default handler
