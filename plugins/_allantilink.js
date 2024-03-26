@@ -5,8 +5,9 @@ const isLinkTel = /telegram.com/i
 const isLinkFb = /facebook.com|fb.me/i 
 const isLinkIg = /instagram.com/i 
 const isLinkTw = /twitter.com/i 
-
-export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBotAdmin }) {  
+  
+let handler = m => m
+handler.before = async function (m, { conn, args, usedPrefix, command, isAdmin, isBotAdmin }) {
 if (m.isBaileys && m.fromMe)
 return !0
 if (!m.isGroup) return !1
@@ -91,4 +92,4 @@ return m.reply(`${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsSoloOwner']()}`)
 }}
 return !0
 }
-
+export default handler
