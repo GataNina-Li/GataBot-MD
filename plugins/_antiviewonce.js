@@ -1,6 +1,7 @@
-let { downloadContentFromMessage } = (await import(global.baileys));
+let { downloadContentFromMessage } = (await import(global.baileys))
 
-export async function before(m, { isAdmin, isBotAdmin }) {
+let handler = m => m
+handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
  
 let chat = db.data.chats[m.chat] 
 if (/^[.~#/\$,](read)?viewonce/.test(m.text)) return
@@ -13,7 +14,8 @@ let buffer = Buffer.from([])
 for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])}
 if (/video/.test(type)) {
-return this.sendFile(m.chat, buffer, 'error.mp4', `${msg[type].caption}\n\n${lenguajeGB.smsAntiView()}`, m)
+return conn.sendFile(m.chat, buffer, 'error.mp4', `${msg[type].caption}\n\n${lenguajeGB.smsAntiView()}`, m)
 } else if (/image/.test(type)) {
-return this.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption}\n\n${lenguajeGB.smsAntiView()}`, m)
+return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption}\n\n${lenguajeGB.smsAntiView()}`, m)
 }}}
+export default handler
