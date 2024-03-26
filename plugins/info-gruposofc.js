@@ -53,7 +53,7 @@ let str = `💕 𝘽𝙄𝙀𝙉𝙑𝙀𝙉𝙄𝘿𝙊(𝘼) 𝘼 𝙇𝙊𝙎
 *${grupo_collab4}*\n
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ᥫ᭡༶A༶T༶M༶M༶ᰔᩚ 
-*${grupo_collab5}*\n
+*https://chat.whatsapp.com/JqcMEpuH7OW9gZNWbtZMnx*\n
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 *Por favor, no ingresar con números de Bots, y mantener el respeto.*\n
 *Please, do not enter with Bot numbers, and maintain respect.*`
