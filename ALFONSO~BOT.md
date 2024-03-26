@@ -5,7 +5,7 @@
 <p align="center">
 <img src="https://i.imgur.com/kd8sus3.jpeg" alt="GataBot-MD" width="800"/>
   
-> Antes de usar este repositorio, visita la **[Política de GataBot. 😼](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)** 
+> Antes de usar este repositorio, visita la **[Política de ALFONSOBOT. 😼](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)** 
 </p>
 
 <p align="center">
@@ -343,10 +343,11 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 <a href="https://github.com/GataNina-Li/GataBot-MD/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=GataNina-Li/GataBot-MD" /> 
 </a>
+</Alfonso/>
 
 ### 🌟 AGRADECIMIENTOS
 [![TheShadowBrokers1](https://github.com/BrunoSobrino.png?size=60)](https://github.com/BrunoSobrino) 
 
 ### 🌟 CREADORA 
-[![GataNina-Li](https://github.com/GataNina-Li.png?size=100)](https://github.com/GataNina-Li) 
-> Copyright (c) 2024 **[GataNina-Li](https://github.com/GataNina-Li/GataBot-MD/blob/master/LICENSE)**.
+[![ALFONSO~BOT](https://github.com/GataNina-Li.png?size=100)](https://github.com/GataNina-Li) 
+> Copyright (c) 2024 **[ALFONSO~BOT](https://github.com/GataNina-Li/GataBot-MD/blob/master/LICENSE)**.
