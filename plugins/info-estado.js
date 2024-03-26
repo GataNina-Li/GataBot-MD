@@ -5,7 +5,6 @@ SI VAS A AÑADIR TUS DATOS O CRÉDITOS, ESTA BIEN. PERO NO QUITEN LOS QUE YA EST
 
 /** PLEASE BE KIND AND KINDNESS NOT TO MINIMALLY CHANGE GATABOT-MD CREDITS, 
 IF YOU ARE GOING TO ADD YOUR DATA OR CREDITS, IT'S OK. BUT DO NOT REMOVE THOSE THAT ARE ALREADY FROM GATABOT-MD, THANK YOU **/
-import '../plugins/_content.js'
 let handler = async (m, { conn, command, usedPrefix }) => {
 let name = await conn.getName(m.sender)
 let _uptime = process.uptime() * 1000
@@ -37,7 +36,7 @@ let estado = `╭━━━━[ *𝙀𝙎𝙏𝘼𝘿𝙊 | 𝙎𝙏𝘼𝙏𝙐�
 ┃ღ *Usuario(s) Prohibido(s) | Prohibited Urs*
 ┃➥ ${Object.entries(global.db.data.users).filter(user => user[1].banned).length} 
 ╰━━━━━━━━━━━━━━━━━━⬣`
-await conn.sendFile(m.chat, gataVidMenu, 'gata.mp4', estado, fakeChannel)
+await conn.sendFile(m.chat, gataImg, 'gata.jpg', estado, fakeChannel)
 /*let estado =`
 ╭━━━━[ *𝙀𝙎𝙏𝘼𝘿𝙊 | 𝙎𝙏𝘼𝙏𝙐𝙎* ]━━━━━⬣
 ┃💗 *¡Hola | Hi!* ${name}
