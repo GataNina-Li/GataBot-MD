@@ -22,7 +22,7 @@ global.tk = accounts.tiktok
 global.ths = accounts.threads
 global.paypal = accounts.paypal
 global.asistencia = others.assistance_num
-global.bot = 'No disponible'
+global.bot = 'wa.me/50238024328'
 global.cuentas = accounts.all
 
 global.canal1 = channels.channel1
