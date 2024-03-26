@@ -5,6 +5,7 @@ SI VAS A AÑADIR TUS DATOS O CRÉDITOS, ESTA BIEN. PERO NO QUITEN LOS QUE YA EST
 
 /** PLEASE BE KIND AND KINDNESS NOT TO MINIMALLY CHANGE GATABOT-MD CREDITS, 
 IF YOU ARE GOING TO ADD YOUR DATA OR CREDITS, IT'S OK. BUT DO NOT REMOVE THOSE THAT ARE ALREADY FROM GATABOT-MD, THANK YOU **/
+import '../plugins/_content.js'
 let handler = async (m, { conn, command, usedPrefix }) => {
 let name = await conn.getName(m.sender)
 let _uptime = process.uptime() * 1000
