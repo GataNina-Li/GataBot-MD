@@ -10,6 +10,7 @@ let str = `💖 𝙃𝙤𝙡𝙖!! 𝘼𝙜𝙧𝙖𝙙𝙚𝙯𝙘𝙤 𝙨𝙞
 await conn.sendMessage(m.chat, { 
 text: str, 
 contextInfo:{
+forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: '', newsletterName: channelRD.name },  
 forwardingScore: 9999999,
 isForwarded: true, 
 mentionedJid:[m.sender],
