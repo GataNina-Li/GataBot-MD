@@ -123,7 +123,6 @@ code: codigoImagen,
 fs.writeFileSync(fantasyAddPath, JSON.stringify(fantasyAddData, null, 2), 'utf8')
 const reply = await conn.reply(m.chat, '> *¡Personaje agregado exitosamente!*\n\nResponde a este mensaje con "enviar" o "👍" sólo si deseas enviar los personajes a mis creadores para que lo agreguen en *GataBot*.', m)
 
-handler = m => m
 handler.before = async function (m, { conn }) {
 if (m.quoted && m.quoted.id === reply.id && ['enviar', '👍'].includes(m.text.toLowerCase())) {
 const databaseFantasyAdd = Buffer.from(JSON.stringify(fantasyAddData, null, 2), 'utf-8')
