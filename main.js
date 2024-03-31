@@ -169,7 +169,7 @@ console.debug = () => {}
 const originalConsoleWarn = console.warn
 console.warn = function() {
 const message = arguments[0]
-if (typeof message === 'string' && (message.includes(atob("Q2xvc2luZyBzdGFsZSBvcGVu")) || message.includes(atob("Q2xvc2luZyBvcGVuIHNlc3Npb24=")))) {
+if (typeof message === 'string' && (message.includes(atob("Q2xvc2luZyBzdGFsZSBvcGVu")) || message.includes(atob("Q2xvc2luZyBvcGVuIHNlc3Npb24=")) || message.includes(atob("RXJyb3I6IEJhZCBNQUM=")))) {
 arguments[0] = ""
 }
 originalConsoleWarn.apply(console, arguments)
@@ -177,7 +177,7 @@ originalConsoleWarn.apply(console, arguments)
 const originalConsoleError = console.error
 console.error = function() {
 const message = arguments[0]
-if (typeof message === 'string' && (message.includes(atob("RmFpbGVkIHRvIGRlY3J5cHQ=")) || message.includes(atob("U2Vzc2lvbiBlcnJvcg==")))) {
+if (typeof message === 'string' && (message.includes(atob("RmFpbGVkIHRvIGRlY3J5cHQ=")) || message.includes(atob("U2Vzc2lvbiBlcnJvcg==")) || message.includes(atob("RXJyb3I6IEJhZCBNQUM=")))) {
 arguments[0] = ""
 }
 originalConsoleError.apply(console, arguments)
@@ -186,7 +186,7 @@ const originalConsoleLog = console.log
 console.log = function() {
 const message = arguments[0]
 if (typeof message === 'string' && (message.includes(atob("RXJyb3I6IEJhZCBNQUM=")))) {
-console.log = () => {} //arguments[0] = ""
+arguments[0] = ""
 }
 originalConsoleLog.apply(console, arguments)
 }
