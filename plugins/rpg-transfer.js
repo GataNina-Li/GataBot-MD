@@ -20,7 +20,7 @@ async function handler(m, { conn, args, usedPrefix, command }) {
 ┃ ✅ *RECURSOS DISPONIBLES*
 ┃──────────────
 ┃ limit *= Diamantes* 💎
-┃ money *= GataCoins* 🐈
+┃ money *= ZCoins* 🦁
 ┃ exp *= Experiencia* ⚡
 ╰━━━━━━━━━━━━━━━━━━ ღ 
 `.trim()

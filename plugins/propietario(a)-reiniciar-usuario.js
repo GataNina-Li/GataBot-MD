@@ -31,7 +31,7 @@ conn.reply(m.chat, `*SE REINICIO A @${number} DE LA BASE DE DATOS*`, null, { men
 }}
 
 handler.tags = ['owner']
-handler.command = ['restablecerdatos', 'borrardatos', 'deletedatauser'] 
+handler.command = ['restablecerdatos', 'borrardatos', 'resetuser', 'deletedatauser'] 
 handler.owner = true
 
 export default handler
