@@ -502,7 +502,7 @@ ${margen}
 ✓ _${usedPrefix}minardiamantes | minargemas_
 ✓ _${usedPrefix}minarzcoins | minarcoins_
 ✓ _${usedPrefix}minarexperiencia | minarexp_
-✓ _${usedPrefix}minar *:* minar2 *:* minar3_
+✓ _${usedPrefix}minar *:* minarxp *:* minar3_
 ✓ _${usedPrefix}rob | robar 
 ✓ _${usedPrefix}crime
 ✓ _${usedPrefix}reclamar | regalo | claim_
