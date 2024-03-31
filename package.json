@@ -17,16 +17,16 @@
 "test": "node test.js",
 "test2": "nodemon index.js" },
     
-"homepage": "https://github.com/GataNina-Li/GataBot-MD",
+"homepage": "https://github.com/Jackhokage/GataBot-MD",
 "author": {
-"name": "GataNina-Li" },
+"name": "lucas" },
     
 "repository": {
 "type": "git",
-"url": "git+https://github.com/GataNina-Li/GataBot-MD.git" },
+"url": "git+https://github.com/Jackhokage/GataBot-MD.git" },
 
 "bugs": {
-"url": "https://github.com/GataNina-Li/GataBot-MD/issues" },
+"url": "https://github.com/Jackhokage/GataBot-MD/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
 "@whiskeysockets/baileys": "^6.6.0",
