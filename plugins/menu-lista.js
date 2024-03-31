@@ -108,7 +108,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ⊜ *ZCoins ➟* ${money} ☣️
 ⊜ *Tokens ➟* ${joincount} 🪙
 
-*╭━〔 🐈 OPCIONES DE MENU 🐈 〕⬣*
+*╭━〔 🐲 OPCIONES DE MENU 🐲 〕⬣*
 ┃
 ┃Ⓜ️ _*MENÚ COMPLETO*_ Ⓜ️
 ┃➺ _${usedPrefix}menucompleto | allmenu_
@@ -164,8 +164,8 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃💎 _${lenguajeGB['smsTex20']()}_ 💎
 ┃➺ _${usedPrefix}ownermenu_
 ┃
-┃✅ *_CUENTAS OFICIALES GATABOT_* ✅
-┃➺ _${usedPrefix}cuentasgatabot | cuentasgb_
+┃✅ *_CUENTAS OFICIALES BOT_* ✅
+┃➺ _${usedPrefix}cuentasbot | cuentaslucas_
 ┃
 *╰━━━━━━━━━━━━━⬣*`.trim()
 await conn.sendFile(m.chat, gataImg, 'lp.jpg', menu, fkontak, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu}}}) 
