@@ -113,9 +113,8 @@ global.moment = moment
 // [ES] > Agregate a ti, colaboradores o ayudates, aparecerá en el comando de lista de contactos.
 // [EN] > Adding yourself, collaborators or helpers will appear in the contact list command.
 global.official = [ // Agregate si eres Owner
-["593968263524", 'Gata Dios 💻', 1], 
-["5492266466080", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
-["5521989092076", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1]]
+["51928438472", 'Gata Dios 💻', 1],
+["5216674255229", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1]]
 
 global.mail = '' // Add email
 global.desc = '' // Add short description (20 caractres max)
@@ -123,8 +122,8 @@ global.desc2 = '' // Add long description (90 caractres max) (Este parámetro se
 global.country = '' // Add country, example: 🇪🇨
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
-global.packname = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 🐈"
-global.author = "𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨"
+global.packname = "➽⃢⃝✵ Titan-Bot🐲 ⃢⃝ཹ✵ "
+global.author = "Lucas"
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // [ES] > INFORMACIÓN DE VERSIONES DEL BOT, POR FAVOR 
@@ -132,7 +131,7 @@ global.author = "𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨"
 // [EN] > BOT VERSION INFORMATION, PLEASE KEEP THIS UNCHANGED, WE STRIVE DAILY TO PROVIDE YOU WITH A BOT FOR THE COMMUNITY, BE GRATEFUL
 global.vs = "1.7.0"
 global.vsJB = "2.5 (Beta)"
-global.gt = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿"
+global.gt = "➽⃢⃝✵ Titan-Bot🐲 ⃢⃝ཹ✵ "
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
@@ -158,9 +157,9 @@ global.eg = '╰⊱💚⊱ *𝙀́𝙓𝙄𝙏𝙊 | 𝙎𝙐𝘾𝘾𝙀𝙎�
 global.exito = eg
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-global.wm = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 : 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨"
-global.igfg = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿"
-global.nomorown = "593993684821"
+global.wm = "Lucasbots : ➽⃢⃝✵ Titan-Bot🐲 ⃢⃝ཹ✵ "
+global.igfg = "➽⃢⃝✵ Titan-Bot🐲 ⃢⃝ཹ✵ "
+global.nomorown = "51928438472"
 global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"]
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
