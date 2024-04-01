@@ -9,7 +9,7 @@ handler.all = async function (m) {
 global.key = ''
 
 // Cuentas
-const response = await fetch('https://raw.githubusercontent.com/jackhokage/GataBot-MD/master/official_accounts.json')  
+const response = await fetch('https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/official_accounts.json')  
 const data = await response.json()
 let { accounts, channels, groups, collaboration, sponsors, others } = data.info
 
@@ -22,7 +22,7 @@ global.tk = accounts.tiktok
 global.ths = accounts.threads
 global.paypal = accounts.paypal
 global.asistencia = others.assistance_num
-global.bot = 'este número'
+global.bot = 'wa.me/50238024328'
 global.cuentas = accounts.all
 
 global.canal1 = channels.channel1
@@ -56,11 +56,11 @@ global.accountsgb = [canal1, canal2, canal3, canal4, tk, ig, yt, paypal, fb, ths
 var canalesInfo = [
 { link: canal1, id: "120363160031023229@newsletter", name: "INFINITY-WA 💫" },
 { link: canal2, id: "120363169294281316@newsletter", name: "GB - UPDATE ✨" },
-{ link: canal3, id: "120363203805910750@newsletter", name: "Tips sobre gataBot 🤩" } 
+{ link: canal3, id: "120363203805910750@newsletter", name: "Tips sobre GataBot 🤩" } 
 ]
 var indiceAleatorio = Math.floor(Math.random() * canalesInfo.length)
 var channelRD = canalesInfo[indiceAleatorio]
- 
+
 // Imágenes 
 global.imagen1 = fs.readFileSync("./media/menus/Menu3.jpg")
 global.imagen2 = fs.readFileSync("./media/menus/img1.jpg")
@@ -76,34 +76,33 @@ global.imagen11 = fs.readFileSync("./media/menus/img10.jpg")
 global.imagen12 = fs.readFileSync("./media/menus/img11.jpg")
 global.imagen13 = fs.readFileSync("./media/menus/img12.jpg")
 
-global.img = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
-global.img2 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
+global.img = 'https://i.imgur.com/IXlUwTW.jpg'
+global.img2 = 'https://i.imgur.com/EXTbyyn.jpg'
 
-global.img3 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png' //prem
-global.img4 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png' //prem
+global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem
+global.img4 = 'https://i.imgur.com/i0pccuo.jpg' //prem
 
-global.img5 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
-global.img6 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
-global.img7 = 'https://www.harapanrakyat.com/wp-content/uploads/2022/03/Siapa-Penjahat-Sebenarnya-di-Attack-On-Titan-1024x576.jpg'
-global.img8 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
-global.img9 = 'https://www.harapanrakyat.com/wp-content/uploads/2022/03/Siapa-Penjahat-Sebenarnya-di-Attack-On-Titan-1024x576.jpg'
+global.img5 = 'https://i.imgur.com/iL1snRx.jpeg'
+global.img6 = 'https://i.imgur.com/cYFgSKv.jpeg'
+global.img7 = 'https://i.imgur.com/JqL3h2V.jpeg'
+global.img8 = 'https://i.imgur.com/PCujt1s.jpeg'
+global.img9 = 'https://i.imgur.com/xfUEdDb.jpeg'
 
-global.img10 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
+global.img10 = 'https://i.imgur.com/DvHoMc3.jpg'
 global.img11 = 'https://i.imgur.com/5Q1MqGD.jpg'
-global.img12 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
-global.img13 = 'https://www.harapanrakyat.com/wp-content/uploads/2022/03/Siapa-Penjahat-Sebenarnya-di-Attack-On-Titan-1024x576.jpg'
-global.img14 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
-global.img15 = 'https://www.harapanrakyat.com/wp-content/uploads/2022/03/Siapa-Penjahat-Sebenarnya-di-Attack-On-Titan-1024x576.jpg'
+global.img12 = 'https://i.imgur.com/vWnsjh8.jpg'
+global.img13 = 'https://i.imgur.com/pCfFOgw.jpeg'
+global.img14 = 'https://i.imgur.com/knBDWRA.jpeg'
+global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg'
 
 global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
 
-global.img17 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
-
-global.img18 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
+global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg'
+global.img18 = 'https://i.imgur.com/9yLH4W4.jpeg'
 
 global.logogit = 'https://tinyurl.com/2qvl9vgs'
 
-global.gataVidMenu = ['https://qu.ax/DOPe.mp4', 'https://qu.ax/gKSQ.mp4', 'https://qu.ax/BBKU.mp4'].getRandom()
+global.gataVidMenu = ['https://qu.ax/AAvg.mp4', 'https://qu.ax/SeFS.mp4', 'https://qu.ax/NqZN.mp4'].getRandom()
 global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18].getRandom()
 global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13].getRandom()
 
@@ -122,7 +121,7 @@ let ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.
 let fgif = {key: {participant : '0@s.whatsapp.net'}, message: {"videoMessage": { "title": wm, "h": `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./media/menus/Menu3.jpg')}}}
                              
 let enlace = { contextInfo: { externalAdReply: {title: wm + ' 🐈', body: 'support group' , sourceUrl: redesMenu, thumbnail: await(await fetch(gataMenu)).buffer() }}}
-let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: '🐲 𝗦𝘂𝗽𝗲𝗿 𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', thumbnailUrl: gataMenu, sourceUrl: accountsgb }}}
+let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', thumbnailUrl: gataMenu, sourceUrl: accountsgb }}}
 let dos = [enlace, enlace2]  
 
 global.wait = "⌛ *`Cargando...`*\n*✪✦✦⊹⊹⊹⊹⊹⊹⊹⊹✪* `20%`"
