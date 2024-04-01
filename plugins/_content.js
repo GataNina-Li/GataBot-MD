@@ -67,29 +67,30 @@ global.imagen11 = fs.readFileSync("./media/menus/img10.jpg")
 global.imagen12 = fs.readFileSync("./media/menus/img11.jpg")
 global.imagen13 = fs.readFileSync("./media/menus/img12.jpg")
 
-global.img = 'https://i.imgur.com/IXlUwTW.jpg'
-global.img2 = 'https://i.imgur.com/EXTbyyn.jpg'
+global.img = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
+global.img2 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
 
-global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem
-global.img4 = 'https://i.imgur.com/i0pccuo.jpg' //prem
+global.img3 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png' //prem
+global.img4 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png' //prem
 
-global.img5 = 'https://i.imgur.com/iL1snRx.jpeg'
-global.img6 = 'https://i.imgur.com/cYFgSKv.jpeg'
-global.img7 = 'https://i.imgur.com/JqL3h2V.jpeg'
-global.img8 = 'https://i.imgur.com/PCujt1s.jpeg'
-global.img9 = 'https://i.imgur.com/xfUEdDb.jpeg'
+global.img5 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
+global.img6 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
+global.img7 = 'https://www.harapanrakyat.com/wp-content/uploads/2022/03/Siapa-Penjahat-Sebenarnya-di-Attack-On-Titan-1024x576.jpg'
+global.img8 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
+global.img9 = 'https://www.harapanrakyat.com/wp-content/uploads/2022/03/Siapa-Penjahat-Sebenarnya-di-Attack-On-Titan-1024x576.jpg'
 
-global.img10 = 'https://i.imgur.com/DvHoMc3.jpg'
+global.img10 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
 global.img11 = 'https://i.imgur.com/5Q1MqGD.jpg'
-global.img12 = 'https://i.imgur.com/vWnsjh8.jpg'
-global.img13 = 'https://i.imgur.com/pCfFOgw.jpeg'
-global.img14 = 'https://i.imgur.com/knBDWRA.jpeg'
-global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg'
+global.img12 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
+global.img13 = 'https://www.harapanrakyat.com/wp-content/uploads/2022/03/Siapa-Penjahat-Sebenarnya-di-Attack-On-Titan-1024x576.jpg'
+global.img14 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
+global.img15 = 'https://www.harapanrakyat.com/wp-content/uploads/2022/03/Siapa-Penjahat-Sebenarnya-di-Attack-On-Titan-1024x576.jpg'
 
 global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
 
-global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg'
-global.img18 = 'https://i.imgur.com/9yLH4W4.jpeg'
+global.img17 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
+
+global.img18 = 'https://www.desktopbackground.org/p/2013/01/18/516666_wallpapers-shingeki-no-kyojin-hd-taringa_1024x576_h.png'
 
 global.logogit = 'https://tinyurl.com/2qvl9vgs'
 
