@@ -1,11 +1,11 @@
 const handler = async (m, {conn, usedPrefix}) => {
   const doc = ['pdf', 'zip', 'vnd.openxmlformats-officedocument.presentationml.presentation', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'vnd.openxmlformats-officedocument.wordprocessingml.document'];
   const document = doc[Math.floor(Math.random() * doc.length)];
-  const text = `👑 Creadora👑 - [Wa.me/573102445216] 
+  const text = `👑 Creador👑 - [Wa.me/51928438472] 
 🌐Collaborator 1🌐 - [wa.me/526674255229]
 🌐Collaborator 2🌐 - [wa.me/573124869944]
 🌐Collaborator 3🌐 - [wa.me/51917731114]
-🌐Collaborator 4🌐 - [wa.me/51928438472]
+🌐Collaborator 4🌐 - [wa.me/526531290170]
 🌐Collaborator 5🌐 - [wa.me/5493884574759]
 🌐Collaborator 6🌐 - [wa.me/51927084165]`.trim();
   const buttonMessage= {
@@ -18,7 +18,7 @@ const handler = async (m, {conn, usedPrefix}) => {
       'forwardingScore': 10,
       'isForwarded': true,
       'externalAdReply': {
-        'mediaUrl': 'https://github.com/BrunoSobrino/TheMystic-Bot-MD',
+        'mediaUrl': 'https://github.com/jackhokage/GataBot-MD',
         'mediaType': 2,
         'previewType': 'pdf',
         'title': 'ᴇʟ ᴍᴇᴊᴏʀ ʙᴏᴛ ᴅᴇ ᴡʜᴀᴛsᴀᴘᴘ⁩',
