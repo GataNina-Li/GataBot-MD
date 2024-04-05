@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+tuimport fetch from 'node-fetch';
 import cheerio from 'cheerio';
 const handler = async (m, {conn, args, command, usedPrefix}) => {
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
@@ -36,7 +36,7 @@ console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗
 }};
 handler.command = /^(xnxxdl)$/i;
 handler.level = 6
-handler.money = 1200
+handler.exp = 800
 handler.register = true
 export default handler;
 
