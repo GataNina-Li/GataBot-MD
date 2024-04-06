@@ -24,7 +24,6 @@ global.paypal = accounts.paypal
 global.asistencia = others.assistance_num
 global.bot = 'ofc'
 
-global.canal1 = channels.channel1
 global.canal2 = channels.channel2
 global.canal3 = channels.channel3
 global.canal4 = channels.channel4
