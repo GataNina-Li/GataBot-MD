@@ -22,7 +22,7 @@ let handler = async (m, { conn, args, command }) => {
     try {    
     if (command == 'hackerfoto') {
     await conn.reply(m.chat, `${eg}𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝙎𝙐 𝙇𝙊𝙂𝙊 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘾𝙍𝙀𝘼𝙉𝘿𝙊\n\n𝙒𝘼𝙄𝙏 𝘼 𝙈𝙊𝙈𝙀𝙉𝙏, 𝙔𝙊𝙐𝙍 𝙑𝙄𝘿𝙀𝙊 𝙄𝙎 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙄𝙉𝙂`, fkontak,  m)
-    let res = `https://api.lolhuman.xyz/api/ephoto1/anonymhacker?apikey=${Key360}text=&text=${response[0]}`
+    let res = `https://api.lolhuman.xyz/api/ephoto1/anonymhacker?apikey=${Key360}&text=${response[0]}`
     await conn.sendFile(m.chat, res, 'error.jpg', null, m)}
         
     if (command == '3dtext') {
