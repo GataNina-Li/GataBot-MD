@@ -7,10 +7,10 @@ Aprovecha la compatibilidad y comienza usar GataBot en servidores de alto rendim
 
 🔵 \`\`\`Información del Host\`\`\`
 
-💻 *Página*
+💻 *Página principal*
 https://www.cafirexos.com
 
-✨ *Dashboard*
+🛠️ *Dashboard*
 https://dash.cafirexos.com
 
 ⚙️ *Panel*
@@ -19,16 +19,16 @@ https://panel.cafirexos.com
 📢 *Canal de WhatsApp*
 https://whatsapp.com/channel/0029VaFVSkRCMY0KFmCMDX2q
 
-💥 *Grupo de WhatsApp*
+👥 *Grupo de WhatsApp*
 https://chat.whatsapp.com/FBtyc8Q5w2iJXVl5zGJdFJ
 
-📧 *Correo*
+📧 *Correo electrónico*
 contacto@cafirexos.com
 
 🧑‍💻 *Contacto (Diego Flores)*
 https://wa.me/50497150165
 `
-await conn.sendFile(m.chat, 'https://grxcwmcwbxwj.objectstorage.sa-saopaulo-1.oci.customer-oci.com/n/grxcwmcwbxwj/b/cafirexos/o/logos%2Flogo.png', 'fantasy.jpg', cafirexostxt.trim(), fkontak, true, {
+await conn.sendFile(m.chat, 'https://r2.cafirexos.com/logos%2Flogo_cfros_2000x2000.png', 'fantasy.jpg', cafirexostxt.trim(), fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
@@ -39,7 +39,7 @@ title: `🔵 C A F I R E X O S 🔵`,
 body: `✅ Hosting de Calidad`,
 mediaType: 1,
 sourceUrl: accountsgb,
-thumbnailUrl: 'https://grxcwmcwbxwj.objectstorage.sa-saopaulo-1.oci.customer-oci.com/n/grxcwmcwbxwj/b/cafirexos/o/logos%2Flogo_2.png'
+thumbnailUrl: 'https://r2.cafirexos.com/logos%2Flogo_cfros_2000x2000.png'
 }}
 }, { mentions: m.sender })
 
