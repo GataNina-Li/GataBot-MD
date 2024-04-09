@@ -169,7 +169,8 @@ const filterStrings = [
 "Q2xvc2luZyBvcGVuIHNlc3Npb24=", // "Closing open session"
 "RmFpbGVkIHRvIGRlY3J5cHQ=", // "Failed to decrypt"
 "U2Vzc2lvbiBlcnJvcg==", // "Session error"
-"RXJyb3I6IEJhZCBNQUM=" // "Error: Bad MAC"
+"RXJyb3I6IEJhZCBNQUM=", // "Error: Bad MAC" 
+"RGVjcnlwdGVkIG1lc3NhZ2U=" // "Decrypted message" 
 ]
 
 console.info = () => {} 
