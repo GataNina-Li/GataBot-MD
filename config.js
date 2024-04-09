@@ -60,7 +60,7 @@ global.version_language = '1.0 (MID-GB)'
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // ❰❰ API KEYS ❱❱
-global.Key360 = ["964f-0c75-7afc"] // key violetics
+global.Key360 = ["GataDios"] // key Ephoto360
 global.openai_key = 'sk-0' // Api New: https://platform.openai.com/account/api-keys 
 global.openai_org_id = 'org-3' // Api New: https://platform.openai.com/account/org-settings */
 global.keysZens = ["LuOlangNgentot", "c2459db922", "37CC845916", "6fb0eff124", "hdiiofficial", "fiktod", "BF39D349845E", "675e34de8a", "0b917b905e6f"]
