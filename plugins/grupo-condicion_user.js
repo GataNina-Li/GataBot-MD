@@ -25,7 +25,7 @@ if (text.includes('|') && !m.quoted) {
 let parts = text.split('|').map(part => part.trim())
 phoneNumbers = parts[0].split(',').map(num => num.trim()).join(', ')
 conditions = parts[1].split(',').map(num => parseInt(num.trim()))
-} else if (!m.quoted) { 
+//} //else if (!m.quoted) { 
 phoneNumbers = phoneNumbers ? phoneNumbers : text
 if (phoneNumbers.includes(',')) {
 function no(number) {
