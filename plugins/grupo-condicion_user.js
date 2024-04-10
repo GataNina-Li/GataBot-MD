@@ -21,8 +21,10 @@ _Este comando es para definir qué hacer si alguien específico entra al grupo o
 - Si agregas un prefijo (país) y una o más condiciones, el efecto aplicará para todos los que coincidan con ese prefijo.
 - Estas condiciones no aplicarán si el usuario ingresado es mi Creador(a) o Admins.
 - No es posible aplicar condiciones al Bot.
-`
-if (/^(newprefijo)$/i.test(command)) {
+`.trim()
+  
+switch (command) {
+case "newprefijo":
 if (!(text || m.quoted)) return m.reply(txt)
 
 if (text.includes('|') && !m.quoted) {
@@ -82,9 +84,9 @@ let jsonData = JSON.stringify(data, null, 2)
 console.log(user)
 console.log(jsonData)
 //global.db.data.chats[m.chat].sCondition = jsonData
-}
-  
-if (/^(newprefijo)$/i.test(command)) {
+break
+
+case "newprefijo":
 txt = `*Escribe uno o más prefijos de países que desees que los usuarios con dicho prefijo sean eliminados del grupo al ingresar*
 
 > *Nota:* Separa con comas los prefijos y no es necesiro usar el símbolo *"+"* por cada prefijo agregado
@@ -152,7 +154,7 @@ noCodeTxt += `\n\nLos siguientes prefijos no coinciden con ningún país: ${noEn
 }
 await m.reply(codeTxt)
 await m.reply(noCodeTxt)
-  
+break
 }}
 handler.command = /^(newcondicion|newprefijo)$/i
 handler.group = true
