@@ -137,8 +137,6 @@ codeTxt += `- *El prefijo ${prefix} corresponde al país ${country} (${countryCo
 prefijosMostrados.add(prefix)
 }
 })
-} else {
-noCodeTxt += `*No se encontró uno o más países con algún prefijo especificado*\n\n> Soluciona primero el prefijo que no coincide, recuerda que solo se acepta prefijos de país, *no de ciudad, estado o similar*.`
 }
 
 for (let prefijo in paisesPorPrefijo) {
@@ -151,13 +149,13 @@ codeTxt += `- \`${country} (${countryCode}):\` ${emoji}\n`
 }
 
 if (noEncontrados.length > 0) {
-noCodeTxt += `\n\nLos siguientes prefijos no coinciden con ningún país: ${noEncontrados.join(', ')}`
+noCodeTxt += `*No se encontró uno o más países con algún prefijo especificado*\n\n> Soluciona primero el prefijo que no coincide, recuerda que solo se acepta prefijos de país, *no de ciudad, estado o similar*.\n\n*Prefijos que no coinciden con ningún país:* \`${noEncontrados.join(', ')}\``
 }
 
 if (noEncontrados.length > 0) {
-await m.reply(noCodeTxt)
+await m.reply(noCodeTxt.trim())
 } else {
-await m.reply(codeTxt)
+await m.reply(codeTxt.trim())
 }
 break
     
