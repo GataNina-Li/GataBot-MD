@@ -28,7 +28,6 @@ conditions = parts[1].split(',').map(num => parseInt(num.trim()))
 } else return m.reply('Debes separar el prefijo y la condición con "|".')
 
 phoneNumbers = phoneNumbers ? phoneNumbers : text
-console.log(phoneNumbers)
 if (phoneNumbers.includes(',')) {
 function no(number) {
 return number.replace(/\s/g, '').replace(/([@+-])/g, '')
@@ -66,7 +65,7 @@ var user = number + '@s.whatsapp.net'
 }
 
 let data = {
-usuario: user, 
+usuario: user.split(', ').map(u => u.trim()), 
 condicion: conditions,
 autor: m.sender
 }
