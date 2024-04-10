@@ -1,4 +1,5 @@
 let handler = async (m, { conn, usedPrefix, command, isOwner, isAdmin, text }) => {
+let { phoneNumbers, conditions } = ''
 if (!(isAdmin || isOwner)) return m.reply(`*No tienes autorizado usar este comando, solo es para mí Creador(a) y Admins*`)
 
 let txt = `
@@ -19,6 +20,14 @@ _Este comando es para definir qué hacer si alguien específico entra al grupo o
 - No es posible aplicar condiciones al Bot.
 `
 if (!(text || m.quoted)) return m.reply(txt)
+
+if (text.includes('|') && !m.quoted) {
+let parts = text.split('|').map(part => part.trim())
+phoneNumbers = parts[0].split(',').map(num => num.trim())
+conditions = parts[1].split(',').map(num => parseInt(num.trim()))
+} else return m.reply('Debes separar el prefijo y la condición con "|".')
+
+text = phoneNumbers   
 if (text.includes(',')) {
 function no(number) {
 return number.replace(/\s/g, '').replace(/([@+-])/g, '')
@@ -55,18 +64,15 @@ var user = number + '@s.whatsapp.net'
 }
 }
 
-let userInput = user
-console.log(user)
-/*if (!userInput.includes('|')) return m.reply('Debes separar el prefijo y la condición con "|".')
-let { phoneNumbers, conditions } = parseInput(userInput)
-
 let data = {
 usuario: phoneNumbers, 
 condicion: conditions,
 autor: m.sender
 }
 let jsonData = JSON.stringify(data, null, 2)
-//global.db.data.chats[m.chat].sCondition = jsonData*/
+console.log(user)
+console.log 
+//global.db.data.chats[m.chat].sCondition = jsonData
 
 
 }
