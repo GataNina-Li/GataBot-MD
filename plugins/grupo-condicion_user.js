@@ -28,6 +28,7 @@ conditions = parts[1].split(',').map(num => parseInt(num.trim()))
 } else return m.reply('Debes separar el prefijo y la condición con "|".')
 
 phoneNumbers = phoneNumbers ? phoneNumbers : text
+console.log(phoneNumbers)
 if (phoneNumbers.includes(',')) {
 function no(number) {
 return number.replace(/\s/g, '').replace(/([@+-])/g, '')
@@ -74,18 +75,9 @@ console.log(user)
 console.log(jsonData)
 //global.db.data.chats[m.chat].sCondition = jsonData
 
-
 }
 handler.command = /^(newcondicion)$/i
 handler.group = true
 export default handler
-
-
-function parseInput(input) {
-  let [phoneNumbersStr, conditionStr] = input.split('|').map(item => item.trim())
-  let phoneNumbers = [phoneNumbersStr.trim()]
-  let conditions = conditionStr.split(',').map(item => parseInt(item.trim()))
-  return { phoneNumbers, conditions }
-}
 
 //let storedData = JSON.parse(global.db.data.chats[m.chat].sCondition)
