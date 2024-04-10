@@ -1,4 +1,4 @@
-import { cpp } from "country-phone-prefix"
+import cpp from "country-phone-prefix"
 import { codeToEmoji } from 'emoji-country-flags'
 
 let handler = async (m, { conn, usedPrefix, command, isOwner, isAdmin, text }) => {
