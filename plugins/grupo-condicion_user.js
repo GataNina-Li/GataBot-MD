@@ -108,19 +108,22 @@ let codeTxt = '';
 let noCodeTxt = '';
 
 prefijosArray.forEach(prefijo => {
+    
     prefijo = prefijo.startsWith('+') ? prefijo : `+${prefijo}`;
+    
     let encontrado = false;
+    
     for (let country in cpp) {
         if (cpp[country].prefix === prefijo) {
             let countryCode = cpp[country].iso2;
-            codeTxt += `El prefijo *${prefijo}* corresponde al país \`\`\`${country}\`\`\` \`(${countryCode})\`\n`;
+            codeTxt += `El prefijo ${prefijo} corresponde al país ${country} (${countryCode})\n`
             encontrados.push({ prefix: prefijo, country, countryCode });
+            
             if (!paisesPorPrefijo[prefijo]) {
                 paisesPorPrefijo[prefijo] = [];
             }
             paisesPorPrefijo[prefijo].push({ country, countryCode });
             encontrado = true;
-            break;
         }
     }
 
