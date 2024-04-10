@@ -22,6 +22,7 @@ _Este comando es para definir qué hacer si alguien específico entra al grupo o
 - Estas condiciones no aplicarán si el usuario ingresado es mi Creador(a) o Admins.
 - No es posible aplicar condiciones al Bot.
 `
+if (/^(newprefijo)$/i.test(command)) {
 if (!(text || m.quoted)) return m.reply(txt)
 
 if (text.includes('|') && !m.quoted) {
@@ -81,7 +82,7 @@ let jsonData = JSON.stringify(data, null, 2)
 console.log(user)
 console.log(jsonData)
 //global.db.data.chats[m.chat].sCondition = jsonData
-
+}
   
 if (/^(newprefijo)$/i.test(command)) {
 txt = `*Escribe uno o más prefijos de países que desees que los usuarios con dicho prefijo sean eliminados del grupo al ingresar*
