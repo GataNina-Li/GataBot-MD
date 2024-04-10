@@ -976,6 +976,7 @@ if (!('sWelcome' in chat)) chat.sWelcome = ''
 if (!('sBye' in chat)) chat.sBye = ''                    
 if (!('sPromote' in chat)) chat.sPromote = ''             
 if (!('sDemote' in chat)) chat.sDemote = '' 
+if (!('sCondition' in chat)) chat.sCondition = '' 
 if (!('delete' in chat)) chat.delete = false                   
 if (!('modohorny' in chat)) chat.modohorny = true       
 if (!('stickers' in chat)) chat.stickers = false            
@@ -1010,6 +1011,7 @@ sWelcome: '',
 sBye: '',
 sPromote: '',
 sDemote: '', 
+sCondition: '', 
 delete: true,
 modohorny: true,
 stickers: false,
