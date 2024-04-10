@@ -149,6 +149,8 @@ noCodeTxt += `\`${country} (${countryCode}):\` ${emoji}`
 if (noEncontrados.length > 0) {
 noCodeTxt += `\n\nLos siguientes prefijos no coinciden con ningún país: ${noEncontrados.join(', ')}`
 }
+await m.reply(codeTxt)
+await m.reply(noCodeTxt)
   
 }}
 handler.command = /^(newcondicion|newprefijo)$/i
