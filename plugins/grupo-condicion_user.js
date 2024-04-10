@@ -25,7 +25,7 @@ if (text.includes('|') && !m.quoted) {
 let parts = text.split('|').map(part => part.trim())
 phoneNumbers = parts[0].split(',').map(num => num.trim()).join(', ')
 conditions = parts[1].split(',').map(num => parseInt(num.trim()))
-} else if (m.quoted) { 
+} else if (!m.quoted) { 
 phoneNumbers = phoneNumbers ? phoneNumbers : text
 if (phoneNumbers.includes(',')) {
 function no(number) {
@@ -65,7 +65,7 @@ var user = number + '@s.whatsapp.net'
 } else return m.reply('Debes separar el prefijo y la condición con "|".')
 
 let data = {
-usuario: m.quoted && m.quoted.sender ? m.quoted.sender : user,
+usuario: m.quoted && m.quoted.sender ? m.quoted.sender : user.split(', ').map(u => u.trim()),
 condicion: conditions || user.split(',').map(num => parseInt(num.trim())),
 autor: m.sender
 }
