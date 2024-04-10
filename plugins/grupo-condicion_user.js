@@ -24,7 +24,7 @@ _Este comando es para definir qué hacer si alguien específico entra al grupo o
 `.trim()
   
 switch (command) {
-case "newprefijo":
+case "newcondicion":
 if (!(text || m.quoted)) return m.reply(txt)
 
 if (text.includes('|') && !m.quoted) {
