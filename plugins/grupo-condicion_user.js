@@ -65,7 +65,7 @@ var user = number + '@s.whatsapp.net'
 } else return m.reply('Debes separar el prefijo y la condición con "|".')
 
 let data = {
-usuario: m.quoted.sender ? m.quoted.sender : user.split(', ').map(u => u.trim()), 
+usuario: m.quoted && m.quoted.sender ? m.quoted.sender : user.split(', ').map(u => u.trim()),
 condicion: conditions || user.split(',').map(num => parseInt(num.trim())),
 autor: m.sender
 }
