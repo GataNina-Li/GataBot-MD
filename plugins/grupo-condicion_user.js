@@ -23,16 +23,15 @@ if (!(text || m.quoted)) return m.reply(txt)
 
 if (text.includes('|') && !m.quoted) {
 let parts = text.split('|').map(part => part.trim())
-phoneNumbers = parts[0].split(',').map(num => num.trim())
+phoneNumbers = parts[0].split(',').map(num => num.trim()).join(', ')
 conditions = parts[1].split(',').map(num => parseInt(num.trim()))
 } else return m.reply('Debes separar el prefijo y la condición con "|".')
-
-text = phoneNumbers   
-if (text.includes(',')) {
+ 
+if (phoneNumbers.includes(',')) {
 function no(number) {
 return number.replace(/\s/g, '').replace(/([@+-])/g, '')
 }
-text = no(text)
+text = no(phoneNumbers)
 let numbers = []
 if (text.includes(',')) {
 numbers = text.split(',').map(num => num.trim())
