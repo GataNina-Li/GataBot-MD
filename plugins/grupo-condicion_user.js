@@ -62,7 +62,7 @@ var user = m.quoted.sender
 var user = number + '@s.whatsapp.net'
 }
 }
-} else (!m.quoted) {
+} else if (!m.quoted) {
 return m.reply('Debes separar el prefijo y la condición con "|".')
 }
 
