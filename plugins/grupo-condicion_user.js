@@ -128,7 +128,7 @@ noEncontrados.push(prefijo)
 }})
 
 if (encontrados.length > 0) {
-codeTxt += `\n\n> *Se encontró el siguiente país para cada prefijo:*`
+codeTxt += `\n\n> *Se encontró el siguiente país para cada prefijo:*\n`
 let prefijosMostrados = new Set()
 encontrados.forEach((encontrado) => {
 const { prefix, country, countryCode } = encontrado
@@ -142,11 +142,11 @@ noCodeTxt += `\n\nNo se encontraron países con los prefijos especificados`
 }
 
 for (let prefijo in paisesPorPrefijo) {
-codeTxt +=`\n\n> *Países con el prefijo ${prefijo}:*`
+codeTxt +=`\n\n> *Países con el prefijo ${prefijo}:\n*`
 paisesPorPrefijo[prefijo].forEach((pais) => {
 const { country, countryCode } = pais
 const emoji = codeToEmoji(countryCode)
-noCodeTxt += `\`${country} (${countryCode}):\` ${emoji}`
+codeTxt += `- \`${country} (${countryCode}):\` ${emoji}`
 })
 }
 if (noEncontrados.length > 0) {
