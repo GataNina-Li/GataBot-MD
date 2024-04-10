@@ -99,61 +99,68 @@ txt = `*Escribe uno o más prefijos de países que desees que los usuarios con d
 `.trim()
 if (!text) return m.reply(txt)
   
-let prefijos = text
-let prefijosArray = prefijos.split(',').map(prefijo => prefijo.trim())
-let encontrados = []
-let noEncontrados = []
-let paisesPorPrefijo = {}
-let codeTxt = ''
-let noCodeTxt = ''
+let prefijos = text;
+let prefijosArray = prefijos.split(',').map(prefijo => prefijo.trim());
+let encontrados = [];
+let noEncontrados = [];
+let paisesPorPrefijo = {};
+let codeTxt = '';
+let noCodeTxt = '';
 
 prefijosArray.forEach(prefijo => {
-prefijo = prefijo.startsWith('+') ? prefijo : `+${prefijo}`;
-let encontrado = false;
-for (let country in cpp) {
-if (cpp[country].prefix === prefijo) {
-let countryCode = cpp[country].iso2
-codeTxt += `El prefijo *${prefijo}* corresponde al país \`\`\`${country}\`\`\` \`(${countryCode})\``.join('\n')
-encontrados.push({ prefix: prefijo, country, countryCode })
-if (!paisesPorPrefijo[prefijo]) {
-paisesPorPrefijo[prefijo] = []
-}
-paisesPorPrefijo[prefijo].push({ country, countryCode })
-encontrado = true
-}}
+    prefijo = prefijo.startsWith('+') ? prefijo : `+${prefijo}`;
+    let encontrado = false;
+    for (let country in cpp) {
+        if (cpp[country].prefix === prefijo) {
+            let countryCode = cpp[country].iso2;
+            codeTxt += `El prefijo *${prefijo}* corresponde al país \`\`\`${country}\`\`\` \`(${countryCode})\`\n`;
+            encontrados.push({ prefix: prefijo, country, countryCode });
+            if (!paisesPorPrefijo[prefijo]) {
+                paisesPorPrefijo[prefijo] = [];
+            }
+            paisesPorPrefijo[prefijo].push({ country, countryCode });
+            encontrado = true;
+            break;
+        }
+    }
 
-if (!encontrado) {
-noCodeTxt += `No se encontró ningún país con el prefijo ${prefijo}`
-noEncontrados.push(prefijo)
-}})
+    if (!encontrado) {
+        noCodeTxt += `No se encontró ningún país con el prefijo ${prefijo}\n`;
+        noEncontrados.push(prefijo);
+    }
+});
 
 if (encontrados.length > 0) {
-codeTxt += `\n\n> *Se encontró el siguiente país para cada prefijo:*\n`
-let prefijosMostrados = new Set()
-encontrados.forEach((encontrado) => {
-const { prefix, country, countryCode } = encontrado
-const emoji = codeToEmoji(countryCode);
-if (!prefijosMostrados.has(prefix)) {
-codeTxt += `*El prefijo ${prefix} corresponde al país ${country} (${countryCode}):* ${emoji}`.join('\n')
-prefijosMostrados.add(prefix)
-}})
+    codeTxt += `\n\n> *Se encontró el siguiente país para cada prefijo:*\n`;
+    let prefijosMostrados = new Set();
+    encontrados.forEach((encontrado) => {
+        const { prefix, country, countryCode } = encontrado;
+        const emoji = codeToEmoji(countryCode);
+        if (!prefijosMostrados.has(prefix)) {
+            codeTxt += `*El prefijo ${prefix} corresponde al país ${country} (${countryCode}):* ${emoji}\n`;
+            prefijosMostrados.add(prefix);
+        }
+    });
 } else {
-noCodeTxt += `\n\nNo se encontraron países con los prefijos especificados`
+    noCodeTxt += `\n\nNo se encontraron países con los prefijos especificados`;
 }
 
 for (let prefijo in paisesPorPrefijo) {
-codeTxt +=`\n\n> *Países con el prefijo ${prefijo}:*\n`
-paisesPorPrefijo[prefijo].forEach((pais) => {
-const { country, countryCode } = pais
-const emoji = codeToEmoji(countryCode)
-codeTxt += `- \`${country} (${countryCode}):\` ${emoji}`.join('\n')
-})
+    codeTxt += `\n\n> *Países con el prefijo ${prefijo}:*\n`;
+    paisesPorPrefijo[prefijo].forEach((pais) => {
+        const { country, countryCode } = pais;
+        const emoji = codeToEmoji(countryCode);
+        codeTxt += `- \`${country} (${countryCode}):\` ${emoji}\n`;
+    });
 }
+
 if (noEncontrados.length > 0) {
-noCodeTxt += `\n\nLos siguientes prefijos no coinciden con ningún país: ${noEncontrados.join(', ')}`
+    noCodeTxt += `\n\nLos siguientes prefijos no coinciden con ningún país: ${noEncontrados.join(', ')}`;
 }
-await m.reply(codeTxt)
-await m.reply(noCodeTxt)
+
+await m.reply(codeTxt);
+await m.reply(noCodeTxt);
+
 break
 }}
 handler.command = /^(newcondicion|newprefijo)\b$/i
