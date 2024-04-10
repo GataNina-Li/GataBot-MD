@@ -50,7 +50,7 @@ user = users.join(', ')
 }else{
 function no(number){
 return number.replace(/\s/g,'').replace(/([@+-])/g,'')}
-text = no(text)
+text = no(phoneNumbers)
 if(isNaN(text)) {
 var number = text.split`@`[1]
 } else if(!isNaN(text)) {
