@@ -25,7 +25,6 @@ _Este comando es para definir qué hacer si alguien específico entra al grupo o
   
 switch (command) {
 case "newprefijo":
-{
 if (!(text || m.quoted)) return m.reply(txt)
 
 if (text.includes('|') && !m.quoted) {
@@ -85,11 +84,9 @@ let jsonData = JSON.stringify(data, null, 2)
 console.log(user)
 console.log(jsonData)
 //global.db.data.chats[m.chat].sCondition = jsonData
-}
 break
 
 case "newprefijo":
-{
 txt = `*Escribe uno o más prefijos de países que desees que los usuarios con dicho prefijo sean eliminados del grupo al ingresar*
 
 > *Nota:* Separa con comas los prefijos y no es necesiro usar el símbolo *"+"* por cada prefijo agregado
@@ -157,10 +154,9 @@ noCodeTxt += `\n\nLos siguientes prefijos no coinciden con ningún país: ${noEn
 }
 await m.reply(codeTxt)
 await m.reply(noCodeTxt)
-}
 break
 }}
-handler.command = /^(newcondicion|newprefijo)$/i
+handler.command = /^(newcondicion|newprefijo)\b$/i
 handler.group = true
 export default handler
 
