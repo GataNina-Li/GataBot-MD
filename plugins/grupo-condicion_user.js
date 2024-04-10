@@ -133,14 +133,14 @@ encontrados.forEach((encontrado) => {
 const { prefix, country, countryCode } = encontrado
 const emoji = codeToEmoji(countryCode);
 if (!prefijosMostrados.has(prefix)) {
-codeTxt += `- *El prefijo ${prefix} corresponde al país ${country} (${countryCode}):* ${emoji}\n`
+codeTxt += `- *El prefijo \`${prefix}\` corresponde al país ${country} (${countryCode}):* ${emoji}\n`
 prefijosMostrados.add(prefix)
 }
 })
 }
 
 for (let prefijo in paisesPorPrefijo) {
-codeTxt += `\n\n> *Coincide con el prefijo ${prefijo}:*\n`
+codeTxt += `\n> *Coincide con el prefijo ${prefijo}:*\n`
 paisesPorPrefijo[prefijo].forEach((pais) => {
 const { country, countryCode } = pais
 const emoji = codeToEmoji(countryCode)
