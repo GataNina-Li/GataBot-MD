@@ -67,7 +67,7 @@ return m.reply('Debes separar el prefijo y la condición con "|".')
 
 let data = {
 usuario: m.quoted && m.quoted.sender ? m.quoted.sender : user.split(', ').map(u => u.trim()),
-condicion: conditions || (user ? user : text),
+condicion: conditions || (user ? user.split(',').map(numero => parseInt(numero.trim())) : text),
 admin: m.sender
 }
 let jsonData = JSON.stringify(data, null, 2)
