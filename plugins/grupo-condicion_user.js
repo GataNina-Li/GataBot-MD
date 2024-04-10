@@ -1,4 +1,4 @@
-let handler = async (m, { conn, usedPrefix, command, isOwner, isAdmin }) => {
+let handler = async (m, { conn, usedPrefix, command, isOwner, isAdmin, text }) => {
 if (!(isAdmin || isOwner)) return m.reply(`*No tienes autorizado usar este comando, solo es para mí Creador(a) y Admins*`)
 
 let txt = `
