@@ -65,7 +65,7 @@ var user = number + '@s.whatsapp.net'
 }
 
 let data = {
-usuario: phoneNumbers, 
+usuario: user, 
 condicion: conditions,
 autor: m.sender
 }
