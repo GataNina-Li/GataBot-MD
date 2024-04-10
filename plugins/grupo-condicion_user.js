@@ -105,7 +105,7 @@ let encontrados = []
 let noEncontrados = []
 let paisesPorPrefijo = {}
 let codeTxt = ''
-let noCodeTxt = '
+let noCodeTxt = ''
 
 prefijosArray.forEach(prefijo => {
 prefijo = prefijo.startsWith('+') ? prefijo : `+${prefijo}`
