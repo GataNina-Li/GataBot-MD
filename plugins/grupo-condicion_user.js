@@ -187,8 +187,11 @@ await m.reply(noCodeTxt.trim())
 await m.reply(codeTxt.trim())
 
 //if (prefijosValidos.length > 0 && prefijosValidos.some(prefijo => global.db.data.chats[m.chat].sCondition.prefijos.includes(prefijo))) {
-if (global.db.data.chats[m.chat].sCondition && Array.isArray(global.db.data.chats[m.chat].sCondition) && global.db.data.chats[m.chat].sCondition.length > 0 && global.db.data.chats[m.chat].sCondition[0].grupo && global.db.data.chats[m.chat].sCondition[0].prefijos) {
-const prefijosConSigno = global.db.data.chats[m.chat].sCondition.prefijos.map(prefijo => `\`+${prefijo}\``).join(', ');
+try {
+const jsonString = JSON.stringify(global.db.data.chats[m.chat].sCondition)
+const parsedData = JSON.parse(jsonString)
+if (Array.isArray(parsedData) && parsedData.length > 0 && parsedData[0].prefijos) {
+const prefijosConSigno = parsedData[0].prefijos.map(prefijo => `\`+${prefijo}\``).join(', ');
 duplicados = prefijosValidos.filter(prefijo => global.db.data.chats[m.chat].sCondition.prefijos.includes(prefijo));
 const prefijosDuplicados = duplicados.map(prefijo => `\`+${prefijo}\``).join(', ');
 m.reply(`Alguno de los prefijos que intentas agregar ya existe. Aquí tienes los prefijos actuales agregados: ${prefijosConSigno}\n\n*Prefijo(s) duplicado(s):* ${prefijosDuplicados}`)
@@ -197,7 +200,11 @@ if (global.db.data.chats[m.chat].sCondition.prefijos.length === 0) {
 global.db.data.chats[m.chat].sCondition.prefijos = prefijosValidos
 } else {
 global.db.data.chats[m.chat].sCondition.prefijos.push(...prefijosValidos)
-}}
+}
+} catch (error) {
+console.log('Error:', error);
+}
+}
 
 }
 break
