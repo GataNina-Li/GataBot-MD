@@ -200,10 +200,9 @@ if (global.db.data.chats[m.chat].sCondition.prefijos.length === 0) {
 global.db.data.chats[m.chat].sCondition.prefijos = prefijosValidos
 } else {
 global.db.data.chats[m.chat].sCondition.prefijos.push(...prefijosValidos)
-}
+}}
 } catch (error) {
 console.log('Error:', error);
-}
 }
 
 }
