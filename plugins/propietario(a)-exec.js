@@ -33,7 +33,8 @@ m.exp = old
 }}
 handler.help = ['> ', '=> ']
 handler.tags = ['advanced']
-handler.command = /^(=?>|~)$/i
+handler.customPrefix = /=?>|~/
+handler.command = /(?:)/i
 
 export default handler
 class CustomArray extends Array {
