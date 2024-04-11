@@ -101,6 +101,7 @@ if (!text) return m.reply(txt)
   
 let prefijos = text
 let prefijosArray = prefijos.split(',').map(prefijo => prefijo.trim())
+let prefijosValidos = []
 let encontrados = []
 let noEncontrados = []
 let paisesPorPrefijo = {}
@@ -156,6 +157,7 @@ if (noEncontrados.length > 0) {
 await m.reply(noCodeTxt.trim())
 } else {
 await m.reply(codeTxt.trim())
+console.log(prefijosValidos.push(parseInt(prefijo)))
 }
 break
     
