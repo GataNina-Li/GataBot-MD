@@ -1,4 +1,4 @@
-import cpp from "country-phone-prefix"
+import country_prefix from "country-phone-prefix"
 import { codeToEmoji } from 'emoji-country-flags'
 
 let handler = async (m, { conn, usedPrefix, command, isOwner, isAdmin, text }) => {
@@ -111,9 +111,9 @@ prefijosArray.forEach(prefijo => {
 prefijo = prefijo.startsWith('+') ? prefijo : `+${prefijo}`
 let encontrado = false
     
-for (let country in cpp) {
-if (cpp[country].prefix === prefijo) {
-let countryCode = cpp[country].iso2
+for (let country in country_prefix) {
+if (country_prefix[country].prefix === prefijo) {
+let countryCode = country_prefix[country].iso2
 encontrados.push({ prefix: prefijo, country, countryCode })
 if (!paisesPorPrefijo[prefijo]) {
 paisesPorPrefijo[prefijo] = []
