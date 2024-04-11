@@ -105,11 +105,13 @@ let prefijosValidos = []
 let encontrados = []
 let noEncontrados = []
 let paisesPorPrefijo = {}
+let prefijosSet = new Set()
 let codeTxt = ''
 let noCodeTxt = ''
 
 prefijosArray.forEach(prefijo => {
 prefijo = prefijo.trim()
+if (prefijosSet.has(prefijo)) return console.log(`El prefijo ${prefijo} está duplicado en el texto.`)
 prefijosValidos.push(parseInt(prefijo))
 prefijo = prefijo.startsWith('+') ? prefijo : `+${prefijo}`
 let encontrado = false
