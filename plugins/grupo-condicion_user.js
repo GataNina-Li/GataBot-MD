@@ -104,17 +104,25 @@ let prefijosArray = prefijos.split(',').map(prefijo => prefijo.trim())
 let prefijosValidos = []
 let encontrados = []
 let noEncontrados = []
+let duplicados = []
 let paisesPorPrefijo = {}
-let prefijosSet = new Set()
+let contadorPrefijos = {}
 let codeTxt = ''
 let noCodeTxt = ''
+let prefijo2 = ''
 
 prefijosArray.forEach(prefijo => {
 prefijo = prefijo.trim()
-if (prefijosSet.has(prefijo)) return console.log(`El prefijo ${prefijo} está duplicado en el texto.`)
 prefijosValidos.push(parseInt(prefijo))
 prefijo = prefijo.startsWith('+') ? prefijo : `+${prefijo}`
 let encontrado = false
+
+prefijo2 = prefijo.startsWith('+') ? prefijo.slice(1) : prefijo
+if (contadorPrefijos[prefijo2]) {
+duplicados.push(prefijo2)
+} else {
+contadorPrefijos[prefijo2] = 1
+}
     
 for (let country in country_prefix) {
 if (country_prefix[country].prefix === prefijo) {
@@ -157,6 +165,11 @@ if (noEncontrados.length > 0) {
 noCodeTxt += `*No se encontró uno o más países con algún prefijo especificado*\n\n> Soluciona primero el prefijo que no coincide, recuerda que solo se acepta prefijos de país, *no de ciudad, estado o similar*.\n\n*Prefijos que no coinciden con ningún país:* \`${noEncontrados.join(', ')}\``
 }
 
+if (duplicados.length > 0) {
+let mensaje = `Los siguientes prefijos están duplicados: ${duplicados.map(prefijo => ` \`+${prefijo}\``)}`
+console.log(mensaje)
+}
+    
 if (noEncontrados.length > 0) {
 await m.reply(noCodeTxt.trim())
 } else {
