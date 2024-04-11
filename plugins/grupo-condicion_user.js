@@ -166,8 +166,8 @@ noCodeTxt += `*No se encontró uno o más países con algún prefijo especificad
 }
 
 if (duplicados.length > 0) {
-let mensaje = `Los siguientes prefijos están duplicados: ${duplicados.map(prefijo => ` \`+${prefijo}\``)}`
-console.log(mensaje)
+let mensaje = `*Los siguientes prefijos están duplicados:* ${duplicados.map(prefijo => ` \`+${prefijo}\``)}\n\n > *Solo agregué un prefijo*, no es necesario agregar el mismo prefijo varias veces.`
+return m.reply(mensaje)
 }
     
 if (noEncontrados.length > 0) {
