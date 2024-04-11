@@ -192,17 +192,17 @@ await m.reply(codeTxt.trim())
 //if (prefijosValidos.length > 0 && prefijosValidos.some(prefijo => global.db.data.chats[m.chat].sCondition.prefijos.includes(prefijo))) {
 try {
 
-//if (Array.isArray(parsedData) && parsedData.length > 0 && parsedData[0].prefijos) {
-//const prefijosConSigno = parsedData[0].prefijos.map(prefijo => `\`+${prefijo}\``).join(', ')
-//duplicados = prefijosValidos.filter(prefijo =>  parsedData[0].prefijos.includes(prefijo))
-//const prefijosDuplicados = duplicados.map(prefijo => `\`+${prefijo}\``).join(', ');
-//m.reply(`Alguno de los prefijos que intentas agregar ya existe. Aquí tienes los prefijos actuales agregados: ${prefijosConSigno}\n\n*Prefijo(s) duplicado(s):* ${prefijosDuplicados}`)
-//} else {
+if (Array.isArray(parsedData) && parsedData.length > 0 && parsedData[0].prefijos) {
+const prefijosConSigno = parsedData[0].prefijos.map(prefijo => `\`+${prefijo}\``).join(', ')
+duplicados = prefijosValidos.filter(prefijo =>  parsedData[0].prefijos.includes(prefijo))
+const prefijosDuplicados = duplicados.map(prefijo => `\`+${prefijo}\``).join(', ');
+m.reply(`Alguno de los prefijos que intentas agregar ya existe. Aquí tienes los prefijos actuales agregados: ${prefijosConSigno}\n\n*Prefijo(s) duplicado(s):* ${prefijosDuplicados}`)
+} else {
 if (parsedData[0].prefijos.length === 0) {
 global.db.data.chats[m.chat].sCondition.prefijos = prefijosValidos
 } else {
 global.db.data.chats[m.chat].sCondition.prefijos.push(...prefijosValidos)
-}//}
+}}
 } catch (error) {
 console.log('Error:', error);
 }
