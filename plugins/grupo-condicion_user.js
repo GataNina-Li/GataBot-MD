@@ -192,7 +192,8 @@ await m.reply(codeTxt.trim())
 //if (prefijosValidos.length > 0 && prefijosValidos.some(prefijo => global.db.data.chats[m.chat].sCondition.prefijos.includes(prefijo))) {
 try {
 
-if (Array.isArray(parsedData) && parsedData.length > 0 && parsedData[0].prefijos) {
+//if (Array.isArray(parsedData) && parsedData.length > 0 && parsedData[0].prefijos) {
+if (prefijosValidos.length > 0 && prefijosValidos.some(prefijo => parsedData[0].prefijos.includes(prefijo))) {
 const prefijosConSigno = parsedData[0].prefijos.map(prefijo => `\`+${prefijo}\``).join(', ')
 duplicados = prefijosValidos.filter(prefijo =>  parsedData[0].prefijos.includes(prefijo))
 const prefijosDuplicados = duplicados.map(prefijo => `\`+${prefijo}\``).join(', ');
