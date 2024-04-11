@@ -71,6 +71,9 @@ var user = number + '@s.whatsapp.net'
 return m.reply('Debes separar el prefijo y la condición con "|".')
 }
 
+// Verificar si global.db.data.chats[m.chat].sCondition tiene datos
+if (!global.db.data.chats[m.chat].sCondition) {
+// Si no tiene datos, crear la estructura predeterminada
 let data = {
 grupo: {
 usuario: m.quoted && m.quoted.sender ? m.quoted.sender : user.split(', ').map(u => u.trim()),
@@ -79,11 +82,19 @@ admin: m.sender
 },
 prefijos: []
 }
-
-let jsonData = JSON.stringify(data, null, 2)
-console.log(user)
-console.log(jsonData)
-//global.db.data.chats[m.chat].sCondition = jsonData
+let jsonData = JSON.stringify(data, null, 2);
+global.db.data.chats[m.chat].sCondition = jsonData;
+} else {
+let jsonData = JSON.parse(global.db.data.chats[m.chat].sCondition);
+let grupoData = {
+usuario: m.quoted && m.quoted.sender ? m.quoted.sender : user.split(', ').map(u => u.trim()),
+condicion: conditions || (user ? user.split(',').map(numero => parseInt(numero.trim())) : text.split(',').map(numero => parseInt(numero.trim()))),
+admin: m.sender
+}
+jsonData.grupo.push(grupoData)
+let updatedJsonData = JSON.stringify(jsonData, null, 2)
+global.db.data.chats[m.chat].sCondition = updatedJsonData
+}
 break
 
 case "newprefijo":
@@ -174,7 +185,19 @@ if (noEncontrados.length > 0) {
 await m.reply(noCodeTxt.trim())
 } else {
 await m.reply(codeTxt.trim())
-console.log(prefijosValidos)
+
+if (prefijosValidos.length > 0 && prefijosValidos.some(prefijo => global.db.data.chats[m.chat].sCondition.prefijos.includes(prefijo))) {
+const prefijosConSigno = global.db.data.chats[m.chat].sCondition.prefijos.map(prefijo => `\`+${prefijo}\``).join(', ');
+duplicados = prefijosValidos.filter(prefijo => global.db.data.chats[m.chat].sCondition.prefijos.includes(prefijo));
+const prefijosDuplicados = duplicados.map(prefijo => `\`+${prefijo}\``).join(', ');
+m.reply(`Alguno de los prefijos que intentas agregar ya existe. Aquí tienes los prefijos actuales agregados: ${prefijosConSigno}\n\n*Prefijo(s) duplicado(s):* ${prefijosDuplicados}`)
+} else {
+if (global.db.data.chats[m.chat].sCondition.prefijos.length === 0) {
+global.db.data.chats[m.chat].sCondition.prefijos = prefijosValidos
+} else {
+global.db.data.chats[m.chat].sCondition.prefijos.push(...prefijosValidos)
+}}
+
 }
 break
     
