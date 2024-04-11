@@ -2,6 +2,9 @@ import country_prefix from "country-phone-prefix"
 import { codeToEmoji } from 'emoji-country-flags'
 
 let handler = async (m, { conn, usedPrefix, command, isOwner, isAdmin, text }) => {
+const jsonString = JSON.stringify(global.db.data.chats[m.chat].sCondition)
+const parsedData = JSON.parse(jsonString)
+  
 let phoneNumbers, conditions
 if (!(isAdmin || isOwner)) return m.reply(`*No tienes autorizado usar este comando, solo es para mí Creador(a) y Admins*`)
 
@@ -188,15 +191,14 @@ await m.reply(codeTxt.trim())
 
 //if (prefijosValidos.length > 0 && prefijosValidos.some(prefijo => global.db.data.chats[m.chat].sCondition.prefijos.includes(prefijo))) {
 try {
-const jsonString = JSON.stringify(global.db.data.chats[m.chat].sCondition)
-const parsedData = JSON.parse(jsonString)
+
 if (Array.isArray(parsedData) && parsedData.length > 0 && parsedData[0].prefijos) {
 const prefijosConSigno = parsedData[0].prefijos.map(prefijo => `\`+${prefijo}\``).join(', ');
-duplicados = prefijosValidos.filter(prefijo => global.db.data.chats[m.chat].sCondition.prefijos.includes(prefijo));
+duplicados = prefijosValidos.filter(prefijo =>  parsedData[0].prefijos.includes(prefijo));
 const prefijosDuplicados = duplicados.map(prefijo => `\`+${prefijo}\``).join(', ');
 m.reply(`Alguno de los prefijos que intentas agregar ya existe. Aquí tienes los prefijos actuales agregados: ${prefijosConSigno}\n\n*Prefijo(s) duplicado(s):* ${prefijosDuplicados}`)
 } else {
-if (global.db.data.chats[m.chat].sCondition.prefijos.length === 0) {
+if (parsedData[0].prefijos.length === 0) {
 global.db.data.chats[m.chat].sCondition.prefijos = prefijosValidos
 } else {
 global.db.data.chats[m.chat].sCondition.prefijos.push(...prefijosValidos)
