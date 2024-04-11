@@ -109,6 +109,8 @@ let codeTxt = ''
 let noCodeTxt = ''
 
 prefijosArray.forEach(prefijo => {
+prefijo = prefijo.trim()
+prefijosValidos.push(prefijo)
 prefijo = prefijo.startsWith('+') ? prefijo : `+${prefijo}`
 let encontrado = false
     
@@ -157,7 +159,7 @@ if (noEncontrados.length > 0) {
 await m.reply(noCodeTxt.trim())
 } else {
 await m.reply(codeTxt.trim())
-console.log(prefijosValidos.push(parseInt(text)))
+console.log(prefijosValidos)
 }
 break
     
