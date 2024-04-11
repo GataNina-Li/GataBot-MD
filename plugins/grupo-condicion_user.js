@@ -157,7 +157,7 @@ if (noEncontrados.length > 0) {
 await m.reply(noCodeTxt.trim())
 } else {
 await m.reply(codeTxt.trim())
-console.log(prefijosValidos.push(parseInt(prefijo)))
+console.log(prefijosValidos.push(parseInt(text)))
 }
 break
     
