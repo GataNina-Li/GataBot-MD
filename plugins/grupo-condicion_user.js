@@ -86,7 +86,7 @@ admin: m.sender
 prefijos: []
 }
 let jsonData = JSON.stringify(data, null, 2);
-global.db.data.chats[m.chat].sCondition = jsonData;
+global.db.data.chats[m.chat].sCondition = jsonData
 } else {
 let jsonData = JSON.parse(global.db.data.chats[m.chat].sCondition);
 let grupoData = {
@@ -94,7 +94,9 @@ usuario: m.quoted && m.quoted.sender ? m.quoted.sender : user.split(', ').map(u 
 condicion: conditions || (user ? user.split(',').map(numero => parseInt(numero.trim())) : text.split(',').map(numero => parseInt(numero.trim()))),
 admin: m.sender
 }
-jsonData.grupo.push(grupoData)
+jsonData.grupo.usuario.push(grupoData.usuario)
+jsonData.grupo.condicion.push(grupoData.condicion)
+jsonData.grupo.admin = grupoData.admin;
 let updatedJsonData = JSON.stringify(jsonData, null, 2)
 global.db.data.chats[m.chat].sCondition = updatedJsonData
 }
