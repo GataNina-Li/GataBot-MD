@@ -100,6 +100,7 @@ jsonData.grupo.condicion.push(grupoData.grupo.condicion)
 jsonData.grupo.admin = grupoData.grupo.admin
 let updatedJsonData = JSON.stringify(jsonData, null, 2)
 global.db.data.chats[m.chat].sCondition = updatedJsonData
+console.log(updatedJsonData)
 }
 break
 
