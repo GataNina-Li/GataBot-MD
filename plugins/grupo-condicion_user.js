@@ -90,13 +90,14 @@ global.db.data.chats[m.chat].sCondition = jsonData
 } else {
 let jsonData = JSON.parse(global.db.data.chats[m.chat].sCondition);
 let grupoData = {
+grupo: {
 usuario: m.quoted && m.quoted.sender ? m.quoted.sender : user.split(', ').map(u => u.trim()),
 condicion: conditions || (user ? user.split(',').map(numero => parseInt(numero.trim())) : text.split(',').map(numero => parseInt(numero.trim()))),
 admin: m.sender
 }
-jsonData.grupo.usuario.push(grupoData.usuario)
-jsonData.grupo.condicion.push(grupoData.condicion)
-jsonData.grupo.admin = grupoData.admin;
+jsonData.grupo.usuario.push(grupoData.grupo.usuario)
+jsonData.grupo.condicion.push(grupoData.grupo.condicion)
+jsonData.grupo.admin = grupoData.grupo.admin
 let updatedJsonData = JSON.stringify(jsonData, null, 2)
 global.db.data.chats[m.chat].sCondition = updatedJsonData
 }
