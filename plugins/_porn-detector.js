@@ -12,7 +12,7 @@ let media, link, buffer
 try{
 let q = m
 let mime = (q.msg || q).mimetype || ''
-if (!/sticker|image/.test(mime)) return
+//if (!/sticker|image/.test(mime)) return
   
 
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
