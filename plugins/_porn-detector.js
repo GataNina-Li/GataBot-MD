@@ -31,17 +31,11 @@ link = await uploadImage(buffer)
 
 if (m.mtype == 'stickerMessage') {
 const media = await q.download()
-fs.writeFileSync('undefined.webp', media)
-const bufferPNG = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-const link = await uploadImage(bufferPNG)
-
-//media = await q.download()
-//buffer = await downloadContentFromMessage(media, 'sticker')
-//let out = await webp2png(buffer)
-//media = await conn.sendFile(m.chat, out, 'error.png', null, m).buffer()
-//let buffer2 = webp2png(buffer)
-//buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-//link = await uploadImage(out)
+const webpLocation = '../tmp/out.webp'
+await fs.writeFileSync(webpLocation, media)
+const bufferPNG = await webp2png(fs.readFileSync(webpLocation)).catch(_ => null) || Buffer.alloc(0)
+link = await uploadImage(bufferPNG)
+await fs.unlinkSync(webpLocation);
 }
 
 if (link) {
