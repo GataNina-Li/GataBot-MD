@@ -1,7 +1,6 @@
 import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
 import fetch from 'node-fetch'
-import Jimp from 'jimp'
 let { downloadContentFromMessage } = (await import(global.baileys))
 
 let handler = m => m
@@ -31,8 +30,7 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-media = await getBuffer(q) //await q.download()
-media = await media.download()
+media = await conn.getFile(q) //q.download()
 let out = await webp2png(media)
 //media = await conn.sendFile(m.chat, out, 'error.png', null, m).buffer()
 //let buffer2 = webp2png(buffer)
