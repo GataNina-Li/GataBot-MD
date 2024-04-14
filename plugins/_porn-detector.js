@@ -31,9 +31,9 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-media = await q.download()
+media = await getBuffer(q) //await q.download()
 let out = await webp2png(media)
-media = await conn.sendFile(m.chat, out, 'error.png', null, m).buffer()
+//media = await conn.sendFile(m.chat, out, 'error.png', null, m).buffer()
 //let buffer2 = webp2png(buffer)
 //buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
 link = await uploadImage(out)
@@ -58,8 +58,8 @@ await m.reply(error.toString())
 }		
 export default handler
 
-async function convertirWebpAImagen(webpBuffer, formatoDestino) {
-const imagenWebp = await Jimp.read(webpBuffer);
-const imagenDestino = imagenWebp.clone().write(nombreArchivoConExtension('png'))
-return imagenDestino.getBufferAsync(Jimp[formatoDestino.toUpperCase()])
+const getBuffer = async (url, options) => {
+options ? options : {};
+const res = await axios({method: 'get', url, headers: {'DNT': 1, 'Upgrade-Insecure-Request': 1,}, ...options, responseType: 'arraybuffer'})
+return res.data
 }
