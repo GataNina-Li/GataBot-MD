@@ -14,9 +14,10 @@ let q = m
 let mime = (q.msg || q).mimetype || ''
 if (!/webp|image/.test(mime)) return
   
-media = await q.download()
+
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
 if (isTele) {
+media = await q.download()
 link = await uploadImage(media)
 }
 
@@ -33,8 +34,8 @@ buffer = Buffer.concat([buffer, chunk])
 link = await uploadImage(buffer)
 }}}
 
-if (/sticker/.test(q.mediaType)) {
-let media = await q.download()
+if (/sticker/.test(mime)) {
+media = await q.download()
 //buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
 link = await uploadImage(media)
 }
