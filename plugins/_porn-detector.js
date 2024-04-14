@@ -32,25 +32,8 @@ link = await uploadImage(buffer)
 
 if (m.mtype == 'stickerMessage') {
 media = await q.download()
-const convertedBuffer = await sharp(buffer).png().toBuffer()
-const image = await Jimp.read(convertedBuffer)
-image.resize(4096, 4096)
-image.quality(100)
-.progressive()
-.compressionLevel(9)
-await image.writeAsync('output.png')
-buffer = await image.getBufferAsync(Jimp.MIME_PNG)
-//let msg = m.isMedia.isSticker
-//let type = Object.keys(msg)[0]
-//media = await downloadContentFromMessage(msg[type], 'image')
-//buffer = Buffer.from([])
-//for await (const chunk2 of media) {
-//buffer = Buffer.concat([buffer, chunk2])
-//}
+buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
 link = await uploadImage(buffer)
-//media = await q.download()
-//buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-//link = await uploadImage(buffer)
 }
 
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
