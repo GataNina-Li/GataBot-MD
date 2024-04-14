@@ -9,7 +9,7 @@ handler.before = async function (m, { conn }) {
 let media, link, buffer
 try{
 let q = m
-let mime = (q.msg || q).mimetype || ''
+let mime = (q.msg || q).mimetype || q.mediaType || ''
 if (!(/sticker|image/.test(mime)) || m.mtype == 'viewOnceMessageV2') return
 
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
@@ -31,7 +31,7 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-media = await q.download().data
+media = await q.download?.()
 buffer = webp2png(media)
 //buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
 link = await uploadImage(buffer)
