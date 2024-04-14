@@ -50,7 +50,7 @@ link = await (isTele ? uploadImage : uploadFile)(media)
 
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
 const result = await response.json()
-await m.reply(result.data.isPorn)
+await m.reply(link)
 if (result.status && result.data && result.data.isPorn) {
 await m.reply('La imagen contiene contenido para adultos.')
 }
