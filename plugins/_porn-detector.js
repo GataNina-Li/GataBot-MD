@@ -31,14 +31,9 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-const bufferWebp = await q.download()
-const formatoDestino = 'png'
-await convertirWebpAImagen(bufferWebp, formatoDestino)
-.then(bufferImagen => {
-m.reply(bufferImagen)
-}).catch(error => {
-console.error('Error al convertir la imagen:', error)
-})
+media = await q.download()
+let out = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
+await conn.sendFile(m.chat, out, 'error.png', null, m)
 
 //let buffer2 = webp2png(buffer)
 //buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
