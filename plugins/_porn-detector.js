@@ -32,10 +32,13 @@ link = await uploadImage(buffer)
 
 if (m.mtype == 'stickerMessage') {
 media = await q.download()
-buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-link = await uploadImage(buffer)
+buffer = fs.readFileSync(media)
+let buffer2 = webp2png(buffer)
+//buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
+link = await uploadImage(buffer2)
 }
 
+if (link) {
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
 const result = await response.json()
 await m.reply(link)
@@ -47,7 +50,7 @@ await m.reply('La imagen contiene contenido para adultos.')
 //let bang = m.key.id
 //return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 }
-} catch (error) {
+}} catch (error) {
 await m.reply(error.toString())
 }
   
