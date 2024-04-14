@@ -31,14 +31,18 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-media = await q.download?.()
-buffer = Buffer.from([])
-for await (const chunk2 of media) {
-buffer = Buffer.concat([buffer, chunk2])
-}
-let buffer2 = webp2png(buffer)
+const bufferWebp = await q.download()
+const formatoDestino = 'png'
+await convertirWebpAImagen(bufferWebp, formatoDestino)
+.then(bufferImagen => {
+m.reply(bufferImagen)
+}).catch(error => {
+console.error('Error al convertir la imagen:', error)
+})
+
+//let buffer2 = webp2png(buffer)
 //buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-link = await uploadImage(buffer2)
+//link = await uploadImage(buffer2)
 }
 
 if (link) {
@@ -59,3 +63,9 @@ await m.reply(error.toString())
   
 }		
 export default handler
+
+async function convertirWebpAImagen(webpBuffer, formatoDestino) {
+const imagenWebp = await Jimp.read(webpBuffer);
+const imagenDestino = imagenWebp.clone().write(nombreArchivoConExtension('png'))
+return imagenDestino.getBufferAsync(Jimp[formatoDestino.toUpperCase()])
+}
