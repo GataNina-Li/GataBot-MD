@@ -30,15 +30,11 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-const nameWebp = 'undefined.webp'
-const stream = await downloadContentFromMessage(m.msg, 'sticker')
-buffer = Buffer.from([])
-for await (const chunk of stream) {
-buffer = Buffer.concat([buffer, chunk])
-}
-fs.writeFileSync(nameWebp, buffer)
-const bufferPNG = await webp2png(buffer).catch(_ => null) || Buffer.alloc(0)
+const media = await q.download()
+fs.writeFileSync('undefined.webp', media)
+const bufferPNG = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
 const link = await uploadImage(bufferPNG)
+
 //media = await q.download()
 //buffer = await downloadContentFromMessage(media, 'sticker')
 //let out = await webp2png(buffer)
