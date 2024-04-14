@@ -2,9 +2,10 @@ import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
 import fetch from 'node-fetch'
 let { downloadContentFromMessage } = (await import(global.baileys))
+import path from 'path'  
 
 let handler = m => m
-handler.before = async function (m, { conn }) {
+handler.before = async function (m, { conn, __dirname }) {
 let media, link, buffer
 try{
 let q = m
@@ -31,7 +32,7 @@ link = await uploadImage(buffer)
 
 if (m.mtype == 'stickerMessage') {
 const media = await q.download()
-const webpLocation = '../tmp/out.webp'
+const webpLocation = path.join(__dirname, '..', 'tmp', 'out.webp')
 await fs.writeFileSync(webpLocation, media)
 const bufferPNG = await webp2png(fs.readFileSync(webpLocation)).catch(_ => null) || Buffer.alloc(0)
 link = await uploadImage(bufferPNG)
