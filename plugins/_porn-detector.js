@@ -1,6 +1,7 @@
 import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
 import fetch from 'node-fetch'
+import Jimp from 'jimp'
 let { downloadContentFromMessage } = (await import(global.baileys))
 
 let handler = m => m
@@ -30,13 +31,21 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-let msg = m.isMedia.isSticker
-let type = Object.keys(msg)[0]
-media = await downloadContentFromMessage(msg[type], 'image')
-buffer = Buffer.from([])
-for await (const chunk2 of media) {
-buffer = Buffer.concat([buffer, chunk2])
-}
+media = await q.download()
+const image = await Jimp.read(media)
+image.resize(4096, 4096)
+image.quality(100)
+.progressive()
+.compressionLevel(9)
+.write('output.png')
+buffer = await image.getBufferAsync(Jimp.MIME_PNG)
+//let msg = m.isMedia.isSticker
+//let type = Object.keys(msg)[0]
+//media = await downloadContentFromMessage(msg[type], 'image')
+//buffer = Buffer.from([])
+//for await (const chunk2 of media) {
+//buffer = Buffer.concat([buffer, chunk2])
+//}
 link = await uploadImage(buffer)
 //media = await q.download()
 //buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
