@@ -31,15 +31,10 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-media = await q.download()
-//buffer = Buffer.from(media)
-//let out = await webp2png(buffer).catch(_ => null) || Buffer.alloc(0)
-//link = await uploadImage(out)
-const webpLocation = path.join(__dirname, '..', 'tmp', 'out.png')
-await fs.writeFileSync(webpLocation, media)
-const imageData = fs.readFileSync(webpLocation)
-link = await uploadImage(imageData)
-//await fs.unlinkSync(webpLocation)
+media = await q.download?.()
+if (/webp/g.test(mime)) out = await webp2png(img)
+if (typeof out !== 'string') link = await uploadImage(img)
+//link = await uploadImage(out) 
 }
 
 if (link) {
