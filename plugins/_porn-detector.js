@@ -2,6 +2,8 @@ import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
 import { spawn } from 'child_process'
+import fetch from 'node-fetch'
+
 let { downloadContentFromMessage } = (await import(global.baileys))
 
 let handler = m => m
