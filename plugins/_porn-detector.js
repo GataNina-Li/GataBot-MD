@@ -12,8 +12,7 @@ let media, link, buffer
 try{
 let q = m
 let mime = (q.msg || q).mimetype || ''
-//if (!/sticker|image/.test(mime)) return
-  
+if (!(/sticker|image/.test(mime) || m.mtype == 'viewOnceMessageV2') return
 
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
 if (isTele) {
@@ -24,15 +23,14 @@ link = await uploadImage(media)
 if (m.mtype == 'viewOnceMessageV2') {
 let msg = m.message.viewOnceMessageV2.message
 let type = Object.keys(msg)[0]
-//if (type == 'imageMessage') {
-media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : 'video')
+if (type == 'imageMessage') {
+media = await downloadContentFromMessage(msg[type], 'image')
 buffer = Buffer.from([])
 for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])
 }
-//if (/image/.test(type)) {
 link = await uploadImage(buffer)
-}//}//}//}
+}}
 
 if (m.mtype == 'stickerMessage') {
 media = await q.download()
