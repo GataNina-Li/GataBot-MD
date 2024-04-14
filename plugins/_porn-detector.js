@@ -32,10 +32,13 @@ link = await uploadImage(buffer)
 
 if (m.mtype == 'stickerMessage') {
 media = await q.download?.()
-//m.reply(media)
-//buffer = webp2png(media)
+buffer = Buffer.from([])
+for await (const chunk2 of media) {
+buffer = Buffer.concat([buffer, chunk2])
+}
+let buffer2 = webp2png(buffer)
 //buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-link = await uploadImage(media)
+link = await uploadImage(buffer2)
 }
 
 if (link) {
