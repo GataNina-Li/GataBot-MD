@@ -9,7 +9,7 @@ let media, link, buffer
 try{
 let q = m
 let mime = (q.msg || q).mimetype || ''
-if (!(/image/.test(mime) || m.mtype == 'viewOnceMessageV2' || m.mtype == 'stickerMessage') return
+if (!(/image/.test(mime)) || m.mtype == 'viewOnceMessageV2' || m.mtype == 'stickerMessage') return
 
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
 if (isTele) {
