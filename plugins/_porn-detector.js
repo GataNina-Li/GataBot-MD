@@ -32,12 +32,13 @@ link = await uploadImage(buffer)
 
 if (m.mtype == 'stickerMessage') {
 media = await q.download()
-const image = await Jimp.read(media)
+const convertedBuffer = await sharp(buffer).png().toBuffer()
+const image = await Jimp.read(convertedBuffer)
 image.resize(4096, 4096)
 image.quality(100)
 .progressive()
 .compressionLevel(9)
-.write('output.png')
+await image.writeAsync('output.png')
 buffer = await image.getBufferAsync(Jimp.MIME_PNG)
 //let msg = m.isMedia.isSticker
 //let type = Object.keys(msg)[0]
