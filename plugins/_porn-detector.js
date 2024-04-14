@@ -37,7 +37,9 @@ let sticker = await q.download()
 //buffer = await webp2png(media).catch((_) => null) || Buffer.alloc(0)
 //} catch {
 let bufs = []
-const [_spawnprocess, ..._spawnargs] = [...(global.support.gm ? ['gm'] : global.support.magick ? ['magick'] : []), 'convert', 'webp:-', 'png:-']
+const _spawnprocess = ['convert']
+const _spawnargs = [..._spawnprocess, 'webp:-', 'png:-']
+//const [_spawnprocess, ..._spawnargs] = [...(global.support.gm ? ['gm'] : global.support.magick ? ['magick'] : []), 'convert', 'webp:-', 'png:-']
 let im = await spawn(_spawnprocess, _spawnargs)
 im.stdout.on('data', chunk => bufs.push(chunk))
 im.stdin.write(sticker)
