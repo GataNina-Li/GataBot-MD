@@ -26,7 +26,7 @@ let buffer = Buffer.from([])
 for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])
 }
-link = await (isTele ? uploadImage : uploadFile)(buffer)
+link = await uploadImage(buffer)
 }}}
 
 if (/sticker/.test(mime)) {
@@ -45,7 +45,7 @@ buffer = Buffer.concat(bufs)
 })
 media = buffer
 }
-link = await (isTele ? uploadImage : uploadFile)(media)
+link = await uploadImage(media)
 }
 
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
