@@ -1,9 +1,6 @@
-import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
-import { spawn } from 'child_process'
 import fetch from 'node-fetch'
-
 let { downloadContentFromMessage } = (await import(global.baileys))
 
 let handler = m => m
@@ -33,9 +30,15 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-media = await q.download()
-buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
+media = await downloadContentFromMessage(msg[type], 'sticker')
+buffer = Buffer.from([])
+for await (const chunk2 of media) {
+buffer = Buffer.concat([buffer, chunk2])
+}
 link = await uploadImage(buffer)
+//media = await q.download()
+//buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
+//link = await uploadImage(buffer)
 }
 
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
