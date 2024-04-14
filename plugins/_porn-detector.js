@@ -31,24 +31,22 @@ buffer = Buffer.concat([buffer, chunk])
 link = await uploadImage(buffer)
 }}}
 
-if (/sticker/.test(mime)) {
-media = await q.download()
-try {
-buffer = await webp2png(media).catch((_) => null) || Buffer.alloc(0)
-} catch {
+if (/sticker/.test(q.mediaType)) {
+let sticker = await q.download()
+//try {
+//buffer = await webp2png(media).catch((_) => null) || Buffer.alloc(0)
+//} catch {
 let bufs = []
 const [_spawnprocess, ..._spawnargs] = [...(global.support.gm ? ['gm'] : global.support.magick ? ['magick'] : []), 'convert', 'webp:-', 'png:-']
-let im = spawn(_spawnprocess, _spawnargs);
+let im = await spawn(_spawnprocess, _spawnargs)
 im.stdout.on('data', chunk => bufs.push(chunk))
-im.stdin.write(sticker);
-im.stdin.end();
+im.stdin.write(sticker)
+im.stdin.end()
 im.on('exit', () => {
 buffer = Buffer.concat(bufs)
 })
-media = buffer
-}
-link = await uploadImage(media)
-}
+link = await uploadImage(Buffer.concat(bufs))
+}//}
 
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
 const result = await response.json()
