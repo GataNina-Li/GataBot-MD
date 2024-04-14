@@ -12,6 +12,8 @@ let media, link, buffer
 try{
 let q = m
 let mime = (q.msg || q).mimetype || ''
+if (!/webp|image/.test(mime)) return
+  
 media = await q.download()
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
 if (isTele) {
