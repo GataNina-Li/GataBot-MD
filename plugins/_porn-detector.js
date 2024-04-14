@@ -32,8 +32,8 @@ link = await uploadImage(buffer)
 
 if (m.mtype == 'stickerMessage') {
 media = await q.download?.()
-if (/webp/g.test(mime)) out = await webp2png(img)
-if (typeof out !== 'string') link = await uploadImage(img)
+if (/webp/g.test(mime)) out = await webp2png(media)
+if (typeof out !== 'string') link = await uploadImage(out)
 //link = await uploadImage(out) 
 }
 
