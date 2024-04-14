@@ -38,7 +38,7 @@ media = await q.download()
 const webpLocation = path.join(__dirname, '..', 'tmp', 'out.jpg')
 await fs.writeFileSync(webpLocation, media)
 //const bufferPNG = await webp2png(fs.readFileSync(webpLocation)) //await webp2png(Buffer.from(webpLocation, 'base64'))//.catch(_ => null) || Buffer.alloc(0) //await webp2png(fs.readFileSync(webpLocation)).catch(_ => null) || Buffer.alloc(0)
-link = await uploadImage(fs.readFileSync(webpLocation))
+link = await uploadImage(Buffer.from(webpLocation, 'base64'))
 await fs.unlinkSync(webpLocation)
 }
 
