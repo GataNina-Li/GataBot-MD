@@ -30,14 +30,14 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-media = await downloadContentFromMessage(msg[type], 'sticker')
+//media = await downloadContentFromMessage(msg[type], 'sticker')
 /*buffer = Buffer.from([])
 for await (const chunk2 of media) {
 buffer = Buffer.concat([buffer, chunk2])
 }
 link = await uploadImage(buffer)*/
-//media = await q.download()
-buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
+media = await q.download()
+buffer = await webp2png(media)
 link = await uploadImage(buffer)
 }
 
@@ -47,6 +47,10 @@ await m.reply(link)
 console.log(result.data.isPorn || 'null')
 if (result.status && result.data && result.data.isPorn) {
 await m.reply('La imagen contiene contenido para adultos.')
+
+//let delet = m.key.participant
+//let bang = m.key.id
+//return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 }
 } catch (error) {
 await m.reply(error)
