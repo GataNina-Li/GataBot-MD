@@ -32,7 +32,7 @@ link = await uploadImage(buffer)
 if (m.mtype == 'stickerMessage') {
 let msg = m.message.stickerMessage || m.message.extendedTextMessage?.contextInfo.quotedMessage.stickerMessage
 //let type = Object.keys(msg)[0]
-media = await downloadContentFromMessage(m.message.stickerMessage, 'sticker')
+media = await downloadContentFromMessage(m.message.stickerMessage, 'image')
 buffer = Buffer.from([])
 for await (const chunk2 of media) {
 buffer = Buffer.concat([buffer, chunk2])
