@@ -32,12 +32,12 @@ link = await uploadImage(buffer)
 
 if (m.mtype == 'stickerMessage') {
 media = await q.download()
-let out = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-await conn.sendFile(m.chat, out, 'error.png', null, m)
+let out = await webp2png(media)
+media = conn.sendFile(m.chat, out, 'error.png', null, m)
 
 //let buffer2 = webp2png(buffer)
 //buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-//link = await uploadImage(buffer2)
+link = await uploadImage(media)
 }
 
 if (link) {
