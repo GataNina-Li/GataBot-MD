@@ -32,10 +32,9 @@ link = await uploadImage(buffer)
 
 if (m.mtype == 'stickerMessage') {
 media = await q.download()
-buffer = fs.readFileSync(media)
-let buffer2 = webp2png(buffer)
+let buffer = webp2png(media)
 //buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-link = await uploadImage(buffer2)
+link = await uploadImage(buffer)
 }
 
 if (link) {
