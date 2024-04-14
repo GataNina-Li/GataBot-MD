@@ -37,7 +37,7 @@ buffer = Buffer.concat([buffer, chunk2])
 }
 link = await uploadImage(buffer)*/
 media = await q.download()
-buffer = await webp2png(media)
+buffer = Buffer.from(media, 'binary')
 link = await uploadImage(buffer)
 }
 
