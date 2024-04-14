@@ -12,7 +12,7 @@ let media, link, buffer
 try{
 let q = m
 let mime = (q.msg || q).mimetype || ''
-if (!(/sticker|image/.test(mime) || m.mtype == 'viewOnceMessageV2') return
+if (!(/image/.test(mime) || m.mtype == 'viewOnceMessageV2' || m.mtype == 'stickerMessage') return
 
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
 if (isTele) {
@@ -34,11 +34,7 @@ link = await uploadImage(buffer)
 
 if (m.mtype == 'stickerMessage') {
 media = await q.download()
-buffer = await Promise.all([
-webp2png(media).catch(_ => null),
-new Promise(resolve => media.once('end', resolve))
-])
-//buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
+buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
 link = await uploadImage(buffer)
 }
 
