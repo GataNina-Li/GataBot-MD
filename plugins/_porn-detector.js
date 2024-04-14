@@ -21,11 +21,12 @@ let msg = m.message.viewOnceMessageV2.message
 let type = Object.keys(msg)[0]
 if (type == 'imageMessage') {
 media = await downloadContentFromMessage(msg[type], 'image')
-let buffer = Buffer.from([])
-for await (const chunk of media) {
-buffer = Buffer.concat([buffer, chunk])
-}
-media = buffer
+media = await media.download()
+//let buffer = Buffer.from([])
+//for await (const chunk of media) {
+//buffer = Buffer.concat([buffer, chunk])
+//}
+//media = buffer
 link = await (isTele ? uploadImage : uploadFile)(media)
 }}
 
