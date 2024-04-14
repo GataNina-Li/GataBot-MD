@@ -34,11 +34,10 @@ buffer = Buffer.concat([buffer, chunk])
 link = await uploadImage(buffer)
 }}}
 
-if (/sticker/.test(mime)) {
+if (m.mtype == 'stickerMessage') {
 media = await q.download()
-//buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-//media = await buffer.download()
-link = await uploadImage(media)
+buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
+link = await uploadImage(buffer)
 }
 
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
