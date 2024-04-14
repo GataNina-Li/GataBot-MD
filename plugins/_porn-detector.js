@@ -24,15 +24,15 @@ link = await uploadImage(media)
 if (m.mtype == 'viewOnceMessageV2') {
 let msg = m.message.viewOnceMessageV2.message
 let type = Object.keys(msg)[0]
-if (type == 'imageMessage') {
-media = await downloadContentFromMessage(msg[type], 'image')
+//if (type == 'imageMessage') {
+media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : 'video')
 buffer = Buffer.from([])
 for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])
 }
-if (/image/.test(type)) {
+//if (/image/.test(type)) {
 link = await uploadImage(buffer)
-}}}
+}//}//}//}
 
 if (m.mtype == 'stickerMessage') {
 media = await q.download()
