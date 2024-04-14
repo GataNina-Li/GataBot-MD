@@ -36,7 +36,7 @@ let out = await webp2png(media)
 media = await conn.sendFile(m.chat, out, 'error.png', null, m).buffer()
 //let buffer2 = webp2png(buffer)
 //buffer = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-link = await uploadImage(media)
+link = await uploadImage(out)
 }
 
 if (link) {
