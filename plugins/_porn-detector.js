@@ -30,7 +30,7 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-let msg = m.message.stickerMessage //|| m.message.extendedTextMessage?.contextInfo.quotedMessage.stickerMessage
+let msg = m.isMedia.isSticker
 let type = Object.keys(msg)[0]
 media = await downloadContentFromMessage(msg[type], 'image')
 buffer = Buffer.from([])
