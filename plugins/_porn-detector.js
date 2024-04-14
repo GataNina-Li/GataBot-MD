@@ -41,9 +41,9 @@ if (link) {
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
 const result = await response.json()
 await m.reply(link)
-console.log(result.data.isPorn || 'null')
+
 if (result.status && result.data && result.data.isPorn) {
-await m.reply('La imagen contiene contenido para adultos.')
+//await m.reply('La imagen contiene contenido para adultos.')
 
 //let delet = m.key.participant
 //let bang = m.key.id
