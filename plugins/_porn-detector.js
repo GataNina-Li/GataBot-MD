@@ -37,7 +37,8 @@ media = await q.download()
 //link = await uploadImage(out)
 const webpLocation = path.join(__dirname, '..', 'tmp', 'out.jpg')
 await fs.writeFileSync(webpLocation, media)
-const link = await uploadImage(webpLocation)
+const imageData = fs.readFileSync(webpLocation)
+link = await uploadImage(imageData)
 //await fs.unlinkSync(webpLocation)
 }
 
