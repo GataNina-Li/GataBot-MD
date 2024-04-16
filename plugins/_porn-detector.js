@@ -37,13 +37,20 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-const convertWebPToPNG = async (webPBuffer) => {
+const media = await q.download(); 
+const base64Data = media.toString('base64'); 
+
+
+const webPDataURL = `data:image/webp;base64,${base64Data}`;
+
+console.log('Enlace WebP:', webPDataURL);
+const convertWebPToPNG = async (webPDataURL) => {
     try {
         const response = await axios({
-            method: 'POST',
+            method: 'GET',
             url: 'https://api.alyachan.dev/api/webp-convert',
             params: {
-                url: 'data:image/webp;base64,' + webPBuffer.toString('base64'),
+                url: webPDataURL,
                 action: 'webp-to-png',
                 apikey: 'GataDios' 
             },
@@ -53,27 +60,15 @@ const convertWebPToPNG = async (webPBuffer) => {
         return response.data;
     } catch (error) {
         console.error('Error al convertir WebP a PNG:', error);
-        throw error; 
-    }
-};
-
-const guardarPNG = async (pngBuffer, nombreArchivo) => {
-    const directorio = '../tmp';
-    const rutaArchivo = path.join(__dirname, directorio, nombreArchivo);
-    try {
-        fs.writeFileSync(rutaArchivo, pngBuffer);
-        console.log(`Imagen PNG guardada en: ${rutaArchivo}`);
-    } catch (error) {
-        console.error('Error al guardar el archivo PNG:', error);
         throw error;
     }
 };
 
-
-media = await q.download(); 
-convertWebPToPNG(media)
+// Ejemplo de uso
+convertWebPToPNG(webPDataURL)
     .then(pngBuffer => {
-        guardarPNG(pngBuffer, 'imagen.png'); 
+        // Hacer algo con el buffer PNG resultante
+        console.log('Imagen PNG convertida correctamente.');
     })
     .catch(error => {
         console.error('Error al convertir WebP a PNG:', error);
