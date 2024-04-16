@@ -37,12 +37,14 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-try {
+//try {
 media = await q.download()
-link = await webp2png(media)
-} catch {
-link = null
-}}
+link = await uploadImage(uploadImage)
+console.log(link)
+//link = await webp2png(media)
+//} catch {
+//link = null
+}//}
 
 if (link) {
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
