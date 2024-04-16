@@ -37,11 +37,12 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
+try {
 media = await q.download()
-let buffer2 = await webp2png(media)
-console.log(buffer2)
-//link = await uploadImage(buffer2) 
-}
+link = await webp2png(media)
+} catch {
+link = null
+}}
 
 if (link) {
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
@@ -61,9 +62,3 @@ await m.reply(error.toString())
   
 }		
 export default handler
-
-const getBuffer = async (url, options) => {
-options ? options : {}
-const res = await axios({method: 'get', url, headers: {'DNT': 1, 'Upgrade-Insecure-Request': 1,}, ...options, responseType: 'arraybuffer'})
-return res.data
-}
