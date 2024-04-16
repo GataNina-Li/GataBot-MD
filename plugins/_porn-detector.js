@@ -55,7 +55,7 @@ link = false
 })
 } else {
 link = false
-}}} else return 
+} else return 
 
 if (link) {
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
