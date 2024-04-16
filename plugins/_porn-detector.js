@@ -54,8 +54,9 @@ link = result ? enlace : false
 }).catch(error => {
 link = false
 })
+} else return  
 }
-} else return
+
 
 //if (!link) return //{
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
