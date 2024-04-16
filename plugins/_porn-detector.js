@@ -18,6 +18,8 @@ if (!chat.antiPorn) return
 try{
 let q = m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
+let delet = q.key.participant
+let bang = q.key.id
   
 if (/sticker|image/.test(mime) || m.mtype == 'viewOnceMessageV2') {
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
@@ -61,14 +63,11 @@ link = false
 //if (!link) return //{
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
 const result = await response.json()
-await m.reply(link)
+//await m.reply(link)
 
 if (result.status && result.data && result.data.isPorn) {
 enlace = null
 await m.reply('*La imagen contiene contenido para adultos.*')
-
-let delet = m.key.participant
-let bang = m.key.id
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 //}
 }} catch (error) {
