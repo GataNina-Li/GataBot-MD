@@ -6,6 +6,9 @@ import axios from 'axios'
 import path from 'path'
 global.enlace = null
 
+import FormData from 'form-data'
+import { JSDOM } from 'jsdom'
+
 let handler = m => m
 handler.before = async function (m, { conn, __dirname, isBotAdmin }) {
 let chat = global.db.data.chats[m.chat]
@@ -20,8 +23,16 @@ let q = m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
 let delet = q.key.participant
 let bang = q.key.id
-let link2 = await webp2VideoToJpg(await q.download())  
-console.log(link2)
+//let link2 = await webp2VideoToJpg(await q.download())  
+//console.log(link2)
+
+const videoBuffer = await q.download()
+await getFirstFrameFromVideo(videoBuffer).then(firstFrameImgBuffer => {
+console.log('Bytes del primer fotograma de video:', firstFrameImgBuffer)
+}).catch(error => {
+console.error('Error al obtener el primer fotograma de video:', error)
+})
+  
 if (/sticker|image/.test(mime) || m.mtype == 'viewOnceMessageV2') {
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
 if (isTele) {
@@ -85,4 +96,52 @@ if (contentType && (contentType.startsWith('image/jpeg') || contentType.startsWi
 return true
 }}
 return false
+}
+
+async function getFirstFrameFromVideo(video) {
+    try {
+        
+        const formData = new FormData();
+        formData.append('file', video);
+        const fileIoResponse = await fetch('https://file.io', {
+            method: 'POST',
+            body: formData
+        });
+        const fileIoData = await fileIoResponse.json();
+        const videoLink = fileIoData.link;
+
+        
+        const ezgifResponse = await fetch('https://ezgif.com/video-to-jpg', {
+            method: 'GET',
+            params: { url: videoLink }
+        });
+        const ezgifHtml = await ezgifResponse.text();
+        const { document } = new JSDOM(ezgifHtml).window;
+        const nextUrl = document.querySelector('form').action;
+        const fileInputValue = document.querySelector('form > input[type=hidden]').value;
+
+        const ezgifFormData = new FormData();
+        ezgifFormData.append('file', fileInputValue);
+        ezgifFormData.append('start', '0');
+        ezgifFormData.append('end', '1');
+        ezgifFormData.append('size', 'original');
+        ezgifFormData.append('fps', '10');
+
+        const ezgifNextResponse = await fetch(nextUrl, {
+            method: 'POST',
+            body: ezgifFormData
+        });
+        const ezgifNextHtml = await ezgifNextResponse.text();
+        const { document: nextDocument } = new JSDOM(ezgifNextHtml).window;
+        const firstFrameImgUrl = "https:" + nextDocument.querySelector('img:nth-child(1)').getAttribute('src');
+
+        
+        const firstFrameImgResponse = await fetch(firstFrameImgUrl);
+        const firstFrameImgBuffer = await firstFrameImgResponse.buffer();
+
+        return firstFrameImgBuffer;
+    } catch (error) {
+        console.error('Error:', error);
+        return null;
+    }
 }
