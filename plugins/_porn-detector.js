@@ -1,8 +1,8 @@
+let { downloadContentFromMessage } = (await import(global.baileys))
 import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
 import fetch from 'node-fetch'
-let { downloadContentFromMessage } = (await import(global.baileys))
-import path from 'path'  
+import axios from 'axios'
 
 let handler = m => m
 handler.before = async function (m, { conn, __dirname, isBotAdmin }) {
