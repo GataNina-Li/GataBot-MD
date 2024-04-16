@@ -37,46 +37,9 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-const media = await q.download(); 
-const base64Data = media.toString('base64'); 
-
-
-const webPDataURL = `data:image/webp;base64,${base64Data}`;
-
-console.log('Enlace WebP:', webPDataURL);
-const convertWebPToPNG = async (webPDataURL) => {
-    try {
-        const response = await axios({
-            method: 'GET',
-            url: 'https://api.alyachan.dev/api/webp-convert',
-            params: {
-                url: webPDataURL,
-                action: 'webp-to-png',
-                apikey: 'GataDios' 
-            },
-            responseType: 'arraybuffer'
-        });
-
-        return response.data;
-    } catch (error) {
-        console.error('Error al convertir WebP a PNG:', error);
-        throw error;
-    }
-};
-
-// Ejemplo de uso
-convertWebPToPNG(webPDataURL)
-    .then(pngBuffer => {
-        // Hacer algo con el buffer PNG resultante
-        console.log('Imagen PNG convertida correctamente.');
-    })
-    .catch(error => {
-        console.error('Error al convertir WebP a PNG:', error);
-    });
-//media = await q.download()
-//m.reply(media)
-//buffer = await getBuffer(q)
-//let buffer2 = await webp2png(q)
+media = await q.download()
+let buffer2 = await webp2png(media)
+console.log(buffer2)
 //link = await uploadImage(buffer2) 
 }
 
