@@ -64,6 +64,7 @@ const result = await response.json()
 await m.reply(link)
 
 if (result.status && result.data && result.data.isPorn) {
+enlace = null
 await m.reply('*La imagen contiene contenido para adultos.*')
 
 let delet = m.key.participant
