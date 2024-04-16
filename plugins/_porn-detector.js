@@ -39,9 +39,9 @@ link = await uploadImage(buffer)
 if (m.mtype == 'stickerMessage') {
 //try {
 media = await q.download()
-link = await uploadImage(uploadImage)
+//link = await uploadImage(uploadImage)
+link = await webp2png(media)
 console.log(link)
-//link = await webp2png(media)
 //} catch {
 //link = null
 }//}
