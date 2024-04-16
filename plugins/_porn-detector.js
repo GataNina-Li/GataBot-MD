@@ -15,7 +15,7 @@ let web = /https?:\/\/\S+/
 if (!isBotAdmin || chat.delete || !m.isGroup) return
 if (!chat.antiPorn) return 
   
-try{
+//try{
 let q = m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
 let delet = q.key.participant
