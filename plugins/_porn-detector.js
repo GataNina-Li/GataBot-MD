@@ -37,13 +37,13 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-//try {
+try {
 link = await webp2png(await q.download())
-//link = await uploadImage(uploadImage)
-console.log(link)
-//} catch {
-//link = null
-}//}
+} catch {
+link = null
+}}
+
+IsEnlace(q.text).then(result => console.log('¿Es un enlace de imagen?', result))
 
 if (link) {
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
@@ -63,3 +63,16 @@ await m.reply(error.toString())
   
 }		
 export default handler
+
+async function IsEnlace(enlace) {
+try {
+const response = await fetch(enlace, { method: 'HEAD' })
+const contentType = response.headers.get('content-type')
+if (contentType && contentType.startsWith('image/')) {
+return true
+}
+} catch (error) {
+console.error('Error al verificar el enlace de la imagen:', error)
+}
+return false
+}
