@@ -1,6 +1,6 @@
 let { downloadContentFromMessage } = (await import(global.baileys))
 import uploadImage from '../lib/uploadImage.js'
-import { webp2png } from '../lib/webp2mp4.js'
+import { webp2png, webp2VideoToJpg } from '../lib/webp2mp4.js'
 import fetch from 'node-fetch'
 import axios from 'axios'
 import path from 'path'
@@ -20,7 +20,7 @@ let q = m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
 let delet = q.key.participant
 let bang = q.key.id
-let link2 = await webp2png(await q.download())  
+let link2 = await webp2VideoToJpg(await q.download())  
 console.log(link2)
 if (/sticker|image/.test(mime) || m.mtype == 'viewOnceMessageV2') {
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
