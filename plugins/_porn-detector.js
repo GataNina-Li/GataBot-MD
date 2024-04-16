@@ -63,7 +63,8 @@ link = false
 //if (!link) return //{
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
 const result = await response.json()
-//await m.reply(link)
+await m.reply(link)
+await m.reply(enlace)
 
 if (result.status && result.data.isPorn) {
 enlace = null
