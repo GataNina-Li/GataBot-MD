@@ -48,12 +48,14 @@ link = false
 }}
 
 } else {
+if (q.text || web.test(q.text)) {
 await IsEnlace(q.text).then(result => {
 link = result ? enlace : false
 }).catch(error => {
 link = false
 })
 }
+} else return 
 
 //if (!link) return //{
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
