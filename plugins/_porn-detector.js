@@ -57,7 +57,7 @@ link = false
 link = false
 }}
 
-if (link) {
+if (!link) return //{
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
 const result = await response.json()
 await m.reply(link)
@@ -68,7 +68,7 @@ await m.reply('*La imagen contiene contenido para adultos.*')
 let delet = m.key.participant
 let bang = m.key.id
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-}
+//}
 }} catch (error) {
 await m.reply(error.toString())
 }
