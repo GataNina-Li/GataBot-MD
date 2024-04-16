@@ -69,10 +69,9 @@ async function IsEnlace(enlace) {
 try {
 const response = await fetch(enlace, { method: 'HEAD' })
 const contentType = response.headers.get('content-type')
-if (contentType && contentType.startsWith('image/')) {
+if (contentType && (contentType.startsWith('image/jpeg') || contentType.startsWith('image/jpg') || contentType.startsWith('image/png') || contentType.startsWith('image/webp'))) {
 return true
-}
-} catch (error) {
+}} catch (error) {
 console.error('Error al verificar el enlace de la imagen:', error)
 }
 return false
