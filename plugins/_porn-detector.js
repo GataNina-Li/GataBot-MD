@@ -4,11 +4,13 @@ import { webp2png } from '../lib/webp2mp4.js'
 import fetch from 'node-fetch'
 import axios from 'axios'
 import path from 'path'
+global.enlace = null
 
 let handler = m => m
 handler.before = async function (m, { conn, __dirname, isBotAdmin }) {
 let chat = global.db.data.chats[m.chat]
-let media, link, buffer
+let media, link, buffer = false
+let web = /https?:\/\/\S+/
   
 if (!isBotAdmin || chat.delete || !m.isGroup) return
 if (!chat.antiPorn) return 
@@ -16,9 +18,8 @@ if (!chat.antiPorn) return
 try{
 let q = m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
-IsEnlace(q.text).then(result => console.log('¿Es un enlace de imagen?', result))
-if (!(/sticker|image/.test(mime)) || m.mtype == 'viewOnceMessageV2') return
-
+  
+if (/sticker|image/.test(mime) || m.mtype == 'viewOnceMessageV2') {
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
 if (isTele) {
 media = await q.download()
@@ -41,10 +42,21 @@ if (m.mtype == 'stickerMessage') {
 try {
 link = await webp2png(await q.download())
 } catch {
-link = null
+link = false
 }}
 
-
+} else {
+if (q.text || web.test(q.text)) {
+IsEnlace(q.text).then(result => {
+link = result ? enlace : false
+console.log(enlace)
+}).catch(error => {
+link = false
+})
+} else {
+link = false
+}
+} else return 
 
 if (link) {
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
@@ -65,14 +77,15 @@ await m.reply(error.toString())
 }		
 export default handler
 
-async function IsEnlace(enlace) {
-try {
+async function IsEnlace(texto) {
+const regexEnlace = /https?:\/\/\S+/
+const match = texto.match(regexEnlace)
+if (match) {
+enlace = match[0]
 const response = await fetch(enlace, { method: 'HEAD' })
 const contentType = response.headers.get('content-type')
 if (contentType && (contentType.startsWith('image/jpeg') || contentType.startsWith('image/jpg') || contentType.startsWith('image/png') || contentType.startsWith('image/webp'))) {
 return true
-}} catch (error) {
-console.error('Error al verificar el enlace de la imagen:', error)
-}
+}}
 return false
 }
