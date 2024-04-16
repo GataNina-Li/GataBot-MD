@@ -310,6 +310,15 @@ throw false
 }
 bot.restrict = isEnable
 break
+
+case 'antiporn': case 'antiporno':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiPorn = isEnable          
+break
     
 case 'nyimak':
 isAll = true
