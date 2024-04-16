@@ -16,6 +16,7 @@ if (!chat.antiPorn) return
 try{
 let q = m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
+IsEnlace(q.text).then(result => console.log('¿Es un enlace de imagen?', result))
 if (!(/sticker|image/.test(mime)) || m.mtype == 'viewOnceMessageV2') return
 
 let isTele = /^image\/(png|jpe?g)$/.test(mime)
@@ -43,7 +44,7 @@ link = await webp2png(await q.download())
 link = null
 }}
 
-IsEnlace(q.text).then(result => console.log('¿Es un enlace de imagen?', result))
+
 
 if (link) {
 const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=${link}&apikey=GataDios`)
