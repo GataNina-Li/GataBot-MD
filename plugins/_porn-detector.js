@@ -37,7 +37,6 @@ link = await uploadImage(buffer)
 }}
 
 if (m.mtype == 'stickerMessage') {
-media = await q.download()
 const convertWebPToPNG = async (webPBuffer) => {
     try {
         const response = await axios({
@@ -58,12 +57,11 @@ const convertWebPToPNG = async (webPBuffer) => {
     }
 };
 
-
 const guardarPNG = async (pngBuffer, nombreArchivo) => {
     const directorio = '../tmp';
     const rutaArchivo = path.join(__dirname, directorio, nombreArchivo);
     try {
-        fs.writeFileSync(rutaArchivo, media)
+        fs.writeFileSync(rutaArchivo, pngBuffer);
         console.log(`Imagen PNG guardada en: ${rutaArchivo}`);
     } catch (error) {
         console.error('Error al guardar el archivo PNG:', error);
@@ -72,14 +70,14 @@ const guardarPNG = async (pngBuffer, nombreArchivo) => {
 };
 
 
-const webPBuffer = fs.readFileSync('imagen.webp'); 
-convertWebPToPNG(webPBuffer)
-.then(pngBuffer => {
-guardarPNG(pngBuffer, 'imagen.png'); 
-})
-.catch(error => {
-console.error('Error al convertir WebP a PNG:', error);
-});
+media = await q.download(); 
+convertWebPToPNG(media)
+    .then(pngBuffer => {
+        guardarPNG(pngBuffer, 'imagen.png'); 
+    })
+    .catch(error => {
+        console.error('Error al convertir WebP a PNG:', error);
+    });
 //media = await q.download()
 //m.reply(media)
 //buffer = await getBuffer(q)
