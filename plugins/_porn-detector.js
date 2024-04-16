@@ -70,7 +70,7 @@ enlace = null
 await m.reply('*La imagen contiene contenido para adultos.*')
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 //}
-}//} catch (error) {
+//}//} catch (error) {
 //console.log(error)
 //}
   
