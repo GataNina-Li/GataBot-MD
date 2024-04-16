@@ -72,7 +72,7 @@ let bang = m.key.id
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 //}
 }} catch (error) {
-await m.reply(error.toString())
+console.log(error)
 }
   
 }		
