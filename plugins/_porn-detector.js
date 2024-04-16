@@ -65,7 +65,7 @@ const response = await fetch(`https://api.alyachan.dev/api/porn-detector?image=$
 const result = await response.json()
 //await m.reply(link)
 
-if (result.status && result.data && result.data.isPorn) {
+if (result.status && result.data.isPorn) {
 enlace = null
 await m.reply('*La imagen contiene contenido para adultos.*')
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
