@@ -5,8 +5,13 @@ let { downloadContentFromMessage } = (await import(global.baileys))
 import path from 'path'  
 
 let handler = m => m
-handler.before = async function (m, { conn, __dirname }) {
+handler.before = async function (m, { conn, __dirname, isBotAdmin }) {
+let chat = global.db.data.chats[m.chat]
 let media, link, buffer
+  
+if (!isBotAdmin || chat.delete || !m.isGroup) return
+if (!chat.antiPorn) return 
+  
 try{
 let q = m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
