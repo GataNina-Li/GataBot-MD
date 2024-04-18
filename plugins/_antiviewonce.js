@@ -1,5 +1,6 @@
 let { downloadContentFromMessage } = (await import(global.baileys))
 
+let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
 const { antiver, isBanned } = global.db.data.chats[m.chat]
  
