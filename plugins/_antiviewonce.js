@@ -21,9 +21,9 @@ const description = `
 - *Tamaño:* \`${fileSize}\`
 - *Usuario:* *@${m.sender.split('@')[0]}*
 - *Texto:* ${msg[type].caption || 'Ninguno'}`.trim()
-
-if (/image|video|audio/.test(type)) return await conn.sendFile(m.chat, buffer, type == 'imageMessage' ? 'error.jpg' : type == 'videoMessage' ? 'error.mp4' : 'error.mp3', description, m, false, { mentions: [m.sender] })
-
+console.log(type)
+if (/image|video/.test(type)) return await conn.sendFile(m.chat, buffer, type == 'imageMessage' ? 'error.jpg' : 'error.mp4', description, m, false, { mentions: [m.sender] })
+if (/audio/.test(type)) return await conn.sendMessage(m.chat, { audio: buffer, fileName: 'error.mp3', mimetype: 'audio/mpeg', ptt: true }, { quoted: m })
 }}
 export default handler
 
