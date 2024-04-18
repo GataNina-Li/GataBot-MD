@@ -2,10 +2,12 @@ const userSpamData = {}
 let handler = m => m
 handler.before = async function (m, {conn, isAdmin, isBotAdmin, isOwner, isROwner, isPrems}) {
 const chat = global.db.data.chats[m.chat]
-if (!m.isGroup) return
-if (chat.modoadmin) return  
+const bot = global.db.data.settings[conn.user.jid] || {}
+if (!bot.antiSpam) return
+if (m.isGroup && chat.modoadmin) return  
+if (m.isGroup) {
 if (isOwner || isROwner || isAdmin || !isBotAdmin || isPrems) return
-  
+}  
 let user = global.db.data.users[m.sender]
 const sender = m.sender
 const currentTime = new Date().getTime()
