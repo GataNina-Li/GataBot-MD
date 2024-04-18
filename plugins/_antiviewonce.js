@@ -9,11 +9,21 @@ const { antiver, isBanned } = db.data.chats[m.chat]
 //if (m.mtype == 'viewOnceMessageV2') {
 let msg = m.message.viewOnceMessageV2Extension //m.message.viewOnceMessageV2.message || m.viewOnceMessageV2Extension?.message?.audioMessage || m.viewOnceMessageV2Extension.message.audioMessage
 let type = Object.keys(msg)[0]
-let media = await downloadContentFromMessage(m.message.viewOnceMessageV2Extension, 'audio') //await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : type == 'videoMessage' ? 'video' : 'audio')
+let media = await downloadContentFromMessage(m.message.viewOnceMessageV2Extension, 'buffer', {}, { reuploadRequest: m.updateMediaMessage }) //await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : type == 'videoMessage' ? 'video' : 'audio')
+await conn.sendMessage(m.chat, { audio: media, mimetype: "audio/mpeg", contextInfo: { externalAdReply: {
+title: "GataBot",
+body: "Mensaje de audio",
+sourceUrl: "",
+mediaUrl: "𝙡",
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: false,
+thumbnailUrl: "https://i.imgur.com/JqL3h2V.jpeg" }} },{ quoted: m })
+  
 let buffer = Buffer.from([])
 for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])}
-await conn.sendMessage(m.chat, { audio: buffer, fileName: 'error.mp3', mimetype: 'audio/mpeg', ptt: true }, { quoted: m })
+
 const fileSize = formatFileSize(msg[type].fileLength)
 const description = `
 🕵️‍♀️ *ANTI VER UNA VEZ* 🕵️\n
