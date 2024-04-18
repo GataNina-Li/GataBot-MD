@@ -7,9 +7,9 @@ const { antiver, isBanned } = db.data.chats[m.chat]
 //if (/^[.~#/\$,](read)?viewonce/.test(m.text)) return
 //if (!antiver || isBanned || !m.mtype || !(m.mtype == 'viewOnceMessageV2')) return
 //if (m.mtype == 'viewOnceMessageV2') {
-let msg = m.viewOnceMessageV2Extension?.message //m.message.viewOnceMessageV2.message || m.viewOnceMessageV2Extension?.message?.audioMessage || m.viewOnceMessageV2Extension.message.audioMessage
+let msg = m.message.viewOnceMessageV2Extension //m.message.viewOnceMessageV2.message || m.viewOnceMessageV2Extension?.message?.audioMessage || m.viewOnceMessageV2Extension.message.audioMessage
 let type = Object.keys(msg)[0]
-let media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : type == 'videoMessage' ? 'video' : 'audio')
+let media = await downloadMediaMessage(m.message.viewOnceMessageV2Extension, 'buffer', {}, { reuploadRequest: m.client.updateMediaMessage }) //await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : type == 'videoMessage' ? 'video' : 'audio')
 let buffer = Buffer.from([])
 for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])}
