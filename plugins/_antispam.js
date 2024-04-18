@@ -37,21 +37,21 @@ if (userData.message < 1) {
 userData.message++  
 motive = `${mid.smsNoSpam}`
 //mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 30 SEGUNDOS*\n\n*MOTIVO: ${motive}*`  
-await conn.reply(m.chat, mid.smsNoSpam1(sender, motive), m, { mentions: [m.sender] })  
+await conn.reply(m.chat, mid.smsNoSpam1(m, motive), m, { mentions: [m.sender] })  
 user.messageSpam = motive
 }} else if (userData.antiBan === 2) {
 if (userData.message2 < 1) {
 userData.message2++  
 motive =  `${mid.smsNoSpam2}`
 //mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 1 MINUTO*\n\n*MOTIVO: ${motive}*`
-await conn.reply(m.chat, mid.smsNoSpam3(sender, motive), m, { mentions: [m.sender] })  
+await conn.reply(m.chat, mid.smsNoSpam3(m, motive), m, { mentions: [m.sender] })  
 user.messageSpam = motive
 }} else if (userData.antiBan === 3) {
 if (userData.message3 < 1) {
 userData.message3++  
 motive = `${mid.smsNoSpam4}`
 //mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 2 MINUTOS*\n\n*MOTIVO: ${motive}*`
-await conn.reply(m.chat, mid.smsNoSpam5(sender, motive), m, { mentions: [m.sender] }) 
+await conn.reply(m.chat, mid.smsNoSpam5(m, motive), m, { mentions: [m.sender] }) 
 user.messageSpam = motive
 await conn.groupParticipantsUpdate(m.chat, [sender], 'remove')
 }}
