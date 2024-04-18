@@ -2,14 +2,14 @@ let { downloadContentFromMessage } = (await import(global.baileys))
 
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
+let media, msg, type
 const { antiver, isBanned } = db.data.chats[m.chat]
-//if (/^[.~#/\$,](read)?viewonce/.test(m.text)) return
 if (!antiver || isBanned || !m.mtype || !(m.mtype == 'viewOnceMessageV2' || m.mtype == 'viewOnceMessageV2Extension')) return
 if (m.mtype == 'viewOnceMessageV2' || m.mtype == 'viewOnceMessageV2Extension') {
-let msg = m.message.viewOnceMessageV2.message
-let type = Object.keys(msg)[0]
+msg = m.message.viewOnceMessageV2.message
+type = Object.keys(msg)[0]
 try {
-let media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : type == 'videoMessage' ? 'video' : 'audio')
+media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : 'video')
 } catch {
 msg = m.message.viewOnceMessageV2Extension.message 
 media = await downloadContentFromMessage(msg[type], 'audio')
@@ -20,7 +20,7 @@ buffer = Buffer.concat([buffer, chunk])}
 const fileSize = formatFileSize(msg[type].fileLength)
 const description = `
 🕵️‍♀️ *ANTI VER UNA VEZ* 🕵️\n
-🚫 *No ocultar* ${type === 'imageMessage' ? '`Imagen` 📷' : type === 'videoMessage' ? '`Vídeo` 🎥' : type === 'audioMessage' ? '`Audio de voz` 🔊' : 'este mensaje'}
+🚫 *No ocultar* ${type === 'imageMessage' ? '`Imagen` 📷' : type === 'videoMessage' ? '`Vídeo` 🎥' : type === 'audioMessage' ? '`Mensaje de voz` 🔊' : 'este mensaje'}
 - *Tamaño:* \`${fileSize}\`
 - *Usuario:* *@${m.sender.split('@')[0]}*
 ${type === 'audioMessage' ? `- *Texto:* ${msg[type].caption || 'Ninguno'}` : ''}`.trim()
