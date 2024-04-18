@@ -1,21 +1,37 @@
 let { downloadContentFromMessage } = (await import(global.baileys))
 
-let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
+const { antiver, isBanned } = global.db.data.chats[m.chat]
  
-let chat = db.data.chats[m.chat] 
-if (/^[.~#/\$,](read)?viewonce/.test(m.text)) return
-if (!chat.antiver || chat.isBanned) return
-if (m.mtype == 'viewOnceMessageV2') {
-let msg = m.message.viewOnceMessageV2.message
-let type = Object.keys(msg)[0]
-let media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : 'video')
+if (!antiver || isBanned || !m.mtype || !m.msg || !m.msg.hasOwnProperty('viewOnce')) return
+try {
+const type = m.msg.mimetype.split('/')[0]
+const media = await downloadContentFromMessage(m.msg, type)
 let buffer = Buffer.from([])
 for await (const chunk of media) {
-buffer = Buffer.concat([buffer, chunk])}
-if (/video/.test(type)) {
-return conn.sendFile(m.chat, buffer, 'error.mp4', `${msg[type].caption}\n\n${lenguajeGB.smsAntiView()}`, m)
-} else if (/image/.test(type)) {
-return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption}\n\n${lenguajeGB.smsAntiView()}`, m)
-}}}
+buffer = Buffer.concat([buffer, chunk])
+}
+
+const fileSize = formatFileSize(m.msg.fileLength)
+const description = `
+🕵️‍♀️ *ANTI VER UNA VEZ* 🕵️
+
+🚫 *No se permite ocultar* \`${type === 'image' ? 'Imagen 📷' : type === 'video' ? 'Vídeo 🎥' : type === 'audio' ? 'Audio 🔊' : 'este mensaje'}\`
+- *Tamaño:* \`${fileSize}\`
+- *Usuario:* *@${m.sender.split('@')[0]}*
+- *Texto:* ${m.msg.caption || 'Ninguno'}`.trim()
+
+ if (/image|video|audio/.test(type)) {
+ await this.sendFile(m.chat, buffer, type, description || type, m, false, { mentions: [m.sender] })
+ }} catch (error) {
+ return console.log(error)
+ }
+
+}
 export default handler
+
+function formatFileSize(bytes) {
+const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'TY', 'EY']
+const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)))
+return Math.round(100 * (bytes / Math.pow(1024, i))) / 100 + ' ' + sizes[i]
+}
