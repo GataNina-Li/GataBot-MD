@@ -8,9 +8,9 @@ if (!antiver || isBanned || !m.mtype || !(m.mtype == 'viewOnceMessageV2' || m.mt
 if (m.mtype == 'viewOnceMessageV2' || m.mtype == 'viewOnceMessageV2Extension') {
 msg = m.mtype == 'viewOnceMessageV2' ? m.message.viewOnceMessageV2.message : m.message.viewOnceMessageV2Extension.message 
 type = Object.keys(msg)[0]
-try{
+if (m.mtype == 'viewOnceMessageV2') {
 media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : 'videoMessage' ? 'video' : 'audio')
-} catch {
+} else {
 media = await downloadContentFromMessage(msg[type], 'audio')
 }
 let buffer = Buffer.from([])
