@@ -53,6 +53,7 @@ link = false
 if (q.text || web.test(q.text)) {
 await IsEnlace(q.text).then(result => {
 link = result ? enlace : false
+console.log(result)
 }).catch(error => {
 link = false
 })
@@ -82,6 +83,7 @@ if (match) {
 enlace = match[0]
 const response = await fetch(enlace, { method: 'HEAD' })
 const contentType = response.headers.get('content-type')
+console.log(contentType)
 if (contentType && (contentType.startsWith('image/jpeg') || contentType.startsWith('image/jpg') || contentType.startsWith('image/png') || contentType.startsWith('image/webp'))) {
 return true
 }}
