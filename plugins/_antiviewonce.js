@@ -22,9 +22,8 @@ const description = `
 - *Usuario:* *@${m.sender.split('@')[0]}*
 - *Texto:* ${m.msg.caption || 'Ninguno'}`.trim()
 
- if (/image|video|audio/.test(type)) {
- await this.sendFile(m.chat, buffer, type, description || type, m, false, { mentions: [m.sender] })
- }} catch (error) {
+ if (/image|video|audio/.test(type)) return await conn.sendFile(m.chat, buffer, type, description || type, m, false, { mentions: [m.sender] })
+ } catch (error) {
  return console.log(error)
  }
 
