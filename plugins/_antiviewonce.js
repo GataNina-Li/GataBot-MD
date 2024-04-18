@@ -9,7 +9,7 @@ const { antiver, isBanned } = db.data.chats[m.chat]
 //if (m.mtype == 'viewOnceMessageV2') {
 let msg = m.message.viewOnceMessageV2Extension.message //m.message.viewOnceMessageV2.message || m.viewOnceMessageV2Extension?.message?.audioMessage || m.viewOnceMessageV2Extension.message.audioMessage
 let type = Object.keys(msg)[0]
-let media = await downloadContentFromMessage(msg[type], 'buffer', {}, { reuploadRequest: m.updateMediaMessage }) //await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : type == 'videoMessage' ? 'video' : 'audio')
+let media = await downloadContentFromMessage(msg[type], 'audio') //downloadContentFromMessage(msg[type], 'buffer', {}, { reuploadRequest: m.updateMediaMessage }) //await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : type == 'videoMessage' ? 'video' : 'audio')
 let buffer = Buffer.from([])
 for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])}
