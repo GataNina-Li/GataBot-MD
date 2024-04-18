@@ -23,7 +23,7 @@ const description = `
 🚫 *No ocultar* ${type === 'imageMessage' ? '`Imagen` 📷' : type === 'videoMessage' ? '`Vídeo` 🎥' : type === 'audioMessage' ? '`Mensaje de voz` 🔊' : 'este mensaje'}
 - *Tamaño:* \`${fileSize}\`
 - *Usuario:* *@${m.sender.split('@')[0]}*
-${type === 'audioMessage' ? `- *Texto:* ${msg[type].caption || 'Ninguno'}` : ''}`.trim()
+${msg[type].caption ? `- *Texto:* ${msg[type].caption}` : ''}`.trim()
 if (/image|video/.test(type)) return await conn.sendFile(m.chat, buffer, type == 'imageMessage' ? 'error.jpg' : 'error.mp4', description, m, false, { mentions: [m.sender] })
 if (/audio/.test(type)) { 
 await m.reply(description)
