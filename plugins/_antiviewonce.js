@@ -5,7 +5,7 @@ handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
 
 const { antiver, isBanned } = db.data.chats[m.chat]
 if (/^[.~#/\$,](read)?viewonce/.test(m.text)) return
-//if (!antiver || isBanned || !m.mtype || !(m.mtype == 'viewOnceMessageV2')) return
+if (!antiver || isBanned || !m.mtype || !(m.mtype == 'viewOnceMessageV2')) return
 if (m.mtype == 'viewOnceMessageV2') {
 let msg = m.message.viewOnceMessageV2.message
 let type = Object.keys(msg)[0]
@@ -17,7 +17,7 @@ buffer = Buffer.concat([buffer, chunk])}
 const fileSize = formatFileSize(msg[type].fileLength)
 const description = `
 🕵️‍♀️ *ANTI VER UNA VEZ* 🕵️\n
-🚫 *No se permite ocultar* \`${type === 'imageMessage' ? 'Imagen 📷' : type === 'videoMessage' ? 'Vídeo 🎥' : type === 'audioMessage' ? 'Audio 🔊' : 'este mensaje'}\`
+🚫 *No ocultar* ${type === 'imageMessage' ? '`Imagen` 📷' : type === 'videoMessage' ? '`Vídeo` 🎥' : type === 'audioMessage' ? '`Audio` 🔊' : 'este mensaje'}
 - *Tamaño:* \`${fileSize}\`
 - *Usuario:* *@${m.sender.split('@')[0]}*
 - *Texto:* ${msg[type].caption || 'Ninguno'}`.trim()
