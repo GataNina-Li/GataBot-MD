@@ -25,7 +25,7 @@ const description = `
 ${msg[type].caption ? `- *Texto:* ${msg[type].caption}` : ''}`.trim()
 if (/image|video/.test(type)) return await conn.sendFile(m.chat, buffer, type == 'imageMessage' ? 'error.jpg' : 'error.mp4', description, m, false, { mentions: [m.sender] })
 if (/audio/.test(type)) { 
-await m.reply(description)
+await conn.reply(m.chat, description, m, null, { mentions: [m.sender] }) 
 await conn.sendMessage(m.chat, { audio: buffer, fileName: 'error.mp3', mimetype: 'audio/mpeg', ptt: true }, { quoted: m })
 }
 }}
