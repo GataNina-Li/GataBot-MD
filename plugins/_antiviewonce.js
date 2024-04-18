@@ -5,7 +5,7 @@ handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
 
 const { antiver, isBanned } = global.db.data.chats[m.chat]
 if (/^[.~#/\$,](read)?viewonce/.test(m.text)) return
-if (!antiver || isBanned || !m.mtype || !(m.mtype == 'viewOnceMessageV2')) return
+//if (!antiver || isBanned || !m.mtype || !(m.mtype == 'viewOnceMessageV2')) return
 if (m.mtype == 'viewOnceMessageV2') {
 let msg = m.message.viewOnceMessageV2.message
 let type = Object.keys(msg)[0]
