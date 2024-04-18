@@ -3,7 +3,7 @@ let { downloadContentFromMessage } = (await import(global.baileys))
 handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
 const { antiver, isBanned } = global.db.data.chats[m.chat]
  
-if (!antiver || isBanned || !m.mtype || !m.msg || !m.msg.hasOwnProperty('viewOnce')) return
+if (!antiver || isBanned || !m.mtype || !(m.mtype == 'viewOnceMessageV2')) return
 try {
 const type = m.msg.mimetype.split('/')[0]
 const media = await downloadContentFromMessage(m.msg, type)
