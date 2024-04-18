@@ -3,11 +3,12 @@ let { downloadContentFromMessage } = (await import(global.baileys))
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
 const { antiver, isBanned } = global.db.data.chats[m.chat]
+let msg = m.message.viewOnceMessageV2.message
  
 //if (!antiver || isBanned || !m.mtype || !(m.mtype == 'viewOnceMessageV2')) return
 try {
 const type = Object.keys(msg)[0]
-const media = await downloadContentFromMessage(m.msg, type)
+const media = await downloadContentFromMessage(msg[type], type)
 let buffer = Buffer.from([])
 for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])
@@ -22,7 +23,7 @@ const description = `
 - *Usuario:* *@${m.sender.split('@')[0]}*
 - *Texto:* ${m.msg.caption || 'Ninguno'}`.trim()
 
- if (/image|video|audio/.test(type)) return await conn.sendFile(m.chat, buffer, type, description || type, m, false, { mentions: [m.sender] })
+ if (/image|video|audio/.test(type)) return await conn.sendFile(m.chat, buffer, msg[type], description || type, m, false, { mentions: [m.sender] })
  } catch (error) {
  return console.log(error)
  }
