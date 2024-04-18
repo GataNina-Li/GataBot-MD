@@ -3,7 +3,7 @@ let { downloadContentFromMessage } = (await import(global.baileys))
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
 const { antiver, isBanned } = global.db.data.chats[m.chat]
-let msg = m.message.viewOnceMessageV2.message
+let msg = m.msg.mimetype//m.message.viewOnceMessageV2.message
  
 //if (!antiver || isBanned || !m.mtype || !(m.mtype == 'viewOnceMessageV2')) return
 try {
