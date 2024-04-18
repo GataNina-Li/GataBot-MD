@@ -1,4 +1,4 @@
-/*let { downloadContentFromMessage } = (await import(global.baileys))
+let { downloadContentFromMessage } = (await import(global.baileys))
 
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
@@ -31,9 +31,9 @@ function formatFileSize(bytes) {
 const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'TY', 'EY']
 const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)))
 return Math.round(100 * (bytes / Math.pow(1024, i))) / 100 + ' ' + sizes[i]
-}*/
+}
 
-let { downloadContentFromMessage } = (await import(global.baileys))
+/*let { downloadContentFromMessage } = (await import(global.baileys))
 
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
@@ -53,4 +53,4 @@ return conn.sendFile(m.chat, buffer, 'error.mp4', `${msg[type].caption}\n\n${len
 } else if (/image/.test(type)) {
 return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption}\n\n${lenguajeGB.smsAntiView()}`, m)
 }}}
-export default handler
+export default handler*/
