@@ -87,7 +87,7 @@ thumbnailUrl: pp
 console.error('No se han encontrado imágenes.')
 conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m })
 }} catch (error) {
-console.log('error)
+console.log(error)
 }
 
 handler.before = async (m) => {
