@@ -15,7 +15,7 @@ let user = global.db.data.users[m.sender]
 //if (new Date - user.fantasy < 300000) return await conn.reply(m.chat, `⏱️ 𝙑𝙪𝙚𝙡𝙫𝙖 𝙚𝙣 ${msToTime(time - new Date())} 𝙉𝙊 𝙃𝘼𝙂𝘼 𝙎𝙋𝘼𝙈`, m)
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-//try {
+try {
 response = await fetch(jsonURL)
 data = await response.json()
 
@@ -35,7 +35,6 @@ const id = Object.keys(user)[0]
 const fantasy = user[id].fantasy
 return fantasy.some(personaje => personaje.id === codigoActual)
 })
-
 
 if (usuarioExistente) {
 idUsuarioExistente = Object.keys(usuarioExistente)[0];
@@ -69,12 +68,10 @@ if (nuevoPrecio < 50) {
 nuevoPrecio = 50
 }
 
-    //dato.url
-try {
 let txtNewPrice = nuevoPrecio !== dato.price ? `\n✓ *Precio anterior:* ~\`${dato.price}\`~ *${rpgshop.emoticon('money')}*\n✓ *Nuevo Precio:* \`${nuevoPrecio}\` *${rpgshop.emoticon('money')}*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*` : `\n✓ *Precio:* \`\`\`${dato.price}\`\`\` *${rpgshop.emoticon('money')}*`
 let info = `*⛱️ FANTASÍA RPG ⛱️*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Nombre:* ${dato.name}\n✓ *Origen:* ${dato.desp}\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*${txtNewPrice}\n✓ *Clase:* ${dato.class}\n✓ *ID:* \`\`\`${codigoActual}\`\`\`\n✓ *Tipo:* ${dato.type}\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Estado:* ${estado}`
 info += `\n\n${estado === 'Libre' ? '_Responde a este mensaje con "c", "🛒", o "🐱" para comprarlo_\n\n' + listaAvisos(usedPrefix, personaje) : listaAvisos(usedPrefix, personaje)}`
-id_message = (await conn.sendFile(m.chat, 'https://telegra.ph/file/b31cd03f716d362b33716.jpg', 'error.jpg', info.trim(), fkontak, true, {
+id_message = (await conn.sendFile(m.chat, dato.url, 'error.jpg', info.trim(), fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
@@ -87,12 +84,11 @@ sourceUrl: accountsgb,
 thumbnailUrl: pp
 }}
 }, { caption: 'imagen_info' })).key.id
-} catch (error) {
-console.log(error)
-}
 } else {
 console.log('No se han encontrado imágenes.')
 conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m })
+}} catch (error) {
+console.log(error)
 }
 
 handler.before = async (m) => {
