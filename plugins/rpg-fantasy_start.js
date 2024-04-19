@@ -15,7 +15,7 @@ let user = global.db.data.users[m.sender]
 //if (new Date - user.fantasy < 300000) return await conn.reply(m.chat, `⏱️ 𝙑𝙪𝙚𝙡𝙫𝙖 𝙚𝙣 ${msToTime(time - new Date())} 𝙉𝙊 𝙃𝘼𝙂𝘼 𝙎𝙋𝘼𝙈`, m)
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-try {
+//try {
 response = await fetch(jsonURL)
 data = await response.json()
 
@@ -86,9 +86,9 @@ thumbnailUrl: pp
 } else {
 console.error('No se han encontrado imágenes.')
 conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m })
-}} catch (error) {
-console.log(error)
-}
+}//} catch (error) {
+//console.log(error)
+//}
 
 handler.before = async (m) => {
 user = global.db.data.users[m.sender]
