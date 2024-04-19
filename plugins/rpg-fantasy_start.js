@@ -23,6 +23,10 @@ if (data.infoImg && data.infoImg.length > 0) {
 dato = data.infoImg[Math.floor(Math.random() * data.infoImg.length)]
 pp = await conn.profilePictureUrl(who, 'image').catch((_) => dato.url)
 
+} catch (error) {
+console.log(error)
+}
+
 fantasyDB = []
 if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
@@ -36,9 +40,7 @@ const fantasy = user[id].fantasy
 return fantasy.some(personaje => personaje.id === codigoActual)
 })
 
-} catch (error) {
-console.log(error)
-}
+
 if (usuarioExistente) {
 idUsuarioExistente = Object.keys(usuarioExistente)[0];
 nombreImagen = data.infoImg.find(personaje => personaje.code === codigoActual)?.name
