@@ -23,10 +23,6 @@ if (data.infoImg && data.infoImg.length > 0) {
 dato = data.infoImg[Math.floor(Math.random() * data.infoImg.length)]
 pp = await conn.profilePictureUrl(who, 'image').catch((_) => dato.url)
 
-} catch (error) {
-console.log(error)
-}
-
 fantasyDB = []
 if (fs.existsSync(fantasyDBPath)) {
 const data = fs.readFileSync(fantasyDBPath, 'utf8')
@@ -88,6 +84,9 @@ sourceUrl: accountsgb.getRandom(),
 thumbnailUrl: pp
 }}
 }, { caption: 'imagen_info' })).key.id
+} catch (error) {
+console.log(error)
+}
 } else {
 console.error('No se han encontrado imágenes.')
 conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m })
