@@ -15,7 +15,7 @@ let user = global.db.data.users[m.sender]
 //if (new Date - user.fantasy < 300000) return await conn.reply(m.chat, `⏱️ 𝙑𝙪𝙚𝙡𝙫𝙖 𝙚𝙣 ${msToTime(time - new Date())} 𝙉𝙊 𝙃𝘼𝙂𝘼 𝙎𝙋𝘼𝙈`, m)
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-try {
+//try {
 response = await fetch(jsonURL)
 data = await response.json()
 
@@ -53,6 +53,7 @@ const flow = usuario.flow || []
 const calificaciones = flow.filter(voto => voto.character_name === personaje)
 calificacionesPersonaje.push(...calificaciones)
 }
+try{
 const likes = calificacionesPersonaje.filter(voto => voto.like).length || 0
 const superlikes = calificacionesPersonaje.filter(voto => voto.superlike).length || 0
 const dislikes = calificacionesPersonaje.filter(voto => voto.dislike).length || 0
@@ -66,6 +67,9 @@ global.nuevoPrecio = dato.price + (dato.price * aumento_por_like) + (dato.price 
 nuevoPrecio = Math.round(nuevoPrecio) // Nuevo precio a un entero
 if (nuevoPrecio < 50) {
 nuevoPrecio = 50
+}
+} catch (error) {
+console.log(error)
 }
     //dato.url
 let txtNewPrice = nuevoPrecio !== dato.price ? `\n✓ *Precio anterior:* ~\`${dato.price}\`~ *${rpgshop.emoticon('money')}*\n✓ *Nuevo Precio:* \`${nuevoPrecio}\` *${rpgshop.emoticon('money')}*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*` : `\n✓ *Precio:* \`\`\`${dato.price}\`\`\` *${rpgshop.emoticon('money')}*`
@@ -81,14 +85,11 @@ title: `${conn.getName(m.sender)}`,
 body: `${dato.desp}`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
-thumbnailUrl: pp
+thumbnailUrl: img2
 }}
 }, { caption: 'imagen_info' })).key.id
-} catch (error) {
-console.log(error)
-}
 } else {
-console.error('No se han encontrado imágenes.')
+console.log('No se han encontrado imágenes.')
 conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m })
 }
 
