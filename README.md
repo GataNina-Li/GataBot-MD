@@ -1,217 +1,352 @@
+<p align="center"> 
+<a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=GataBot-MD++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
+</p>
+ 
 <p align="center">
-<a href="https://whatsapp.com/channel/0029Va8SHGnId7nJi8Zdnz3x"><img title="Author" src="https://img.shields.io/badge/Canale Ufficiale-black?style=for-the-badge&logo=whatsApp"></a>
+<img src="https://i.imgur.com/kd8sus3.jpeg" alt="GataBot-MD" width="800"/>
+  
+> Antes de usar este repositorio, visita la **[Política de GataBot. 😼](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)** 
+</p>
 
-   <p align="center"> 
- <a href="https://github.com/MoonContentCreator/followers"><img title="𝐅𝐨𝐥𝐥𝐨𝐰𝐞𝐫𝐬" src="https://img.shields.io/github/followers/MoonContentCreator?color=red&style=flat-square"></a> 
- <a href="https://github.com/MoonContentCreator/MoonContentCreator/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/MoonContentCreator?color=blue&style=flat-square"></a> 
- <a href="https://github.com/MoonContentCreator/network/members"><img title="𝐅𝐨𝐫𝐤𝐬" src="https://img.shields.io/github/forks/MoonContentCreator/BixbyBot-Md?color=red&style=flat-square"></a> 
- <a href="https://komarev.com/ghpvc/?username=Fabri115&color=blue&style=flat-square&label=Profile+Visual"><img src="https://komarev.com/ghpvc/?username=MoonContentCreator&color=blue&style=flat-square&label=Profile+Visual" /> 
- <a href="https://github.com/MoonContentCreator/MoonContentCreator/watchers"><img title="𝐖𝐚𝐭𝐜𝐡𝐢𝐧𝐠" src="https://img.shields.io/github/watchers/MoonContentCreator/BixbyBot-Md?label=Watcher'srepo&color=blue&style=flat-square"></a> 
- <a href="https://github.com/MoonContentCreator/BixbyBot-Md"><img title="𝐎𝐩𝐞𝐧 𝐒𝐨𝐮𝐫𝐜𝐞" src="https://badges.frapsoft.com/os/v2/open-source.svg?v=103"></a> 
- <a href="https://github.com/MoonContentCreator/AyGemuy/"><img title="𝐒𝐢𝐳𝐞" src="https://img.shields.io/github/repo-size/MoonContentCreator/BixbyBot-Md?style=flat-square&color=green"></a> 
- <a href="https://github.com/MoonContentCreator/BixbyBot-Md/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"></a 
- <img width="" src="https://img.shields.io/github/repo-size/MoonContentCreator/BixbyBot-Md?color=red&label=Repo%20Size&style=for-the-badge&logo=appveyor"> 
+<p align="center">
+<a href="#"><img title="GataBot-MD" src="https://img.shields.io/badge/SI TE AGRADA EL REPOSITORIO APOYAME CON UNA 🌟 ¡GRACIAS! -red?colorA=%255ff0000&colorB=%23017e40&style=for-the-badge"></a> 
+<img src="https://i.pinimg.com/originals/d4/3c/90/d43c902873d4db8c85974dfd0798030b.gif" height="28px">
+</p>  
 
-</p> 
- <p align="center"> 
- <img width="" src="https://telegra.ph/file/c31a290ce6bb4e5ce63cd.png?color=red&label=Repo%20Size&style=for-the-badge&logo=appveyor"> 
- </p> 
+<p align="center">
+<a href="#"><img title="GataBot-MD" src="https://img.shields.io/badge/LEA TODO EL README-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge"></a> 
+<a href="#"><img title="GataBot-MD" src="https://img.shields.io/badge/COMPATIBLE CON LA VERSIÓN MULTI DISPOSITIVOS DE WHATSAPP-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge"></a>
+</p>
 
- <p align="center"> 
- <img width="" src="https://telegra.ph/file/53876cbad328d8cf55bac.png?color=red&label=Repo%20Size&style=for-the-badge&logo=appveyor"> 
- </p> 
+<p align="center">   
+<a href="https://github.com/GataNina-Li/GataBot-MD/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/GataNina-Li/GataBot-MD?label=Watchers&color=green&style=flat-square"></a>
+<a href="https://github.com/GataNina-Li/GataBot-MD/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/GataNina-Li/GataBot-MD?label=Stars&color=yellow&style=flat-square"></a>
+</p>
 
+<div align="center">
+  
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:centergatabot@gmail.com)
+[![Support](https://img.shields.io/badge/Support-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/SoporteGataBot)
+[![WhatsApp](https://img.shields.io/badge/STAFF-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/message/C45GXBEFTPONE1)
+[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/groups/872989990425789/)
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@gatadios)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/gata_dios)
+[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/OficialGD)
+</div>
 
- ### ` 𝐀𝐍𝐓𝐄𝐏𝐑𝐈𝐌𝐀 𝐃𝐄𝐋 𝐌𝐄𝐍𝐔 👆` 
- --------- 
- ### `✦ 𝐂𝐎𝐍𝐅𝐈𝐆𝐔𝐑𝐀𝐙𝐈𝐎𝐍𝐄 𝐁𝐢𝐱𝐛𝐲𝐁𝐨𝐭-𝐌𝐝🔮 ` 
+### 👇 `Todas las cuentas están aquí!!`
+[![Enlaces](https://img.shields.io/badge/GataBot_Accounts-000000%7D?style=for-the-badge&logo=biolink&logoColor=white)](https://www.atom.bio/gatabot/)
 
- `𝐔𝐒𝐀 𝐈𝐋 𝐁𝐎𝐓𝐓𝐎𝐍𝐄 𝐏𝐄𝐑 𝐄𝐒𝐄𝐆𝐔𝐈𝐑𝐄 𝐈𝐋 𝐅𝐎𝐑𝐊` 
+-----
+# 📍 Atajos del README
 
-   <a href="https://github.com/MoonContentCreator/BixbyBot-Md/fork"><img title="bot" src="https://github.com/Alien-alfa/Alien-alfa/blob/beta/img/pngegg.png?raw=true" width="200"></a> 
- <br> 
- - 𝐂𝐋𝐎𝐍𝐀𝐑𝐄 𝐋𝐀 𝐑𝐄𝐏𝐎𝐒𝐈𝐓𝐎𝐑𝐘 [qui](https://github.com/MoonContentCreator/BixbyBot-Md/fork) 
- - 𝐂𝐀𝐌𝐁𝐈𝐀𝐑𝐄 𝐍𝐔𝐌𝐄𝐑𝐎 𝐃𝐄𝐋 𝐏𝐑𝐎𝐏𝐑𝐈𝐄𝐓𝐀𝐑𝐈𝐎 [qui](https://github.com/MoonContentCreator/BixbyBot-Md/blob/master/config.js) 
-
-
-
-### 🔵 CAFIREXOS 
-> 🟢 Attiva BixbyBot-Md su un Servizio di hosting ad alte prestazioni
-
-<a href="https://www.cafirexos.com"><img src="https://r2.cafirexos.com/logos%2Flogo_cfros_2000x2000.png" height="125px"></a>
-### Informazioni dell' Host
-
-- **Pagina principale:** [`Cafirexos`](https://www.cafirexos.com)
-- **Dashboard:** [`Clicca qui`](https://dash.cafirexos.com)
-- **Pannello:** [`Clicca qui`](https://panel.cafirexos.com)
-- **Canale WhatsApp:** [`Clicca qui`](https://cafirexos.com/whatsapp)
-- **Gruppo WhatsApp:** [`Clicca qui`](https://cafirexos.com/comunidad)
-- **Email:** [`Clicca qui`](mailto:contacto@cafirexos.com)
-- **Contatto:**
-[`Diego Flores`](https://wa.me/50497150165)
-
-- [x] **Configurazione** <details><summary>**Impostazioni del server - BixbyBot-MD**</summary><img src="https://telegra.ph/file/4572591764c7f3f32a33f.png"></details>
-----
-
-### ∞ INFINITY-HOST
-> 🟢 Attiva BixbyBot-Md su un Servizio di hosting ad alte prestazioni
-
-<a href="https://www.cafirexos.com"><img src="https://telegra.ph/file/f864c8411217373822fd6.jpg" height="125px"></a>
-### 🚩 Prezzi:
- ```bash 
-1$ = 1GB, 100CPU
-2$ = 2GB, 120CPU
-3$ = 3GB, 140CPU
-4$ = 4GB, 175CPU
-5$ = 5GB, 200CPU
+| TEMA | DESCRIPCIÓN | ATAJO |
+|------|-------------|-------|
+| **TERMUX** | ***INSTALACIÓN AUTOMÁTICA*** |[ver](https://github.com/GataNina-Li/GataBot-MD/tree/master?tab=readme-ov-file#-opci%C3%B3n-1-instalaci%C3%B3n-autom%C3%A1tica-) |
+| **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-2-instalación-manual-por-termux---github) |
+| **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-por-termux---archivos) |
+| **TERMUX 24/7** | ***COMANDOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-247-en-termux) |
+| **TERMUX UPDATE** | ***COMANDOS PARA ACTUALIZAR GATABOT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot) |
+| **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
+| **BOXMINE** | ***INSTALACIÓN POR BOXMINE*** |[ver](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-boxmine-host) |
+| **CAFIREXOS** | ***INSTALACIÓN POR CAFIREXOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD#-cafirexos) |
+| **VORTEXUS CLOUD** | ***INSTALACIÓN POR VORTEXUS*** |[ver](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-vortexus-cloud---host) |
+| **REPLIT** | ***INSTALACIÓN POR REPLIT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-replit---gatabot) |
+| **KOYEB** | ***INSTALACIÓN POR KOYEB*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-koyeb) |
+| **WINDOWS** | ***INSTALACIÓN POR WINDOWS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-para-usuarios-de-windowsvpsrdp) |
+| **DISTRIBUIDORES AUTORIZADOS** | ***PREGUNTAS*** |[ver](https://github.com/GataNina-Li/GataBot-MD#distribuidores-autorizados-o-resellers---preguntas) |
+| **SOBRE GATABOT** | ***POLÍTICA DE USO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md) |
+| **DESARROLLADORES** | ***PARTICIPATES DEL PROYECTO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
+-----
+### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA 🫰
+[![blog](https://img.shields.io/badge/Instalacion-Automatica-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/PESW8LXXlOI?feature=share)
+> **Note** Comandos para instalar de forma automática en Termux  
+```bash
+termux-setup-storage
 ```
-### Informazioni dell' Host
-- **Pannello:** [`Clicca qui`](https://host.panel-infinitywa.store)
-- **Canale WhatsApp:** [`Clicca qui`](https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A)
-- **Gruppo WhatsApp:** [`Clicca qui`](https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV)
-- **PayPal:** [`Clicca qui`](https://paypal.me/OfcGB)
-- [`Contatta Mario`](https://www.facebook.com/elrebelde21)
-- [`Contatta Azami`](https://wa.me/527294888993)
-- [`Contatta Wilson`](https://wa.me/5492964650915)
+```bash
+apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash
+```
+```js
+// PERSONALIZAR INSTALACIÓN AUTOMÁTICA (En caso de una Bifurcación)
+// Parámetros editables
+
+// REFERENCIA
+"wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash"
+
+// PARÁMETROS QUE PUEDE SER MODIFICADOS --> "[...]"
+"wget -O - https://raw.githubusercontent.com/[usuario]/[repositorio]/[rama]/gata.sh | bash"
+```
+#### MODIFICAR ARCHIVO [`gata.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
+```js
+//LÍNEAS A MODIFICAR
+205 --> "git clone https://github.com/[user]/[repositorio].git"
+//Ejemplo: git clone https://github.com/GataNina-Li/GataBot-MD.git
+
+209 --> "cd [repositorio]"
+//Ejemplo: cd GataBot-MD
+
+//Una vez hecho estos cambios ejecute los nuevos comandos en Termux
+```
+-----
+### 🪄 (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB 
+> **Note** Comandos para instalar de forma manual
+```bash
+termux-setup-storage
+```
+```bash
+apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
+```
+```bash
+git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD
+```
+```bash
+yarn install && npm install
+```
+```bash
+npm start
+```
+> **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
+------------------
+### 📁 (OPCIÓN 3) INSTALACIÓN POR TERMUX - ARCHIVOS
+> **Note** Descargué y Descomprime
+### [`GataBot-MD ~ Archivos`](https://github.com/GataNina-Li/GataBot-MD/archive/refs/heads/master.zip)
+[![blog](https://img.shields.io/badge/Termux-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+](https://youtu.be/UcWlyQ8u5HE)
+```bash
+termux-setup-storage
+```
+```bash
+apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
+```
+```bash
+cd storage/downloads/GataBot-MD-master/GataBot-MD-master 
+```
+```bash
+yarn install
+```
+```bash
+npm install
+```
+```bash
+npm start
+```
+* #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
+* #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
+> **Note** Guardar los archivos en la ubicación: storage/downloads/GataBot-MD-master/GataBot-MD-master   
+----
+### 🚀 USAR GATABOT 24/7 EN TERMUX 
+> Ejecutar estos comandos dentro de la carpeta GataBot-MD
+```bash
+termux-wake-lock && npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs 
+``` 
+#### ⬇️ Opciones Disponibles
+> **Warning** Esto eliminará todo el historial que hayas establecido con PM2:
+```bash 
+pm2 delete index
+``` 
+> Si tienes cerrado Termux y quiere ver de nuevo la ejecución use:
+```bash 
+pm2 logs 
+``` 
+> Si desea detener la ejecución de Termux use:
+```bash 
+pm2 stop index
+``` 
+> Si desea iniciar de nuevo la ejecución de Termux use:
+```bash 
+pm2 start index
+``` 
+---- 
+### `🟢 ACTIVAR EN CASO DE DETENERSE EN TERMUX`
+> **Note** Si despues que ya instalastes tu bot y termux te salta en blanco, se fue tu internet o reiniciaste tu celular, solo realizaras estos pasos :
+```bash
+cd
+```
+```bash
+cd GataBot-MD
+```
+```bash
+npm start
+```
+----
+### `🔵 OBTENER OTRO CODIGO QR EN TERMUX`
+> **Warning** deten el bot, haz click en el símbolo (ctrl) [default=z] usar la letra "z" + "ENTER" hasta que salga algo verdes similar a : GataBot-MD $
+> escribe los siguientes comando uno x uno :
+```bash 
+cd GataBot-MD
+```
+```bash
+rm -rf GataBotSession
+```
+```bash
+npm start
+```
+----
+### 😼 ACTUALIZAR GATABOT
+> **Note** Comandos para actualizar GataBot-MD de forma automática
+```bash
+grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/update.sh | bash 
+```
+#### Para que no pierda su progreso en GataBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
+> **Warning** Estos comandos solo funcionan para TERMUX, REPLIT, LINUX                           
+----
+### 🟣 ACTIVAR EN HEROKU 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) 
+### 👇 Añada lo siguente al Buildpack: 
+```bash
+heroku/nodejs
+```
+```bash
+https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
+```
+```bash
+https://github.com/clhuang/heroku-buildpack-webp-binaries.git
+```
+- [x] Resultado <details><summary>Buildpack</summary><img src="https://i.imgur.com/t3Xzgnh.jpeg"></details>
+-----
+
+### ⚡ REPLIT - GATABOT
+[![blog](https://img.shields.io/badge/Replit-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+](https://youtu.be/pQYkq4xv37o)
+
+<a target="_blank" href="https://replit.com/github/GataNina-Li/GataBot-MD"><img alt="Run on Replit" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/replit.svg"></a> <a href="https://replit.com/github/GataNina-Li/GataBot-MD"> <img src="https://media0.giphy.com/media/lMwu8EJAnv9kmn51KQ/giphy.gif" height="29px"></a>
+
+- [x] Configuración <details><summary>Importar Repositorio - GataBot-MD</summary><img src="https://i.imgur.com/GQyRnMf.jpg"></details>
+-----
+### 📦⛏️ BOXMINE HOST 
+[![YouTube](https://img.shields.io/badge/BoxMine_Host-GataBot-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/Ko019wvu2Tc)
+[![YouTube](https://img.shields.io/badge/BoxMine_Host-World-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@boxminehost)
+
+> Tutorial para activar **GataBot-MD** en un servidor reconocido y para todos.
+
+<a href="https://boxmineworld.com"><img src="https://i.imgur.com/allAyd4.png" height="125px"></a>
+### BoxMine World
+- **Pagina Oficial:** [`Boxmineworld`](https://boxmineworld.com)
+- **Tutorial - Crear cuenta en la Dashboard:** [`Dashboard`](https://www.youtube.com/watch?v=ZAwBLuNmIlI)
+- **Dashboard:** [`Dash`](https://dash.boxmineworld.com)
+- **Panel:** [`Aquí`](https://panel.boxmineworld.com)
+- **Dudas sobre el Host:** [`Discord`](https://discord.gg/84qsr4v) _(Preguntar por Vicemi)_
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va71C1q2UPBOICnxu83r)
+
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/tD3NQSR.jpeg"></details>
+----
+### 🔵 CAFIREXOS 
+> Optimice la implementación de **GataBot** mediante la integración en un servicio de alojamiento de alto rendimiento.
+
+<a href="https://www.cafirexos.com"><img src="https://grxcwmcwbxwj.objectstorage.sa-saopaulo-1.oci.customer-oci.com/n/grxcwmcwbxwj/b/cafirexos/o/logos%2Flogo.png" height="125px"></a>
+### Información del Host
+
+- **Página:** [`Cafirexos`](https://www.cafirexos.com)
+- **Dashboard:** [`Aquí`](https://dash.cafirexos.com)
+- **Panel:** [`Aquí`](https://panel.cafirexos.com/)
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VaFVSkRCMY0KFmCMDX2q)
+- **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/FBtyc8Q5w2iJXVl5zGJdFJ)
+- **Correo:** [`Aquí`](mailto:contacto@cafirexos.com)
+- **Contacto:** [`Diego Flores`](https://wa.me/50497150165)
+
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/VPvoE5k.jpeg"></details>
+----
+### ☁️ VORTEXUS CLOUD - HOST
+> Integra **GataBot** en un servicio de alojamiento eficiente.
+
+<a href="https://vortexuscloud.com"><img src="https://telegra.ph/file/4bd3d8d14e5683073d4f3.jpg" height="125px"></a>
+### vortexus cloud
+
+- **Pagina Oficial:** [`Vortexuscloud`](https://vortexuscloud.com)
+- **Crear cuenta en la Dashboard:** [`Dashboard`](https://youtu.be/JUg7DWUY6_Y?si=DHwk9dwjvWdPEIBJ)
+- **Dashboard:** [`Dash`](https://dash.vortexuscloud.com)
+- **Panel:** [`Aquí`](https://panel.vortexuscloud.com)
+- **Contacto:** [`Aquí`](https://wa.me/258858119033) 
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va8ZD6O3mFXxTPl1m13A)
+
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/Ly0MffH.jpeg"></details>
+------------------------
+🟢 ACTIVAR EN CODES SPACES 
+
+[`CREAR SERVIDOR`](https://github.com/codespaces/new?skip_quickstart=true&machine=basicLinux32gb&repo=GataNina-Li/GataBot-MD&ref=main&geo=UsEast)
+### 🟢Tutorial pronto 
+----- 
+ACTIVAR EN KOYEB 
+
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/GataNina-Li/GataBot-MD&branch=master&name=gatabot-md)
+
+------------------
+### ☁️ ACTIVAR EN RENDER 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/blueprint/new?repo=https%3A%2F%2Fgithub.com%2FGataNina-Li%2FGataBot-MD) 
+
+------------------
+## 💻 PARA USUARIOS DE WINDOWS/VPS/RDP
+
+* Descargar e instala Git [`Aquí`](https://git-scm.com/downloads)
+* Descargar e instala NodeJS [`Aquí`](https://nodejs.org/en/download)
+* Descargar e instala FFmpeg [`Aquí`](https://ffmpeg.org/download.html) (**No olvide agregar FFmpeg a la variable de entorno PATH**)
+* Descargar e instala ImageMagick [`Aquí`](https://imagemagick.org/script/download.php)
+* Descargar e instala Yarn [`Aquí`](https://classic.yarnpkg.com/en/docs/install#windows-stable)
+```bash
+git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && npm install && npm update && node .
+```
+## 💻 Instalación de FFmpeg para Windows 
+* Descarga cualquiera de las versiones de FFmpeg disponibles haciendo clic en [FFmpeg](https://www.gyan.dev/ffmpeg/builds/).
+* Extraer archivos a `C:\` path.
+* Cambie el nombre de la carpeta extraída a `ffmpeg`.
+* Ejecute el símbolo del sistema como administrador.
+* Ejecute el siguiente comando:
+```cmd
+> setx /m PATH "C:\ffmpeg\bin;%PATH%"
+```
+Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
+* Ahora que tiene FFmpeg instalado, verifique que funcionó ejecutando este comando para ver la versión:
+```cmd
+> ffmpeg -version
+```
+----
+### DISTRIBUIDORES AUTORIZADOS O RESELLERS - PREGUNTAS 
+<details>
+<summary><b>¿Te gustaría ser un Distribuidores Autorizados o reseller de GataBot?</b></summary>
+  
+- ¡Contáctanos **[correo electrónico](centergatabot@gmail.com)** o **[Telegram](https://t.me/SoporteGataBot)** para solicitar tu [**Licencia**](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)!
+</details>
+
+<details>
+<summary><b>¿Qué significa ser un Distribuidor Autorizado o reseller en GataBot?</b></summary>
+  
+- Aquellos usuarios que adquieran la licencia de Distribuidores Autorizados o resellers obtienen el derecho legal de utilizar este repositorio para fines educativos, políticos o comerciales, sin poner en riesgo su reputación personal u organizacional.
+</details>
+
+<details>
+<summary><b>¿Dónde puedes solicitar la licencia para ser Distribuidor Autorizado o reseller de GataBot?</b></summary>
+
+  - Te ofrecemos opciones exclusivas: **[Instagram](https://www.instagram.com/gata_dios/)**, **[Telegram](https://t.me/SoporteGataBot)**, y **[correo electrónico](centergatabot@gmail.com)**.
+</details>
+
+<details>
+<summary><b>¿Cómo puedo verificar quién es un distribuidor autorizado en GataBot?</b></summary>
+
+  - Lo hemos simplificado para ti. Si deseas conocer la lista y contactar al reseller para verificar su autenticidad, simplemente visita este **[enlace](https://github.com/GataNina-Li/GataBot-MD/blob/master/dealers.md)**. La licencia debe estar disponible públicamente en el repositorio del distribuidor, y si tanto su nombre de usuario en GitHub como el código de la licencia coinciden con nuestra lista, significa que está **[verificado](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)** como parte de resellers de GataBot. **¡Estamos aquí para garantizar transparencia y calidad en nuestra red de distribución!**
+</details>
+
+> Recuerda leer la **[Política de GataBot. 😼](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)** antes de hacer algo con este repositorio. 
+  
+----
+### 💠 [`IDIOMAS DISPONIBLES PARA GATABOT`](https://github.com/GataNina-Li/GataBot-MD/blob/master/config.js) 
+#### 🌐 Español  
+#### 🌐 Inglés (English) 
+#### 🌐 Portugués (Português)
+#### 🌐 Indonesio (Bahasa Indonesia) 
+#### 🌐 Árabe (عرب)
+#### 🌐 Hindi (Indian Language)
+- [x] Ejemplo <details><summary>Idioma</summary><img src="https://i.imgur.com/ZTwOGkT.jpg"></details>
 ----
 
- ### `✦ 𝐕𝐄𝐑𝐒𝐈𝐎𝐍𝐄 𝐃𝐈 𝐓𝐄𝐑𝐌𝐔𝐗 𝐍𝐄𝐂𝐄𝐒𝐒𝐀𝐑𝐈𝐀: `  
- https://www.mediafire.com/file/0npdmv51pnttps0/com.termux_0.119.1-119_minAPI21(arm64-v8a,armeabi-v7a,x86,x86_64)(nodpi)_apkmirror.com.apk/file 
-
- ### `✦ 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐏𝐄𝐑 𝐈𝐍𝐒𝐓𝐀𝐋𝐋𝐀𝐑𝐄 𝐋𝐀 𝐂𝐀𝐑𝐓𝐄𝐋𝐋𝐀 𝐃𝐈 𝐁𝐢𝐱𝐛𝐲𝐁𝐨𝐭-𝐌𝐝 🔮` 
- ```bash 
- cd /sdcard && rm -rf BixbyBot && git clone https://github.com/MoonContentCreator/BixbyBot-Md.git && cd BixbyBot-Md
- ``` 
- COPIALO TUTTO E INCOLLALO SU TERMUX, NON COPIARE MEZZA O UNA COSA, E' TUTTO INSIEME 
-
- ### `✦ 𝐀𝐓𝐓𝐈𝐕𝐀 𝐁𝐢𝐱𝐛𝐲𝐁𝐨𝐭-𝐌𝐝 🔮 𝐈𝐍 𝐓𝐄𝐑𝐌𝐔𝐗 `  
- - 𝐃𝐈𝐆𝐈𝐓𝐀 𝐐𝐔𝐄𝐒𝐓𝐈 𝐂𝐎𝐌𝐀𝐍𝐃𝐈: 
- ```bash 
- termux-setup-storage 
- ``` 
-
- ```bash 
- pkg upgrade -y && pkg update -y 
- ``` 
-
- ```bash 
- pkg install git -y 
- ```
-
- ```bash 
- pkg install ffmpeg -y 
- ```   
-
- ```bash 
- pkg install imagemagick -y 
- ```  
-
- ```bash 
- pkg install yarn 
- ```     
-
- ```bash 
- cd /sdcard && rm -rf BixbyBot && git clone https://github.com/MoonContentCreator/BixbyBot-Md.git
- ``` 
-
- ```bash 
- cd /sdcard/BixbyBot-Md 
- ```   
-
- ```bash 
- yarn
- ``` 
-
- ```bash 
- npm start
- ``` 
-
- ### `✦ 𝐀𝐕𝐕𝐈𝐀 𝐁𝐢𝐱𝐛𝐲𝐁𝐨𝐭-𝐌𝐝 🔮 𝐈𝐍 𝐓𝐄𝐑𝐌𝐔𝐗` 
-
- DIGITA QUESTI COMANDI: 
- ```bash 
- > cd /sdcard/BixbyBot-Md 
- ``` 
- ```bash 
- > npm start
- ``` 
-
- ### `𝐁𝐢𝐱𝐛𝐲𝐁𝐨𝐭-𝐌𝐝 🔮 𝟐𝟒/𝟕 𝐀𝐜𝐭𝐢𝐯𝐚𝐭𝐢𝐨𝐧 𝐓𝐄𝐑𝐌𝐔𝐗` 
-
-  ```bash 
- > npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs 
-   ``` 
-
- ### `✦ 𝐎𝐓𝐓𝐈𝐄𝐍𝐈 𝐔𝐍 𝐀𝐋𝐓𝐑𝐎 𝐂𝐎𝐃𝐈𝐂𝐄 𝐐𝐑 𝐁𝐢𝐱𝐛𝐲𝐁𝐨𝐭-𝐌𝐝 🔮 ` 
-
- DIGITA QUESTI COMANDI: 
- ```
- > cd /sdcard/BixbyBot-Md 
- ``` 
- ```bash 
- > rm -rf Sessioni 
- ``` 
- ```bash 
- > npm start
- ``` 
-
- ### `𝐅𝐎𝐑 𝐖𝐈𝐍𝐃𝐎𝐖𝐒/𝐕𝐏𝐒/𝐑𝐃𝐏 𝐔𝐒𝐄𝐑` 
-
- * Scarica e installa Git [`Clicca qui`](https://git-scm.com/downloads) 
- * Scarica e installa NodeJS [`Clicca qui`](https://nodejs.org/en/download) 
- * Scarica e installa ffmpeg [`Clicca qui`](https://ffmpeg.org/download.html) (**Non dimenticare Aggiungi ffmpeg alle variabili PATH**) 
- * Scarica e installa ImageMagick [`Clicca qui`](https://imagemagick.org/script/download.php) 
-
- ```bash 
- git clone https://github.com/MoonContentCreator/BixbyBot-Md 
- ``` 
- ```bash 
- cd BixbyBot-Md 
- ``` 
- ```bash 
- npm install 
- ``` 
- ```bash 
- npm update 
- ``` 
-
- --------- 
-
- ### `Run` 
-
- ```bash 
- node . 
- ``` 
-
- --------- 
- ### `✦ 𝐎𝐓𝐓𝐈𝐄𝐍𝐈 𝐔𝐍 𝐀𝐋𝐓𝐑𝐎 𝐂𝐎𝐃𝐈𝐂𝐄 𝐐𝐑 𝐁𝐢𝐱𝐛𝐲𝐁𝐨𝐭-𝐌𝐝 🔮 ` 
-
- 𝐃𝐈𝐆𝐈𝐓𝐀 𝐐𝐔𝐄𝐒𝐓𝐈 𝐂𝐎𝐌𝐀𝐍𝐃𝐈: 
- ```bash 
- > cd  
- ``` 
- ```bash 
- > cd /sdcard/BixbyBot-Md 
- ``` 
- ```bash 
- > rm Sessioni 
- ``` 
- ```bash 
- > sh start.sh 
- ``` 
- --------- 
- ### `✦ 𝐍𝐎𝐓𝐄 𝐁𝐢𝐱𝐛𝐲𝐁𝐨𝐭-𝐌𝐝 🔮` 
-  - 𝐈𝐋 𝐁𝐎𝐓 𝐁𝐢𝐱𝐛𝐲𝐁𝐨𝐭-𝐌𝐝 🔮 𝐄' 𝐂𝐎𝐌𝐏𝐀𝐓𝐈𝐁𝐈𝐋𝐄 𝐂𝐎𝐍 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐁𝐔𝐒𝐈𝐍𝐄𝐒𝐒 𝐄 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐍𝐎𝐑𝐌𝐀𝐋𝐄 
- - 𝐏𝐄𝐑 𝐁𝐋𝐎𝐂𝐂𝐀𝐑𝐄 𝐆𝐋𝐈 𝐔𝐓𝐄𝐍𝐓𝐈 𝐈𝐍 𝐏𝐑𝐈𝐕𝐀𝐓𝐎 𝐄𝐒𝐄𝐆𝐔𝐈 𝐈𝐋 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 .𝐚𝐭𝐭𝐢𝐯𝐚 𝐚𝐧𝐭𝐢𝐩𝐫𝐢𝐯𝐚𝐭𝐨 
- - 𝐒𝐄 𝐈 𝐌𝐄𝐒𝐒𝐀𝐆𝐆𝐈 𝐃𝐄𝐋 𝐁𝐎𝐓 𝐑𝐈𝐒𝐔𝐋𝐓𝐀𝐍𝐎 𝐈𝐍 "𝐀𝐓𝐓𝐄𝐒𝐀" 𝐄𝐒𝐄𝐆𝐔𝐈 𝐈𝐋 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 .𝐝𝐬 𝐄 𝐀𝐓𝐓𝐄𝐍𝐃𝐈 𝐐𝐔𝐀𝐋𝐂𝐇𝐄 𝐈𝐒𝐓𝐀𝐍𝐓𝐄 
- --------- 
-## `🌟 𝐂𝐑𝐄𝐃𝐈𝐓𝐈 𝐄 𝐁𝐀𝐒𝐄 𝐃𝐄𝐋 𝐁𝐎𝐓`  
- <a href="https://github.com/BrunoSobrino/TheMystic-Bot-MD"><img src="https://github.com/brunosobrino.png" width="100" height="100" alt="adiwajshing"/></a> 
- <div><button id="boton" type="button">TheMystic-Bot-MD - By BrunoSobrino</button></div> 
-
---------- 
-
- ## `🌟 𝐂𝐎𝐋𝐋𝐀𝐁𝐎𝐑𝐀𝐓𝐎𝐑𝐈 `  
-<a href="https://github.com/MoonContentCreator/BixbyBot-Md/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=MoonContentCreator/BixbyBot-Md" /> 
+### 🌟 DESARROLLADORES
+<a href="https://github.com/GataNina-Li/GataBot-MD/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=GataNina-Li/GataBot-MD" /> 
 </a>
+
+### 🌟 AGRADECIMIENTOS
+[![TheShadowBrokers1](https://github.com/BrunoSobrino.png?size=60)](https://github.com/BrunoSobrino) 
+
+### 🌟 CREADORA 
+[![GataNina-Li](https://github.com/GataNina-Li.png?size=100)](https://github.com/GataNina-Li) 
+> Copyright (c) 2024 **[GataNina-Li](https://github.com/GataNina-Li/GataBot-MD/blob/master/LICENSE)**.
