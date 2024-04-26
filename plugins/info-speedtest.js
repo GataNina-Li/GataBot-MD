@@ -4,8 +4,9 @@ const exec = promisify(cp.exec).bind(cp);
 
 const handler = async (m) => {
     let o;
+m.reply(wait) 
     try {
-        o = await exec('python3 ookla-speedtest.py --secure --share');
+        o = await exec('python3 speed.py --secure --share');
         const {stdout, stderr} = o;
         if (stdout.trim()) {
             const match = stdout.match(/http[^"]+\.png/);
@@ -25,4 +26,5 @@ const handler = async (m) => {
 handler.help = ['speedtest'];
 handler.tags = ['info'];
 handler.command = /^(speedtest?|test?speed)$/i;
+handler.register = true
 export default handler;
