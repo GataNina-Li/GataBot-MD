@@ -117,7 +117,7 @@ title: "VER LISTA",
 sections: [
 { title: "Información", highlight_label: "Popular",
 rows: [
-{ header: "Redes Oficiales Infórmate por medios oficiales sobre GataBot", title: "*Infórmate* por medios oficiales sobre GataBot", description: "*Para:* Todos Infórmate por medios oficiales sobre GataBot", id: usedPrefix + "cuentasgb" },
+{ header: "Redes Oficiales Infórmate por medios oficiales sobre GataBot", title: "*Infórmate* por medios oficiales sobre GataBot", description: "*Para:* Todos Infórmate por medios oficiales sobre GataBot Infórmate por medios oficiales sobre GataBot", id: usedPrefix + "cuentasgb" },
 { header: "header", title: "title8", highlight_label: "label", description: "description", id: "id" }
 ]},
 { title: "Información", highlight_label: "Popular",
