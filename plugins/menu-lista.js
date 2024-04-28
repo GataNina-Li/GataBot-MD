@@ -113,20 +113,18 @@ let menu = `
 ⊜ *Tokens ➟* ${joincount} 🪙`.trim()
       
 const buttonParamsJson = JSON.stringify({
-header: "✅ Redes",
 title: "VER LISTA",
+description: "Infórmate por medios oficiales sobre GataBot",
 sections: [
 { title: "Información", highlight_label: "Popular",
 rows: [
 { header: "✅ Redes", title: "🔓 Para: Todos", description: "Infórmate por medios oficiales sobre GataBot", id: usedPrefix + "cuentasgb" },
 { header: "📢 Grupos/Canales", title: "🔓 Para: Todos", description: "¡Te esperamos!", id: usedPrefix + "grupos" },
-{ header: "🎁 Donar", title: "🔓 Para: Todos", description: "GataBot se mantiene funcionando gracias a donaciones ¡tú también puedes sumarte apoyando el proyecto!", id: usedPrefix + "donar" },
-{ header: "header", title: "title8", description: "description", id: "id" },
-{ header: "header", title: "title8", description: "description", id: "id" }
+{ header: "🎁 Donar", title: "🔓 Para: Todos", description: "GataBot se mantiene funcionando gracias a donaciones ¡tú también puedes sumarte apoyando el proyecto!", id: usedPrefix + "donar" }
 ]},
-{ title: "Información", highlight_label: "Popular",
+{ title: "🔖 Atajos", highlight_label: "Popular",
 rows: [
-{ header: "header", title: "title7", description: "description", id: "id" },
+{ header: "🆕 Ser Bot (código)", title: "🔓 Para: Todos", description: "¡Conviértete en Bot con el método de código de 8 dígitos!", id: "id" },
 { header: "header", title: "title8", highlight_label: "label", description: "description", id: "id" }
 ]}
 ]})
