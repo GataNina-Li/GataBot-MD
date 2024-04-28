@@ -131,7 +131,7 @@ rows: [
 ]},
 { title: "Ⓜ️ Menú", highlight_label: "Popular",
 rows: [
-{ header: "⭐ Menú completo", description: "Visita todos los comandos", id: usedPrefix + "allmenu" }
+{ header: "⭐ Menú completo", title: "", description: "Visita todos los comandos", id: usedPrefix + "allmenu" }
 ]}
 ]})
 const interactiveMessage = {
