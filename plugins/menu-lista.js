@@ -217,7 +217,8 @@ buttons: [{
 })
 })}
 }, {})
-await conn.relayMessage(m.chat, { viewOnceMessage: { message }}, {})
+//await conn.relayMessage(m.chat, { viewOnceMessage: { message }}, {})
+await conn.relayMessage(m.chat, { viewOnceMessage: msg.message }, { messageId: msg.key.id })
 }
 	
 } catch (e) {
