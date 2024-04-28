@@ -180,46 +180,43 @@ await conn.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mime
 //conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
 } else {
 
-let buttonParamsJson = JSON.stringify({
+const buttonParamsJson = JSON.stringify({
 title: "title",
-sections: [
-{ title: "title", highlight_label: "label",
-rows: [
-{ header: "header", title: "title", description: "description", id: "id" },
-{ header: "header", title: "title", description: "description", id: "id" }
-]}
-]
-})
+    sections: [
+        { 
+            title: "title", 
+            highlight_label: "label",
+            rows: [
+                { header: "header", title: "title", description: "description", id: "id" },
+                { header: "header", title: "title", description: "description", id: "id" }
+            ]
+        }
+    ]
+});
 
-let msg = generateWAMessageFromContent(m.chat, {
-viewOnceMessage: {
-message: {
-"messageContextInfo": {
-"deviceListMetadata": {},
-"deviceListMetadataVersion": 2
-},
-interactiveMessage: proto.Message.InteractiveMessage.create({
-body: proto.Message.InteractiveMessage.Body.create({
-text: "test"
-}),
-footer: proto.Message.InteractiveMessage.Footer.create({
-text: "test"
-}),
-header: proto.Message.InteractiveMessage.Header.create({
-title: "test",
-subtitle: "test",
-hasMediaAttachment: false
-}),
-nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-buttons: [{ 
-"name": "single_select",
-"buttonParamsJson": buttonParamsJson
-}]
-})
-})}
-}}, {})
-//await conn.relayMessage(m.chat, { viewOnceMessage: { message }}, {})
-await conn.relayMessage(msg.key.remoteJid, msg.message, { messageId: msg.key.id })
+const interactiveMessage = proto.Message.InteractiveMessage.create({
+    body: proto.Message.InteractiveMessage.Body.create({ text: "test" }),
+    footer: proto.Message.InteractiveMessage.Footer.create({ text: "test" }),
+    header: proto.Message.InteractiveMessage.Header.create({ title: "test", subtitle: "test", hasMediaAttachment: false }),
+    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+        buttons: [{ 
+            name: "single_select",
+            buttonParamsJson
+        }]
+    })
+});
+
+const message = {
+    messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 },
+    interactiveMessage
+};
+
+//const viewOnceMessage = { message };
+
+await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {});
+
+
+//await conn.relayMessage(msg.key.remoteJid, msg.message, { messageId: msg.key.id })
 }
 	
 } catch (e) {
