@@ -113,6 +113,7 @@ let menu = `
 ⊜ *Tokens ➟* ${joincount} 🪙`.trim()
       
 const buttonParamsJson = JSON.stringify({
+header: "✅ Redes",
 title: "VER LISTA",
 sections: [
 { title: "Información", highlight_label: "Popular",
