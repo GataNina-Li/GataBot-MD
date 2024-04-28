@@ -3,7 +3,7 @@ const { generateWAMessageFromContent, proto } = pkg
 
 var handler = async (m, { conn, usedPrefix }) => {
 
-let msg = generateWAMessageFromContent(jid, {
+let msg = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
     message: {
         "messageContextInfo": {
