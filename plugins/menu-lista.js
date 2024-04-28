@@ -116,7 +116,7 @@ const buttonParamsJson = JSON.stringify({
 title: "VER LISTA",
 description: "Infórmate por medios oficiales sobre GataBot",
 sections: [
-{ title: "Información", highlight_label: "Popular",
+{ title: "ℹ️ Información", highlight_label: "Popular",
 rows: [
 { header: "✅ Redes", title: "🔓 Para: Todos", description: "Infórmate por medios oficiales sobre GataBot", id: usedPrefix + "cuentasgb" },
 { header: "📢 Grupos/Canales", title: "🔓 Para: Todos", description: "¡Te esperamos!", id: usedPrefix + "grupos" },
@@ -124,8 +124,17 @@ rows: [
 ]},
 { title: "🔖 Atajos", highlight_label: "Popular",
 rows: [
-{ header: "🆕 Ser Bot (código)", title: "🔓 Para: Todos", description: "¡Conviértete en Bot con el método de código de 8 dígitos!", id: "id" },
-{ header: "header", title: "title8", highlight_label: "label", description: "description", id: "id" }
+{ header: "🆕 Ser Bot (código)", title: "🔓 Para: Todos", description: "¡Conviértete en Bot con el método de código de 8 dígitos!", id: usedPrefix + "serbot --code" },
+{ header: "🤖 Ser Bot (qr)", title: "🔓 Para: Todos", description: "Forma estándar de ser bot con código QR", id: usedPrefix + "serbot" },
+{ header: "🚄 Velocidad", title: "🔓 Para: Todos", description: "Seleccione esto si desea saber el ping del Bot", id: usedPrefix + "ping" },
+{ header: "😺 Estado", title: "🔓 Para: Todos", description: "Conoce en que estado se encuentra GataBot", id: usedPrefix + "estado" }
+]},
+{ title: "Ⓜ️ Menú", highlight_label: "Popular",
+rows: [
+{ header: "⭐ Menú completo", title: null, description: "Visita todos los comandos", id: usedPrefix + "allmenu" },
+{ header: "🤖 Ser Bot (qr)", title: "🔓 Para: Todos", description: "Forma estándar de ser bot con código QR", id: usedPrefix + "serbot" },
+{ header: "🚄 Velocidad", title: "🔓 Para: Todos", description: "Seleccione esto si desea saber el ping del Bot", id: usedPrefix + "ping" },
+{ header: "😺 Estado", title: "🔓 Para: Todos", description: "Conoce en que estado se encuentra GataBot", id: usedPrefix + "estado" }
 ]}
 ]})
 const interactiveMessage = {
