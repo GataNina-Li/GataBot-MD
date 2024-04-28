@@ -131,10 +131,7 @@ rows: [
 ]},
 { title: "Ⓜ️ Menú", highlight_label: "Popular",
 rows: [
-{ header: "⭐ Menú completo", title: null, description: "Visita todos los comandos", id: usedPrefix + "allmenu" },
-{ header: "🤖 Ser Bot (qr)", title: "🔓 Para: Todos", description: "Forma estándar de ser bot con código QR", id: usedPrefix + "serbot" },
-{ header: "🚄 Velocidad", title: "🔓 Para: Todos", description: "Seleccione esto si desea saber el ping del Bot", id: usedPrefix + "ping" },
-{ header: "😺 Estado", title: "🔓 Para: Todos", description: "Conoce en que estado se encuentra GataBot", id: usedPrefix + "estado" }
+{ header: "⭐ Menú completo", description: "Visita todos los comandos", id: usedPrefix + "allmenu" }
 ]}
 ]})
 const interactiveMessage = {
