@@ -113,11 +113,11 @@ let menu = `
 ⊜ *Tokens ➟* ${joincount} 🪙`.trim()
       
 const buttonParamsJson = JSON.stringify({
-title: "Ver lista",
+title: "VER LISTA",
 sections: [
 { title: "Información", highlight_label: "Popular",
 rows: [
-{ header: "header", title: "title7", description: "description", id: "id" },
+{ header: "Redes Oficiales", title: "Infórmate por medios oficiales sobre GataBot", description: "Para: Todos", id: usedPrefix + "cuentasgb" },
 { header: "header", title: "title8", highlight_label: "label", description: "description", id: "id" }
 ]},
 { title: "Información", highlight_label: "Popular",
