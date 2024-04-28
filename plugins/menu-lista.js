@@ -115,7 +115,12 @@ let menu = `
 const buttonParamsJson = JSON.stringify({
 title: "Ver lista",
 sections: [
-{ title: "title6", highlight_label: "Popular",
+{ title: "Información", highlight_label: "Popular",
+rows: [
+{ header: "header", title: "title7", description: "description", id: "id" },
+{ header: "header", title: "title8", highlight_label: "label", description: "description", id: "id" }
+]},
+{ title: "Información", highlight_label: "Popular",
 rows: [
 { header: "header", title: "title7", description: "description", id: "id" },
 { header: "header", title: "title8", highlight_label: "label", description: "description", id: "id" }
