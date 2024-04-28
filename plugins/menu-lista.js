@@ -11,6 +11,7 @@ import { promises } from 'fs'
 import { join } from 'path'
 let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, command }) => {
 const dispositivo = await getDevice(m.key.id)
+console.log(dispositivo)
 try {
 let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
 let { exp, limit, level, role } = global.db.data.users[m.sender]
@@ -177,7 +178,6 @@ await conn.sendFile(m.chat, gataImg, 'lp.jpg', menu, fkontak, false, { contextIn
 await conn.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
 //conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
 } else {
-
 const buttonParamsJson = JSON.stringify({
 title: "title",
 sections: [
