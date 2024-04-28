@@ -99,7 +99,7 @@ rows: [
 ]})
 const interactiveMessage = {
 body: { text: "test1" },
-footer: { text: "test2" },
+footer: { text: wm + ` \nSi algo no funciona utilice el comando *${usedPrefix}menu2*` },
 header: { title: "test3", subtitle: "test4", hasMediaAttachment: false },
 nativeFlowMessage: { buttons: [{ 
 name: "single_select",
