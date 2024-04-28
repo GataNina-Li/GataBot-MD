@@ -1,3 +1,8 @@
+// Botones interactivos adptados y funcionando por Gata Dios (GataNina-Li)
+
+import pkg from '@whiskeysockets/baileys';
+const { generateWAMessageFromContent, proto, getDevice } = pkg
+
 import fs from 'fs'
 import moment from 'moment-timezone'
 import fetch from 'node-fetch'
@@ -7,6 +12,7 @@ import PhoneNumber from 'awesome-phonenumber'
 import { promises } from 'fs'
 import { join } from 'path'
 let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, command }) => {
+const dispositivo = await getDevice(m.key.id)
 try {
 let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
 let { exp, limit, level, role } = global.db.data.users[m.sender]
@@ -83,6 +89,7 @@ months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto
 lugarFecha.locale('es', formatoFecha)
 const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
 
+if (dispositivo !== 'desktop') {  
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : taguser} 💖*
 
 ⎔ \`\`\`${horarioFecha}\`\`\`
@@ -171,6 +178,47 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 await conn.sendFile(m.chat, gataImg, 'lp.jpg', menu, fkontak, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu}}}) 
 await conn.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
 //conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
+} else {
+
+let buttonParamsJson = JSON.stringify({
+title: "title",
+sections: [
+{ title: "title", highlight_label: "label",
+rows: [
+{ header: "header", title: "title", description: "description", id: "id" },
+{ header: "header", title: "title", description: "description", id: "id" }
+]}
+]
+})
+
+let msg = generateWAMessageFromContent(m.chat, {
+message: {
+"messageContextInfo": {
+"deviceListMetadata": {},
+"deviceListMetadataVersion": 2
+},
+interactiveMessage: proto.Message.InteractiveMessage.create({
+body: proto.Message.InteractiveMessage.Body.create({
+text: "test"
+}),
+footer: proto.Message.InteractiveMessage.Footer.create({
+text: "test"
+}),
+header: proto.Message.InteractiveMessage.Header.create({
+title: "test",
+subtitle: "test",
+hasMediaAttachment: false
+}),
+nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+buttons: [{ 
+"name": "single_select",
+"buttonParamsJson": buttonParamsJson
+}]
+})
+})}
+}, {})
+await conn.relayMessage(m.chat, { viewOnceMessage: { message }}, {})
+}
 	
 } catch (e) {
 await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '*\n*' + usedPrefix + `${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'}` + '* ' + `${lenguajeGB.smsMensError2()} ` + usedPrefix + command)
