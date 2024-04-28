@@ -117,7 +117,10 @@ title: "VER LISTA",
 sections: [
 { title: "Información", highlight_label: "Popular",
 rows: [
-{ header: "✅ Redes Oficiales", title: "🔐 Para: Todos", description: "Infórmate por medios oficiales sobre GataBot", id: usedPrefix + "cuentasgb" },
+{ header: "✅ Redes", title: "🔓 Para: Todos", description: "Infórmate por medios oficiales sobre GataBot", id: usedPrefix + "cuentasgb" },
+{ header: "📢 Grupos/Canales", title: "🔓 Para: Todos", description: "¡Te esperamos!", id: usedPrefix + "grupos" },
+{ header: "🎁 Donar", title: "🔓 Para: Todos", description: "GataBot se mantiene funcionando gracias a donaciones ¡tú también puedes sumarte apoyando el proyecto!", id: usedPrefix + "donar" },
+{ header: "header", title: "title8", description: "description", id: "id" },
 { header: "header", title: "title8", description: "description", id: "id" }
 ]},
 { title: "Información", highlight_label: "Popular",
