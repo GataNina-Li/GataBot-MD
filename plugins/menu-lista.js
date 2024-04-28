@@ -87,7 +87,7 @@ months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto
 lugarFecha.locale('es', formatoFecha)
 const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
 
-if (/web|desktop|unknown/gi.test(dispositivo)) {  
+if (!/web|desktop|unknown/gi.test(dispositivo)) {  
 const buttonParamsJson = JSON.stringify({
 title: "title",
 sections: [
