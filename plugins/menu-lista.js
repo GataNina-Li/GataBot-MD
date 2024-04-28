@@ -118,7 +118,7 @@ sections: [
 { title: "title6", highlight_label: "label",
 rows: [
 { header: "header", title: "title7", description: "description", id: "id" },
-{ header: "header", title: "title8", description: "description", id: "id" }
+{ header: "header", title: "title8", description: "description", id: "id", highlight_label: "label" }
 ]}
 ]})
 const interactiveMessage = {
