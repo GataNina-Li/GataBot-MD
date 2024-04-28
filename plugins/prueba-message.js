@@ -1,4 +1,5 @@
-import { generateWAMessageFromContent, proto } from '@whiskeysockets/baileys'
+import pkg from '@whiskeysockets/baileys';
+const { generateWAMessageFromContent, proto } = pkg
 
 var handler = async (m, { conn, usedPrefix }) => {
 
