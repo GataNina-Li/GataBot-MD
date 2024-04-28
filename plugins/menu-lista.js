@@ -180,7 +180,7 @@ await conn.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mime
 //conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
 } else {
 
-const buttonParamsJson = JSON.stringify({
+/*const buttonParamsJson = JSON.stringify({
 title: "title",
     sections: [
         { 
@@ -209,7 +209,41 @@ messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 },
 interactiveMessage
 }
 
+await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})*/
+
+const buttonParamsJson = JSON.stringify({
+    title: "title",
+    sections: [
+        { 
+            title: "title", 
+            highlight_label: "label",
+            rows: [
+                { header: "header", title: "title", description: "description", id: "id" },
+                { header: "header", title: "title", description: "description", id: "id" }
+            ]
+        }
+    ]
+});
+
+const interactiveMessage = {
+    body: { text: "test" },
+    footer: { text: "test" },
+    header: { title: "test", subtitle: "test", hasMediaAttachment: false },
+    nativeFlowMessage: {
+        buttons: [{ 
+            name: "single_select",
+            buttonParamsJson
+        }]
+    }
+};
+
+const message = {
+    messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 },
+    interactiveMessage
+};
+
 await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})
+
 
 }
 	
