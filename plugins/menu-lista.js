@@ -1,8 +1,6 @@
 // Botones interactivos adptados y funcionando por Gata Dios (GataNina-Li)
 
-import pkg from '@whiskeysockets/baileys';
-const { generateWAMessageFromContent, proto, getDevice } = pkg
-
+import { getDevice } from '@whiskeysockets/baileys'
 import fs from 'fs'
 import moment from 'moment-timezone'
 import fetch from 'node-fetch'
@@ -180,74 +178,28 @@ await conn.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mime
 //conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
 } else {
 
-/*const buttonParamsJson = JSON.stringify({
+const buttonParamsJson = JSON.stringify({
 title: "title",
-    sections: [
-        { 
-            title: "title", 
-            highlight_label: "label",
-            rows: [
-                { header: "header", title: "title", description: "description", id: "id" },
-                { header: "header", title: "title", description: "description", id: "id" }
-            ]
-        }
-    ]
-})
-const interactiveMessage = m.Message.InteractiveMessage.create({
-body: m.Message.InteractiveMessage.Body.create({ text: "test" }),
-footer: m.Message.InteractiveMessage.Footer.create({ text: "test" }),
-header: m.Message.InteractiveMessage.Header.create({ title: "test", subtitle: "test", hasMediaAttachment: false }),
-nativeFlowMessage: m.Message.InteractiveMessage.NativeFlowMessage.create({
-buttons: [{ 
+sections: [
+{ title: "title", highlight_label: "label",
+rows: [
+{ header: "header", title: "title", description: "description", id: "id" },
+{ header: "header", title: "title", description: "description", id: "id" }
+]}
+]})
+const interactiveMessage = {
+body: { text: "test" },
+footer: { text: "test" },
+header: { title: "test", subtitle: "test", hasMediaAttachment: false },
+nativeFlowMessage: { buttons: [{ 
 name: "single_select",
 buttonParamsJson
 }]
-})
-})
-const message = {
-messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 },
-interactiveMessage
-}
-
-await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})*/
-
-const buttonParamsJson = JSON.stringify({
-    title: "title",
-    sections: [
-        { 
-            title: "title", 
-            highlight_label: "label",
-            rows: [
-                { header: "header", title: "title", description: "description", id: "id" },
-                { header: "header", title: "title", description: "description", id: "id" }
-            ]
-        }
-    ]
-});
-
-const interactiveMessage = {
-    body: { text: "test" },
-    footer: { text: "test" },
-    header: { title: "test", subtitle: "test", hasMediaAttachment: false },
-    nativeFlowMessage: {
-        buttons: [{ 
-            name: "single_select",
-            buttonParamsJson
-        }]
-    }
-};
-
-const message = {
-    messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 },
-    interactiveMessage
-};
-
+}}
+const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, interactiveMessage }
 await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})
 
-
-}
-	
-} catch (e) {
+}} catch (e) {
 await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '*\n*' + usedPrefix + `${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'}` + '* ' + `${lenguajeGB.smsMensError2()} ` + usedPrefix + command)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}}
