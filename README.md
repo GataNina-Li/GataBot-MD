@@ -234,18 +234,18 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 ### 🔵 CAFIREXOS 
 > Optimice la implementación de **GataBot** mediante la integración en un servicio de alojamiento de alto rendimiento.
 
-<a href="https://www.cafirexos.com"><img src="https://grxcwmcwbxwj.objectstorage.sa-saopaulo-1.oci.customer-oci.com/n/grxcwmcwbxwj/b/cafirexos/o/logos%2Flogo.png" height="125px"></a>
+<a href="https://www.cafirexos.com"><img src="https://r2.cafirexos.com/logos%2Flogo_cfros_2000x2000.png" height="125px"></a>
 ### Información del Host
 
-- **Página:** [`Cafirexos`](https://www.cafirexos.com)
+- **Página principal:** [`Cafirexos`](https://www.cafirexos.com)
 - **Dashboard:** [`Aquí`](https://dash.cafirexos.com)
-- **Panel:** [`Aquí`](https://panel.cafirexos.com/)
-- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VaFVSkRCMY0KFmCMDX2q)
-- **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/FBtyc8Q5w2iJXVl5zGJdFJ)
-- **Correo:** [`Aquí`](mailto:contacto@cafirexos.com)
+- **Panel:** [`Aquí`](https://panel.cafirexos.com)
+- **Canal de WhatsApp:** [`Aquí`](https://cafirexos.com/whatsapp)
+- **Grupo de WhatsApp:** [`Aquí`](https://cafirexos.com/comunidad)
+- **Correo electrónico:** [`Aquí`](mailto:contacto@cafirexos.com)
 - **Contacto:** [`Diego Flores`](https://wa.me/50497150165)
 
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/VPvoE5k.jpeg"></details>
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://r2.cafirexos.com/otros%2Fconfig-srv_gatabotmd.png"></details>
 ----
 ### ☁️ VORTEXUS CLOUD - HOST
 > Integra **GataBot** en un servicio de alojamiento eficiente.
