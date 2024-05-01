@@ -8,46 +8,13 @@ if (!args || !args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}$
 try { 
 const yt_play = await search(args.join(' '))
 let additionalText = ''
-if (command === 'play3' || command == 'playaudiodoc') {
+if (command == 'playaudiodoc' || command == 'ytmp3doc') {
 additionalText = '𝘼𝙐𝘿𝙄𝙊'
-} else if (command === 'play4' || command == 'playvideodoc') {
+} else if (command == 'playvideodoc' || command == 'ytmp4doc') {
 additionalText = '𝙑𝙄𝘿𝙀𝙊'
 }
-const texto1 = `𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
-
-ও ${mid.smsYT1}
-» ${yt_play[0].title}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও ${mid.smsYT15}
-» ${yt_play[0].ago}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও ${mid.smsYT5}
-» ${secondString(yt_play[0].duration.seconds)}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও  ${mid.smsYT10}
-» ${MilesNumber(yt_play[0].views)}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও  ${mid.smsYT2}
-» ${yt_play[0].author.name}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও ${mid.smsYT4}
-» ${yt_play[0].url}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও ${mid.smsAguarde(additionalText)}
-
-*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`.trim()
-await conn.sendMessage(m.chat, {
-text: texto1,
-contextInfo: {
-externalAdReply: {
-title: yt_play[0].title,
-body: packname,
-thumbnailUrl: yt_play[0].thumbnail, 
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: true
-}}} , { quoted: m })
-if (command == 'play3' || command == 'playaudiodoc') {
+conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙋𝙍𝙊𝙉𝙏𝙊 𝙏𝙀𝙉𝘿𝙍𝘼 𝙎𝙐 𝘿𝙊𝘾𝙐𝙈𝙀𝙉𝙏𝙊 𝘿𝙀 ${additionalText}, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍\n\n𝙎𝙊𝙊𝙉 𝙔𝙊𝙐 𝙒𝙄𝙇𝙇 𝙃𝘼𝙑𝙀 𝙔𝙊𝙐𝙍 ${additionalText} 𝘿𝙊𝘾𝙐𝙈𝙀𝙉𝙏, 𝙋𝙇𝙀𝘼𝙎𝙀 𝙒𝘼𝙄𝙏`, fkontak,  m)
+if (command == 'playaudiodoc' || command == 'ytmp3doc') {
 try {
 const q = '128kbps';
 const v = yt_play[0].url;
@@ -100,7 +67,7 @@ renderLargerThumbnail: true
 handler.limit = 2
 } catch {
 }}}}
-if (command == 'play4' || command == 'playvideodoc') {
+if (command == 'playvideodoc' || command == 'ytmp4doc') {
 try {
 const qu = '360';
 const q = qu + 'p';
@@ -142,9 +109,9 @@ console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗
 console.log(e)
 handler.limit = 0
 }}
-handler.help = ['play3', 'play4'].map((v) => v + ' < busqueda >');
+handler.help = ['ytmp4doc', 'ytmp3doc'].map((v) => v + ' < busqueda >');
 handler.tags = ['downloader'];
-handler.command = /^(playaudiodoc|playdoc|playdoc2|play3|play4|playvideodoc)$/i;
+handler.command = /^(ytmp4doc|ytmp3doc|playaudiodoc|playdoc|playdoc2|playvideodoc)$/i;
 //handler.limit = 3
 handler.register = true
 export default handler;
