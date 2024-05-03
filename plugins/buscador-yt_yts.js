@@ -48,7 +48,7 @@ handler.help = ['playlist']
 handler.tags = ['dl']
 handler.command = /^playlist|ytbuscar|yts(earch)?$/i
 handler.limit = 1
-handler.level = 0
+handler.level = 3
 
 export default handler
 
