@@ -68,7 +68,7 @@ sourceUrl: accountsgb}}},
 if (/^bot$/i.test(m.text)) {
 await conn.reply(m.chat, bot, m, fakeChannel)
 await conn.sendPresenceUpdate('recording', m.chat)    
-await conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: estiloaudio })   
+await conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: 'estiloaudio' })   
 }
 
 if (/^e$/i.test(m.text) ) { //sin prefijo 
