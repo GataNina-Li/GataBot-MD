@@ -1511,9 +1511,10 @@ let chat = global.db.data.chats[msg?.chat] || {}
 if (!chat?.delete) return 
 if (!msg) return 
 if (!msg?.isGroup) return 
-if (participant == this.user.jid) return
-console.log(participant)
+//if (fromMe == this.user.jid) return
+console.log(fromMe)
 console.log(this.user.jid)
+console.log(m.message.extendedTextMessage.contextInfo.participant)
 const antideleteMessage = `*╭━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━ 𓃠*
 ${lenguajeGB['smsCont20']()} @${participant.split`@`[0]}
 ${lenguajeGB['smsCont21']()}
