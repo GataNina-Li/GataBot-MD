@@ -1,4 +1,4 @@
-let linkRegex = /(chat.whatsapp.com|wa.me|whatsapp.com\/channel)\/(?:invite\/)?([0-9A-Za-z]{1,99999})/i
+let linkRegex = /whatsapp.com|wa.me|whatsapp.com\/channel/i
 
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin, participants }) {
