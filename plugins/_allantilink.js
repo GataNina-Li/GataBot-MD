@@ -1,4 +1,4 @@
-/*import fetch from 'node-fetch'  
+import fetch from 'node-fetch'  
 const isLinkTik = /tiktok.com/i 
 const isLinkYt = /youtube.com|youtu.be/i 
 const isLinkTel = /telegram.com|t.me/i 
@@ -11,8 +11,7 @@ const isLinkTch = /twitch.tv/i
   
 let handler = m => m
 handler.before = async function (m, { conn, args, usedPrefix, command, isAdmin, isBotAdmin }) {
-if (m.isBaileys && m.fromMe)
-return !0
+if (m.isBaileys && m.fromMe) return !0
 if (!m.isGroup) return !1
 let chat = global.db.data.chats[m.chat]
 let bot = global.db.data.settings[this.user.jid] || {}
@@ -115,7 +114,7 @@ if (isBotAdmin && bot.restrict) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mDiscord} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-/if (remove[0].status === '404') return
+if (remove[0].status === '404') return
 } else if (!isBotAdmin) {
 return m.reply(mid.mAdvertencia + mid.mAdmin)
 } else if (!bot.restrict) {
@@ -148,8 +147,6 @@ return m.reply(mid.mAdvertencia + mid.mAdmin)
 return m.reply(mid.mAdvertencia + mid.mOwner)
 }}
 
-  
 return !0
 }
 export default handler
-*/
