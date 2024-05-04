@@ -33,7 +33,7 @@ conn.sendButton(m.chat, '🐈 ' + wm, `*╭━⊰ ${username} ⊱━დ*
 *┃ ${lenguajeGB.smsAutoLv5()} ${new Date().toLocaleString('id-ID')}*
 *╰━⊰ ${lenguajeGB.smsAutoLv1()} ⊱━━დ*
 
-*_${lenguajeGB.smsAutoLv6()}_*`, null, [[lenguajeGB.smsConMenu(), `/menu`]], null, null, m)
+*_${lenguajeGB.smsAutoLv6()}_*`, null, [[lenguajeGB.smsConMenu(), `/menu`]], null, null, fkontak)
 
 
 let especial = ['limit', 'diamond', 'joincount', 'emerald', 'berlian', 'kyubi', 'gold', 'money', 'tiketcoin', 'stamina'].getRandom()
