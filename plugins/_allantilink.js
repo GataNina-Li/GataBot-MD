@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'  
+/*import fetch from 'node-fetch'  
 const isLinkTik = /tiktok.com/i 
 const isLinkYt = /youtube.com|youtu.be/i 
 const isLinkTel = /telegram.com|t.me/i 
@@ -152,3 +152,4 @@ return m.reply(mid.mAdvertencia + mid.mOwner)
 return !0
 }
 export default handler
+*/
