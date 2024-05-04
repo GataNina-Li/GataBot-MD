@@ -27,7 +27,7 @@ const isAntiLinkTw = isLinkTw.exec(m.text)
  
 if (chat.antiTiktok && isAntiLinkTik) {  
 if (isBotAdmin && bot.restrict) {
-await conn.reply(m.chat, `${mid.mTiktok} *@${toUser}*`, null, { mentions: [aa] })
+await conn.reply(m.chat, `${mid.mAdvertencia + mid.mTiktok} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 //await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 } else if (!isBotAdmin) {
@@ -38,7 +38,7 @@ return m.reply(mid.mOwner)
     
 if (chat.antiYoutube && isAntiLinkYt) {
 if (isBotAdmin && bot.restrict) {
-await conn.reply(m.chat, `${mid.mYoutube} *@${toUser}*`, null, { mentions: [aa] })
+await conn.reply(m.chat, `${mid.mAdvertencia + mid.mYoutube} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 //await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 } else if (!isBotAdmin) {
@@ -49,7 +49,7 @@ return m.reply(mid.mOwner)
     
 if (chat.antiTelegram && isAntiLinkTel) {
 if (isBotAdmin && bot.restrict) {
-await conn.reply(m.chat, `${mid.mTelegram} *@${toUser}*`, null, { mentions: [aa] })
+await conn.reply(m.chat, `${mid.mAdvertencia + mid.mTelegram} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 //await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 } else if (!isBotAdmin) {
@@ -60,7 +60,7 @@ return m.reply(mid.mOwner)
     
 if (chat.antiFacebook && isAntiLinkFb) {
 if (isBotAdmin && bot.restrict) {
-await conn.reply(m.chat, `${mid.mFacebook} *@${toUser}*`, null, { mentions: [aa] })
+await conn.reply(m.chat, `${mid.mAdvertencia + mid.mFacebook} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 //await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 } else if (!isBotAdmin) {
@@ -71,7 +71,7 @@ return m.reply(mid.mOwner)
     
 if (chat.antiInstagram && isAntiLinkIg) {
 if (isBotAdmin && bot.restrict) {
-await conn.reply(m.chat, `${mid.mInstagram} *@${toUser}*`, null, { mentions: [aa] })
+await conn.reply(m.chat, `${mid.mAdvertencia + mid.mInstagram} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 //await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 } else if (!isBotAdmin) {
@@ -82,7 +82,7 @@ return m.reply(mid.mOwner)
     
 if (chat.antiTwitter && isAntiLinkTw) {
 if (isBotAdmin && bot.restrict) {
-await conn.reply(m.chat, `${mid.mX} *@${toUser}*`, null, { mentions: [aa] })
+await conn.reply(m.chat, `${mid.mAdvertencia + mid.mX} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 //await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 } else if (!isBotAdmin) {
