@@ -19,7 +19,7 @@ if (isAdmin && chat.antiLink && m.text.includes(grupo)) return m.reply(`${lengua
 if (chat.antiLink && isGroupLink && !isAdmin) {
 if (isBotAdmin) {
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
-if (m.text.includes(linkThisGroup)) return
+if (m.text.includes(linkThisGroup)) return !0
 }      
 if (!isBotAdmin) return m.reply(mid.mAdvertencia + mid.mAdmin)
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
