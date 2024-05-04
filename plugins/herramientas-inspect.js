@@ -8,21 +8,20 @@ let handler = async (m, { conn, text }) => {
 		data = extractGroupMetadata(res),
 		txt = Object.keys(data).map(v => `*${v.capitalize()}:* ${data[v]}`).join('\n'),
 		pp = await conn.profilePictureUrl(data.id, 'image').catch(console.error)
-	if (pp) return conn.sendMessage(m.chat, { image: { url: pp }, caption: txt }, { quoted: m })
-	let groupinfo = `*┏━━━━━━━━━━━━━━━┓*
-*┃☂️ ⫹⫺ ID: ${data.id}*
-*┃🧪 ⫹⫺ Nombre: ${data.subject}*
-*┃📅 ⫹⫺ Creado: ${data.creation}*
-*┃👑 ⫹⫺ Owner: ${data.owner}*
-*┃👇 ⫹⫺ La descripción se enviarán a continuación 👇👇👇*
+let groupinfo = `*┏━━━━━━━━━━━━━━━┓*
+*┃☂️ ⫹⫺ ID:* ${data.id}◞
+*┃🧪 ⫹⫺ Nombre:* ${data.subject}
+*┃📅 ⫹⫺ Creado:* ${data.creation}
+*┃👑 ⫹⫺ Owner:* ${data.owner}
 *┗━━━━━━━━━━━━━━━┛*`
-	await conn.reply(m.chat, groupinfo, m)
-	await conn.reply(m.chat, `${data.desc}`, m)
+//await conn.reply(m.chat, groupinfo, m)
+await await conn.sendButton(m.chat, groupinfo, `*Copiar Descripción 👇*`, pp, [['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '/menu']], `https://www.whatsapp.com/otp/copy/${data.desc}`, null, null, m)
+//conn.sendMessage(m.chat, { text: `*┏━━━━━━━━━━━━━━┓*\n┃¿Desa copiar la desc? •🌷\n*┗━━━━━━━━━━━━━━┛*`, templateButtons: botones, footer: wm })
 }
 handler.command = /^(inspect)$/i
-handler.register = true
-handler.level = 3
+
 export default handler
+handler.owner = false
 
 const extractGroupMetadata = (result) => {
 	const group = baileys.getBinaryNodeChild(result, 'group')
@@ -32,14 +31,13 @@ const extractGroupMetadata = (result) => {
 	const metadata = {
 		id: group.attrs.id.includes('@') ? group.attrs.id : baileys.jidEncode(group.attrs.id, 'g.us'),
 		subject: group.attrs.subject,
-		creation: new Date(+group.attrs.creation * 1000).toLocaleString('id', { timeZone: 'Asia/Jakarta' }),
-		owner: group.attrs.creator ? 'wa.me/' + baileys.jidNormalizedUser(group.attrs.creator).split('@')[0] :
-			// group.attrs.s_o ? 'wa.me/' + baileys.jidNormalizedUser(group.attrs.s_o).split('@')[0] :
-			group.attrs.id.includes('-') ? 'wa.me/' + group.attrs.id.split('-')[0] : '',
+		creation: new Date(+group.attrs.creation * 1000).toLocaleString('id', { timeZone: 'America/Los_Angeles' }),
+		owner: group.attrs.creator ? 'wa.me/' + baileys.jidNormalizedUser(group.attrs.creator).split('@')[0] : undefined,
 		desc
 	}
 	return metadata
 }
+
 
 /*import * as baileys from '@adiwajshing/baileys'
 
