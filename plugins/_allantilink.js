@@ -10,7 +10,8 @@ const isLinkTh = /threads.net/i
 const isLinkTch = /twitch.tv/i
   
 let handler = m => m
-handler.before = async function (m, { conn, args, usedPrefix, command, isAdmin, isBotAdmin }) {
+handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
+if (isAdmin || isOwner || isROwner || m.fromMe) return
 if (m.isBaileys && m.fromMe) return !0
 if (!m.isGroup) return !1
 let chat = global.db.data.chats[m.chat]
