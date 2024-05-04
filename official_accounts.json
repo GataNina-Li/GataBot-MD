@@ -1,56 +1,48 @@
 {
-  "info": {
-
-    "accounts": {
-      "youTube": "https://youtube.com/@gatadios",
-      "instagram": "https://www.instagram.com/gata_dios",
-      "gatabot_md": "https://github.com/GataNina-Li/GataBot-MD",
-      "gatabotlite_md": "https://github.com/GataNina-Li/GataBotLite-MD",
-      "facebook": "https://www.facebook.com/groups/872989990425789/",
-      "tiktok": "https://www.tiktok.com/@gata_dios",
-      "threads": "https://www.threads.net/@gata_dios",
-      "paypal": "https://paypal.me/OficialGD",
-      "github": "https://github.com/GataNina-Li",
-      "mail": "centergatabot@gmail.com",
-      "all": "https://www.atom.bio/GataBot"
-    },
-
-    "channels": {
-      "channel1": "https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A",
-      "channel2": "https://whatsapp.com/channel/0029Va6yY0iLY6d6XDmqA03g",
-      "channel3": "https://whatsapp.com/channel/0029VaKn22pDJ6GwY61Ftn15",
-      "channel4": "https://t.me/globalgb"
-    },
-
-    "groups": {
-      "group1": "https://chat.whatsapp.com/KNwcGS4PCEN5qjbHD5VDZM",
-      "group2": "https://chat.whatsapp.com/LfcjmLcYax431QXBO0CSPk",
-      "group3": "https://chat.whatsapp.com/IZSDBt8ZxWgCp9lcaV8GU5",
-      "group4": "https://chat.whatsapp.com/GDORy2LCnLh8BopOAr2l4n",
-      "group5": "https://chat.whatsapp.com/IIxG8Wwv1df4scsrI9OJOH",
-      "group6": "https://t.me/supergatabot"
-    },
-
-    "collaboration": {
-      "group1": "https://chat.whatsapp.com/B5s3ohjEGofH5YDD05jAV5",
-      "group2": "https://chat.whatsapp.com/IO5k0UOF7hOJHE1eH3Fcxh",
-      "group3": "https://chat.whatsapp.com/H1TEBeMtFVv3RcayD1WfGU",
-      "group4": "https://chat.whatsapp.com/GFsgXW2VD4I4FEOSlEg9wp"
-    },
-
-    "sponsors": {
-      "boxmine": "https://boxmineworld.com",
-      "cafirexos": "https://www.cafirexos.com",
-      "vortexus": "https://vortexuscloud.com",
-      "asif": "https://t.me/Asifhosting"
-    },
-
-    "others": {
-      "assistance_num": "https://wa.me/message/MEKOUFBEOG5ED1",
-      "yt_vid": "https://www.youtube.com/watch?v=Ko019wvu2Tc&t=71s",
-      "group_support": "https://chat.whatsapp.com/BpoXxhKl33C9EI4v4mWDHh"
-    }
-
-  }
+"info": {
+"accounts": {
+"youTube": "https://youtube.com/@gatadios",
+"instagram": "https://www.instagram.com/gata_dios",
+"gatabot_md": "https://github.com/GataNina-Li/GataBot-MD",
+"gatabotlite_md": "https://github.com/GataNina-Li/GataBotLite-MD",
+"facebook": "https://www.facebook.com/groups/872989990425789/",
+"tiktok": "https://www.tiktok.com/@gata_dios",
+"threads": "https://www.threads.net/@gata_dios",
+"paypal": "https://paypal.me/OficialGD",
+"github": "https://github.com/GataNina-Li",
+"mail": "centergatabot@gmail.com",
+"all": "https://www.atom.bio/GataBot"
+},
+"channels": {
+"channel1": "https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A",
+"channel2": "https://whatsapp.com/channel/0029Va6yY0iLY6d6XDmqA03g",
+"channel3": "https://whatsapp.com/channel/0029VaKn22pDJ6GwY61Ftn15",
+"channel4": "https://t.me/globalgb"
+},
+"groups": {
+"group1": "https://chat.whatsapp.com/KNwcGS4PCEN5qjbHD5VDZM",
+"group2": "https://chat.whatsapp.com/LfcjmLcYax431QXBO0CSPk",
+"group3": "https://chat.whatsapp.com/IZSDBt8ZxWgCp9lcaV8GU5",
+"group4": "https://chat.whatsapp.com/GDORy2LCnLh8BopOAr2l4n",
+"group5": "https://chat.whatsapp.com/IIxG8Wwv1df4scsrI9OJOH",
+"group6": "https://t.me/supergatabot"
+},
+"collaboration": {
+"group1": "https://chat.whatsapp.com/B5s3ohjEGofH5YDD05jAV5",
+"group2": "https://chat.whatsapp.com/IO5k0UOF7hOJHE1eH3Fcxh",
+"group3": "https://chat.whatsapp.com/H1TEBeMtFVv3RcayD1WfGU",
+"group4": "https://chat.whatsapp.com/GFsgXW2VD4I4FEOSlEg9wp"
+},
+"sponsors": {
+"boxmine": "https://boxmineworld.com",
+"cafirexos": "https://www.cafirexos.com",
+"vortexus": "https://vortexuscloud.com",
+"asif": "https://t.me/Asifhosting"
+},
+"others": {
+"assistance_num": "https://wa.me/message/MEKOUFBEOG5ED1",
+"yt_vid": "https://www.youtube.com/watch?v=Ko019wvu2Tc&t=71s",
+"group_support": "https://chat.whatsapp.com/BpoXxhKl33C9EI4v4mWDHh"
 }
-
+}
+}
