@@ -30,6 +30,6 @@ await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id:
 //if (remove[0].status === '404') return
 } else if (!bot.restrict) return m.reply(mid.mAdvertencia + mid.mOwner)
 }
-return !0*/
+return !0
 }
-export default handler
+export default handler*/
