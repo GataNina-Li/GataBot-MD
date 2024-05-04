@@ -1,4 +1,4 @@
-let linkRegex = /wa.me|whatsapp.com\/channel|chat.whatsapp.com/i
+let linkRegex = /(chat.whatsapp.com|wa.me|whatsapp.com\/channel)\/(?:invite\/)?([0-9A-Za-z]{1,99999})/i
 
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin, participants }) {
@@ -12,7 +12,7 @@ const user = `@${m.sender.split`@`[0]}`
 //const groupAdmins = participants.filter(p => p.admin)
 //const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
 let bot = global.db.data.settings[this.user.jid] || {}
-const isGroupLink = linkRegex.test(m.text)
+const isGroupLink = linkRegex.exec(m.text)
 const grupo = `https://chat.whatsapp.com`
 if (isAdmin && chat.antiLink && m.text.includes(grupo)) return m.reply(mid.mInfo + mid.mAdminTrue)
 if (chat.antiLink && isGroupLink && !isAdmin) {
