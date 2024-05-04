@@ -1,4 +1,4 @@
-/*let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})|wa.me|whatsapp.com\/channel/i
+let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})|wa.me|whatsapp.com\/channel/i
 
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin, participants }) {
@@ -32,4 +32,4 @@ await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id:
 }
 return !0
 }
-export default handler*/
+export default handler
