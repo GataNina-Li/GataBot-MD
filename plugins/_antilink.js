@@ -16,8 +16,7 @@ const isGroupLink = linkRegex.exec(m.text)
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
 if (chat.antiLink && isGroupLink) {
 if (!isBotAdmin) return m.reply(mid.mAdvertencia + mid.mAdmin)
-if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)
-if (!bot.restrict) return m.reply(mid.mError + mid.mOwner)    
+if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
 if (isBotAdmin) {
 if (m.text.includes(linkThisGroup)) return
 await conn.sendMessage(m.chat, { text: `${mid.mAdvertencia + mid.mWhatsApp} *${user}*`, mentions: [m.sender] }, { quoted: m })    
