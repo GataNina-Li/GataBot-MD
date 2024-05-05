@@ -1,4 +1,4 @@
-import country_prefix from "country-phone-prefix"
+/*import country_prefix from "country-phone-prefix"
 import { codeToEmoji } from 'emoji-country-flags'
 
 let handler = async (m, { conn, usedPrefix, command, isOwner, isAdmin, text }) => {
@@ -221,3 +221,4 @@ handler.group = true
 export default handler
 
 //let storedData = JSON.parse(global.db.data.chats[m.chat].sCondition)
+*/
