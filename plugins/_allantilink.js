@@ -41,7 +41,7 @@ let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (remove[0].status === '404') return
 } else if (!isBotAdmin) {
 return m.reply(mid.mAdvertencia + mid.mAdmin)
-}
+}}
     
 if (chat.antiYoutube && isAntiLinkYt) {
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
@@ -52,7 +52,7 @@ let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (remove[0].status === '404') return
 } else if (!isBotAdmin) {
 return m.reply(mid.mAdvertencia + mid.mAdmin)
-}
+}}
     
 if (chat.antiTelegram && isAntiLinkTel) {
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
@@ -63,7 +63,7 @@ let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (remove[0].status === '404') return
 } else if (!isBotAdmin) {
 return m.reply(mid.mAdvertencia + mid.mAdmin)
-}
+}}
     
 if (chat.antiFacebook && isAntiLinkFb) {
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
@@ -74,7 +74,7 @@ let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (remove[0].status === '404') return 
 } else if (!isBotAdmin) {
 return m.reply(mid.mAdvertencia + mid.mAdmin)
-}
+}}
     
 if (chat.antiInstagram && isAntiLinkIg) {
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
@@ -85,7 +85,7 @@ let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (remove[0].status === '404') return 
 } else if (!isBotAdmin) {
 return m.reply(mid.mAdvertencia + mid.mAdmin)
-}
+}}
     
 if (chat.antiTwitter && isAntiLinkTw) {
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
@@ -96,7 +96,7 @@ let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (remove[0].status === '404') return
 } else if (!isBotAdmin) {
 return m.reply(mid.mAdvertencia + mid.mAdmin)
-}
+}}
 
 if (chat.antiDiscord && isAntiLinkDc) {
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
@@ -107,7 +107,7 @@ let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (remove[0].status === '404') return
 } else if (!isBotAdmin) {
 return m.reply(mid.mAdvertencia + mid.mAdmin)
-}
+}}
 
 if (chat.antiThreads && isAntiLinkTh) {
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
@@ -118,7 +118,7 @@ let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (remove[0].status === '404') return
 } else if (!isBotAdmin) {
 return m.reply(mid.mAdvertencia + mid.mAdmin)
-}
+}}
 
 if (chat.antiTwitch && isAntiLinkTch) {
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
@@ -129,7 +129,7 @@ let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (remove[0].status === '404') return
 } else if (!isBotAdmin) {
 return m.reply(mid.mAdvertencia + mid.mAdmin)
-}
+}}
 
 return !0
 }
