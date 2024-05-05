@@ -2,7 +2,7 @@ import { canLevelUp, xpRange } from '../lib/levelling.js'
 import { levelup } from '../lib/canvas.js'
 
 let handler = m => m
-handler.before = async function (m, { conn }) {
+handler.before = async function (m, { conn, usedPrefix }) {
 	
 if (!db.data.chats[m.chat].autolevelup) return
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -33,7 +33,7 @@ conn.sendButton(m.chat, '🐈 ' + wm, `*╭━⊰ ${username} ⊱━დ*
 *┃ ${lenguajeGB.smsAutoLv5()} ${new Date().toLocaleString('id-ID')}*
 *╰━⊰ ${lenguajeGB.smsAutoLv1()} ⊱━━დ*
 
-*_${lenguajeGB.smsAutoLv6()}_*`, null, [[lenguajeGB.smsConMenu(), `/menu`]], null, null, fkontak)
+*_${lenguajeGB.smsAutoLv6()}_*`, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], null, null, fkontak)
 
 
 let especial = ['limit', 'diamond', 'joincount', 'emerald', 'berlian', 'kyubi', 'gold', 'money', 'tiketcoin', 'stamina'].getRandom()
