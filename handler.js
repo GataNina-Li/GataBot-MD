@@ -406,6 +406,7 @@ if (!isNumber(user.ojekk)) user.ojekk = 0
 if (!isNumber(user.oporayam)) user.oporayam = 0
 if (!isNumber(user.orca)) user.orca = 0
 if (!isNumber(user.pancing)) user.pancing = 0
+if (!isNumber(user.pasangan)) user.pasangan = 0	
 if (!isNumber(user.pancingan)) user.pancingan = 1
 if (!isNumber(user.panda)) user.panda = 0
 if (!isNumber(user.paus)) user.paus = 0
