@@ -28,7 +28,7 @@ for (let index in ytres) {
                     header: "𝗔 𝗨 𝗗 𝗜 𝗢   𝗗 𝗢 𝗖",
                     title: "" ,
                     description: `${v.title} | ${v.timestamp}\n`, 
-                    id: `${usedPrefix}play3 ${v.url}`
+                    id: `${usedPrefix}menu ${v.url}`
                 }, 
                 {
                     header: "𝗩 𝗜 𝗗 𝗘 𝗢   𝗗 𝗢 𝗖",
