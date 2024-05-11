@@ -759,6 +759,7 @@ const commandsGames = [
 { comando: 'pelicula', descripcion: false, contexto: 'Descubre la película con emojis 🎬', showPrefix: true },
 { comando: 'adivinanza', descripcion: false, contexto: 'Adivina adivinador 🧞‍♀️', showPrefix: true },
 { comando: 'ruleta', descripcion: false, contexto: 'Suerte inesperada 💫', showPrefix: true },
+{ comando: 'ruletadelban', descripcion:false, contexto: 'Elimina un usuario al azar, solo para admins ☠️', showPrefix: true }
 ]
 const commandsAI = [
 { comando: 'simi', descripcion: '[texto] || [text]', contexto: 'Conversa con SimSimi', showPrefix: true },
