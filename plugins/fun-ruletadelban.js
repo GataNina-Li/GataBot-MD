@@ -16,3 +16,8 @@ m.reply(`*${format(user)} ☠️ Has sido elegido por la ruleta de la muerte*`,n
 await delay(2000)    
 await conn.groupParticipantsUpdate(m.chat, [user], 'remove')
 }
+
+handler.command = /^(ruletadelban)$/i
+handler.admin = true
+export default handler
+const delay = time => new Promise(res => setTimeout(res, time))
