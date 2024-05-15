@@ -18,7 +18,9 @@ await conn.groupParticipantsUpdate(m.chat, [user], 'remove')
 }
 
 handler.command = /^(ruletadelban)$/i
+handler.group = true
 handler.admin = true
+handler.botAdmin = true
 export default handler
 
 const delay = time => new Promise(res => setTimeout(res, time))
