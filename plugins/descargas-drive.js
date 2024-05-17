@@ -3,7 +3,11 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()} Ingrese una Url de Drive`
 let url=args[0]
 if (!(url && url.match(/drive\.google\.com\/file/i))) throw `${lenguajeGB['smsAvisoMG']()} La url ingresada no es valida o es un folder`
+try{
 let res = await fdrivedl(url)
+} catch (e){
+throw 'Ocurrio un error inesperado';
+}
 let caption=`    
 ┃ 💫 ${mid.name}
 ┃ ${res.fileName}
