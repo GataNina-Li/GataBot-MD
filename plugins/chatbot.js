@@ -43,6 +43,15 @@ https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV
 *• Mercado pago, alías:* OficialGB
 *• Naranja x, alías:* OficialGL
 *• Yape (Perú) :* +51948705559
+*• Uala:* thelolibotm.uala
+*• DolarApp:* $oficialgb
+*• Pago con tarjeta:* wa.me/390684003755
+
+*• Link de pago:*
+• _link.mercadopago.com.ar/h0sting_
+• _https://payment-link.astropay.com/RbMJ_
+*• Patreon:*_patreon.com/Infinity_wa_hosting_
+*• Kofi:* _https://ko-fi.com/infinitywa_
 
 *\`💙 Contactanos para más información o alquidir los servicios:\`*
 • https://www.facebook.com/elrebelde21
