@@ -49,7 +49,7 @@ https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV
 • wa.me/527294888993
 • wa.me/5492964650915` 
 
-if (/^infinity|infinityWa|host|hosting$/i.test(m.text)) {
+if (/^infinity|infinityWa|infohost|hosting$/i.test(m.text)) {
  await conn.sendMessage(m.chat, { text: txt,
 contextInfo:{
 forwardingScore: 9999999,
