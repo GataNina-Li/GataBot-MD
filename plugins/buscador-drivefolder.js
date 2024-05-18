@@ -2,7 +2,7 @@
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()} Ingrese una Url de Drive`
+    if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()} Ingrese una Url de un folder de Drive`
     let url=args[0]
     if (!(url && url.match(/drive\.google/i))) throw `${lenguajeGB['smsAvisoMG']()} La url ingresada no es valida`
     url=url.replace('/mobile', '');
