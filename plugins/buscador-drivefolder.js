@@ -42,4 +42,4 @@ function eliminarDuplicados(lista) {
 handler.help = ['drivefolder'].map(v => v + ' <url>')
 handler.tags = ['downloader']
 handler.command = /^(drivefolder)$/i
-export default handle
+export default handler
