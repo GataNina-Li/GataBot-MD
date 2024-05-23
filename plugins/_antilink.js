@@ -13,9 +13,9 @@ const user = `@${m.sender.split`@`[0]}`
 //const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
 let bot = global.db.data.settings[this.user.jid] || {}
 const isGroupLink = linkRegex.exec(m.text)
-const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
 if (chat.antiLink && isGroupLink) {
 if (!isBotAdmin) return m.reply(mid.mAdvertencia + mid.mAdmin)
+const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
 if (isBotAdmin) {
 if (m.text.includes(linkThisGroup)) return
