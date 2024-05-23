@@ -1,7 +1,7 @@
 let linkRegex = /https?:/i
 let handler = m => m
 handler.before = async function (m, { isAdmin, isBotAdmin, isOwner, isROwner, participants }) {
-//if (isAdmin || isOwner || isROwner || m.fromMe) return
+if (isAdmin || isOwner || isROwner || m.fromMe) return
 if (m.isBaileys && m.fromMe) return
 if (!m.isGroup) return !1
 let chat = global.db.data.chats[m.chat]
@@ -16,18 +16,14 @@ if (chat.antiLink2 && isGroupLink) {
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete) 
 if (isBotAdmin) {
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
-const linkThisGroup2 = `https://www.youtube.com/`
-const linkThisGroup3 = `https://youtu.be/`
 if (m.text.includes(linkThisGroup)) return !0
-if (m.text.includes(linkThisGroup2)) return !0
-if (m.text.includes(linkThisGroup3)) return !0 
 }     
 if (!isBotAdmin) return m.reply(mid.mAdvertencia + mid.mAdmin)
 if (isBotAdmin) {
 await conn.sendMessage(m.chat, { text: `${mid.mAdvertencia + mid.mWhatsApp2} *${user}*`, mentions: [m.sender] }, { quoted: m })    
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-//if (remove[0].status === '404') return
+let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+if (remove[0].status === '404') return
 }}
 return !0
 }
