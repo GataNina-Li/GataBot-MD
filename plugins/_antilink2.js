@@ -1,7 +1,7 @@
 let linkRegex = /https?:/i ///\b((https?:\/\/|www\.)?[\w-]+\.[\w-]+(?:\.[\w-]+)*(\/[\w\.\-\/]*)?)\b/i
 let handler = m => m
 handler.before = async function (m, { isAdmin, isBotAdmin, isOwner, isROwner, participants }) {
-if (isAdmin || isOwner || isROwner || m.fromMe) return
+//if (isAdmin || isOwner || isROwner || m.fromMe) return
 if (m.isBaileys && m.fromMe) return
 if (!m.isGroup) return !1
 let chat = global.db.data.chats[m.chat]
