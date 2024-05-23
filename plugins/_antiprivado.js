@@ -2,7 +2,7 @@ const comandos = /piedra|papel|tijera|estado|verificar|code|jadibot --code|--cod
 
 let handler = m => m
 handler.before = async function (m, { conn, isOwner, isROwner }) {
-if (m.isBaileys && m.fromMe) return !0
+if (m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
 const regexWithPrefix = new RegExp(`^${prefix.source}\\s?${comandos.source}`, 'i')
