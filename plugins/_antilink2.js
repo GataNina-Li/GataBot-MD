@@ -1,4 +1,4 @@
-let linkRegex = /https?:/i
+let linkRegex = /\b((https?:\/\/|www\.)?[\w-]+\.[\w-]+(?:\.[\w-]+)*(\/[\w\.\-\/]*)?)\b/ig
 let handler = m => m
 handler.before = async function (m, { isAdmin, isBotAdmin, isOwner, isROwner, participants }) {
 if (isAdmin || isOwner || isROwner || m.fromMe) return
@@ -11,7 +11,8 @@ const user = `@${m.sender.split`@`[0]}`
 //const groupAdmins = participants.filter(p => p.admin)
 //const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
 let bot = global.db.data.settings[this.user.jid] || {}
-const isGroupLink = linkRegex.exec(m.text) 
+//const isGroupLink = linkRegex.exec(m.text) 
+let isGroupLink = linkRegex.test(m.text)
 if (chat.antiLink2 && isGroupLink) {
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete) 
 if (isBotAdmin) {
