@@ -5,8 +5,8 @@ handler.before = async function (m, { conn, isOwner, isROwner }) {
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
-const regex = new RegExp(`^${comandos.source}$`, 'i')
-if (regex.test(m.text.toLowerCase().trim())) return !0
+const regexWithPrefix = new RegExp(`^${prefix.source}\\s?${comandos.source}`, 'i')
+if (regexWithPrefix.test(m.text.toLowerCase().trim())) return !0
 
 let chat, user, bot, mensaje
 chat = global.db.data.chats[m.chat]
