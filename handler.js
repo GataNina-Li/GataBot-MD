@@ -99,8 +99,7 @@ if (!isNumber(user.regTime)) user.regTime = -1
 if (!isNumber(user.semangka)) user.semangka = 0
 if (!isNumber(user.stroberi)) user.stroberi = 0
 }
-	
-if (!isNumber(user.counterPrivate)) user.counterPrivate = 0	                    		    
+	              		    
 if (!isNumber(user.afk)) user.afk = -1
 //if (!('autolevelup' in user))  user.autolevelup = true
 if (!isNumber(user.reporte)) user.reporte = 0
@@ -519,7 +518,6 @@ if (!user.rtrofi) user.rtrofi = 'Bronce'
 } else
 global.db.data.users[m.sender] = {
 midLanguage: 0,
-counterPrivate: 0,
 afk: -1,
 afkReason: '',
 reporte: 0,
