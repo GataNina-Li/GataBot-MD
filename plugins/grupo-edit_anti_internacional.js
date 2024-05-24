@@ -53,7 +53,7 @@ const input = text
 obtenerPrefijos(input)
 }
 
-handler.before = async function (m, { conn, reply, isOwner, isROwner, isAdmin }) {
+handler.before = async function (m, { conn, isOwner, isROwner, isAdmin }) {
 if (m.quoted && m.quoted.id === reply && ['a'].includes(m.text.toLowerCase())) {
 if (!isOwner || !isROwner) return m.reply(`*Esta acción no te corresponde realizar*`)
 try {
