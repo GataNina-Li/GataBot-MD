@@ -1,5 +1,5 @@
 import fs from 'fs'
-let numerosPrefijos
+let numerosPrefijos, contenido
 
 const handler = async (m, { conn, command, text, usedPrefix, isOwner, isROwner, isAdmin }) => {
 if (!isAdmin || !isOwner || !isROwner) return m.reply(`*No tienes permisos para usar este comando*`)
@@ -24,7 +24,7 @@ return
 }
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
-const contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
+contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
 if (contenido.trim() !== '') {
 const reply = await conn.reply(m.chat, `Hemos encontrado prefijos guardados, responde a este mensaje con un número:
 Opciones:
@@ -33,7 +33,7 @@ Opciones:
 \`\`\`[3]\`\`\` \`Eliminar\` *(Se usarán los prefijos predeterminados, eliminando los existentes y nuevos)*\n
 \`\`\`[4]\`\`\` \`Cancelar\` *(No se realizarán cambios)*`, m)
 } else {
-const contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
+contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
 if (contenido.trim() !== '') {
 const prefijosGuardados = JSON.parse(contenido)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`)
@@ -58,12 +58,12 @@ if (!isAdmin || !isOwner || !isROwner) return m.reply(`*Esta acción no te corre
 if (m.quoted && m.quoted.id === reply.id && ['1'].includes(m.text.toLowerCase())) {
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
-const contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
+contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
 const prefijosExistentes = JSON.parse(contenido)
 const prefijosActualizados = [...new Set([...prefijosExistentes, ...numerosPrefijos])]
 const prefijosJSON = JSON.stringify(prefijosActualizados)
 await fs.promises.writeFile('prefijos.json', prefijosJSON)
-const contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
+contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
 if (contenido.trim() !== '') {
 const prefijosGuardados = JSON.parse(contenido)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`)
@@ -88,7 +88,7 @@ return
 }}
 const prefijosJSON = JSON.stringify(numerosPrefijos)
 await fs.promises.writeFile('prefijos.json', prefijosJSON)
-const contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
+contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
 if (contenido.trim() !== '') {
 const prefijosGuardados = JSON.parse(contenido)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`)
