@@ -2,58 +2,54 @@ import fs from 'fs'
 let numerosPrefijos, contenido, reply
 
 const handler = async (m, { conn, command, text, usedPrefix, isOwner, isROwner, isAdmin }) => {
-if (!isOwner || !isROwner) return m.reply(`*No tienes permisos para usar este comando*`)
+if (!isOwner || !isROwner) return m.reply(mid.mAdvertencia + `*No tienes permisos para usar este comando*`)
 
 const obtenerPrefijos = async (input) => {
 const regex = /^\+(\d{1,3})(?:, *\+(\d{1,3}))*$/
 if (!regex.test(input)) {
-m.reply('Formato inválido. Debe comenzar con "+" seguido de prefijos de países.\n\n> Si son varios prefijos, sepáralos por coma (,)')
+m.reply(mid.mError + `Agrega prefijos. Debe comenzar con *"+"* seguido de prefijos de países.\n\n> Si son varios prefijos, sepáralos por coma (,)\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, +55`)
 return
 }
 const prefijos = input.match(/\d{1,3}/g)
 if (prefijos.join('').length < 4) {
-m.reply('Prefijo muy largo, verifica que el prefijo pertenezca a un país. No se acepta código de área es decir, lo que va entre paréntesis en algunos números de teléfonos.')
+m.reply(mid.mInfo + `Prefijo muy largo, verifica que el prefijo pertenezca a un país. No se acepta código de área es decir, lo que va entre paréntesis en algunos números de teléfonos.\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, +55`)
 return
 }
 numerosPrefijos = prefijos.map(prefijo => parseInt(prefijo, 10)).filter((valor, indice, self) => self.indexOf(valor) === indice)
 const prefijosJSON = JSON.stringify(numerosPrefijos)
-fs.promises.writeFile('prefijos.json', '')
+await  fs.promises.writeFile('prefijos.json', '')
+  
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
-if (contenido) {
-reply = (await conn.reply(m.chat, `Hemos encontrado prefijos guardados, responde a este mensaje con una letra:\n
-Opciones:
+if (contenido.trim() === '') {
+await fs.promises.writeFile('prefijos.json', prefijosJSON)
+const prefijosGuardados = JSON.parse(prefijosJSON)
+const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`);
+m.reply(mid.mExito + `Prefijos guardados: *${prefijosConSigno.join(', ')}*`)
+} else {
+const prefijosGuardados = JSON.parse(contenido);
+const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`)
+reply = (await conn.reply(m.chat, mid.mInfo + `> *Hemos encontrado prefijos guardados*\n
+*Responde a este mensaje eligiendo una letra para:*
 \`\`\`[A]\`\`\` \`Combinar\` *(Se juntarán los prefijos existentes con los nuevos.)*\n
 \`\`\`[B]\`\`\` \`Reemplazar\` *(Se eliminarán los prefijos existentes para agregar los nuevos.)*\n
 \`\`\`[C]\`\`\` \`Eliminar\` *(Se usarán los prefijos predeterminados, eliminando los existentes y nuevos)*\n
 \`\`\`[D]\`\`\` \`Cancelar\` *(No se realizarán cambios)*`, m)).key.id
-} else {
-contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
-if (contenido.trim() !== '') {
-fs.writeFile('prefijos.json', prefijosJSON, async (err) => {
-if (err) {
-console.error('Error al guardar los prefijos:', err);
-return
-}
-const prefijosGuardados = JSON.parse(contenido)
-const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`)
-m.reply(`Éxito. Los prefijos guardados son: *${prefijosConSigno.join(', ')}*`)
-} catch (error) {
+}} catch (error) {
 if (error.code === 'ENOENT') {
-m.reply('Vuelva a intentarlo. El archivo "prefijos.json" no existe.')
+m.reply(mid.mError + 'El archivo "prefijos.json" no existe.')
 } else {
-console.log('Error al agregar los prefijos en el archivo "prefijos.json":', error)
+console.error('Error al agregar los prefijos en el archivo "prefijos.json": ', error)
 }}
-})
 }
 const input = text
-obtenerPrefijos(input)
+await obtenerPrefijos(input)
 }
 
 handler.before = async function (m, { conn, isOwner, isROwner, isAdmin }) {
 if (m.quoted && m.quoted.id === reply && ['a'].includes(m.text.toLowerCase())) {
-if (!isOwner || !isROwner) return m.reply(`*Esta acción no te corresponde realizar*`)
+if (!isOwner || !isROwner) return m.reply(mid.mError + `*Esta acción no te corresponde realizar*`)
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
