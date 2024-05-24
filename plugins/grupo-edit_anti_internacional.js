@@ -7,7 +7,7 @@ if (!isOwner || !isROwner) return m.reply(mid.mAdvertencia + `*No tienes permiso
 const obtenerPrefijos = async (input) => {
 const regex = /^\+(\d{1,3})(?:, *\+(\d{1,3}))*$/
 if (!regex.test(input)) {
-m.reply(mid.mInfo + `Agrega prefijos. Debe comenzar con *"+"* seguido de prefijos de países.\n\n> Si son varios prefijos, sepáralos por coma (,)\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, +55\n\n${mid.mAdvertencia}> *Al configurar esto, se eliminarán los usuarios con prefijos configurados ya sea cuando alguien ingrese o cuando se escriba en el grupo*`)
+m.reply(mid.mInfo + `Agrega prefijos. Debe comenzar con *"+"* seguido del código de país.\n\n> Si son varios prefijos, sepáralos por coma (,)\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, +55\n\n${mid.mAdvertencia}> *Al configurar esto, se eliminarán los usuarios con prefijos configurados ya sea cuando alguien ingrese o cuando se escriba en el grupo*`)
 return
 }
 const prefijos = input.match(/\d{1,3}/g)
@@ -22,7 +22,7 @@ await  fs.promises.writeFile('prefijos.json', '')
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
-if (contenido.trim() === '') {
+if (!contenido) {
 await fs.promises.writeFile('prefijos.json', prefijosJSON)
 const prefijosGuardados = JSON.parse(prefijosJSON)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`);
