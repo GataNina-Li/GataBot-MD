@@ -1,5 +1,5 @@
 import fs from 'fs'
-let numerosPrefijos, contenido
+let numerosPrefijos, contenido, reply
 
 const handler = async (m, { conn, command, text, usedPrefix, isOwner, isROwner, isAdmin }) => {
 if (!isOwner || !isROwner) return m.reply(`*No tienes permisos para usar este comando*`)
@@ -26,7 +26,7 @@ try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
 if (contenido.trim() !== '') {
-const reply = (await conn.reply(m.chat, `Hemos encontrado prefijos guardados, responde a este mensaje con una letra:
+reply = (await conn.reply(m.chat, `Hemos encontrado prefijos guardados, responde a este mensaje con una letra:\n
 Opciones:
 \`\`\`[A]\`\`\` \`Combinar\` *(Se juntarán los prefijos existentes con los nuevos.)*\n
 \`\`\`[B]\`\`\` \`Reemplazar\` *(Se eliminarán los prefijos existentes para agregar los nuevos.)*\n
