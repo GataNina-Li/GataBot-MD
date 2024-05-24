@@ -22,19 +22,21 @@ await fs.promises.writeFile('prefijos.json', '')
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
-if (contenido.length === 0) {
+if (contenido == '') {
 await fs.promises.writeFile('prefijos.json', prefijosJSON)
 const prefijosGuardados = JSON.parse(prefijosJSON)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`);
 m.reply(mid.mExito + `Prefijos guardados: *${prefijosConSigno.join(', ')}*`)
 } else {
-const prefijosGuardados = JSON.parse(contenido);
+const prefijosGuardados = JSON.parse(contenido)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`)
-reply = (await conn.reply(m.chat, mid.mInfo + `> *Hemos encontrado prefijos guardados*\n
+reply = (await conn.reply(m.chat, mid.mInfo + `> *Hemos encontrado prefijos guardados*
+*Reciente:* \`${numerosPrefijos.map(prefijo => `+${prefijo}`).join(', ')}\`
+*Existente:* \`${prefijosConSigno.join(', ')}\`\n
 *Responde a este mensaje eligiendo una letra para:*
-\`\`\`[A]\`\`\` \`Combinar\` *(Se juntarán los prefijos existentes con los nuevos.)*\n
-\`\`\`[B]\`\`\` \`Reemplazar\` *(Se eliminarán los prefijos existentes para agregar los nuevos.)*\n
-\`\`\`[C]\`\`\` \`Eliminar\` *(Se usarán los prefijos predeterminados, eliminando los existentes y nuevos)*\n
+\`\`\`[A]\`\`\` \`Combinar\` *(Se juntarán los prefijos existentes con los recientes.)*\n
+\`\`\`[B]\`\`\` \`Reemplazar\` *(Se eliminarán los prefijos existentes para agregar los recientes.)*\n
+\`\`\`[C]\`\`\` \`Eliminar\` *(Se usarán los prefijos predeterminados, eliminando los existentes y recientes)*\n
 \`\`\`[D]\`\`\` \`Cancelar\` *(No se realizarán cambios)*`, m)).key.id
 }} catch (error) {
 if (error.code === 'ENOENT') {
