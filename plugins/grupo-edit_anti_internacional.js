@@ -39,9 +39,6 @@ return
 const prefijosGuardados = JSON.parse(contenido)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`)
 m.reply(`Éxito. Los prefijos guardados son: *${prefijosConSigno.join(', ')}*`)
-} else {
-m.reply('Los prefijos se han guardado correctamente en el archivo "prefijos.json".')
-}}
 } catch (error) {
 if (error.code === 'ENOENT') {
 m.reply('Vuelva a intentarlo. El archivo "prefijos.json" no existe.')
