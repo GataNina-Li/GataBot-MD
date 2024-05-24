@@ -2,7 +2,7 @@ import fs from 'fs'
 let numerosPrefijos, contenido
 
 const handler = async (m, { conn, command, text, usedPrefix, isOwner, isROwner, isAdmin }) => {
-if (!isAdmin || !isOwner || !isROwner) return m.reply(`*No tienes permisos para usar este comando*`)
+if (!isOwner || !isROwner) return m.reply(`*No tienes permisos para usar este comando*`)
 
 const obtenerPrefijos = async (input) => {
 const regex = /^\+(\d{1,3})(?:, *\+(\d{1,3}))*$/
@@ -54,7 +54,7 @@ obtenerPrefijos(input)
 }
 
 handler.before = async function (m, { conn, reply, isOwner, isROwner, isAdmin }) {
-if (!isAdmin || !isOwner || !isROwner) return m.reply(`*Esta acción no te corresponde realizar*`)
+if (!isOwner || !isROwner) return m.reply(`*Esta acción no te corresponde realizar*`)
 if (m.quoted && m.quoted.id === reply.id && ['1'].includes(m.text.toLowerCase())) {
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
