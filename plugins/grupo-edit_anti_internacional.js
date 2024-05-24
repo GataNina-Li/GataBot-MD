@@ -22,6 +22,7 @@ await fs.promises.writeFile('prefijos.json', 'false')
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
+console.log(contenido)
 if (contenido === 'false') {
 await fs.promises.writeFile('prefijos.json', prefijosJSON)
 const prefijosGuardados = JSON.parse(prefijosJSON)
