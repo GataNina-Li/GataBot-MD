@@ -256,10 +256,10 @@ console.log(chalk.bold.yellow(mid.mCodigoQR))}
 if (connection == 'open') {
 console.log(chalk.bold.greenBright(mid.mConexion))}
 let reason = new Boom(lastDisconnect.error)?.output?.statusCode
-if (reason == 405) {
-await fs.unlinkSync("./GataBotSession/" + "creds.json")
-console.log(chalk.bold.redBright(mid.mConexionOFF)) 
-process.send('reset')}
+//if (reason == 405) {
+//await fs.unlinkSync("./GataBotSession/" + "creds.json")
+//console.log(chalk.bold.redBright(mid.mConexionOFF)) 
+//process.send('reset')}
 if (connection === 'close') {
 if (reason === DisconnectReason.badSession) {
 console.log(chalk.bold.cyanBright(lenguajeGB['smsConexionOFF']()))
