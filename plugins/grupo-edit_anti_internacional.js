@@ -7,7 +7,7 @@ if (!isOwner || !isROwner) return m.reply(mid.mAdvertencia + `*No tienes permiso
 const obtenerPrefijos = async (input) => {
 const regex = /^\+(\d{1,3})(?:, *\+(\d{1,3}))*$/
 if (!regex.test(input)) {
-m.reply(mid.mError + `Agrega prefijos. Debe comenzar con *"+"* seguido de prefijos de países.\n\n> Si son varios prefijos, sepáralos por coma (,)\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, +55`)
+m.reply(mid.mError + `Agrega prefijos. Debe comenzar con *"+"* seguido de prefijos de países.\n\n> Si son varios prefijos, sepáralos por coma (,)\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, +55\n\n${mid.mInfo}> *Al configurar esto, se eliminarán los usuarios con prefijos configurados ya sea cuando alguien ingrese o cuando se escriba en el grupo*`)
 return
 }
 const prefijos = input.match(/\d{1,3}/g)
