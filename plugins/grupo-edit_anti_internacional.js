@@ -29,7 +29,7 @@ const prefijosGuardados = JSON.parse(prefijosJSON)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`);
 m.reply(mid.mExito + `Prefijos guardados: *${prefijosConSigno.join(', ')}*`)
 } else {
-const prefijosGuardados = JSON.parse(contenido)
+const prefijosGuardados = JSON.parse(prefijosJSON)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`)
 reply = (await conn.reply(m.chat, mid.mInfo + `> *Hemos encontrado prefijos guardados*
 *Reciente:* \`${numerosPrefijos.map(prefijo => `+${prefijo}`).join(', ')}\`
