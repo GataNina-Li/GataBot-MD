@@ -17,7 +17,7 @@ return
 }
 numerosPrefijos = prefijos.map(prefijo => parseInt(prefijo, 10)).filter((valor, indice, self) => self.indexOf(valor) === indice)
 const prefijosJSON = JSON.stringify(numerosPrefijos)
-await fs.promises.writeFile('prefijos.json', 'false')
+await fs.promises.writeFile('prefijos.json', '')
   
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
