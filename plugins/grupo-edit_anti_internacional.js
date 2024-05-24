@@ -28,10 +28,10 @@ contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
 if (contenido.trim() !== '') {
 const reply = await conn.reply(m.chat, `Hemos encontrado prefijos guardados, responde a este mensaje con un número:
 Opciones:
-\`\`\`[1]\`\`\` \`Combinar\` *(Se juntarán los prefijos existentes con los nuevos.)*\n
-\`\`\`[2]\`\`\` \`Reemplazar\` *(Se eliminarán los prefijos existentes para agregar los nuevos.)*\n
-\`\`\`[3]\`\`\` \`Eliminar\` *(Se usarán los prefijos predeterminados, eliminando los existentes y nuevos)*\n
-\`\`\`[4]\`\`\` \`Cancelar\` *(No se realizarán cambios)*`, m)
+\`\`\`[A]\`\`\` \`Combinar\` *(Se juntarán los prefijos existentes con los nuevos.)*\n
+\`\`\`[B]\`\`\` \`Reemplazar\` *(Se eliminarán los prefijos existentes para agregar los nuevos.)*\n
+\`\`\`[C]\`\`\` \`Eliminar\` *(Se usarán los prefijos predeterminados, eliminando los existentes y nuevos)*\n
+\`\`\`[D]\`\`\` \`Cancelar\` *(No se realizarán cambios)*`, m)
 } else {
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
 if (contenido.trim() !== '') {
@@ -55,7 +55,7 @@ obtenerPrefijos(input)
 
 handler.before = async function (m, { conn, reply, isOwner, isROwner, isAdmin }) {
 if (!isOwner || !isROwner) return m.reply(`*Esta acción no te corresponde realizar*`)
-if (m.quoted && m.quoted.id === reply.id && ['1'].includes(m.text.toLowerCase())) {
+if (m.quoted && m.quoted.id === reply.id && ['a'].includes(m.text.toLowerCase())) {
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
@@ -77,7 +77,7 @@ m.reply('Vuelva a intentarlo. El archivo "prefijos.json" no existe.')
 console.error('Error al actualizar los prefijos en el archivo "prefijos.json":', error)
 }}
 }
-if (m.quoted && m.quoted.id === reply.id && ['2'].includes(m.text.toLowerCase())) {
+if (m.quoted && m.quoted.id === reply.id && ['b'].includes(m.text.toLowerCase())) {
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 await fs.promises.unlink('prefijos.json')
@@ -96,7 +96,7 @@ m.reply(`Éxito. Los prefijos se han reemplazado correctamente.\n\nLos prefijos 
 } else {
 m.reply('Los prefijos se han reemplazado correctamente.')
 }}
-if (m.quoted && m.quoted.id === reply.id && ['3'].includes(m.text.toLowerCase())) {
+if (m.quoted && m.quoted.id === reply.id && ['c'].includes(m.text.toLowerCase())) {
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 await fs.promises.unlink('prefijos.json')
@@ -108,7 +108,7 @@ console.log('El archivo "prefijos.json" no existe.')
 console.error('Error al eliminar el archivo "prefijos.json":', error)
 }}
 }
-if (m.quoted && m.quoted.id === reply.id && ['4'].includes(m.text.toLowerCase())) {
+if (m.quoted && m.quoted.id === reply.id && ['d'].includes(m.text.toLowerCase())) {
 m.reply('No se realizaron cambios.')
 return
 }
