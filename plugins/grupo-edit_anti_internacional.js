@@ -25,7 +25,7 @@ return
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
-if (contenido.trim() !== '') {
+if (contenido) {
 reply = (await conn.reply(m.chat, `Hemos encontrado prefijos guardados, responde a este mensaje con una letra:\n
 Opciones:
 \`\`\`[A]\`\`\` \`Combinar\` *(Se juntarán los prefijos existentes con los nuevos.)*\n
