@@ -17,11 +17,7 @@ return
 }
 numerosPrefijos = prefijos.map(prefijo => parseInt(prefijo, 10)).filter((valor, indice, self) => self.indexOf(valor) === indice)
 const prefijosJSON = JSON.stringify(numerosPrefijos)
-fs.writeFile('prefijos.json', prefijosJSON, async (err) => {
-if (err) {
-console.error('Error al guardar los prefijos:', err);
-return
-}
+fs.promises.writeFile('prefijos.json', '')
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
@@ -35,6 +31,11 @@ Opciones:
 } else {
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
 if (contenido.trim() !== '') {
+fs.writeFile('prefijos.json', prefijosJSON, async (err) => {
+if (err) {
+console.error('Error al guardar los prefijos:', err);
+return
+}
 const prefijosGuardados = JSON.parse(contenido)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`)
 m.reply(`Éxito. Los prefijos guardados son: *${prefijosConSigno.join(', ')}*`)
