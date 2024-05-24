@@ -1,4 +1,4 @@
-// Esta función es para la versión LATAM
+// Esta función es para la versión LATAM 
 
 import fs from 'fs'
 const rutaArchivo = './prefijos.json'
