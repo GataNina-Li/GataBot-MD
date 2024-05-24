@@ -17,12 +17,14 @@ return
 }
 numerosPrefijos = prefijos.map(prefijo => parseInt(prefijo, 10)).filter((valor, indice, self) => self.indexOf(valor) === indice)
 const prefijosJSON = JSON.stringify(numerosPrefijos)
-await  fs.promises.writeFile('prefijos.json', '')
+await fs.promises.writeFile('prefijos.json', '')
   
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
-if (!contenido.trim()) {
+//if (!contenido.trim()) {
+const contenidoJSON = JSON.parse(contenido)
+if (Array.isArray(contenidoJSON)) {
 await fs.promises.writeFile('prefijos.json', prefijosJSON)
 const prefijosGuardados = JSON.parse(prefijosJSON)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`);
