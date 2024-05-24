@@ -22,7 +22,7 @@ await  fs.promises.writeFile('prefijos.json', '')
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
-if (!contenido) {
+if (!contenido.trim()) {
 await fs.promises.writeFile('prefijos.json', prefijosJSON)
 const prefijosGuardados = JSON.parse(prefijosJSON)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`);
