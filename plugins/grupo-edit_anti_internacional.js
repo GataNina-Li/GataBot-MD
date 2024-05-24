@@ -17,23 +17,24 @@ return
 }
 numerosPrefijos = prefijos.map(prefijo => parseInt(prefijo, 10)).filter((valor, indice, self) => self.indexOf(valor) === indice)
 const prefijosJSON = JSON.stringify(numerosPrefijos)
-await fs.promises.writeFile('prefijos.json', '')
+if (!fs.existsSync('./prefijos.json')) {
+await fs.promises.writeFile('prefijos.json', 'false')
+}
   
 try {
 await fs.promises.access('prefijos.json', fs.constants.F_OK)
 contenido = await fs.promises.readFile('prefijos.json', 'utf-8')
-console.log(contenido)
 if (contenido === 'false') {
 await fs.promises.writeFile('prefijos.json', prefijosJSON)
 const prefijosGuardados = JSON.parse(prefijosJSON)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`);
 m.reply(mid.mExito + `Prefijos guardados: *${prefijosConSigno.join(', ')}*`)
 } else {
-const prefijosGuardados = JSON.parse(prefijosJSON)
+const prefijosGuardados = JSON.parse(contenido)
 const prefijosConSigno = prefijosGuardados.map(prefijo => `+${prefijo}`)
 reply = (await conn.reply(m.chat, mid.mInfo + `> *Hemos encontrado prefijos guardados*
 *Reciente:* \`${numerosPrefijos.map(prefijo => `+${prefijo}`).join(', ')}\`
-*Existente:* \`${prefijosConSigno.join(', ')}\`\n
+*Existente:* \`${prefijosConSigno.join(', ')}\`\n 
 *Responde a este mensaje eligiendo una letra para:*
 \`\`\`[A]\`\`\` \`Combinar\` *(Se juntarán los prefijos existentes con los recientes.)*\n
 \`\`\`[B]\`\`\` \`Reemplazar\` *(Se eliminarán los prefijos existentes para agregar los recientes.)*\n
