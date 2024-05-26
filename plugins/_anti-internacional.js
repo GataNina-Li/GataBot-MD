@@ -19,7 +19,8 @@ const prefijos = JSON.parse(contenido)
 const comienzaConPrefijo = prefijos.some(prefijo => m.sender.startsWith(prefijo))
 if (comienzaConPrefijo) {
 await conn.sendMessage(m.chat, { text: texto, mentions: [m.sender] }, { quoted: m })
-//await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
+//if (responseb[0].status === "404") return   
 }
 } catch (error) {
 console.log('Error al leer o procesar el archivo prefijos.json:', error)
@@ -27,7 +28,8 @@ return
 }} else {
 if (m.sender.startsWith('6') || m.sender.startsWith('9') ||  m.sender.startsWith('7') ||  m.sender.startsWith('4') || m.sender.startsWith('2')) {
 await conn.sendMessage(m.chat, { text: texto, mentions: [m.sender] }, { quoted: m })
-//await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
+//if (responseb[0].status === "404") return   
 }
 }
 
