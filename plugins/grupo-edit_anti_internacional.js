@@ -58,8 +58,7 @@ m.reply(mid.mError + 'El archivo "prefijos.json" no existe.')
 console.error('Error al agregar los prefijos en el archivo "prefijos.json": ', error)
 }}
 }
-const input = text
-await obtenerPrefijos(input)
+await obtenerPrefijos(text)
 }
 
 handler.before = async function (m, { conn, isOwner, isROwner, isAdmin }) {
