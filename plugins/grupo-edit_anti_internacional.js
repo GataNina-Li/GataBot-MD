@@ -10,12 +10,24 @@ if (!regex.test(input)) {
 m.reply(mid.mInfo + `Agrega prefijos. Debe comenzar con *"+"* seguido del código de país.\n\n> Si son varios prefijos, sepáralos por coma (,)\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, +55\n\n${mid.mAdvertencia}> *Al configurar esto, se eliminarán los usuarios con prefijos configurados ya sea cuando alguien ingrese o cuando se escriba en el grupo*`)
 return
 }
+
 const prefijos = input.match(/\d{1,3}/g)
 if (prefijos.some(prefijo => prefijo.length < 1 || prefijo.length > 3)) {
-m.reply(mid.mInfo + `Prefijo muy largo, verifica que el prefijo pertenezca a un país. No se acepta código de área es decir, lo que va entre paréntesis en algunos números de teléfonos.\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, +55`)
+m.reply(mid.mInfo + `Prefijo muy largo, verifica que el prefijo pertenezca a un país. No se acepta código de área es decir, lo que va entre paréntesis en algunos números de teléfonos.\n\n*Ejemplo:*\n- *${usedPrefix + command}* +57\n- *${usedPrefix + command}* +57, +212, +55`);
 return
+} else {
+const prefijosLimpios = prefijos.map(prefijo => {
+let prefijoLimpio = prefijo.replace(/[^0-9]/g, '')
+if (prefijoLimpio.length > 6) {
+return prefijoLimpio
 }
-numerosPrefijos = prefijos.map(prefijo => parseInt(prefijo, 10)).filter((valor, indice, self) => self.indexOf(valor) === indice)
+return prefijo
+})
+const prefijosConSigno = prefijosLimpios.map(prefijo => {
+return prefijo.startsWith('+') ? prefijo : `+${prefijo}`
+})
+numerosPrefijos = prefijosConSigno.map(prefijo => parseInt(prefijo.replace(/\D/g, ''), 10)).filter((valor, indice, self) => self.indexOf(valor) === indice)
+
 const prefijosJSON = JSON.stringify(numerosPrefijos)
 if (!fs.existsSync('./prefijos.json')) {
 await fs.promises.writeFile('prefijos.json', 'false')
