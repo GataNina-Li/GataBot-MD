@@ -9,7 +9,7 @@ m.reply(mid.mInfo + `Agrega prefijos. Debe comenzar con *"+"* seguido del códig
 return
 }
 await obtenerPrefijos(text)  
-const obtenerPrefijos = async (input) => {
+async function obtenerPrefijos(input) {
 const prefijos = input.match(/\d{1,3}/g)
 if (prefijos.some(prefijo => prefijo.length < 1 || prefijo.length > 3)) {
 m.reply(mid.mInfo + `Prefijo muy largo, verifica que el prefijo pertenezca a un país. No se acepta código de área es decir, lo que va entre paréntesis en algunos números de teléfonos.\n\n*Ejemplo:*\n- *${usedPrefix + command}* +57\n- *${usedPrefix + command}* +57, +212, +55`);
