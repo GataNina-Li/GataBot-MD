@@ -4,13 +4,12 @@ let numerosPrefijos, contenido, reply
 const handler = async (m, { conn, command, text, usedPrefix, isOwner, isROwner, isAdmin }) => {
 if (!isOwner || !isROwner) return m.reply(mid.mAdvertencia + `*No tienes permisos para usar este comando*`)
 
-const obtenerPrefijos = async (input) => {
-//const regex = /^\+(\d{1,3})(?:, *\+(\d{1,3}))*$/
-if (!input) {
+if (!text) {
 m.reply(mid.mInfo + `Agrega prefijos. Debe comenzar con *"+"* seguido del código de país.\n\n> Si son varios prefijos, sepáralos por coma (,)\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, +55\n\n${mid.mAdvertencia}> *Al configurar esto, se eliminarán los usuarios con prefijos configurados ya sea cuando alguien ingrese o cuando se escriba en el grupo*`)
 return
 }
-
+  
+const obtenerPrefijos = async (input) => {
 const prefijos = input.match(/\d{1,3}/g)
 if (prefijos.some(prefijo => prefijo.length < 1 || prefijo.length > 3)) {
 m.reply(mid.mInfo + `Prefijo muy largo, verifica que el prefijo pertenezca a un país. No se acepta código de área es decir, lo que va entre paréntesis en algunos números de teléfonos.\n\n*Ejemplo:*\n- *${usedPrefix + command}* +57\n- *${usedPrefix + command}* +57, +212, +55`);
