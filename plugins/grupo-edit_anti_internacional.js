@@ -56,9 +56,8 @@ if (error.code === 'ENOENT') {
 m.reply(mid.mError + 'El archivo "prefijos.json" no existe.')
 } else {
 console.error('Error al agregar los prefijos en el archivo "prefijos.json": ', error)
+}}}
 }}
-}
-}
   
 handler.before = async function (m, { conn, isOwner, isROwner, isAdmin }) {
 if (m.quoted && m.quoted.id === reply && ['a'].includes(m.text.toLowerCase())) {
