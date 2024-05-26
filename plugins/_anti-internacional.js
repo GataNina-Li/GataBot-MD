@@ -7,7 +7,7 @@ const existeArchivo = fs.existsSync(rutaArchivo)
 let handler = m => m
 handler.before = async function (m, {conn, isAdmin, isBotAdmin} ) {
 
-if (!m.isGroup) return !1
+if (!m.isGroup) return 
 let chat = global.db.data.chats[m.chat]
 if (isBotAdmin && chat.antifake) {
 let texto = `${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsInt1']()} *@${m.sender.split`@`[0]}* ${lenguajeGB['smsInt2']()}`
