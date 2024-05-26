@@ -19,7 +19,6 @@ const prefijos = JSON.parse(contenido)
 //if (Array.isArray(prefijos)) {
 const comienzaConPrefijo = prefijos.some(prefijo => m.sender.startsWith(prefijo))
 if (comienzaConPrefijo) {
-await conn.reply(m.chat, texto, m)
 await conn.sendMessage(m.chat, { text: texto, mentions: [m.sender] }, { quoted: m })
 //await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }//} 
