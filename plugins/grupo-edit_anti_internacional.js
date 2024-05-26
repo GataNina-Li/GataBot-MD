@@ -10,23 +10,16 @@ return
 }
 await obtenerPrefijos(text)  
 async function obtenerPrefijos(input) {
-const prefijos = input.match(/\d{1,3}/g)
-if (prefijos.some(prefijo => prefijo.length < 1 || prefijo.length > 3)) {
-m.reply(mid.mInfo + `Prefijo muy largo, verifica que el prefijo pertenezca a un país. No se acepta código de área es decir, lo que va entre paréntesis en algunos números de teléfonos.\n\n*Ejemplo:*\n- *${usedPrefix + command}* +57\n- *${usedPrefix + command}* +57, +212, +55`);
-return
-} else {
+const prefijos = input.split(',').map(prefijo => prefijo.trim())
 const prefijosLimpios = prefijos.map(prefijo => {
-let prefijoLimpio = prefijo.replace(/[^0-9]/g, '')
-if (prefijoLimpio.length > 6) {
-return prefijoLimpio
+let prefijoLimpio = prefijo.replace(/[^0-9+]/g, '')
+if (prefijoLimpio.startsWith('+')) {
+prefijoLimpio = prefijoLimpio.slice(1)
 }
-return prefijo
+return `+${prefijoLimpio}`
 })
-const prefijosConSigno = prefijosLimpios.map(prefijo => {
-return prefijo.startsWith('+') ? prefijo : `+${prefijo}`
-})
-numerosPrefijos = prefijosConSigno.map(prefijo => parseInt(prefijo.replace(/\D/g, ''), 10)).filter((valor, indice, self) => self.indexOf(valor) === indice)
-
+numerosPrefijos = prefijosLimpios.map(prefijo => parseInt(prefijo.replace(/\D/g, ''), 10)).filter((valor, indice, self) => self.indexOf(valor) === indice);
+  
 const prefijosJSON = JSON.stringify(numerosPrefijos)
 if (!fs.existsSync('./prefijos.json')) {
 await fs.promises.writeFile('prefijos.json', 'false')
