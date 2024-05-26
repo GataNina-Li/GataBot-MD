@@ -12,7 +12,7 @@ let bang = m.key.id
 if (!m.isGroup) return 
 let chat = global.db.data.chats[m.chat]
 if (isBotAdmin && chat.antifake && !isAdmin) {
-let texto = mid.mAdvertencia + mid.mFake
+let texto = mid.mAdvertencia + mid.mFake(m)
 
 if (existeArchivo) {
 try {
