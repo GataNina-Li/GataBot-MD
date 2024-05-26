@@ -8,7 +8,7 @@ if (!text) {
 m.reply(mid.mInfo + `Agrega prefijos. Debe comenzar con *"+"* seguido del código de país.\n\n> Si son varios prefijos, sepáralos por coma (,)\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, +55\n\n${mid.mAdvertencia}> *Al configurar esto, se eliminarán los usuarios con prefijos configurados ya sea cuando alguien ingrese o cuando se escriba en el grupo*`)
 return
 }
-  
+await obtenerPrefijos(text)  
 const obtenerPrefijos = async (input) => {
 const prefijos = input.match(/\d{1,3}/g)
 if (prefijos.some(prefijo => prefijo.length < 1 || prefijo.length > 3)) {
@@ -57,8 +57,6 @@ m.reply(mid.mError + 'El archivo "prefijos.json" no existe.')
 } else {
 console.error('Error al agregar los prefijos en el archivo "prefijos.json": ', error)
 }}
-}
-await obtenerPrefijos(text)
 }
 
 handler.before = async function (m, { conn, isOwner, isROwner, isAdmin }) {
