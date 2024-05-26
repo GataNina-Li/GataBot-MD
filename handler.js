@@ -1451,7 +1451,7 @@ prefijos = prefijosPredeterminados
 const comienzaConPrefijo = prefijos.some(prefijo => user.startsWith(prefijo.toString()))
 if (comienzaConPrefijo) {
 const texto = `*${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsInt1']()} @${user.split("@")[0]} ${lenguajeGB['smsInt2']()}*`
-await conn.sendMessage(id, { text: texto, mentions: [user] }, { quoted: m })
+await conn.sendMessage(id, { text: texto, mentions: [user] })
 //let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
 //if (responseb[0].status === "404") return      
 }}
