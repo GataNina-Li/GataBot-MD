@@ -1448,10 +1448,10 @@ return
 }} else {
 prefijos = prefijosPredeterminados
 }
-const comienzaConPrefijo = prefijos.some(prefijo => m.sender.startsWith(prefijo.toString()))
+const comienzaConPrefijo = prefijos.some(prefijo => user.startsWith(prefijo.toString()))
 if (comienzaConPrefijo) {
-const texto = `*${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsInt1']()} @${m.sender.split("@")[0]} ${lenguajeGB['smsInt2']()}*`
-await conn.sendMessage(m.chat, { text: texto, mentions: [m.sender] }, { quoted: m })
+const texto = `*${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsInt1']()} @${user.split("@")[0]} ${lenguajeGB['smsInt2']()}*`
+await conn.sendMessage(m.chat, { text: texto, mentions: [user] }, { quoted: m })
 //let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
 //if (responseb[0].status === "404") return      
 }}
