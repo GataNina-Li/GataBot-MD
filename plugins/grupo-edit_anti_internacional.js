@@ -5,7 +5,7 @@ const handler = async (m, { conn, command, text, usedPrefix, isOwner, isROwner, 
 if (!isOwner || !isROwner || !isAdmin) return m.reply(mid.mAdvertencia + `*No tienes permisos para usar este comando*`)
 
 if (!text || !/\d/.test(text)) {
-m.reply(mid.mInfo + `Agrega el prefijo del código de país, etiqueta o escribe el número de un usuario específico.\n\n> Si son varios, sepáralos por coma (,)\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, @tag, +99999999\n\n${mid.mAdvertencia}> *Al configurar esto, se eliminarán los usuarios con prefijos configurados o números específicos; ya sea cuando alguien ingrese o cuando escriba en el grupo*`)
+m.reply(mid.mInfo + `Agrega el prefijo del código de país, etiqueta o escribe el número de un usuario específico.\n\n> Si son varios, sepáralos por coma (,)\n\n*Ejemplo:*\n- *${usedPrefix +command}* +57\n- *${usedPrefix +command}* +57, +212, @tag, +num\n\n${mid.mAdvertencia}> *Al configurar esto, se eliminarán los usuarios con prefijos configurados o números específicos; ya sea cuando alguien ingrese o cuando escriba en el grupo*`)
 return
 }
 await obtenerPrefijos(text)  
