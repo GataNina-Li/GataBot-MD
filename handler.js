@@ -1434,13 +1434,28 @@ text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'We
 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
 			    
 if (chat.antifake && isBotAdminNn && action === 'add') {
-const numerosPermitidos = ["1", "2", "4", "6", "7", "8", "9"] //PUEDES EDITAR LOS USUARIOS QUE SE ELIMINARÁN SI EMPIEZA POR CUALQUIER DE ESOS NÚMEROS	
-if (numerosPermitidos.some(num => user.startsWith(num))) {	
-this.sendMessage(id, { text:`*${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsInt1']()} @${user.split("@")[0]} ${lenguajeGB['smsInt2']()}*`, mentions: [user] }, { quoted: null });          
-let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
-if (responseb[0].status === "404") return      
-return    
-}}    
+const prefijosPredeterminados = [1, 2, 4, 6, 7, 8, 9] // Puedes editar que usuarios deseas que se eliminen si empieza por algunos de los números
+const rutaArchivo = './prefijos.json'
+let prefijos = []
+const existeArchivo = fs.existsSync(rutaArchivo)
+if (existeArchivo) {
+try {
+const contenido = fs.readFileSync(rutaArchivo, 'utf-8')
+prefijos = JSON.parse(contenido)
+} catch (error) {
+console.log('Error al leer o procesar el archivo "prefijos.json": ', error)
+return
+}} else {
+prefijos = prefijosPredeterminados
+}
+const comienzaConPrefijo = prefijos.some(prefijo => m.sender.startsWith(prefijo.toString()))
+if (comienzaConPrefijo) {
+const texto = `*${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsInt1']()} @${m.sender.split("@")[0]} ${lenguajeGB['smsInt2']()}*`
+await conn.sendMessage(m.chat, { text: texto, mentions: [m.sender] }, { quoted: m })
+//let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
+//if (responseb[0].status === "404") return      
+}}
+	
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
 this.sendMessage(id, { text: text, 
 contextInfo:{
