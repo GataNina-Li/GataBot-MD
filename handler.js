@@ -1443,7 +1443,7 @@ try {
 const contenido = fs.readFileSync(rutaArchivo, 'utf-8')
 prefijos = JSON.parse(contenido)
 } catch (error) {
-console.log('Error al leer o procesar el archivo "prefijos.json": ', error)
+console.log('Error "prefijos.json": ', error)
 return
 }} else {
 prefijos = prefijosPredeterminados
@@ -1452,8 +1452,8 @@ const comienzaConPrefijo = prefijos.some(prefijo => user.startsWith(prefijo.toSt
 if (comienzaConPrefijo) {
 let texto = mid.mAdvertencia + mid.mFake2(user)
 await conn.sendMessage(id, { text: texto, mentions: [user] })
-//let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
-//if (responseb[0].status === "404") return      
+let responseb = await conn.groupParticipantsUpdate(id, [user], 'remove')
+if (responseb[0].status === "404") return      
 }}
 	
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
