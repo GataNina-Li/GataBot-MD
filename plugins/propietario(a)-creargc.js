@@ -13,7 +13,7 @@ m.reply('*Link:* ' + url)
 m.reply(`╰⊱❌⊱ *FALLÓ* / *FAILED* ⊱❌⊱╮\n❌ 𝗘𝗥𝗥𝗢𝗥\n\n❌ 𝗠𝗜𝗦𝗧𝗔𝗞𝗘`)
 }
 }
-handler.help = ['creategroup *<nombre>*']
+handler.help = ['creargc *<nombre>*']
 handler.tags = ['owner']
 handler.command = /^(creargrupo|creargroup|creargc|gccreate)$/
 handler.owner = true
