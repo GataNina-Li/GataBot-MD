@@ -2,7 +2,7 @@ let linkRegex = /whatsapp.com|wa.me|whatsapp.com\/channel/i
 
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
-if (isAdmin || isOwner || isROwner || m.fromMe) return
+if (isAdmin || isOwner || isROwner || m.fromMe || !isBotAdmin) return
 if (m.isBaileys && m.fromMe) return
 if (!m.isGroup) return !1
 let chat = global.db.data.chats[m.chat]
@@ -14,7 +14,6 @@ const user = `@${m.sender.split`@`[0]}`
 let bot = global.db.data.settings[this.user.jid] || {}
 const isGroupLink = linkRegex.exec(m.text)
 if (chat.antiLink && isGroupLink) {
-if (!isBotAdmin) return m.reply(mid.mAdvertencia + mid.mAdmin)
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
 if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
 if (isBotAdmin) {
