@@ -12,9 +12,10 @@ const isLinkTch = /twitch.tv/i
   
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
+if (!m.isGroup) return 
+if (m.fromMe) return
 if (isAdmin || isOwner || isROwner || m.fromMe || !isBotAdmin) return
-if (m.isBaileys && m.fromMe) return !0
-if (!m.isGroup) return !1
+
 let chat = global.db.data.chats[m.chat]
 let bot = global.db.data.settings[this.user.jid] || {}
 let delet = m.key.participant
@@ -33,7 +34,7 @@ const isAntiLinkTh = isLinkTh.exec(m.text)
 const isAntiLinkTch = isLinkTch.exec(m.text)
  
 if (chat.antiTiktok && isAntiLinkTik) {  
-if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
+if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })  
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mTiktok} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
@@ -42,7 +43,7 @@ if (remove[0].status === '404') return
 }}
     
 if (chat.antiYoutube && isAntiLinkYt) {
-if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
+if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })  
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mYoutube} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
@@ -51,7 +52,7 @@ if (remove[0].status === '404') return
 }}
     
 if (chat.antiTelegram && isAntiLinkTel) {
-if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
+if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })   
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mTelegram} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
@@ -60,7 +61,7 @@ if (remove[0].status === '404') return
 }}
     
 if (chat.antiFacebook && isAntiLinkFb) {
-if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
+if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })  
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mFacebook} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
@@ -69,7 +70,7 @@ if (remove[0].status === '404') return
 }}
     
 if (chat.antiInstagram && isAntiLinkIg) {
-if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
+if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })  
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mInstagram} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
@@ -78,7 +79,7 @@ if (remove[0].status === '404') return
 }}
     
 if (chat.antiTwitter && isAntiLinkTw) {
-if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
+if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })  
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mX} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
@@ -87,7 +88,7 @@ if (remove[0].status === '404') return
 }}
 
 if (chat.antiDiscord && isAntiLinkDc) {
-if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
+if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })  
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mDiscord} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
@@ -96,7 +97,7 @@ if (remove[0].status === '404') return
 }}
 
 if (chat.antiThreads && isAntiLinkTh) {
-if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
+if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })  
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mThreads} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
@@ -105,7 +106,7 @@ if (remove[0].status === '404') return
 }}
 
 if (chat.antiTwitch && isAntiLinkTch) {
-if (chat.delete) return m.reply(mid.mAdvertencia + mid.mAntiDelete)   
+if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })  
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mTwitch} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
