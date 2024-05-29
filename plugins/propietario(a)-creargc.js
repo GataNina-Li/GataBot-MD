@@ -1,10 +1,4 @@
-/* 
-- Diego-YL-177
-》https://github.com/Diego-YL-177
-
-- GataNina-Li
-》https://github.com/GataNina-Li
-*/
+//Script actualizado y Extraído por Diego-YL-177
 
 let handler = async (m, { conn, text }) => {
 
