@@ -1,6 +1,10 @@
-/*Adaptado, Actualizado, Editado Y Extraído Por: 
- - Diego-YL-177
-》https://github.com/Diego-YL-177*/
+/* NO EDITAR!
+
+- Diego-YL-177
+》https://github.com/Diego-YL-177
+
+- GataNina-Li
+》https://github.com/GataNina-Li*/
 
 let handler = async (m, { conn, text }) => {
 
