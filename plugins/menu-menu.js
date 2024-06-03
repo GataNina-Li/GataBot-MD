@@ -293,8 +293,8 @@ ${margen}
 > 🌐 *COMANDOS PARA GRUPOS* 🌐
 
 ✓ _${usedPrefix}add *numero*_
-✓ _${usedPrefix}sacar | ban | kick  *@tag*_
 ✓ _${usedPrefix}mute | unmute *@tag*_
+✓ _${usedPrefix}sacar | ban | kick  *@tag*_
 ✓ _${usedPrefix}grupo *abrir o cerrar*_
 ✓ _${usedPrefix}group *open o close*_
 ✓ _${usedPrefix}daradmin | promote *@tag*_
@@ -772,5 +772,4 @@ const commandsAI = [
 { comando: 'gemini', descripcion: '[texto] || [text]', contexto: 'IA, Tecnología de Google', showPrefix: true },
 { comando: 'geminimg', descripcion: '(imagen) + [texto] || (image) + [text]', contexto: 'Busca información de una imagen', showPrefix: true },
 { comando: 'hd', descripcion: '(responde con una imagen) || (responds with an image)', contexto: 'Mejorar calidad de imagen', showPrefix: true },
-] 
-
+]
