@@ -294,6 +294,7 @@ ${margen}
 
 ✓ _${usedPrefix}add *numero*_
 ✓ _${usedPrefix}sacar | ban | kick  *@tag*_
+✓ _${usedPrefix}mute | unmute *@tag*_
 ✓ _${usedPrefix}grupo *abrir o cerrar*_
 ✓ _${usedPrefix}group *open o close*_
 ✓ _${usedPrefix}daradmin | promote *@tag*_
