@@ -72,7 +72,7 @@ function formatBytes(bytes, decimals = 2) {
 
 handler.help = ['drive'].map(v => v + ' <url>')
 handler.tags = ['downloader']
-handler.command = /^(drive|drivedl|dldrive)$/i
+handler.command = /^(drive|drivedl|dldrive|gdrive)$/i
 handler.register = true
 handler.limit = true
 export default handler
