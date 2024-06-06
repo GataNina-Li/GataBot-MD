@@ -16,5 +16,5 @@ conn.sendMessage(m.chat, {image: {url: resultJson.link}, caption: txt.trim()}, {
   
 }
 
-handler.command = /^(prueba36)$/i
+handler.command = /^(prueba20)$/i
 export default handler
