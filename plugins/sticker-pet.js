@@ -13,7 +13,7 @@ try{
         let stiker = await sticker(null,`https://api.erdwpe.com/api/maker/pet?url=${link}`,global.packname, global.author)
         await conn.sendFile(m.chat, stiker, null, { asSticker: true })}
     else{await conn.reply(m.chat, `Responda a una imagen estática`, m)}}
-    catch(e){return}
+    catch(e){return await conn.reply(m.chat, `${e}`, m)}
 }
 
 handler.command = /^(pet|mascota)$/i
