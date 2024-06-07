@@ -30,7 +30,7 @@ try{
 const response=await fetch(`https://delirius-api-oficial.vercel.app/api/tiktok?url=${args[0]}`)
 const dataR = await response.json()
 const { author,title, meta} = dataR.data
-conn.sendFile(m.chat, meta.media[0].org, 'tiktok.mp4', `⛱️ ${mid.user}\n*${author.nickname}*\n${title ? '\n⛱️ ${mid.smsYT14}\n*${title}*' : ''}\n${wm}`.trim(), m) 
+conn.sendFile(m.chat, meta.media[0].org, 'tiktok.mp4', `⛱️ ${mid.user}\n*${author.nickname}*\n${wm}`.trim(), m) 
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
