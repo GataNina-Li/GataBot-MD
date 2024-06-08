@@ -47,4 +47,4 @@ handler.limit = 2
 handler.register = true
 export default handler;
 handler.command = /^(soundcloud|soundcloudr)$/i
-const delay = time => new Promise(res => setTimeout(res, time)
+const delay = time => new Promise(res => setTimeout(res, time))
