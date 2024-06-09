@@ -3,7 +3,7 @@
 - Agradecimiento a GataBot Por aceptareme en el Staff ♥️🫰🏻
 
 */
-import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
+/*import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
 import yts from 'yt-search';
 import fs from 'fs';
 
@@ -88,3 +88,76 @@ handler.help = ['ytsearch <texto>'];
 handler.tags = ['search'];
 handler.command = /^(playlist|yts|searchyt|buscaryt|videosearch|audiosearch)$/i;
 export default handler;
+*/
+
+import ytSearch from "yt-search"
+const handler = async (m, { conn, usedPrefix, args, command }) => {
+try {
+const text = args.length >= 1 ? args.slice(0).join(" ") : (m.quoted && m.quoted?.text || m.quoted?.caption || m.quoted?.description) || null
+    
+if (!text) return m.reply(`Ingrese texto o responda a un mensaje con el texto que desea buscar en YouTube.\nEjemplo de uso:\n*${usedPrefix + command} GataBot*`)
+    
+const { all: [bestItem, ...moreItems] } = await ytSearch(text)
+const videoItems = moreItems.filter(item => item.type === 'video')
+const formattedData = {
+title: "                *[ Búsqueda de Youtube ]*\n",
+rows: [{
+title: "YT",
+highlight_label: "Popular",
+rows: [{
+header: bestItem.title,
+id: `${usedPrefix}yta ${bestItem.url}`,
+title: bestItem.description,
+description: ""
+}]
+}, {
+title: "Más",
+rows: videoItems.map(({
+title,
+url,
+description
+}, index) => ({
+header: `${index + 1}). ${title}`,
+id: `.yta ${url}`,
+title: description,
+description: ""
+}))
+}]
+}
+const emojiMap = {
+type: "🎥",
+videoId: "🆔",
+url: "🔗",
+title: "📺",
+description: "📝",
+image: "🖼️",
+thumbnail: "🖼️",
+seconds: "⏱️",
+timestamp: "⏰",
+ago: "⌚",
+views: "👀",
+author: "👤"
+}
+    
+const caption = Object.entries(bestItem).map(([key, value]) => {
+const formattedKey = key.charAt(0).toUpperCase() + key.slice(1)
+const valueToDisplay = key === 'views' ? new Intl.NumberFormat('en', { notation: 'compact' }).format(value) : key === 'author' ? `Nombre: ${value.name || 'Desconocido'}\nURL: ${value.url || 'Desconocido'}` : value || 'Desconocido';
+return ` ${emojiMap[key] || '🔹'} *${formattedKey}:* ${valueToDisplay}`}).join('\n')
+
+await conn.sendButtonMessages(m.chat, [
+[formattedData.title + caption, wm, bestItem.image || bestItem.thumbnail || logo, [
+['Menu Lista', usedPrefix + 'menu']
+], null, [
+['Canal Oficial', canal2]
+],
+[["Resultados aquí", formattedData.rows]]
+]], m)
+
+} catch (error) {
+console.error(error)
+conn.reply(m.chat, `Ocurrió un error.`, m)
+}
+}
+
+handler.command = /^y(outubesearch|ts(earch)?)$/i
+export default handler
