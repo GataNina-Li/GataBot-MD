@@ -20,7 +20,7 @@ const messages = [
 'id',  
 'Titulo',  
 'Subtitulo', 
-'Descripcion'
+'Descripcion',
 ]]],
 [
 'Descripción 2',
@@ -35,7 +35,7 @@ const messages = [
 'id',  
 'Titulo',  
 'Subtitulo', 
-'Descripcion'
+'Descripcion',
 ]]]
   
 await conn.sendCarousel(m.chat, 'Texto', 'Linea', 'TEXTO', messages, m)
