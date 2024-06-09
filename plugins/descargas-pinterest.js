@@ -47,7 +47,7 @@ image,
 [['u', usedPrefix + `pinterest ${query}`], ['Buscar con Google 🌐', usedPrefix + `image2 ${query}`]],
 null, 
 [['🔗 Enlace de imagen', image]], 
-[[listMessage.buttonText, sections]]
+[['DDDDD', sections]]
 ])
 await conn.sendCarousel(chat, '💗 *Resultados de Pinterest*', 'Imágenes', '✨ Imágenes de Pinterest', messages)
 }
