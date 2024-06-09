@@ -2,7 +2,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 
 const messages = [
 [
-'Descripción 1',
+'Descripción 1', 
 'Footer 1',
 'https://telegra.ph/file/b31cd03f716d362b33716.jpg',
 [['Botón 1', 'id1'], ['Botón 2', 'id2']],
