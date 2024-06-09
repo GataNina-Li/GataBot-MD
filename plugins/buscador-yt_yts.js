@@ -3,7 +3,7 @@
 - Agradecimiento a GataBot Por aceptareme en el Staff ♥️🫰🏻
 
 */
-/*import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
+import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
 import yts from 'yt-search';
 import fs from 'fs';
 
@@ -84,13 +84,11 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   conn.sendFile(m.chat, tes[0].thumbnail, 'error.jpg', teks.trim(), m);      
   }    
 };
-handler.help = ['ytsearch <texto>'];
-handler.tags = ['search'];
-handler.command = /^(playlist|yts|searchyt|buscaryt|videosearch|audiosearch)$/i;
-export default handler;
-*/
 
-import ytSearch from "yt-search"
+handler.command = /^y(outubesearch|ts(earch)?)$/i
+export default handler
+
+/*import ytSearch from "yt-search"
 const handler = async (m, { conn, usedPrefix, args, command }) => {
 try {
 const text = args.length >= 1 ? args.slice(0).join(" ") : (m.quoted && m.quoted?.text || m.quoted?.caption || m.quoted?.description) || null
@@ -160,4 +158,4 @@ conn.reply(m.chat, `Ocurrió un error.`, m)
 }
 
 handler.command = /^y(outubesearch|ts(earch)?)$/i
-export default handler
+export default handler*/
