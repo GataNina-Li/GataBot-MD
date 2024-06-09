@@ -77,7 +77,7 @@ const info = `✨ *${mid.smsYT1}:*
 _${res.name}_
 
 🗣️ *${mid.smsYT13}:*
-» _${res.artista.join(', ')}_\n
+» _${res.artista.join(', ')}_
 
 🌐 *${mid.smsYT4}*:
 » _${shortURL}_
