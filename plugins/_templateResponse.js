@@ -1,6 +1,6 @@
 // @type {import('@whiskeysockets/baileys')}
 
-/*const { proto, generateWAMessage, areJidsSameUser, decryptPollVote, } = (await import('@whiskeysockets/baileys')).default;
+const { proto, generateWAMessage, areJidsSameUser, decryptPollVote, } = (await import('@whiskeysockets/baileys')).default;
 export async function all(m, chatUpdate) {
 if (m.isBaileys) {
 return
@@ -88,9 +88,8 @@ type: 'append',
 }
 this.ev.emit('messages.upsert', msg)
 }
-*/
 
-const {
+/*const {
   proto,
   generateWAMessage,
   areJidsSameUser
@@ -169,3 +168,4 @@ export async function all(m, chatUpdate) {
     console.error('Error in processing message:', error);
   }
 }
+*/
