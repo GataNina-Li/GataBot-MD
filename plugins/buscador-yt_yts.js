@@ -1,6 +1,6 @@
 /*
 
-- Agradecimiento a GataBot Por Estar en el staff ♥️
+- Agradecimiento a GataBot Por aceptareme en el Staff ♥️🫰🏻
 
 */
 import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
@@ -11,7 +11,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
     const datas = global;
     const device = await getDevice(m.key.id);
     
-  if (!text) throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝘿𝙀 𝙐𝙉 𝙑𝙄𝘿𝙀𝙊 𝙊 𝘾𝘼𝙉𝘼𝙇 𝘿𝙀 𝙔𝙊𝙐𝙏𝙐𝘽𝙀\n\n𝙒𝙍𝙄𝙏𝙀 𝙏𝙃𝙀 𝙉𝘼𝙈𝙀 𝙊𝙁 𝘼 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝙑𝙄𝘿𝙀𝙊 𝙊𝙍 𝘾𝙃𝘼𝙉𝙉𝙀𝙇`, fkontak, m)`;
+  if (!text) throw `⚠️ escriba el nombre de un video o canal de youtube\n\nwrite the name of a youtube video or channel`;
     
   if (device !== 'desktop' || device !== 'web') {      
     
