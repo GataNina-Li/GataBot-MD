@@ -17,28 +17,8 @@ const messages = [
     [
       'Lista 1', // Título de la lista
       [ // Sección de la lista
-        { // Elemento de la lista
-          title: 'Header opción 1', // Título del elemento
-          rows: [ // Filas del elemento
-            {
-              header: 'Header opción 1', // Encabezado de la fila
-              title: 'Opción 1', // Título de la fila
-              description: 'Descripción opción 1', // Descripción de la fila
-              id: 'id_opcion_1' // ID de la fila
-            }
-          ]
-        },
-        { // Otro elemento de la lista
-          title: 'Header opción 2', // Título del elemento
-          rows: [ // Filas del elemento
-            {
-              header: 'Header opción 2', // Encabezado de la fila
-              title: 'Opción 2', // Título de la fila
-              description: 'Descripción opción 2', // Descripción de la fila
-              id: 'id_opcion_2' // ID de la fila
-            }
-          ]
-        }
+        ['Header opción 1', 'Opción 1', 'Descripción opción 1', 'id_opcion_1'], // Elemento de la lista
+        ['Header opción 2', 'Opción 2', 'Descripción opción 2', 'id_opcion_2'] // Otro elemento de la lista
       ]
     ]
   ],
@@ -52,32 +32,13 @@ const messages = [
     [
       'Lista 2', // Título de la lista
       [ // Sección de la lista
-        { // Elemento de la lista
-          title: 'Header opción 3', // Título del elemento
-          rows: [ // Filas del elemento
-            {
-              header: 'Header opción 3', // Encabezado de la fila
-              title: 'Opción 3', // Título de la fila
-              description: 'Descripción opción 3', // Descripción de la fila
-              id: 'id_opcion_3' // ID de la fila
-            }
-          ]
-        },
-        { // Otro elemento de la lista
-          title: 'Header opción 4', // Título del elemento
-          rows: [ // Filas del elemento
-            {
-              header: 'Header opción 4', // Encabezado de la fila
-              title: 'Opción 4', // Título de la fila
-              description: 'Descripción opción 4', // Descripción de la fila
-              id: 'id_opcion_4' // ID de la fila
-            }
-          ]
-        }
+        ['Header opción 3', 'Opción 3', 'Descripción opción 3', 'id_opcion_3'], // Elemento de la lista
+        ['Header opción 4', 'Opción 4', 'Descripción opción 4', 'id_opcion_4'] // Otro elemento de la lista
       ]
     ]
   ]
 ];
+
 
   
 await conn.sendCarousel(m.chat, 'Prueba', 'SuperBot', messages, m)
