@@ -17,8 +17,8 @@ const messages = [
     [
       'Lista 1', // Título de la lista
       [ // Sección de la lista
-        ['Header opción 1', 'Opción 1', 'Descripción opción 1', 'id_opcion_1'], // Elemento de la lista
-        ['Header opción 2', 'Opción 2', 'Descripción opción 2', 'id_opcion_2'] // Otro elemento de la lista
+        ['Header opción 1', ['Header opción 1', 'Opción 1', 'Descripción opción 1', 'id_opcion_1']], // Elemento de la lista
+        ['Header opción 2', ['Header opción 2', 'Opción 2', 'Descripción opción 2', 'id_opcion_2']]  // Otro elemento de la lista
       ]
     ]
   ],
@@ -32,12 +32,13 @@ const messages = [
     [
       'Lista 2', // Título de la lista
       [ // Sección de la lista
-        ['Header opción 3', 'Opción 3', 'Descripción opción 3', 'id_opcion_3'], // Elemento de la lista
-        ['Header opción 4', 'Opción 4', 'Descripción opción 4', 'id_opcion_4'] // Otro elemento de la lista
+        ['Header opción 3', ['Header opción 3', 'Opción 3', 'Descripción opción 3', 'id_opcion_3']], // Elemento de la lista
+        ['Header opción 4', ['Header opción 4', 'Opción 4', 'Descripción opción 4', 'id_opcion_4']]  // Otro elemento de la lista
       ]
     ]
   ]
 ];
+
 
 
   
