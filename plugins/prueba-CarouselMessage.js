@@ -15,20 +15,12 @@ const messages = [
 'Texto para copiar 1',
 [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']],
 [[
-'Lista', {
+'Lista', 
 'Sección ',  
 'id',  
 'Titulo',  
 'Subtitulo', 
 'Descripcion'
-},
-{
-'Sección ',  
-'id',  
-'Titulo',  
-'Subtitulo', 
-'Descripcion'
-}
 ]]],
 [
 'Descripción 2',
@@ -38,24 +30,15 @@ const messages = [
 'Texto para copiar 2',
 [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']],
 [[
-'Lista', {
+'Lista', 
 'Sección ',  
 'id',  
 'Titulo',  
 'Subtitulo', 
 'Descripcion'
-},
-{
-'Sección ',  
-'id',  
-'Titulo',  
-'Subtitulo', 
-'Descripcion'
-}
 ]]]
   
 await conn.sendCarousel(m.chat, 'Texto', 'Linea', 'TEXTO', messages, m)
-
 }
 
 handler.command = /^(carousel)$/i
