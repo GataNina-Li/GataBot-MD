@@ -43,7 +43,7 @@ const messages = [
 
 
   
-await conn.sendCarousel(m.chat, messages, m)
+await conn.sendCarousel(m.chat, 'Texto', 'Linea', 'TEXTO', messages, m)
 
 }
 
