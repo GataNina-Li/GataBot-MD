@@ -28,6 +28,7 @@ if (!text) throw `Ingresa el nombre de la canción a buscar`;
                     });
                 }
             }
+        handler.limit = 0
         return await conn.sendList(m.chat, `${htki} *𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎* ${htka}\n`, `\n𝘽𝙪𝙨𝙦𝙪𝙚𝙙𝙖 𝙙𝙚: ${text}`, `𝗕 𝗨 𝗦 𝗖 𝗔 𝗥`, listSections, fkontak);
         }
            
