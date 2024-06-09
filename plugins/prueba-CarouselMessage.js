@@ -21,6 +21,13 @@ const messages = [
 'Tema',  
 'Descripcion', 
 'comando'
+],[
+'Lista',  
+'Sección ',  
+'Titulo',  
+'Tema',  
+'Descripcion', 
+'comando'
 ]]],
     [
         'Descripción 2',
