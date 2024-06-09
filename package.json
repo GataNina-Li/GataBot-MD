@@ -68,6 +68,7 @@
 "lodash": "^4.17.21",
 "lowdb": "^3.0.0",
 "libphonenumber-js": "^1.10.55",
+"megajs": "^1.2.2",
 "module-gatadios": "^1.0.5",
 "md5": "^2.3.0",
 "moment-timezone": "^0.5.34",
