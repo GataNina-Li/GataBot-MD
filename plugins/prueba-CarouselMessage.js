@@ -5,7 +5,7 @@ const messages = [
 ['Descripción 2', 'Footer 2', 'https://telegra.ph/file/98c672926fbc35a4b9948.jpg', [], '', [], []],
 ['Descripción 3', 'Footer 3', 'https://telegra.ph/file/f689a972cfc1c5efff189.jpg', [], '', [], []],
 ]
-await conn.sendCarousel(m.chat, 'Prueba', 'SuperBot', messages, m)
+await conn.sendCarousel(m.chat, messages, 'Prueba', 'SuperBot', m)
 
 }
 
