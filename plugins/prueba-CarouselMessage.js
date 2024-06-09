@@ -29,7 +29,7 @@ const messages = [
                     'id_opcion_2'       // ID de la segunda fila
                 ]
             ]
-        ]
+        
     ],
     [
         'Descripción 2',
