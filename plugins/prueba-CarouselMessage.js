@@ -21,7 +21,7 @@ const messages = [
             ]
         ]
     ]
-]
+],
     [
         'Descripción 2',
         'Footer 2',
