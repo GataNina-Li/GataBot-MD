@@ -15,13 +15,13 @@ const messages = [
         'Texto para copiar 1',
         [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']],
 [
-            'Lista 1',  // Título de la lista
+            ['Lista 1'],  // Título de la lista
             [  // Secciones de la lista
                 [
-                    'Header opción 1',  // Header de la primera fila
-                    'Opción 1',         // Título de la primera fila
-                    'Descripción opción 1',  // Descripción de la primera fila
-                    'id_opcion_1'       // ID de la primera fila
+                    ['Header opción 1'],  // Header de la primera fila
+                    ['Opción 1'],         // Título de la primera fila
+                    ['Descripción opción 1'],  // Descripción de la primera fila
+                    ['id_opcion_1']       // ID de la primera fila
                 ],
                 [
                     'Header opción 2',  // Header de la segunda fila
