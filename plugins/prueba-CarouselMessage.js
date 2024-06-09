@@ -14,9 +14,8 @@ const messages = [
         [['Botón A', 'idA'], ['Botón B', 'idB']],
         'Texto para copiar 1',
         [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']],
-[
-            ['Lista 1',  // Título de la lista
-            [  // Secciones de la lista
+[['Lista 1', 'ooooooooo'],  // Título de la lista
+              // Secciones de la lista
                 [
                     ['Header opción 1'],  // Header de la primera fila
                     ['Opción 1'],         // Título de la primera fila
