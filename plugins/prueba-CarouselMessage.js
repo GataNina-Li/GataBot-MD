@@ -43,7 +43,7 @@ const messages = [
 
 
   
-await conn.sendCarousel(m.chat, 'Prueba', 'SuperBot', messages, m)
+await conn.sendCarousel(m.chat, messages, m)
 
 }
 
