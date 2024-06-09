@@ -27,8 +27,7 @@ const messages = [
         ['id_opcion_2']  // Otro elemento de la lista
       ]
     ]
-  ]
-],
+  ],
   [
     'Descripción 2',
     'Footer 2',
