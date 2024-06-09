@@ -21,16 +21,8 @@ const messages = [
                     ['Opción 1'],         // Título de la primera fila
                     ['Descripción opción 1'],  // Descripción de la primera fila
                     ['id_opcion_1']       // ID de la primera fila
-                ]],
-                [
-                    'Header opción 2',  // Header de la segunda fila
-                    'Opción 2',         // Título de la segunda fila
-                    'Descripción opción 2',  // Descripción de la segunda fila
-                    'id_opcion_2'       // ID de la segunda fila
-                ]
-            ]
-        
-    ],
+                ]]]],
+
     [
         'Descripción 2',
         'Footer 2',
