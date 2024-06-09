@@ -14,15 +14,13 @@ const messages = [
         [['Botón A', 'idA'], ['Botón B', 'idB']],
         'Texto para copiar 1',
         [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']],
-[
-'Lista',
-[
+[[
 'Lista',
 'Sección ',  
+'id',  
 'Titulo',  
-'Tema',  
-'Descripcion', 
-'comando'
+'Subtitulo', 
+'Descripcion'
 ]]],
     [
         'Descripción 2',
