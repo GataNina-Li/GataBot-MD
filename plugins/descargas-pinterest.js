@@ -1,5 +1,8 @@
 import fetch from "node-fetch"
 
+let handler = async (m, { conn, usedPrefix, command, text }) => {
+let query = text.trim()
+
 async function getPinterestImages(query) {
 let response = await fetch(`https://aemt.me/pinterest?query=${encodeURIComponent(query)}`)
 let data = await response.json()
@@ -35,9 +38,6 @@ null,
 ])
 await conn.sendCarousel(chat, '🤩 *Resultados de Google*', 'Imágenes', '✅ Imágenes de Google', messages)
 }
-
-let handler = async (m, { conn, usedPrefix, command, text }) => {
-let query = text.trim()
 
 if (!query) {
 conn.reply(m.chat, '*Por favor, escribe lo que quieres buscar en Pinterest.*', m)
