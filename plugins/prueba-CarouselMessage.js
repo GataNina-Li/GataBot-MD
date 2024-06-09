@@ -15,8 +15,8 @@ const messages = [
     'Texto para copiar 1',
     [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']],
     [
-      ['Lista 1'], // Título de la lista
-      [ // Sección de la lista
+      'Lista 1', // Título de la lista
+      [ // Contenido de la lista
         ['Header opción 1', 'Opción 1', 'Descripción opción 1', 'id_opcion_1'], // Elemento de la lista
         ['Header opción 2', 'Opción 2', 'Descripción opción 2', 'id_opcion_2']  // Otro elemento de la lista
       ]
@@ -30,14 +30,15 @@ const messages = [
     'Texto para copiar 2',
     [['Enlace 3', 'https://example.com/link3'], ['Enlace 4', 'https://example.com/link4']],
     [
-      ['Lista 2'], // Título de la lista
-      [ // Sección de la lista
+      'Lista 2', // Título de la lista
+      [ // Contenido de la lista
         ['Header opción 3', 'Opción 3', 'Descripción opción 3', 'id_opcion_3'], // Elemento de la lista
         ['Header opción 4', 'Opción 4', 'Descripción opción 4', 'id_opcion_4']  // Otro elemento de la lista
       ]
     ]
   ]
 ];
+
 
   
 await conn.sendCarousel(m.chat, 'Texto', 'Linea', 'TEXTO', messages, m)
