@@ -12,35 +12,35 @@ let data = await response.json()
 return data.result
 }
 
-async function sendPinterestCarousel(conn, chat, query) {
+async function sendPinterestCarousel(conn, chat, query, usedPrefix) {
 let images = await getPinterestImages(query)
 const messages = images.map((image) => [ null, null, 
 image, 
-[['Buscar con Google', `google ${query}`], ['Buscar en Pinterest', `pinterest ${query}`]],
+[['🔎 Buscar de nuevo', usedPrefix + `pinterest ${query}`], ['🌐 Buscar con Google', usedPrefix + `image2 ${query}`]],
 null, 
-[['Enlace', image]], 
+[['🔗 Enlace de imagen', image]], 
 []
 ])
-await conn.sendCarousel(chat, 'Resultados de Pinterest', 'Imágenes', 'Imágenes de Pinterest', messages)
+await conn.sendCarousel(chat, '💗 *Resultados de Pinterest*', 'Imágenes', '✨ Imágenes de Pinterest', messages)
 }
 
 async function sendGoogleCarousel(conn, chat, query) {
 let images = await getGoogleImages(query);
 const messages = images.map((image) => [ null, null, 
 image, 
-[['Buscar con Google', `google ${query}`], ['Buscar en Pinterest', `pinterest ${query}`]], 
+[['🔎 Buscar de nuevo', usedPrefix + `image2 ${query}`], ['🔎 Buscar con Pinterest', usedPrefix + `pinterest ${query}`]], 
 null, 
-[['Enlace', image]], 
+[['🔗 Enlace de imagen', image]], 
 []
 ])
-await conn.sendCarousel(chat, 'Resultados de Google', 'Imágenes', 'Imágenes de Google', messages)
+await conn.sendCarousel(chat, '🤩 *Resultados de Google*', 'Imágenes', '✅ Imágenes de Google', messages)
 }
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
 let query = text.trim()
 
 if (!query) {
-conn.reply(m.chat, 'Por favor, ingrese una consulta de búsqueda.', m)
+conn.reply(m.chat, '*Por favor, escribe lo que quieres buscar en Pinterest.*', m)
 return
 }
 
