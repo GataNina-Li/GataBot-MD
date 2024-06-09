@@ -16,7 +16,7 @@ async function sendPinterestCarousel(conn, chat, query, usedPrefix) {
 let images = await getPinterestImages(query)
 const messages = images.map((image) => [ null, null, 
 image, 
-[['#menu', usedPrefix + `pinterest ${query}`], ['Buscar con Google 🌐', usedPrefix + `image2 ${query}`]],
+[['u',`$pinterest ${query}`], ['Buscar con Google 🌐', usedPrefix + `image2 ${query}`]],
 null, 
 [['🔗 Enlace de imagen', image]], 
 []
