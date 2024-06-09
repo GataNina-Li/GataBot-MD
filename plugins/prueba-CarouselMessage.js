@@ -8,14 +8,15 @@ const messages = [
 [['Botón 1', 'id1'], ['Botón 2', 'id2']],
 'Texto para copiar 1',
 [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']],
-[[
-'Lista',
-'Sección ',
-'Titulo',
-'Tema',
-'Descripcion',
-'Id',        
-]]],
+[
+            'Lista 1', [
+                ['Sección 1', 'Título 1', 'Tema 1', 'Descripción 1', 'Id 1'],
+                ['Sección 2', 'Título 2', 'Tema 2', 'Descripción 2', 'Id 2'],
+                // Puedes agregar más filas según sea necesario
+            ]
+        ]
+    // Otros mensajes pueden seguir aquí...
+],
 [
 'Descripción 2',
 'Footer 2',
