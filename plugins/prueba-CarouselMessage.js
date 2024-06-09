@@ -42,13 +42,12 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']],
         [
 'Lista', 
-[
-['Sección '],  
+['Sección'],  
 ['Titulo'],  
 'Tema',  
 'Descripcion', 
 'Id',
-]]],
+]],
     [
         'Descripción 2',
         'Footer 2',
