@@ -15,9 +15,9 @@ const messages = [
             'Tema',
             'Descripcion',
             'Id',
-            [
+            
                 ['Sección', 'Titulo', 'Tema', 'Descripcion', 'Id']
-            ]
+            
         ]
     ]],
 [
