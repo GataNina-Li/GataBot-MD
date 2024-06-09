@@ -3,6 +3,31 @@ import fetch from "node-fetch"
 let handler = async (m, { conn, usedPrefix, command, text }) => {
 let query = text.trim()
 
+  const sections = [{
+    title: `${htki} LISTA ${htka}`,
+    rows: [{
+      title: "ADMFJ",
+      id: ".MENU"
+    }, {
+      title: "ADJNF",
+      id: ".MENU"
+    }, {
+      title: "DNFKV",
+      id: ".MENU" 
+    }, {
+      title: "DHJNS",
+      id: ".MENU"
+    }, ]
+  }, ]  
+
+const listMessage = {
+text: 'Texto',
+footer: '┏- - - - -  INFO - - - - -\n┊ 🅟 = Premium\n┊ Ⓕ = Free\n┗•',
+title: `❏––––[ *TEX* ]–––`,
+buttonText: "- -- -",
+sections
+  }
+
 async function getPinterestImages(query) {
 let response = await fetch(`https://aemt.me/pinterest?query=${encodeURIComponent(query)}`)
 let data = await response.json()
@@ -22,7 +47,7 @@ image,
 [['u', usedPrefix + `pinterest ${query}`], ['Buscar con Google 🌐', usedPrefix + `image2 ${query}`]],
 null, 
 [['🔗 Enlace de imagen', image]], 
-[]
+[[listMessage.buttonText, sections]]
 ])
 await conn.sendCarousel(chat, '💗 *Resultados de Pinterest*', 'Imágenes', '✨ Imágenes de Pinterest', messages)
 }
