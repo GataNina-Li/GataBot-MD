@@ -16,8 +16,8 @@ const messages = [
     [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']],
     [
       ['Lista 1'],
-      'Header opción 1', 'Descripción opción 1', 'id_opcion_1',
-      'Header opción 2', 'Descripción opción 2', 'id_opcion_2'
+      ['Header opción 1'], ['Descripción opción 1', 'id_opcion_1', 'id_opcion_1'],
+      ['Header opción 2'], ['Descripción opción 2', 'id_opcion_2', 'id_opcion_1']
     ]
   ],
   [
