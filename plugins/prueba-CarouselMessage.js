@@ -51,7 +51,7 @@ const messages = [
             'Descripcion',
             'Id',         
 ]]
-        ]
+        
     ],
     // Otros mensajes pueden seguir aquí...
 ];
