@@ -18,7 +18,7 @@ const messages = [
       'Lista 1', // Título de la lista
       [ // Sección de la lista
         { // Elemento de la lista
-          'Header opción 1', // Título del elemento
+          'Header opción 1' // Título del elemento
           [ // Filas del elemento
             {
               'Header opción 1', // Encabezado de la fila
@@ -29,7 +29,7 @@ const messages = [
           ]
         },
         { // Otro elemento de la lista
-          'Header opción 2', // Título del elemento
+          'Header opción 2' // Título del elemento
           [ // Filas del elemento
             {
               'Header opción 2', // Encabezado de la fila
@@ -53,7 +53,7 @@ const messages = [
       'Lista 2', // Título de la lista
       [ // Sección de la lista
         { // Elemento de la lista
-          'Header opción 3', // Título del elemento
+          'Header opción 3' // Título del elemento
           [ // Filas del elemento
             {
               'Header opción 3', // Encabezado de la fila
@@ -64,7 +64,7 @@ const messages = [
           ]
         },
         { // Otro elemento de la lista
-          'Header opción 4', // Título del elemento
+          'Header opción 4' // Título del elemento
           [ // Filas del elemento
             {
               'Header opción 4', // Encabezado de la fila
