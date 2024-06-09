@@ -44,7 +44,7 @@ const messages = [[ // CARUSEL 1
 [['Enlace1', 'https://example.com/link1'], ['Enlace2', 'https://example.com/link2']],
 [['Botón Lista 1', sections], ['Botón Lista 2', sections]]
 ]] /* etc... */
-await conn.sendCarousel(chat, 'Texto', 'Footer', 'Titulo de Carusel', messages)            
+await conn.sendCarousel(m.chat, 'Texto', 'Footer', 'Titulo de Carusel', messages, m)            
 
 }
 
