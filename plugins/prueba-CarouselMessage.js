@@ -40,13 +40,14 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         [['Botón 1', 'id1'], ['Botón 2', 'id2']],
         'Texto para copiar 1',
         [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']],
-        [
-            'Lista 1', [
-                ['Header opción 1', 'Titulo opción 1', 'Descripción opción 1', 'id_opcion_1'],
-                ['Header opción 2', 'Titulo opción 2', 'Descripción opción 2', 'id_opcion_2']
-            ]
-        ]
-    ],
+        [[
+'Lista', 
+'Sección ',  
+'Titulo',  
+'Tema',  
+'Descripcion', 
+'Id',
+]]],
     [
         'Descripción 2',
         'Footer 2',
