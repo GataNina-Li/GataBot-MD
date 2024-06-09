@@ -18,24 +18,24 @@ const messages = [
       'Lista 1', // Título de la lista
       [ // Sección de la lista
         { // Elemento de la lista
-          'Header opción 1' // Título del elemento
-          [ // Filas del elemento
+          title: 'Header opción 1', // Título del elemento
+          rows: [ // Filas del elemento
             {
-              'Header opción 1', // Encabezado de la fila
-              'Opción 1', // Título de la fila
-              'Descripción opción 1', // Descripción de la fila
-              'id_opcion_1' // ID de la fila
+              header: 'Header opción 1', // Encabezado de la fila
+              title: 'Opción 1', // Título de la fila
+              description: 'Descripción opción 1', // Descripción de la fila
+              id: 'id_opcion_1' // ID de la fila
             }
           ]
         },
         { // Otro elemento de la lista
-          'Header opción 2' // Título del elemento
-          [ // Filas del elemento
+          title: 'Header opción 2', // Título del elemento
+          rows: [ // Filas del elemento
             {
-              'Header opción 2', // Encabezado de la fila
-              'Opción 2', // Título de la fila
-              'Descripción opción 2', // Descripción de la fila
-              'id_opcion_2' // ID de la fila
+              header: 'Header opción 2', // Encabezado de la fila
+              title: 'Opción 2', // Título de la fila
+              description: 'Descripción opción 2', // Descripción de la fila
+              id: 'id_opcion_2' // ID de la fila
             }
           ]
         }
@@ -53,33 +53,33 @@ const messages = [
       'Lista 2', // Título de la lista
       [ // Sección de la lista
         { // Elemento de la lista
-          'Header opción 3' // Título del elemento
-          [ // Filas del elemento
+          title: 'Header opción 3', // Título del elemento
+          rows: [ // Filas del elemento
             {
-              'Header opción 3', // Encabezado de la fila
-              'Opción 3', // Título de la fila
-              'Descripción opción 3', // Descripción de la fila
-              'id_opcion_3' // ID de la fila
+              header: 'Header opción 3', // Encabezado de la fila
+              title: 'Opción 3', // Título de la fila
+              description: 'Descripción opción 3', // Descripción de la fila
+              id: 'id_opcion_3' // ID de la fila
             }
           ]
         },
         { // Otro elemento de la lista
-          'Header opción 4' // Título del elemento
-          [ // Filas del elemento
+          title: 'Header opción 4', // Título del elemento
+          rows: [ // Filas del elemento
             {
-              'Header opción 4', // Encabezado de la fila
-              'Opción 4', // Título de la fila
-              'Descripción opción 4', // Descripción de la fila
-              'id_opcion_4' // ID de la fila
+              header: 'Header opción 4', // Encabezado de la fila
+              title: 'Opción 4', // Título de la fila
+              description: 'Descripción opción 4', // Descripción de la fila
+              id: 'id_opcion_4' // ID de la fila
             }
           ]
         }
       ]
     ]
   ]
-]
+];
 
-
+  
 await conn.sendCarousel(m.chat, 'Prueba', 'SuperBot', messages, m)
 
 }
