@@ -43,8 +43,8 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         [[
 'Lista', 
 [
-'Sección ',  
-'Titulo',  
+['Sección '],  
+['Titulo'],  
 'Tema',  
 'Descripcion', 
 'Id',
