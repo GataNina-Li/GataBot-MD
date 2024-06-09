@@ -24,7 +24,7 @@ null,
 await conn.sendCarousel(chat, '💗 *Resultados de Pinterest*', 'Imágenes', '✨ Imágenes de Pinterest', messages)
 }
 
-async function sendGoogleCarousel(conn, chat, query) {
+async function sendGoogleCarousel(conn, chat, query, usedPrefix) {
 let images = await getGoogleImages(query);
 const messages = images.map((image) => [ null, null, 
 image, 
