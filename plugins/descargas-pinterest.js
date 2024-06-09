@@ -6,7 +6,9 @@ let query = text.trim()
   const sections = [{
     title: `${htki} LISTA ${htka}`,
     rows: [{
+      header: 'wwww',
       title: "ADMFJ",
+      description: 'yyyyyyy',
       id: ".MENU"
     }, {
       title: "ADJNF",
