@@ -49,6 +49,7 @@ await sendPinterestCarousel(conn, m.chat, query)
 } else if (command === 'image2') {
 await sendGoogleCarousel(conn, m.chat, query)
 }
+}
 
 handler.command = /^(pinterest|image2)$/i
 export default handler
