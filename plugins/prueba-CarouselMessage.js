@@ -15,7 +15,7 @@ const messages = [
     'Texto para copiar 1',
     [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']],
     [
-      'Lista 1', // Título de la lista
+      ['Lista 1'], // Título de la lista
       [ // Contenido de la lista
         ['Header opción 1', 'Opción 1', 'Descripción opción 1', 'id_opcion_1'], // Elemento de la lista
         ['Header opción 2', 'Opción 2', 'Descripción opción 2', 'id_opcion_2']  // Otro elemento de la lista
