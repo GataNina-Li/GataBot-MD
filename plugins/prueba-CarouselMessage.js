@@ -16,7 +16,7 @@ const messages = [[ // CARUSEL 1
 'Footer de Carusel 1',
 'https://telegra.ph/file/24b24c495b5384b218b2f.jpg',
 [['Botón1', 'Id1'], ['Botón2', 'Id2'] /* etc... */],
-'Copiar texto',
+['Copiar texto 1', 'Copiar texto 2'],
 [['Enlace1', 'https://'], ['Enlace2', 'https://'] /* etc... */],
 [['Botón Lista 1', sections], ['Botón Lista 2', sections] /* etc... */]
 ], [ // CAROUSEL 2
