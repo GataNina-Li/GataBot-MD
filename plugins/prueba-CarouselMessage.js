@@ -44,13 +44,13 @@ const messages = [
         'Texto para copiar 1', // Texto que se puede copiar
         [['Enlace 1', 'https://example.com/link1'], ['Enlace 2', 'https://example.com/link2']], // Enlaces
        [[
-            'Lista',
+            'Lista', [
             'Sección ',
             'Titulo',
             'Tema',
             'Descripcion',
             'Id',         
-]]
+]]]
         
     ],
     // Otros mensajes pueden seguir aquí...
