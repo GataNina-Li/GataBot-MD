@@ -44,7 +44,7 @@ global.confirmCode = "" // No tocar esto : Do not touch this line
 // Español 👉 es           
 // English 👉 en
 global.lenguajeGB = en
-global.mid = esDefault
+global.mid = enDefault
 global.version_language = '1.0 (MID-GB)'
 
 // [ES] > Si "default_language" esta vacío, su idioma predeterminado será Español o se usará el idioma que cada usuario haya seleccionado al momento de registrarse. 
