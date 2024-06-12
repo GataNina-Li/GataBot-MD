@@ -1,6 +1,6 @@
 /* 
-# Créditos a https://github.com/Undefined17
-•• @Azami19 ••
+# Créditos a https://github.com/AzamiJs
+•• @AzamiJs ••
 */
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
