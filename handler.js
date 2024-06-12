@@ -1,9 +1,10 @@
-import {generateWAMessageFromContent} from '@whiskeysockets/baileys';
+import { generateWAMessageFromContent } from '@whiskeysockets/baileys'
 import { smsg } from './lib/simple.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
 import path, { join } from 'path'
 import { unwatchFile, watchFile } from 'fs'
+import fs from 'fs'
 import chalk from 'chalk'   
 import fetch from 'node-fetch'
 import './plugins/_content.js'
