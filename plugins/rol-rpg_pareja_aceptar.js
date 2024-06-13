@@ -1,4 +1,4 @@
-/*import fetch from 'node-fetch' 
+import fetch from 'node-fetch' 
 //import { areJidsSameUser } from '@adiwajshing/baileys'
 let { areJidsSameUser } = (await import(global.baileys)).default
 let handler = async (m, { conn, text, participants, usedPrefix, groupMetadata }) => {
@@ -56,4 +56,4 @@ console.log(e)}}
 handler.command = /^(aceptar|acepto|accept)$/i
 handler.group = true
 export default handler
-*/
+
