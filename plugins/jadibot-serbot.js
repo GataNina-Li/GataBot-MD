@@ -253,9 +253,9 @@ conn.ws.close()
 await serbot()
 } catch (err) {
 console.error(`Error reconectando sub-bot ${conn.user.jid}:`, err)
-}}}}, 60000)
+}}}}, 60000)}
 }
-
+  
 }
 handler.command = ['jadibot', 'serbot']
 export default handler
