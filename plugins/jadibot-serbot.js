@@ -39,7 +39,7 @@ else global.conns = []
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const packageJsonPath = join(__dirname, '../package.json')
-const { name, author, version, description } = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
+const { name, author, version: versionSB, description } = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
 
 let folderBot = 'GataBotSession', nameBotMD = 'GataBot-MD', opcion = ''
 let handler = async (m, { conn: _conn, args, usedPrefix, command, isOwner, text }) => {
@@ -120,7 +120,7 @@ let cleanedNumber = phoneNumber.replace(/[^0-9]/g, '')
 let txt = ''
 if (opcion == '1') {
 txt = `*『 SER BOT CON CÓDIGO QR 』*\n
-✦ *Versión de ${name} »* *\`${version}\`*
+✦ *Versión de ${name} »* *\`${versionSB}\`*
 ✦ *Versión de JadiBot »* *\`${global.vsJB}\`*
 ✦ *Descripción »* _${description}_\n
 
@@ -129,7 +129,7 @@ txt = `*『 SER BOT CON CÓDIGO QR 』*\n
 ⚠️ _*Como medida de seguridad y para no generar spam, este mensaje será eliminado en 50 segundos*_`
 } else {  
 txt = `*『 SER BOT CON CÓDIGO DE 8 DÍGITOS 』*\n
-✦ *Versión de ${name} »* *\`${version}\`*
+✦ *Versión de ${name} »* *\`${versionSB}\`*
 ✦ *Versión de JadiBot »* *\`${global.vsJB}\`*
 ✦ *Descripción »* _${description}_\n
 
