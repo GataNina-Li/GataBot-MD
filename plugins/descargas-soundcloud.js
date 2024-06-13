@@ -40,13 +40,13 @@ if (!text) throw `Ingresa el nombre de la canción a buscar`;
         conn.sendMessage(m.chat, {image: {url: portada}, caption: `Espera por favor...\n\nEnviando: ${ddname}\n\n${wm}`}, {quoted: m});
         await delay(15000)
         conn.sendMessage(m.chat, { audio: { url: ddlink }, fileName: `${ddname}`,mimetype: 'audio/mpeg'},{ quoted: m })   
-    }catch(e){return m.reply("Error")
-            }
-}
+    }catch(e){
+    return m.reply("Error")
+    }}
 
+handler.command = /^(soundcloud|soundcloudr)$/i
 handler.limit = 1
 handler.register = true
-handler.command = /^(soundcloud|soundcloudr)$/i
 export default handler
 
 const delay = time => new Promise(res => setTimeout(res, time))
