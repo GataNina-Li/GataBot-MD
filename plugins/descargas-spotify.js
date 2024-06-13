@@ -1,4 +1,4 @@
-/*import axios from 'axios'
+import axios from 'axios'
 import fetch from 'node-fetch'
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import search from 'yt-search'
@@ -102,4 +102,3 @@ m.react('✅️')
 }}
 handler.command = /^(spotify|music)$/i
 export default handler
-*/
