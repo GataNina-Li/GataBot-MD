@@ -1,4 +1,4 @@
-import util from 'util'
+/*import util from 'util'
 import path from 'path'
 
 async function handler(m, { groupMetadata, command, conn, text, usedPrefix}) {
@@ -33,3 +33,4 @@ export default handler
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
+*/
