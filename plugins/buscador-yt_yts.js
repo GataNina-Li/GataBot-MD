@@ -88,7 +88,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
 handler.command = /^y(outubesearch|ts(earch)?)$/i
 export default handler*/
 
-/*import ytSearch from "yt-search"
+import ytSearch from "yt-search"
 const handler = async (m, { conn, usedPrefix, args, command }) => {
 try {
 const text = args.length >= 1 ? args.slice(0).join(" ") : (m.quoted && m.quoted?.text || m.quoted?.caption || m.quoted?.description) || null
@@ -158,7 +158,7 @@ conn.reply(m.chat, `Ocurrió un error.`, m)
 }
 
 handler.command = /^y(outubesearch|ts(earch)?)$/i
-export default handler*/
+export default handler
 
 /*import yts from 'yt-search';
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
