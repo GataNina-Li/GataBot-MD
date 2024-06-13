@@ -47,7 +47,7 @@ if (!global.db.data.settings[conn.user.jid].jadibotmd) return _conn.sendMessage(
   
 let parent = args[0] && args[0] == 'plz' ? _conn : await global.conn
 text = (text ? text : (args[0] ? args[0] : '')).toLowerCase()
-  console.log(text)
+
 let message1 = `*Si desea convertirse en bot, diríjase al número principal*\n\nwa.me/${global.conn.user.jid.split('@')[0]}?text=${usedPrefix}serbot`
 if (!((args[0] && args[0] == 'plz') || (await global.conn).user.jid == _conn.user.jid)) {
 if (text.includes('qr')) {
@@ -108,14 +108,14 @@ version
 
 let conn = makeWASocket(connectionOptions)
 
-if (methodCode && !conn.authState.creds.registered) {
+/*if (methodCode && !conn.authState.creds.registered) {
 if (!phoneNumber) {
 process.exit(0)
 }
 let cleanedNumber = phoneNumber.replace(/[^0-9]/g, '')
 if (!Object.keys(PHONENUMBER_MCC).some(v => cleanedNumber.startsWith(v))) {
 process.exit(0)
-}
+}*/
   
 let txt = ''
 if (opcion == '1') {
@@ -140,7 +140,7 @@ txt = `*『 SER BOT CON CÓDIGO DE 8 DÍGITOS 』*\n
 ⚠️ _*Como medida de seguridad y para no generar spam, este mensaje y el código será eliminado en 1 minuto*_`
 
 setTimeout(async () => {
-let codeBot = await conn.requestPairingCode(cleanedNumber)
+let codeBot = await _conn.requestPairingCode(cleanedNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 let codeA = await parent.sendMessage(m.chat, { text: txt.trim(), mentions: [m.sender] }, { quoted: m })  
 let codeB = await parent.sendMessage(m.chat, { text: codeBot }, { quoted: m })
