@@ -165,7 +165,7 @@ const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?
 if (code && code !== DisconnectReason.loggedOut && conn?.ws.socket == null) {
 let i = global.conns.indexOf(conn)
 if (i < 0) return console.log(await creloadHandler(true).catch(console.error))
-if (i < 0) return console.log(`*Nuevo usuario conectado como Sub Bot: ${PhoneNumber('+' + (conn.user?.jid).replace('@s.whatsapp.net', '')).getNumber('international')} (${conn.getName(conn.user.jid)})*`)
+//if (i < 0) return console.log(`*Nuevo usuario conectado como Sub Bot: ${PhoneNumber('+' + (conn.user?.jid).replace('@s.whatsapp.net', '')).getNumber('international')} (${conn.getName(conn.user.jid)})*`)
 delete global.conns[i]
 global.conns.splice(i, 1)
 if (code !== DisconnectReason.connectionClosed) {
@@ -230,30 +230,6 @@ return true
 creloadHandler(false)
 }
 serbot()
-
-handler.before = async (m) => {
-setInterval(async () => {
-if (!conn.user) {
-try { conn.ws.close() } catch { }
-conn.ev.removeAllListeners()
-let i = global.conns.indexOf(conn)
-if (i < 0) return
-delete global.conns[i]
-global.conns.splice(i, 1)
-}}, 60000)
-
-setInterval(async () => {
-for (let conn of global.conns) {
-if (!conn.ws || conn.ws.readyState !== CONNECTING) {
-console.log(`Reconectando sub-bot ${conn.user.jid}...`)
-try {
-conn.ws.close()
-await serbot()
-} catch (err) {
-console.error(`Error reconectando sub-bot ${conn.user.jid}:`, err)
-}}}}, 60000)
-}
-
   
 }
 handler.command = ['jadibot', 'serbot']
