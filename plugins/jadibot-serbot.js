@@ -109,7 +109,7 @@ let isInit = true
 let cleanedNumber = phoneNumber.replace(/[^0-9]/g, '')
   
 let txt = ''
-if (!isBase64(text)) {
+if (!fs.existsSync(`./${folderBot}/` + authFolderB + "/creds.json")){
 if (opcion == '1') {
 txt = `*『 SER BOT CON CÓDIGO QR 』*\n
 ✦ *Versión de ${name} »* *\`${versionSB}\`*
