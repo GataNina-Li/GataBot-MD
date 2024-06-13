@@ -20,6 +20,7 @@ Contenido adaptado por:
 
 const { useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, MessageRetryMap, makeCacheableSignalKeyStore, jidNormalizedUser, PHONENUMBER_MCC } = await import('@whiskeysockets/baileys')
 import moment from 'moment-timezone'
+import PhoneNumber from 'awesome-phonenumber'
 import NodeCache from 'node-cache'
 import readline from 'readline'
 import qrcode from "qrcode"
@@ -51,11 +52,11 @@ text = (text ? text : (args[0] ? args[0] : '')).toLowerCase()
 let message1 = `*Si desea convertirse en bot, diríjase al número principal*\n\nwa.me/${global.conn.user.jid.split('@')[0]}?text=${usedPrefix}serbot`
 if (!((args[0] && args[0] == 'plz') || (await global.conn).user.jid == _conn.user.jid)) {
 if (text.includes('qr')) {
-throw message1 + ' qr'
+return _conn.sendMessage(m.chat, { text: message1 + '%20qr' }, { quoted: m })
 } else if (text.includes('code')) {
-throw message1 + ' code'
+return _conn.sendMessage(m.chat, { text: message1 + '%20code' }, { quoted: m })
 } else {
-throw message1 + ' code'
+return _conn.sendMessage(m.chat, { text: message1 + '%20code' }, { quoted: m })
 }}
 
 async function serbot() {
@@ -113,9 +114,6 @@ if (!phoneNumber) {
 process.exit(0)
 }*/
 let cleanedNumber = phoneNumber.replace(/[^0-9]/g, '')
-// if (!Object.keys(PHONENUMBER_MCC).some(v => cleanedNumber.startsWith(v))) {
-// process.exit(0)
-// }
   
 let txt = ''
 if (opcion == '1') {
@@ -123,7 +121,6 @@ txt = `*『 SER BOT CON CÓDIGO QR 』*\n
 ✦ *Versión de ${name} »* *\`${versionSB}\`*
 ✦ *Versión de JadiBot »* *\`${global.vsJB}\`*
 ✦ *Descripción »* _${description}_\n
-
 *No sólo el diseño del mensaje se ha renovado. ✨ ¡Disfruta de ${name}!*\n
 > ➡️ *Usando otro celular o en la PC escanea este código QR para convertirte en Sub Bot de ${name} 🐈*\n\n*1️⃣ Diríjase a los tres puntos en la esquina superior derecha*\n*2️⃣ Ir a la opción "Dispositivos vinculados" y use el botón "Vincular un dispositivo"*\n*3️⃣ Escanee este codigo QR para iniciar sesión*\n\n> 📢 *¡Este código QR expira en 50 segundos!*\n
 ⚠️ _*Como medida de seguridad y para no generar spam, este mensaje será eliminado en 50 segundos*_`
@@ -132,24 +129,23 @@ txt = `*『 SER BOT CON CÓDIGO DE 8 DÍGITOS 』*\n
 ✦ *Versión de ${name} »* *\`${versionSB}\`*
 ✦ *Versión de JadiBot »* *\`${global.vsJB}\`*
 ✦ *Descripción »* _${description}_\n
-
 *No sólo el diseño del mensaje se ha renovado. ✨ ¡Disfruta de ${name}!*\n
-> *Se enviará un código para ser Sub Bot*\n\n1️⃣ *Diríjase a los tres puntos en la esquina superior derecha*\n\n2️⃣ *Selecciona "Dispositivos vinculados" y use el botón "Vincular un dispositivo"*\n\n3️⃣ *Selecciona en la parte inferior *Vincular con el número de teléfono*\n\n4️⃣ *Introduzca el código de 8 dígitos*\n
+> *Se enviará un código para ser Sub Bot*\n\n1️⃣ *Diríjase a los tres puntos en la esquina superior derecha*\n\n2️⃣ *Selecciona "Dispositivos vinculados" y use el botón "Vincular un dispositivo"*\n\n3️⃣ *Selecciona en la parte inferior "Vincular con el número de teléfono"*\n\n4️⃣ *Introduzca el código de 8 dígitos*\n
 
 *El código solo será válido para @${phoneNumber}*\n
 ⚠️ _*Como medida de seguridad y para no generar spam, este mensaje y el código será eliminado en 1 minuto*_`
 
 let codeA, codeB 
 setTimeout(async () => {
-let codeBot = await conn.requestPairingCode(cleanedNumber)
+let codeBot = await _conn.requestPairingCode(cleanedNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
-codeA = await parent.sendMessage(m.chat, { text: txt.trim(), mentions: [m.sender] }, { quoted: m })  
-codeB = await parent.sendMessage(m.chat, { text: codeBot }, { quoted: m })
+codeA = await _conn.sendMessage(m.chat, { text: txt.trim(), mentions: [m.sender] }, { quoted: m })  
+codeB = await _conn.sendMessage(m.chat, { text: codeBot }, { quoted: m })
 }, 2000)
 
 setTimeout(() => {
-parent.sendMessage(m.chat, { delete: codeA.key })
-parent.sendMessage(m.chat, { delete: codeB.key })
+_conn.sendMessage(m.chat, { delete: codeA.key })
+_conn.sendMessage(m.chat, { delete: codeB.key })
 }, 60000) // 1 min
 }
 
@@ -160,34 +156,34 @@ async function connectionUpdate(update) {
 const { connection, lastDisconnect, isNewLogin, qr } = update
 if (isNewLogin) conn.isInit = true
 if (opcion == '1') {
-let scan = await parent.sendFile(m.chat, await qrcode.toDataURL(qr, { scale: 8 }), 'qrcode.png', txt.trim(), m)
+let scan = await _conn.sendFile(m.chat, await qrcode.toDataURL(qr, { scale: 8 }), 'qrcode.png', txt.trim(), m)
 setTimeout(() => {
-parent.sendMessage(m.chat, { delete: scan.key })
+_conn.sendMessage(m.chat, { delete: scan.key })
 }, 50000) //50 segundos
 }
 const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (code && code !== DisconnectReason.loggedOut && conn?.ws.socket == null) {
 let i = global.conns.indexOf(conn)
 if (i < 0) return console.log(await creloadHandler(true).catch(console.error))
+if (i < 0) return console.log(`*Nuevo usuario conectado como Sub Bot: ${PhoneNumber('+' + (conn.user?.jid).replace('@s.whatsapp.net', '')).getNumber('international')} (${conn.getName(conn.user.jid)})*`)
 delete global.conns[i]
 global.conns.splice(i, 1)
 if (code !== DisconnectReason.connectionClosed) {
-parent.sendMessage(m.chat, { text: "*Conexión perdida...* vuelva a intentarlo" }, { quoted: m })
+_conn.sendMessage(m.chat, { text: "*Conexión perdida...* vuelva a intentarlo" }, { quoted: m })
 } else {
-parent.sendMessage(m.chat, { text: "*La conexión se cerró*, Tendrá que conectarse manualmente usando el comando #serbot" }, { quoted: m })
+_conn.sendMessage(m.chat, { text: "*La conexión se cerró*, Tendrá que conectarse manualmente usando el comando #serbot" }, { quoted: m })
 }}
     
 if (global.db.data == null) loadDatabase()
 if (connection == 'open') {
 conn.isInit = true
 global.conns.push(conn)
-await parent.sendMessage(m.chat, {text : args[0] ? '✅ ¡Conectado con exito!' : `✅ *Conectado con WhatsApp*\n\n♻️ *Comandos relacionados con Sub Bot:*\n» *#stop* _(Pausar ser bot)_\n» *#eliminarsesion* _(Dejar de ser bot y eliminar datos)_\n» *#serbot* _(Reanudar ser Bot en caso que este pausado o deje de funcionar)_` }, { quoted: m })
-await parent.sendMessage(m.chat, { text: `*Gracias por usar ❤️${name} 🐈*\n\n📢 *Informate de las novedades en nuestro canal oficial:*\n${canal2}\n\n🤩 *Descubre más formas de seguir pendiente de este proyecto:*\n${cuentas}\n\n💝 *Puede hacer una Donación voluntaria por PayPal:\n${paypal}` }, { quoted: m })
-await parent.sendMessage(m.chat, { text: `🤭 *¡Sigue de cerca este nuevo proyecto!*\nhttps://whatsapp.com/channel/0029VabS4KD8KMqeVXXmkG1D` }, { quoted: m })  
+await _conn.sendMessage(m.chat, {text : args[0] ? '✅ ¡Conectado con exito!' : `✅ *Conectado con WhatsApp*\n\n♻️ *Comandos relacionados con Sub Bot:*\n» *#stop* _(Pausar ser bot)_\n» *#eliminarsesion* _(Dejar de ser bot y eliminar datos)_\n» *#serbot* _(Reanudar ser Bot en caso que este pausado o deje de funcionar)_\n\n*Gracias por usar ❤️${name} 🐈*\n\n📢 *Informate de las novedades en nuestro canal oficial:*\n${canal2}\n\n🤩 *Descubre más formas de seguir pendiente de este proyecto:*\n${cuentas}\n\n💝 *Puede hacer una Donación voluntaria por PayPal:\n${paypal}` }, { quoted: m })
+await _conn.sendMessage(m.chat, { text: `🤭 *¡Sigue de cerca este nuevo proyecto!*\nhttps://whatsapp.com/channel/0029VabS4KD8KMqeVXXmkG1D` }, { quoted: m })  
 await sleep(5000)
 if (args[0]) return
-await parent.sendMessage(conn.user.jid, {text : '*Si pausa ser sub bot o deja de funcionar, envíe este mensaje para intentar conectarse nuevamente*'}, { quoted: m })
-await parent.sendMessage(conn.user.jid, {text : usedPrefix + command + " " + Buffer.from(fs.readFileSync(`./${folderBot}/` + authFolderB + "/creds.json"), "utf-8").toString("base64")}, { quoted: m })
+await _conn.sendMessage(conn.user.jid, {text : '*Si pausa ser sub bot o deja de funcionar, envíe este mensaje para intentar conectarse nuevamente*'}, { quoted: m })
+await _conn.sendMessage(conn.user.jid, {text : usedPrefix + command + " " + Buffer.from(fs.readFileSync(`./${folderBot}/` + authFolderB + "/creds.json"), "utf-8").toString("base64")}, { quoted: m })
 }}
 
 setInterval(async () => {
