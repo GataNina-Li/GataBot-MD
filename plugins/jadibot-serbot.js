@@ -139,11 +139,12 @@ txt = `*『 SER BOT CON CÓDIGO DE 8 DÍGITOS 』*\n
 *El código solo será válido para @${phoneNumber}*\n
 ⚠️ _*Como medida de seguridad y para no generar spam, este mensaje y el código será eliminado en 1 minuto*_`
 
+let codeA, codeB 
 setTimeout(async () => {
 let codeBot = await conn.requestPairingCode(cleanedNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
-let codeA = await parent.sendMessage(m.chat, { text: txt.trim(), mentions: [m.sender] }, { quoted: m })  
-let codeB = await parent.sendMessage(m.chat, { text: codeBot }, { quoted: m })
+codeA = await parent.sendMessage(m.chat, { text: txt.trim(), mentions: [m.sender] }, { quoted: m })  
+codeB = await parent.sendMessage(m.chat, { text: codeBot }, { quoted: m })
 }, 2000)
 
 setTimeout(() => {
