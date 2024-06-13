@@ -1,4 +1,4 @@
-import fg from 'api-dylux' 
+/*import fg from 'api-dylux' 
 import axios from 'axios'
 import cheerio from 'cheerio'
 import { tiktok } from "@xct007/frieren-scraper";
@@ -54,3 +54,4 @@ var getdata = cheerio.load(data.html);
 if (data.status) {
 return { status: true, thumbnail: getdata("img").attr("src"), video: getdata("div.download-links > div:nth-child(1) > a").attr("href"), audio: getdata("div.download-links > div:nth-child(2) > a").attr("href"), }} else
 return { status: false }}
+*/
