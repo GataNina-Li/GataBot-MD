@@ -38,7 +38,7 @@ if (global.conns instanceof Array) console.log()
 else global.conns = []
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const packageJsonPath = join(__dirname, './package.json')
+const packageJsonPath = join(__dirname, '../package.json')
 const { name, author, version, description } = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
 
 let folderBot = 'GataBotSession', nameBotMD = 'GataBot-MD', opcion = ''
