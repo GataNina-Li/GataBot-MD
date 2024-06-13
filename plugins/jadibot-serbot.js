@@ -26,7 +26,7 @@ import qrcode from "qrcode"
 import crypto from 'crypto'
 import fs from "fs"
 import { readFileSync } from 'fs'
-import { join } from 'path'
+import { join, dirname } from 'path'
 import pino from 'pino'
 import * as ws from 'ws'
 const { CONNECTING } = ws
