@@ -1,4 +1,4 @@
-/*import fetch from 'node-fetch'
+import fetch from 'node-fetch'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()} Ingrese una Url de Drive`
 let url=args[0]
@@ -74,6 +74,5 @@ handler.help = ['drive'].map(v => v + ' <url>')
 handler.tags = ['downloader']
 handler.command = /^(drive|drivedl|dldrive|gdrive)$/i
 handler.register = true
-handler.limit = true
 export default handler
-*/
+
