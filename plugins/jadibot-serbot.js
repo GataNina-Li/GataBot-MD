@@ -58,10 +58,8 @@ return parent.sendMessage(m.chat, { text: message1 + '%20code' }, { quoted: m })
 } else {
 return parent.sendMessage(m.chat, { text: message1 + '%20code' }, { quoted: m })
 }}
-
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? _conn.user.jid : m.sender
-let authFolderB = `${who.split`@`[0]}`
-
+  
+let authFolderB = crypto.randomBytes(10).toString('hex').slice(0, 8)
 async function serbot() {
 if (!fs.existsSync(`./${folderBot}/` + authFolderB)){
 fs.mkdirSync(`./${folderBot}/` + authFolderB, { recursive: true })
@@ -122,9 +120,7 @@ let isInit = true
 let cleanedNumber = phoneNumber.replace(/[^0-9]/g, '')
   
 let txt = ''
-if (isBase64(text)) {
-return
-} else {
+if (!isBase64(text)) {
 if (opcion == '1') {
 txt = `*『 SER BOT CON CÓDIGO QR 』*\n
 ✦ *Versión de ${name} »* *\`${versionSB}\`*
