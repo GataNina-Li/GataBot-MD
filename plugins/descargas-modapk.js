@@ -1,4 +1,4 @@
-import {search, download} from 'aptoide-scraper';
+/*import {search, download} from 'aptoide-scraper';
 const handler = async (m, {conn, usedPrefix, command, text}) => {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsApk}`;
 try {    
@@ -37,7 +37,7 @@ handler.command = /^(apkmod|apk|modapk|dapk2|aptoide|aptoidedl|apkmodr)$/i;
 handler.register = true
 handler.limit = 2
 export default handler;
-
+*/
 
 //Código Anterior
 /*
