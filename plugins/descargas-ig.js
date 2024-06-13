@@ -1,4 +1,4 @@
-/*import fetch from 'node-fetch';
+import fetch from 'node-fetch';
 import axios from 'axios';
 import instagramGetUrl from 'instagram-url-direct';
 import {instagram} from '@xct007/frieren-scraper';
@@ -62,7 +62,6 @@ await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 conn.sendMessage(m.chat, {text: `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, edit: key});
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
-handler.limit = 0
 }}}}}}}
 handler.help = ['instagram <link ig>']
 handler.tags = ['downloader']
@@ -70,4 +69,4 @@ handler.command =/^(instagram|ig(dl)?)$/i
 handler.limit = 2
 handler.register = true
 export default handler
-*/
+
