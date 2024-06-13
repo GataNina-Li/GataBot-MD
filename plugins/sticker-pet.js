@@ -1,4 +1,4 @@
-import uploadImage from '../lib/uploadImage.js'
+/*import uploadImage from '../lib/uploadImage.js'
 import { sticker } from '../lib/sticker.js'
 
 let handler = async (m) => {
@@ -17,4 +17,4 @@ try{
 }
 
 handler.command = /^(pet|mascota)$/i
-export default handler
+export default handler*/
