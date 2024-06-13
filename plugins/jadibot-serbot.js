@@ -61,17 +61,12 @@ return parent.sendMessage(m.chat, { text: message1 + '%20code' }, { quoted: m })
 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? _conn.user.jid : m.sender
 let authFolderB = `${who.split`@`[0]}`
-const base64FilePath = `${authFolderB}_base64.txt`
+
 async function serbot() {
 if (!fs.existsSync(`./${folderBot}/` + authFolderB)){
 fs.mkdirSync(`./${folderBot}/` + authFolderB, { recursive: true })
 }
-//args[0] ? fs.writeFileSync(`./${folderBot}/` + authFolderB + "/creds.json", JSON.stringify(JSON.parse(Buffer.from(args[0], "base64").toString("utf-8")), null, '\t')) : ""
-args[0]
-? fs.writeFileSync(`./${folderBot}/${authFolderB}/creds.json`, JSON.stringify(JSON.parse(Buffer.from(args[0], "base64").toString("utf-8")), null, '\t'))
-: fs.existsSync(`./${folderBot}/${authFolderB}/${base64FilePath}`)
-? fs.writeFileSync(`./${folderBot}/${authFolderB}/creds.json`, JSON.stringify(JSON.parse(Buffer.from(fs.readFileSync(`./${folderBot}/${authFolderB}/${base64FilePath}`, 'utf-8'), "base64").toString("utf-8")), null, '\t'))
-: ""
+args[0] ? fs.writeFileSync(`./${folderBot}/` + authFolderB + "/creds.json", JSON.stringify(JSON.parse(Buffer.from(args[0], "base64").toString("utf-8")), null, '\t')) : ""
 
 if (fs.existsSync(`./${folderBot}/` + authFolderB + "/creds.json")) {
 let creds = JSON.parse(fs.readFileSync(`./${folderBot}/` + authFolderB + "/creds.json"))
@@ -79,10 +74,6 @@ if (creds) {
 if (creds.registered = false) {
 fs.unlinkSync(`./${folderBot}/` + authFolderB + "/creds.json")
 }}}
-
-if (fs.existsSync(`./${folderBot}/${authFolderB}/${base64FilePath}`)) {
-fs.unlinkSync(`./${folderBot}/${authFolderB}/${base64FilePath}`);
-}
   
 const { state, saveState, saveCreds } = await useMultiFileAuthState(`./${folderBot}/${authFolderB}`)
 const msgRetryCounterMap = (MessageRetryMap) => { }
@@ -194,12 +185,9 @@ if (global.db.data == null) loadDatabase()
 if (connection == 'open') {
 conn.isInit = true
 global.conns.push(conn)
-await parent.sendMessage(m.chat, {text : args[0] ? '✅ *¡Conectado con exito!*' : `✅ *Conectado con WhatsApp*\n\n♻️ *Comandos relacionados con Sub Bot:*\n» *#stop* _(Pausar ser bot)_\n» *#eliminarsesion* _(Dejar de ser bot y eliminar datos)_\n» *#serbot* _(Reanudar ser Bot en caso que este pausado o deje de funcionar)_\n\n*Gracias por usar ❤️${name} 🐈*\n\n📢 *Informate de las novedades en nuestro canal oficial:*\n${canal2}\n\n🤩 *Descubre más formas de seguir pendiente de este proyecto:*\n${cuentas}\n\n💝 *Puede hacer una Donación voluntaria por PayPal:*\n${paypal}` }, { quoted: m })
+await parent.sendMessage(m.chat, {text : args[0] ? '✅ *¡Conectado con exito!*' : `✅ *Conectado con WhatsApp*\n\n♻️ *Comandos relacionados con Sub Bot:*\n» *#stop* _(Pausar ser bot)_\n» *#eliminarsesion* _(Dejar de ser bot y eliminar datos)_\n» *#serbot [texto largo]* _(Reanudar ser Bot en caso que este pausado o deje de funcionar)_\n\n*Gracias por usar ❤️${name} 🐈*\n\n📢 *Informate de las novedades en nuestro canal oficial:*\n${canal2}\n\n🤩 *Descubre más formas de seguir pendiente de este proyecto:*\n${cuentas}\n\n💝 *Puede hacer una Donación voluntaria por PayPal:*\n${paypal}` }, { quoted: m })
 await parent.sendMessage(m.chat, { text: `🤭 *¡Sigue de cerca este nuevo proyecto!*\nhttps://whatsapp.com/channel/0029VabS4KD8KMqeVXXmkG1D` }, { quoted: m })  
-if (!fs.existsSync(`./${folderBot}/${authFolderB}/${base64FilePath}`)) {
-const base64Data = Buffer.from(fs.readFileSync(credsPath, "utf-8")).toString("base64")
-await fs.writeFileSync(`./${folderBot}/${authFolderB}/${base64FilePath}`, base64Data)
-}
+args[0] ? console.log(`*Usuario sub bot reconectando: ${PhoneNumber('+' + (conn.user?.jid).replace('@s.whatsapp.net', '')).getNumber('international')} (${conn.getName(conn.user.jid)})*`) : ''
 await sleep(5000)
 if (args[0]) return
 await parent.sendMessage(conn.user.jid, {text : '*Si pausa ser sub bot o deja de funcionar, envíe este mensaje para intentar conectarse nuevamente*'}, { quoted: m })
