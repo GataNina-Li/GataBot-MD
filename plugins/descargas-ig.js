@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+/*import fetch from 'node-fetch';
 import axios from 'axios';
 import instagramGetUrl from 'instagram-url-direct';
 import {instagram} from '@xct007/frieren-scraper';
@@ -15,8 +15,7 @@ const resultD = await instagramDl(args[0]);
 const linkD=resultD[0].download_link
 await conn.sendFile(m.chat, linkD, 'error.mp4', `${wm}`, m);
 await conn.sendMessage(m.chat, {text: waittttt, edit: key})
-}
-catch{
+} catch{
 try {
 const apiUrll = `https://api.betabotz.org/api/download/igdowloader?url=${encodeURIComponent(args[0])}&apikey=bot-secx3`;
 const responsel = await axios.get(apiUrll);
@@ -71,3 +70,4 @@ handler.command =/^(instagram|ig(dl)?)$/i
 handler.limit = 2
 handler.register = true
 export default handler
+*/
