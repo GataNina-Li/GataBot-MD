@@ -18,7 +18,7 @@ Contenido adaptado por:
 // Créditos: https://github.com/FG98F
 // Código adaptado por GataNina-Li
 
-/*const { useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, MessageRetryMap, makeCacheableSignalKeyStore, jidNormalizedUser, PHONENUMBER_MCC } = await import('@whiskeysockets/baileys')
+const { useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, MessageRetryMap, makeCacheableSignalKeyStore, jidNormalizedUser, PHONENUMBER_MCC } = await import('@whiskeysockets/baileys')
 import moment from 'moment-timezone'
 import NodeCache from 'node-cache'
 import readline from 'readline'
@@ -184,7 +184,7 @@ await parent.sendMessage(m.chat, { text: `*Gracias por usar ❤️${name} 🐈*\
 await parent.sendMessage(m.chat, { text: `🤭 *¡Sigue de cerca este nuevo proyecto!*\nhttps://whatsapp.com/channel/0029VabS4KD8KMqeVXXmkG1D` }, { quoted: m })  
 await sleep(5000)
 if (args[0]) return
-await parent.sendMessage(conn.user.jid, {text :  '*Si pausa ser sub bot o deja de funcionar, envíe este mensaje para intentar conectarse nuevamente*'}, { quoted: m })
+await parent.sendMessage(conn.user.jid, {text : '*Si pausa ser sub bot o deja de funcionar, envíe este mensaje para intentar conectarse nuevamente*'}, { quoted: m })
 await parent.sendMessage(conn.user.jid, {text : usedPrefix + command + " " + Buffer.from(fs.readFileSync(`./${folderBot}/` + authFolderB + "/creds.json"), "utf-8").toString("base64")}, { quoted: m })
 }}
 
@@ -201,7 +201,7 @@ global.conns.splice(i, 1)
 let handler = await import('../handler.js')
 let creloadHandler = async function (restatConn) {
 try {
-const Handler = await import(../handler.js?update=${Date.now()}).catch(console.error)
+const Handler = await import(`../handler.js?update=${Date.now()}`).catch(console.error)
 if (Object.keys(Handler || {}).length) handler = Handler
 } catch (e) {
 console.error(e)
@@ -263,4 +263,3 @@ export default handler
 function sleep(ms) {
 return new Promise(resolve => setTimeout(resolve, ms))
 }
-*/
