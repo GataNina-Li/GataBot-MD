@@ -23,6 +23,7 @@ import moment from 'moment-timezone'
 import NodeCache from 'node-cache'
 import readline from 'readline'
 import qrcode from "qrcode"
+import { fileURLToPath } from 'url'
 import crypto from 'crypto'
 import fs from "fs"
 import { readFileSync } from 'fs'
