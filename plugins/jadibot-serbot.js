@@ -111,11 +111,11 @@ let conn = makeWASocket(connectionOptions)
 /*if (methodCode && !conn.authState.creds.registered) {
 if (!phoneNumber) {
 process.exit(0)
-}
-let cleanedNumber = phoneNumber.replace(/[^0-9]/g, '')
-if (!Object.keys(PHONENUMBER_MCC).some(v => cleanedNumber.startsWith(v))) {
-process.exit(0)
 }*/
+let cleanedNumber = phoneNumber.replace(/[^0-9]/g, '')
+// if (!Object.keys(PHONENUMBER_MCC).some(v => cleanedNumber.startsWith(v))) {
+// process.exit(0)
+// }
   
 let txt = ''
 if (opcion == '1') {
