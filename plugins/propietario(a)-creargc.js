@@ -1,7 +1,7 @@
 /*
 ⚠ PROHIBIDO EDITAR ⚠
 El codigo de este archivo fue actualizado por:
-- Diego-YL-177 >> https://github.com/Diego-YL-177
+- OfcDiego >> https://github.com/OfcDiego
 */
 
 let handler = async (m, { conn, text }) => {
