@@ -1,3 +1,4 @@
+import './config.js' 
 import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 import axios from 'axios'
