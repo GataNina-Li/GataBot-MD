@@ -19,7 +19,7 @@ var canalesInfo = [
 { link: canal3, id: "120363203805910750@newsletter", name: "Tips sobre GataBot 🤩" } 
 ]
 var indiceAleatorio = Math.floor(Math.random() * canalesInfo.length)
-export const channelRD = canalesInfo[indiceAleatorio]
+var channelR = canalesInfo[indiceAleatorio]
 
 // Imágenes 
 global.imagen1 = fs.readFileSync("./media/menus/Menu3.jpg")
