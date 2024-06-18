@@ -13,9 +13,9 @@ global.welgata = [tk, ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb, tk
 global.redesMenu = [canal1, canal2, canal3, canal4, soporteGB, grupo1, grupo2, grupo3, grupo4, grupo5, grupo6, md, ig, paypal, yt, asistencia, fb, tk].getRandom()
 global.accountsgb = [canal1, canal2, canal3, canal4, tk, ig, yt, paypal, fb, ths, md, asistencia].getRandom()
 
-let canalId = ["120363160031023229@newsletter", "120363169294281316@newsletter", "120363203805910750@newsletter", "120363302472386010@newsletter"]
-let canalNombre = ["INFINITY-WA 💫", "GB - UPDATE 🐈", "Tips sobre GataBot 🤩", "NUEVO PROYECTO: YartexBot-MD ✨"]
-let channelRD = await getRandomChannel()
+global.canalIdGB = ["120363160031023229@newsletter", "120363169294281316@newsletter", "120363203805910750@newsletter", "120363302472386010@newsletter"]
+global.canalNombreGB = ["INFINITY-WA 💫", "GB - UPDATE 🐈", "Tips sobre GataBot 🤩", "NUEVO PROYECTO: YartexBot-MD ✨"]
+global.channelRD = await getRandomChannel()
 
 // Imágenes 
 global.imagen1 = fs.readFileSync("./media/menus/Menu3.jpg")
@@ -111,8 +111,8 @@ return list[Math.floor(Math.random() * list.length)]
   }
 
 async function getRandomChannel() {
-let randomIndex = Math.floor(Math.random() * canalId.length)
-let id = canalId[randomIndex]
-let nombre = canalNombre[randomIndex]
+let randomIndex = Math.floor(Math.random() * canalIdGB.length)
+let id = canalIdGB[randomIndex]
+let nombre = canalNombreGB[randomIndex]
 return { id, nombre }
 } 	
