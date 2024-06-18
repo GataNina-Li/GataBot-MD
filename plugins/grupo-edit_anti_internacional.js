@@ -40,10 +40,10 @@ reply = (await conn.reply(m.chat, mid.mInfo + `> *Hemos encontrado prefijos/núm
 *Reciente:* \`\`\`${numerosPrefijos.map(prefijo => `+${prefijo}`).join(', ')}\`\`\`
 *Existente:* \`\`\`${prefijosConSigno.join(', ')}\`\`\`\n 
 *Responde a este mensaje eligiendo un número para:*
-\`\`\`[1]\`\`\` \`Combinar\` _Se juntarán los prefijos existentes con los recientes._\n
-\`\`\`[2]\`\`\` \`Reemplazar\` _Se eliminarán los prefijos existentes para agregar los recientes._\n
-\`\`\`[3]\`\`\` \`Eliminar\` _Se usarán los prefijos predeterminados, eliminando los existentes y recientes._\n
-\`\`\`[4]\`\`\` \`Cancelar\` _No se realizarán cambios._`, m)).key.id
+\`\`\`[A]\`\`\` \`Combinar\` _Se juntarán los prefijos existentes con los recientes._\n
+\`\`\`[B]\`\`\` \`Reemplazar\` _Se eliminarán los prefijos existentes para agregar los recientes._\n
+\`\`\`[C]\`\`\` \`Eliminar\` _Se usarán los prefijos predeterminados, eliminando los existentes y recientes._\n
+\`\`\`[D]\`\`\` \`Cancelar\` _No se realizarán cambios._`, m)).key.id
 }} catch (error) {
 if (error.code === 'ENOENT') {
 m.reply(mid.mError + 'El archivo `"prefijos.json"` no existe.')
