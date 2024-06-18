@@ -3,8 +3,7 @@ let linkRegex = /whatsapp.com|wa.me|whatsapp.com\/channel/i
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
 if (!m.isGroup) return 
-if (m.fromMe) return
-if (isAdmin || isOwner || isROwner || m.fromMe || !isBotAdmin) return
+if (!isAdmin || !isOwner || !isROwner || m.fromMe || !isBotAdmin) return
 
 let chat = global.db.data.chats[m.chat]
 let delet = m.key.participant
