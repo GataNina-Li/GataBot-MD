@@ -25,8 +25,8 @@ const comienzaConPrefijo = prefijos.some(prefijo => m.sender.startsWith(prefijo)
 if (comienzaConPrefijo) {
 await conn.sendMessage(m.chat, { text: texto, mentions: [m.sender] }, { quoted: m })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let responseb = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-if (responseb[0].status === "404") return   
+//let responseb = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//if (responseb[0].status === "404") return   
 }
 } catch (error) {
 console.log('Error "prefijos.json": ', error)
@@ -35,8 +35,8 @@ return
 if (m.sender.startsWith('6') || m.sender.startsWith('9') ||  m.sender.startsWith('7') ||  m.sender.startsWith('4') || m.sender.startsWith('2')) {
 await conn.sendMessage(m.chat, { text: texto, mentions: [m.sender] }, { quoted: m })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let responseb = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-if (responseb[0].status === "404") return   
+//let responseb = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//if (responseb[0].status === "404") return   
 }}
 
 }}
