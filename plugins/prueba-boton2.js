@@ -4,7 +4,7 @@ if (!text) return conn.reply(m.chat, '_ingresa el texto de lo que quieres buscar
 const res = await googleImage(text)
 const image = await res.getRandom()
 const link = image
-await conn.sendButton2(m.chat,'Resultados de:', [[`${text}`]], null, [['resp.1', `${usedPrefix}🌠 ${text}`], ['resp.2', `${usedPrefix}🌠 ${text}`], ['resp.3', `${usedPrefix}🌠 ${text}`]], m)
+await conn.sendButton(m.chat,'Resultados de:', [[`${text}`]], null, [['resp.1', `${usedPrefix}🌠 ${text}`], ['resp.2', `${usedPrefix}🌠 ${text}`], ['resp.3', `${usedPrefix}🌠 ${text}`]], m)
 }
 handler.help = ['ɪᴍᴀɢᴇɴ']
 handler.tags = ['search']
