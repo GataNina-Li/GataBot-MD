@@ -1,7 +1,7 @@
 let WAMessageStubType = (await import(global.baileys)).default
 import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
 import path from 'path';
-import '../plugins/_content.js'
+import './_content.js'
 
 let handler = m => m
 handler.before = async function (m, { conn, participants, groupMetadata}) {
