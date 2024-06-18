@@ -11,6 +11,12 @@ await conn.sendMessage(m.chat, {text: waitt, edit: key});
 await conn.sendMessage(m.chat, {text: waittt, edit: key});
 await conn.sendMessage(m.chat, {text: waitttt, edit: key});
 try{
+const responseIg = await axios.get(`https://delirios-api-delta.vercel.app/download/instagram?url=${args[0]}`);
+const resultlIg = responseIg.data;
+let linkig=resultlIg.data[0].url
+await conn.sendFile(m.chat,linkig, 'error.mp4', `${wm}`, m);
+}catch{
+try{
 const resultD = await instagramDl(args[0]);
 const linkD=resultD[0].download_link
 await conn.sendFile(m.chat, linkD, 'error.mp4', `${wm}`, m);
@@ -62,7 +68,7 @@ await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 conn.sendMessage(m.chat, {text: `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, edit: key});
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
-}}}}}}}
+}}}}}}}}
 handler.help = ['instagram <link ig>']
 handler.tags = ['downloader']
 handler.command =/^(instagram|ig(dl)?)$/i
