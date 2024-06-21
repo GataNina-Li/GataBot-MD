@@ -24,7 +24,7 @@
 </p>
 
 <div align="center">
-  
+ 
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:centergatabot@gmail.com)
 [![Support](https://img.shields.io/badge/Support-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/SoporteGataBot)
 [![WhatsApp](https://img.shields.io/badge/STAFF-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/message/C45GXBEFTPONE1)
@@ -37,27 +37,29 @@
 ### 👇 `Todas las cuentas están aquí!!`
 [![Enlaces](https://img.shields.io/badge/GataBot_Accounts-000000%7D?style=for-the-badge&logo=biolink&logoColor=white)](https://www.atom.bio/gatabot/)
 
------
+----
 # 📍 Atajos del README
-
 | TEMA | DESCRIPCIÓN | ATAJO |
 |------|-------------|-------|
-| **TERMUX** | ***INSTALACIÓN AUTOMÁTICA*** |[ver](https://github.com/GataNina-Li/GataBot-MD/tree/master?tab=readme-ov-file#-opci%C3%B3n-1-instalaci%C3%B3n-autom%C3%A1tica-) |
-| **TERMUX** | ***INSTALACIÓN MANUAL*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-2-instalación-manual-por-termux---github) |
-| **TERMUX** | ***INSTALACIÓN POR ARCHIVOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-por-termux---archivos) |
-| **TERMUX 24/7** | ***COMANDOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-247-en-termux) |
-| **TERMUX UPDATE** | ***COMANDOS PARA ACTUALIZAR GATABOT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot) |
-| **HEROKU** | ***INSTALACIÓN POR HEROKU*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
-| **BOXMINE** | ***INSTALACIÓN POR BOXMINE*** |[ver](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-boxmine-host) |
-| **CAFIREXOS** | ***INSTALACIÓN POR CAFIREXOS*** |[ver](https://github.com/GataNina-Li/GataBot-MD#-cafirexos) |
-| **VORTEXUS CLOUD** | ***INSTALACIÓN POR VORTEXUS*** |[ver](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-vortexus-cloud---host) |
-| **REPLIT** | ***INSTALACIÓN POR REPLIT*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-replit---gatabot) |
-| **KOYEB** | ***INSTALACIÓN POR KOYEB*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-koyeb) |
-| **WINDOWS** | ***INSTALACIÓN POR WINDOWS*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-para-usuarios-de-windowsvpsrdp) |
-| **DISTRIBUIDORES AUTORIZADOS** | ***PREGUNTAS*** |[ver](https://github.com/GataNina-Li/GataBot-MD#distribuidores-autorizados-o-resellers---preguntas) |
-| **SOBRE GATABOT** | ***POLÍTICA DE USO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md) |
-| **DESARROLLADORES** | ***PARTICIPATES DEL PROYECTO*** |[ver](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
------
+| 📲 **TERMUX** | *Instalar de manera automática* |[ver](https://github.com/GataNina-Li/GataBot-MD/tree/master?tab=readme-ov-file#-opci%C3%B3n-1-instalaci%C3%B3n-autom%C3%A1tica-) |
+| 📲 **TERMUX** | *Instalación manual predeterminada* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-2-instalación-manual-por-termux---github) |
+| 📲 **TERMUX** | *Instalación por archivos local* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-por-termux---archivos) |
+| 📲 **TERMUX 24/7** | *Comandos para alargar la ejecución* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-247-en-termux) |
+| 📲 **TERMUX UPDATE** | *Comandos para actualizar GataBot* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot) |
+| 📦⛏️ **BOXMINE HOST** | *Activar en BoxMine Host* |[ver](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-boxmine-host) |
+| 🔵 **CAFIREXOS** | *Activar en Cafirexos* |[ver](https://github.com/GataNina-Li/GataBot-MD#-cafirexos) |
+| ☁️ **VORTEXUS CLOUD** | *Activar en Vortexus Cloud* |[ver](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-vortexus-cloud---host) |
+| 🟢 **INFINITY-HOST** | *Activar en Infinity Host* |[ver](https://github.com/GataNina-Li/GataBot-MD/blob/master/README.md#-infinity-host) |
+| 💎 **FLAREXCLOUD** | *Activar en FlarexCloud* |[ver](https://github.com/GataNina-Li/GataBot-MD/edit/master/README.md#-flarexcloud) |
+| 🟣 **HEROKU** | *Instalación directa por Heroku* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
+| ⚡ **REPLIT** | *Instalación directa por Replit* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-replit---gatabot) |
+| ⏏️ **KOYEB** | *Instalación directa por Koyeb* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-koyeb) |
+| 💻 **WINDOWS** | *Instalar para Windows 10 o 11* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-para-usuarios-de-windowsvpsrdp) |
+| 👥 **DISTRIBUIDORES AUTORIZADOS** | *Usuarios con Licencia GataBot* |[ver](https://github.com/GataNina-Li/GataBot-MD#distribuidores-autorizados-o-resellers---preguntas) |
+| 🐈 **SOBRE GATABOT** | *Política* |[ver](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md) |
+| ✅ **COLABORADORES** | *Implicados en este proyecto* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
+----
+
 ### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA 🫰
 [![blog](https://img.shields.io/badge/Instalacion-Automatica-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/PESW8LXXlOI?feature=share)
 > **Note** Comandos para instalar de forma automática en Termux  
@@ -67,6 +69,7 @@ termux-setup-storage
 ```bash
 apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash
 ```
+### Edita lo siguiente si deseas usar este método de instalación en tú repositorio previamente hecho un fork
 ```js
 // PERSONALIZAR INSTALACIÓN AUTOMÁTICA (En caso de una Bifurcación)
 // Parámetros editables
@@ -75,7 +78,8 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 "wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash"
 
 // PARÁMETROS QUE PUEDE SER MODIFICADOS --> "[...]"
-"wget -O - https://raw.githubusercontent.com/[usuario]/[repositorio]/[rama]/gata.sh | bash"
+// Reemplace por su usuario de GitHub, y nombre del repositorio
+"wget -O - https://raw.githubusercontent.com/[usuario]/[repositorio]/master/gata.sh | bash"
 ```
 #### MODIFICAR ARCHIVO [`gata.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
 ```js
@@ -107,7 +111,7 @@ yarn install && npm install
 npm start
 ```
 > **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
-------------------
+----
 ### 📁 (OPCIÓN 3) INSTALACIÓN POR TERMUX - ARCHIVOS
 > **Note** Descargué y Descomprime
 ### [`GataBot-MD ~ Archivos`](https://github.com/GataNina-Li/GataBot-MD/archive/refs/heads/master.zip)
@@ -159,7 +163,8 @@ pm2 start index
 ``` 
 ---- 
 ### `🟢 ACTIVAR EN CASO DE DETENERSE EN TERMUX`
-> **Note** Si despues que ya instalastes tu bot y termux te salta en blanco, se fue tu internet o reiniciaste tu celular, solo realizaras estos pasos :
+> [!NOTE]
+> Si despues que ya instalastes tu bot y termux te salta en blanco, se fue tu internet o reiniciaste tu celular, solo realizaras estos pasos:
 ```bash
 cd
 ```
@@ -172,7 +177,7 @@ npm start
 ----
 ### `🔵 OBTENER OTRO CODIGO QR EN TERMUX`
 > **Warning** deten el bot, haz click en el símbolo (ctrl) [default=z] usar la letra "z" + "ENTER" hasta que salga algo verdes similar a : GataBot-MD $
-> escribe los siguientes comando uno x uno :
+> Escribe los siguientes comando uno x uno :
 ```bash 
 cd GataBot-MD
 ```
@@ -190,29 +195,6 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 ```
 #### Para que no pierda su progreso en GataBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
 > **Warning** Estos comandos solo funcionan para TERMUX, REPLIT, LINUX                           
-----
-### 🟣 ACTIVAR EN HEROKU 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) 
-### 👇 Añada lo siguente al Buildpack: 
-```bash
-heroku/nodejs
-```
-```bash
-https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
-```
-```bash
-https://github.com/clhuang/heroku-buildpack-webp-binaries.git
-```
-- [x] Resultado <details><summary>Buildpack</summary><img src="https://i.imgur.com/t3Xzgnh.jpeg"></details>
------
-
-### ⚡ REPLIT - GATABOT
-[![blog](https://img.shields.io/badge/Replit-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
-](https://youtu.be/pQYkq4xv37o)
-
-<a target="_blank" href="https://replit.com/github/GataNina-Li/GataBot-MD"><img alt="Run on Replit" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/replit.svg"></a> <a href="https://replit.com/github/GataNina-Li/GataBot-MD"> <img src="https://media0.giphy.com/media/lMwu8EJAnv9kmn51KQ/giphy.gif" height="29px"></a>
-
-- [x] Configuración <details><summary>Importar Repositorio - GataBot-MD</summary><img src="https://i.imgur.com/GQyRnMf.jpg"></details>
 -----
 ### 📦⛏️ BOXMINE HOST 
 [![YouTube](https://img.shields.io/badge/BoxMine_Host-GataBot-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/Ko019wvu2Tc)
@@ -277,12 +259,47 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://qu.ax/cpgf.jpg"></details>
 ------------------------
+### 💎 FlarexCloud
+> Empiece a usar FlarexCloud para activar **GataBot-MD**
+
+<a href="https://www.flarex.cloud"><img src="https://cdn.flarex.cloud/deploy.png" height="60px"></a>
+### Información sobre FlarexCloud
+
+- **Página:** [`Aquí`](https://www.flarex.cloud)
+- **Dashboard / Área de Pagos:** [`Aquí`](https://billing.flarex.cloud)
+- **Game Panel:** [`Aquí`](https://gamepanel.flarex.cloud)
+- **Discord:** [`Aquí`](https://discord.flarex.cloud)
+- **Contacto:** [`hi@flarex.cloud`](mailto:hi@flarex.cloud) / [`support@flarex.cloud`](mailto:support@flarex.cloud) / [`partnerships@flarex.cloud`](mailto:partnerships@flarex.cloud)
+----
+### 🟣 ACTIVAR EN HEROKU 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) 
+### 👇 Añada lo siguente al Buildpack: 
+```bash
+heroku/nodejs
+```
+```bash
+https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
+```
+```bash
+https://github.com/clhuang/heroku-buildpack-webp-binaries.git
+```
+- [x] Resultado <details><summary>Buildpack</summary><img src="https://i.imgur.com/t3Xzgnh.jpeg"></details>
+-----
+
+### ⚡ REPLIT - GATABOT
+[![blog](https://img.shields.io/badge/Replit-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+](https://youtu.be/pQYkq4xv37o)
+
+<a target="_blank" href="https://replit.com/github/GataNina-Li/GataBot-MD"><img alt="Run on Replit" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/replit.svg"></a> <a href="https://replit.com/github/GataNina-Li/GataBot-MD"> <img src="https://media0.giphy.com/media/lMwu8EJAnv9kmn51KQ/giphy.gif" height="29px"></a>
+
+- [x] Configuración <details><summary>Importar Repositorio - GataBot-MD</summary><img src="https://i.imgur.com/GQyRnMf.jpg"></details>
+----
 🟢 ACTIVAR EN CODES SPACES 
 
 [`CREAR SERVIDOR`](https://github.com/codespaces/new?skip_quickstart=true&machine=basicLinux32gb&repo=GataNina-Li/GataBot-MD&ref=main&geo=UsEast)
 ### 🟢Tutorial pronto 
 ----- 
-ACTIVAR EN KOYEB 
+### ⏏️ **ACTIVAR EN KOYEB**
 
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/GataNina-Li/GataBot-MD&branch=master&name=gatabot-md)
 
