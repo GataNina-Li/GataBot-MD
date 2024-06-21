@@ -235,7 +235,7 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 - **Contacto:** [`Aquí`](https://wa.me/258858119033) 
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va8ZD6O3mFXxTPl1m13A)
 
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/Ly0MffH.jpe"></details>
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/Ly0MffH.jpeg"></details>
 -----
 ### 🟢 INFINITY-HOST
 > Activar **GataBot-MD** 24/7 activo en Infinity-Host
