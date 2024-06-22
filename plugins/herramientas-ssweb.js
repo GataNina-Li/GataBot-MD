@@ -3,6 +3,10 @@ import axios from "axios"
 const handler = async (m, {conn, text, args, usedPrefix, isPrems}) => {   
 if (!args[0]) return conn.reply(m.chat, '*Por favor ingresa una url de la página a la que se le tomará captura 🔎*', m)  
 let user = global.db.data.users[m.sender]
+try{
+     await conn.sendMessage(m.chat, { image: { url: `https://image.thum.io/get/fullpage/${args[0]}` }, caption: `Tu imagen 📷` }, { quoted: m })
+}
+catch{
 try {
 let krt = await ssweb(args[0])
 /*let calidad, webIMG 
@@ -18,7 +22,7 @@ await conn.sendMessage(m.chat, { image: { url: krt.result }, caption: `Tu imagen
 //}
 } catch { 
 m.reply("Error.")
-}} 
+}}}
 handler.command = /^ss(web)?f?$/i  
 export default handler
 
