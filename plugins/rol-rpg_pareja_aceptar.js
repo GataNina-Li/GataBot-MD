@@ -48,7 +48,8 @@ return await conn.reply(m.chat, `𝙉𝙊 𝙋𝙐𝙀𝘿𝙀𝙎 𝘼𝘾𝙀�
 }else{
 global.db.data.users[m.sender].pasangan = user
 //let gata2 = [img5, img6, img7, img8, img9]
-return await conn.sendMessage(m.chat, {image: { url: "https://telegra.ph/file/b0d1bbc8549660ae9177e.jpg", }, caption: res.data, contextInfo: {
+let gata5 = `🥳😻 𝙁𝙀𝙇𝙄𝘾𝙄𝙏𝘼𝘾𝙄𝙊𝙉𝙀𝙎!!! *${tu}*\n✅ 𝘿𝙀 𝙈𝘼𝙉𝙀𝙍𝘼 𝙊𝙁𝙄𝘾𝙄𝘼𝙇 𝙀𝙎𝙏𝘼𝙉 𝙀𝙉 𝙐𝙉𝘼 𝙍𝙀𝙇𝘼𝘾𝙄𝙊𝙉\n\n𝙌𝙐𝙀 𝘿𝙐𝙍𝙀 𝙋𝙊𝙍 𝙎𝙄𝙀𝙈𝙋𝙍𝙀 𝙎𝙐 𝘼𝙈𝙊𝙍 𝙔 𝙁𝙀𝙇𝙄𝘾𝙄𝘿𝘼𝘿 💖😁\n\n💝 𝙊𝙁𝙁𝙄𝘾𝙄𝘼𝙇𝙇𝙔 𝙏𝙃𝙀𝙔 𝘼𝙍𝙀 𝙄𝙉 𝘼 𝙍𝙀𝙇𝘼𝙏𝙄𝙊𝙉𝙎𝙃𝙄𝙋\n\n*${tu} 💞 ${yo}*\n`
+return await conn.sendMessage(m.chat, {image: { url: "https://telegra.ph/file/b0d1bbc8549660ae9177e.jpg", }, caption: gata5, contextInfo: {
   mentionedJid: [m.sender],
   isForwarded: true,
   forwardedNewsletterMessageInfo: {
