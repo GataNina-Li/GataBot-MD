@@ -459,7 +459,7 @@ newsletterJid: '120363160031023229@newsletter',
 newsletterName: 'INFINITY-WA 💫',
 serverMessageId: -1
 }}})
-  
+} 
 // ------------------------------------------------------------------------------------------------------------------------------------------------   
    
 if (command == 'topparejas' || command == 'top5parejas') {
