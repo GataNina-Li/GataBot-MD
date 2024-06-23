@@ -48,7 +48,7 @@ return await conn.reply(m.chat, `𝙉𝙊 𝙋𝙐𝙀𝘿𝙀𝙎 𝘼𝘾𝙀�
 }else{
 global.db.data.users[m.sender].pasangan = user
 //let gata2 = [img5, img6, img7, img8, img9]
-return await conn.sendMessage(m.chat, {image: { url: "https://telegra.ph/file/10e013d9ae4d9cdf5af14.jpg", }, caption: res.data, contextInfo: {
+return await conn.sendMessage(m.chat, {image: { url: "https://telegra.ph/file/b0d1bbc8549660ae9177e.jpg", }, caption: res.data, contextInfo: {
   mentionedJid: [m.sender],
   isForwarded: true,
   forwardedNewsletterMessageInfo: {
