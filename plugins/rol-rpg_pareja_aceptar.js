@@ -67,7 +67,7 @@ return await conn.sendMessage(m.chat, {image: { url: "https://telegra.ph/file/b0
   },
 },
         }, 
-   { quoted: m, })
+   { quoted: m})
 
 }}} catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
