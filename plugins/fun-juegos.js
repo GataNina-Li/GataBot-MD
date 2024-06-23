@@ -447,8 +447,8 @@ let top = `*_🌟TOP PERSONAS FAMOSAS EN EL GRUPO🌟_*
 *_8.- 🥂 ${user(h)}_* 🥂
 *_9.- 🤩 ${user(i)}_* 🤩
 *_10.- 🛫 ${user(j)}_* 🛫`
-//m.reply(top, null, { mentions: conn.parseMention(top) })}
-conn.sendMessage(m.chat, {
+m.reply(top, null, { mentions: conn.parseMention(top) })}
+/*conn.sendMessage(m.chat, {
 text: top,
 contextInfo: {
 mentionedJid: conn.parseMention(top),
@@ -459,7 +459,7 @@ newsletterJid: '120363160031023229@newsletter',
 newsletterName: 'INFINITY-WA 💫',
 serverMessageId: -1
 }}})
-} 
+} */
 // ------------------------------------------------------------------------------------------------------------------------------------------------   
    
 if (command == 'topparejas' || command == 'top5parejas') {
