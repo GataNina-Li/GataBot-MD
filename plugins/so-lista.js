@@ -13,6 +13,12 @@ let vn = 'https://qu.ax/xynz.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m })}  
 
+if (/^Chupame|Pingo|Qliao$/i.test(m.text) && chat.audios) {  
+if (!db.data.chats[m.chat].audios && m.isGroup) throw 0    
+let vn = 'https://qu.ax/SCpi.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m })}  
+
 if (/^ara ara$/i.test(m.text) && chat.audios) {  
 let vn = 'https://qu.ax/PPgt.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
