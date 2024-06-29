@@ -256,6 +256,7 @@ if (storeReload) {
 const msg = await storeReload.loadMessage(key?.remoteJid, key?.id)
 return msg.message || proto.Message.fromObject({}) || undefined
 }}
+}
 
 const filterStrings = [
 "Q2xvc2luZyBzdGFsZSBvcGVu", // "Closing stable open"
@@ -640,7 +641,6 @@ if (stopped === 'close' || !conn || !conn.user) return
 await purgeOldFiles()
 console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 10)
 
-}
 
 function validateJSON(filePath) {
 let statsCreds = fs.statSync(filePath)
