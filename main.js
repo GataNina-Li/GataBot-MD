@@ -147,7 +147,7 @@ if (readBotPath.includes(creds)) {
 const filePathCreds = path.join(botPath, creds)
 try {
 const readCreds = JSON.parse(fs.readFileSync(filePathCreds))
-const userJid = readCreds && readCreds.me && readCreds.me.jid.split('@')[0]
+const userJid = readCreds && readCreds.me && readCreds.me.jid ? readCreds.me.jid.split('@')[0] : null
 if (!userJid) {
 console.log(`userJid no está definido para ${filePathCreds}`)
 continue
