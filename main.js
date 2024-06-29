@@ -756,14 +756,14 @@ process.send('reset')
 if (tiempoTranscurrido > 15 * 24 * 60 * 60 * 1000) {
 rmSync(filePath, { recursive: true, force: true })
 console.log(`Carpeta ${filePath} eliminada.`)
-}}}
-//} else if (dir === dataBases ) {
+}}}} 
+//else if (dir === dataBases ) {
 //if (stats.isDirectory()) {
 //if (tiempoTranscurrido > 15 * 24 * 60 * 60 * 1000) {
 // rmSync(filePath, { recursive: true, force: true });
 //console.log(`Carpeta ${filePath} eliminada.`);
 //}}
-//}
+}
 })
 })
 } catch (error) {
