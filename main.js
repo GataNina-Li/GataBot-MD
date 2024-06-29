@@ -763,7 +763,7 @@ console.log(`Carpeta ${filePath} eliminada.`)
 // rmSync(filePath, { recursive: true, force: true });
 //console.log(`Carpeta ${filePath} eliminada.`);
 //}}
-}
+//}
 })
 })
 } catch (error) {
@@ -772,7 +772,7 @@ console.error(`Error al eliminar directorios:\n\n${error}`)
 setInterval(async () => {
 global.cleanFolders()
 console.log(chalk.cyanBright(`\n▣────────[ LIMPIAR CARPETAS ]───────────···\n│\n▣─❧ CARPETAS VACIAS Y ANTIGUAS ELIMINADAS ✅\n│\n▣────────────────────────────────────···\n`))
-}, 30 * 10000);
+}, 30 * 10000)
 
 _quickTest().then(() => conn.logger.info(chalk.bold(lenguajeGB['smsCargando']().trim()))).catch(console.error)
 
