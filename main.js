@@ -122,6 +122,13 @@ console.log('Carpeta sesionRespaldo creada.')
 console.log('Carpeta sesionRespaldo ya existe.')
 }
 
+if (!fs.existsSync(rutaJadiBot)) {
+fs.mkdirSync(rutaJadiBot)
+console.log('Carpeta para Sub Bots creada.')
+} else {
+console.log('Carpeta para Sub Bots ya existe.')
+}
+
 // ARRANQUES DE SUB BOTS 
 // Créditos: https://github.com/ReyEndymion
 
