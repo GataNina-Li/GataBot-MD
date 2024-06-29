@@ -166,7 +166,7 @@ cleanupOnConnectionError(botPath, botDirRespald)
 cleanupOnConnectionError(botPath, botDirRespald)
 }
 }
-continue
+//continue
 } catch (error) {
 console.log('errorInicializacion: ', error)
 }
@@ -415,7 +415,7 @@ console.error(chalk.bold.cyanBright(`❌ OCURRIÓ UN ERROR AL INICIAR EL BOT PRI
 }
 })();*/
 
-/* ------------------------------------------------*/
+//* ------------------------------------------------*/
 
 let isInit = true
 let handler = await import('./handler.js');
