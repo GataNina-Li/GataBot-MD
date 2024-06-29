@@ -649,7 +649,7 @@ try {
 const data = fs.readFileSync(filePath, 'utf8');
 let readCreds = JSON.parse(data)
 if (readCreds && readCreds.me && readCreds.me.jid && readCreds.hasOwnProperty('platform')) {
-console.log(`El archivo JSON de la carpeta ${filePath} es válido.`)
+console.log(chalk.bold.green(`El archivo JSON de la carpeta ${filePath} es válido.`))
 return true
 }
 } catch (error) {
