@@ -669,7 +669,7 @@ console.log(`Directorio del backup ${pathBackUp} creado exitosamente'`)
 const credsFilePath = path.join(pathSession, creds)
 const backupFilePath = path.join(pathBackUp, creds)
 copyFileSync(credsFilePath, backupFilePath)
-console.log(`Creado el archivo de respaldo: ${backupFilePath}`)
+console.log(chalk.bold.magentaBright(`Creado el archivo de respaldo: ${backupFilePath}`))
 }
 
 async function credsStatus(pathSession, userJid) {
