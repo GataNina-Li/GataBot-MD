@@ -734,44 +734,42 @@ process.send('reset')
 }
 
 global.cleanFolders = async function limpCarpetas() {
-const directories = [rutaJadiBot, authFolderRespald]
-try {
-directories.forEach((dir) => {
-const files = readdirSync(dir, { recursive: true });
-files.forEach((file) => {
-const filePath = path.join(dir, file)
-const stats = statSync(filePath)
-const tiempoTranscurrido = Date.now() - stats.mtimeMs
+    const directories = [rutaJadiBot, authFolderRespald];
+    try {
+        directories.forEach((dir) => {
+            const files = readdirSync(dir, { recursive: true });
+            files.forEach((file) => {
+                const filePath = path.join(dir, file);
+                const stats = statSync(filePath);
+                const tiempoTranscurrido = Date.now() - stats.mtimeMs;
 
-if ( dir === rutaJadiBot || dir === authFolderRespald ) {
-if (stats.isDirectory()) {
-const contenidoCarpeta = readdirSync(filePath)
+                if (dir === rutaJadiBot || dir === authFolderRespald) {
+                    if (stats.isDirectory()) {
+                        const contenidoCarpeta = readdirSync(filePath);
 
-if (contenidoCarpeta.length === 0) {
-rmSync(filePath, { recursive: true, force: true })
-console.log( `Carpeta ${filePath} eliminada.`)
-if (filePath.startsWith(authFolderAniMX)) {
-process.send('reset')
-}} else {
-if (tiempoTranscurrido > 15 * 24 * 60 * 60 * 1000) {
-rmSync(filePath, { recursive: true, force: true })
-console.log(`Carpeta ${filePath} eliminada.`)
-}}}} 
-//else if (dir === dataBases ) {
-//if (stats.isDirectory()) {
-//if (tiempoTranscurrido > 15 * 24 * 60 * 60 * 1000) {
-// rmSync(filePath, { recursive: true, force: true });
-//console.log(`Carpeta ${filePath} eliminada.`);
-//}}
-//}
-})
-})
-} catch (error) {
-console.error(`Error al eliminar directorios:\n\n${error}`)
-}}
+                        if (contenidoCarpeta.length === 0) {
+                            rmSync(filePath, { recursive: true, force: true });
+                            console.log(`Carpeta ${filePath} eliminada.`);
+                            if (filePath.startsWith(authFolderAniMX)) {
+                                process.send('reset');
+                            }
+                        } else {
+                            if (tiempoTranscurrido > 15 * 24 * 60 * 60 * 1000) {
+                                rmSync(filePath, { recursive: true, force: true });
+                                console.log(`Carpeta ${filePath} eliminada.`);
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    } catch (error) {
+        console.error(`Error al eliminar directorios:\n\n${error}`);
+    }
+}
 setInterval(async () => {
-global.cleanFolders()
-console.log(chalk.cyanBright(`\n▣────────[ LIMPIAR CARPETAS ]───────────···\n│\n▣─❧ CARPETAS VACIAS Y ANTIGUAS ELIMINADAS ✅\n│\n▣────────────────────────────────────···\n`))
+    await global.cleanFolders();
+    console.log(chalk.cyanBright(`\n▣────────[ LIMPIAR CARPETAS ]───────────···\n│\n▣─❧ CARPETAS VACIAS Y ANTIGUAS ELIMINADAS ✅\n│\n▣────────────────────────────────────···\n`));
 }, 30 * 10000)
 
 _quickTest().then(() => conn.logger.info(chalk.bold(lenguajeGB['smsCargando']().trim()))).catch(console.error)
