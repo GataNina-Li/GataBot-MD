@@ -237,19 +237,6 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }
 
-global.conns = []
-export async function onBots(folderPath) {
-const { state, saveState, saveCreds } = await useMultiFileAuthState(botPath)
-const msgRetryCounterMap = (MessageRetryMap) => { }
-const {version} = await fetchLatestBaileysVersion()
-const logger = pino({level: 'silent'})
-const storeReload = makeInMemoryStore({logger})
-async function getMessage(key) {
-if (storeReload) {
-const msg = await storeReload.loadMessage(key?.remoteJid, key?.id)
-return msg.message || proto.Message.fromObject({}) || undefined
-}}
-
 const filterStrings = [
 "Q2xvc2luZyBzdGFsZSBvcGVu", // "Closing stable open"
 "Q2xvc2luZyBvcGVuIHNlc3Npb24=", // "Closing open session"
@@ -262,6 +249,20 @@ const filterStrings = [
 console.info = () => {} 
 console.debug = () => {} 
 ['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
+
+global.conns = []
+export async function onBots(folderPath) {
+const { state, saveState, saveCreds } = await useMultiFileAuthState(folderPath)
+const msgRetryCounterMap = (MessageRetryMap) => { }
+const {version} = await fetchLatestBaileysVersion()
+const logger = pino({level: 'silent'})
+const storeReload = makeInMemoryStore({logger})
+async function getMessage(key) {
+if (storeReload) {
+const msg = await storeReload.loadMessage(key?.remoteJid, key?.id)
+return msg.message || proto.Message.fromObject({}) || undefined
+}}
+
 
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
