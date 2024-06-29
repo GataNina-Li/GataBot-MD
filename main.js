@@ -117,16 +117,9 @@ global.authFolderRespald = join(__dirname, `sesionRespaldo`)
 
 if (!fs.existsSync(authFolderRespald)) {
 fs.mkdirSync(authFolderRespald)
-console.log('Carpeta sesionRespaldo creada.')
-} else {
-console.log('Carpeta sesionRespaldo ya existe.')
 }
-
 if (!fs.existsSync(rutaJadiBot)) {
 fs.mkdirSync(rutaJadiBot)
-console.log('Carpeta para Sub Bots creada.')
-} else {
-console.log('Carpeta para Sub Bots ya existe.')
 }
 
 // ARRANQUES DE SUB BOTS 
@@ -156,7 +149,7 @@ const currentFolderName = path.basename(botPath)
 const botDirRespald = path.join(global.authFolderRespald, userJid)
 
 if (currentFolderName !== userJid && currentFolderName !== authFileJB) {
-const newBotPath = path.join(path.dirname(botPath), userJid);
+const newBotPath = path.join(path.dirname(botPath), userJid)
 fs.renameSync(botPath, newBotPath)
 console.log(chalk.bold.cyanBright(`Carpeta renombrada desde ${currentFolderName} a ${userJid}`))
 }
