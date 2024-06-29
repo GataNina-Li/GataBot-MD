@@ -650,9 +650,10 @@ conn.logger.error(`HAY UN ERROR REQUIERE EL PLUGINS '${filename}\n${format(e)}'`
 } finally {
 global.plugins = Object.fromEntries(Object.entries(global.plugins).sort(([a], [b]) => a.localeCompare(b)));
 }}}};
-Object.freeze(global.reload);
-watch(pluginFolder, global.reload);
-await global.reloadHandler();
+Object.freeze(global.reload)
+watch(pluginFolder, global.reload)
+await global.reloadHandler()
+  
 async function _quickTest() {
 const test = await Promise.all([
 spawn('ffmpeg'),
@@ -675,7 +676,7 @@ p.on('error', (_) => resolve(false));
 }));
 const [ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, find] = test;
 const s = global.support = {ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, find};
-Object.freeze(global.support);
+Object.freeze(global.support)
 }
 
 function clearTmp() {
@@ -766,9 +767,7 @@ if (stopped === 'close' || !conn || !conn.user) return
 await purgeOldFiles()
 console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 10)
 
-_quickTest()
-.then(() => conn.logger.info(`CARGANDO．．．\n`))
-.catch(console.error)
+_quickTest().then(() => conn.logger.info(`CARGANDO．．．\n`)).catch(console.error)
 }
 
 function validateJSON(filePath) {
