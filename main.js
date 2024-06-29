@@ -763,7 +763,7 @@ console.log(`Carpeta ${filePath} eliminada.`)
 // rmSync(filePath, { recursive: true, force: true });
 //console.log(`Carpeta ${filePath} eliminada.`);
 //}}
-}
+//}
 })
 })
 } catch (error) {
