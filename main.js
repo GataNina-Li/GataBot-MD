@@ -25,7 +25,7 @@ import { mongoDB, mongoDBV2 } from './lib/mongoDB.js'
 import store from './lib/store.js'
 import readline from 'readline'
 import NodeCache from 'node-cache'
-const { DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser, PHONENUMBER_MCC } = await import('@whiskeysockets/baileys')
+const { makeInMemoryStore, DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser, PHONENUMBER_MCC } = await import('@whiskeysockets/baileys')
 const { CONNECTING } = ws
 const { chain } = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
@@ -148,6 +148,10 @@ const filePathCreds = path.join(botPath, creds)
 try {
 const readCreds = JSON.parse(fs.readFileSync(filePathCreds))
 const userJid = readCreds && readCreds.me && readCreds.me.jid.split('@')[0]
+if (!userJid) {
+console.log(`userJid no está definido para ${filePathCreds}`)
+continue
+}
 const currentFolderName = path.basename(botPath)
 const botDirRespald = path.join(global.authFolderRespald, userJid)
 
