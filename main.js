@@ -148,11 +148,11 @@ continue
 const currentFolderName = path.basename(botPath)
 const botDirRespald = path.join(global.authFolderRespald, userJid)
 
-if (currentFolderName !== userJid && currentFolderName !== authFileJB) {
-const newBotPath = path.join(path.dirname(botPath), userJid)
-fs.renameSync(botPath, newBotPath)
-console.log(chalk.bold.cyanBright(`Carpeta renombrada desde ${currentFolderName} a ${userJid}`))
-}
+//if (currentFolderName !== userJid && currentFolderName !== authFileJB) {
+//const newBotPath = path.join(path.dirname(botPath), userJid)
+//fs.renameSync(botPath, newBotPath)
+//console.log(chalk.bold.cyanBright(`Carpeta renombrada desde ${currentFolderName} a ${userJid}`))
+//}
 
 if (credsStatus(botPath, userJid) && validateJSON(filePathCreds)) {
 backupCreds(botPath, botDirRespald)
