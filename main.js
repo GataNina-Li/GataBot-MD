@@ -179,10 +179,10 @@ onBots(rutaBot)
 }
 }
 
-const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile)
-const msgRetryCounterMap = (MessageRetryMap) => { }
-const msgRetryCounterCache = new NodeCache()
-const {version} = await fetchLatestBaileysVersion()
+//const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile)
+//const msgRetryCounterMap = (MessageRetryMap) => { }
+//const msgRetryCounterCache = new NodeCache()
+//const {version} = await fetchLatestBaileysVersion()
 
 let phoneNumber = global.botNumberCode
 const methodCodeQR = process.argv.includes("qr")
@@ -239,7 +239,7 @@ console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 
 global.conns = []
 export async function onBots(folderPath) {
-const { state, saveState, saveCreds } = await useMultiFileAuthState(folderPath)
+const { state, saveState, saveCreds } = await useMultiFileAuthState(botPath)
 const msgRetryCounterMap = (MessageRetryMap) => { }
 const {version} = await fetchLatestBaileysVersion()
 const logger = pino({level: 'silent'})
@@ -249,7 +249,6 @@ if (storeReload) {
 const msg = await storeReload.loadMessage(key?.remoteJid, key?.id)
 return msg.message || proto.Message.fromObject({}) || undefined
 }}
-}
 
 const filterStrings = [
 "Q2xvc2luZyBzdGFsZSBvcGVu", // "Closing stable open"
@@ -286,8 +285,7 @@ msgRetryCounterMap, // Determinar si se debe volver a intentar enviar un mensaje
 defaultQueryTimeoutMs: undefined,
 version,  
 }
-
-global.conn = makeWASocket(connectionOptions)
+  
 if (!fs.existsSync(`./${authFile}/creds.json`)) {
 if (opcion === '2' || methodCode) {
 opcion = '2'
@@ -331,7 +329,7 @@ if (store) {
 conversation: 'SimpleBot',
 }}
 
-async function connectionUpdate(update) {  
+/*async function connectionUpdate(update) {  
 const {connection, lastDisconnect, isNewLogin} = update
 global.stopped = connection
 if (isNewLogin) conn.isInit = true
@@ -373,7 +371,7 @@ await global.reloadHandler(true).catch(console.error) //process.send('reset')
 console.log(chalk.bold.redBright(lenguajeGB['smsConexiondescon'](reason, connection)))
 }}
 }
-process.on('uncaughtException', console.error);
+process.on('uncaughtException', console.error);*/
 //process.on('uncaughtException', (err) => {
 //console.error('Se ha cerrado la conexión:\n', err)
 //process.send('reset') })
@@ -421,6 +419,140 @@ console.error(chalk.bold.cyanBright(`❌ OCURRIÓ UN ERROR AL INICIAR EL BOT PRI
 })();*/
 
 //* ------------------------------------------------*/
+
+function waitTwoMinutes() {
+return new Promise(resolve => {
+setTimeout(() => {
+resolve();
+}, 2 * 60 * 1000); 
+});
+}
+function wait(ms) {
+return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+const MAX_CLOSE_COUNT = 10;
+const CLOSE_CHECK_INTERVAL = 5 * 60 * 1000; // 5 minutes
+const RESET_INTERVAL = 2 * 60 * 1000; // 2 minutes
+let consecutiveCloseCount = 0
+
+async function connectionUpdate(update) {
+let i = global.conns.indexOf(conn)
+global.timestamp.connect = new Date
+const { connection, lastDisconnect, isNewLogin } = update;
+if (isNewLogin) conn.isInit = true;
+const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode;
+if (code && code !== DisconnectReason.loggedOut && conn?.ws.readyState == null || undefined || CONNECTING) {
+await global.reloadHandler(true).catch(console.error);
+}
+//if (global.db?.data == null && conn?.user?.jid !== undefined) loadDatabase(conn);
+//if (update.qr != 0 && update.qr != undefined) {
+//console.log(chalk.yellow('🚩ㅤEscanea este codigo QR, el codigo QR expira en 60 segundos.'));
+//}
+if (global.db.data == null) loadDatabase()
+if (update.qr != 0 && update.qr != undefined || methodCodeQR) {
+if (opcion == '1' || methodCodeQR) {
+console.log(chalk.bold.yellow(mid.mCodigoQR))}
+}
+if (conn?.ws?.readyState === CONNECTING || conn?.ws?.readyState === undefined) {
+console.log(chalk.red(`La conexión se esta estableciendo: ${connection}`));
+}
+if (connection === undefined) {
+
+await wait(5000); 
+if (conn?.ws?.readyState !== CONNECTING && conn?.ws?.readyState !== undefined) {
+console.log(chalk.yellow(`La conexión ya está abierta: ${connection}`));
+} else {
+await wait(10000)
+console.log(chalk.red(`La conexión aún no está lista, esperando conexión: ${connection}`));
+}
+return
+
+}
+const reason = new Boom(lastDisconnect?.error)?.output?.statusCode
+if (connection == 'close') {
+if (reason === DisconnectReason.badSession) {
+conn.logger.error(`[ ⚠ ] ${botJid} Sesión incorrecta, por favor elimina la carpeta ${folderPath} y escanea nuevamente.`);
+cleanupOnConnectionError()
+//process.exit();
+} else if (reason === DisconnectReason.preconditionRequired){
+conn.logger.warn(`[ ⚠ ] ${botJid} Conexión cerrada, reconectando por precondicion...`);
+global.reloadHandler(true).catch(console.error)
+return
+} else if (reason === DisconnectReason.connectionClosed) {
+conn.logger.warn(`[ ⚠ ] ${botJid} Conexión cerrada, reconectando...`);
+global.reloadHandler(true).catch(console.error)
+return
+//process.send('reset');
+} else if (reason === DisconnectReason.connectionLost) {
+conn.logger.warn(`[ ⚠ ] ${botJid} Conexión perdida con el servidor, reconectando...`);
+global.reloadHandler(true).catch(console.error)
+return
+ // process.send('reset');
+} else if (reason === DisconnectReason.connectionReplaced) {
+conn.logger.error(`[ ⚠ ] ${botJid} Conexión reemplazada, se ha abierto otra nueva sesión. Por favor, cierra la sesión actual primero.`);
+conn.ws.close()
+//delete global.conns[i]
+global.conns.splice(i, 1)
+//process.exit();
+} else if (reason === DisconnectReason.loggedOut) {
+conn.logger.error(`[ ⚠ ] ${botJid} Conexion cerrada, por favor elimina la carpeta ${folderPath} y escanea nuevamente.`);
+conn.ev.removeAllListeners()
+delete global.conns[i]
+cleanupOnConnectionError()
+//process.exit();
+} else if (reason === DisconnectReason.restartRequired) {
+conn.logger.info(`[ ⚠ ] ${botJid} Reinicio necesario, reinicie el servidor si presenta algún problema.`);
+//process.send('reset');
+} else if (reason === DisconnectReason.timedOut) {
+conn.logger.warn(`[ ⚠ ] ${botJid} Tiempo de conexión agotado, reconectando...`);
+conn.ev.removeAllListeners()
+delete global.conns[i]
+process.send('reset');
+} else if (reason === 403) {
+conn.logger.warn(`[ ⚠ ] ${botJid} Razón de desconexión revisión de whatsapp o soporte. ${reason || ''}: ${connection || ''}`);
+cleanupOnConnectionError()
+} else if (code === 503){
+global.reloadHandler(true).catch(console.error)
+} else {
+conn.logger.warn(`[ ⚠ ] ${botJid} Razón de desconexión desconocida. ${reason || ''}: ${connection || ''}`);
+//process.exit();
+conn.ev.removeAllListeners()
+delete global.conns[i]
+consecutiveCloseCount++;
+console.log(chalk.yellow(`🚩ㅤConexion cerrada para ${botJid} , por favor borre la carpeta ${folderPath} y reescanee el codigo QR`));
+}
+if (consecutiveCloseCount >= MAX_CLOSE_COUNT) {
+console.log(chalk.red(`La conexión cerrada ocurrió ${consecutiveCloseCount} veces. Reiniciando el servidor...`));
+consecutiveCloseCount = 0
+await wait(RESET_INTERVAL);
+} else {
+await wait(CLOSE_CHECK_INTERVAL);
+}
+}
+if (connection == 'open') {
+conn.isInit = true
+global.conns.push(conn)
+console.log(chalk.yellow(`▣─────────────────────────────···\n│\n│❧ ${botJid} CONECTADO CORRECTAMENTE AL WHATSAPP ✅\n│\n▣─────────────────────────────···`))
+//if (update.receivedPendingNotifications) { 
+//waitTwoMinutes()
+//return conn.groupAcceptInvite('HbC4vaYsvYi0Q3i38diybA');
+//}
+}
+}
+setInterval(async () => {
+if (!conn.user) {
+try { conn.ws.close() } catch { }
+conn.ev.removeAllListeners()
+
+let i = global.conns.indexOf(conn)
+
+ if (i < 0) return
+delete global.conns[i]
+global.conns.splice(i, 1)
+}}, 60000)
+
+process.on('uncaughtException', console.error);
 
 let isInit = true
 let handler = await import('./handler.js');
@@ -634,6 +766,10 @@ if (stopped === 'close' || !conn || !conn.user) return
 await purgeOldFiles()
 console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 10)
 
+_quickTest()
+.then(() => conn.logger.info(`CARGANDO．．．\n`))
+.catch(console.error)
+}
 
 function validateJSON(filePath) {
 let statsCreds = fs.statSync(filePath)
