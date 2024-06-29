@@ -265,6 +265,7 @@ export async function onBots(folderPath) {
 const { state, saveState, saveCreds } = await useMultiFileAuthState(folderPath)
 const msgRetryCounterMap = (MessageRetryMap) => { }
 const {version} = await fetchLatestBaileysVersion()
+const msgRetryCounterCache = new NodeCache()
 const logger = pino({level: 'silent'})
 const storeReload = makeInMemoryStore({logger})
 async function getMessage(key) {
