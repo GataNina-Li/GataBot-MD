@@ -6,12 +6,11 @@ import path, { join } from 'path'
 import {fileURLToPath, pathToFileURL} from 'url'
 import { platform } from 'process'
 import * as ws from 'ws'
-import { readdirSync, statSync, unlinkSync, existsSync, readFileSync, rmSync, watch } from 'fs'
+import fs, { writeFileSync, readdirSync, statSync, unlinkSync, existsSync, readFileSync, copyFileSync, watch, rmSync, readdir, stat, mkdirSync, rename, writeFile } from 'fs'
 import yargs from 'yargs'
 import { spawn } from 'child_process'
 import lodash from 'lodash'
 import chalk from 'chalk'
-import fs from 'fs'
 import { watchFile, unwatchFile } from 'fs'  
 import syntaxerror from 'syntax-error'
 import { tmpdir } from 'os'
@@ -79,11 +78,11 @@ global.db.chain = chain(global.db.data);
 loadDatabase();
 
 // Inicialización de conexiones globales
-if (global.conns instanceof Array) {
+/*if (global.conns instanceof Array) {
 console.log('Conexiones ya inicializadas...');
 } else {
 global.conns = [];
-}
+}*/
 
 /* ------------------------------------------------*/
 
@@ -107,9 +106,75 @@ users: {},
 };
 global.chatgpt.chain = lodash.chain(global.chatgpt.data);
 };
-loadChatgptDB();
+loadChatgptDB()
 
-global.authFile = `GataBotSession`
+global.creds = 'creds.json'
+global.authFile = 'GataBotSession'
+global.authFileJB  = 'GataJadiBot'
+global.rutaBot = join(__dirname, authFile)
+global.rutaJadiBot = join(__dirname, authFileJB)
+global.authFolderRespald = join(__dirname, `sesionRespaldo`)
+
+if (!fs.existsSync(authFolderRespald)) {
+fs.mkdirSync(authFolderRespald)
+console.log('Carpeta sesionRespaldo creada.')
+} else {
+console.log('Carpeta sesionRespaldo ya existe.')
+}
+
+// ARRANQUES DE SUB BOTS 
+// Créditos: https://github.com/ReyEndymion
+
+const readJadiBotSession = fs.readdirSync(rutaJadiBot)
+const dirSessions = []
+
+for (const session of readJadiBotSession) {
+const bot = path.join(rutaJadiBot, session)
+dirSessions.push(bot)
+}
+dirSessions.push(rutaBot)
+
+for (const botPath of dirSessions) {
+const readBotPath = fs.readdirSync(botPath)
+if (readBotPath.includes(creds)) {
+const filePathCreds = path.join(botPath, creds)
+try {
+const readCreds = JSON.parse(fs.readFileSync(filePathCreds))
+const userJid = readCreds && readCreds.me && readCreds.me.jid.split('@')[0]
+const currentFolderName = path.basename(botPath)
+const botDirRespald = path.join(global.authFolderRespald, userJid)
+
+if (currentFolderName !== userJid && currentFolderName !== authFileJB) {
+const newBotPath = path.join(path.dirname(botPath), userJid);
+fs.renameSync(botPath, newBotPath)
+console.log(`Carpeta renombrada desde ${currentFolderName} a ${userJid}`)
+}
+
+if (credsStatus(botPath, userJid) && validateJSON(filePathCreds)) {
+backupCreds(botPath, botDirRespald)
+onBots(botPath)
+} else {
+const readBotDirBackup = fs.readdirSync(botDirRespald)
+if (readBotDirBackup.includes(creds)) {
+const fileCredsResp = path.join(botDirRespald, creds)
+if (backupCredsStatus(botDirRespald) && validateJSON(fileCredsResp)) {
+respaldCreds(botPath, botDirRespald)
+} else {
+cleanupOnConnectionError(botPath, botDirRespald)
+}
+} else {
+cleanupOnConnectionError(botPath, botDirRespald)
+}
+}
+continue
+} catch (error) {
+console.log('errorInicializacion: ', error)
+}
+} else if (!readJadiBotSession.length) {
+onBots(rutaBot)
+}
+}
+
 const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile)
 const msgRetryCounterMap = (MessageRetryMap) => { }
 const msgRetryCounterCache = new NodeCache()
@@ -167,6 +232,19 @@ if (!/^[1-2]$/.test(opcion)) {
 console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }
+
+global.conns = []
+export async function onBots(folderPath) {
+const { state, saveState, saveCreds } = await useMultiFileAuthState(folderPath)
+const msgRetryCounterMap = (MessageRetryMap) => { }
+const {version} = await fetchLatestBaileysVersion()
+const logger = pino({level: 'silent'})
+const storeReload = makeInMemoryStore({logger})
+async function getMessage(key) {
+if (storeReload) {
+const msg = await storeReload.loadMessage(key?.remoteJid, key?.id)
+return msg.message || proto.Message.fromObject({}) || undefined
+}}
 
 const filterStrings = [
 "Q2xvc2luZyBzdGFsZSBvcGVu", // "Closing stable open"
@@ -228,8 +306,13 @@ console.log(chalk.bold.white(chalk.bgMagenta(mid.pairingCode)), chalk.bold.white
 }}}
 }
 
+if (global.conns instanceof Array) {console.log()} else {global.conns = []}
+global.conn = makeWASocket(connectionOptions)
 conn.isInit = false
 conn.well = false
+loadDatabase(global.conn);
+const botJid = state.creds.me.jid.split('@')[0]
+const botDirRespald = path.join(global.authFolderRespald, botJid)
 
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
@@ -294,7 +377,7 @@ process.on('uncaughtException', console.error);
 /* Código reconexión de sub-bots fases beta */
 /* Echo por: https://github.com/elrebelde21 */
 
-async function connectSubBots() {
+/*async function connectSubBots() {
 const subBotDirectory = './GataJadiBot';
 if (!existsSync(subBotDirectory)) {
 console.log('No se encontraron ningun sub-bots.');
@@ -330,11 +413,11 @@ await connectSubBots();
 } catch (error) {
 console.error(chalk.bold.cyanBright(`❌ OCURRIÓ UN ERROR AL INICIAR EL BOT PRINCIPAL: `, error))
 }
-})();
+})();*/
 
 /* ------------------------------------------------*/
 
-let isInit = true;
+let isInit = true
 let handler = await import('./handler.js');
 global.reloadHandler = async function(restatConn) {
 try {
@@ -545,6 +628,151 @@ setInterval(async () => {
 if (stopped === 'close' || !conn || !conn.user) return
 await purgeOldFiles()
 console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 10)
+
+function validateJSON(filePath) {
+let statsCreds = fs.statSync(filePath)
+if (statsCreds && statsCreds.size !== 0) {
+try {
+const data = fs.readFileSync(filePath, 'utf8');
+let readCreds = JSON.parse(data)
+if (readCreds && readCreds.me && readCreds.me.jid && readCreds.hasOwnProperty('platform')) {
+console.log(`El archivo JSON de la carpeta ${filePath} es válido.`)
+return true
+}
+} catch (error) {
+console.error('Error de sintaxis en JSON:', error.message);
+return false
+}
+} else {
+console.log(`El archivo JSON de la carpeta ${filePath} es inválido.`)
+}
+}
+
+async function backupCreds(pathSession, pathBackUp) {
+if (!fs.existsSync(pathBackUp)) {
+fs.mkdirSync(pathBackUp)
+console.log(`Directorio del backup ${pathBackUp} creado exitosamente'`)
+}
+const credsFilePath = path.join(pathSession, creds)
+const backupFilePath = path.join(pathBackUp, creds)
+copyFileSync(credsFilePath, backupFilePath)
+console.log(`Creado el archivo de respaldo: ${backupFilePath}`)
+}
+
+async function credsStatus(pathSession, userJid) {
+try {
+const filesSession = fs.readdirSync(pathSession)
+if (filesSession.includes(creds)) {
+const credsFilePath = path.join(pathSession, creds)
+const statsCreds = fs.statSync(credsFilePath)
+if (statsCreds && statsCreds.size !== 0) {
+try {
+const readCreds = JSON.parse(fs.readFileSync(credsFilePath))
+if (readCreds && readCreds.me && readCreds.me.jid && readCreds.hasOwnProperty('platform')) {
+return `Archivo creds correcto para ${userJid}. Se realizó un backup.`, true
+} else {
+return `El Archivo de sesion de ${userJid} no contiene las propiedades correctas, debe ejecutar un respaldo inmediatamente desde la sesion principal o borrar la sesion`, false
+}
+} catch (error) {
+return `El Archivo de sesion de ${userJid} no se puede leer en este momento o es ilegible, estos son los detalles actualmente:\n\n${error.stack}`, false
+}
+} else {
+return `El Archivo de sesion de ${userJid} es incorrecto y tiene 0 bytes, debe ejecutar un respaldo inmediatamente desde la sesion principal o borrar la sesion`, false
+}
+} else {
+return `El Archivo de sesion de ${userJid} no existe en la ubicacion esparada, debe ejecutar un respaldo inmediatamente desde la sesion principal o borrar la sesion`, false
+}
+} catch (error) {
+return console.log('credsStatusError: ', error)
+}}
+
+function backupCredsStatus(pathBackUp) {
+if (existsSync(pathBackUp)) {
+const readDirRespald = fs.readdirSync(pathBackUp)
+if (readDirRespald.includes(creds)) {
+const backupFilePath = path.join(pathBackUp, creds)
+const statBackUpCreds = fs.statSync(backupFilePath)
+if (statBackUpCreds.size !== 0) {
+try {
+const readCredsResp = JSON.parse(fs.readFileSync(backupFilePath));
+if (readCredsResp && readCredsResp.me && readCredsResp.me.jid && readCredsResp.hasOwnProperty('platform')) {
+return 'Archivo de respaldo es correcto, puede respaldar la sesion si gusta', true
+} else {
+return 'Archivo de respaldo no contiene las propiedades correctas, debe ejecutar un respaldo inmediatamente desde la sesion principal o borrar la sesion', false
+}
+} catch (error) {
+return `El Archivo de respaldo no se puede leer en este momento o es ilegible, estos son los detalles actualmente:\n\n${error.stack}`, false
+}
+} else {
+return 'Archivo de respaldo es incorrecto y tiene 0 bytes, debe ejecutar un respaldo inmediatamente desde la sesion principal o borrar la sesion', false
+}
+} else {
+return 'Archivo de respaldo no existe en la ubicacion esparada, debe ejecutar un respaldo inmediatamente desde la sesion principal o borrar la sesion', false
+}
+} else {
+return 'La carpeta Backup de credenciales no existe, debe realizar un respaldo desde el archivo original', false
+}}
+
+function cleanupOnConnectionError(pathSession, pathBackUp) {
+readdirSync(pathSession).forEach(file => {
+const credsFilePath = path.join(pathSession, file);
+try {
+rmSync(pathSession, { recursive: true, force: true });
+console.log(`Archivo eliminado: ${credsFilePath}`)
+} catch (error) {
+console.log(`No se pudo eliminar el archivo: ${credsFilePath}`)
+}
+});
+const backupFilePath = path.join(pathBackUp, creds);
+try {
+rmSync(pathBackUp, { recursive: true, force: true });
+console.log(`Archivo de copia de seguridad eliminado: ${backupFilePath}`)
+} catch (error) {
+console.log(`No se pudo eliminar el archivo de copia de seguridad o no existe: ${backupFilePath}`)
+}
+process.send('reset')
+}
+
+global.cleanFolders = async function limpCarpetas() {
+const directories = [rutaJadiBot, authFolderRespald]
+try {
+directories.forEach((dir) => {
+const files = readdirSync(dir, { recursive: true });
+files.forEach((file) => {
+const filePath = path.join(dir, file)
+const stats = statSync(filePath)
+const tiempoTranscurrido = Date.now() - stats.mtimeMs
+
+if ( dir === rutaJadiBot || dir === authFolderRespald ) {
+if (stats.isDirectory()) {
+const contenidoCarpeta = readdirSync(filePath)
+
+if (contenidoCarpeta.length === 0) {
+rmSync(filePath, { recursive: true, force: true })
+console.log( `Carpeta ${filePath} eliminada.`)
+if (filePath.startsWith(authFolderAniMX)) {
+process.send('reset')
+}} else {
+if (tiempoTranscurrido > 15 * 24 * 60 * 60 * 1000) {
+rmSync(filePath, { recursive: true, force: true })
+console.log(`Carpeta ${filePath} eliminada.`)
+}}}
+//} else if (dir === dataBases ) {
+//if (stats.isDirectory()) {
+//if (tiempoTranscurrido > 15 * 24 * 60 * 60 * 1000) {
+// rmSync(filePath, { recursive: true, force: true });
+//console.log(`Carpeta ${filePath} eliminada.`);
+//}}
+}
+})
+})
+} catch (error) {
+console.error(`Error al eliminar directorios:\n\n${error}`)
+}}
+setInterval(async () => {
+global.cleanFolders()
+console.log(chalk.cyanBright(`\n▣────────[ LIMPIAR CARPETAS ]───────────···\n│\n▣─❧ CARPETAS VACIAS Y ANTIGUAS ELIMINADAS ✅\n│\n▣────────────────────────────────────···\n`))
+}, 30 * 10000);
 
 _quickTest().then(() => conn.logger.info(chalk.bold(lenguajeGB['smsCargando']().trim()))).catch(console.error)
 
