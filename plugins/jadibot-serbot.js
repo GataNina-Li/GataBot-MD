@@ -58,7 +58,7 @@ return parent.sendMessage(m.chat, { text: message1 + '%20code' }, { quoted: m })
 return parent.sendMessage(m.chat, { text: message1 + '%20code' }, { quoted: m })
 }}
   
-let authFolderB = crypto.randomBytes(10).toString('hex').slice(0, 8)
+let authFolderB = m.sender.split('@')[0] //crypto.randomBytes(10).toString('hex').slice(0, 8)
 async function serbot() {
 if (!fs.existsSync(`./${folderBot}/` + authFolderB)){
 fs.mkdirSync(`./${folderBot}/` + authFolderB, { recursive: true })
