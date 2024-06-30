@@ -394,7 +394,8 @@ let consecutiveCloseCount = 0
 async function connectionUpdate(update) {
 let i = global.conns.indexOf(conn)
 global.timestamp.connect = new Date
-const { connection, lastDisconnect, isNewLogin } = update;
+const { connection, lastDisconnect, isNewLogin } = update
+global.stopped = connection
 if (isNewLogin) conn.isInit = true;
 const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode;
 if (code && code !== DisconnectReason.loggedOut && conn?.ws.readyState == null || undefined || CONNECTING) {
