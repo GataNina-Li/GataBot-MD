@@ -452,7 +452,7 @@ global.conns.splice(i, 1)
 conn.logger.error(`[ ⚠ ] ${botJid} Conexion cerrada, por favor elimina la carpeta ${folderPath} y escanea nuevamente.`);
 conn.ev.removeAllListeners()
 delete global.conns[i]
-cleanupOnConnectionError()
+//cleanupOnConnectionError()
 //process.exit();
 } else if (reason === DisconnectReason.restartRequired) {
 conn.logger.info(`[ ⚠ ] ${botJid} Reinicio necesario, reinicie el servidor si presenta algún problema.`);
@@ -464,7 +464,7 @@ delete global.conns[i]
 process.send('reset');
 } else if (reason === 403) {
 conn.logger.warn(`[ ⚠ ] ${botJid} Razón de desconexión revisión de whatsapp o soporte. ${reason || ''}: ${connection || ''}`);
-cleanupOnConnectionError()
+//cleanupOnConnectionError()
 } else if (code === 503){
 global.reloadHandler(true).catch(console.error)
 } else {
