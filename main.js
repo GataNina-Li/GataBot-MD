@@ -246,14 +246,6 @@ defaultQueryTimeoutMs: undefined,
 version,  
 }
   
-if (global.conns instanceof Array) {console.log()} else {global.conns = []}
-global.conn = makeWASocket(connectionOptions)
-conn.isInit = false;
-conn.well = false;
-loadDatabase(global.conn)
-const botJid = state.creds.me.jid.split('@')[0]
-const botDirRespald = path.join(global.authFolderRespald, botJid)
-  
 if (!fs.existsSync(`./${authFile}/creds.json`)) {
 if (opcion === '2' || methodCode) {
 opcion = '2'
