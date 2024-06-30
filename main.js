@@ -129,7 +129,14 @@ const readBotPath = fs.readdirSync(botPath)
 if (readBotPath.includes(creds)) {
 const filePathCreds = path.join(botPath, creds)
 try {
-const readCreds = JSON.parse(fs.readFileSync(filePathCreds, 'utf8'))
+//const readCreds = JSON.parse(fs.readFileSync(filePathCreds))
+let readCreds
+try {
+readCreds = JSON.parse(fs.readFileSync(filePathCreds, 'utf8'))
+} catch (error) {
+console.log(chalk.bold.red(`Error al leer o analizar JSON en ${filePathCreds}`))
+readCreds = null
+}
 const userJid = readCreds && readCreds.me && readCreds.me.jid ? readCreds.me.jid.split('@')[0] : null
 if (!userJid) {
 console.log(chalk.bold.yellow(`Usuario Sub Bot no encontrado en ${filePathCreds}`))
@@ -368,7 +375,7 @@ conn.isInit = false
 conn.well = false
 loadDatabase()
 const botJid = state.creds.me.jid.split('@')[0]
-const botDirRespald = path.join(global.authFolderRespald, botJid)
+const botDirRespald = path.join(rutaJadiBot, botJid)
 
 function waitTwoMinutes() {
 return new Promise(resolve => {
