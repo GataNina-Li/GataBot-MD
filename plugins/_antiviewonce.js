@@ -22,8 +22,7 @@ if (/image|video/.test(type)) return await conn.sendFile(m.chat, buffer, type ==
 if (/audio/.test(type)) { 
 await conn.reply(m.chat, description, m, { mentions: [m.sender] }) 
 await conn.sendMessage(m.chat, { audio: buffer, fileName: 'error.mp3', mimetype: 'audio/mpeg', ptt: true }, { quoted: m })
-}
-}}
+}}}
 export default handler
 
 function formatFileSize(bytes) {
