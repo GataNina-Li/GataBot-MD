@@ -135,8 +135,8 @@ if (!userJid) {
 console.log(chalk.bold.yellow(`Usuario Sub Bot no encontrado en ${filePathCreds}`))
 continue
 }
-const currentFolderName = path.basename(botPath)
-const botDirRespald = path.join(global.authFolderRespald, userJid)
+//const currentFolderName = path.basename(botPath)
+//const botDirRespald = path.join(global.authFolderRespald, userJid)
 
 if (credsStatus(botPath, userJid) && validateJSON(filePathCreds)) {
 onBots(botPath)
