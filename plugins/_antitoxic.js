@@ -15,7 +15,7 @@ let img = 'https://telegra.ph/file/94f45d76340fc61982bb7.jpg'
 const isToxic = toxicRegex.exec(m.text)
     
 if (isToxic && chat.antitoxic && !isOwner && !isAdmin && isBotAdmin) {
-if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })  
+if (chat.delete) return conn.reply(m.chat, mid.mAdvertencia + mid.mAntiDelete, m)
 user.warn += 1
 if (!(user.warn >= 4)) {
 await conn.reply(m.chat, mid.antitoxic1(isToxic, m, user), m)
@@ -23,11 +23,11 @@ await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id:
 }
 
 if (user.warn >= 4) {
-if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })  
+if (chat.delete) return conn.reply(m.chat, mid.mAdvertencia + mid.mAntiDelete, m)
 user.warn = 0
 await conn.reply(m.chat, mid.antitoxic2(isToxic, m, user), m)
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-//await this.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 //await this.updateBlockStatus(m.sender, 'block')
 }}
 return !1
