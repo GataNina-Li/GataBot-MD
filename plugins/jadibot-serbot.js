@@ -41,7 +41,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const packageJsonPath = join(__dirname, '../package.json')
 const { name, author, version: versionSB, description } = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
 
-let folderBot = 'GataBotSession', nameBotMD = 'GataBot-MD', opcion = ''
+let folderBot = 'GataJadiBot', nameBotMD = 'GataBot-MD', opcion = ''
 let handler = async (m, { conn: _conn, args, usedPrefix, command, isOwner, text }) => {
 if (!global.db.data.settings[conn.user.jid].jadibotmd) return _conn.sendMessage(m.chat, { text: `${lenguajeGB['smsSoloOwnerJB']()}` }, { quoted: m })
   
