@@ -17,7 +17,7 @@ let buffer = Buffer.from([])
 for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])}
 const fileSize = formatFileSize(msg[type].fileLength)
-const description = `${mid.antiviewonce}`.trim()
+const description = mid.antiviewonce(type, fileSize, m, msg)
 if (/image|video/.test(type)) return await conn.sendFile(m.chat, buffer, type == 'imageMessage' ? 'error.jpg' : 'error.mp4', description, m, false, { mentions: [m.sender] })
 if (/audio/.test(type)) { 
 await conn.reply(m.chat, description, m, { mentions: [m.sender] }) 
