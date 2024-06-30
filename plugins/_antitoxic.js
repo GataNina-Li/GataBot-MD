@@ -23,7 +23,7 @@ await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id:
 
 if (user.warn >= 4) {
 user.warn = 0
-await conn.sendMessage(m.chat, { text: mid.antitoxic2(isToxic, m, user), mentions: [m.sender] }, { quoted: m })  
+await conn.reply(m.chat, mid.antitoxic2(isToxic, m, user), m)
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 //await this.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 //await this.updateBlockStatus(m.sender, 'block')
