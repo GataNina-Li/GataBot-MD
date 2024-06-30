@@ -18,5 +18,5 @@ return await conn.reply(m.chat, mid.mAdvertencia + mid.smsprivado(m, cuentas), m
 await this.updateBlockStatus(m.sender, 'block')
 }
 return !1
-}
+} 
 export default handler
