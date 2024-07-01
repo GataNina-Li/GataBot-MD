@@ -52,6 +52,7 @@ const flow = usuario.flow || []
 const calificaciones = flow.filter(voto => voto.character_name === personaje)
 calificacionesPersonaje.push(...calificaciones)
 }
+
 const likes = calificacionesPersonaje.filter(voto => voto.like).length || 0
 const superlikes = calificacionesPersonaje.filter(voto => voto.superlike).length || 0
 const dislikes = calificacionesPersonaje.filter(voto => voto.dislike).length || 0
@@ -66,7 +67,7 @@ nuevoPrecio = Math.round(nuevoPrecio) // Nuevo precio a un entero
 if (nuevoPrecio < 50) {
 nuevoPrecio = 50
 }
-    
+
 let txtNewPrice = nuevoPrecio !== dato.price ? `\n✓ *Precio anterior:* ~\`${dato.price}\`~ *${rpgshop.emoticon('money')}*\n✓ *Nuevo Precio:* \`${nuevoPrecio}\` *${rpgshop.emoticon('money')}*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*` : `\n✓ *Precio:* \`\`\`${dato.price}\`\`\` *${rpgshop.emoticon('money')}*`
 let info = `*⛱️ FANTASÍA RPG ⛱️*\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Nombre:* ${dato.name}\n✓ *Origen:* ${dato.desp}\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*${txtNewPrice}\n✓ *Clase:* ${dato.class}\n✓ *ID:* \`\`\`${codigoActual}\`\`\`\n✓ *Tipo:* ${dato.type}\n*⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯*\n✓ *Estado:* ${estado}`
 info += `\n\n${estado === 'Libre' ? '_Responde a este mensaje con "c", "🛒", o "🐱" para comprarlo_\n\n' + listaAvisos(usedPrefix, personaje) : listaAvisos(usedPrefix, personaje)}`
@@ -79,16 +80,15 @@ showAdAttribution: false,
 title: `${conn.getName(m.sender)}`,
 body: `${dato.desp}`,
 mediaType: 1,
-sourceUrl: accountsgb.getRandom(),
+sourceUrl: accountsgb,
 thumbnailUrl: pp
 }}
 }, { caption: 'imagen_info' })).key.id
 } else {
-console.error('No se han encontrado imágenes.')
+console.log('No se han encontrado imágenes.')
 conn.sendMessage(m.chat, 'Error al obtener o procesar los datos.', { quoted: m })
 }} catch (error) {
-console.error('Error al obtener o procesar los datos: ', error)
-conn.sendMessage(m.chat, 'Error al procesar la solicitud.', { quoted: m })
+console.log(error)
 }
 
 handler.before = async (m) => {

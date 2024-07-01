@@ -281,7 +281,7 @@ ${margen}
 ✓ _${usedPrefix}morse decodificar *morse*_
 ✓ _${usedPrefix}fraseromantica_
 ✓ _${usedPrefix}historia_
-
+✓ _${usedPrefix}drive | dldrive *link*_
 > 👤 *CHAT ANONIMO* 👤
 
 ✓ _${usedPrefix}chatanonimo | anonimochat_
@@ -293,6 +293,7 @@ ${margen}
 > 🌐 *COMANDOS PARA GRUPOS* 🌐
 
 ✓ _${usedPrefix}add *numero*_
+✓ _${usedPrefix}mute | unmute *@tag*_
 ✓ _${usedPrefix}sacar | ban | kick  *@tag*_
 ✓ _${usedPrefix}grupo *abrir o cerrar*_
 ✓ _${usedPrefix}group *open o close*_
@@ -596,7 +597,7 @@ ${margen}
 ✓ _${usedPrefix}añadirxp *@tag cantidad*_
 ✓ _${usedPrefix}añadirgatacoins *@tag cantidad*_
 `.trim()
-await conn.sendFile(m.chat, gataImg, 'lp.jpg', menu, fkontak, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu }}})
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menu, m, fakeChannel, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu }}})
 //conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
 } catch (e) {
 await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '*\n*' + usedPrefix + `${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'}` + '* ' + `${lenguajeGB.smsMensError2()} ` + usedPrefix + command)
@@ -759,6 +760,7 @@ const commandsGames = [
 { comando: 'pelicula', descripcion: false, contexto: 'Descubre la película con emojis 🎬', showPrefix: true },
 { comando: 'adivinanza', descripcion: false, contexto: 'Adivina adivinador 🧞‍♀️', showPrefix: true },
 { comando: 'ruleta', descripcion: false, contexto: 'Suerte inesperada 💫', showPrefix: true },
+{ comando: 'ruletadelban', descripcion:false, contexto: 'Elimina un usuario al azar, solo para admins ☠️', showPrefix: true }
 ]
 const commandsAI = [
 { comando: 'simi', descripcion: '[texto] || [text]', contexto: 'Conversa con SimSimi', showPrefix: true },
@@ -770,5 +772,4 @@ const commandsAI = [
 { comando: 'gemini', descripcion: '[texto] || [text]', contexto: 'IA, Tecnología de Google', showPrefix: true },
 { comando: 'geminimg', descripcion: '(imagen) + [texto] || (image) + [text]', contexto: 'Busca información de una imagen', showPrefix: true },
 { comando: 'hd', descripcion: '(responde con una imagen) || (responds with an image)', contexto: 'Mejorar calidad de imagen', showPrefix: true },
-] 
-
+]

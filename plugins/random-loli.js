@@ -1,12 +1,13 @@
 let handler = async(m, { conn, text, command }) => {
 let yh = global.loli
 let url = yh[Math.floor(Math.random() * yh.length)]
-conn.sendMessage(m.chat, { image: { url: url }, caption: "💕💕💕💕" }, { quoted: m });
+//conn.sendMessage(m.chat, { image: { url: url }, caption: "💕💕💕💕" }, { quoted: m });
+conn.sendButton(m.chat, `💕💕💕💕`.trim(), wm, url, [['𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 | 𝙉𝙀𝙓𝙏 🆕', `/${command}`]], null, null, m)
 }
 handler.command = /^(loli)$/i
 handler.tags = ['anime']
 handler.help = ['loli']
-export default handler
+export default handler 
 
 global.loli = [
 "https://i.pinimg.com/736x/cf/7d/74/cf7d741fecb5e2c6abe1b9b237b30b04.jpg",

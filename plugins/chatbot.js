@@ -1,5 +1,6 @@
 // by https://github.com/elrebelde21
- 
+
+import '../plugins/_content.js'
 let handler = m => m
 handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
@@ -8,11 +9,26 @@ if (chat.isBanned) return
 let vn = 'https://qu.ax/Ocxm.mp3'
 let bot = `${pickRandom([`*¡𝑬𝒚! 𝑨𝒒𝒖í 𝒆𝒔𝒕𝒐𝒚. 𝒀𝒐 𝒑𝒖𝒆𝒅𝒐 𝒂𝒚𝒖𝒅𝒂𝒓 👉👈 𝑯𝒆𝒚! 𝑰'𝒎 𝒉𝒆𝒓𝒆. 𝑰 𝒄𝒂𝒏 𝒉𝒆𝒍𝒑 🙌*`, `Aqui estoy | Here I am 😼`, `*Hola Aqui estoy yo puedo ayudar? | Hello, here I am, can I help? 😸*`])}`.trim()
 
+/*if (/^infinity|infinityWa|infohost|hosting$/i.test(m.text)) {
+ await conn.sendMessage(m.chat, { text: txt,
+contextInfo:{
+forwardingScore: 9999999,
+isForwarded: false, 
+"externalAdReply": {
+"showAdAttribution": true,
+"containsAutoReply": true,
+title: `🤖 𝐈𝐍𝐅𝐈𝐍𝐈𝐓𝐘𝐖𝐀-𝐇𝐎𝐒𝐓 🤖`,
+body: `✅ Hosting de Calidad`,
+"previewType": "PHOTO",
+thumbnailUrl: 'https://qu.ax/EQTd.jpg', 
+sourceUrl: accountsgb}}},
+{ quoted: fkontak})
+} */
+ 
 if (/^bot$/i.test(m.text)) {
-conn.sendPresenceUpdate('recording', m.chat)    
-await conn.reply(m.chat, bot, m, fake)
-//conn.sendMessage(m.chat, {text: bot, mentions: [m.sender]}, {quoted: fake})
-conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: estiloaudio })   
+await conn.reply(m.chat, bot, m, fakeChannel)
+await conn.sendPresenceUpdate('recording', m.chat)    
+await conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: m })   
 }
 
 if (/^e$/i.test(m.text) ) { //sin prefijo 
@@ -85,4 +101,3 @@ export default handler
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]
 }
-

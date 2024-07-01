@@ -10,6 +10,18 @@ const { key } = await conn.sendMessage(m.chat, {text: wait}, {quoted: fkontak});
 await conn.sendMessage(m.chat, {text: waitt, edit: key});
 await conn.sendMessage(m.chat, {text: waittt, edit: key});
 await conn.sendMessage(m.chat, {text: waitttt, edit: key});
+try{
+const responseIg = await axios.get(`https://delirios-api-delta.vercel.app/download/instagram?url=${args[0]}`);
+const resultlIg = responseIg.data;
+let linkig=resultlIg.data[0].url
+await conn.sendFile(m.chat,linkig, 'error.mp4', `${wm}`, m);
+}catch{
+try{
+const resultD = await instagramDl(args[0]);
+const linkD=resultD[0].download_link
+await conn.sendFile(m.chat, linkD, 'error.mp4', `${wm}`, m);
+await conn.sendMessage(m.chat, {text: waittttt, edit: key})
+} catch{
 try {
 const apiUrll = `https://api.betabotz.org/api/download/igdowloader?url=${encodeURIComponent(args[0])}&apikey=bot-secx3`;
 const responsel = await axios.get(apiUrll);
@@ -56,11 +68,11 @@ await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 conn.sendMessage(m.chat, {text: `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, edit: key});
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
-handler.limit = 0
-}}}}}}
+}}}}}}}}
 handler.help = ['instagram <link ig>']
 handler.tags = ['downloader']
 handler.command =/^(instagram|ig(dl)?)$/i
 handler.limit = 2
 handler.register = true
 export default handler
+

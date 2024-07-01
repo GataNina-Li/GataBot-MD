@@ -16,7 +16,10 @@ let texto = `
 *ღ _${result.text}_*
 
 ・☘️・》・》・》`
-conn.sendFile(m.chat, img, 'error.png', texto.trim(), fkontak)}   
+conn.sendButton(m.chat, texto.trim(), wm, img, [
+[lenguajeGB.smsConj(), `${usedPrefix + command}`],
+[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], null, fkontak)}
+//conn.sendFile(m.chat, img, 'error.png', texto.trim(), fkontak)}   
 //await conn.sendButton(m.chat, texto.trim(), wm, img, [[lenguajeGB.smsConj(), `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)}   
   
 if (command == 'frase2' || command == 'phrase2') { 
@@ -31,7 +34,10 @@ let texto = `
 *ღ ${frase2.text}*
 
 ・☘️・》・》・》`
-conn.sendFile(m.chat, img, 'error.png', texto.trim(), m, fkontak)} 
+conn.sendButton(m.chat, texto.trim(), wm, img, [
+[lenguajeGB.smsFras(), `${usedPrefix + command}`],
+[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], null, fkontak)} 
+//conn.sendFile(m.chat, img, 'error.png', texto.trim(), m, fkontak)} 
 //await conn.sendButton(m.chat, texto.trim(), wm, img, [[lenguajeGB.smsFras(), `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)} 
 } catch (e) {
 await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '*\n*' + usedPrefix + `${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'}` + '* ' + `${lenguajeGB.smsMensError2()} ` + usedPrefix + command)

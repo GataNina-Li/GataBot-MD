@@ -3,7 +3,9 @@
 const fantasyDBPath = './fantasy.json'
 let usuarioExistente, logro, fake = null
 
-export async function before(m,{ conn }) {
+let handler = m => m
+handler.before = async function (m, { conn }) {
+  
 const userId = m.sender
 let user = global.db.data.users[userId]
 let fantasyDB = []
@@ -286,3 +288,4 @@ user.fantasy_character5++
 }}
 
 }
+export default handler

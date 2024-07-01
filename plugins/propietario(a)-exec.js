@@ -1,4 +1,4 @@
-import syntaxerror from 'syntax-error'
+/*import syntaxerror from 'syntax-error'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
@@ -35,6 +35,7 @@ handler.help = ['> ', '=> ']
 handler.tags = ['advanced']
 handler.customPrefix = /=?>|~/
 handler.command = /(?:)/i
+
 export default handler
 class CustomArray extends Array {
 constructor(...args) {
@@ -42,3 +43,4 @@ if (typeof args[0] == 'number') return super(Math.min(args[0], 10000))
 else return super(...args)}}
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
+*/

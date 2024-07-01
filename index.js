@@ -69,13 +69,13 @@ unwatchFile(args[0])
 start(file)
 })})
 
-const ramInGB = os.totalmem() / (1024 * 1024 * 1024);
-const freeRamInGB = os.freemem() / (1024 * 1024 * 1024);
-const packageJsonPath = path.join(path.dirname(currentFilePath), './package.json');
+const ramInGB = os.totalmem() / (1024 * 1024 * 1024)
+const freeRamInGB = os.freemem() / (1024 * 1024 * 1024)
+const packageJsonPath = path.join(path.dirname(currentFilePath), './package.json')
 try {
-const packageJsonData = await fsPromises.readFile(packageJsonPath, 'utf-8');
-const packageJsonObj = JSON.parse(packageJsonData);
-const currentTime = new Date().toLocaleString();
+const packageJsonData = await fsPromises.readFile(packageJsonPath, 'utf-8')
+const packageJsonObj = JSON.parse(packageJsonData)
+const currentTime = new Date().toLocaleString()
 let lineM = '⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》'
 console.log(chalk.yellow(`╭${lineM}
 ┊${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
@@ -93,7 +93,6 @@ console.log(chalk.yellow(`╭${lineM}
 ┊${chalk.blueBright('┊')}${chalk.blueBright('┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
 ┊${chalk.blueBright('┊')}${chalk.yellow(`💜 Colaboradores:`)}
 ┊${chalk.blueBright('┊')}${chalk.yellow(`• elrebelde21 (Mario ofc)`)}
-┊${chalk.blueBright('┊')}${chalk.yellow(`• AzamiJs (Azami)`)}
 ┊${chalk.blueBright('┊')}${chalk.yellow(`• KatashiFukushima (Katashi)`)}
 ┊${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
 ┊${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
@@ -101,9 +100,9 @@ console.log(chalk.yellow(`╭${lineM}
 ┊${chalk.blueBright('┊')}${chalk.cyan(`${currentTime}`)}
 ┊${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
 ╰${lineM}`));
-setInterval(() => {}, 1000);
+setInterval(() => {}, 1000)
 } catch (err) {
-console.error(chalk.red(`❌ No se pudo leer el archivo package.json: ${err}`));
+console.error(chalk.red(`❌ No se pudo leer el archivo package.json: ${err}`))
 }
 
 let opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())

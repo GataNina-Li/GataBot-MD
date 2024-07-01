@@ -1,22 +1,19 @@
-FROM node:20.10.0-alpine3.18
+FROM node:lts-buster
 
-#Kurt18 La distribucion alpine3 es mas optima para contenedores
-#Kurt18 se agrega GIT porque alpine3 no lo trae por defecto
-RUN apk update && \
-  apk add --no-cache \
-  git \
-  ffmpeg \
-  imagemagick \
-  libwebp-tools && \
-  rm -rf /var/cache/apk/*
+RUN apt-get update && \
+apt-get install -y \
+ffmpeg \
+imagemagick \
+webp && \
+apt-get upgrade -y && \
+rm -rf /var/lib/apt/lists/*
 
-COPY package*.json .
+COPY package.json .
 
-RUN npm install
+RUN npm install && npm install qrcode-terminal
 
 COPY . .
 
 EXPOSE 5000
 
-#Kurt18 Iniciará con el QR
-CMD ["npm", "run", "qr"]
+CMD ["node", "index.js"]

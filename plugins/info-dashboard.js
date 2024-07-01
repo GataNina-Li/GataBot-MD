@@ -1,16 +1,16 @@
 let handler = async (m, { conn }) => {
-  let stats = Object.entries(db.data.stats).map(([key, val]) => {
-    let name = Array.isArray(plugins[key]?.help) ? plugins[key]?.help?.join(' & ') : plugins[key]?.help || key 
-    if (/exec/.test(name)) return
-    return { name, ...val }
-  })
-  stats = stats.sort((a, b) => b.total - a.total)
-  let txt = stats.slice(0, 10).map(({ name, total, last }, idx) => {
-    if (name.includes('-') && name.endsWith('.js')) name = name.split('-')[1].replace('.js', '')
-    return `(${idx + 1})\n┏━━━━━━━━━━━━━━━━┓\n┣📚 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 : ${name}\n┣≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋\n┣🗂️ 𝙐𝙎𝙊𝙎 : ${total}\n┣≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋\n┣📍 𝙐𝙇𝙏𝙄𝙈𝙊𝙎 𝙐𝙎𝙊 : ${getTime(last)}\n┗━━━━━━━━━━━━━━━━┛`
-  }).join`\n\n`
-  m.reply(`*☘️ Dashboard comandos mas usados ☘️*\n\n${txt}`)
-}
+let stats = Object.entries(db.data.stats).map(([key, val]) => {
+let name = Array.isArray(plugins[key]?.help) ? plugins[key]?.help?.join(' , ') : plugins[key]?.help || key 
+    
+if (/exec/.test(name)) return
+return { name, ...val }
+})
+ 
+stats = stats.sort((a, b) => b.total - a.total)
+var txt = stats.slice(0, 10).map(({ name, total, last }) => {
+return `┏━━━━━━━━━━━━━━━━┓\n┣📚 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 : ${name}\n┣🗂️ 𝙐𝙎𝙊𝙎 : ${total}\n┗━━━━━━━━━━━━━━━━┛`
+}).join`\n\n`
+m.reply(`${lenguajeGB['smsAvisoIIG']()}⚡𝘿𝘼𝙎𝙃𝘽𝙊𝘼𝙍𝘿 𝘾𝙊𝙈𝘼𝙉𝘿𝙊𝙎 𝙈𝘼𝙎 𝙐𝙎𝘼𝘿𝙊𝙎 :\n\n${txt}`)}
 handler.help = ['dashboard']
 handler.tags = ['info']
 handler.command = /^dashboard$/i

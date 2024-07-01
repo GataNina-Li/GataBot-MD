@@ -2,7 +2,9 @@ import { format } from 'util'
 let debugMode = !1
 //let winScore = 4999
 //let playScore = 99
-export async function before(m) {
+let handler = m => m
+handler.before = async function (m, { conn }) {
+        
 let ok
 let isWin = !1
 let isTie = !1
@@ -101,4 +103,7 @@ users[winner].exp += expp2
 if (debugMode)
 m.reply('[DEBUG]\n' + format(room))
 delete this.game[room.id]}}
-return !0 }
+return !0 
+}
+
+export default handler

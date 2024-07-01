@@ -147,7 +147,7 @@ Sof02s32inf14.1e100.net
 *Tcp:* 192.168.629-->92.28.211.167:8615
 *EXTERNAL MAC:* 6U:77:89:ER:O4
 *MODEM JUMPS:* 58`
-conn.sendMessage(m.chat, {text: boxeo, mentions: conn.parseMention(doxeo), edit: key})
+conn.sendMessage(m.chat, {text: doxeo, mentions: conn.parseMention(doxeo), edit: key})
   //m.reply(doxeo, null, { mentions: conn.parseMention(doxeo) })
 user.prue = new Date * 1  
 }
@@ -448,7 +448,18 @@ let top = `*_🌟TOP PERSONAS FAMOSAS EN EL GRUPO🌟_*
 *_9.- 🤩 ${user(i)}_* 🤩
 *_10.- 🛫 ${user(j)}_* 🛫`
 m.reply(top, null, { mentions: conn.parseMention(top) })}
-   
+/*conn.sendMessage(m.chat, {
+text: top,
+contextInfo: {
+mentionedJid: conn.parseMention(top),
+isForwarded: true,
+forwardingScore: 1, 
+forwardedNewsletterMessageInfo: {
+newsletterJid: '120363160031023229@newsletter',
+newsletterName: 'INFINITY-WA 💫',
+serverMessageId: -1
+}}})
+} */
 // ------------------------------------------------------------------------------------------------------------------------------------------------   
    
 if (command == 'topparejas' || command == 'top5parejas') {

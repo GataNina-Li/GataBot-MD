@@ -28,7 +28,11 @@ ${json.result.video}
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 👀 ${mid.smsinsta4}
 ${json.result.bio}`.trim()
-await conn.sendFile(m.chat, res2, 'error.jpg', gata, m, false)
+await conn.sendButton(m.chat, gata, wm, res2, [
+['𝙈𝙚𝙣𝙪 𝘿𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙨 🌀', '#descargasmenu'],
+['𝙈𝙚𝙣𝙪 𝘾𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 ✨', '.allmenu'],
+['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']], null, null, m)
+//conn.sendFile(m.chat, res2, 'error.jpg', gata, m, false)
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
