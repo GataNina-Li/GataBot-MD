@@ -4,8 +4,8 @@ import axios from 'axios'
 import fs from 'fs'
 const { generateWAMessageFromContent, prepareWAMessageMedia, proto }  = (await import(global.baileys))
 
-var handler = m => m
-handler.all = async function (m) {
+let handler = m => m
+handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner } ) {
 global.key = ''
 
 global.canales = [canal1, canal2, canal3, canal4].getRandom()
