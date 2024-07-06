@@ -6,7 +6,7 @@ let prefixRegex = new RegExp('^[' + (opts['prefix'] || '‎z/i!#$%+£¢€¥^°=
 let setting = global.db.data.settings[this.user.jid]
 const settingsREAD = global.db.data.settings[this.user.jid] || {}
 
-if (settingsREAD.autoread && m.text && prefixRegex.test(m.text)) {
+if (m.text && prefixRegex.test(m.text)) {
 await this.sendPresenceUpdate('composing', m.chat)
 await this.readMessages([m.key]) 
         
