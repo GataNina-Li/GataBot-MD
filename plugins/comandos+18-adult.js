@@ -1,6 +1,7 @@
 import axios from "axios"
 import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
+import getRandomImageNsfw from 'module-gatadios'
                
 let handler = async (m, {usedPrefix, command, conn}) => {
 let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18Porn2(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
@@ -9,9 +10,8 @@ let user = global.db.data.users[m.sender]
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}` 
 try{  
 if (command == 'pornololi' || command == 'nsfwloli') {
-let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/nsfwloli.json`)).data  
-let enlace = await res[Math.floor(res.length * Math.random())]  
-await conn.sendFile(m.chat, enlace, null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, {viewOnce: true}, m)}
+await conn.sendFile(m.chat, getRandomImageNsfw('nsfwloli'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, { viewOnce: true }, m)
+}
 //await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`], [lenguajeGB.lenguaje() == 'es' ? '🔞 ver lista porno 🔞'.toUpperCase() : '🔞 list horny🔞 '.toUpperCase(), lenguajeGB.lenguaje() == 'es' ? usedPrefix + 'listaporno' : usedPrefix + 'listhorny']], m, frep)}
   
 if (command == 'pornopies' || command == 'nsfwfoot') {
