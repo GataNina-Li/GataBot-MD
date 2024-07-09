@@ -1,7 +1,7 @@
 import axios from "axios"
 import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
-import getRandomImageNsfw from 'module-gatadios'
+import { getRandomImageNsfw } from 'module-gatadios'
                
 let handler = async (m, {usedPrefix, command, conn}) => {
 let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18Porn2(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
