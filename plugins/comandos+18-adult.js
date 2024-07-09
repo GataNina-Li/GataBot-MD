@@ -25,14 +25,11 @@ if (command == 'pornocum' || command == 'nsfwcum') {
 await conn.sendFile(m.chat, nsfw('nsfwcum'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, { viewOnce: true }, m)
 }
 if (command == 'pornoero' || command == 'nsfwero') {  
-await conn.sendFile(m.chat, nsfw('nsfwero'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, {viewOnce: true}, m)
+await conn.sendFile(m.chat, nsfw('nsfwero'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, { viewOnce: true }, m)
 }
-if (command == 'pornodominar' || command == 'nsfwfemdom') {
-let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/nsfwfemdom.json`)).data  
-let enlace = await res[Math.floor(res.length * Math.random())]  
-await conn.sendFile(m.chat, enlace, null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, {viewOnce: true}, m)}
-//await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`], [lenguajeGB.lenguaje() == 'es' ? '🔞 ver lista porno 🔞'.toUpperCase() : '🔞 list horny🔞 '.toUpperCase(), lenguajeGB.lenguaje() == 'es' ? usedPrefix + 'listaporno' : usedPrefix + 'listhorny']], m, frep)}
-  
+if (command == 'pornodominar' || command == 'nsfwfemdom') { 
+await conn.sendFile(m.chat, nsfw('nsfwfemdom'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, { viewOnce: true }, m)
+}
 if (command == 'pornoglass' || command == 'nsfwglass') {
 let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/nsfwglass.json`)).data  
 let enlace = await res[Math.floor(res.length * Math.random())]  
