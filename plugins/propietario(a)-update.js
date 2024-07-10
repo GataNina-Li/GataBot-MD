@@ -28,7 +28,7 @@ await conn.reply(m.chat, errorMessage, m);
 } catch (error) {
 console.error(error);
 if (error.message) {
-const errorMessage2 += `\n${fg}` + error.message;
+const errorMessage2 = `\n${fg}` + error.message;
 }
 await m.reply(`${fg}`) 
 }}};
