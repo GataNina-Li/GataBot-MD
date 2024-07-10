@@ -8,7 +8,8 @@ let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isOwner, isROwner, isBotAdmin } ) {
 if (!m.isGroup) return 
 if (m.fromMe) return
-if (!isAdmin || !isOwner || !isROwner || m.fromMe || !isBotAdmin) return
+if (isAdmin || isOwner || m.fromMe || isROwner || !isBotAdmin) return
+//if (!isAdmin || !isOwner || !isROwner || m.fromMe || !isBotAdmin) return
   
 let delet = m.key.participant
 let bang = m.key.id
