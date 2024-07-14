@@ -124,17 +124,13 @@ output: process.stdout,
 terminal: true,
 })
 
-const question = async (text) => {
-rl = readline.createInterface({
-input: process.stdin,
-output: process.stdout
-})
-return new Promise((resolve) => {
-rl.question(text, (answer) => {
-rl.close()
-resolve(answer)
-})
-})
+const question = (texto) => {
+rl.clearLine(rl.input, 0)
+return new Promise((resolver) => {
+rl.question(texto, (respuesta) => {
+rl.clearLine(rl.input, 0)
+resolver(respuesta.trim())
+})})
 }
 
 let opcion
