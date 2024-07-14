@@ -118,18 +118,25 @@ let phoneNumber = global.botNumberCode
 const methodCodeQR = process.argv.includes("qr")
 const methodCode = !!phoneNumber || process.argv.includes("code")
 const MethodMobile = process.argv.includes("mobile")
-const rl = readline.createInterface({
+let rl = readline.createInterface({
 input: process.stdin,
 output: process.stdout,
 terminal: true,
 })
-const question = (text) => {
-const rl = readline.createInterface({
+
+const question = async (text) => {
+rl = readline.createInterface({
 input: process.stdin,
-output: process.stdout })
+output: process.stdout
+})
 return new Promise((resolve) => {
-rl.question(text, resolve)
-})}
+rl.question(text, (answer) => {
+rl.close()
+resolve(answer)
+})
+})
+}
+
 let opcion
 if (methodCodeQR) {
 opcion = '1'
