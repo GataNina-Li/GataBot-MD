@@ -123,14 +123,13 @@ input: process.stdin,
 output: process.stdout,
 terminal: true,
 })
-const question = (texto) => {
-rl.clearLine(rl.input, 0)
-return new Promise((resolver) => {
-rl.question(texto, (respuesta) => {
-rl.clearLine(rl.input, 0)
-resolver(respuesta.trim())
-})})
-}
+const question = (text) => {
+const rl = readline.createInterface({
+input: process.stdin,
+output: process.stdout })
+return new Promise((resolve) => {
+rl.question(text, resolve)
+})}
 let opcion
 if (methodCodeQR) {
 opcion = '1'
