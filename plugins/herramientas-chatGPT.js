@@ -11,12 +11,12 @@ if (!text) throw `*${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 �
 if (command == 'ia' || command == 'chatgpt') {
 try {
 conn.sendPresenceUpdate('composing', m.chat);
-let gpt = await fetch(`https://delirius-api-oficial.vercel.app/api/ia2?text=${text}`)
+let gpt = await fetch(`https://deliriusapi-official.vercel.app/ia/gptweb?text=${text}`) 
 let res = await gpt.json()
 await m.reply(res.gpt)
 } catch {
 try {
-let gpt = await fetch(`https://delirius-api-oficial.vercel.app/api/chatgpt?q=${text}`)
+let gpt = await fetch(`https://deliriusapi-official.vercel.app/ia/chatgpt?q=${text}`)
 let res = await gpt.json()
 await m.reply(res.data)
 } catch {
@@ -24,7 +24,7 @@ await m.reply(res.data)
 
 if (command == 'openai' || command == 'ia2' || command == 'chatgpt2') {
 conn.sendPresenceUpdate('composing', m.chat);
-let gpt = await fetch(`https://delirius-official.vercel.app/ia/gptweb?text=${text}`) 
+let gpt = await fetch(`https://deliriusapi-official.vercel.app/ia/gptweb?text=${text}`) 
 let res = await gpt.json()
 await m.reply(res.gpt)
 }}
