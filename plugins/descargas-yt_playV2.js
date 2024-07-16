@@ -42,15 +42,15 @@ throw new Error();
 }} catch {
 try
 {
-const res = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi}&query=${text}`);
-const json = await res.json();
-await conn.sendFile(m.chat, json.result.video, 'error.mp4', `${wm}`, m);
-}
-catch{
 let res0 = await yts(text)
 res0=res0.videos[0]
 let yt0 = await fg.ytv(res.url,'360p')
-await conn.sendFile(m.chat, yt0.dl_url, 'error.mp4', `${wm}`, m);  
+await conn.sendFile(m.chat, yt0.dl_url, 'error.mp4', `${wm}`, m);
+}
+catch{
+const res = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi}&query=${text}`);
+const json = await res.json();
+await conn.sendFile(m.chat, json.result.video, 'error.mp4', `${wm}`, m);  
 }
 }}} catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
