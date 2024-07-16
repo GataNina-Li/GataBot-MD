@@ -44,7 +44,7 @@ try
 {
 let res0 = await yts(text)
 res0=res0.videos[0]
-let yt0 = await fg.ytv(res.url,'360p')
+let yt0 = await fg.ytv(res0.url,'360p')
 await conn.sendFile(m.chat, yt0.dl_url, 'error.mp4', `${wm}`, m);
 }
 catch{
