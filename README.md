@@ -46,11 +46,11 @@
 | 📲 **TERMUX** | *Instalación por archivos local* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-por-termux---archivos) |
 | 📲 **TERMUX 24/7** | *Comandos para alargar la ejecución* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-247-en-termux) |
 | 📲 **TERMUX UPDATE** | *Comandos para actualizar GataBot* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot) |
+| 🟢 **INFINITY-HOST** | *Activar en Infinity Host* |[ver](https://github.com/GataNina-Li/GataBot-MD/blob/master/README.md#-infinity-host) |
+| 🔵 **CAFIREXOS** | *Activar en Cafirexos* |[ver](https://github.com/GataNina-Li/GataBot-MD#-cafirexos) |
 | 💎 **FLAREXCLOUD** | *Activar en FlarexCloud* |[ver](https://github.com/GataNina-Li/GataBot-MD?tab=readme-ov-file#-flarexcloud) |
 | 📦⛏️ **BOXMINE HOST** | *Activar en BoxMine Host* |[ver](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-boxmine-host) |
-| 🔵 **CAFIREXOS** | *Activar en Cafirexos* |[ver](https://github.com/GataNina-Li/GataBot-MD#-cafirexos) |
 | ☁️ **VORTEXUS CLOUD** | *Activar en Vortexus Cloud* |[ver](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-vortexus-cloud---host) |
-| 🟢 **INFINITY-HOST** | *Activar en Infinity Host* |[ver](https://github.com/GataNina-Li/GataBot-MD/blob/master/README.md#-infinity-host) |
 | 🟣 **HEROKU** | *Instalación directa por Heroku* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
 | ⚡ **REPLIT** | *Instalación directa por Replit* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-replit---gatabot) |
 | ⏏️ **KOYEB** | *Instalación directa por Koyeb* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-koyeb) |
@@ -189,6 +189,37 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 #### Para que no pierda su progreso en GataBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
 > **Warning** Estos comandos solo funcionan para TERMUX, REPLIT, LINUX                           
 -----
+### 🔵 CAFIREXOS 
+> Optimice la implementación de **GataBot** mediante la integración en un servicio de alojamiento de alto rendimiento.
+
+<a href="https://www.cafirexos.com"><img src="https://grxcwmcwbxwj.objectstorage.sa-saopaulo-1.oci.customer-oci.com/n/grxcwmcwbxwj/b/cafirexos/o/logos%2Flogo.png" height="125px"></a>
+### Información del Host
+
+- **Página:** [`Aquí`](https://www.cafirexos.com)
+- **Área de clientes:** [`Aquí`](https://clientes.cafirexos.com)
+- **Dashboard:** [`Aquí`](https://dashboard.cafirexos.com)
+- **Panel:** [`Aquí`](https://panel.cafirexos.com/)
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VaFVSkRCMY0KFmCMDX2q)
+- **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/LrzOqVlP75A2h65v8kfLAR)
+- **Correo:** [`Aquí`](mailto:contacto@cafirexos.com)
+- **Contacto:** [`Diego Flores`](https://wa.me/50497150165)
+
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/VPvoE5k.jpeg"></details>
+----
+### 🟢 INFINITY-HOST
+> Activar **GataBot-MD** 24/7 activo en Infinity-Host
+
+<a href="https://dash.infinity-wa.com"><img src="https://i.imgur.com/CiNEYMc.png" height="140px"></a>
+### Información del Host
+
+- **Dashboard:** [`Aquí`](https://dash.infinity-wa.com)
+- **Panel:** [`Aquí`](https://panel.infinity-wa.com)
+- **Estado de servicios:** [`Aquí`](https://status.infinity-wa.xyz)
+- **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV)
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A)
+
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://qu.ax/cpgf.jpg"></details>
+----
 ### 💎 FlarexCloud
 > Empiece a usar FlarexCloud para activar **GataBot-MD**
 
@@ -219,23 +250,6 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/tD3NQSR.jpeg"></details>
 ----
-### 🔵 CAFIREXOS 
-> Optimice la implementación de **GataBot** mediante la integración en un servicio de alojamiento de alto rendimiento.
-
-<a href="https://www.cafirexos.com"><img src="https://grxcwmcwbxwj.objectstorage.sa-saopaulo-1.oci.customer-oci.com/n/grxcwmcwbxwj/b/cafirexos/o/logos%2Flogo.png" height="125px"></a>
-### Información del Host
-
-- **Página:** [`Aquí`](https://www.cafirexos.com)
-- **Área de clientes:** [`Aquí`](https://clientes.cafirexos.com)
-- **Dashboard:** [`Aquí`](https://dashboard.cafirexos.com)
-- **Panel:** [`Aquí`](https://panel.cafirexos.com/)
-- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VaFVSkRCMY0KFmCMDX2q)
-- **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/LrzOqVlP75A2h65v8kfLAR)
-- **Correo:** [`Aquí`](mailto:contacto@cafirexos.com)
-- **Contacto:** [`Diego Flores`](https://wa.me/50497150165)
-
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/VPvoE5k.jpeg"></details>
-----
 ### ☁️ VORTEXUS CLOUD - HOST
 > Integra **GataBot** en un servicio de alojamiento eficiente.
 
@@ -251,20 +265,6 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/Ly0MffH.jpeg"></details>
 -----
-### 🟢 INFINITY-HOST
-> Activar **GataBot-MD** 24/7 activo en Infinity-Host
-
-<a href="https://dash.infinity-wa.com"><img src="https://i.imgur.com/CiNEYMc.png" height="140px"></a>
-### Información del Host
-
-- **Dashboard:** [`Aquí`](https://dash.infinity-wa.com)
-- **Panel:** [`Aquí`](https://panel.infinity-wa.com)
-- **Estado de servicios:** [`Aquí`](https://status.infinity-wa.xyz)
-- **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV)
-- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A)
-
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://qu.ax/cpgf.jpg"></details>
-----
 ### 🟣 ACTIVAR EN HEROKU 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) 
 ### 👇 Añada lo siguente al Buildpack: 
