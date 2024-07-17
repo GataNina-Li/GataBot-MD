@@ -288,10 +288,7 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 
 - [x] Configuración <details><summary>Importar Repositorio - GataBot-MD</summary><img src="https://i.imgur.com/GQyRnMf.jpg"></details>
 ----
-🟢 ACTIVAR EN CODES SPACES 
-
-[`CREAR SERVIDOR`](https://github.com/codespaces/new?skip_quickstart=true&machine=basicLinux32gb&repo=GataNina-Li/GataBot-MD&ref=main&geo=UsEast)
-### 🟢Tutorial pronto 
+🟢 ACTIVAR EN [`CODES SPACES `](https://github.com/codespaces/new?skip_quickstart=true&machine=basicLinux32gb&repo=GataNina-Li/GataBot-MD&ref=main&geo=UsEast)
 ----- 
 ### ⏏️ **ACTIVAR EN KOYEB**
 
