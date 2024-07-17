@@ -11,7 +11,7 @@ Aprovecha la compatibilidad y comienza usar GataBot en servidores de alto rendim
 https://www.cafirexos.com
 
 ✨ *Dashboard*
-https://dash.cafirexos.com
+https://dashboard.cafirexos.com
 
 ⚙️ *Panel*
 https://panel.cafirexos.com
