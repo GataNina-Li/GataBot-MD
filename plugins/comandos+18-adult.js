@@ -9,45 +9,40 @@ let user = global.db.data.users[m.sender]
 
 if (!db.data.chats[m.chat].modohorny && m.isGroup) return conn.reply(m.chat, `${lenguajeGB['smsContAdult']()}`, m)
 try{  
+let contenido = `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`
 if (command == 'pornololi' || command == 'nsfwloli') {
-await conn.sendFile(m.chat, nsfw('nsfwloli'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, { viewOnce: true }, m)
+await conn.sendFile(m.chat, nsfw('nsfwloli'), null, contenido, null, null, { viewOnce: true }, m)
 }
 if (command == 'pornopies' || command == 'nsfwfoot') {
-await conn.sendFile(m.chat, nsfw('nsfwfoot'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, { viewOnce: true }, m)
+await conn.sendFile(m.chat, nsfw('nsfwfoot'), null, contenido, null, null, { viewOnce: true }, m)
 }
 if (command == 'pornoass' || command == 'nsfwass') {
-await conn.sendFile(m.chat, nsfw('nsfwass'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, { viewOnce: true }, m)
+await conn.sendFile(m.chat, nsfw('nsfwass'), null, null, contenido, null, null, { viewOnce: true }, m)
 } 
 if (command == 'pornobdsm' || command == 'nsfwbdsm') {
-await conn.sendFile(m.chat, nsfw('nsfwbdsm'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, { viewOnce: true }, m)
+await conn.sendFile(m.chat, nsfw('nsfwbdsm'), null, null, contenido, null, null, { viewOnce: true }, m)
 }
 if (command == 'pornocum' || command == 'nsfwcum') {
-await conn.sendFile(m.chat, nsfw('nsfwcum'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, { viewOnce: true }, m)
+await conn.sendFile(m.chat, nsfw('nsfwcum'), null, null, contenido, null, null, { viewOnce: true }, m)
 }
 if (command == 'pornoero' || command == 'nsfwero') {  
-await conn.sendFile(m.chat, nsfw('nsfwero'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, { viewOnce: true }, m)
+await conn.sendFile(m.chat, nsfw('nsfwero'), null, contenido, null, null, { viewOnce: true }, m)
 }
 if (command == 'pornodominar' || command == 'nsfwfemdom') { 
-await conn.sendFile(m.chat, nsfw('nsfwfemdom'), null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, { viewOnce: true }, m)
+await conn.sendFile(m.chat, nsfw('nsfwfemdom'), null, contenido, null, null, { viewOnce: true }, m)
 }
 if (command == 'pornoglass' || command == 'nsfwglass') {
-let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/nsfwglass.json`)).data  
-let enlace = await res[Math.floor(res.length * Math.random())]  
-await conn.sendFile(m.chat, enlace, null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, {viewOnce: true}, m)}
-//await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno ass 3' : 'nsfw ass 3'} 🥵`.toUpperCase(), `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornoass3' : 'nsfwass3'}`]], m, frep)}
-  
+await conn.sendFile(m.chat, nsfw('nsfwglass'), null, contenido, null, null, { viewOnce: true }, m)
+}
+if (command == 'pornochica' || command == 'nsfwgirl') {
+await conn.sendFile(m.chat, nsfw('nsfwgirl'), null, contenido, null, null, { viewOnce: true }, m)
+}
 if (command == 'pornohentai' || command == 'nsfwhentai') {
-let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/hentai.json`)).data  
-let enlace = await res[Math.floor(res.length * Math.random())]  
-await conn.sendFile(m.chat, enlace, null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, {viewOnce: true}, m)}
-//await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno hentai 3' : 'nsfw hentai 3'} 🥵`.toUpperCase(), `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornohentai3' : 'nsfwhentai3'}`]], m, frep)}
-  
+await conn.sendFile(m.chat, nsfw('nsfwhentai'), null, contenido, null, null, { viewOnce: true }, m)
+}
 if (command == 'pornorgia' || command == 'nsfworgy') {
-let res = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/nsfworgy.json`)).data  
-let enlace = await res[Math.floor(res.length * Math.random())]
-await conn.sendFile(m.chat, enlace, null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, {viewOnce: true}, m)}
-//await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), ` *_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, enlace, [[lenguajeGB.smsSig(), `${usedPrefix + command}`], [`🥵 ${lenguajeGB.lenguaje() == 'es' ? 'porno orgia 2' : 'nsfw orgy 2'} 🥵`.toUpperCase(), `${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? 'pornorgia2' : 'nsfworgy2'}`]], m, frep)}
-  
+await conn.sendFile(m.chat, nsfw('nsfworgy'), null, contenido, null, null, { viewOnce: true }, m)
+}
 if (command == 'pornotetas' || command == 'nsfwboobs') {
 let resError = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/tetas.json`)).data   
 let res = await conn.getFile(`https://api-fgmods.ddns.net/api/nsfw/boobs?apikey=fg-dylux`).data
