@@ -1,4 +1,4 @@
-import fetch from "node-fetch"
+/*import fetch from "node-fetch"
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
 let query = text.trim()
@@ -81,9 +81,9 @@ await sendGoogleCarousel(conn, m.chat, query)
 handler.command = /^(pinterest|image2)$/i
 export default handler
 
+/*
 
-
-/*import { pinterest } from '@bochilteam/scraper'
+import { pinterest } from '@bochilteam/scraper'
 let handler = async(m, { conn, text, usedPrefix, command }) => {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsMalused7}\n*${usedPrefix + command} gata | cat*` 
 try {
@@ -101,7 +101,7 @@ handler.tags = ['internet']
 handler.command = /^(pinterest|dlpinterest|pinterestdl)$/i
 handler.money = 50
 export default handler
-*/
+
 /*conn.sendHydrated(m.chat, `💞 𝙍𝙚𝙨𝙪𝙡𝙩𝙖𝙙𝙤 | 𝙍𝙚𝙨𝙪𝙡𝙩: ${text}`, `𝙋𝙞𝙣𝙩𝙚𝙧𝙚𝙨𝙩 | ${wm}`, null, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
 ['🔄 𝙎𝙞𝙜𝙪𝙞𝙚𝙣𝙩𝙚 | 𝙉𝙚𝙭𝙩', `/pinterest ${text}`],
 ['🔍 𝙂𝙤𝙤𝙜𝙡𝙚 ', `#image ${text}`],
