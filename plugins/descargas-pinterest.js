@@ -81,7 +81,7 @@ await sendGoogleCarousel(conn, m.chat, query)
 handler.command = /^(pinterest|image2)$/i
 export default handler
 
-/*
+*/
 
 import { pinterest } from '@bochilteam/scraper'
 let handler = async(m, { conn, text, usedPrefix, command }) => {
