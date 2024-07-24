@@ -39,10 +39,10 @@ let txt = `*¿Tu Nokia es muy lento y necesitas que tu bot esté activo 24/7?* �
 https://www.infinity-wa.com/
 
 *🟢 Dashboard:*
-https://dash.infinity-wa.com
+https://dash.infinitywa-host.com
 
 ⚙️ *Panel*
-https://panel.infinity-wa.com
+https://panel.infinitywa-host.com
 
 💥 *Grupo Support whatsapp:*
 https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV
