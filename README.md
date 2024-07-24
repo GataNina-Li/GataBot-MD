@@ -212,9 +212,9 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 <a href="https://dash.infinity-wa.com"><img src="https://i.imgur.com/CiNEYMc.png" height="140px"></a>
 ### Información del Host
 
-- **Dashboard:** [`Aquí`](https://dash.infinity-wa.com)
-- **Panel:** [`Aquí`](https://panel.infinity-wa.com)
-- **Estado de servicios:** [`Aquí`](https://status.infinity-wa.xyz)
+- **Dashboard:** [`Aquí`](https://dash.infinitywa-host.com)
+- **Panel:** [`Aquí`](https://panel.infinitywa-host.com)
+- **Estado de servicios:** [`Aquí`](https://status.infinitywa-host.com/)
 - **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV)
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A)
 
