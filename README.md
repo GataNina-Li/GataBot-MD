@@ -209,9 +209,10 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 ### 🟢 INFINITY-HOST
 > Activar **GataBot-MD** 24/7 activo en Infinity-Host
 
-<a href="https://dash.infinity-wa.com"><img src="https://i.imgur.com/CiNEYMc.png" height="140px"></a>
+<a href="https://dash.infinitywa-host.com"><img src="https://i.imgur.com/CiNEYMc.png" height="140px"></a>
 ### Información del Host
 
+- **Página:** [`Aquí`](https://infinitywa-host.com/)
 - **Dashboard:** [`Aquí`](https://dash.infinitywa-host.com)
 - **Panel:** [`Aquí`](https://panel.infinitywa-host.com)
 - **Estado de servicios:** [`Aquí`](https://status.infinitywa-host.com/)
