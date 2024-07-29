@@ -2083,7 +2083,7 @@
 
 { "question": "¿Qué es el término utilizado para describir la tecnología que permite a los dispositivos comunicarse entre sí mediante la transmisión de datos a través de la luz visible?\n\n_Opciones:_ \n- A) Comunicación óptica\n- B) Comunicación inalámbrica\n- C) Comunicación por electricidad estática\n- D) Comunicación por fibra óptica", "response": "A" },
 
-{ "question": "¿Qué es el tipo de software que se utiliza para proteger una computadora contra ataques de denegación de servicio?\n\n_Opciones:_ \n- A) Software antivirus\n- B) Software antimalware\n- C) Software de firewall\n- D) Software de seguridad", "response": "C" }
+{ "question": "¿Qué es el tipo de software que se utiliza para proteger una computadora contra ataques de denegación de servicio?\n\n_Opciones:_ \n- A) Software antivirus\n- B) Software antimalware\n- C) Software de firewall\n- D) Software de seguridad", "response": "C" }, 
 
 { "question": "¿Qué es el término utilizado para describir la tecnología que permite a los dispositivos comunicarse entre sí mediante la transmisión de datos a través de la electricidad estática?\n\n_Opciones:_ \n- A) Comunicación óptica\n- B) Comunicación inalámbrica\n- C) Comunicación por electricidad estática\n- D) Comunicación por fibra óptica", "response": "C" },
 
