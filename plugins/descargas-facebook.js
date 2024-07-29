@@ -14,7 +14,7 @@ const d2ata = await facebook.v1(args[0]);
 let r2es = '';
 if (d2ata.urls && d2ata.urls.length > 0) {
 r2es = `${d2ata.urls[0]?.hd || d2ata.urls[1]?.sd || ''}` }
-conn.sendFile(m.chat, r2es, 'error.mp4', `✅ ${mid.smsfb}\n${wm}`, m, null, fakeChannel);
+await conn.sendFile(m.chat, r2es, 'error.mp4', `✅ ${mid.smsfb}\n${wm}`, m);
 m.react(`✅`) 
 handler.limit = 3
 } catch (err1) {
@@ -28,7 +28,7 @@ const Rres = await fetch(`https://api.lolhuman.xyz/api/facebook?apikey=${lolkeys
 const Jjson = await Rres.json();
 let VIDEO = Jjson.result[0];
 if (VIDEO == '' || !VIDEO || VIDEO == null) VIDEO = Jjson.result[1];
-conn.sendFile(m.chat, VIDEO, 'error.mp4', `✅ ${mid.smsfb}\n${wm}`, m, null, fakeChannel);
+await conn.sendFile(m.chat, VIDEO, 'error.mp4', `✅ ${mid.smsfb}\n${wm}`, m);
 m.react(`✅`) 
 handler.limit = 3
 } catch (err2) {
@@ -43,7 +43,7 @@ try {
 const res = await fbDownloader(args[0]);
 for (const result of res.download) {
 const ur = result.url;
-await conn.sendFile(m.chat, ur, 'error.mp4', `✅ ${mid.smsfb}\n${wm}`, m, null, fakeChannel);              
+await conn.sendFile(m.chat, ur, 'error.mp4', `✅ ${mid.smsfb}\n${wm}`, m);         
 m.react(`✅`)               
 handler.limit = 3
 }} catch (err4) {
@@ -51,13 +51,13 @@ try {
 const res3 = await fetch(`https://latam-api.vercel.app/api/facebookdl?apikey=nekosmic&q=${args[0]}`);
 const json = await res3.json();
 const url3 = await json.video;
-await conn.sendFile(m.chat, url3, 'error.mp4', `✅ ${mid.smsfb}\n${wm}`, m, null, fakeChannel);
+await conn.sendFile(m.chat, url3, 'error.mp4', `✅ ${mid.smsfb}\n${wm}`, m);
 m.react(`✅`)               
 handler.limit = 3
 } catch (err5) {
 try {
 const {result} = await facebookdl(args[0]).catch(async (_) => await facebookdlv2(args[0])).catch(async (_) => await savefrom(args[0]));
-for (const {url, isVideo} of result.reverse()) await conn.sendFile(m.chat, url, `facebook.${!isVideo ? 'bin' : 'mp4'}`, `✅ ${mid.smsfb}\n${wm}`, m, null, fakeChannel);
+for (const {url, isVideo} of result.reverse()) await conn.sendFile(m.chat, url, 'error.mp4', `✅ ${mid.smsfb}\n${wm}`, m);
 m.react(`✅`)                 
 handler.limit = 3
 } catch (err6) {
