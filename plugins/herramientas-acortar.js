@@ -1,6 +1,6 @@
 import axios from "axios"
 import fetch from 'node-fetch'
-let handler = async(m, { conn, text, xteamkey }) => {
+let handler = async(m, { conn, text, usedPrefix, xteamkey }) => {
 if (!text) throw `${mg}${mid.smsAcorta}`
 try {
 let json = await (await fetch(`https://api.xteam.xyz/shorturl/tinyurl?url=${text}&apikey=cb15ed422c71a2fb`)).json()
