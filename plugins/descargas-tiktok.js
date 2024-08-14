@@ -27,19 +27,22 @@ conn.sendFile(m.chat, url, 'tiktok.mp4', `⛱️ ${mid.user}\n*${nickname}*\n${d
 handler.limit = 2
 } catch (e4) {
 try{
+const response=await fetch(`https://deliriusapi-official.vercel.app/download/tiktok?url=${args[0]}`)
+const dataR = await response.json()
+const { author,title, meta} = dataR.data
+conn.sendFile(m.chat, meta.media[0].org, 'tiktok.mp4', `⛱️ ${mid.user}\n*${author.nickname}*\n${wm}`.trim(), m) 
+}
+catch (e5){
+try{
 const response=await fetch(`https://api.lolhuman.xyz/api/tiktok?apikey=${lolkeysapi}&url=${text}`)
 const dataR = await response.json()
 conn.sendFile(m.chat,dataR.result.link, 'tiktok.mp4', `⛱️ ${mid.user}\n*${dataR.result.author.username}*\n${wm}`.trim(), m)
-/*const response=await fetch(`https://delirius-api-oficial.vercel.app/api/tiktok?url=${args[0]}`)
-const dataR = await response.json()
-const { author,title, meta} = dataR.data
-conn.sendFile(m.chat, meta.media[0].org, 'tiktok.mp4', `⛱️ ${mid.user}\n*${author.nickname}*\n${wm}`.trim(), m) */
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 handler.limit = false
-}}}}}}
+}}}}}}}
 handler.help = ['tiktok']
 handler.tags = ['dl']
 handler.command = /^(tt|tiktok)(dl|nowm)?$/i
