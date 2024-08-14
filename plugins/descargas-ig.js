@@ -11,7 +11,7 @@ await conn.sendMessage(m.chat, {text: waitt, edit: key});
 await conn.sendMessage(m.chat, {text: waittt, edit: key});
 await conn.sendMessage(m.chat, {text: waitttt, edit: key});
 try{
-const responseIg = await axios.get(`https://delirios-api-delta.vercel.app/download/instagram?url=${args[0]}`);
+const responseIg = await axios.get(`https://deliriusapi-official.vercel.app/download/instagram?url=${args[0]}`);
 const resultlIg = responseIg.data;
 let linkig=resultlIg.data[0].url
 await conn.sendFile(m.chat,linkig, 'error.mp4', `${wm}`, m);
