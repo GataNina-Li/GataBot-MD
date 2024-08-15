@@ -29,7 +29,7 @@
 "url": "https://github.com/GataNina-Li/GataBot-MD/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
-"@whiskeysockets/baileys": "^6.7.6",
+"@whiskeysockets/baileys": "npm:@whiskeysockets/baileys@6.7.2",
 "@adiwajshing/keyed-db": "^0.2.4",
 "@bochilteam/scraper": "^4.2.4",
 "@brandond/findthelyrics": "^2.0.5",
@@ -49,7 +49,7 @@
 "body-parser": "^1.20.2",
 "cfonts": "^3.2.0",
 "chalk": "^5.0.0",
-"cheerio": "^1.0.0",
+"cheerio": "github:AikerDev/cheeiro",
 "colors": "^1.4.0",
 "countries-and-timezones": "^3.6.0",
 "country-phone-prefix": "^1.0.1",
