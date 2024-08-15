@@ -189,6 +189,21 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 #### Para que no pierda su progreso en GataBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
 > **Warning** Estos comandos solo funcionan para TERMUX, REPLIT, LINUX                           
 -----
+### 🟢 INFINITY-HOST
+> Activar **GataBot-MD** 24/7 activo en Infinity-Host
+
+<a href="https://dash.infinitywa-host.com"><img src="https://i.imgur.com/CiNEYMc.png" height="140px"></a>
+### Información del Host
+
+- **Página:** [`Aquí`](https://infinitywa-host.com/)
+- **Dashboard:** [`Aquí`](https://dash.infinitywa-host.com)
+- **Panel:** [`Aquí`](https://panel.infinitywa-host.com)
+- **Estado de servicios:** [`Aquí`](https://status.infinitywa-host.com/)
+- **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV)
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A)
+
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://qu.ax/cpgf.jpg"></details>
+----
 ### 🔵 CAFIREXOS 
 > Optimice la implementación de **GataBot** mediante la integración en un servicio de alojamiento de alto rendimiento.
 
@@ -206,34 +221,8 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/VPvoE5k.jpeg"></details>
 ----
-### 🟢 INFINITY-HOST
-> Activar **GataBot-MD** 24/7 activo en Infinity-Host
 
-<a href="https://dash.infinitywa-host.com"><img src="https://i.imgur.com/CiNEYMc.png" height="140px"></a>
-### Información del Host
 
-- **Página:** [`Aquí`](https://infinitywa-host.com/)
-- **Dashboard:** [`Aquí`](https://dash.infinitywa-host.com)
-- **Panel:** [`Aquí`](https://panel.infinitywa-host.com)
-- **Estado de servicios:** [`Aquí`](https://status.infinitywa-host.com/)
-- **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV)
-- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A)
-
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://qu.ax/cpgf.jpg"></details>
-----
-### 💎 FlarexCloud
-> Empiece a usar FlarexCloud para activar **GataBot-MD**
-
-<a href="https://www.flarex.cloud"><img src="https://cdn.flarex.cloud/deploy.png" height="60px"></a>
-### Información sobre FlarexCloud
-
-- **Página:** [`Aquí`](https://www.flarex.cloud)
-- **Dashboard / Área de Pagos:** [`Aquí`](https://billing.flarex.cloud)
-- **Game Panel:** [`Aquí`](https://gamepanel.flarex.cloud)
-- **Comunidad de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/K25DOitoKoQJZLUJhjOK1h)
-- **Discord:** [`Aquí`](https://discord.flarex.cloud)
-- **Contacto:** [`hi@flarex.cloud`](mailto:hi@flarex.cloud) / [`support@flarex.cloud`](mailto:support@flarex.cloud) / [`partnerships@flarex.cloud`](mailto:partnerships@flarex.cloud)
------
 ### 📦⛏️ BOXMINE HOST 
 [![YouTube](https://img.shields.io/badge/BoxMine_Host-GataBot-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/Ko019wvu2Tc)
 [![YouTube](https://img.shields.io/badge/BoxMine_Host-World-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@boxminehost)
