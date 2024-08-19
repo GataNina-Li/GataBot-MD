@@ -31,29 +31,30 @@ let txt = `*¿Tu Nokia es muy lento y necesitas que tu bot esté activo 24/7?* �
 
 ¡Tenemos la solución perfecta para ti! 🎉 Mantén tu bot funcionando sin interrupciones con nuestros servidores, Ofrecemos servidores gratuitos y de pago a precios súper accesibles, al alcance de todos. 💸 
 
-🖥️ *Totalmente compatible con GataBot:* Disfruta al máximo de su potencial en nuestros servidores de alto rendimiento, asegurando una experiencia fluida y de alta calidad. El staff de GataBot y Infinity-Host se encarga de que disfrutes de todas sus funciones al máximo. 😺✨
+🖥️ *Totalmente compatible con GataBot:* Disfruta al máximo de su potencial en nuestros servidores de alto rendimiento, asegurando una experiencia fluida y de alta calidad. El staff de GataBot y CorinPlus Host se encarga de que disfrutes de todas sus funciones al máximo. 😺✨
 
 🟢 \`\`\`Información del Host\`\`\`
 
 💻 *Página:*
-https://www.infinity-wa.com/
+https://dash.corinplus.com
 
 *🟢 Dashboard:*
-https://dash.infinitywa-host.com
+https://dash.corinplus.com
 
 ⚙️ *Panel*
-https://panel.infinitywa-host.com
+https://panel.corinplus.com
 
-💥 *Grupo Support whatsapp:*
-https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV
+💥 *Comunidad de WhatsApp:*
+https://chat.whatsapp.com/HR3OLhsuZPqCMImzuHcuON
 
 *🟣 Discord:*
-https://discord.com/invite/vgfpe4Nwd8
+https://discord.com/invite/bjKpRBtkHv
 
 🧡 *Canal de WhatsApp:*
-${canal1}
+https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 
 🗣📲 *Contacto:*
+• wa.me/5214531287294
 • https://www.facebook.com/elrebelde21
 • wa.me/573147616444
 
@@ -76,7 +77,7 @@ thumbnailUrl: 'https://grxcwmcwbxwj.objectstorage.sa-saopaulo-1.oci.customer-oci
 }, { mentions: m.sender })
 }
 
-if (command == 'infinity' || command == 'infinityWa' || command == 'infohost' || command == 'hosting') {
+if (command == 'CorinPlus' || command == 'corinplus' || command == 'infinityWa' || command == 'infohost' || command == 'hosting') {
  await conn.sendMessage(m.chat, { text: txt,
 contextInfo:{
 forwardingScore: 9999999,
@@ -84,13 +85,13 @@ isForwarded: false,
 "externalAdReply": {
 "showAdAttribution": true,
 "containsAutoReply": true,
-title: `🤖 𝐈𝐍𝐅𝐈𝐍𝐈𝐓𝐘𝐖𝐀-𝐇𝐎𝐒𝐓 🤖`,
+title: `🤖 𝐂O𝐑𝐈𝐍𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
 body: `✅ Hosting de Calidad`,
 "previewType": "PHOTO",
-thumbnailUrl: 'https://qu.ax/EQTd.jpg', 
+thumbnailUrl: 'https://telegra.ph/file/551d3d544d7bc607fd337.jpg', 
 sourceUrl: accountsgb}}},
 { quoted: fkontak})
 }}
 
-handler.command = /^(cafirexos|infohost|hosting|infinitywa|infinity)$/i
+handler.command = /^(cafirexos|infohost|hosting|infinitywa|infinity|CorinPlus|corinplus)$/i
 export default handler
