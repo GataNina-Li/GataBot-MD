@@ -55,8 +55,8 @@ https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 
 🗣📲 *Contacto:*
 • wa.me/5214531287294
-• https://www.facebook.com/elrebelde21
 • wa.me/573147616444
+• https://www.facebook.com/elrebelde21
 
 No esperes más y lleva tu bot al siguiente nivel con nuestro servicio de alojamiento. ¡Es fácil, rápido y económico! 💪🚀` 
 
