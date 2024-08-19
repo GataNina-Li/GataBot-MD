@@ -47,7 +47,6 @@
 | 📲 **TERMUX 24/7** | *Comandos para alargar la ejecución* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-247-en-termux) |
 | 📲 **TERMUX UPDATE** | *Comandos para actualizar GataBot* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot) |
 | ☁️ **CORINPLUS HOST** | *Activar en CorinPlus Host* |[ver](https://github.com/GataNina-Li/GataBot-MD/edit/master/README.md#%EF%B8%8F-corinplus-hots) |
-| 🟢 **INFINITY-HOST** | *Activar en Infinity Host* |[ver](https://github.com/GataNina-Li/GataBot-MD/blob/master/README.md#-infinity-host) |
 | 🔵 **CAFIREXOS** | *Activar en Cafirexos* |[ver](https://github.com/GataNina-Li/GataBot-MD#-cafirexos) |
 | 📦⛏️ **BOXMINE HOST** | *Activar en BoxMine Host* |[ver](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-boxmine-host) |
 | 🟣 **HEROKU** | *Instalación directa por Heroku* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
@@ -194,24 +193,10 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 
 - **Dashboard:** [`Aquí`](https://dash.corinplus.com)
 - **Panel:** [`Aquí`](https://panel.corinplus.com)
+- **Estado de servicios:** [`Aquí`](https://hetrixtools.com/r/ff8487f2c0ac4fd2b0b95392068d5879)
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
 - **Grupo - Soporte:** [`Aquí`](https://chat.whatsapp.com/K235lkvaGvlGRQKYm26xZP)
-- **Contacto:** [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1)
------
-### 🟢 INFINITY-HOST
-> Activar **GataBot-MD** 24/7 activo en Infinity-Host
-
-<a href="https://dash.infinitywa-host.com"><img src="https://i.imgur.com/CiNEYMc.png" height="140px"></a>
-### Información del Host
-
-- **Página:** [`Aquí`](https://infinitywa-host.com/)
-- **Dashboard:** [`Aquí`](https://dash.infinitywa-host.com)
-- **Panel:** [`Aquí`](https://panel.infinitywa-host.com)
-- **Estado de servicios:** [`Aquí`](https://status.infinitywa-host.com/)
-- **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV)
-- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A)
-
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://qu.ax/cpgf.jpg"></details>
+- **Contacto:** [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1) 
 ----
 ### 🔵 CAFIREXOS 
 > Optimice la implementación de **GataBot** mediante la integración en un servicio de alojamiento de alto rendimiento.
