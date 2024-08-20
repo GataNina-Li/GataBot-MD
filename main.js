@@ -374,7 +374,8 @@ conn.ev.on('creds.update', conn.credsUpdate);
 isInit = false
 return true
 }
-const pluginFolder = global.__dirname(join(__dirname, './plugins/index'));
+
+/*const pluginFolder = global.__dirname(join(__dirname, './plugins/index'));
 const pluginFilter = (filename) => /\.js$/.test(filename);
 global.plugins = {};
 async function filesInit() {
@@ -387,7 +388,23 @@ global.plugins[filename] = module.default || module;
 conn.logger.error(e);
 delete global.plugins[filename];
 }}}
+filesInit().then((_) => Object.keys(global.plugins)).catch(console.error)*/
+
+const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
+const pluginFilter = (filename) => /\.js$/.test(filename)
+global.plugins = {}
+async function filesInit() {
+for (const filename of readdirSync(pluginFolder).filter(pluginFilter)) {
+try {
+const file = global.__filename(join(pluginFolder, filename))
+const module = await import(file)
+global.plugins[filename] = module.default || module
+} catch (e) {
+conn.logger.error(e)
+delete global.plugins[filename]
+}}}
 filesInit().then((_) => Object.keys(global.plugins)).catch(console.error)
+
 global.reload = async (_ev, filename) => {
 if (pluginFilter(filename)) {
 const dir = global.__filename(join(pluginFolder, filename), true)
