@@ -8,22 +8,58 @@ let name = conn.getName(m.sender)
 if (chat.isBanned) return
 let vn = 'https://qu.ax/Ocxm.mp3'
 let bot = `${pickRandom([`*¡𝑬𝒚! 𝑨𝒒𝒖í 𝒆𝒔𝒕𝒐𝒚. 𝒀𝒐 𝒑𝒖𝒆𝒅𝒐 𝒂𝒚𝒖𝒅𝒂𝒓 👉👈 𝑯𝒆𝒚! 𝑰'𝒎 𝒉𝒆𝒓𝒆. 𝑰 𝒄𝒂𝒏 𝒉𝒆𝒍𝒑 🙌*`, `Aqui estoy | Here I am 😼`, `*Hola Aqui estoy yo puedo ayudar? | Hello, here I am, can I help? 😸*`])}`.trim()
+let txt = `*¿Tu Nokia es muy lento y necesitas que tu bot esté activo 24/7?* 📱⏳
 
-/*if (/^infinity|infinityWa|infohost|hosting$/i.test(m.text)) {
+¡Tenemos la solución perfecta para ti! 🎉 Mantén tu bot funcionando sin interrupciones con nuestros servidores, Ofrecemos servidores gratuitos y de pago a precios súper accesibles, al alcance de todos. 💸 
+
+🖥️ *Totalmente compatible con GataBot:* Disfruta al máximo de su potencial en nuestros servidores de alto rendimiento, asegurando una experiencia fluida y de alta calidad. El staff de GataBot y CorinPlus Host se encarga de que disfrutes de todas sus funciones al máximo. 😺✨
+
+🟢 \`\`\`Información del Host\`\`\`
+
+💻 *Página:*
+https://dash.corinplus.com
+
+*🟢 Dashboard:*
+https://dash.corinplus.com
+
+⚙️ *Panel*
+https://panel.corinplus.com
+
+💥 *Comunidad de WhatsApp:*
+https://chat.whatsapp.com/HR3OLhsuZPqCMImzuHcuON
+
+*🟣 Discord:*
+https://discord.com/invite/bjKpRBtkHv
+
+🧡 *Canal de WhatsApp:*
+https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
+
+🗣📲 *Contacto:*
+• wa.me/5214531287294
+• wa.me/573147616444
+• https://www.facebook.com/elrebelde21
+
+No esperes más y lleva tu bot al siguiente nivel con nuestro servicio de alojamiento. ¡Es fácil, rápido y económico! 💪🚀` 
+
+if (/^CorinPlus|corinplus|infohost|hosting|host|corin$/i.test(m.text)) {
  await conn.sendMessage(m.chat, { text: txt,
 contextInfo:{
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363301598733462@newsletter', 
+serverMessageId: '', 
+newsletterName: 'CorinPlus-Host ☁️' }, 
 forwardingScore: 9999999,
-isForwarded: false, 
+isForwarded: true, 
 "externalAdReply": {
 "showAdAttribution": true,
 "containsAutoReply": true,
-title: `🤖 𝐈𝐍𝐅𝐈𝐍𝐈𝐓𝐘𝐖𝐀-𝐇𝐎𝐒𝐓 🤖`,
-body: `✅ Hosting de Calidad`,
+title: `🤖 𝐂O𝐑𝐈𝐍𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
+body: `¡El plus que necesitas!_`,
 "previewType": "PHOTO",
-thumbnailUrl: 'https://qu.ax/EQTd.jpg', 
+thumbnailUrl: 'https://telegra.ph/file/551d3d544d7bc607fd337.jpg', 
 sourceUrl: accountsgb}}},
 { quoted: fkontak})
-} */
+} 
  
 if (/^bot$/i.test(m.text)) {
 await conn.reply(m.chat, bot, m, fakeChannel)
