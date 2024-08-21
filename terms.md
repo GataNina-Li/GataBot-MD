@@ -98,12 +98,7 @@ El servicio de hosting proporciona alojamiento para GataBot en sus servidores, e
 </details>
 
 <details>
-<summary><b>Cafirexos</b></summary>
 
-Como servicio de hosting especializado en alojamiento de Bots, ofrece una versión de GataBot con la aprobación de la misma, conforme a su disposición de aceptar la política de GataBot.
-</details>
-
-<details>
 <summary><b>Vortexus Cloud</b></summary>
 
 GataBot forma parte del catálogo de Vortexus Cloud, que ofrece alojamiento en la nube. Este servicio acepta la política de GataBot, fortaleciendo la disposición de trabajar de manera conjunta.
