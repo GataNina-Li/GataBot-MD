@@ -36,7 +36,7 @@ global.mods = []
 global.prems = []
 
 // Cambiar a false para usar el Bot desde el mismo numero del Bot.
-global.isBaileysFail = true
+global.isBaileysFail = false
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
