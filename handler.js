@@ -1099,8 +1099,8 @@ m.text = ''
 
 //if (m.isBaileys) return 
 if (m.isBaileys || isBaileysFail && m?.sender === this?.this?.user?.jid) {
-      return;
-    }
+return
+}
 	
 m.exp += Math.ceil(Math.random() * 10)
 let usedPrefix
