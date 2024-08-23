@@ -83,7 +83,8 @@ https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 • https://www.facebook.com/elrebelde21`
 
 let result = await luminsesi(query, username, syms1)
-await this.reply(m.chat, result, m)}
+if (m.fromMe) return
+await m.reply(m.chat, result, m)}
 return true
 }
 
