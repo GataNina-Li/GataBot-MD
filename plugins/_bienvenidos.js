@@ -7,7 +7,7 @@ let handler = async (m, { conn, participants, groupMetadata }) => {
 ${groupMetadata.desc?.toString() || 'desconocido'}
 `.trim()
 const mentionedJid = groupMetadata.participants.map(v => v.id);
-    conn.sendFile(m.chat, pp, 'pp.jpg', text, m, true, { mentions: mentionedJid})
+    conn.sendFile(m.chat, pp, 'pp.jpg', text, null, true, { mentions: mentionedJid})
 }
 
 handler.command = ['welcome','bienvenidos','bienbenidos'] 
