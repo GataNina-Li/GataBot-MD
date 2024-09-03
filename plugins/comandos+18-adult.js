@@ -202,7 +202,7 @@ await conn.sendFile(m.chat, link, null, `${lenguajeGB['smsCont18Porn']()}\n${len
 
 if (command == 'pornopackchica' || command == 'nsfwpackgirl') { 
 let list = global.packgirl 
-let list = pack[Math.floor(Math.random() * pack.length)]
+let link = pack[Math.floor(Math.random() * pack.length)]
 await conn.sendFile(m.chat, link, null, `${lenguajeGB['smsCont18Porn']()}\n${lenguajeGB['smsBotonM7']()} » ${user.premiumTime > 0 ? '✅' : '❌'}`, null, null, {viewOnce: true}, m)}
 //await conn.sendButton(m.chat, lenguajeGB.smsCont18Porn(), `*_${lenguajeGB['smsBotonM7']()}_* » ${user.premiumTime > 0 ? '✅' : '❌'}\n` + wm + ` : *${command[0].toUpperCase() + command.substring(1)}*`, link, [[lenguajeGB.smsSig(), `${usedPrefix + command}`], [lenguajeGB.lenguaje() == 'es' ? '🔞 ver lista porno 🔞'.toUpperCase() : '🔞 list horny🔞 '.toUpperCase(), lenguajeGB.lenguaje() == 'es' ? usedPrefix + 'listaporno' : usedPrefix + 'listhorny']], m, frep)}
 
