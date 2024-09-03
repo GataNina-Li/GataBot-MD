@@ -41,7 +41,7 @@ https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 
 No esperes más y lleva tu bot al siguiente nivel con nuestro servicio de alojamiento. ¡Es fácil, rápido y económico! 💪🚀` 
 
-if (/^infohost|hosting|host|corin|corinplus$/i.test(m.text)) {
+if (/^infohost|hosting|corinplus$/i.test(m.text)) {
  await conn.sendMessage(m.chat, { text: txt,
 contextInfo:{
 forwardedNewsletterMessageInfo: { 
