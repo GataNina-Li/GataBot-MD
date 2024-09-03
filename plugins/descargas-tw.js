@@ -13,13 +13,14 @@ await conn.sendMessage(m.chat, {text: waitt, edit: key});
 await conn.sendMessage(m.chat, {text: waittt, edit: key});
 await delay(1000 * 1);
 await conn.sendMessage(m.chat, {text: waitttt, edit: key});
-const apiUrl = `https://api.lolhuman.xyz/api/twitter?apikey=${lolkeysapi}&url=${encodeURIComponent(text)}`
+const apiUrl = `https://deliriusapi-official.vercel.app/download/twitterv2?url=${encodeURIComponent(text)}`
+
 const response = await fetch(apiUrl)
 const jsonData = await response.json()
-const tweetData = jsonData.result
-const tweetTitle = tweetData.title
-const tweetVideoUrl = tweetData.media[0].url
-const shortUrl1 = await (await fetch(`https://tinyurl.com/api-create.php?url=${text}`)).text()
+const tweetTitle = jsonData.data.description
+console.log(tweetTitle)
+const tweetVideoUrl = jsonData.data.media[0].videos[0].url
+const shortUrl1 =await (await fetch(`https://tinyurl.com/api-create.php?url=${text}`)).text()
 const tweetTitleWithoutUrl = tweetTitle.replace(/https?:\/\/t\.co\/\w+/i, '').trim()
 const txt1 = `🖤 ${tweetTitleWithoutUrl}\n\n🔗 *URL:*\n• _${shortUrl1}_`.trim()
 await conn.sendFile(m.chat, tweetVideoUrl, 'error.mp4', txt1, fkontak)
@@ -33,7 +34,7 @@ handler.limit = false
 }}
 handler.command = /^((dl)?tw(it(ter(dl|x)?)?)?|x|t?tx)$/i
 //handler.limit = 3
-handler.level = 3
+//handler.level = 3
 handler.register = true
 
 export default handler
