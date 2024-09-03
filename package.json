@@ -40,7 +40,7 @@
 "@vitalets/google-translate-api": "^8.0.0",
 "@xct007/frieren-scraper": "^0.0.2",
 "acrcloud": "^1.4.0",
-"api-dylux": "^1.5.6",
+"api-dylux": "^1.8.3",
 "express": "^4.18.1",    
 "aptoide-scraper": "^1.0.1",
 "awesome-phonenumber": "^2.68.0",
