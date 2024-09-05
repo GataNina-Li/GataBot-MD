@@ -53,14 +53,19 @@ conn.reply(m.chat, `*SU TIEMPO DE REGISTRO HA TERMINADO!!*\n\n_Si no continúa e
 		
 if (user.registered === true) return conn.reply(m.chat, `${lenguajeGB['smsAvisoIIG']()}*YA ESTÁ REGISTRADO!!*\n*SI QUIERE ANULAR SU REGISTRO, USE ESTE COMANDO*\n*${usedPrefix}unreg numero de serie*\n\n*SI NO RECUERDA SU NÚMERO DE SERIE, USE ESTE COMANDO*\n*${usedPrefix}myns*`, fkontak, m)	
 
-//Verificar si el usuario es miembro del grupo requerido
-let groupID = '120363146016943755@g.us'; 
+let groupID = '120363146016943755@g.us' 
+try {
 let groupMetadata = await conn.groupMetadata(groupID);
-let groupMembers = groupMetadata.participants.map(participant => participant.id || participant.jid); 
-  
+let groupMembers = groupMetadata.participants.map(participant => participant.id || participant.jid); // Lista de miembros del grupo
+
 if (!groupMembers.includes(m.sender)) {
 throw `*👀 CÓMO DESEA REGISTRARSE?* Antes de registrarte primero debes unirte al grupo requerido:*\nhttps://chat.whatsapp.com/KNwcGS4PCEN5qjbHD5VDZM\n\n*• Después usar el comando de la siguiente manera:*\n📑 *REGISTRO RÁPIDO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n\n*Escriba para el registro rápido:*\n${usedPrefix}reg1 nombre edad\n\n🗂️ *REGISTRO COMPLETO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n• Premium Temporal Gratis\n• Más opciones para este registro\n\n*Escriba para el registro completo:*\n${usedPrefix}nombre\n\n\`\`\`⭐ Considere que tendrá un tiempo para completar en caso de registrarse\`\`\``;
-}
+        }
+    } catch (e) {
+        // Si el bot no está en el grupo o no tiene acceso, continúa sin lanzar un error
+        console.log('El bot no está en el grupo o no puede acceder a los metadatos.');
+    }
+  
 
 if (command == 'verificar' || command == 'verify' || command == 'register' || command == 'reg' || command == 'registrar') {
 await conn.reply(m.chat, `*👀 CÓMO DESEA REGISTRARSE?*\n\n📑 *REGISTRO RÁPIDO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n\n*Escriba para el registro rápido:*\n${usedPrefix}reg1 nombre edad\n\n🗂️ *REGISTRO COMPLETO*\n• Insignia de verificación\n• Desbloquear comandos que requieran registro\n• Premium Temporal Gratis\n• Más opciones para este registro\n\n*Escriba para el registro completo:*\n${usedPrefix}nombre\n\n\`\`\`⭐ Considere que tendrá un tiempo para completar en caso de registrarse\`\`\``, fkontak, m)
