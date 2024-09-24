@@ -12,7 +12,7 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /A Bueno master|Bueno master|Bueno Máster/
-handler.command = /^(A Bueno master|master|masterr$)/
+handler.customPrefix = /masterrr|Bueno masterrr|Bueno Másterrr/
+handler.command = /^(A Bueno masterrr|masterrr|masterrr$)/
 export default handler
 
