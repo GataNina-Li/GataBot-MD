@@ -11,6 +11,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /mimi/
-handler.command = /mimi/
+handler.customPrefix = /mimi/i
+handler.command = /mimi/i
 export default handler
