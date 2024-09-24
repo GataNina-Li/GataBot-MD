@@ -12,6 +12,13 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /muma|a|A/
-handler.command = /^(muma|ª|A?$)/
+let vn1 = 'https://qu.ax/xynz.mp3'
+conn.sendPresenceUpdate('recording', m.chat)
+conn.sendFile(m.chat, vn1, 'a.mp3', null, m, true, { 
+type: 'audioMessage', 
+ptt: true 
+})
+}
+handler.customPrefix = /muma|master1|A/
+handler.command = /^(muma|master1|A?$)/
 export default handler
