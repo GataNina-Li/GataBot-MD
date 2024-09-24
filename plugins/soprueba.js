@@ -6,7 +6,7 @@ global.db.data.users[m.sender].money += 100
 global.db.data.users[m.sender].exp += 100
   
 let vn = 'https://qu.ax/SCpi.mp3'
-this.sendPresenceUpdate('recording', m.chat)
+conn.sendPresenceUpdate('recording', m.chat)
 conn.sendFile(m.chat, vn, 'a.mp3', null, m, true, { 
 type: 'audioMessage', 
 ptt: true 
