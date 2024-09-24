@@ -28,6 +28,6 @@ ptt: true
     } catch {
     conn.reply(m.chat, `${fg}𝘼𝙇𝙂𝙊 𝙎𝘼𝙇𝙄𝙊 𝙈𝘼𝙇 𝙑𝙐𝙀𝙇𝘼𝙑𝘼 𝙄𝙉𝙏𝙀𝙉𝙏𝘼𝙍\n\n𝙎𝙊𝙈𝙀𝙏𝙃𝙄𝙉𝙂 𝙒𝙀𝙉𝙏 𝙒𝙍𝙊𝙉𝙂 𝙏𝙍𝙔 𝘼𝙂𝘼𝙄𝙉`, fkontak, m)    
     }}
-handler.customPrefix = /muma|pinguita/
-    handler.command = /^pinguita|muma/i
+handler.customPrefix = /muma|lala/
+    handler.command = /^lala|muma/i
     export default handler
