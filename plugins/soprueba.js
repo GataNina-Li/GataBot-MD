@@ -12,6 +12,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /a bueno adios|master|A/
+handler.customPrefix = /a bueno adios|master/
 handler.command = /^(A bueno Adios master|masterrrr|A?$)/
 export default handler
