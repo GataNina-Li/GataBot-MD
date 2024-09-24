@@ -14,7 +14,7 @@ global.db.data.users[m.sender].exp += 100
 ptt: true 
 })
 }
-    if (command == 'pinguita') {
+    if (command == 'lala') {
    let vn = 'https://qu.ax/xynz.mp3'
    conn.sendPresenceUpdate('recording', m.chat)
    conn.sendFile(m.chat, vn, 'a.mp3', null, m, true, {
