@@ -34,7 +34,7 @@ conn.sendFile(m.chat, meta.media[0].org, 'tiktok.mp4', `⛱️ ${mid.user}\n*${a
 }
 catch (e5){
 try{
-const response=await fetch(`https://api.lolhuman.xyz/api/tiktok?apikey=${lolkeysapi}&url=${text}`)
+const response=await fetch(`https://deliriusapi-official.vercel.app/download/tiktok?&url=${text}`)
 const dataR = await response.json()
 conn.sendFile(m.chat,dataR.result.link, 'tiktok.mp4', `⛱️ ${mid.user}\n*${dataR.result.author.username}*\n${wm}`.trim(), m)
 } catch (e) {
