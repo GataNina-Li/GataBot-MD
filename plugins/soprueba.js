@@ -5,7 +5,7 @@ if (!db.data.chats[m.chat].audios && m.isGroup) throw 0
 global.db.data.users[m.sender].money += 100 
 global.db.data.users[m.sender].exp += 100
 
-if (/^A Bueno master|Bueno master|master1|🫂$/i.test(m.text) && chat.audios){
+if (/^A Bueno master|Bueno master|master1|🫂$/i.text(m.text) && chat.audios){
 if (!db.data.chats[m.chat].audios && m.isGroup) throw 0 
 let vn = 'https://qu.ax/SCpi.mp3'
 conn.sendPresenceUpdate('recording', m.chat)
