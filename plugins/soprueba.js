@@ -11,6 +11,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /mimi/i
-handler.command = /mimi/i
+handler.customPrefix = /muma|a|A/
+handler.command = /^(muma|ª|A?$)/
 export default handler
