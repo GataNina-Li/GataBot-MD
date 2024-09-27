@@ -16,7 +16,7 @@ const aa = await conn.sendMessage(m.chat, {audio: {url: audiocore}, fileName: `e
 if (!aa) {
 throw new Error();
 }} catch {
-try{const res = await fetch(`https://deliriusapi-official.vercel.app/download/ytmp3?&query=${text}`);
+try{const res = await fetch(`https://deliriusapi-official.vercel.app/download/ytmp3?url=${text}`);
 const json = await res.json();
 const aa_1 = await conn.sendMessage(m.chat, {audio: {url: json.result.audio}, fileName: `error.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
 if (!aa_1) aa_1 = await conn.sendFile(m.chat, json.result.audio, 'error.mp3', null, m, false, {mimetype: 'audio/mp4'});
