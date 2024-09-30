@@ -17,7 +17,7 @@ const aa = await conn.sendMessage(m.chat, {audio: {url: audiocore}, fileName: `e
 if (!aa) {
 throw new Error();
 }} catch {
-try{const res = await fetch(`https://deliriusapi-official.vercel.app/download/ytmp4v2?query=${text}`);
+try{const res = await fetch(`https://deliriusapi-official.vercel.app/download/spotifydl?query=${text}`);
 const json = await res.json();
 const aa_1 = await conn.sendMessage(m.chat, {audio: {url: json.result.audio}, fileName: `error.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
 if (!aa_1) aa_1 = await conn.sendFile(m.chat, json.result.audio, 'error.mp3', null, m, false, {mimetype: 'audio/mp4'});
@@ -49,7 +49,7 @@ let yt0 = await fg.ytv(res0.url,'360p')
 await conn.sendFile(m.chat, yt0.dl_url, 'error.mp4', `${wm}`, m);
 }
 catch{
-const res = await fetch(`https://deliriusapi-official.vercel.app/download/ytmp4v2?query=${text}`);
+const res = await fetch(`https://deliriusapi-official.vercel.app/download/spotifydl?query=${text}`);
 const json = await res.json();
 await conn.sendFile(m.chat, json.result.video, 'error.mp4', `${wm}`, m);  
 }
@@ -86,7 +86,7 @@ const bytes = await bytesToSize(contentLength);
 result[i] = {audio: item.url, size: bytes};
 }}
 const resultFix = result.filter((x) => x.audio != undefined && x.size != undefined);
-const tiny = await axios.get(`https://deliriusapi-official.vercel.app/download/ytmp4v2?query=${resultFix[0].audio}`);
+const tiny = await axios.get(`https://deliriusapi-official.vercel.app/download/spotifydl?query=${resultFix[0].audio}`);
 const tinyUrl = tiny.data;
 const title = getUrl.videoDetails.title;
 const thumb = getUrl.player_response.microformat.playerMicroformatRenderer.thumbnail.thumbnails[0].url;
@@ -106,7 +106,7 @@ const bytes = await bytesToSize(contentLength);
 result[i] = {video: item.url, quality: qualityLabel, size: bytes};
 }}
 const resultFix = result.filter((x) => x.video != undefined && x.size != undefined && x.quality != undefined);
-const tiny = await axios.get(`https://deliriusapi-official.vercel.app/download/ytmp4v2?query=${resultFix[0].video}`);
+const tiny = await axios.get(`https://deliriusapi-official.vercel.app/download/spotifydl?query=${resultFix[0].video}`);
 const tinyUrl = tiny.data;
 const title = getUrl.videoDetails.title;
 const thumb = getUrl.player_response.microformat.playerMicroformatRenderer.thumbnail.thumbnails[0].url;
