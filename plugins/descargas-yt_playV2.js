@@ -1,136 +1,4 @@
 
-
-import fetch from 'node-fetch';
-import yts from 'yt-search';
-import axios from 'axios';
-import fg from 'api-dylux';
-
-const handler = async (m, { command, usedPrefix, conn, text }) => {
-    if (!text) throw `${mg}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`;
-    
-    try {
-        if (command === 'play.1') {
-            conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, m, { 
-                contextInfo: { externalAdReply: { 
-                    mediaUrl: null, mediaType: 1, description: null, title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝗦𝗔𝗽𝗽', 
-                    previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb 
-                }} 
-            });
-
-            // Llamada a la API de Skizo
-            const apiKey = 'GataDios'; // Asegúrate de usar tu propia API key
-            const apiUrl = `https://skizo.tech/api/y2mate?apikey=${apiKey}&url=${encodeURIComponent(text)}`;
-            const response = await fetch(apiUrl);
-            const json = await response.json();
-
-            if (json.success) {
-                const { title, humanDuration, thumbnail } = json; // Extraemos información
-                const audioFormats = json.formats.audio.mp3;
-                const audioLink = audioFormats[0].convert; // Escoge el primer formato de audio disponible 
-
-                // Mensaje de respuesta
-                const infoMessage = `
-*🎶 Título:* ${title}
-*⏰ Duración:* ${humanDuration}
-*📸 Miniatura:* ${thumbnail}
-*🔊 Enlace de Audio:* ${audioLink}
-                `.trim();
-
-                // Enviar el mensaje con la información
-                await conn.reply(m.chat, infoMessage, m);
-                
-                // Enviar el audio
-                const aa = await conn.sendMessage(m.chat, { 
-                    audio: { url: audioLink }, 
-                    fileName: `error.mp3`, 
-                    mimetype: 'audio/mp4' 
-                }, { quoted: m });
-
-                if (!aa) {
-                    throw new Error();
-                }
-            } else {
-                throw new Error('Error al obtener los datos de la API.');
-            }
-        }
-        // Código para play.2 (video) aquí...
-    } catch (e) {
-        await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m);
-        console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`);
-        console.log(e);
-        handler.limit = 0; // No gastada limite si fallas
-    }
-};
-
-handler.help = ['play.1', 'play.2'].map(v => v + ' <texto>');
-handler.tags = ['downloader'];
-handler.command = ['play.1', 'play.2'];
-handler.limit = 1;
-
-export default handler;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
  import fetch from 'node-fetch';
 import yts from 'yt-search';
 import ytdl from 'ytdl-core';
@@ -149,7 +17,7 @@ const aa = await conn.sendMessage(m.chat, {audio: {url: audiocore}, fileName: `e
 if (!aa) {
 throw new Error();
 }} catch {
-try{const res = await fetch(`https://deliriusapi-official.vercel.app/download/ytmp4v2?query=${text}`);
+try{const res = await fetch(`https://skizo.tech/api/y2mate?apikey=GataDios&url=${text}`);
 const json = await res.json();
 const aa_1 = await conn.sendMessage(m.chat, {audio: {url: json.result.audio}, fileName: `error.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
 if (!aa_1) aa_1 = await conn.sendFile(m.chat, json.result.audio, 'error.mp3', null, m, false, {mimetype: 'audio/mp4'});
@@ -181,7 +49,7 @@ let yt0 = await fg.ytv(res0.url,'360p')
 await conn.sendFile(m.chat, yt0.dl_url, 'error.mp4', `${wm}`, m);
 }
 catch{
-const res = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=7051258b0f3ac8528906c8a9&query=${text}`);
+const res = await fetch(`https://skizo.tech/api/y2mate?apikey=GataDios&url=${text}`);
 const json = await res.json();
 await conn.sendFile(m.chat, json.result.video, 'error.mp4', `${wm}`, m);  
 }
@@ -218,7 +86,7 @@ const bytes = await bytesToSize(contentLength);
 result[i] = {audio: item.url, size: bytes};
 }}
 const resultFix = result.filter((x) => x.audio != undefined && x.size != undefined);
-const tiny = await axios.get(`https://api.lolhuman.xyz/api/ytaudio2?apikey=7051258b0f3ac8528906c8a9&query=${resultFix[0].audio}`);
+const tiny = await axios.get(`https://skizo.tech/api/y2mate?apikey=GataDios&url=${resultFix[0].audio}`);
 const tinyUrl = tiny.data;
 const title = getUrl.videoDetails.title;
 const thumb = getUrl.player_response.microformat.playerMicroformatRenderer.thumbnail.thumbnails[0].url;
@@ -238,7 +106,7 @@ const bytes = await bytesToSize(contentLength);
 result[i] = {video: item.url, quality: qualityLabel, size: bytes};
 }}
 const resultFix = result.filter((x) => x.video != undefined && x.size != undefined && x.quality != undefined);
-const tiny = await axios.get(`https://api.lolhuman.xyz/api/ytaudio2?apikey=7051258b0f3ac8528906c8a9&query=${resultFix[0].video}`);
+const tiny = await axios.get(`https://skizo.tech/api/y2mate?apikey=GataDios&url=${resultFix[0].video}`);
 const tinyUrl = tiny.data;
 const title = getUrl.videoDetails.title;
 const thumb = getUrl.player_response.microformat.playerMicroformatRenderer.thumbnail.thumbnails[0].url;
@@ -272,7 +140,7 @@ const random = url[0];
 const getVideo = await ytMp4(random);
 resolve(getVideo);
 }).catch(reject);
-})} */
+})} 
 
 /*import fs from 'fs'
 import fetch from 'node-fetch'
