@@ -16,7 +16,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
                         mediaType: 1,
                         description: null,
                         title: wm,
-                        body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽',
+                        body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝗦𝗔𝗽𝗽',
                         previewType: 0,
                         thumbnail: gataImg,
                         sourceUrl: accountsgb
@@ -25,43 +25,23 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
             });
 
             try {
+                // Obtener el JSON de la API
                 const res = await fetch(`https://skizo.tech/api/y2mate?apikey=GataDios&url=${encodeURIComponent(text)}`);
                 const json = await res.json();
 
-                // Enviar opciones de calidad
-                const audioOptions = json.result.audio;
-                const buttons = audioOptions.map(opt => ({
-                    buttonId: `audio_${opt.quality}`, // ID único para cada calidad
-                    buttonText: { displayText: `${opt.quality} kbps` },
-                    type: 1
-                }));
-
-                const message = {
-                    text: 'Selecciona la calidad del audio:',
-                    footer: wm,
-                    buttons: buttons,
-                    headerType: 1
-                };
-
-                await conn.sendMessage(m.chat, message, { quoted: m });
-
-                // Manejar la respuesta de los botones
-                conn.on('buttonReply', async (reply) => {
-                    if (reply.from === m.chat && reply.buttonId.startsWith('audio_')) {
-                        const quality = reply.buttonId.split('_')[1];
-                        const selectedAudio = audioOptions.find(opt => opt.quality === quality);
-                        if (selectedAudio) {
-                            await conn.sendMessage(m.chat, {
-                                audio: { url: selectedAudio.url },
-                                fileName: `audio_${quality}.mp3`,
-                                mimetype: 'audio/mp4'
-                            }, { quoted: m });
-                        }
-                    }
-                });
-
-            } catch (error) {
-                console.error('Error al obtener el audio:', error.message);
+                // Verificar si hay un enlace de conversión
+                if (json.convert) {
+                    // Enviar el audio
+                    await conn.sendMessage(m.chat, {
+                        audio: { url: json.convert },
+                        fileName: `audio.mp3`,
+                        mimetype: 'audio/mp4'
+                    }, { quoted: m });
+                } else {
+                    throw new Error('No se pudo obtener el enlace de conversión.');
+                }
+            } catch (e) {
+                console.error('Error al obtener el audio:', e);
                 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m);
             }
         }
@@ -74,7 +54,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
                         mediaType: 1,
                         description: null,
                         title: wm,
-                        body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽',
+                        body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝗦𝗔𝗽𝗽',
                         previewType: 0,
                         thumbnail: gataImg,
                         sourceUrl: accountsgb
@@ -95,11 +75,17 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
                 if (!aa_2) {
                     throw new Error();
                 }
-            } catch (error) {
-                console.error('Error al obtener el video:', error.message);
-                const res = await fetch(`https://skizo.tech/api/y2mate?apikey=GataDios&url=${encodeURIComponent(text)}`);
-                const json = await res.json();
-                await conn.sendFile(m.chat, json.result.video, 'error.mp4', `${wm}`, m);
+            } catch {
+                try {
+                    let res0 = await yts(text);
+                    res0 = res0.videos[0];
+                    let yt0 = await fg.ytv(res0.url, '360p');
+                    await conn.sendFile(m.chat, yt0.dl_url, 'error.mp4', `${wm}`, m);
+                } catch {
+                    const res = await fetch(`https://skizo.tech/api/y2mate?apikey=GataDios&url=${encodeURIComponent(text)}`);
+                    const json = await res.json();
+                    await conn.sendFile(m.chat, json.result.video, 'error.mp4', `${wm}`, m);
+                }
             }
         }
     } catch (e) {
@@ -116,6 +102,7 @@ handler.command = ['play.1', 'play.2'];
 handler.limit = 1;
 
 export default handler;
+
 
  /*import fetch from 'node-fetch';
 import yts from 'yt-search';
