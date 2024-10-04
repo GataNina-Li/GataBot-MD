@@ -13,8 +13,9 @@ import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 // [ES] > Agrega el número que será Bot y los que serán propietarios.
 // [EN] > Add the number that will be Bot and those that will be owners.
 global.owner = [
-["573147616444", '𝙊𝙬𝙣𝙚𝙧 💖🐈', true], //𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈
-["593968585383"], 
+
+["529516526675", 'DEVELOPER GHOST 💖🐈', true],
+["529516526675"], 
 ["5492266613038"], 
 ["593968263524"],
 ["5573031859"],   
@@ -52,7 +53,7 @@ global.keepAliveRender = 0; //Solo valores: 1 o 0
 // ❰❰ methodCode ❱❱
 // [ES] > Agregue el número del Bot en "botNumberCode" si desea recibir código de 8 dígitos sin registrar el número en la consola.
 // [EN] > Add the Bot number in "botNumberCode" if you want to receive 8-digit code without registering the number in the console.
-global.botNumberCode = "" //example: "+59309090909"
+global.botNumberCode = "+529515306251" //example: "+59309090909"
 global.confirmCode = "" // No tocar esto : Do not touch this line
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
@@ -132,7 +133,7 @@ global.moment = moment
 // [ES] > Agregate a ti, colaboradores o ayudates, aparecerá en el comando de lista de contactos.
 // [EN] > Adding yourself, collaborators or helpers will appear in the contact list command.
 global.official = [ // Agregate si eres Owner
-["593968263524", 'Gata Dios 💻', 1], 
+["529516526675", 'GhostDev 💻', 1], 
 ["5492266466080", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
 ["5521989092076", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1]]
 
