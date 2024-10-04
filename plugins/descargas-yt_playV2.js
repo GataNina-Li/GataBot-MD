@@ -4,7 +4,7 @@ import ytdl from 'ytdl-core';
 import axios from 'axios';
 import fg from 'api-dylux';
 
-const handler = async (m, {command, usedPrefix, conn, text}) => {
+const handler = async (m, { command, usedPrefix, conn, text }) => {
     if (!text) throw `${mg}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`;
 
     try {
@@ -29,23 +29,37 @@ const handler = async (m, {command, usedPrefix, conn, text}) => {
                 const json = await res.json();
 
                 // Enviar opciones de calidad
-                const audioOptions = json.formats.audio.mp3;
+                const audioOptions = json.result.audio;
                 const buttons = audioOptions.map(opt => ({
-                    buttonId: opt.convert,
+                    buttonId: `audio_${opt.quality}`, // ID único para cada calidad
                     buttonText: { displayText: `${opt.quality} kbps` },
                     type: 1
                 }));
 
                 const message = {
                     text: 'Selecciona la calidad del audio:',
+                    footer: wm,
                     buttons: buttons,
                     headerType: 1
                 };
 
                 await conn.sendMessage(m.chat, message, { quoted: m });
 
-                // Esperar la selección del usuario
-                // Aquí necesitarías un mecanismo para recibir la respuesta y enviar el audio
+                // Manejar la respuesta de los botones
+                conn.on('buttonReply', async (reply) => {
+                    if (reply.from === m.chat && reply.buttonId.startsWith('audio_')) {
+                        const quality = reply.buttonId.split('_')[1];
+                        const selectedAudio = audioOptions.find(opt => opt.quality === quality);
+                        if (selectedAudio) {
+                            await conn.sendMessage(m.chat, {
+                                audio: { url: selectedAudio.url },
+                                fileName: `audio_${quality}.mp3`,
+                                mimetype: 'audio/mp4'
+                            }, { quoted: m });
+                        }
+                    }
+                });
+
             } catch (error) {
                 console.error('Error al obtener el audio:', error.message);
                 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m);
