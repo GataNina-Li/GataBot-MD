@@ -1,4 +1,136 @@
 
+
+import fetch from 'node-fetch';
+import yts from 'yt-search';
+import axios from 'axios';
+import fg from 'api-dylux';
+
+const handler = async (m, { command, usedPrefix, conn, text }) => {
+    if (!text) throw `${mg}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`;
+    
+    try {
+        if (command === 'play.1') {
+            conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, m, { 
+                contextInfo: { externalAdReply: { 
+                    mediaUrl: null, mediaType: 1, description: null, title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝗦𝗔𝗽𝗽', 
+                    previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb 
+                }} 
+            });
+
+            // Llamada a la API de Skizo
+            const apiKey = 'GataDios'; // Asegúrate de usar tu propia API key
+            const apiUrl = `https://skizo.tech/api/y2mate?apikey=${apiKey}&url=${encodeURIComponent(text)}`;
+            const response = await fetch(apiUrl);
+            const json = await response.json();
+
+            if (json.success) {
+                const { title, humanDuration, thumbnail } = json; // Extraemos información
+                const audioFormats = json.formats.audio.mp3;
+                const audioLink = audioFormats[0].convert; // Escoge el primer formato de audio disponible 
+
+                // Mensaje de respuesta
+                const infoMessage = `
+*🎶 Título:* ${title}
+*⏰ Duración:* ${humanDuration}
+*📸 Miniatura:* ${thumbnail}
+*🔊 Enlace de Audio:* ${audioLink}
+                `.trim();
+
+                // Enviar el mensaje con la información
+                await conn.reply(m.chat, infoMessage, m);
+                
+                // Enviar el audio
+                const aa = await conn.sendMessage(m.chat, { 
+                    audio: { url: audioLink }, 
+                    fileName: `error.mp3`, 
+                    mimetype: 'audio/mp4' 
+                }, { quoted: m });
+
+                if (!aa) {
+                    throw new Error();
+                }
+            } else {
+                throw new Error('Error al obtener los datos de la API.');
+            }
+        }
+        // Código para play.2 (video) aquí...
+    } catch (e) {
+        await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m);
+        console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`);
+        console.log(e);
+        handler.limit = 0; // No gastada limite si fallas
+    }
+};
+
+handler.help = ['play.1', 'play.2'].map(v => v + ' <texto>');
+handler.tags = ['downloader'];
+handler.command = ['play.1', 'play.2'];
+handler.limit = 1;
+
+export default handler;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
  import fetch from 'node-fetch';
 import yts from 'yt-search';
 import ytdl from 'ytdl-core';
@@ -140,7 +272,7 @@ const random = url[0];
 const getVideo = await ytMp4(random);
 resolve(getVideo);
 }).catch(reject);
-})} 
+})} */
 
 /*import fs from 'fs'
 import fetch from 'node-fetch'
