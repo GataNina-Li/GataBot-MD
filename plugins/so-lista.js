@@ -1,5 +1,4 @@
 //CREDITOS PARA >> https://github.com/BrunoSobrino
-/*
 let handler = m => m
 handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
@@ -676,4 +675,3 @@ this.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 
    
 return !0 }
 export default handler
-*/
