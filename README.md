@@ -186,19 +186,15 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 #### Para que no pierda su progreso en GataBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
 > **Warning** Estos comandos solo funcionan para TERMUX, REPLIT, LINUX                           
 -----
-### ☁️ CORINPLUS HOTS 
-<a href="https://dash.corinplus.com"><img src="https://qu.ax/ZycD.png" height="125px"></a>
-### Información sobre CorinPlus
-
-- **Dashboard:** [`Aquí`](https://dash.corinplus.com)
-- **Panel:** [`Aquí`](https://ctrl.corinplus.com)
-- **Estado de servicios:** [`Aquí`](https://status.corinplus.com)
+### ☁️ SKY ULTRA PLUS
+<a href="https://dash.corinplus.com"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
+### Información sobre Sky
+- **Dashboard:** [`Aquí`](https://dash.skyultraplus.com)
+- **Panel:** [`Aquí`](https://panel.skyultraplus.com)
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
-- **Grupo - Soporte:** [`Aquí`](https://chat.whatsapp.com/K235lkvaGvlGRQKYm26xZP)
-- **Contacto:** [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1)
-- **Contacto:** [`elrebelde21`](https://facebook.com/elrebelde21)
-
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://telegra.ph/file/5ba9167b88400845635df.jpg"></details>
+- **Comunidad:** [`Aquí`](https://chat.whatsapp.com/JPwcXvPEUwlEOyjI3BpYys)
+- **Contacto(s):** [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1) / [`Russell`](https://api.whatsapp.com/send/?phone=15167096032&text&type=phone_number&app_absent=0) / [`elrebelde21`](https://facebook.com/elrebelde21)
+- **Discord:** [`SkyUltraPlus`](https://discord.gg/Ph4eWsZ8)
 ----
 ### 📦⛏️ BOXMINE HOST 
 [![YouTube](https://img.shields.io/badge/BoxMine_Host-GataBot-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/Ko019wvu2Tc)
