@@ -59,26 +59,26 @@ https://youtube.com/@gatadios
 - https://whatsapp.com/channel/0029Va6yY0iLY6d6XDmqA03g
 - https://whatsapp.com/channel/0029VaKn22pDJ6GwY61Ftn15
 
-Si te preguntan cómo alojar Gatabot 24/7, tu recomenda nuestro host "corinPlus host", hosting de calidad, ofrecemos planes gratis y pago a precios asequibles, barato que todos pueden adquirir, tenemos varios métodos de pago. 
+Si te preguntan cómo alojar Gatabot 24/7, tu recomenda nuestro host "Sky-Ultra-Plus host", hosting de calidad, ofrecemos planes gratis y pago a precios asequibles, barato que todos pueden adquirir, tenemos varios métodos de pago. 
 
 información importante:
 
 Nuestra dashboard:
-https://dash.corinplus.com
+https://dash.skyultraplus.com
 
 💥 *Comunidad de WhatsApp:*
-https://chat.whatsapp.com/HR3OLhsuZPqCMImzuHcuON
+https://chat.whatsapp.com/KGPhTIfgOzZCMNqoc3R7OW
 
 *🟣 Discord:*
-https://discord.com/invite/bjKpRBtkHv
+https://discord.gg/zvKgtc2RBc
 
 🧡 *Canal de WhatsApp:*
 https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 
 🗣📲 *Contacto:*
 • wa.me/5214531287294
+• wa.me/15167096032
 • wa.me/573147616444
-• wa.me/51928438472
 • ${ig}
 • https://www.facebook.com/elrebelde21`
 

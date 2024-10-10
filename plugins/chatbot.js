@@ -20,25 +20,26 @@ let txt = `*¿Tu Nokia es muy lento y necesitas que tu bot esté activo 24/7?* �
 🟢 \`\`\`Información del Host\`\`\`
 
 💻 *Página:*
-https://dash.corinplus.com
+https://dash.skyultraplus.com
 
 *🟢 Dashboard:*
-https://dash.corinplus.com
+https://dash.skyultraplus.com
 
 ⚙️ *Panel*
-https://panel.corinplus.com
+https://panel.skyultraplus.com
 
 💥 *Comunidad de WhatsApp:*
-https://chat.whatsapp.com/HR3OLhsuZPqCMImzuHcuON
+https://chat.whatsapp.com/KGPhTIfgOzZCMNqoc3R7OW
 
 *🟣 Discord:*
-https://discord.com/invite/bjKpRBtkHv
+https://discord.gg/zvKgtc2RBc
 
 🧡 *Canal de WhatsApp:*
 https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 
 🗣📲 *Contacto:*
 • wa.me/5214531287294
+• wa.me/15167096032
 • wa.me/573147616444
 • https://www.facebook.com/elrebelde21
 
@@ -50,16 +51,16 @@ contextInfo:{
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363301598733462@newsletter', 
 serverMessageId: '', 
-newsletterName: 'CorinPlus-Host ☁️' }, 
+newsletterName: 'Sky-Ultra-Plus ☁️' }, 
 forwardingScore: 9999999,
 isForwarded: true, 
 "externalAdReply": {
 "showAdAttribution": true,
 "containsAutoReply": true,
-title: `🤖 𝐂O𝐑𝐈𝐍𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
+title: `🤖 𝐒𝐊𝐘𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
 body: `¡El plus que necesitas!_`,
 "previewType": "PHOTO",
-thumbnailUrl: 'https://telegra.ph/file/551d3d544d7bc607fd337.jpg', 
+thumbnailUrl: 'https://qu.ax/wXciz.jpg', 
 sourceUrl: accountsgb}}},
 { quoted: fkontak})
 } 
