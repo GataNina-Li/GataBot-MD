@@ -36,7 +36,7 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
                 ['Video 🎥', `${usedPrefix}playmp4 ${vid.url}`],
                 ['AudioDoc 📀', `${usedPrefix}mp3doc ${vid.url}`],
                 ['VideoDoc 🎥', `${usedPrefix}mp4doc ${vid.url}`]
-            ], null, [['Canal', `https://whatsapp.com/channel/0029VaAN15BJP21BYCJ3tH04`]], m)
+            ], null, [['Canal', ` https://whatsapp.com/channel/0029Va6yY0iLY6d6XDmqA03g`]], m)
         } else {
             let q = command.includes('mp4') ? '360p' : '128kbps'
             let dl_url, size, title
