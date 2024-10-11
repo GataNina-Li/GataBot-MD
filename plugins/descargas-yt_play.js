@@ -32,8 +32,8 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
             ✩ *Url ∙* ${'https://youtu.be/' + vid.videoId}\n`.trim()
 
             await conn.sendButton(m.chat, infoTexto, wm, vid.thumbnail, [
-                ['Audio 📀', `${usedPrefix}playmp3 ${vid.url}`],
-                ['Video 🎥', `${usedPrefix}playmp4 ${vid.url}`],
+                ['Audio 📀', `${usedPrefix}mp3 ${vid.url}`],
+                ['Video 🎥', `${usedPrefix}mp4 ${vid.url}`],
                 ['AudioDoc 📀', `${usedPrefix}mp3doc ${vid.url}`],
                 ['VideoDoc 🎥', `${usedPrefix}mp4doc ${vid.url}`]
             ], null, [['Canal', ` https://whatsapp.com/channel/0029Va6yY0iLY6d6XDmqA03g`]], m)
