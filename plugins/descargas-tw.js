@@ -13,7 +13,7 @@ await conn.sendMessage(m.chat, {text: waitt, edit: key});
 await conn.sendMessage(m.chat, {text: waittt, edit: key});
 await delay(1000 * 1);
 await conn.sendMessage(m.chat, {text: waitttt, edit: key});
-const apiUrl = `https://deliriusapi-official.vercel.app/download/twitterv2?url=${encodeURIComponent(text)}`
+const apiUrl = `https://deliriussapi-oficial.vercel.app/download/twitterv2?url=${encodeURIComponent(text)}`
 
 const response = await fetch(apiUrl)
 const jsonData = await response.json()
