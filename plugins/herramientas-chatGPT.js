@@ -34,7 +34,7 @@ let result = await luminsesi(query, username, syms1);
  await m.reply(result)
 } catch {
 try {
-let gpt = await fetch(`https://deliriusapi-official.vercel.app/ia/gptweb?text=${text}`) 
+let gpt = await fetch(`https://deliriussapi-oficial.vercel.app/ia/gptweb?text=${text}`) 
 let res = await gpt.json()
 await m.reply(res.gpt)
 /*let gpt = await fetch(`https://deliriusapi-official.vercel.app/ia/chatgpt?q=${text}`)
