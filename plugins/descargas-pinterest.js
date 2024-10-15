@@ -87,7 +87,7 @@ import { pinterest } from '@bochilteam/scraper'
 let handler = async(m, { conn, text, usedPrefix, command }) => {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsMalused7}\n*${usedPrefix + command} gata | cat*` 
 try {
-const response=await fetch(`https://deliriusapi-official.vercel.app/search/pinterest?text=${text}`)
+const response=await fetch(`https://deliriussapi-oficial.vercel.app/search/pinterest?text=${text}`)
 const dataR = await response.json()
 const json=dataR.result
 //const json = await pinterest(text)
