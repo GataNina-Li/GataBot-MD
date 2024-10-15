@@ -27,7 +27,7 @@ conn.sendFile(m.chat, url, 'tiktok.mp4', `⛱️ ${mid.user}\n*${nickname}*\n${d
 handler.limit = 2
 } catch (e4) {
 try{
-const response=await fetch(`https://deliriusapi-official.vercel.app/download/tiktok?url=${args[0]}`)
+const response=await fetch(`https://deliriussapi-oficial.vercel.app/download/tiktok?url=${args[0]}`)
 const dataR = await response.json()
 const { author,title, meta} = dataR.data
 conn.sendFile(m.chat, meta.media[0].org, 'tiktok.mp4', `⛱️ ${mid.user}\n*${author.nickname}*\n${wm}`.trim(), m) 
