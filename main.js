@@ -189,7 +189,7 @@ keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ l
 },
 markOnlineOnConnect: true, 
 generateHighQualityLinkPreview: true, 
-syncFullHistory: true,
+syncFullHistory: false,
 getMessage: async (clave) => {
 let jid = jidNormalizedUser(clave.remoteJid)
 let msg = await store.loadMessage(jid, clave.id)
