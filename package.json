@@ -51,7 +51,7 @@
 "chalk": "^5.0.0",
 "cheerio": "1.0.0-rc.12",
 "colors": "^1.4.0",
-"countries-and-timezones": "^3.6.0",
+"countries-and-timezones": "3.6.0",
 "country-phone-prefix": "^1.0.1",
 "express": "^4.17.3",
 "emoji-country-flags": "^1.0.3",
