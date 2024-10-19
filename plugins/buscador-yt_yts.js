@@ -93,14 +93,14 @@ const handler = async (m, { conn, usedPrefix, args, command }) => {
 try {
 const text = args.length >= 1 ? args.slice(0).join(" ") : (m.quoted && m.quoted?.text || m.quoted?.caption || m.quoted?.description) || null
     
-if (!text) return m.reply(`Ingrese texto o responda a un mensaje con el texto que desea buscar en YouTube.\nEjemplo de uso:\n*${usedPrefix + command} GataBot*`)
+if (!text) conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝘿𝙀 𝙐𝙉 𝙑𝙄𝘿𝙀𝙊 𝙊 𝘾𝘼𝙉𝘼𝙇 𝘿𝙀 𝙔𝙊𝙐𝙏𝙐𝘽𝙀\n\n𝙒𝙍𝙄𝙏𝙀 𝙏𝙃𝙀 𝙉𝘼𝙈𝙀 𝙊𝙁 𝘼 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝙑𝙄𝘿𝙀𝙊 𝙊𝙍 𝘾𝙃𝘼𝙉𝙉𝙀𝙇`, fkontak,  m)
     
 const { all: [bestItem, ...moreItems] } = await ytSearch(text)
 const videoItems = moreItems.filter(item => item.type === 'video')
 const formattedData = {
-title: "                *[ Búsqueda de Youtube ]*\n",
+title: `${htki} 𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎 ${htka}\n\n`,
 rows: [{
-title: "YT",
+title: `${htki} *𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎* ${htka}`,
 highlight_label: "Popular",
 rows: [{
 header: bestItem.title,
@@ -109,13 +109,13 @@ title: bestItem.description,
 description: ""
 }]
 }, {
-title: "Más",
+title: `${htki} *𝙈𝘼𝙎 𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎* ${htka}`,
 rows: videoItems.map(({
 title,
 url,
 description
 }, index) => ({
-header: `${index + 1}). ${title}`,
+header: `ও ${index + 1}) ${title}`, 
 id: `.yta ${url}`,
 title: description,
 description: ""
@@ -139,16 +139,16 @@ author: "👤"
     
 const caption = Object.entries(bestItem).map(([key, value]) => {
 const formattedKey = key.charAt(0).toUpperCase() + key.slice(1)
-const valueToDisplay = key === 'views' ? new Intl.NumberFormat('en', { notation: 'compact' }).format(value) : key === 'author' ? `Nombre: ${value.name || 'Desconocido'}\nURL: ${value.url || 'Desconocido'}` : value || 'Desconocido';
+const valueToDisplay = key === 'views' ? new Intl.NumberFormat('en', { notation: 'compact' }).format(value) : key === 'author' ? `Nombre: ${value.name || 'Desconocido'}\nও URL :\n» ${value.url || 'Desconocido'}` : value || 'Desconocido';
 return ` ${emojiMap[key] || '🔹'} *${formattedKey}:* ${valueToDisplay}`}).join('\n')
 
 await conn.sendButtonMessages(m.chat, [
 [formattedData.title + caption, wm, bestItem.image || bestItem.thumbnail || logo, [
-['Menu Lista', usedPrefix + 'menu']
+["⚡ 𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪", usedPrefix + 'menu']
 ], null, [
-['Canal Oficial', canal2]
+['💚 𝘾𝙖𝙣𝙖𝙡 𝙊𝙛𝙞𝙘𝙞𝙖𝙡 | 𝙊𝙛𝙛𝙞𝙘𝙞𝙖𝙡 𝙘𝙝𝙖𝙣𝙣𝙚𝙡', canal2]
 ],
-[["Resultados aquí", formattedData.rows]]
+[["🔎 𝘽𝙪𝙨𝙘𝙖𝙧 | 𝙎𝙚𝙖𝙧𝙘𝙝", formattedData.rows]]
 ]], m)
 
 } catch (error) {
