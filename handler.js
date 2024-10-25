@@ -411,7 +411,6 @@ if (!isNumber(user.pancingan)) user.pancingan = 1
 if (!isNumber(user.panda)) user.panda = 0
 if (!isNumber(user.paus)) user.paus = 0
 if (!isNumber(user.pausbakar)) user.pausbakar = 0
-if (!isNumber(user.pc)) user.pc = 0
 if (!isNumber(user.pepesikan)) user.pepesikan = 0
 if (!isNumber(user.pertambangan)) user.pertambangan = 0
 if (!isNumber(user.pertanian)) user.pertanian = 0
@@ -832,7 +831,6 @@ panda: 0,
 pasangan: '',
 paus: 0,
 pausbakar: 0,
-pc: 0,
 pepesikan: 0,
 pet: 0,
 phonix: 0,
