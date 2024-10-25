@@ -1,7 +1,6 @@
 const comandos = /piedra|papel|tijera|estado|verificar|code|jadibot --code|--code|creadora|bottemporal|grupos|instalarbot|términos|bots|deletebot|eliminarsesion|serbot|verify|register|registrar|reg|reg1|nombre|name|nombre2|name2|edad|age|edad2|age2|genero|género|gender|identidad|pasatiempo|hobby|identify|finalizar|pas2|pas3|pas4|pas5|registroc|deletesesion|registror|jadibot/i
 
-//let handler = m => m
-handler.before = async function (m, { conn, isOwner, isROwner }) {
+export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
 let prefixRegex = new RegExp('^[' + (opts['prefix'] || '‎z/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.,\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
 
 let setting = global.db.data.settings[this.user.jid]
@@ -9,7 +8,7 @@ const settingsREAD = global.db.data.settings[this.user.jid] || {}
 
 if (m.text && prefixRegex.test(m.text)) {
 await this.sendPresenceUpdate('composing', m.chat)
-await this.readMessages([m.key]) 
+await this.readMessages([m.key])
         
 let usedPrefix = m.text.match(prefixRegex)[0]
 let command = m.text.slice(usedPrefix.length).trim().split(' ')[0]
@@ -32,4 +31,3 @@ await this.updateBlockStatus(m.sender, 'block')
 }
 return !1
 }
-//export default handler
