@@ -26,7 +26,7 @@ user = global.db.data.users[m.sender]
 bot = global.db.data.settings[this.user.jid] || {}
 
 if (bot.antiPrivate && !isOwner && !isROwner) {
-return await conn.reply(m.chat, mid.mAdvertencia + mid.smsprivado(m, cuentas), m, { mentions: [m.sender] })  
+await conn.reply(m.chat, mid.mAdvertencia + mid.smsprivado(m, cuentas), m, { mentions: [m.sender] })  
 await this.updateBlockStatus(m.chat, 'block')
 //await this.updateBlockStatus(m.sender, 'block')
 }
