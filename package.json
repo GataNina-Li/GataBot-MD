@@ -61,6 +61,7 @@
 "fluent-ffmpeg": "^2.1.2",
 "formdata-node": "^4.3.2",
 "fs": "^0.0.1-security",
+"google-libphonenumber": "3.2.38",
 "hispamemes": "^1.0.7",
 "human-readable": "^0.2.1",
 "imagemaker.js": "^2.0.4",
