@@ -426,6 +426,17 @@ else return emotttt[results[0][0]];
 }}
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
+// IDs de canales
+global.ch = {
+ch1: '120363336642332098@newsletter',
+ch2: '120363160031023229@newsletter',
+ch3: '120363169294281316@newsletter',
+ch4: '120363203805910750@newsletter',
+ch5: '120363302472386010@newsletter',
+ch6: '120363301598733462@newsletter',
+}
+// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
+
 let file = fileURLToPath(import.meta.url);
 watchFile(file, () => {
 unwatchFile(file);
