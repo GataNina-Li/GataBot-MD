@@ -1,6 +1,6 @@
 # TÉRMINOS, PRIVACIDAD, Y CONDICIONES DE USO.
  
-> **_Última actualización 22 de diciembre de 2023_**
+> **_Última actualización 3 de noviembre de 2024_**
 
 ## MODIFICACIONES Y ACTUALIZACIONES
 _Nos reservamos el derecho de actualizar, modificar o cambiar nuestros términos, políticas de privacidad y condiciones sin previo aviso. Cualquier ajuste será efectivo inmediatamente después de su publicación. Le recomendamos revisar periódicamente nuestras políticas para estar informado sobre cualquier cambio. El uso continuado de nuestro código o bot después de la publicación de cualquier modificación constituirá su aceptación de dichas modificaciones._
@@ -11,11 +11,13 @@ _Nos reservamos el derecho de actualizar, modificar o cambiar nuestros términos
 Al utilizar este proyecto, ya sea como anfitrión de ejecución del código o como usuario común, usted acepta plenamente los términos establecidos en este acuerdo y se compromete a cumplir con las disposiciones de la licencia del código asociado. En caso contrario, se le insta a cesar inmediatamente el uso del proyecto.
 1.	`Aceptación de Términos:` Al acceder y utilizar este proyecto, reconoce y acepta cumplir con la totalidad de los términos y condiciones establecidos en este acuerdo.
 
-2.	`Roles de Uso:` Este proyecto puede ser utilizado tanto por los anfitriones de ejecución del código como por usuarios comunes. Ambos están sujetos a las disposiciones de este acuerdo y deben respetar la licencia del código subyacente.
+2. `Aceptación de Cambios:` Este proyecto y sus acuerdos pueden estar sujetos a modificaciones en el futuro. Se espera que todos los involucrados revisen esta política de manera continua, reconociendo su responsabilidad de estar al tanto de cualquier cambio que pueda surgir.
 
-3.	`Compromiso con la Licencia del Código:` Usted reconoce y acepta que el uso de este proyecto está condicionado al cumplimiento de la licencia del código asociado. Cualquier violación de dicha licencia puede resultar en la terminación del acceso al proyecto.
+3.	`Roles de Uso:` Este proyecto puede ser utilizado tanto por los anfitriones de ejecución del código como por usuarios comunes. Ambos están sujetos a las disposiciones de este acuerdo y deben respetar la licencia del código subyacente.
 
-4.	`Cese de Uso:` En caso de no aceptar estos términos o de no cumplir con la licencia del código, le instamos a dejar de utilizar el proyecto de inmediato.
+4.	`Compromiso con la Licencia del Código:` Usted reconoce y acepta que el uso de este proyecto está condicionado al cumplimiento de la licencia del código asociado. Cualquier violación de dicha licencia puede resultar en la terminación del acceso al proyecto.
+
+5.	`Cese de Uso:` En caso de no aceptar estos términos o de no cumplir con la licencia del código, le instamos a dejar de utilizar el proyecto de inmediato.
 </details>
 
 <details>
@@ -35,13 +37,16 @@ Al utilizar este proyecto, ya sea como anfitrión de ejecución del código o co
 4.	`Restricciones:` El hecho de que ciertos elementos se consideren de uso libre no exime al usuario de cumplir con otras restricciones establecidas en este repositorio, incluidas las licencias específicas asociadas con el código fuente.
 
 5.	`Reconocimiento:` Se recomienda, aunque no es obligatorio, que se brinde reconocimiento adecuado al repositorio y sus creadores al utilizar cualquier elemento, incluso aquellos considerados de uso libre.
+  
+6. `Cumplimiento de Propiedad de Terceros:` Algunas partes del proyecto no son de nuestra autoría. Por ello, enfatizaremos en el código el reconocimiento y los créditos a los verdaderos propietarios. Nuestro objetivo es diversificar y no apropiarnos de códigos, contenidos o metodologías que pertenecen a otros proyectos u organizaciones ajenas a nosotros.
 </details>
 
 <details>
 <summary><b>COMPRAS Y PAGOS</b></summary>
   
 Dentro del código, no se solicita ningún pago real ni compra, a excepción de la posibilidad de realizar una donación voluntaria a través de [**PayPal**](https://paypal.me/OficialGD).<br /><br />
-Cualquier otra interpretación de términos como "compra" o "pago" se refiere exclusivamente a acciones intangibles y ficticias que complementan el uso del bot para los usuarios. Estas acciones no conllevan transacciones financieras reales y se deben entender como parte de la experiencia de uso del servicio. La donación voluntaria, si se elige realizarla, es independiente de la funcionalidad principal del código y se destina únicamente al soporte y mejora continua del proyecto.
+Cualquier otra interpretación de términos como "compra" o "pago" se refiere exclusivamente a acciones intangibles y ficticias que complementan el uso del bot para los usuarios. Estas acciones no conllevan transacciones financieras reales y se deben entender como parte de la experiencia de uso del servicio. La donación voluntaria, si se elige realizarla, es independiente de la funcionalidad principal del código y se destina únicamente al soporte y mejora continua del proyecto.<br /><br />
+Si alguien le indica o insinúa que debe realizar un pago por cualquier aspecto de este proyecto, no lo acepte y comuníquese de inmediato con los colaboradores del mismo. Recordamos que, de manera oficial, solo aceptamos pagos por donaciones y licencias de distribución de GataBot a través del único método de pago, PayPal, tal como se describe en este acuerdo.
 </details>
 
 <details>
@@ -97,13 +102,6 @@ En el contexto de un bot, es posible que algunos comandos no funcionen correctam
 El servicio de hosting proporciona alojamiento para GataBot en sus servidores, enfatizando que no vende el código de GataBot. Han leído y aceptado la política de GataBot, consolidando mejoras para la Comunidad GataBot y la comunidad de BoxMine.
 </details>
 
-<details>
-
-<summary><b>Vortexus Cloud</b></summary>
-
-GataBot forma parte del catálogo de Vortexus Cloud, que ofrece alojamiento en la nube. Este servicio acepta la política de GataBot, fortaleciendo la disposición de trabajar de manera conjunta.
-</details>
-
 ### RECOMENDACIÓN DE LECTURA DE POLÍTICAS DE PATROCINADORES
 
 Se sugiere encarecidamente leer la política de cada patrocinador para comprender su funcionamiento específico. Esta medida asegura una comprensión completa de los términos y condiciones asociados con cada servicio de hosting, permitiendo una colaboración efectiva y cumplimiento adecuado con las políticas individuales de cada patrocinador.
@@ -115,7 +113,7 @@ Se sugiere encarecidamente leer la política de cada patrocinador para comprende
 ### Cuentas Oficiales
 Las cuentas oficiales de WhatsApp están bajo el control del Staff GataBot. Se implementa una rutina de eliminación de mensajes cada 24 horas, y la database se borra con frecuencia para garantizar que no se acumulen datos de usuarios. El progreso en estas cuentas no se mantiene de manera inamovible. El Staff realiza vigilancia para mantener la cuenta activa y utilizar datos públicos que contribuyan a mejorar GataBot según las diversas situaciones de los usuarios con acceso a la cuenta oficial.
 
-En calidad de bot, subbot o usuario común, es posible que se recopile cierta información, como el número de teléfono, datos de contacto, detalles del dispositivo, ubicación y la información proporcionada durante el uso del código.
+En calidad de bot, sub-bots, o usuario común, es posible que se recopile cierta información, como el número de teléfono, datos de contacto, detalles del dispositivo, ubicación y la información proporcionada durante el uso del código.
 
 Queremos asegurarle que sus datos están resguardados en todo momento. Nos comprometemos a no compartir su información con terceros, a menos que sea estrictamente necesario en el ámbito legal. Esta medida se toma con el firme propósito de garantizar la privacidad y seguridad de sus datos personales.
 
@@ -124,4 +122,16 @@ Si es propietario/a de una cuenta que actúa como Bot, tiene el control de los d
 
 ### Usuarios Terceros
 Los usuarios terceros, en este contexto, se refieren a los Sub Bots, que están sujetos al control de los propietarios. Estos usuarios pueden recopilar datos a través de la función Sub Bot, y no podemos garantizar cómo se utilizarán dichos datos.
+</details>
+
+<details>
+<summary><b>PUBLICIDAD</b></summary>
+ 
+Este proyecto incluye material publicitario en su código, el cual tiene como objetivo informar a los usuarios sobre las novedades y actualizaciones del bot a través de diversas plataformas, incluidas redes sociales, grupos y canales. El contenido publicitario está diseñado para facilitar el acceso a la información relevante y promover una comunidad activa en torno a nuestro bot.
+
+Es importante destacar que los creadores y usuarios sub-bots pueden ser añadidos a diferentes grupos o canales, incluso si estos no están directamente relacionados con la temática de este proyecto. Esto puede resultar en una mayor exposición y en la posibilidad de colaborar con otros desarrolladores y usuarios, lo que enriquece la experiencia de todos los involucrados.
+
+Recordamos que este proyecto es completamente gratuito, y nuestra motivación se mantiene fuerte gracias al interés y la participación de un número creciente de usuarios. Cuantos más usuarios conozcan y utilicen nuestro proyecto, más podremos mejorar y expandir nuestra visión y vigencia del proyecto.
+
+Sin embargo, entendemos que la inclusión de material publicitario puede no ser del agrado de todos. Por ello, si usted no se siente cómodo con la publicidad que contiene este proyecto, le recomendamos considerar no utilizarlo, ya que preferimos que cada usuario tenga una experiencia satisfactoria estando de acuerdo con la política de GataBot siendo libre de molestias. Valoramos su comprensión y apoyo en este aspecto, y estamos comprometidos a mantener un equilibrio entre la promoción de nuestro trabajo y la satisfacción de nuestra comunidad.
 </details>
