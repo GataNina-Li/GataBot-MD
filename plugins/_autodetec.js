@@ -41,7 +41,7 @@ await this.sendMessage(m.chat, { text: mid.smsAutodetec7(m, usuario), mentions: 
 await this.sendMessage(m.chat, { text: mid.smsAutodetec8(m, usuario), mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak }) 
 } else if (chat.detect && m.messageStubType == 72) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec9(usuario, m), mentions: [m.sender] }, { quoted: fkontak })
-} else if (m.messageStubType === 172 && m.messageStubParameters.length > 0) {
+} else if (chat.detect && m.messageStubType === 172 && m.messageStubParameters.length > 0) {
 const rawUser = m.messageStubParameters[0];
 const users = rawUser.split('@')[0]; 
 const prefijosProhibidos = ['91', '92', '222', '93', '265', '61', '62', '966', '229', '40', '49', '20', '963', '967', '234', '210', '212'];
