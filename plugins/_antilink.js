@@ -2,7 +2,7 @@ let linkRegex1 = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i;
 let linkRegex2 = /whatsapp.com\/channel\/([0-9A-Za-z]{20,24})/i;
 
 let handler = m => m
-handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
+handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, participants }) {
 if (!m.isGroup) return 
 if (isAdmin || isOwner || m.fromMe || isROwner || !isBotAdmin) return
 //if (!isAdmin || !isOwner || !isROwner || m.fromMe || !isBotAdmin) return
