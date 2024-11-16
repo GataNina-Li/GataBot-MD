@@ -1,6 +1,5 @@
 // Código adaptado por https://github.com/GataNina-Li
 // Código compatible con canales y comunidades de WhatsApp 
-// También encontrarás código para comandos enfocados para canales de WhatsApp
 
 import { getUrlFromDirectPath } from "@whiskeysockets/baileys";
 import _ from "lodash";
