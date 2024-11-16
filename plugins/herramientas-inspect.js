@@ -5,7 +5,7 @@ import axios from 'axios';
 let handler = async (m, { conn, command, usedPrefix, args, text, groupMetadata, isOwner, isROwner }) => {
  const channelUrl = text?.match(/(?:https:\/\/)?(?:www\.)?(?:chat\.|wa\.)?whatsapp\.com\/(?:channel\/|joinchat\/)?([0-9A-Za-z]{22,24})/i)?.[1];
 let txtBotAdminCh = '\n\n> *Verifique que el Bot sea admin en el canal, de lo contrario no funcionará el comando*';
-let thumb = img.getRandom();
+let thumb = gataMenu.getRandom();
 let pp, ch, q, mime, buffer, media, inviteUrlch, imageBuffer;
 
 let inviteCode
