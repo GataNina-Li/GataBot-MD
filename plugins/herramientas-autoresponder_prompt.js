@@ -4,9 +4,8 @@ conn.reply(m.chat, "❌ *No tienes permitido personalizar la autorespuesta del b
 }
 const chatData = global.db.data.chats[m.chat]
 if (text) {
-if (chatData.sAutorespond) {
-conn.reply(m.chat, `⚠️ *Actualmente hay el siguiente prompt en uso:*\n\n${chatData.sAutorespond}\n\n💡 *Si quieres cambiarlo, usa el comando sin texto para borrar el prompt actual y luego establece el nuevo prompt.*`, m)
-}
+if (chatData.sAutorespond) return conn.reply(m.chat, `⚠️ *Actualmente hay el siguiente prompt en uso:*\n\n${chatData.sAutorespond}\n\n💡 *Si quieres cambiarlo, usa el comando sin texto para borrar el prompt actual y luego establece el nuevo prompt.*`, m)
+
 chatData.sAutorespond = text
 conn.reply(m.chat, `✅ *Configuración exitosa.*\n\n*Has establecido un nuevo prompt para este chat.*\n💬 A partir de ahora, activa usando *${usedPrefix}on autoresponder*, el bot usará las indicaciones que hayas establecido.\n\n> *Recuerda etiquetar o responder a un mensaje del bot para que te responda.*`, m)
 } else {
