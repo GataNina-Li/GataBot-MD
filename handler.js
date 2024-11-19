@@ -996,7 +996,8 @@ if (!('antiTwitch' in chat)) chat.antiTwitch = false
 if (!('antifake' in chat)) chat.antifake = false
 if (!('reaction' in chat)) chat.reaction = true    
 if (!('viewonce' in chat)) chat.viewonce = false       
-if (!('modoadmin' in chat)) chat.modoadmin = false    
+if (!('modoadmin' in chat)) chat.modoadmin = false  
+if (!('autorespond' in chat)) chat.autorespond = true
 if (!('antitoxic' in chat)) chat.antitoxic = true
 if (!('game' in chat)) chat.game = true
 if (!('game2' in chat)) chat.game2 = true
@@ -1036,6 +1037,7 @@ antifake: false,
 reaction: true,
 viewonce: false,
 modoadmin: false,
+autorespond: true,
 antitoxic: true,
 game: true, 
 game2: true, 
