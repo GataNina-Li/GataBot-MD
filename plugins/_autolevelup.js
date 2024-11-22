@@ -25,7 +25,7 @@ if (before !== user.level) {
 let currentRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level >= minLevel)[0]
 let nextRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level + 1 >= minLevel)[0]
 
-if (user.role != currentRole) {
+if (user.role != currentRole && level >= 2) {
 user.role = currentRole
 let chtxt = `✨ *¡Felicidades ${userName}!* Tu nuevo rango es ${currentRole}.` + (nextRole ? ` Para llegar a ${nextRole}, alcanza el nivel *${roles[nextRole]}*.` : '')
 await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
@@ -67,8 +67,8 @@ let normalCant = [1, 3, 3, 3, 4, 4, 2, 2, 4, 4, 4, 4, 1].getRandom()
 let normalCant2 = [1, 3, 2, 2, 4, 4, 2, 2, 4, 4, 5, 5, 1].getRandom() 
 let normalCant3 = [1, 3, 3, 3, 4, 4, 2, 2, 4, 4, 4, 4, 1].getRandom() 
 
-if (level >= 1) {
-let chtxt = `👤 *Usuario:* ${userName}\n🆙 *Nivel anterior:* ${before}\n🆕 *Nivel actual:* ${level}\n👾 *Rango:* ${user.role}\n🐈 *Bot:* ${gt}${level % 5 === 0 ? `\n\n💰 *Recompensa por alacanzar el nivel ${level}:*
+if (level >= 2) {
+let chtxt = `👤 *Usuario:* ${userName}\n🆙 *Nivel anterior:* ${before - 1}\n🆕 *Nivel actual:* ${level}\n👾 *Rango:* ${user.role}\n🐈 *Bot:* ${gt}${level % 5 === 0 ? `\n\n💰 *Recompensa por alacanzar el nivel ${level}:*
 🎁 *Bono:* \`X${Math.floor((level - 1) / 10) + 1}\`
 - *${especialCant * Math.floor((level - 1) / 10) + 1} ${global.rpgshop.emoticon(especial)}*
 - *${especialCant2 * Math.floor((level - 1) / 10) + 1} ${global.rpgshop.emoticon(especial2)}*
