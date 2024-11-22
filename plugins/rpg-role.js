@@ -1,4 +1,4 @@
-export const roles = {
+/*export const roles = {
 // Nivel 0-9: Principiantes
 '🌱 *Aventurero(a) - Novato(a) V*': 0,
 '🌱 *Aventurero(a) - Novato(a) IV*': 2,
@@ -166,4 +166,4 @@ return true
 }
 return false
 }
-export default handler
+export default handler*/
