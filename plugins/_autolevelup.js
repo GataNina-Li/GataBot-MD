@@ -22,8 +22,13 @@ while (canLevelUp(user.level, user.exp, global.multiplier))
 user.level++
 if (before !== user.level) {
 
-let currentRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level + 1 >= minLevel)[0]
-let nextRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level + 2 >= minLevel)[0]
+//let currentRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level + 1 >= minLevel)[0]
+//let nextRole = Object.entries(roles).sort((a, b) => a[1] - b[1]) .find(([, minLevel]) => minLevel > roles[currentRole])
+//let nextRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level + 2 >= minLevel)[0]
+
+let currentRole = Object.entries(roles).sort((a, b) => b[1] - a[1]) .find(([, minLevel]) => level + 1 >= minLevel)[0]
+let nextRole = Object.entries(roles).sort((a, b) => a[1] - b[1]) .find(([, minLevel]) => level + 2 < minLevel)[0]
+
 
 if (user.role != currentRole && level >= 1) {
 user.role = currentRole
