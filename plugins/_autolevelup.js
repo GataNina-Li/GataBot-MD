@@ -6,6 +6,7 @@ handler.before = async function (m, { conn, usedPrefix }) {
 	
 if (!db.data.chats[m.chat].autolevelup) return
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let ppch = await conn.profilePictureUrl(who, 'image').catch(_ => gataMenu)
 let mentionedJid = [who]
 let username = conn.getName(who)
 	
@@ -13,29 +14,40 @@ let user = global.db.data.users[m.sender]
 let chat = global.db.data.chats[m.chat]
 if (!chat.autolevelup)
 return !0
-	
+
+let level = user.level
 let before = user.level * 1
 while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
  if (before !== user.level) {
  
-/*conn.reply(m.chat, `*╭━⊰ ${username} ⊱━დ*
+conn.reply(m.chat, `*╭━⊰ ${username} ⊱━დ*
 *┃ ${lenguajeGB.smsAutoLv2()} ${before}*
 *┃ ${lenguajeGB.smsAutoLv3()} ${user.level}*
 *┃ ${lenguajeGB.smsAutoLv4()}* ${user.role}
 *┃ ${lenguajeGB.smsAutoLv5()} ${new Date().toLocaleString('id-ID')}*
 *╰━⊰ ${lenguajeGB.smsAutoLv1()} ⊱━━დ*
 
-*_${lenguajeGB.smsAutoLv6()}_*`, fkontak, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) */
-conn.sendButton(m.chat, '🐈 ' + wm, `*╭━⊰ ${username} ⊱━დ*
-*┃ ${lenguajeGB.smsAutoLv2()} ${before}*
-*┃ ${lenguajeGB.smsAutoLv3()} ${user.level}*
-*┃ ${lenguajeGB.smsAutoLv4()}* ${user.role}
-*┃ ${lenguajeGB.smsAutoLv5()} ${new Date().toLocaleString('id-ID')}*
-*╰━⊰ ${lenguajeGB.smsAutoLv1()} ⊱━━დ*
+*_${lenguajeGB.smsAutoLv6()}_*`, fkontak, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
 
-*_${lenguajeGB.smsAutoLv6()}_*`, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], null, null, fkontak)
+let chtxt = `👤 *Usuario:* ${m.pushName || 'Anónimo'}\n🆙 *Nivel anterior:* ${before}\n🆕 *Nivel actual:* ${level}\n👾 *Rango:* ${user.role}\n🐈 *Bot:* ${gt}${level % 5 === 0 ? `\n\n💰 *Recompensa por alacanzar el nivel ${level}:*
+🎁 *Bono:* \`X${Math.floor((level - 1) / 10) + 1}\`
+- *${especialCant * Math.floor((level - 1) / 10) + 1} ${global.rpgshop.emoticon(especial)}*
+- *${especialCant2 * Math.floor((level - 1) / 10) + 1} ${global.rpgshop.emoticon(especial2)}*
+- *${especialCant3 * Math.floor((level - 1) / 10) + 1} ${global.rpgshop.emoticon(especial3)}*
+- *${especialCant4 * Math.floor((level - 1) / 10) + 1} ${global.rpgshop.emoticon(especial4)}*
 
-
+> 👀 Siguiente recompensa en el *nivel ${level + 5}*` : ''}`.trim()
+await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
+externalAdReply: {
+title: "【 🔔 Notificación General 🔔 】",
+body: '⭐ ¡Alguien a subido de nivel!',
+thumbnailUrl: ppch,
+sourceUrl: accountsgb,
+mediaType: 1,
+showAdAttribution: false,
+renderLargerThumbnail: false
+}}}, { quoted: null })
+	 
 let especial = ['limit', 'diamond', 'joincount', 'emerald', 'berlian', 'kyubi', 'gold', 'money', 'tiketcoin', 'stamina'].getRandom()
 let especial2 = ['potion', 'aqua', 'trash', 'wood', 'rock', 'batu', 'string', 'iron', 'coal', 'botol', 'kaleng', 'kardus'].getRandom()
 let especial3 = ['eleksirb', 'emasbatang', 'emasbiasa', 'rubah', 'sampah', 'serigala', 'kayu', 'sword', 'umpan', 'healtmonster', 'emas', 'pancingan', 'pancing'].getRandom()
@@ -144,14 +156,14 @@ user[especial4] += especialCant4 * 4
 	
 }else if (user.level == 45){
 conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 45!!* 🏆
-𓃠 *${especialCant * 4} ${global.rpgshop.emoticon(especial)}*
-𓃠 *${especialCant2 * 4} ${global.rpgshop.emoticon(especial2)}*
-𓃠 *${especialCant3 * 4} ${global.rpgshop.emoticon(especial3)}*
-𓃠 *${especialCant4 * 4} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
-user[especial] += especialCant * 4
-user[especial2] += especialCant2 * 4
-user[especial3] += especialCant3 * 4
-user[especial4] += especialCant4 * 4
+𓃠 *${especialCant * 5} ${global.rpgshop.emoticon(especial)}*
+𓃠 *${especialCant2 * 5} ${global.rpgshop.emoticon(especial2)}*
+𓃠 *${especialCant3 * 5} ${global.rpgshop.emoticon(especial3)}*
+𓃠 *${especialCant4 * 5} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
+user[especial] += especialCant * 5
+user[especial2] += especialCant2 * 5
+user[especial3] += especialCant3 * 5
+user[especial4] += especialCant4 * 5
 	
 }else if (user.level == 50){
 conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 50!!* 🏆
@@ -166,61 +178,28 @@ user[especial4] += especialCant4 * 5
 	
 }else if (user.level == 55){
 conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 55!!* 🏆
-𓃠 *${especialCant * 5} ${global.rpgshop.emoticon(especial)}*
-𓃠 *${especialCant2 * 5} ${global.rpgshop.emoticon(especial2)}*
-𓃠 *${especialCant3 * 5} ${global.rpgshop.emoticon(especial3)}*
-𓃠 *${especialCant4 * 5} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
-user[especial] += especialCant * 5
-user[especial2] += especialCant2 * 5
-user[especial3] += especialCant3 * 5
-user[especial4] += especialCant4 * 5
+𓃠 *${especialCant * 6} ${global.rpgshop.emoticon(especial)}*
+𓃠 *${especialCant2 * 6} ${global.rpgshop.emoticon(especial2)}*
+𓃠 *${especialCant3 * 6} ${global.rpgshop.emoticon(especial3)}*
+𓃠 *${especialCant4 * 6} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
+user[especial] += especialCant * 6
+user[especial2] += especialCant2 * 6
+user[especial3] += especialCant3 * 6
+user[especial4] += especialCant4 * 6
 	
 }else if (user.level == 60){
 conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 60!!* 🏆
-𓃠 *${especialCant * 5} ${global.rpgshop.emoticon(especial)}*
-𓃠 *${especialCant2 * 5} ${global.rpgshop.emoticon(especial2)}*
-𓃠 *${especialCant3 * 5} ${global.rpgshop.emoticon(especial3)}*
-𓃠 *${especialCant4 * 5} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
-user[especial] += especialCant * 5
-user[especial2] += especialCant2 * 5
-user[especial3] += especialCant3 * 5
-user[especial4] += especialCant4 * 5
+𓃠 *${especialCant * 6} ${global.rpgshop.emoticon(especial)}*
+𓃠 *${especialCant2 * 6} ${global.rpgshop.emoticon(especial2)}*
+𓃠 *${especialCant3 * 6} ${global.rpgshop.emoticon(especial3)}*
+𓃠 *${especialCant4 * 6} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
+user[especial] += especialCant * 6
+user[especial2] += especialCant2 * 6
+user[especial3] += especialCant3 * 6
+user[especial4] += especialCant4 * 6
 	
 }else if (user.level == 65){
 conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 65!!* 🏆
-𓃠 *${especialCant * 5} ${global.rpgshop.emoticon(especial)}*
-𓃠 *${especialCant2 * 5} ${global.rpgshop.emoticon(especial2)}*
-𓃠 *${especialCant3 * 5} ${global.rpgshop.emoticon(especial3)}*
-𓃠 *${especialCant4 * 5} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
-user[especial] += especialCant * 5
-user[especial2] += especialCant2 * 5
-user[especial3] += especialCant3 * 5
-user[especial4] += especialCant4 * 5
-	
-}else if (user.level == 70){
-conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 70!!* 🏆
-𓃠 *${especialCant * 6} ${global.rpgshop.emoticon(especial)}*
-𓃠 *${especialCant2 * 6} ${global.rpgshop.emoticon(especial2)}*
-𓃠 *${especialCant3 * 6} ${global.rpgshop.emoticon(especial3)}*
-𓃠 *${especialCant4 * 6} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
-user[especial] += especialCant * 6
-user[especial2] += especialCant2 * 6
-user[especial3] += especialCant3 * 6
-user[especial4] += especialCant4 * 6
-	
-}else if (user.level == 75){
-conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 75!!* 🏆
-𓃠 *${especialCant * 6} ${global.rpgshop.emoticon(especial)}*
-𓃠 *${especialCant2 * 6} ${global.rpgshop.emoticon(especial2)}*
-𓃠 *${especialCant3 * 6} ${global.rpgshop.emoticon(especial3)}*
-𓃠 *${especialCant4 * 6} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
-user[especial] += especialCant * 6
-user[especial2] += especialCant2 * 6
-user[especial3] += especialCant3 * 6
-user[especial4] += especialCant4 * 6
-	
-}else if (user.level == 80){
-conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 80!!* 🏆
 𓃠 *${especialCant * 7} ${global.rpgshop.emoticon(especial)}*
 𓃠 *${especialCant2 * 7} ${global.rpgshop.emoticon(especial2)}*
 𓃠 *${especialCant3 * 7} ${global.rpgshop.emoticon(especial3)}*
@@ -230,19 +209,19 @@ user[especial2] += especialCant2 * 7
 user[especial3] += especialCant3 * 7
 user[especial4] += especialCant4 * 7
 	
-}else if (user.level == 85){
-conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 85!!* 🏆
+}else if (user.level == 70){
+conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 70!!* 🏆
 𓃠 *${especialCant * 7} ${global.rpgshop.emoticon(especial)}*
 𓃠 *${especialCant2 * 7} ${global.rpgshop.emoticon(especial2)}*
 𓃠 *${especialCant3 * 7} ${global.rpgshop.emoticon(especial3)}*
-𓃠 *${especialCant4 * 7} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb}}})
+𓃠 *${especialCant4 * 7} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
 user[especial] += especialCant * 7
 user[especial2] += especialCant2 * 7
 user[especial3] += especialCant3 * 7
 user[especial4] += especialCant4 * 7
 	
-}else if (user.level == 90){
-conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 90!!* 🏆
+}else if (user.level == 75){
+conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 75!!* 🏆
 𓃠 *${especialCant * 8} ${global.rpgshop.emoticon(especial)}*
 𓃠 *${especialCant2 * 8} ${global.rpgshop.emoticon(especial2)}*
 𓃠 *${especialCant3 * 8} ${global.rpgshop.emoticon(especial3)}*
@@ -251,6 +230,39 @@ user[especial] += especialCant * 8
 user[especial2] += especialCant2 * 8
 user[especial3] += especialCant3 * 8
 user[especial4] += especialCant4 * 8
+	
+}else if (user.level == 80){
+conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 80!!* 🏆
+𓃠 *${especialCant * 8} ${global.rpgshop.emoticon(especial)}*
+𓃠 *${especialCant2 * 8} ${global.rpgshop.emoticon(especial2)}*
+𓃠 *${especialCant3 * 8} ${global.rpgshop.emoticon(especial3)}*
+𓃠 *${especialCant4 * 8} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
+user[especial] += especialCant * 8
+user[especial2] += especialCant2 * 8
+user[especial3] += especialCant3 * 8
+user[especial4] += especialCant4 * 8
+	
+}else if (user.level == 85){
+conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 85!!* 🏆
+𓃠 *${especialCant * 9} ${global.rpgshop.emoticon(especial)}*
+𓃠 *${especialCant2 * 9} ${global.rpgshop.emoticon(especial2)}*
+𓃠 *${especialCant3 * 9} ${global.rpgshop.emoticon(especial3)}*
+𓃠 *${especialCant4 * 9} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb}}})
+user[especial] += especialCant * 9
+user[especial2] += especialCant2 * 9
+user[especial3] += especialCant3 * 9
+user[especial4] += especialCant4 * 9
+	
+}else if (user.level == 90){
+conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 90!!* 🏆
+𓃠 *${especialCant * 9} ${global.rpgshop.emoticon(especial)}*
+𓃠 *${especialCant2 * 9} ${global.rpgshop.emoticon(especial2)}*
+𓃠 *${especialCant3 * 9} ${global.rpgshop.emoticon(especial3)}*
+𓃠 *${especialCant4 * 9} ${global.rpgshop.emoticon(especial4)}*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
+user[especial] += especialCant * 9
+user[especial2] += especialCant2 * 9
+user[especial3] += especialCant3 * 9
+user[especial4] += especialCant4 * 9
 	
 }else if (user.level == 95){
 conn.reply(m.chat, `*${lenguajeGB.smsAutoLv7()} 95!!* 🏆
