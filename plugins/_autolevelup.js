@@ -29,7 +29,6 @@ if (before !== user.level) {
 let currentRole = Object.entries(roles).sort((a, b) => b[1] - a[1]) .find(([, minLevel]) => level + 1 >= minLevel)[0]
 let nextRole = Object.entries(roles).sort((a, b) => a[1] - b[1]) .find(([, minLevel]) => level + 2 < minLevel)[0]
 
-
 if (user.role != currentRole && level >= 1) {
 user.role = currentRole
 let chtxt = `✨ *¡Felicidades ${userName}!* Tu nuevo rango es ${currentRole}.` + (nextRole ? ` Para llegar a ${nextRole}, alcanza el nivel *${roles[nextRole]}*.` : '')
