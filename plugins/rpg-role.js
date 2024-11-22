@@ -1,149 +1,168 @@
-const roles = {
-    '*NOVATO(A) V* 🪤': 0,
-     '*NOVATO(A) IV* 🪤': 2,
-      '*NOVATO(A) III* 🪤': 4,
-       '*NOVATO(A) II* 🪤': 6,
-        '*NOVATO(A) I* 🪤': 8,
-    '*APRENDIS V* 🪚': 10,
-     '*APRENDIS IV* 🪚': 12,
-      '*APRENDIS III* 🪚': 14,
-       '*APRENDIS II* 🪚': 16,
-       '*APRENDIS I* 🪚': 18,
-    '*EXPLORADOR(A) V* 🪓': 20,
-     '*EXPLORADOR(A) IV* 🪓': 22,
-      '*EXPLORADOR(A) III* 🪓': 24,
-       '*EXPLORADOR(A) II* 🪓': 26,
-        '*EXPLORADOR(A) I* 🪓': 28,
-    '*MAESTRO(A) V* ⚒️': 30,
-     '*MAESTRO(A) IV* ⚒️': 32,
-      '*MAESTRO(A) III* ⚒️': 34,
-       '*MAESTRO(A) II* ⚒️': 36,
-        '*MAESTRO(A) I* ⚒️': 38,
-    '*IRON V* 🦾': 40,
-     '*IRON IV* 🦾': 42,
-      '*IRON III* 🦾': 44,
-       '*IRON II* 🦾': 46,
-        '*IRON I* 🦾': 48,
-    '*PLATA V* 🔮': 50,
-     '*PLATA IV* 🔮': 52,
-      '*PLATA III* 🔮': 54,
-       '*PLATA II* 🔮': 56,
-        '*PLATA I* 🔮': 58,
-    '*ORO V* 🏅': 60,
-     '*ORO IV* 🏅': 62,
-      '*ORO III* 🏅': 64,
-       '*ORO II* 🏅': 66,
-        '*ORO I* 🏅': 68,
-    '*DIAMANTE V* 💎': 70,
-     '*DIAMANTE IV* 💎': 72,
-      '*DIAMANTE III* 💎': 74,
-       '*DIAMANTE II* 💎': 76,
-        '*DIAMANTE I* 💎': 78,
-    '*PRO EN GATABOT V* 😼': 80,
-     '*PRO EN GATABOT IV* 😼': 82,
-      '*PRO EN GATABOT III* 😼': 84,
-       '*PRO EN GATABOT II* 😼': 86,
-        '*PRO EN GATABOT I* 😼': 88,
-    '*SUPER PRO V* 🎩': 90,
-     '*SUPER PRO IV* 🎩': 92,
-      '*SUPER PRO III* 🎩': 94,
-       '*SUPER PRO II* 🎩': 96,
-        '*SUPER PRO I* 🎩': 98,
-    '*LEGENDARIO(A) V* 🛡️': 100,
-     '*LEGENDARIO(A) IV* 🛡️': 102,
-      '*LEGENDARIO(A) III* 🛡️': 104,
-       '*LEGENDARIO(A) II* 🛡️': 106,
-        '*LEGENDARIO(A) I* 🛡️': 108,
-    '*LEYENDA V* 🏆': 110,
-     '*LEYENDA IV* 🏆': 112,
-      '*LEYENDA III* 🏆': 114,
-       '*LEYENDA II* 🏆': 116,
-       '*LEYENDA I* 🏆': 118,
-    '*ESTELAR V* ☄️': 120,
-     '*ESTELAR IV* ☄️': 122,
-      '*ESTELAR III* ☄️': 124,
-       '*ESTELAR II* ☄️': 126,
-        '*ESTELAR I* ☄️': 128,
-    '*TOP ASTRAL V* ⚜️🔱': 130,
-     '*TOP ASTRAL IV* ⚜️🔱': 132,
-      '*TOP ASTRAL III* ⚜️🔱': 134,
-       '*TOP ASTRAL II* ⚜️🔱': 136,
-        '*TOP ASTRAL I* ⚜️🔱': 138,
-    '👑 *ÉLITE GLOBAL V* 🏁': 140,
-     '👑 *ÉLITE GLOBAL IV* 🏁': 145,
-      '👑 *ÉLITE GLOBAL III* 🏁': 150,
-       '👑 *ÉLITE GLOBAL II* 🏁': 155,
-        '👑 *ÉLITE GLOBAL I* 🏁': 160,
-    '👑 *∞ ÉLITE GLOBAL V* 💎🏁': 170,
-     '👑 *∞ ÉLITE GLOBAL IV* 💎🏁': 185,
-    '👑 *∞ ÉLITE GLOBAL III* 💎🏁': 200,
-    '👑 *∞ ÉLITE GLOBAL II* 💎🏁': 250,
-    '👑 *∞ ÉLITE GLOBAL I* 💎🏁': 300
+export const roles = {
+// Nivel 0-9: Principiantes
+'🌱 *Aventurero(a) - Novato(a) V*': 0,
+'🌱 *Aventurero(a) - Novato(a) IV*': 2,
+'🌱 *Aventurero(a) - Novato(a) III*': 4,
+'🌱 *Aventurero(a) - Novato(a) II*': 6,
+'🌱 *Aventurero(a) - Novato(a) I*': 8,
+
+// Nivel 10-19: Aprendices
+'🛠️ *Aprendiz del Camino V*': 10,
+'🛠️ *Aprendiz del Camino IV*': 12,
+'🛠️ *Aprendiz del Camino III*': 14,
+'🛠️ *Aprendiz del Camino II*': 16,
+'🛠️ *Aprendiz del Camino I*': 18,
+
+// Nivel 20-29: Exploradores
+'⚔️ *Explorador(a) del Valle V*': 20,
+'⚔️ *Explorador(a) del Valle IV*': 22,
+'⚔️ *Explorador(a) del Valle III*': 24,
+'⚔️ *Explorador(a) del Valle II*': 26,
+'⚔️ *Explorador(a) del Valle I*': 28,
+
+// Nivel 30-39: Guerreros
+'🏹 *Guerrero(a) del Alba V*': 30,
+'🏹 *Guerrero(a) del Alba IV*': 32,
+'🏹 *Guerrero(a) del Alba III*': 34,
+'🏹 *Guerrero(a) del Alba II*': 36,
+'🏹 *Guerrero(a) del Alba I*': 38,
+
+// Nivel 40-49: Guardianes
+'🛡️ *Guardián(a) de los Bosques V*': 40,
+'🛡️ *Guardián(a) de los Bosques IV*': 42,
+'🛡️ *Guardián(a) de los Bosques III*': 44,
+'🛡️ *Guardián(a) de los Bosques II*': 46,
+'🛡️ *Guardián(a) de los Bosques I*': 48,
+
+// Nivel 50-59: Magos
+'🔮 *Mago(a) del Crepúsculo V*': 50,
+'🔮 *Mago(a) del Crepúsculo IV*': 52,
+'🔮 *Mago(a) del Crepúsculo III*': 54,
+'🔮 *Mago(a) del Crepúsculo II*': 56,
+'🔮 *Mago(a) del Crepúsculo I*': 58,
+
+// Nivel 60-79: Élite
+'🏅 *Héroe(a) de Oro V*': 60,
+'🏅 *Héroe(a) de Oro IV*': 62,
+'🏅 *Héroe(a) de Oro III*': 64,
+'🏅 *Héroe(a) de Oro II*': 66,
+'🏅 *Héroe(a) de Oro I*': 68,
+'💎 *Paladín(a) de Diamante V*': 70,
+'💎 *Paladín(a) de Diamante IV*': 72,
+'💎 *Paladín(a) de Diamante III*': 74,
+'💎 *Paladín(a) de Diamante II*': 76,
+'💎 *Paladín(a) de Diamante I*': 78,
+
+// Nivel 80-99: Maestros
+'🌌 *Maestro(a) de las Estrellas V*': 80,
+'🌌 *Maestro(a) de las Estrellas IV*': 85,
+'🌌 *Maestro(a) de las Estrellas III*': 90,
+'🌌 *Maestro(a) de las Estrellas II*': 95,
+'🌌 *Maestro(a) de las Estrellas I*': 99,
+
+// Nivel 100-149: Legendarios
+'🌀 *Leyenda de la Aurora V*': 100,
+'🌀 *Leyenda de la Aurora IV*': 110,
+'🌀 *Leyenda de la Aurora III*': 120,
+'🌀 *Leyenda de la Aurora II*': 130,
+'🌀 *Leyenda de la Aurora I*': 140,
+
+// Nivel 150-199: Reyes/Reinas
+'👑 *Rey/Reina del Cosmos V*': 150,
+'👑 *Rey/Reina del Cosmos IV*': 160,
+'👑 *Rey/Reina del Cosmos III*': 170,
+'👑 *Rey/Reina del Cosmos II*': 180,
+'👑 *Rey/Reina del Cosmos I*': 199,
+
+// Nivel 200-299: Campeones
+'🚀 *Campeón(a) Intergaláctico(a) V*': 200,
+'🚀 *Campeón(a) Intergaláctico(a) IV*': 225,
+'🚀 *Campeón(a) Intergaláctico(a) III*': 250,
+'🚀 *Campeón(a) Intergaláctico(a) II*': 275,
+'🚀 *Campeón(a) Intergaláctico(a) I*': 299,
+
+// Nivel 300-399: Luz superior
+'✨ *Luz Primigenia del Cosmos V*': 300,
+'✨ *Luz Primigenia del Cosmos IV*': 325,
+'✨ *Luz Primigenia del Cosmos III*': 350,
+'✨ *Luz Primigenia del Cosmos II*': 375,
+'✨ *Luz Primigenia del Cosmos I*': 399,
+
+// Nivel 400-499: Tejedor supremo
+'🪐 *Tejedor(a) de Órbitas Infinitas V*': 400,
+'🪐 *Tejedor(a) de Órbitas Infinitas IV*': 425,
+'🪐 *Tejedor(a) de Órbitas Infinitas III*': 450,
+'🪐 *Tejedor(a) de Órbitas Infinitas II*': 475,
+'🪐 *Tejedor(a) de Órbitas Infinitas I*': 499,
+
+// Nivel 500-599: Reflejo supremo
+'🪞 *Reflejo Supremo del Destino V*': 500,
+'🪞 *Reflejo Supremo del Destino IV*': 525,
+'🪞 *Reflejo Supremo del Destino III*': 550,
+'🪞 *Reflejo Supremo del Destino II*': 575,
+'🪞 *Reflejo Supremo del Destino I*': 599,
+
+// Nivel 600-699: Metamorfosis
+'🦋 *Metamorfosis Astral V*': 600,
+'🦋 *Metamorfosis Astral IV*': 625,
+'🦋 *Metamorfosis Astral III*': 650,
+'🦋 *Metamorfosis Astral II*': 675,
+'🦋 *Metamorfosis Astral I*': 699,
+
+// Nivel 700-799: Runas del Destino
+'💠 *Gobernante de Runas del Destino V*': 700,
+'💠 *Gobernante de Runas del Destino IV*': 725,
+'💠 *Gobernante de Runas del Destino III*': 750,
+'💠 *Gobernante de Runas del Destino II*': 775,
+'💠 *Gobernante de Runas del Destino I*': 799,
+
+// Nivel 800-899: Mente brillante
+'🧠 *Mente Universal V*': 800,
+'🧠 *Mente Universal IV*': 825,
+'🧠 *Mente Universal III*': 850,
+'🧠 *Mente Universal II*': 875,
+'🧠 *Mente Universal I*': 899,
+
+// Nivel 900-999: Viajero(a)
+'🛸 *Viajero(a) del tiempo V*': 900,
+'🛸 *Viajero(a) del tiempo IV*': 925,
+'🛸 *Viajero(a) del tiempo III*': 950,
+'🛸 *Viajero(a) del tiempo II*': 975,
+'🛸 *Viajero(a) del tiempo I*': 999,
+
+// Nivel 300+: Inmortales
+'🔥 *Héroe(a) Inmortal V*': 1000,
+'🔥 *Héroe(a) Inmortal IV*': 2000,
+'🔥 *Héroe(a) Inmortal III*': 3000,
+'🔥 *Héroe(a) Inmortal II*': 4000,
+'🔥 *Héroe(a) Inmortal I*': 5000,
+'👑🌌 *Eterna Deidad del Multiverso* ⚡': 10000,
 }
 
 let handler = m => m
 handler.before = async function (m, { conn }) {
-        let user = db.data.users[m.sender]
-        let level = user.level
-        let role = (Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level >= minLevel) || Object.entries(roles)[0])[0]
-        user.role = role
-        return !0
-    
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let ppch = await conn.profilePictureUrl(who, 'image').catch(_ => gataMenu)
+let user = db.data.users[m.sender]
+let level = user.level
+let currentRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level >= minLevel)[0]
+let nextRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level + 1 >= minLevel)[0]
+if (user.role != currentRole) {
+user.role = currentRole
+let userName = m.pushName || 'Anónimo'
+let chtxt = `✨ *¡Felicidades ${userName}!* Tu nuevo rango es ${currentRole}.` + (nextRole ? ` Para llegar a ${nextRole}, alcanza el nivel *${roles[nextRole]}*.` : '')
+await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
+externalAdReply: {
+title: "【 🔔 Notificación General 🔔 】",
+body: '😎 ¡Alguien obtuvo un nuevo Rango!',
+thumbnailUrl: ppch,
+sourceUrl: accountsgb,
+mediaType: 1,
+showAdAttribution: false,
+renderLargerThumbnail: false
+}}}, { quoted: null }) 
+return true
 }
-export default handler 
-
-/*let handler = m => m
-
-handler.before = function (m, text) {
-    let user = global.db.data.users[m.sender]
-    let role = (user.level <= 3) ? '*NOVATO(A) III* 🪤'
-        : ((user.level >= 3) && (user.level <= 6)) ? '*NOVATO(A) II* 🪤'
-            : ((user.level >= 6) && (user.level <= 9)) ? '*NOVATO(A) I* 🪤'
-                : ((user.level >= 9) && (user.level <= 12)) ? '*APRENDIS III* 🪚'
-                    : ((user.level >= 12) && (user.level <= 15)) ? '*APRENDIS II* 🪚'
-                        : ((user.level >= 15) && (user.level <= 18)) ? '*APRENDIS I* 🪚'
-                            : ((user.level >= 18) && (user.level <= 21)) ? '*EXPLORADOR(A) III* 🪓'
-                                : ((user.level >= 21) && (user.level <= 24)) ? '*EXPLORADOR(A) II* 🪓'
-                                    : ((user.level >= 24) && (user.level <= 27)) ? '*EXPLORADOR(A) I* 🪓'
-                                        : ((user.level >= 27) && (user.level <= 30)) ? '*MAESTRO(A) III* ⚒️'
-                                            : ((user.level >= 30) && (user.level <= 33)) ? '*MAESTRO(A) II* ⚒️'
-                                                : ((user.level >= 33) && (user.level <= 36)) ? '*MAESTRO(A) I* ⚒️'
-                                                    : ((user.level >= 36) && (user.level <= 39)) ? '*IRON III* 🦾'
-                                                        : ((user.level >= 39) && (user.level <= 42)) ? '*IRON II* 🦾'
-                                                            : ((user.level >= 42) && (user.level <= 45)) ? '*IRON I* 🦾'
-                                                                : ((user.level >= 45) && (user.level <= 48)) ? '*PLATA III* 🔮'
-                                                                    : ((user.level >= 48) && (user.level <= 51)) ? '*PLATA II* 🔮'
-                                                                        : ((user.level >= 51) && (user.level <= 54)) ? '*PLATA I* 🔮'
-                                                                            : ((user.level >= 54) && (user.level <= 57)) ? '*ORO III* 🏅'
-                                                                                : ((user.level >= 57) && (user.level <= 60)) ? '*ORO II* 🏅'
-                                                                                    : ((user.level >= 60) && (user.level <= 63)) ? '*ORO I* 🏅'
-                                                                                        : ((user.level >= 63) && (user.level <= 66)) ? '*DIAMANTE III* 💎'
-                                                                                            : ((user.level >= 66) && (user.level <= 69)) ? '*DIAMANTE II* 💎'
-                                                                                                : ((user.level >= 69) && (user.level <= 71)) ? '*DIAMANTE I* 💎'
-                                                                                                    : ((user.level >= 71) && (user.level <= 74)) ? '*PRO EN GATABOT III* 😼'
-                                                                                                        : ((user.level >= 74) && (user.level <= 77)) ? '*PRO EN GATABOT II* 😼'
-                                                                                                            : ((user.level >= 77) && (user.level <= 80)) ? '*PRO EN GATABOT I* 😼'
-                                                                                                                : ((user.level >= 80) && (user.level <= 83)) ? '*SUPER PRO III* 🎩'
-                                                                                                                    : ((user.level >= 83) && (user.level <= 86)) ? '*SUPER PRO II* 🎩'
-                                                                                                                        : ((user.level >= 86) && (user.level <= 89)) ? '*SUPER PRO I* 🎩'
-                                                                                                                            : ((user.level >= 89) && (user.level <= 91)) ? '*LEGENDARIO(A) III* 🛡️'
-                                                                                                                                : ((user.level >= 91) && (user.level <= 94)) ? '*LEGENDARIO(A) II* 🛡️'
-                                                                                                                                    : ((user.level >= 94) && (user.level <= 97)) ? '*LEGENDARIO(A) I* 🛡️'
-                                                                                                                                        : ((user.level >= 97) && (user.level <= 100)) ? '*LEYENDA III* 🏆'
-                                                                                                                                           : ((user.level >= 100) && (user.level <= 105)) ? '*LEYENDA II* 🏆'      
-                                                                                                                                              : ((user.level >= 105) && (user.level <= 120)) ? '*LEYENDA I* 🏆'
-                                                                                                                                                 : ((user.level >= 120) && (user.level <= 150)) ? '*ESTELAR III* ☄️'
-                                                                                                                                                    : ((user.level >= 150) && (user.level <= 160)) ? '*ESTELAR II* ☄️'
-                                                                                                                                                        : ((user.level >= 160) && (user.level <= 170)) ? '*ESTELAR I* ☄️'
-                                                                                                                                                            : ((user.level >= 170) && (user.level <= 185)) ? '*TOP ASTRAL III* ⚜️🔱'
-                                                                                                                                                                : ((user.level >= 185) && (user.level <= 200)) ? '*TOP ASTRAL III* ⚜️🔱'
-                                                                                                                                                                    : ((user.level >= 200) && (user.level <= 700)) ? '*TOP ASTRAL III* ⚜️🔱'
-                                                                                                                                                                            : ((user.level >= 700) && (user.level <= 1000)) ? '👑 *ÉLITE GLOBAL* 🏁'
-                                                                                                                                                                                : '👑 *∞ ÉLITE GLOBAL* 💎🏁'
-
-
-    user.role = role
-    return true
+return false
 }
-
-export default handler */
+export default handler
