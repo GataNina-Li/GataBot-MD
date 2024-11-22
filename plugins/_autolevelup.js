@@ -23,7 +23,7 @@ user.level++
 if (before !== user.level) {
 
 let currentRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level + 1 >= minLevel)[0]
-let nextRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level + 1 >= minLevel)[0]
+let nextRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level + 2 >= minLevel)[0]
 
 if (user.role != currentRole && level >= 1) {
 user.role = currentRole
@@ -68,7 +68,7 @@ let normalCant2 = [1, 3, 2, 2, 4, 4, 2, 2, 4, 4, 5, 5, 1].getRandom()
 let normalCant3 = [1, 3, 3, 3, 4, 4, 2, 2, 4, 4, 4, 4, 1].getRandom() 
 
 if (level >= 1) {
-let chtxt = `👤 *Usuario:* ${userName}\n🆙 *Nivel anterior:* ${before + 1}\n🆕 *Nivel actual:* ${level + 1}\n👾 *Rango:* ${user.role}\n🐈 *Bot:* ${gt}${level % 5 === 0 ? `\n\n💰 *Recompensa por alacanzar el nivel ${level}:*
+let chtxt = `👤 *Usuario:* ${userName}\n🆙 *Nivel anterior:* ${before}\n🆕 *Nivel actual:* ${level + 1}\n👾 *Rango:* ${user.role}\n🐈 *Bot:* ${gt}${level % 5 === 0 ? `\n\n💰 *Recompensa por alacanzar el nivel ${level}:*
 🎁 *Bono:* \`X${Math.floor((level - 5) / 10) + 1}\`
 - *${especialCant * (Math.floor((level - 5) / 10) + 1)} ${global.rpgshop.emoticon(especial)}*
 - *${especialCant2 * (Math.floor((level - 5) / 10) + 1)} ${global.rpgshop.emoticon(especial2)}*
