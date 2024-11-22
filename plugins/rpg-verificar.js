@@ -1,5 +1,9 @@
 // CÓDIGO CREADO POR GataNina-Li : https://github.com/GataNina-Li 
-import { createHash } from 'crypto'
+import { createHash } from 'crypto'  
+import fetch from 'node-fetch'
+import PhoneNumber from 'awesome-phonenumber'
+import moment from 'moment-timezone'
+import axios from 'axios'
 let nombre = 0, edad = 0, genero = 0, bio = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, registrando
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0  
 
