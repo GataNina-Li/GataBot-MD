@@ -22,6 +22,10 @@ second: 'numeric'
 }) 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who, 'image').catch((_) => gataMenu)
+let ppch = await conn.profilePictureUrl(who, 'image').catch(_ => gataMenu.getRandom())
+let api = await axios.get(`${apis}/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+let userNationalityData = api.data.result
+userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido' 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
 let nombreWA = await usedPrefix + conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0]
@@ -597,6 +601,38 @@ showAdAttribution: true,
 renderLargerThumbnail: true
 }}}, { quoted: fkontak })
 await m.reply(`${sn}`)	
+
+let chtxt = `📑 *TIPO DE REGISTRO* 
+❱❱ ${user.registroC === true ? 'REGISTRO COMPLETO' : 'REGISTRO RÁPIDO'}
+🌎 *PAIS:* 
+❱❱ ${userNationality}
+👤 *USUARIO:* 
+❱❱ ${m.pushName || 'Anónimo'}
+✅ *VERIFICACIÓN:* 
+❱❱ ${user.name}
+👀 *DESCRIPCIÓN*
+❱❱ ${user.descripcion}
+🔢 *EDAD:* 
+❱❱ ${user.age} años
+${user.registroC === true ? `☘️ *GÉNERO*
+❱❱ ${user.genero}\n
+🌱 *ORIENTACIÓN SEXUAL*
+❱❱ ${user.identidad}\n
+❇️ *PASATIEMPO(S)*
+❱❱ ${user.pasatiempo}\n
+${user.premLimit === 1 ? '' : `🎟️ *PREMIUM*
+❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +10 HORAS || ${user.premiumTime - now} ms`}`}   ` : ''}${user.registroC === true ? `\n🌟 *Si es su primera vez registrándose, recibirá horas premium de forma gratuita como bonificación exclusiva por su primera inscripción, puede cancelar y eliminar su registro en cualquier momento. Gracias por registrarse ✨*` : ''}
+🐈 *Bot:* ${packname}`.trim()
+await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
+externalAdReply: {
+title: "【 🔔 Notificación General 🔔 】",
+body: '🥳 ¡Nuevo usuario registrado!',
+thumbnailUrl: ppch,
+sourceUrl: accountsgb,
+mediaType: 1,
+showAdAttribution: false,
+renderLargerThumbnail: false
+}}}, { quoted: null })
 }}
 handler.command = ['verify', 'verificar', 'register', 'registrar', 'reg', 'reg1', 'nombre', 'name', 'nombre2', 'name2', 'edad', 'age', 'edad2', 'age2', 'genero', 'género', 'gender', 'identidad', 'pasatiempo', 'hobby', 'identity', 'finalizar', 'pas2', 'pas3', 'pas4', 'pas5']  ///^(verify|verificar|reg(ister)?)$/i
 export default handler
