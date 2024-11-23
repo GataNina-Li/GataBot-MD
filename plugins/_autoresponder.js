@@ -94,7 +94,7 @@ let syms1 = chat.sAutorespond ? chat.sAutorespond : txtDefault
 if (!chat.autorespond) return 
 if (m.fromMe) return
 if (!user.registered) return
-await this.sendPresenceUpdate('composing', m.chat)
+conn.sendPresenceUpdate('composing', m.chat)
 
 let result
 if (result && result.trim().length > 0) {
