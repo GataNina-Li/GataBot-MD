@@ -7,9 +7,9 @@ import { createRequire } from 'module'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const require = createRequire(__dirname)
 
-let handler = async (m, _2, isOwner ) => {
+let handler = async (m, _2) => {
   let { conn, usedPrefix, noPrefix, args, groupMetadata } = _2
-if (!isOwner) return;
+//if (!isOwner) return;
   let _return
   let _syntax = ''
   let _text = (/^=/.test(usedPrefix) ? 'return ' : '') + noPrefix
