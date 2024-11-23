@@ -27,9 +27,12 @@ let nextRole = Object.entries(roles).sort((a, b) => a[1] - b[1]) .find(([, minLe
 //if (user.role != currentRole && level >= 1) {
 if (level >= 1) {
 user.role = currentRole
-let chtxt = `✨ *¡Felicidades ${userName} por tu nuevo rango!* 
+let chtxt = `✨ ¡Felicidades, *${userName}*, por alcanzar tu nuevo rango! 🎉\n  
+\`Nuevo Rango:\`\n${currentRole}`
+if (nextRole) {
+chtxt += `\n> Para alcanzar el rango ${nextRole}, debes llegar al *nivel ${roles[nextRole]}*. ¡Sigue así!`
+}
 
-Tu nuevo rango es ${currentRole}.` + (nextRole ? ` Para llegar a ${nextRole}, alcanza el nivel *${roles[nextRole]}*.` : '')
 await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
