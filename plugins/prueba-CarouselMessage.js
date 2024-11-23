@@ -19,9 +19,8 @@ const messages = [[ // CARRUSEL 1
 [['Botón1', usedPrefix + 'menu'], ['Botón2', 'Id2'] /* etc... */],
 [['Texto para copiar 1'], ['Texto para copiar 2'] /* etc... */],
 [['Enlace1', canal2], ['Enlace2', 'https://example.com/link2'] /* etc... */],
-null
-//[['Botón Lista 1', sections], ['Botón Lista 2', sections] /* etc... */]
-]/*, [ // CARRUSEL 2
+[['Botón Lista 1', sections], ['Botón Lista 2', sections] /* etc... */]
+], [ // CARRUSEL 2
 'Descripción de Carrusel 2',
 'Footer de Carrusel 2',
 'https://telegra.ph/file/e9239fa926d3a2ef48df2.jpg',
@@ -45,7 +44,7 @@ null
 [['Texto para copiar 1'], ['Texto para copiar 2']],
 [['Enlace1', 'https://example.com/link1'], ['Enlace2', 'https://example.com/link2']],
 [['Botón Lista 1', sections], ['Botón Lista 2', sections]]
-]*/] /* etc... */
+]] /* etc... */
 await conn.sendCarousel(m.chat, 'Texto', 'Footer', 'Titulo de Carrusel', messages, m)            
 
 }
