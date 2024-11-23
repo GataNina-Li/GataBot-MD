@@ -9,7 +9,7 @@ let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
 let key 
-let sinDefinir = '😿 No encontrada'
+let sinDefinir = '😿 Es privada'
 let d = new Date(new Date + 3600000)
 let locale = 'es'
 let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
@@ -35,8 +35,8 @@ return list[Math.floor(Math.random() * list.length)]}
 let nombreWA = await usedPrefix + conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0]
 let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
-let biografia = await conn.fetchStatus(m.sender).catch(_ => 'undefined')
-bio = biografia.status?.toString() || sinDefinir
+let biografia = await conn.fetchStatus(m.sender).catch(() => null)
+bio = biografia.status || sinDefinir
 	
 let intervalId
 function mensajeRegistro() {
@@ -550,7 +550,7 @@ hora = `${time}`
 user.tiempo = fecha + hora
 user.name = user.name === 0 ? sinDefinir : user.name + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ'
 user.descripcion = bio
-user.age = user.age === 0 ? sinDefinir : user.age >= 18 ? user.age += ' Años *||* ' + '(Persona Adulta)' : user.age += ' Años *||* ' + '(Persona Joven)'
+user.age = user.age === 0 ? sinDefinir : user.age >= 18 ? user.age += ' Años ' + '(Persona Adulta)' : user.age += ' Años ' + '(Persona Joven)'
 user.genero = user.genero === 0 ? sinDefinir : user.genero == 'Ocultado' ? `${user.genero} 🕶️` : user.genero == 'Mujer' ? `${user.genero} 🚺` : user.genero == 'Hombre' ? `${user.genero} 🚹` : sinDefinir
 user.identidad = user.identidad === 0 ? sinDefinir : user.identidad
 user.pasatiempo = user.pasatiempo === 0 ? sinDefinir : user.pasatiempo
@@ -606,27 +606,17 @@ renderLargerThumbnail: true
 }}}, { quoted: fkontak })
 await m.reply(`${sn}`)	
 
-let chtxt = `📑 *TIPO DE REGISTRO* 
-❱❱ ${user.registroC === true ? 'REGISTRO COMPLETO' : 'REGISTRO RÁPIDO'}
-🌎 *PAIS:* 
-❱❱ ${userNationality}
-👤 *USUARIO:* 
-❱❱ ${m.pushName || 'Anónimo'}
-✅ *VERIFICACIÓN:* 
-❱❱ ${user.name}
-👀 *DESCRIPCIÓN*
-❱❱ ${user.descripcion}
-🔢 *EDAD:* 
-❱❱ ${user.age} años
-${user.registroC === true ? `☘️ *GÉNERO*
-❱❱ ${user.genero}\n
-🌱 *ORIENTACIÓN SEXUAL*
-❱❱ ${user.identidad}\n
-❇️ *PASATIEMPO(S)*
-❱❱ ${user.pasatiempo}\n
-${user.premLimit === 1 ? '' : `🎟️ *PREMIUM*
-❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +10 HORAS || ${user.premiumTime - now} ms`}`}   ` : ''}${user.registroC === true ? `\n🌟 *Si es su primera vez registrándose, recibirá horas premium de forma gratuita como bonificación exclusiva por su primera inscripción, puede cancelar y eliminar su registro en cualquier momento. Gracias por registrarse ✨*` : ''}
-🐈 *Bot:* ${gt}`.trim()
+let chtxt = `📑 *Tipo de registro »* ${user.registroC === true ? 'Completo' : 'Rápido'}
+🌎 *País »* ${userNationality}
+👤 *Usuario »* ${m.pushName || 'Anónimo'}
+✅ *Verificación »* ${user.name}
+👀 *Descripción »* ${user.descripcion}
+🔢 *Edad »* ${user.age}
+${user.registroC === true ? `☘️ *Género »* ${user.genero}
+🌱 *Orientación Sexual »* ${user.identidad}
+❇️ *Pasatiempo(s) »* ${user.pasatiempo}
+🐈 *Bot:* ${gt}
+${user.premLimit === 1 ? '' : `🎟️ *Premium »* ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +10 HORAS || ${user.premiumTime - now} ms`}`}   ` : ''}${user.registroC === true ? `\n\n> 🌟 *Si es su primera vez registrándose, recibirá horas premium de forma gratuita como bonificación exclusiva por su primera inscripción, puede cancelar y eliminar su registro en cualquier momento. Gracias por registrarse ✨*` : ''}`.trim()
 await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
