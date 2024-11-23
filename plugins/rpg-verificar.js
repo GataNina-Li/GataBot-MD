@@ -626,7 +626,7 @@ ${user.registroC === true ? `☘️ *GÉNERO*
 ❱❱ ${user.pasatiempo}\n
 ${user.premLimit === 1 ? '' : `🎟️ *PREMIUM*
 ❱❱ ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +10 HORAS || ${user.premiumTime - now} ms`}`}   ` : ''}${user.registroC === true ? `\n🌟 *Si es su primera vez registrándose, recibirá horas premium de forma gratuita como bonificación exclusiva por su primera inscripción, puede cancelar y eliminar su registro en cualquier momento. Gracias por registrarse ✨*` : ''}
-🐈 *Bot:* ${packname}`.trim()
+🐈 *Bot:* ${gt}`.trim()
 await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
