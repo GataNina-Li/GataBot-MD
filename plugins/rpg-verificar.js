@@ -1351,9 +1351,10 @@ var todosLosPasatiempos = ['👟 Acroyoga',
   '👋 Estar en YouTube',
   '👋 Estar en ZOOM',
   '📘 Estudiar',
-  '📜 Estudiar genealogía y la historia familiar.',
+  '📜 Estudiar genealogía y la historia familiar',
   '📚 Estudiar guionismo y escritura de series',
-  '📚 Estudiar historia y arqueología.',
+  '📚 Estudiar historia y arqueología',
+  '📚 Estudiar la historia de la literatura',
   '🇯🇵 Estudiar japonés para poder entender mejor el anime',
   '📚 Estudiar la cinematografía y técnicas de dirección',
   '📚 Estudiar la historia de la fotografía',
@@ -1423,9 +1424,9 @@ var todosLosPasatiempos = ['👟 Acroyoga',
   '🎨 Hacer arte con acuarelas.',
   '🎨 Hacer arte con arena.',
   '🎨 Hacer arte con elementos de la arquitectura.',
-  '🎨 Hacer arte con elementos de la cultura local.',
+  '🎨 Hacer arte con elementos de la cultura local',
   '🎨 Hacer arte con elementos de la cultura popular.',
-  '🎨 Hacer arte con elementos de la danza.',
+  '🎨 Hacer arte con elementos de la danza',
   '🎨 Hacer arte con elementos de la escultura.',
   '🎨 Hacer arte con elementos de la fotografía.',
   '🎨 Hacer arte con elementos de la historia.',
@@ -2295,7 +2296,7 @@ var todosLosPasatiempos = ['👟 Acroyoga',
   '🧘 Yoga en el Parque con la Comunidad',
   '🧘 Yoga facial',
   '🧘 Yoga para embarazadas',
-  '🧘 Yoga para niños'
+  '🧘 Yoga para niños.'
 ]
 
 var emojiANumero = {
@@ -2304,7 +2305,7 @@ var emojiANumero = {
 }
 const pasatiemposMap = new Map()
 function eliminarEmojis(texto) {
-return texto.replace(/[^\w\s]/g, '').toLowerCase()}
+return texto.replace(/[^\w\s]/g, '').toLowerCase().replace(/\.$/, '')}
 todosLosPasatiempos.forEach(pasatiempo => {
 const textoSinEmoji = eliminarEmojis(pasatiempo)
 if (!pasatiemposMap.has(textoSinEmoji)) {
@@ -2347,7 +2348,7 @@ yyr3 += ` [ ${index + 1001} ] » ${pasatiempo}\n`
 cuartaParte.forEach((pasatiempo, index) => {
 yyr4 += ` [ ${index + 1501} ] » ${pasatiempo}\n`
 })
-let footer = `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
+let footer = `┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
 yyr1 += footer; yyr2 += footer; yyr3 += footer; yyr4 += footer
 var maximoIndice = todosLosPasatiemposOrdenados.length - 0
 async function seleccionarPasatiempos(texto) {
