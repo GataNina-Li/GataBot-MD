@@ -2305,11 +2305,11 @@ var emojiANumero = {
 }
 const pasatiemposMap = new Map()
 function eliminarEmojis(texto) {
-return texto.replace(/[^\w\s]/g, '').toLowerCase().replace(/\.$/, '')}
+return texto.replace(/[^\w\s]/g, '').toLowerCase()}
 todosLosPasatiempos.forEach(pasatiempo => {
 const textoSinEmoji = eliminarEmojis(pasatiempo)
 if (!pasatiemposMap.has(textoSinEmoji)) {
-pasatiemposMap.set(textoSinEmoji, pasatiempo)
+pasatiemposMap.set(textoSinEmoji, pasatiempo.replace(/\.$/, ''))
 }})
 let todosLosPasatiemposOrdenados = Array.from(pasatiemposMap.values()).sort(function(a, b) {
 const textoA = eliminarEmojis(a)
