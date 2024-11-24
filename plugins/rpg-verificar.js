@@ -704,13 +704,13 @@ let primeraParte = todosLosPasatiemposOrdenados.slice(0, 500)
 let segundaParte = todosLosPasatiemposOrdenados.slice(500, 1000)
 let terceraParte = todosLosPasatiemposOrdenados.slice(1000)
 
-todosLosPasatiemposOrdenados.forEach((pasatiempo, index) => {
+primeraParte.forEach((pasatiempo, index) => {
 yyr1 += ` [ ${index + 1} ] » ${pasatiempo}\n`
 })
-todosLosPasatiemposOrdenados.forEach((pasatiempo, index) => {
+segundaParte.forEach((pasatiempo, index) => {
 yyr2 += ` [ ${index + 501} ] » ${pasatiempo}\n`
 })
-todosLosPasatiemposOrdenados.forEach((pasatiempo, index) => {
+terceraParte.forEach((pasatiempo, index) => {
 yyr3 += ` [ ${index + 1001} ] » ${pasatiempo}\n`
 })
 let footer = `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
@@ -751,7 +751,7 @@ conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA AG
 }else{
 conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${pasatiempoSeleccionado === undefined ? 'DE ALGUNA POSICIÓN' : pasatiempoSeleccionado }" YA HA SIDO SELECCIONADO*`, fkontak, m)
 }} else {
-conn.sendEvent(m.chat, gt, `🌟 *SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n*Para seleccionar varios pasatiempos separé por comas (,) además puede usar números o emojis numéricos, ejemplo:*\n\n✪ *(1 pasatiempo)*\n✓ \`\`\`${usedPrefix}pasatiempo 2️⃣\`\`\`\n\n✪ *(2 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 45, 65\`\`\`\n\n✪ *(3 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 2️⃣4️⃣, 1️⃣5️⃣6️⃣, 8️⃣9️⃣\`\`\`\n\n✪ *(4 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 223, 456, 6, 4\`\`\`\n\n✪ *(5 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 56, 5️⃣1️⃣6️⃣, 345, 2️⃣4️⃣, 200\`\`\``, "Toca para ver más", false)
+conn.sendEvent(m.chat, gt, `🌟 *SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n*Para seleccionar varios pasatiempos separé por comas (,) además puede usar números o emojis numéricos, ejemplo:*\n\n✪ *(1 pasatiempo)*\n✓ \`\`\`${usedPrefix}pasatiempo 2️⃣\`\`\`\n\n✪ *(2 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 45, 65\`\`\`\n\n✪ *(3 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 2️⃣4️⃣, 1️⃣5️⃣6️⃣, 8️⃣9️⃣\`\`\`\n\n✪ *(4 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 223, 456, 6, 4\`\`\`\n\n✪ *(5 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 56, 5️⃣1️⃣6️⃣, 345, 2️⃣4️⃣, 200\`\`\`\n\n` + yyr1, "Toca para ver más", false)
 //conn.sendEvent(m.chat, gt, `🌟 *SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n*Para seleccionar varios pasatiempos separé por comas (,) además puede usar números o emojis numéricos, ejemplo:*\n\n✪ *(1 pasatiempo)*\n✓ \`\`\`${usedPrefix}pasatiempo 2️⃣\`\`\`\n\n✪ *(2 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 45, 65\`\`\`\n\n✪ *(3 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 2️⃣4️⃣, 1️⃣5️⃣6️⃣, 8️⃣9️⃣\`\`\`\n\n✪ *(4 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 223, 456, 6, 4\`\`\`\n\n✪ *(5 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 56, 5️⃣1️⃣6️⃣, 345, 2️⃣4️⃣, 200\`\`\`\n\n` + yyr1, "Toca para ver más", false)
 }}
 seleccionarPasatiempos(seleccion)
