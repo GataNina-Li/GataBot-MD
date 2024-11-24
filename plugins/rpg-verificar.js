@@ -713,9 +713,14 @@ yyr2 += ` [ ${index + 501} ] » ${pasatiempo}\n`
 todosLosPasatiemposOrdenados.forEach((pasatiempo, index) => {
 yyr3 += ` [ ${index + 1001} ] » ${pasatiempo}\n`
 })
-let footer = `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`;
+let footer = `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
 yyr1 += footer; yyr2 += footer; yyr3 += footer
-
+var maximoIndice = todosLosPasatiemposOrdenados.length - 0
+function seleccionarPasatiempos(texto) {
+var seleccionados = texto.split(',').map(function(item) {
+return item.trim()
+})
+	
 var pasatiemposSet = new Set()
 for (var i = 0; i < seleccionados.length; i++) {
 var pasatiempoSeleccionado = asignarPasatiempo(seleccionados[i])
