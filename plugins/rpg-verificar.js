@@ -2309,7 +2309,7 @@ const textoSinEmoji = eliminarEmojis(pasatiempo)
 if (!pasatiemposMap.has(textoSinEmoji)) {
 pasatiemposMap.set(textoSinEmoji, pasatiempo)
 }})
-let pasatiemposUnicosOrdenados = Array.from(pasatiemposMap.values()).sort(function(a, b) {
+let todosLosPasatiemposOrdenados = Array.from(pasatiemposMap.values()).sort(function(a, b) {
 const textoA = eliminarEmojis(a)
 const textoB = eliminarEmojis(b)
 return textoA.localeCompare(textoB)
