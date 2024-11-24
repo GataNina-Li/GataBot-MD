@@ -462,7 +462,7 @@ var todosLosPasatiempos = [
   "🎳 Participar en Torneos de Bolos", "🔬 Experimentos de Química Divertidos", "🚴 Ciclismo Extremo por la Ciudad", "🎥 Realizar Parodias de Videos Musicales", "🎤 Karaoke en un Bar Local",
   "🎮 Organizar Torneos de Juegos de Cartas Coleccionables", "🎨 Pintura en la Oscuridad con Pintura Fluorescente", "🧚 Participar en Competencias de Cometas Gigantes", "🎹 Tocar el Piano en una Banda de Jazz", "🚣 Kayak en Aguas de Mar Abierto",
     // Música
-  "🎶 Asistir a conciertos de mi artista favorito",
+  /*"🎶 Asistir a conciertos de mi artista favorito",
   "🎤 Cantar a todo pulmón las canciones de mi artista favorito",
   "📸 Tratar de conseguir fotos o autógrafos de mi artista favorito",
   "🎸 Aprender a tocar el instrumento que usa mi artista favorito",
@@ -657,7 +657,7 @@ var todosLosPasatiempos = [
   "🌆 Hacer fotografía urbana y de arquitectura",
   "📸 Documentar eventos y celebraciones",
   "📷 Crear un blog o canal de YouTube sobre fotografía",
-  "📸 Aprender a usar cámaras profesionales",
+  "📸 Aprender a usar cámaras profesionales",*/
   "🌌 Hacer fotografía nocturna y de astrofotografía"
 ]
 
