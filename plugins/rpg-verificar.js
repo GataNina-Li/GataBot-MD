@@ -2294,7 +2294,8 @@ var todosLosPasatiempos = ['👟 Acroyoga',
   '🧘 Yoga en el Parque con la Comunidad',
   '🧘 Yoga facial',
   '🧘 Yoga para embarazadas',
-  '🧘 Yoga para niños']
+  '🧘 Yoga para niños'
+]
 
 var emojiANumero = {
 "0️⃣": "0", "1️⃣": "1", "2️⃣": "2", "3️⃣": "3", "4️⃣": "4",
@@ -2313,9 +2314,6 @@ const textoA = eliminarEmojis(a)
 const textoB = eliminarEmojis(b)
 return textoA.localeCompare(textoB)
 })
-//var todosLosPasatiemposOrdenados = todosLosPasatiempos.sort(function(a, b) {
-//return a.slice(2).localeCompare(b.slice(2), undefined, { sensitivity: 'base' })
-//})
 function asignarPasatiempo(text) {
 var numero = parseInt(text.replace(/\D/g, ''))
 if (numero >= 1 && numero <= todosLosPasatiemposOrdenados.length) {
@@ -2325,27 +2323,10 @@ var pasatiempoIngresado = text.replace(/\D/g, '')
 conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${!pasatiempoIngresado ? 'CON LETRAS 🔡' : pasatiempoIngresado === undefined ? 'DE ALGUNA POSICIÓN' :  pasatiempoIngresado}" NO FORMA PARTE DE LA LISTA DE PASATIEMPOS*`, fkontak, m)
 return
 }}	
-//var pasatiemposSet = new Set(todosLosPasatiempos)
-//var todosLosPasatiemposOrdenados = Array.from(pasatiemposSet).sort(function(a, b) {
-//return a.slice(2).localeCompare(b.slice(2), undefined, { sensitivity: 'base' })
-//})
-/*let yyr = ''
-yyr += `*╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮*
-*┊ 🎉 SELECCIONE SU PASATIEMPO!!*
-*┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯*\n`;
-todosLosPasatiemposOrdenados.forEach(function (pasatiempo, index) {
-yyr += ` [ ${index + 1} ] » ${pasatiempo}\n`
-});
-yyr += `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
-var maximoIndice = todosLosPasatiemposOrdenados.length - 0
-function seleccionarPasatiempos(texto) {
-var seleccionados = texto.split(',').map(function(item) {
-return item.trim()
-})*/
 let yyr1 = ''; let yyr2 = ''; let yyr3 = ''; let yyr4 = ''
 let header = `╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮
 ┊ 🎉 ¡PASATIEMPOS DISPONIBLES!
-┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯\n`
+╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯\n`
 yyr1 += header; yyr2 += header; yyr3 += header; yyr4 += header
 //.replace(/[^\p{L}\p{N}]/gu, '') // Elimina caracteres que no sean letras o números
 let primeraParte = todosLosPasatiemposOrdenados.slice(0, 500)
@@ -2403,10 +2384,10 @@ conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA AG
 }else{
 conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${pasatiempoSeleccionado === undefined ? 'DE ALGUNA POSICIÓN' : pasatiempoSeleccionado }" YA HA SIDO SELECCIONADO*`, fkontak, m)
 }} else {
-await conn.sendEvent(m.chat, gt + " - Primera lista de pasatiempos.", `🌟 *SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n*Para seleccionar varios pasatiempos separé por comas (,) además puede usar números o emojis numéricos, ejemplo:*\n\n✪ *(1 pasatiempo)*\n✓ \`\`\`${usedPrefix}pasatiempo 2️⃣\`\`\`\n\n✪ *(2 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 45, 65\`\`\`\n\n✪ *(3 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 2️⃣4️⃣, 1️⃣5️⃣6️⃣, 8️⃣9️⃣\`\`\`\n\n✪ *(4 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 223, 456, 6, 4\`\`\`\n\n✪ *(5 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 56, 5️⃣1️⃣6️⃣, 345, 2️⃣4️⃣, 200\`\`\`\n\n_Si quieres que este un pasatiempo que no forma parte de esta lista contacta con los creadores de este bot._`, "Toca para ver más\n" + yyr1 + "\n\nPara ver más pasatiempo revise los otros mensajes del bot.", false)
+await conn.sendEvent(m.chat, gt + " - Primera lista de pasatiempos.", `🌟 *SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n*Para seleccionar varios pasatiempos separé por comas (,) además puede usar números o emojis numéricos, ejemplo:*\n\n✪ *(1 pasatiempo)*\n✓ \`\`\`${usedPrefix}pasatiempo 2️⃣\`\`\`\n\n✪ *(2 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 45, 65\`\`\`\n\n✪ *(3 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 2️⃣4️⃣, 1️⃣5️⃣6️⃣, 8️⃣9️⃣\`\`\`\n\n✪ *(4 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 223, 456, 6, 4\`\`\`\n\n✪ *(5 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 56, 5️⃣1️⃣6️⃣, 345, 2️⃣4️⃣, 200\`\`\`\n\n_Si quieres que este un pasatiempo que no forma parte de esta lista contacta con los creadores de este bot._\n\n⚠️ _Puedes omitir agregar pasatiempos con el comando *#finalizar* pero ten en cuenta que no recibirás recompensas ni tiempo premium gratis._`, "Toca para ver más\n" + yyr1 + "\n\nPara ver más pasatiempo revise los otros mensajes del bot.", false)
 await conn.sendEvent(m.chat, "Segunda lista de pasatiempos.", `*Para ver las idicaciones para seleccionar pasatiempos, dirígete al primer mensaje del evento.*\n\n_Si quieres que este un pasatiempo que no forma parte de esta lista contacta con los creadores de este bot._`, "Toca para ver más\n" + yyr2 + "\n\nPara ver más pasatiempos revise los otros mensajes del bot.", false)
 await conn.sendEvent(m.chat, "Tercera lista de pasatiempos.", `*Para ver las idicaciones para seleccionar pasatiempos, dirígete al primer mensaje del evento.*`, "Toca para ver más\n" + yyr3 + "\n\nPara ver más pasatiempos revise los otros mensajes del bot.", false)
-await conn.sendEvent(m.chat, "Última lista de pasatiempos. Puedes omitir agregar pasatiempos con el comando #finalizar pero ten en cuenta que no recibirás recompensas ni tiempo premium gratis.", `*Para ver las idicaciones para seleccionar pasatiempos, dirígete al primer mensaje del evento.*`, "Toca para ver más\n" + yyr4 + "\n\nMás pasatiempos próximamente...", false)
+await conn.sendEvent(m.chat, "Última lista de pasatiempos.", `*Para ver las idicaciones para seleccionar pasatiempos, dirígete al primer mensaje del evento.*`, "Toca para ver más\n" + yyr4 + "\n\nMás pasatiempos próximamente...", false)
 }}
 seleccionarPasatiempos(seleccion)
 }	
