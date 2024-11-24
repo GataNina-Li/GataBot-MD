@@ -13,7 +13,7 @@ Autor: ${resultJson.author}
 Descripción: ${resultJson.description}`
   
 //conn.sendMessage(m.chat, {image: {url: resultJson.link}, caption: txt.trim()}, {quoted: m})
-conn.sendEventV2(m.chat, "Text", "Descripción", "99999999999999999999999999999999999999999999", true)
+conn.sendEventV2(m.chat, "Text", "Descripción", "Toca para ver más", false)
   
 }
 
