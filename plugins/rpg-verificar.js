@@ -4983,7 +4983,7 @@ yyr1 += header; yyr2 += header; yyr3 += header; yyr4 += header
 let primeraParte = todosLosPasatiemposOrdenados.slice(0, 500)
 let segundaParte = todosLosPasatiemposOrdenados.slice(500, 1000)
 let terceraParte = todosLosPasatiemposOrdenados.slice(1000, 1500)
-let cuartaParte = todosLosPasatiemposOrdenados.slice(2000)
+let cuartaParte = todosLosPasatiemposOrdenados.slice(1500)
 	
 primeraParte.forEach((pasatiempo, index) => {
 yyr1 += ` [ ${index + 1} ] » ${pasatiempo}\n`
