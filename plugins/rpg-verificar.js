@@ -716,7 +716,7 @@ yyr3 += ` [ ${index + 1001} ] » ${pasatiempo}\n`
 let footer = `*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*`
 yyr1 += footer; yyr2 += footer; yyr3 += footer
 var maximoIndice = todosLosPasatiemposOrdenados.length - 0
-function seleccionarPasatiempos(texto) {
+async function seleccionarPasatiempos(texto) {
 var seleccionados = texto.split(',').map(function(item) {
 return item.trim()
 })
