@@ -95,6 +95,7 @@ _registro[0] = text.replace(/\s+/g, '').replace(/[0-9]+/gi, "")
 user.name = _registro[0]
 
 if (!_registro[1]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}*FALTA SU EDAD, PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``, fkontak, m)
+if (isNaN(_registro[1])) return conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}*NO SE ENCONTRÓ LA EDAD, RECUERDE USAR:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\`\n\n> *Nota:* No use prefijos ni símbolos entre el nombre y edad, solo es válido un espacio entre el nombre y la edad.`, fkontak, m)
 if (_registro[1] > 90) return conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}*SU EDAD ES MUY MAYOR, USE OTRA EDAD POR FAVOR*\n\n*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``, fkontak, m)
 if (_registro[1] < 10) return conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}*SU EDAD ES MUY MENOR, USE OTRA EDAD POR FAVOR*\n\n*PARÁMETROS DEL REGISTRO:*\n\`\`\`${usedPrefix + command} nombre edad\`\`\``, fkontak, m)
 user.age = parseInt(_registro[1]) //_registro[1]	
@@ -2384,7 +2385,7 @@ conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA AG
 }else{
 conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${pasatiempoSeleccionado === undefined ? 'DE ALGUNA POSICIÓN' : pasatiempoSeleccionado }" YA HA SIDO SELECCIONADO*`, fkontak, m)
 }} else {
-await conn.sendEvent(m.chat, gt + " - Primera lista de pasatiempos.", `🌟 *SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n*Para seleccionar varios pasatiempos separé por comas (,) además puede usar números o emojis numéricos, ejemplo:*\n\n✪ *(1 pasatiempo)*\n✓ \`\`\`${usedPrefix}pasatiempo 2️⃣\`\`\`\n\n✪ *(2 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 45, 65\`\`\`\n\n✪ *(3 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 2️⃣4️⃣, 1️⃣5️⃣6️⃣, 8️⃣9️⃣\`\`\`\n\n✪ *(4 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 223, 456, 6, 4\`\`\`\n\n✪ *(5 pasatiempos)*\n✓ \`\`\`${usedPrefix}genero 56, 5️⃣1️⃣6️⃣, 345, 2️⃣4️⃣, 200\`\`\`\n\n_Si quieres que este un pasatiempo que no forma parte de esta lista contacta con los creadores de este bot._\n\n⚠️ _Puedes omitir agregar pasatiempos con el comando *#finalizar* pero ten en cuenta que no recibirás recompensas ni tiempo premium gratis._`, "Toca para ver más\n" + yyr1 + "\n\nPara ver más pasatiempo revise los otros mensajes del bot.", false)
+await conn.sendEvent(m.chat, gt + " - Primera lista de pasatiempos.", `🌟 *SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n*Para seleccionar varios pasatiempos separé por comas (,) además puede usar números o emojis numéricos, ejemplo:*\n\n✪ *(1 pasatiempo)*\n✓ \`\`\`${usedPrefix + command} 2️⃣\`\`\`\n\n✪ *(2 pasatiempos)*\n✓ \`\`\`${usedPrefix + command} 45, 65\`\`\`\n\n✪ *(3 pasatiempos)*\n✓ \`\`\`${usedPrefix + command} 2️⃣4️⃣, 1️⃣5️⃣6️⃣, 8️⃣9️⃣\`\`\`\n\n✪ *(4 pasatiempos)*\n✓ \`\`\`${usedPrefix + command} 223, 456, 6, 4\`\`\`\n\n✪ *(5 pasatiempos)*\n✓ \`\`\`${usedPrefix + command} 56, 5️⃣1️⃣6️⃣, 345, 2️⃣4️⃣, 200\`\`\`\n\n_Si quieres que este un pasatiempo que no forma parte de esta lista contacta con los creadores de este bot._\n\n⚠️ _Puedes omitir agregar pasatiempos con el comando *#finalizar* pero ten en cuenta que si omites agregar pasatiempos no recibirás recompensas ni tiempo premium gratis._`, "Toca para ver más\n" + yyr1 + "\n\nPara ver más pasatiempo revise los otros mensajes del bot.", false)
 await conn.sendEvent(m.chat, "Segunda lista de pasatiempos.", `*Para ver las idicaciones para seleccionar pasatiempos, dirígete al primer mensaje del evento.*\n\n_Si quieres que este un pasatiempo que no forma parte de esta lista contacta con los creadores de este bot._`, "Toca para ver más\n" + yyr2 + "\n\nPara ver más pasatiempos revise los otros mensajes del bot.", false)
 await conn.sendEvent(m.chat, "Tercera lista de pasatiempos.", `*Para ver las idicaciones para seleccionar pasatiempos, dirígete al primer mensaje del evento.*`, "Toca para ver más\n" + yyr3 + "\n\nPara ver más pasatiempos revise los otros mensajes del bot.", false)
 await conn.sendEvent(m.chat, "Última lista de pasatiempos.", `*Para ver las idicaciones para seleccionar pasatiempos, dirígete al primer mensaje del evento.*`, "Toca para ver más\n" + yyr4 + "\n\nMás pasatiempos próximamente...", false)
@@ -2415,7 +2416,7 @@ fecha = `${week}, ${date} || `
 hora = `${time}`
 user.tiempo = fecha + hora
 user.name = user.name === 0 ? sinDefinir : user.name + 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ'
-user.age = user.age === 0 ? sinDefinir : user.age >= 18 ? user.age += ' Años *||* ' + '(Persona Adulta)' : user.age += ' Años *||* ' + '(Persona Joven)'
+user.age = user.age === 0 ? sinDefinir : user.age >= 18 ? user.age += ' Años ' + '(Persona Adulta)' : user.age += ' Años ' + '(Persona Joven)'
 user.descripcion = bio	
 }
 user.regTime = + new Date
