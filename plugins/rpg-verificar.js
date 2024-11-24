@@ -2321,7 +2321,8 @@ if (numero >= 1 && numero <= todosLosPasatiemposOrdenados.length) {
 return todosLosPasatiemposOrdenados[numero - 1]
 } else if (text.trim() !== "") {
 var pasatiempoIngresado = text.replace(/\D/g, '')
-return conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${!pasatiempoIngresado ? 'CONTIENE LETRAS 🔡' : pasatiempoIngresado === undefined ? 'DE ALGUNA POSICIÓN' :  pasatiempoIngresado}" QUE NO FORMA PARTE DE LA LISTA DE PASATIEMPOS*`, fkontak, m)
+conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${!pasatiempoIngresado ? 'CONTIENE LETRAS 🔡' : pasatiempoIngresado === undefined ? 'DE ALGUNA POSICIÓN' :  pasatiempoIngresado}" QUE NO FORMA PARTE DE LA LISTA DE PASATIEMPOS*`, fkontak, m)
+return
 }}	
 let yyr1 = ''; let yyr2 = ''; let yyr3 = ''; let yyr4 = ''
 let header = `╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮
@@ -2382,8 +2383,10 @@ global.db.data.users[m.sender]['registroC'] = true
 conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoEG']()}*GENIAL!! SE HA AGREGADO \`${pasatiemposSeleccionados.length}/5\` PASATIEMPOS*\n*- - - - - - - - - - - - - - - - - - - - - - - - - - - -*\n\n*${user.pasatiempo === 0 ? sinDefinir : user.pasatiempo}*\n\n🌟 *PARA GUARDAR SU REGISTRO ESCRIBA:*\n\`\`\`${usedPrefix}finalizar\`\`\``}, {quoted: fkontak})	
 //console.log("Pasatiempos por separado:", pas1, pas2, pas3, pas4, pas5)
 }else{
-return conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${pasatiempoSeleccionado === undefined ? 'DE ALGUNA POSICIÓN' : pasatiempoSeleccionado }" YA HA SIDO SELECCIONADO*`, fkontak, m) 
+conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*EL PASATIEMPO "${pasatiempoSeleccionado === undefined ? 'DE ALGUNA POSICIÓN' : pasatiempoSeleccionado }" YA HA SIDO SELECCIONADO*`, fkontak, m) 
+return
 }} else {
+//if (text) return
 await conn.sendEvent(m.chat, gt + " - Primera lista de pasatiempos.", `🌟 *SELECCIONE MÍNIMO UN PASATIEMPO Y MÁXIMO CINCO PASATIEMPOS*\n\n*Para seleccionar varios pasatiempos separé por comas (,) además puede usar números o emojis numéricos, ejemplo:*\n\n✪ *(1 pasatiempo)*\n✓ \`\`\`${usedPrefix + command} 2️⃣\`\`\`\n\n✪ *(2 pasatiempos)*\n✓ \`\`\`${usedPrefix + command} 45, 65\`\`\`\n\n✪ *(3 pasatiempos)*\n✓ \`\`\`${usedPrefix + command} 2️⃣4️⃣, 1️⃣5️⃣6️⃣, 8️⃣9️⃣\`\`\`\n\n✪ *(4 pasatiempos)*\n✓ \`\`\`${usedPrefix + command} 223, 456, 6, 4\`\`\`\n\n✪ *(5 pasatiempos)*\n✓ \`\`\`${usedPrefix + command} 56, 5️⃣1️⃣6️⃣, 345, 2️⃣4️⃣, 200\`\`\`\n\n_Si quieres que este un pasatiempo que no forma parte de esta lista contacta con los creadores de este bot._\n\n⚠️ _Puedes omitir agregar pasatiempos con el comando *#finalizar* pero ten en cuenta que si omites agregar pasatiempos no recibirás recompensas ni tiempo premium gratis._`, "Toca para ver más\n" + yyr1 + "\n\nPara ver más pasatiempo revise los otros mensajes del bot.", false)
 await conn.sendEvent(m.chat, "Segunda lista de pasatiempos.", `*Para ver las idicaciones para seleccionar pasatiempos, dirígete al primer mensaje del evento.*\n\n_Si quieres que este un pasatiempo que no forma parte de esta lista contacta con los creadores de este bot._`, "Toca para ver más\n" + yyr2 + "\n\nPara ver más pasatiempos revise los otros mensajes del bot.", false)
 await conn.sendEvent(m.chat, "Tercera lista de pasatiempos.", `*Para ver las idicaciones para seleccionar pasatiempos, dirígete al primer mensaje del evento.*`, "Toca para ver más\n" + yyr3 + "\n\nPara ver más pasatiempos revise los otros mensajes del bot.", false)
