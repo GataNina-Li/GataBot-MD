@@ -700,7 +700,7 @@ let header = `*╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮*
 *┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯*\n`
 yyr1 += header; yyr2 += header; yyr3 += header
 
-let primeraParte = todosLosPasatiemposOrdenados.slice(0, 100)
+let primeraParte = todosLosPasatiemposOrdenados.slice(0, 50)
 let segundaParte = todosLosPasatiemposOrdenados.slice(500, 1000)
 let terceraParte = todosLosPasatiemposOrdenados.slice(1000)
 
