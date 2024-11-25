@@ -1,5 +1,6 @@
 import { canLevelUp, xpRange } from '../lib/levelling.js'
 import { levelup } from '../lib/canvas.js'
+import './_content.js'
 
 let handler = m => m
 handler.before = async function (m, { conn, usedPrefix }) {
