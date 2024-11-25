@@ -1,9 +1,3 @@
-/*
-⚠ PROHIBIDO EDITAR ⚠
-El codigo de este archivo fue actualizado por:
-- OfcDiego >> https://github.com/OfcDiego
-*/
-
 let handler = async (m, { conn, text }) => {
 
 if (!text) return m.reply('╰⊱❌⊱ *ERROR* / *MISTAKE* ⊱❌⊱╮\n𝗘𝗦𝗖𝗥𝗜𝗕𝗔 𝗘𝗟 𝗡𝗢𝗠𝗕𝗥𝗘 𝗗𝗘𝗟 𝗚𝗥𝗨𝗣𝗢 🌟\n\n𝗪𝗥𝗜𝗧𝗘 𝗧𝗛𝗘 𝗡𝗔𝗠𝗘 𝗢𝗙 𝗧𝗛𝗘 𝗚𝗥𝗢𝗨𝗣 🌟')
@@ -13,14 +7,14 @@ m.reply('╰⊱✅️⊱ *REALIZADO* / *DONE* ⊱✅️⊱╮\n😊 𝗖𝗥𝗘
 let group = await conn.groupCreate(text, [m.sender])
 let link = await conn.groupInviteCode(group.gid)
 let url = 'https://chat.whatsapp.com/' + link;
-m.reply('*Link:* ' + url)
+m.reply('😺 *Link del Grupo:* ' + url)
 } catch (e) {
 m.reply(`╰⊱❌⊱ *FALLÓ* / *FAILED* ⊱❌⊱╮\n❌ 𝗘𝗥𝗥𝗢𝗥\n\n❌ 𝗠𝗜𝗦𝗧𝗔𝗞𝗘`)
 }
 }
-handler.help = ['creargc *<nombre>*']
+handler.help = ['newgc *<nombre>*']
 handler.tags = ['owner']
-handler.command = /^(creargrupo|creargroup|creargc|gccreate)$/
+handler.command = ['newgc', 'gcnew', 'creargc', 'creargrupo']
 handler.owner = true
 //handler.premium = false
 export default handler
