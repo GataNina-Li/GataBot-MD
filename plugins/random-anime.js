@@ -93,12 +93,12 @@ conn.sendFile(m.chat, url, 'error.jpg', `*🇦🇷 Messi*`, m, null, fake);
 //conn.sendButton(m.chat, '*🇦🇷 Messi*', botname, url, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/${command}`]], null, null, m)   
 }
 
-/*if (command == 'navidad') {  
+if (command == 'navidad') {  
  const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/navidad.json`)).data;
   const tee = await res[Math.floor(res.length * Math.random())];
 conn.sendFile(m.chat, tee, 'error.jpg', `*_Navidad 🧑‍🎄*`, m, null, fake);  
 //conn.sendButton(m.chat, '_Navidad 🧑‍🎄_', botname, tee, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/${command}`]], null, null, m)   
-}*/
+}
 
 if (command == 'neko') {  
 const ne = await (await fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/anime/neko.txt')).text();
