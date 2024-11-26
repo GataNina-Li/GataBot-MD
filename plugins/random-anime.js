@@ -46,7 +46,7 @@ conn.sendFile(m.chat, loli, 'error.jpg', `_${command}_`, m, null, fake);
 
 if (command == 'kpop') {  
 if (args.length == 0) return conn.reply(m.chat, `Usar ${usedPrefix}kpop\nPor favor escribe: ${usedPrefix}kpop [buscar]\nEjemplo:: ${usedPrefix}kpop bts\n\nBusquedas disponibles:\nblackpink, exo, bts`, m);
-  if (args[0] == 'blackpink' || args[0] == 'exo' || args[0] == 'bts') {
+if (args[0] == 'blackpink' || args[0] == 'exo' || args[0] == 'bts') {
     fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/' + args[0] + '.txt')
         .then((res) => res.text())
         .then((body) => {
@@ -321,7 +321,7 @@ if (command == 'clima3') {
 
 let pp=`https://image.thum.io/get/width/800/crop/580/https://pt.wttr.in/${text}?m`
 //let pp = `https://api.screenshotmachine.com/?key=c04d3a&url=https://pt.wttr.in/${text}&screenshotmachine.com&dimension=1000x600`
-conn.sendFile(m.chat, pp, 'error.jpg', `✨ *AQUI ESTÁ O TEMPO EM PORTUGUÊS*`, m, null, fake)}
+conn.sendFile(m.chat, pp, 'error.jpg', `✨ *AQUI ESTÁ O TEMPO EM PORTUGUÊS*`, m, null, fake)
 //conn.sendButton(m.chat, `✨ *AQUI ESTÁ O TEMPO EM PORTUGUÊS*`, wm, pp, [['💙 𝙑𝙚𝙧𝙨𝙞𝙤𝙣 𝙀𝙨𝙥𝙖𝙣𝙤𝙡', `.clima ${text}`],['💜 𝙀𝙣𝙜𝙡𝙞𝙨𝙝 𝙫𝙚𝙧𝙨𝙞𝙤𝙣', `.clima2 ${text}`],  ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']], [['𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', md]], m)
 }}
 handler.command = handler.help = ['akira', 'akiyama', 'anna', 'asuna', 'ayuzawa', 'boruto', 'chiho', 'chitoge', 'deidara', 'erza', 'elaina', 'eba', 'emilia', 'hestia', 'hinata', 'inori', 'isuzu', 'itachi', 'itori', 'kaga', 'kagura', 'kaori', 'keneki', 'kotori', 'kurumi', 'madara', 'mikasa', 'miku', 'minato', 'naruto', 'nezuko', 'sagiri', 'sasuke', 'sakura', 'cosplay', 'blackpink', 'cristianoronaldo', 'cr7', 'cat', 'itzy', 'kpopitzy', 'kpop', 'loli', 'lolivid', 'lolivideos', 'lolívid', 'meme', 'memes', 'meme2', 'memes2', 'messi', 'navidad', 'neko', 'ppcp', 'ppcouple', 'waifu', 'wpmontaña', 'pubg', 'wpgaming', 'wpaesthetic', 'wprandom', 'coffee', 'pentol', 'caricatura', 'ciberespacio', 'technology', 'doraemon', 'hacker', 'planeta', 'randomprofile', 'wpaesthetic2', 'wpvehiculo', 'wallhp', 'wpmoto', 'pies', 'chica', 'chico', 'clima', 'clima2', 'clima3'];
