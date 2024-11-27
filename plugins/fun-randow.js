@@ -2,19 +2,59 @@ let handler = async (m, { conn, command, text, usedPrefix, args}) => {
 if (!db.data.chats[m.chat].game) throw `${lenguajeGB['smsAvisoAG']()}𝙇𝙊𝙎 𝙅𝙐𝙀𝙂𝙊𝙎 𝙀𝙎𝙏𝘼𝙎 𝘿𝙀𝙎𝘼𝘾𝙏𝙄𝙑𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝙂𝙍𝙐𝙋𝙊, 𝙎𝙄 𝙀𝙍𝙀𝙎 𝘼𝘿𝙈𝙄𝙉𝙎 𝙋𝙐𝙀𝘿𝙀 𝘼𝘾𝙏𝙄𝙑𝘼𝙍𝙇𝙊 𝘾𝙊𝙉 : #on juegos` 
 
 if (command == 'piropo') {
-await m.reply(`╭┄〔 *${wm}* 〕┄⊱\n┊\nდ *"${pickRandom(global.piropo)}"*\n┊\n*╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ*`)
+let query = 'Cuéntame un piropo, solo di el piropo no agregue mas texto.';
+let username = m.sender;
+let logic = "piropo";
+let result;
+try {
+result = await luminsesi(query, username, logic);
+if (!result || result.trim() === "") throw new Error("Respuesta vacía");
+} catch (error) {
+result = pickRandom(global.piropo); 
+}
+await m.reply(`╭┄〔 *${wm}* 〕┄⊱\n┊\nდ ${result}\n┊\n*╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ*`)
 }
 
-if (command == 'chiste') { 
-await m.reply(`╭┄〔 *${wm}* 〕┄⊱\n┊\n *😹 ${pickRandom(global.chiste)} 😹*\n┊\n*╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ*`)
+if (command == 'chiste') {
+let query = 'Cuéntame un chiste, puede ser de cualquier tipo de humor, no repita los chiste haz chiste como jaimito, yayo, solo di el chiste no agregue mas texto y haz chiste nuevo 2024 no repitan los mismo chiste pasado xD.'; 
+let username = m.sender;
+let logic = "chiste";
+let result;
+try {
+result = await luminsesi(query, username, logic);
+if (!result || result.trim() === "") throw new Error("Respuesta vacía");
+} catch (error) {
+result = pickRandom(global.chiste);
+}
+await m.reply(`╭┄〔 *${wm}* 〕┄⊱\n┊\n${result}\n┊\n*╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ*`)
 }
 
 if (command == 'reto') {
-await conn.reply(m.chat,`╭━━━━━[ 𝙍𝙀𝙏𝙊 😏 ]━━━━⬣\n*“${pickRandom(global.bucin)}”*\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m)
+let query = 'Dame un reto interesante para hacer, solo di el reto no agregue mas texto y no repitan los reto, que sea diferentes y divertido.'; 
+let username = m.sender; 
+let logic = "reto"; 
+let result;
+try {
+result = await luminsesi(query, username, logic);
+if (!result || result.trim() === "") throw new Error("Respuesta vacía");
+} catch (error) {
+result = pickRandom(global.bucin);
+}
+await conn.reply(m.chat,`╭━━━━━[ 𝙍𝙀𝙏𝙊 😏 ]━━━━⬣\n${result}\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m)
 }
 
 if (command == 'verdad') {
-await conn.reply(m.chat,`╭━━━━[ 𝙑𝙀𝙍𝘿𝘼𝘿 🤔 ]━━━━⬣\n*“${pickRandom(global.bucin)}”*\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m)
+let query = 'Dame una pregunta de verdad intrigante'; 
+let username = m.sender;
+let logic = "verdad"; 
+let result;
+try {
+result = await luminsesi(query, username, logic);
+if (!result || result.trim() === "") throw new Error("Respuesta vacía");
+} catch (error) {
+result = pickRandom(global.bucin);
+}
+await conn.reply(m.chat,`╭━━━━[ 𝙑𝙀𝙍𝘿𝘼𝘿 🤔 ]━━━━⬣\n${result}\n╰━━━━━━[ ${vs} ]━━━━━⬣`, m)
 }
 
 if (command == 'frases') { 
@@ -42,6 +82,19 @@ handler.tags = ['fun']
 handler.command = ['piropo', 'chiste', 'reto', 'verdad', 'frases']
 handler.register = true
 export default handler
+
+async function luminsesi(q, username, logic) {
+try {
+const response = await axios.post("https://luminai.my.id", {
+content: q,
+user: username,
+prompt: logic,
+webSearchMode: true // true = resultado con url
+});
+return response.data.result;
+} catch (error) {
+console.error(error);
+}}
 
 function pickRandom(list) {
 return list[Math.floor(list.length * Math.random())]}
