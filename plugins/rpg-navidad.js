@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 import axios from 'axios';
-let handler = async (m, { isPrems, conn }) => {
+let handler = async (m, { isPrems, conn, command }) => {
 /*let grupos = [nna, nn, nnn, nnnt]
 let gata = [img5, img6, img7, img8, img9]
 let enlace = { contextInfo: { externalAdReply: {title: wm + ' 🐈', body: 'support group' , sourceUrl: grupos.getRandom(), thumbnail: await(await fetch(gata.getRandom())).buffer() }}}
