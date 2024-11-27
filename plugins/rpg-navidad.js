@@ -1,19 +1,12 @@
 import fetch from 'node-fetch'
 import axios from 'axios';
-let handler = async (m, { isPrems, conn, command }) => {
+let handler = async (m, { isPrems, conn }) => {
 /*let grupos = [nna, nn, nnn, nnnt]
 let gata = [img5, img6, img7, img8, img9]
 let enlace = { contextInfo: { externalAdReply: {title: wm + ' 🐈', body: 'support group' , sourceUrl: grupos.getRandom(), thumbnail: await(await fetch(gata.getRandom())).buffer() }}}
 let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', thumbnailUrl: await(await fetch(global.img)).buffer(), sourceUrl: yt }}}
 let dos = [enlace, enlace2]    */
 
-if (command == 'navidad') {  
- const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/navidad.json`)).data;
-  const tee = await res[Math.floor(res.length * Math.random())];
-conn.sendFile(m.chat, tee, 'error.jpg', `*_Navidad 🧑‍🎄*`, m, null, fake);  
-//conn.sendButton(m.chat, '_Navidad 🧑‍🎄_', botname, tee, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/${command}`]], null, null, m)   
-
-if (command == 'navidad2') {  
 let user = global.db.data.users[m.sender]
 let premium = user.premium
 
@@ -64,7 +57,7 @@ let img = 'https://img.freepik.com/vector-gratis/gente-diminuta-enormes-cajas-re
 await conn.sendFile(m.chat, img, 'navidad.jpg', `${text}\n${texto}` + `\n\n🎟️ 𝗣 𝗥 𝗘 𝗠 𝗜 𝗨 𝗠 ⇢ ${premium ? '✅' : '❌'}\n${wm}`, m, null, fake);
 //conn.sendButton(m.chat, text, texto + `\n\n🎟️ 𝗣 𝗥 𝗘 𝗠 𝗜 𝗨 𝗠 ⇢ ${premium ? '✅' : '❌'}\n${wm}`, img, [['⛰️ 𝘼𝘽𝙍𝙄𝙍 𝘾𝙊𝙁𝙍𝙀 | 𝘾𝙊𝙁𝙁𝙀𝙍 ⛰️', '/cofre'], ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']], m, dos.getRandom())  
 user.lastclaim = new Date * 1
-}}}
+}
 handler.help = ['navidad']
 handler.tags = ['diamantes']
 handler.command = ['navidad', 'navidad2'] 
