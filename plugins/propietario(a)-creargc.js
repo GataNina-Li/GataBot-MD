@@ -1,15 +1,15 @@
 let handler = async (m, { conn, text }) => {
 
-if (!text) return m.reply('╰⊱❌⊱ *ERROR* / *MISTAKE* ⊱❌⊱╮\n𝗘𝗦𝗖𝗥𝗜𝗕𝗔 𝗘𝗟 𝗡𝗢𝗠𝗕𝗥𝗘 𝗗𝗘𝗟 𝗚𝗥𝗨𝗣𝗢 🌟\n\n𝗪𝗥𝗜𝗧𝗘 𝗧𝗛𝗘 𝗡𝗔𝗠𝗘 𝗢𝗙 𝗧𝗛𝗘 𝗚𝗥𝗢𝗨𝗣 🌟')
+if (!text) return m.reply(`${lenguajeGB['smsAvisoAG']()}🐈 𝙔 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝘿𝙀𝙇 𝙂𝙍𝙐𝙋𝙊?`)
 try{
-//m.react('🚀')
-m.reply('╰⊱✅️⊱ *REALIZADO* / *DONE* ⊱✅️⊱╮\n😊 𝗖𝗥𝗘𝗔𝗡𝗗𝗢 𝗘𝗟 𝗚𝗥𝗨𝗣𝗢, 𝗕𝗬: 𝗚𝗔𝗧𝗔𝗕𝗢𝗧\n\n😊 𝗖𝗥𝗘𝗔𝗧𝗜𝗡𝗚 𝗧𝗛𝗘 𝗚𝗥𝗢𝗨𝗣, 𝗕𝗬: 𝗚𝗔𝗧𝗔𝗕𝗢𝗧')
+//m.react('⏰️')
+m.reply(`${lenguajeGB['smsAvisoEG']()}🐱 𝘾𝙍𝙀𝘼𝙉𝘿𝙊 𝙀𝙇 𝙂𝙍𝙐𝙋𝙊....`)
 let group = await conn.groupCreate(text, [m.sender])
 let link = await conn.groupInviteCode(group.gid)
 let url = 'https://chat.whatsapp.com/' + link;
 m.reply('😺 *Link del Grupo:* ' + url)
 } catch (e) {
-m.reply(`╰⊱❌⊱ *FALLÓ* / *FAILED* ⊱❌⊱╮\n❌ 𝗘𝗥𝗥𝗢𝗥\n\n❌ 𝗠𝗜𝗦𝗧𝗔𝗞𝗘`)
+m.reply(`${lenguajeGB['smsAvisoFG']()}😿 𝙊𝘾𝙐𝙍𝙍𝙄𝙊́ 𝙐𝙉 𝙀𝙍𝙍𝙊𝙍.`)
 }
 }
 handler.help = ['newgc *<nombre>*']
