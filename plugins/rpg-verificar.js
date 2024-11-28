@@ -4,6 +4,8 @@ import fetch from 'node-fetch'
 import PhoneNumber from 'awesome-phonenumber'
 import moment from 'moment-timezone'
 import axios from 'axios'
+import _ from "lodash"
+
 let nombre = 0, edad = 0, genero = 0, bio = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, registrando, fechaBio
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0  
 
@@ -36,7 +38,8 @@ let nombreWA = await usedPrefix + conn.getName(m.sender) //'@' + m.sender.split(
 let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
 
-let biografia = await conn.fetchStatus(m.sender).catch(() => null)
+let who2 = m.isGroup ? _.get(m, "mentionedJid[0]", m.quoted?.sender || m.sender) : m.sender
+let biografia = await conn.fetchStatus(who2).catch(() => null)
 if (!biografia || biografia.status === null) {
 bio = sinDefinir
 fechaBio = "Fecha no disponible"
