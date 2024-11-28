@@ -41,7 +41,7 @@ if (!biografia || biografia.status === null) {
 bio = sinDefinir
 fechaBio = "Fecha no disponible"
 } else {
-bio = biografia.status
+bio = biografia.status || sinDefinir
 fechaBio = biografia.setAt ? new Date(biografia.setAt).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric", }) : "Fecha no disponible"
 }
 	
