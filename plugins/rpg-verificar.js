@@ -40,13 +40,12 @@ let verificar = new RegExp(usedPrefix)
 
 let who2 = m.isGroup ? _.get(m, "mentionedJid[0]", m.quoted?.sender || m.sender) : m.sender
 let biografia = await conn.fetchStatus(who2).catch(() => null)
-console.log(biografia)
-if (!biografia || biografia.status === null) {
+if (!biografia || !biografia[0] || biografia[0].status === null) {
 bio = sinDefinir
 fechaBio = "Fecha no disponible"
 } else {
-bio = biografia.status || sinDefinir
-fechaBio = biografia.setAt ? new Date(biografia.setAt).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric", }) : "Fecha no disponible"
+bio = biografia[0].status || sinDefinir
+fechaBio = biografia[0].setAt ? new Date(biografia[0].setAt).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric", }) : "Fecha no disponible"
 }
 	
 let intervalId
