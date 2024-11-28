@@ -40,6 +40,7 @@ let verificar = new RegExp(usedPrefix)
 
 let who2 = m.isGroup ? _.get(m, "mentionedJid[0]", m.quoted?.sender || m.sender) : m.sender
 let biografia = await conn.fetchStatus(who2).catch(() => null)
+console.log(biografia)
 if (!biografia || biografia.status === null) {
 bio = sinDefinir
 fechaBio = "Fecha no disponible"
