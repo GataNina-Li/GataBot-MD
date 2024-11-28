@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 import PhoneNumber from 'awesome-phonenumber'
 import moment from 'moment-timezone'
 import axios from 'axios'
-let nombre = 0, edad = 0, genero = 0, bio = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, registrando
+let nombre = 0, edad = 0, genero = 0, bio = 0, identidad = 0, pasatiempo = 0, registro, _registro, fecha, hora, tiempo, registrando, fechaBio
 let pas1 = 0, pas2 = 0, pas3 = 0, pas4 = 0, pas5 = 0  
 
 let handler = async function (m, { conn, text, command, usedPrefix }) {
@@ -35,8 +35,15 @@ return list[Math.floor(Math.random() * list.length)]}
 let nombreWA = await usedPrefix + conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0]
 let user = global.db.data.users[m.sender]
 let verificar = new RegExp(usedPrefix)
+
 let biografia = await conn.fetchStatus(m.sender).catch(() => null)
-bio = biografia.status || sinDefinir
+if (!biografia || biografia.status === null) {
+bio = sinDefinir
+fechaBio = "Fecha no disponible"
+} else {
+bio = biografia.status
+fechaBio = biografia.setAt ? new Date(biografia.setAt).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric", }) : "Fecha no disponible"
+}
 	
 let intervalId
 function mensajeRegistro() {
@@ -2444,6 +2451,8 @@ text: `🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
 ❱❱ ${user.name}\n
 👀 *DESCRIPCIÓN*
 ❱❱ ${user.descripcion}\n
+⏳ *MODIFICACIÓN DE DESCRIPCIÓN*
+❱❱ ${fechaBio}\n
 🔢 *EDAD* 
 ❱❱ ${user.age}\n
 ${user.registroC === true ? `☘️ *GÉNERO*
@@ -2470,7 +2479,8 @@ let chtxt = `📑 *Tipo de registro »* ${user.registroC === true ? 'Completo' :
 🌎 *País »* ${userNationality}
 👤 *Usuario »* ${m.pushName || 'Anónimo'}
 ✅ *Verificación »* ${user.name}
-👀 *Descripción »* ${user.descripcion}
+👀 *Descripción »* ${user.descripcion} 
+⏳ *Modificación de descripción »* ${fechaBio}
 🔢 *Edad »* ${user.age}${user.registroC === true ? `\n☘️ *Género »* ${user.genero}
 🌱 *Orientación Sexual »* ${user.identidad}
 ❇️ *Pasatiempo(s) »* ${user.pasatiempo}
