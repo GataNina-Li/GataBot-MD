@@ -1,4 +1,4 @@
-const handler = async (m, {conn, args, usedPrefix, command}) => {
+const handler = async (m, {conn, usedPrefix, command}) => {
 const args = m.text.split(' ').slice(1); 
 if (args.length < 2) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()} 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝙄𝙉𝙂𝙍𝙀𝙎𝘼 𝙇𝘼 𝙃𝙊𝙍𝘼 𝘿𝙀 𝙄𝙉𝙄𝘾𝙄𝙊 𝙔 𝙁𝙄𝙉 𝙀𝙉 𝙁𝙊𝙍𝙈𝘼𝙏𝙊: HH:MM, 𝙋𝙊𝙍 𝙀𝙅𝙀𝙈𝙋𝙇𝙊: 23:00 - 06:00.`, m);
 let inicio, fin;
