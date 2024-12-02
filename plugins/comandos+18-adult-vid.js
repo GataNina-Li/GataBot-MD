@@ -1,4 +1,5 @@
 import fetch from 'node-fetch'
+import moment from 'moment-timezone';
 let handler = async (m, { conn, command, usedPrefix }) => {
 let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18PornP2(), sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(img16)).buffer() }}}
 let user = global.db.data.users[m.sender]
@@ -10,6 +11,27 @@ let enlace4 = await pornovidbisexual[Math.floor(Math.random() * pornovidbisexual
 let enlace5 = await pornovidrandom[Math.floor(Math.random() * pornovidrandom.length)] 
 
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
+const horarioNsfw = db.data.chats[m.chat].horarioNsfw || null;
+const now = moment.tz('America/Guayaquil'); 
+const currentTime = now.format('HH:mm'); 
+
+if (horarioNsfw) {
+const { inicio, fin } = horarioNsfw;
+const inicioTime = moment(inicio, 'HH:mm').tz('America/Guayaquil');
+const finTime = moment(fin, 'HH:mm').tz('America/Guayaquil');
+const currentMoment = moment(currentTime, 'HH:mm').tz('America/Guayaquil');
+let isWithinTimeRange = false;
+if (inicioTime.isAfter(finTime)) {
+if (currentMoment.isBetween(inicioTime, moment('23:59', 'HH:mm').tz('America/Guayaquil')) || 
+currentMoment.isBetween(moment('00:00', 'HH:mm').tz('America/Guayaquil'), finTime)) {
+isWithinTimeRange = true;
+}} else {
+if (currentMoment.isBetween(inicioTime, finTime)) {
+isWithinTimeRange = true;
+}}
+if (!isWithinTimeRange) return m.reply(`${lenguajeGB['smsAvisoAG']()} 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙎𝙊𝙇𝙊 𝙁𝙐𝙉𝘾𝙄𝙊́𝙉𝘼 𝙀𝙇 𝙃𝙊𝙍𝘼𝙍𝙄𝙊 𝙃𝘼𝘽𝙄𝙇𝙄𝙏𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝙂𝙍𝙐𝙋𝙊 𝙀𝙎: ${inicio} a ${fin}`) 
+}
+
 try{ 
 switch (command) {  
 case "pornovid": case "nsfwvid":    
