@@ -1006,6 +1006,12 @@ if (!('simi' in chat)) chat.simi = false
 if (!('antiTraba' in chat)) chat.antiTraba = true
 if (!('autolevelup' in chat))  chat.autolevelup = true
 if (!isNumber(chat.expired)) chat.expired = 0
+if (!('horarioNsfw' in chat)) { 
+chat.horarioNsfw = {
+inicio: null, 
+fin: null
+};
+}
 } else
 global.db.data.chats[m.chat] = {
 isBanned: false,
@@ -1047,6 +1053,10 @@ simi: false,
 antiTraba: true,
 autolevelup: true,
 expired: 0,
+horarioNsfw: {
+inicio: null, 
+fin: null
+}
 }
 let settings = global.db.data.settings[this.user.jid]
 if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
