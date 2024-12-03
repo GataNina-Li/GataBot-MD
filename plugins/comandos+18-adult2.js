@@ -17,7 +17,7 @@ let handler = async (m, {command, conn, usedPrefix}) => {
 let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCont18PornP2(), sourceUrl: redesMenu, thumbnail: await(await fetch(img16)).buffer() }}}
 let user = global.db.data.users[m.sender]
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}` 
-const horarioNsfw = db.data.chats[m.chat].horarioNsfw || null;
+const horarioNsfw = db.data.chats[m.chat].horarioNsfw;
 const now = moment.tz('America/Guayaquil'); 
 const currentTime = now.format('HH:mm'); 
 
