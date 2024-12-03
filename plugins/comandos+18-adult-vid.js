@@ -11,7 +11,7 @@ let enlace4 = await pornovidbisexual[Math.floor(Math.random() * pornovidbisexual
 let enlace5 = await pornovidrandom[Math.floor(Math.random() * pornovidrandom.length)] 
 
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
-const horarioNsfw = db.data.chats[m.chat].horarioNsfw || null;
+const horarioNsfw = db.data.chats[m.chat].horarioNsfw;
 const now = moment.tz('America/Guayaquil'); 
 const currentTime = now.format('HH:mm'); 
 
