@@ -9,7 +9,7 @@ let frep = { contextInfo: { externalAdReply: {title: wm, body: lenguajeGB.smsCon
 let user = global.db.data.users[m.sender]
 
 if (!db.data.chats[m.chat].modohorny && m.isGroup) return conn.reply(m.chat, `${lenguajeGB['smsContAdult']()}`, m)
-const horarioNsfw = db.data.chats[m.chat].horarioNsfw || null;
+const horarioNsfw = db.data.chats[m.chat].horarioNsfw;
 const now = moment.tz('America/Guayaquil'); 
 const currentTime = now.format('HH:mm'); 
 
