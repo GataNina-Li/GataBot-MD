@@ -3,7 +3,7 @@ import cheerio from 'cheerio';
 import moment from 'moment-timezone';
 const handler = async (m, {conn, args, command, usedPrefix}) => {
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${lenguajeGB['smsContAdult']()}`
-const horarioNsfw = db.data.chats[m.chat].horarioNsfw || null;
+const horarioNsfw = db.data.chats[m.chat].horarioNsfw;
 const now = moment.tz('America/Guayaquil'); 
 const currentTime = now.format('HH:mm'); 
 
