@@ -1008,8 +1008,8 @@ if (!('autolevelup' in chat))  chat.autolevelup = true
 if (!isNumber(chat.expired)) chat.expired = 0
 if (!('horarioNsfw' in chat)) { 
 chat.horarioNsfw = {
-inicio: null, 
-fin: null
+inicio: "00:00", 
+fin: "23:59"
 };
 }
 } else
@@ -1054,8 +1054,8 @@ antiTraba: true,
 autolevelup: true,
 expired: 0,
 horarioNsfw: {
-inicio: null, 
-fin: null
+inicio: "00:00", 
+fin: "23:59"
 }
 }
 let settings = global.db.data.settings[this.user.jid]
