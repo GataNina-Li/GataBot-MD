@@ -60,15 +60,11 @@ let q = getBestVideoQuality(yt)
 await conn.sendMessage(m.chat, { video: { url: await yt.video[q].download() }, fileName: `${await yt.title}.mp4`, mimetype: 'video/mp4', caption: `⟡ *${yt_play[0].title}*\n⟡ \`${q}\` | ${await yt.video[q].fileSizeH}\n> ${wm}`}, { quoted: m })
 } catch (e) {*/
 try {
-const downloadUrl = await fetchY2mate(yt_play[0].url);
-await conn.sendMessage(m.chat, { video: { url: downloadUrl }, fileName: `${yt_play[0].title}.mp4`, caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${yt_play[0].title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: yt_play[0].thumbnail, mimetype: 'video/mp4' }, { quoted: m });
-} catch (e) {
-/*try {
 const videoInfo = await fetchInvidious(yt_play[0].url)
 const downloadUrl = videoInfo.videoFormats.find(format => format.mimeType === "audio/mp4").url;
 await conn.sendMessage(m.chat, { video: { url: downloadUrl }, fileName: `${yt_play[0].title}.mp4`, caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${yt_play[0].title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: yt_play[0].thumbnail, mimetype: 'video/mp4' }, { quoted: m });
-} catch (e5) {
-try {
+} catch (e) {
+/*try {
 let searchh = await yts(yt_play[0].url)
 let __res = searchh.all.map(v => v).filter(v => v.type == "video")
 let infoo = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId)
@@ -278,22 +274,4 @@ if (availableQualities.includes(quality)) {
 return videoData.video[quality].quality
 }}
 return '360p'
-}
-
-async function fetchY2mate(url) {
-  const baseUrl = 'https://www.y2mate.com/mates/en60';
-  const videoInfo = await fetch(`${baseUrl}/analyze/ajax`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ url, q_auto: 0 })
-  }).then(res => res.json());
-
-  const id = videoInfo.result.id;
-  const downloadInfo = await fetch(`${baseUrl}/convert`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ type: 'youtube', _id: id, v_id: url, token: '', ftype: 'mp4', fquality: '360p' })
-  }).then(res => res.json());
-
-  return downloadInfo.result.url;
 }
