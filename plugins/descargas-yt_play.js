@@ -46,7 +46,7 @@ const downloadUrl = delius.data.download.url
 console.log('true 1')
 await conn.sendMessage(m.chat, { audio: { url: downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m })
 } catch (e1) {
-try {    
+/*try {    
 let q = '128kbps'
 const yt = await youtubedl(yt_play[0].url).catch(async _ => await youtubedlv2(yt_play[0].url))
 const dl_url = await yt.audio[q].download()
@@ -54,7 +54,7 @@ const ttl = await yt.title
 const size = await yt.audio[q].fileSizeH
 console.log('true 2')
 await conn.sendFile(m.chat, dl_url, ttl + '.mp3', null, m, false, { mimetype: 'audio/mp4' })
-} catch (e2) {
+} catch (e2) {*/
 try {   
 const downloadUrl = await fetch9Convert(yt_play[0].url); 
 console.log('true 3')
@@ -83,7 +83,7 @@ if (fileSize > LimitAud) return await conn.sendMessage(m.chat, { document: { url
 } catch (e) {    
 await m.react('❌')
 console.log(e);
-}}}}}}}
+}}}}}}//}
 
 if (command == 'play2' || command == 'video') {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`
