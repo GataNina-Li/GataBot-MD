@@ -44,9 +44,9 @@ await conn.sendFile(m.chat, await yt.audio[q].download(), `${await yt.title}.mp3
 try {
 const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${yt_play[0].url}`)
 let { status, result } = await res.json()
-if (status && result?.downloadUrl) {
+if (status && result?.download?.url) {
 console.log('true 5')
-await conn.sendMessage(m.chat, { audio: { url: result.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m })
+await conn.sendMessage(m.chat, { audio: { url: result.download.url }, mimetype: 'audio/mpeg' }, { quoted: m })
 }} catch (e) {/*
 try {
 let d2 = await fetch(`https://exonity.tech/api/ytdlp2-faster?apikey=adminsepuh&url=${yt_play[0].url}`);
