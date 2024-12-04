@@ -212,7 +212,7 @@ await m.react('❌');
 console.log(e2);
 }}}
 }
-handler.command = /^(play[1-4]|audio|video|playdoc2?)$/i
+handler.command = /^(play[2-4]?|audio|video|playdoc2?)$/i
 //handler.limit = 2
 handler.register = true 
 export default handler
