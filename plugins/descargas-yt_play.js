@@ -61,9 +61,11 @@ await conn.sendMessage(m.chat, { video: { url: await yt.video[q].download() }, f
 } catch (e) {*/
 try {
 let searchh = await yts(yt_play[0].url)
+console.log(searchh)
 let __res = searchh.all.map(v => v).filter(v => v.type == "video")
 let infoo = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId)
-let ress = await ytdl.chooseFormat(infoo.formats, { filter: 'audioonly' })
+//let ress = await ytdl.chooseFormat(infoo.formats, { filter: 'audioonly' })
+const downloadUrl = ytdl.videoFormats.find(format => format.mimeType === "audio/mp4").url
 conn.sendMessage(m.chat, { video: { url: downloadUrl }, fileName: `${yt_play[0].title}.mp4`, caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${yt_play[0].title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: yt_play[0].thumbnail, mimetype: 'video/mp4' }, { quoted: m });
 } catch (e) {
 /*try {
