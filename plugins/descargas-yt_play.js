@@ -57,14 +57,9 @@ console.log(e)
 
 if (command == 'play2' || command == 'video') {
 try {    
-let qu = args[1] || '360'
-let q = qu + 'p'
 const yt = await youtubedl(yt_play[0].url).catch(async _ => await youtubedlv2(yt_play[0].url))
-console.log(yt)
-const dl_url = await yt.video[q].download()
-const ttl = await yt.title
-const size = await yt.video[q].fileSizeH
-await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${yt_play[0].title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
+let q = getBestVideoQuality(yt)
+await conn.sendMessage(m.chat, { video: { url: await yt.video[q].download() }, fileName: `${await yt.title}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${yt_play[0].title}\n┃ ⚖️ ${await yt.video[q].fileSizeH}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
 } catch (e) {
 /*try {    
 const downloadUrl = await fetch9Convert(yt_play[0].url); 
@@ -98,7 +93,7 @@ await conn.sendMessage(m.chat, { video: { url: audiop }, fileName: `${yt_play[0]
 }} catch (e) {*/    
 await m.react('❌')
 console.log(e)
-}}//}}}}}}
+}}//}}}}}
 
 if (command == 'play3' || command == 'playdoc') {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`
@@ -280,3 +275,13 @@ return videoInfo
 } else {
 throw new Error("No se pudo obtener información del video desde Invidious")
 }}
+
+function getBestVideoQuality(videoData) {
+const preferredQualities = ['720p', '360p', 'auto']
+const availableQualities = Object.keys(videoData.video)
+for (let quality of preferredQualities) {
+if (availableQualities.includes(quality)) {
+return videoData.video[quality].quality
+}}
+return '360p'
+}
