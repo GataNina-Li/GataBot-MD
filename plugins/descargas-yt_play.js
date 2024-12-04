@@ -36,29 +36,17 @@ const texto1 = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 > _*Descargado su audio. Aguarde un momento, por favor*_`.trim();
 
 await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, fake)
-try {    
-/*let q = '128kbps'
-const yt = await youtubedl(yt_play[0].url).catch(async _ => await youtubedlv2(yt_play[0].url))
-const dl_url = await yt.audio[q].download()
-const ttl = await yt.title
-const size = await yt.audio[q].fileSizeH
-console.log('true 2')
-await conn.sendFile(m.chat, dl_url, ttl + '.mp3', null, m, false, { mimetype: 'audio/mp4' })*/
-
+/*try {    
 let q = '128kbps'
 const yt = await youtubedl(yt_play[0].url).catch(() => youtubedlv2(yt_play[0].url))
-console.log('true 2')
 await conn.sendFile(m.chat, await yt.audio[q].download(), `${await yt.title}.mp3`, null, m, false, { mimetype: 'audio/mp4' })
-
-
-  
-} catch (e2) {
-/*try {   
-const downloadUrl = await fetch9Convert(yt_play[0].url); 
+} catch {*/
+try {   
+const downloadUrl = await fetch9Convert(yt_play[0].url)
 console.log('true 3')
 await conn.sendFile(m.chat, downloadUrl, 'audio.mp3', null, m, false, { mimetype: 'audio/mp4' })
-} catch (e3) {
-try {
+} catch (e) {
+/*try {
 const downloadUrl = await fetchY2mate(yt_play[0].url);
 console.log('true 4')
 await conn.sendFile(m.chat, downloadUrl, 'audio.mp3', null, m, false, { mimetype: 'audio/mp4' })
@@ -80,7 +68,7 @@ await conn.sendMessage(m.chat, { audio: { url: audiop }, mimetype: 'audio/mpeg' 
 if (fileSize > LimitAud) return await conn.sendMessage(m.chat, { document: { url: audiop }, mimetype: 'audio.mp3', fileName: `${yt_play[0].title}.mp3` }, { quoted: m });
 } catch (e) { */   
 await m.react('❌')
-console.log(e2)
+console.log(e)
 }}//}//}}}}
 
 if (command == 'play2' || command == 'video') {
