@@ -42,17 +42,12 @@ const yt = await youtubedl(yt_play[0].url).catch(() => youtubedlv2(yt_play[0].ur
 await conn.sendFile(m.chat, await yt.audio[q].download(), `${await yt.title}.mp3`, null, m, false, { mimetype: 'audio/mp4' })
 } catch {*/
 try {
-const downloadUrl = await fetchY2mate(yt_play[0].url);
-console.log('true 4')
-await conn.sendFile(m.chat, downloadUrl, 'audio.mp3', null, m, false, { mimetype: 'audio/mp4' })
-} catch (e) {
-/*try {
 const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${yt_play[0].url}`)
-const audioData = await res.json()
-if (audioData.status && audioData.result?.downloadUrl) {
+let { status, result } = await res.json()
+if (status && result?.downloadUrl) {
 console.log('true 5')
-await conn.sendMessage(m.chat, { audio: { url: audioData.result.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
-}} catch (e5) {
+await conn.sendMessage(m.chat, { audio: { url: result.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m })
+}} catch (e) {/*
 try {
 let d2 = await fetch(`https://exonity.tech/api/ytdlp2-faster?apikey=adminsepuh&url=${yt_play[0].url}`);
 let dp = await d2.json();
@@ -64,7 +59,7 @@ if (fileSize > LimitAud) return await conn.sendMessage(m.chat, { document: { url
 } catch (e) { */   
 await m.react('❌')
 console.log(e)
-}}//}//}}}
+}}//}//}}
 
 if (command == 'play2' || command == 'video') {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`
@@ -322,24 +317,6 @@ async function getFileSize(url) {
         console.error("Error al obtener el tamaño del archivo", error);
         return 0;
     }
-}
-
-async function fetchY2mate(url) {
-  const baseUrl = 'https://www.y2mate.com/mates/en60';
-  const videoInfo = await fetch(`${baseUrl}/analyze/ajax`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ url, q_auto: 0 })
-  }).then(res => res.json());
-
-  const id = videoInfo.result.id;
-  const downloadInfo = await fetch(`${baseUrl}/convert`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ type: 'youtube', _id: id, v_id: url, token: '', ftype: 'mp4', fquality: '360p' })
-  }).then(res => res.json());
-
-  return downloadInfo.result.url;
 }
 
 async function fetchInvidious(url) {
