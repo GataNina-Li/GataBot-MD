@@ -279,3 +279,21 @@ return videoData.video[quality].quality
 }}
 return '360p'
 }
+
+async function fetchY2mate(url) {
+  const baseUrl = 'https://www.y2mate.com/mates/en60';
+  const videoInfo = await fetch(`${baseUrl}/analyze/ajax`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ url, q_auto: 0 })
+  }).then(res => res.json());
+
+  const id = videoInfo.result.id;
+  const downloadInfo = await fetch(`${baseUrl}/convert`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ type: 'youtube', _id: id, v_id: url, token: '', ftype: 'mp4', fquality: '360p' })
+  }).then(res => res.json());
+
+  return downloadInfo.result.url;
+}
