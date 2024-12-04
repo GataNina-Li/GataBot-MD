@@ -12,22 +12,22 @@ const ytplay2 = await yts(text)
 const texto1 = `⌘━─━─≪ *YOUTUBE* ≫─━─━⌘
 ★ ${mid.smsYT1}
 ★ ${yt_play[0].title}
-Ժ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
+╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
 ★ ${mid.smsYT15}
 ★ ${yt_play[0].ago}
-Ժ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
+╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
 ★ ${mid.smsYT5}
 ★ ${secondString(yt_play[0].duration.seconds)}
-Ժ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
+╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
 ★  ${mid.smsYT10}
 ★ ${MilesNumber(yt_play[0].views)}
-Ժ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
+╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
 ★  ${mid.smsYT2}
 ★ ${yt_play[0].author.name}
-Ժ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
+╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
 ★ ${mid.smsYT4}
-★ ${yt_play[0].url}
-⌘━─━─≪ ${gt} ≫─━─━⌘
+★ ${yt_play[0].url.replace(/^https?:\/\//, '')}
+⌘━━─≪ ${gt} ≫──━⌘
 
 > _*Descargando... Aguarde un momento por favor*_`.trim()
 await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, fake)
