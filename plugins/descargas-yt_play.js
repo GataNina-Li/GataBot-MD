@@ -46,7 +46,7 @@ const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenk
 let { status, result } = await res.json()
 if (status && result?.download?.url) {
 console.log('true 5')
-await conn.sendMessage(m.chat, { audio: { url: result.download.url }, mimetype: 'audio/mpeg' }, { quoted: m })
+await conn.sendMessage(m.chat, { audio: { url: await result.download.url }, mimetype: 'audio/mp4' }, { quoted: m })
 }} catch (e) {/*
 try {
 let d2 = await fetch(`https://exonity.tech/api/ytdlp2-faster?apikey=adminsepuh&url=${yt_play[0].url}`);
