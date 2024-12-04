@@ -27,7 +27,7 @@ const texto1 = `⌘━─━─≪ *YOUTUBE* ≫─━─━⌘
 ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
 ★ ${mid.smsYT4}
 ★ ${yt_play[0].url.replace(/^https?:\/\//, '')}
-⌘━━─≪ ${gt} ≫──━⌘
+⌘━━─≪ ${gt} ≫─━━⌘
 
 > _*Descargando... Aguarde un momento por favor*_`.trim()
 await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, fake)
