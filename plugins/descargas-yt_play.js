@@ -9,8 +9,8 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 
 if (command == 'play' || command == 'musica') {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`
-const yt_play = await search(args.join(' '));
-const ytplay2 = await yts(text);
+const yt_play = await search(args.join(' '))
+const ytplay2 = await yts(text)
 const texto1 = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 ও ${mid.smsYT1}
@@ -35,18 +35,8 @@ const texto1 = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 > _*Descargado su audio. Aguarde un momento, por favor*_`.trim();
 
-await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, fake);
-try {
-const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`
-const apiResponse = await fetch(apiUrl);
-const delius = await apiResponse.json();
-if (!delius.status) {
-return m.react("❌")}
-const downloadUrl = delius.data.download.url
-console.log('true 1')
-await conn.sendMessage(m.chat, { audio: { url: downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m })
-} catch (e1) {
-/*try {    
+await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, fake)
+try {    
 let q = '128kbps'
 const yt = await youtubedl(yt_play[0].url).catch(async _ => await youtubedlv2(yt_play[0].url))
 const dl_url = await yt.audio[q].download()
@@ -54,8 +44,8 @@ const ttl = await yt.title
 const size = await yt.audio[q].fileSizeH
 console.log('true 2')
 await conn.sendFile(m.chat, dl_url, ttl + '.mp3', null, m, false, { mimetype: 'audio/mp4' })
-} catch (e2) {*/
-try {   
+} catch (e2) {
+/*try {   
 const downloadUrl = await fetch9Convert(yt_play[0].url); 
 console.log('true 3')
 await conn.sendFile(m.chat, downloadUrl, 'audio.mp3', null, m, false, { mimetype: 'audio/mp4' })
@@ -80,10 +70,10 @@ const fileSize = await getFileSize(dp.result.media.mp3);
 console.log('true 6')
 await conn.sendMessage(m.chat, { audio: { url: audiop }, mimetype: 'audio/mpeg' }, { quoted: m });
 if (fileSize > LimitAud) return await conn.sendMessage(m.chat, { document: { url: audiop }, mimetype: 'audio.mp3', fileName: `${yt_play[0].title}.mp3` }, { quoted: m });
-} catch (e) {    
+} catch (e) { */   
 await m.react('❌')
-console.log(e);
-}}}}}}//}
+console.log(e2)
+}}//}//}}}}
 
 if (command == 'play2' || command == 'video') {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`
