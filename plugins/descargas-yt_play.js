@@ -41,17 +41,12 @@ let q = '128kbps'
 const yt = await youtubedl(yt_play[0].url).catch(() => youtubedlv2(yt_play[0].url))
 await conn.sendFile(m.chat, await yt.audio[q].download(), `${await yt.title}.mp3`, null, m, false, { mimetype: 'audio/mp4' })
 } catch {*/
-try {   
-const downloadUrl = await fetch9Convert(yt_play[0].url)
-console.log('true 3')
-await conn.sendFile(m.chat, downloadUrl, 'audio.mp3', null, m, false, { mimetype: 'audio/mp4' })
-} catch (e) {
-/*try {
+try {
 const downloadUrl = await fetchY2mate(yt_play[0].url);
 console.log('true 4')
 await conn.sendFile(m.chat, downloadUrl, 'audio.mp3', null, m, false, { mimetype: 'audio/mp4' })
-} catch (e4) {
-try {
+} catch (e) {
+/*try {
 const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${yt_play[0].url}`)
 const audioData = await res.json()
 if (audioData.status && audioData.result?.downloadUrl) {
@@ -69,7 +64,7 @@ if (fileSize > LimitAud) return await conn.sendMessage(m.chat, { document: { url
 } catch (e) { */   
 await m.react('❌')
 console.log(e)
-}}//}//}}}}
+}}//}//}}}
 
 if (command == 'play2' || command == 'video') {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`
@@ -358,18 +353,6 @@ const videoInfo = data.video;
 return videoInfo; 
 } else {
 throw new Error("No se pudo obtener información del video desde Invidious");
-  }
-}
-
-async function fetch9Convert(url) {
-const apiUrl = `https://9convert.com/en429/api`;
-const response = await fetch(`${apiUrl}?url=${encodeURIComponent(url)}`);
-const data = await response.json();
-
-if (data.status === 'ok') {
-    return data.result.mp3;
-  } else {
-    throw new Error("No se pudo obtener la descarga desde 9Convert");
   }
 }
 
