@@ -231,12 +231,17 @@ cd && cd GataBot-MD && rm -rf GataBotSession && npm run code
 
 ----
 ### 😼 ACTUALIZAR GATABOT
+<details>
+  <summary><b>Toca para ver más.</b></summary>
+  
 > *Comandos para actualizar GataBot-MD de forma automática*
 ```bash
 grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/update.sh | bash 
 ```
 #### Para que no pierda su progreso en GataBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
-> *Estos comandos solo funcionan para TERMUX, REPLIT, LINUX*                           
+> *Estos comandos solo funcionan para TERMUX, REPLIT, LINUX*
+</details>
+
 -----
 ### ☁️ SKY ULTRA PLUS 
 [![YouTube](https://img.shields.io/badge/SkyUltraPlus-Host-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/fZbcCLpSH6Y?si=1sDen7Bzmb7jVpAI)
@@ -272,18 +277,18 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 ### 🎇 Hosting Py
 <a href="https://dahs.hostingpy.shop/"><img src="https://files.catbox.moe/lr92z2.jpg" height="130px"></a>
 
-<details>
- <summary><b>Click para mostrar los links</b></summary>
-
-- *Dashboard:* [`Aquí`](https://dahs.hostingpy.shop/)
-- *Panel:* [`Aquí`](https://panel.hostingpy.shop/)
-- *Registrarse:* [`Aquí`](https://dahs.hostingpy.shop/register?ref=GataDios)
-- *Canal de WhatsApp:* [`Aquí`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
-- *Comunidad:* [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
-- *Contacto:* [`AdrianOficial`](https://wa.me/595976126756)
-</details>
+- **Dashboard:** [`Aquí`](https://dahs.hostingpy.shop/)
+- **Panel:** [`Aquí`](https://panel.hostingpy.shop/)
+- **Registrarse:** [`Aquí`](https://dahs.hostingpy.shop/register?ref=GataDios)
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
+- **Comunidad:** [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
+- **Contacto:** [`AdrianOficial`](https://wa.me/595976126756)
 
 -----
+### 🚄 DESPLIEGUE
+<details>
+  <summary><b>Toca para ver más.</b></summary>
+  
 ### 🟣 ACTIVAR EN HEROKU 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) 
 ### 👇 Añada lo siguente al Buildpack: 
@@ -344,6 +349,8 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 ```cmd
 > ffmpeg -version
 ```
+</details>
+
 ----
 ### DISTRIBUIDORES AUTORIZADOS O RESELLERS - PREGUNTAS 
 <details>
