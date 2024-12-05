@@ -1,9 +1,7 @@
 <p align="center"> 
 <a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=GataBot-MD++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
-</p>
- 
-<p align="center">
-<img src="https://i.imgur.com/kd8sus3.jpeg" alt="GataBot-MD" width="800"/>
+<a href="https://github.com/GataNina-Li"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=3000&size=14&duration=3000&pause=2000&color=48E2FF&background=5AFFAB00&width=435&lines=%C2%A1El+equipo+de+GataBot+te+desea+una+Feliz+Navidad!+%F0%9F%A4%97%E2%98%83%EF%B8%8F" height="70px"></a> 
+<img src="https://qu.ax/CvfOr.jpg" alt="GataBot-MD" width="1520" height="500" />
   
 > Antes de usar este repositorio, visita la **[Política de GataBot. 😼](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)** 
 </p>
@@ -37,29 +35,67 @@
 ### 👇 `Todas las cuentas están aquí!!`
 [![Enlaces](https://img.shields.io/badge/GataBot_Accounts-000000%7D?style=for-the-badge&logo=biolink&logoColor=white)](https://www.atom.bio/gatabot/)
 
-----
-# 📍 Atajos del README
+## 🆕 Hemos resumido las principales características de este proyecto. ¡Revisa el resumen!
+<details>
+  <summary><b>⭐ RESUMEN</b></summary>
+
+ <details>
+  <summary><b>🐈 SOBRE GATABOT</b></summary>
+  
 | TEMA | DESCRIPCIÓN | ATAJO |
 |------|-------------|-------|
-| 📲 **TERMUX** | *Instalar de manera automática* |[ver](https://github.com/GataNina-Li/GataBot-MD/tree/master?tab=readme-ov-file#-opci%C3%B3n-1-instalaci%C3%B3n-autom%C3%A1tica-) |
-| 📲 **TERMUX** | *Instalación manual predeterminada* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-2-instalación-manual-por-termux---github) |
-| 📲 **TERMUX** | *Instalación por archivos local* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-por-termux---archivos) |
-| 📲 **TERMUX 24/7** | *Comandos para alargar la ejecución* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-247-en-termux) |
-| 📲 **TERMUX UPDATE** | *Comandos para actualizar GataBot* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot) |
-| ☁️ **SKY ULTRA PLUS** | *Activar en SkyUltraPlus* |[ver](https://github.com/GataNina-Li/GataBot-MD/tree/master#%EF%B8%8F-sky-ultra-plus) |
-| 📦⛏️ **BOXMINE HOST** | *Activar en BoxMine Host* |[ver](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-boxmine-host) |
-| 🟣 **HEROKU** | *Instalación directa por Heroku* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
-| ⚡ **REPLIT** | *Instalación directa por Replit* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-replit---gatabot) |
-| ⏏️ **KOYEB** | *Instalación directa por Koyeb* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-koyeb) |
-| 💻 **WINDOWS** | *Instalar para Windows 10 o 11* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-para-usuarios-de-windowsvpsrdp) |
-| 👥 **DISTRIBUIDORES AUTORIZADOS** | *Usuarios con Licencia GataBot* |[ver](https://github.com/GataNina-Li/GataBot-MD#distribuidores-autorizados-o-resellers---preguntas) |
-| 🐈 **SOBRE GATABOT** | *Política* |[ver](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md) |
-| ✅ **COLABORADORES** | *Implicados en este proyecto* |[ver](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
+| 🔑 **Owners** | *Define quiénes tendrán control total del bot.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/blob/c74265fe42d465b52d64209a50b02a5af437b8b2/config.js#L15) |
+| ✏️ **Modificar nombre** | *Modifica el nombre del bot de manera sencilla.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/blob/c74265fe42d465b52d64209a50b02a5af437b8b2/config.js#L144) |
+| 🌐 **Idioma** | *Configura el idioma predeterminado para el bot.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/blob/c74265fe42d465b52d64209a50b02a5af437b8b2/config.js#L56) |
+| ❇️ **Idiomas disponibles** | *Conoce a los implicados que hacen posible este proyecto.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/tree/master#-idiomas-disponibles-para-gatabot) |
+| 📲 **Conectar con código (opcional)** | *Vincula directamente tu número para recibir código de 8 dígitos.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/blob/c74265fe42d465b52d64209a50b02a5af437b8b2/config.js#L44) |
+| 🆙 **Nivel de usuarios** | *Ajusta la dificultad para que los usuarios suban de nivel en el bot.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/blob/c74265fe42d465b52d64209a50b02a5af437b8b2/config.js#L220) |
+| 😎 **Clonar proyecto** | *Crea tu propia versión usando como base este proyecto.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/fork) |
+| 🐈 **Política** | *Descubre el compromiso y la dedicación detrás de este proyecto.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md) |
+| 👥 **Distribuidores autorizados** | *Usuarios con licencia oficial para distribuir GataBot.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD#distribuidores-autorizados-o-resellers---preguntas) |
+| ✅ **Colaboradores** | *Conoce a los implicados que hacen posible este proyecto.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
+</details>  
+<details>
+  <summary><b>🫶 PATROCINADORES</b></summary>
+
+| TEMA | DESCRIPCIÓN | ATAJO |
+|------|-------------|-------|
+| ☁️ **SKY ULTRA PLUS** | *Activar en SkyUltraPlus* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD/tree/master#%EF%B8%8F-sky-ultra-plus) |
+| 📦⛏️ **BOXMINE HOST** | *Activar en BoxMine Host* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-boxmine-host) |
+| 🎇 **HOSTING-PY** | *Activar en Hosting-Py* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD/edit/master/README.md#-hosting-py) |
+</details>
+
+ <details>
+  <summary><b>🪄 INSTALACIÓN POR TERMUX</b></summary>
+  
+| TEMA | DESCRIPCIÓN | ATAJO |
+|------|-------------|-------|
+| 🪄 **Instalación automática** | *Sigue estos pasos para instalar el bot automáticamente.* | [![Here](https://img.shields.io/badge/Ver_instrucciones-black)](https://github.com/GataNina-Li/GataBot-MD/tree/master?tab=readme-ov-file#-opci%C3%B3n-1-instalaci%C3%B3n-autom%C3%A1tica-) |
+| 🪄 **Instalación manual** | *Instala GataBot manualmente siguiendo esta guía.* | [![Here](https://img.shields.io/badge/Ver_instrucciones-black)](https://github.com/GataNina-Li/GataBot-MD/#-opción-2-instalación-manual-por-termux---github) |
+| 🪄 **Instalación por archivos locales** | *Usa archivos locales para instalar GataBot en Termux.* | [![Here](https://img.shields.io/badge/Ver_instrucciones-black)](https://github.com/GataNina-Li/GataBot-MD/#-opción-3-instalación-por-termux---archivos) |
+| 🪄 **Ejecución 24/7** | *Comandos para mantener GataBot ejecutándose continuamente.* | [![Here](https://img.shields.io/badge/Ver_comandos-black)](https://github.com/GataNina-Li/GataBot-MD/#-usar-gatabot-247-en-termux) |
+| 🪄 **Actualización** | *Sigue estos comandos para actualizar GataBot a la última versión.* | [![Here](https://img.shields.io/badge/Ver_instrucciones-black)](https://github.com/GataNina-Li/GataBot-MD/#-actualizar-gatabot) |
+</details>  
+<details>
+  <summary><b>🚄 DESPLIEGUE</b></summary>
+
+| TEMA | DESCRIPCIÓN | ATAJO |
+|------|-------------|-------|
+| 🟣 **Heroku** | *Instalación directa por Heroku* | [![Here](https://img.shields.io/badge/Aquí-purple)](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
+| ⚡ **Replit** | *Instalación directa por Replit* | [![Here](https://img.shields.io/badge/Aquí-orange)](https://github.com/GataNina-Li/GataBot-MD/#-replit---gatabot) |
+| ⏏️ **Koyeb** | *Instalación directa por Koyeb* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-koyeb) |
+| 💻 **Windows** | *Instalar para Windows 10 o superior* | [![Here](https://img.shields.io/badge/Aquí-pink)](https://github.com/GataNina-Li/GataBot-MD/#-para-usuarios-de-windowsvpsrdp) |
+</details>
+</details>
+
 ----
 
 ### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA 🫰
+<details>
+  <summary><b>Toca para ver más.</b></summary>
+ 
 [![blog](https://img.shields.io/badge/Instalacion-Automatica-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/PESW8LXXlOI?feature=share)
-> **Note** Comandos para instalar de forma automática en Termux  
+> *Comandos para instalar de forma automática en Termux*
 ```bash
 termux-setup-storage
 ```
@@ -89,9 +125,14 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
+</details>
+
 -----
 ### 🪄 (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB 
-> **Note** Comandos para instalar de forma manual
+<details>
+  <summary><b>Toca para ver más.</b></summary>
+ 
+> *Comandos para instalar de forma manual*
 ```bash
 termux-setup-storage
 ```
@@ -107,10 +148,15 @@ yarn install && npm install
 ```bash
 npm start
 ```
-> **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
+> *Si aparece **(Y/I/N/O/D/Z) [default=N] ?** use la letra **"y" + "ENTER"** para continuar con la instalación*
+</details>
+
 ----
 ### 📁 (OPCIÓN 3) INSTALACIÓN POR TERMUX - ARCHIVOS
-> **Note** Descargué y Descomprime
+<details>
+  <summary><b>Toca para ver más.</b></summary>
+ 
+> *Descarga y Descomprime*
 ### [`GataBot-MD ~ Archivos`](https://github.com/GataNina-Li/GataBot-MD/archive/refs/heads/master.zip)
 [![blog](https://img.shields.io/badge/Termux-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/UcWlyQ8u5HE)
@@ -134,41 +180,45 @@ npm start
 ```
 * #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
 * #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
-> **Note** Guardar los archivos en la ubicación: storage/downloads/GataBot-MD-master/GataBot-MD-master   
+> *Guardar los archivos en la ubicación: `storage/downloads/GataBot-MD-master/GataBot-MD-master`*
+</details>
+
 ----
 ### 🚀 USAR GATABOT 24/7 EN TERMUX 
-> Ejecutar estos comandos dentro de la carpeta GataBot-MD
+<details>
+  <summary><b>Toca para ver más.</b></summary>
+ 
+> *Ejecutar estos comandos dentro de la carpeta GataBot-MD*
 ```bash
 termux-wake-lock && npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs 
 ``` 
 #### ⬇️ Opciones Disponibles
-> **Warning** Esto eliminará todo el historial que hayas establecido con PM2:
+> *Esto eliminará todo el historial que hayas establecido con PM2:*
 ```bash 
 pm2 delete index
 ``` 
-> Si tienes cerrado Termux y quiere ver de nuevo la ejecución use:
+> *Si tienes cerrado Termux y quiere ver de nuevo la ejecución use:*
 ```bash 
 pm2 logs 
 ``` 
-> Si desea detener la ejecución de Termux use:
+> *Si desea detener la ejecución de Termux use:*
 ```bash 
 pm2 stop index
 ``` 
-> Si desea iniciar de nuevo la ejecución de Termux use:
+> *Si desea iniciar de nuevo la ejecución de Termux use:*
 ```bash 
 pm2 start index
-``` 
+```
 ---- 
 ### 👉 ACTIVAR EN CASO DE DETENERSE EN TERMUX
-> [!NOTE]
-> Si despues que ya instalastes tu bot y termux te salta en blanco, se fue tu internet o reiniciaste tu celular, solo realizaras estos pasos:
+> _Si despues que ya instalastes tu bot y termux te salta en blanco, se fue tu internet o reiniciaste tu celular, solo realizaras estos pasos:_
 ```bash
 cd && cd GataBot-MD && npm start
 ```
 ----
 ### ✳️ OBTENER OTRO CODIGO QR EN TERMUX
-> **Warning** deten el bot, haz click en el símbolo (ctrl) [default=z] usar la letra "z" + "ENTER" hasta que salga algo verdes similar a: `GataBot-MD $`
-> Escribe los siguientes comando uno x uno :
+> *Detén el bot, haz click en el símbolo (ctrl) [default=z] usar la letra "z" + "ENTER" hasta que salga algo verdes similar a: `GataBot-MD $`*
+> **Escribe los siguientes comando uno x uno :**
 ```bash 
 cd && cd GataBot-MD && rm -rf GataBotSession && npm run qr
 ```
@@ -177,19 +227,21 @@ cd && cd GataBot-MD && rm -rf GataBotSession && npm run qr
 ```bash 
 cd && cd GataBot-MD && rm -rf GataBotSession && npm run code
 ```
+</details>
+
 ----
 ### 😼 ACTUALIZAR GATABOT
-> **Note** Comandos para actualizar GataBot-MD de forma automática
+> *Comandos para actualizar GataBot-MD de forma automática*
 ```bash
 grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/update.sh | bash 
 ```
 #### Para que no pierda su progreso en GataBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
-> **Warning** Estos comandos solo funcionan para TERMUX, REPLIT, LINUX                           
+> *Estos comandos solo funcionan para TERMUX, REPLIT, LINUX*                           
 -----
 ### ☁️ SKY ULTRA PLUS 
 [![YouTube](https://img.shields.io/badge/SkyUltraPlus-Host-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/fZbcCLpSH6Y?si=1sDen7Bzmb7jVpAI)
 
-<a href="https://dash.corinplus.com"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
+<a href="https://dash.corinplus.com"><img src="https://qu.ax/wbJoB.png" height="125px"></a>
 
 ### Información sobre Sky
 - **Dashboard:** [`Aquí`](https://dash.skyultraplus.com)
@@ -216,6 +268,21 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va71C1q2UPBOICnxu83r)
 
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/tD3NQSR.jpeg"></details>
+-----
+### 🎇 Hosting Py
+<a href="https://dahs.hostingpy.shop/"><img src="https://files.catbox.moe/lr92z2.jpg" height="130px"></a>
+
+<details>
+ <summary><b>Click para mostrar los links</b></summary>
+
+- *Dashboard:* [`Aquí`](https://dahs.hostingpy.shop/)
+- *Panel:* [`Aquí`](https://panel.hostingpy.shop/)
+- *Registrarse:* [`Aquí`](https://dahs.hostingpy.shop/register?ref=GataDios)
+- *Canal de WhatsApp:* [`Aquí`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
+- *Comunidad:* [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
+- *Contacto:* [`AdrianOficial`](https://wa.me/595976126756)
+</details>
+
 -----
 ### 🟣 ACTIVAR EN HEROKU 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) 
