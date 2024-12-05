@@ -284,6 +284,7 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 - **Comunidad:** [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
 - **Contacto:** [`AdrianOficial`](https://wa.me/595976126756)
 
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/jD7AT0x.png"></details>
 -----
 ### 🚄 DESPLIEGUE
 <details>
