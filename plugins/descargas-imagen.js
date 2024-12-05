@@ -7,8 +7,8 @@ try {
 const res = await googleImage(text)
 let image = res.getRandom()
 let link = image
-conn.sendButton(m.chat, `💞 ${mid.buscador}: ${text}`, wm, link, [['🔄 𝙎𝙞𝙜𝙪𝙞𝙚𝙣𝙩𝙚 | 𝙉𝙚𝙭𝙩', `/imagen ${text}`]], null, null, m )
-//conn.sendFile(m.chat, link, 'error.jpg', `💞 ${mid.buscador}: ${text}`, m)
+//conn.sendButton(m.chat, `💞 ${mid.buscador}: ${text}`, wm, link, [['🔄 𝙎𝙞𝙜𝙪𝙞𝙚𝙣𝙩𝙚 | 𝙉𝙚𝙭𝙩', `/imagen ${text}`]], null, null, m )
+conn.sendFile(m.chat, link, 'error.jpg', `💞 ${mid.buscador}: ${text}`, m)
 } catch (e) {
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
