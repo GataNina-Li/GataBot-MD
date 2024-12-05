@@ -35,7 +35,7 @@
 ### 👇 `Todas las cuentas están aquí!!`
 [![Enlaces](https://img.shields.io/badge/GataBot_Accounts-000000%7D?style=for-the-badge&logo=biolink&logoColor=white)](https://www.atom.bio/gatabot/)
 
-## 🆕 Hemos resumido las principales características de este proyecto. ¡Revisa el resumen!
+### 🆕 Hemos resumido las principales características de este proyecto. ¡Revisa el resumen!
 <details>
   <summary><b>⭐ RESUMEN</b></summary>
 
@@ -53,7 +53,7 @@
 | 😎 **Clonar proyecto** | *Crea tu propia versión usando como base este proyecto.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/fork) |
 | 🐈 **Política** | *Descubre el compromiso y la dedicación detrás de este proyecto.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md) |
 | 👥 **Distribuidores autorizados** | *Usuarios con licencia oficial para distribuir GataBot.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD#distribuidores-autorizados-o-resellers---preguntas) |
-| ✅ **Colaboradores** | *Conoce a los implicados que hacen posible este proyecto.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/#-creadora) |
+| ✅ **Colaboradores** | *Conoce a los implicados que hacen posible este proyecto.* | [![Here](https://img.shields.io/badge/Aquí-green)](https://github.com/GataNina-Li/GataBot-MD/graphs/contributors) |
 </details>  
 <details>
   <summary><b>🫶 PATROCINADORES</b></summary>
@@ -62,7 +62,7 @@
 |------|-------------|-------|
 | ☁️ **SKY ULTRA PLUS** | *Activar en SkyUltraPlus* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD/tree/master#%EF%B8%8F-sky-ultra-plus) |
 | 📦⛏️ **BOXMINE HOST** | *Activar en BoxMine Host* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-boxmine-host) |
-| 🎇 **HOSTING-PY** | *Activar en Hosting-Py* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD/edit/master/README.md#-hosting-py) |
+| 🎇 **HOSTING-PY** | *Activar en Hosting-Py* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#-hosting-py) |
 </details>
 
  <details>
@@ -81,10 +81,10 @@
 
 | TEMA | DESCRIPCIÓN | ATAJO |
 |------|-------------|-------|
-| 🟣 **Heroku** | *Instalación directa por Heroku* | [![Here](https://img.shields.io/badge/Aquí-purple)](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-heroku) |
-| ⚡ **Replit** | *Instalación directa por Replit* | [![Here](https://img.shields.io/badge/Aquí-orange)](https://github.com/GataNina-Li/GataBot-MD/#-replit---gatabot) |
-| ⏏️ **Koyeb** | *Instalación directa por Koyeb* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD/#-activar-en-koyeb) |
-| 💻 **Windows** | *Instalar para Windows 10 o superior* | [![Here](https://img.shields.io/badge/Aquí-pink)](https://github.com/GataNina-Li/GataBot-MD/#-para-usuarios-de-windowsvpsrdp) |
+| 🟣 **Heroku** | *Instalación directa por Heroku* | [![Here](https://img.shields.io/badge/Aquí-purple)](https://github.com/GataNina-Li/GataBot-MD#-despliegue) |
+| ⚡ **Replit** | *Instalación directa por Replit* | [![Here](https://img.shields.io/badge/Aquí-orange)](https://github.com/GataNina-Li/GataBot-MD#-despliegue) |
+| ⏏️ **Koyeb** | *Instalación directa por Koyeb* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#-despliegue) |
+| 💻 **Windows** | *Instalar para Windows 10 o superior* | [![Here](https://img.shields.io/badge/Aquí-pink)](https://github.com/GataNina-Li/GataBot-MD#-despliegue) |
 </details>
 </details>
 
