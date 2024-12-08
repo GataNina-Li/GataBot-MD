@@ -1,42 +1,48 @@
+import { igdl } from 'ruhend-scraper'
 
- import { igdl } from 'ruhend-scraper';
-
-const handler = async (m, { text, conn, args, usedPrefix, command }) => {
+const handler = async (m, { text, conn, args }) => {
   if (!args[0]) {
-    return conn.reply(m.chat, 'Ingresa Un Link De Facebook', m);
+    return conn.reply(m.chat, '${lenguajeGB['smsAvisoAG']()}🐈 𝗘𝗻𝘃𝗶́𝗮 𝗲𝗹 𝗹𝗶𝗻𝗸 𝗱𝗲𝗹 𝘃𝗶𝗱𝗲𝗼 𝗱𝗲 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸.', m)
   }
 
   let res;
   try {
+    await m.react(rwait);
     res = await igdl(args[0]);
-  } catch (error) {
-    return conn.reply(m.chat, 'Error al obtener datos. Verifica el enlace.', m);
+  } catch (e) {
+    return conn.reply(m.chat, '${lenguajeGB['smsAvisoFG']()}⚠️ 𝗘𝗻𝗹𝗮𝗰𝗲 𝗻𝗼 𝗲𝘀 𝘃𝗮́𝗹𝗶𝗱𝗼.', m)
   }
 
   let result = res.data;
   if (!result || result.length === 0) {
-    return conn.reply(m.chat, 'No se encontraron resultados.', m);
+    return conn.reply(m.chat, '${lenguajeGB['smsAvisoFG']()}⚠️ 𝗡𝗼 𝘀𝗲 𝗲𝗻𝗰𝗼𝗻𝘁𝗿𝗮𝗿𝗼𝗻 𝗿𝗲𝘀𝘂𝗹𝘁𝗮𝗱𝗼𝘀 𝗱𝗲𝗹 𝘃𝗶𝗱𝗲𝗼.', m)
   }
 
   let data;
   try {
     data = result.find(i => i.resolution === "720p (HD)") || result.find(i => i.resolution === "360p (SD)");
-  } catch (error) {
-    return conn.reply(m.chat, 'Error al procesar los datos.', m);
+  } catch (e) {
+    return conn.reply(m.chat, '${lenguajeGB['smsAvisoFG']()}⚠️ 𝗗𝗮𝘁𝗼𝘀 𝗻𝗼 𝗲𝗻𝗰𝗼𝗻𝘁𝗿𝗮𝗱𝗼𝘀.', m)
   }
 
   if (!data) {
-    return conn.reply(m.chat, 'No se encontró una resolución adecuada.', m);
+    return conn.reply(m.chat, '${lenguajeGB['smsAvisoFG']()}⚠️ 𝗡𝗼 𝘀𝗲 𝗲𝗻𝗰𝗼𝗻𝘁𝗿𝗼́ 𝗿𝗲𝘀𝘂𝗹𝘁𝗮𝗱𝗼𝘀 𝗱𝗲𝗹 𝘃𝗶𝗱𝗲𝗼.', m)
   }
 
   let video = data.url;
   try {
-    await conn.sendMessage(m.chat, { video: { url: video }, caption: null, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m });
-  } catch (error) {
-    return conn.reply(m.chat, 'Error al enviar el video.', m);
+    await conn.sendMessage(m.chat, { video: { url: video }, caption: '${lenguajeGB['smsAvisoEG']()}🏖 𝙑𝙞𝙙𝙚𝙤́ 𝙙𝙚 𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠.\n${wm}', fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m })
+    await m.react(done);
+  } catch (e) {
+    return conn.reply(m.chat, '${lenguajeGB['smsAvisoFG']()}❎️ 𝗢𝗰𝘂𝗿𝗿𝗶𝗼́ 𝘂𝗻 𝗲𝗿𝗿𝗼𝗿 𝗮𝗹 𝗱𝗲𝘀𝗰𝗮𝗿𝗴𝗮𝗿 𝗲𝗹 𝘃𝗶𝗱𝗲𝗼.', m)
+    await m.react(error);
   }
-};
+}
 
-handler.command = /^(facebook)$/i;
+handler.help = ['facebook', 'fb']
+handler.tags = ['descargas']
+handler.command = ['facebook', 'fb']
+handler.register = true
+handler.limit = true
 
-export default handler;       
+export default handler
