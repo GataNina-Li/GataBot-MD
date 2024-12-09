@@ -1,4 +1,4 @@
-let { downloadContentFromMessage } = (await import(global.baileys))
+/*let { downloadContentFromMessage } = (await import(global.baileys))
 
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
@@ -23,7 +23,25 @@ if (/audio/.test(type)) {
 await conn.reply(m.chat, description, m, { mentions: [m.sender] }) 
 await conn.sendMessage(m.chat, { audio: buffer, fileName: 'error.mp3', mimetype: 'audio/mpeg', ptt: true }, { quoted: m })
 }}}
-export default handler
+export default handler*/
+
+import { downloadContentFromMessage } from "@whiskeysockets/baileys"
+
+export async function before(m, { isAdmin, isBotAdmin }) {
+let chat = db.data.chats[m.chat]
+if (!chat.antiver || chat.isBanned) return
+if (m.mtype == 'viewOnceMessageV2' || m.mtype.hasOwnProperty("viewOnce")) {
+let msg = m.message.viewOnceMessageV2.message
+let type = Object.keys(msg)[0]
+let media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : 'video')
+let buffer = Buffer.from([])
+for await (const chunk of media) {
+buffer = Buffer.concat([buffer, chunk])}
+if (/video/.test(type)) {
+return this.sendFile(m.chat, buffer, 'error.mp4', `${msg[type].caption}` + lenguajeGB.smsAntiView1(), m)
+} else if (/image/.test(type)) {
+return this.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption}` + lenguajeGB.smsAntiView2(), m)
+}}}
 
 function formatFileSize(bytes) {
 const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'TY', 'EY']
