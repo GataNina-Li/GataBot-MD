@@ -1,10 +1,10 @@
-let WAMessageStubType = (await import(global.baileys)).default
-import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
+import { WAMessageStubType } = await import("@whiskeysockets/baileys")
+import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs'
 import path from 'path';
 import './_content.js'
 
 let handler = m => m
-handler.before = async function (m, { conn, participants, groupMetadata}) {
+handler.before = async function (m, { conn, participants, groupMetadata, isBotAdmin }) {
 
 if (!m.messageStubType || !m.isGroup) return
 let usuario = `@${m.sender.split`@`[0]}`
@@ -49,7 +49,7 @@ const users = rawUser.split('@')[0];
 const prefijosProhibidos = ['91', '92', '222', '93', '265', '61', '62', '966', '229', '40', '49', '20', '963', '967', '234', '210', '212'];
 const usersConPrefijo = users.startsWith('+') ? users : `+${users}`;
 
-if (chat.antifake) {
+if (chat.antifake && isBotAdmin) {
 if (prefijosProhibidos.some(prefijo => usersConPrefijo.startsWith(prefijo))) {
 try {
 await conn.groupRequestParticipantsUpdate(m.chat, [rawUser], 'reject');
