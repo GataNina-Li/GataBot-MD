@@ -1,3 +1,4 @@
+import chalk from 'chalk'
 let WAMessageStubType = (await import("@whiskeysockets/baileys")).default
 import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs'
 import path from 'path';
@@ -18,7 +19,9 @@ const sessionPath = './GataBotSession/'
 for (const file of await fs.readdir(sessionPath)) {
 if (file.includes(uniqid)) {
 await fs.unlink(path.join(sessionPath, file))
-console.log(`*[ ⚠️ Archivo eliminado ]* > '${file}' (Session PreKey) que provoca el "undefined" en el chat`)
+console.log(`${chalk.yellow.bold('[ ⚠️ Archivo Eliminado ]')} ${chalk.greenBright(`'${file}'`)}\n` +
+`${chalk.blue('(Session PreKey)')} ${chalk.redBright('que provoca el "undefined" en el chat')}`
+)
 }}}
 
 if (chat.detect && m.messageStubType == 21) {
