@@ -34,21 +34,21 @@ const recompensas = {
   umpan: premium ? umpanpremium : umpan,
 }
 	
-//let time = user.lastclaim + 1800000 // 30 min
-//if (new Date - user.lastclaim < 1800000) return await conn.reply(m.chat, `\`Ya reclamaste tú regalo navideño.\`\nPróximo regalo navideño en *${msToTime(time - new Date())}*`, m, null, fake)
+let time = user.lastclaim + 1800000 // 30 min
+if (new Date - user.lastclaim < 1800000) return await conn.reply(m.chat, `\`Ya reclamaste tú regalo navideño.\`\nPróximo regalo navideño en *${msToTime(time - new Date())}*`, m, null, fake)
 
 let texto = ''
 for (let reward of Object.keys(recompensas)) {
 if (!(reward in user)) continue
 user[reward] += recompensas[reward]
 texto += `*+${recompensas[reward]}* ${global.rpgshop.emoticon(reward)}\n`}
-let text = `☃️🎁 *REGALO NAVIDEÑO* 🎁🎄\n> ${premium ? '🎟️ Recompensa Premium' : '🆓 Recompensa Gratis'}\n\n_${messagesNav}`
+let text = `☃️🎁 *REGALO NAVIDEÑO* 🎁🎄\n> ${premium ? '🎟️ Recompensa Premium' : '🆓 Recompensa Gratis'}\n\n_${messagesNav}_\n`
 
 // Imágenes de GataBot especial mes de navidad
 let img = ['https://qu.ax/AAXbK.jpg', 'https://qu.ax/KQCkB.jpeg', 'https://qu.ax/Ubiaj.jpeg', 'https://qu.ax/QDqWy.jpeg', 'https://qu.ax/PXewx.jpeg', 'https://qu.ax/xxJLu.jpeg'].getRandom()
 
-await conn.sendFile(m.chat, img, 'navidad.jpg', `${text}\n${texto}\n${wm}`, m, null, fake)
-//user.lastclaim = new Date * 1
+await conn.sendFile(m.chat, img, 'navidad.jpg', `${text}\n${texto}`, m, null, fake)
+user.lastclaim = new Date * 1
 }
 handler.command = ['navidad', 'navidad2', 'christmas'] 
 handler.level = 3
@@ -89,6 +89,3 @@ seconds = (seconds < 10) ? "0" + seconds : seconds;
 
 return `${hours}H ${minutes}M ${seconds}S`;
 }
-
-
-
