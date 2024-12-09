@@ -1,4 +1,4 @@
-import { WAMessageStubType } from "@whiskeysockets/baileys"
+let WAMessageStubType = (await import("@whiskeysockets/baileys")).default
 import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs'
 import path from 'path';
 import './_content.js'
