@@ -12,6 +12,7 @@ import { join } from 'path'
 import chalk from 'chalk'
 
 let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, command }) => {
+if (m.fromMe) return
 let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
 let bot = global.db.data.settings[conn.user.jid] || {}
