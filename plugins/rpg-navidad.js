@@ -1,38 +1,29 @@
 import fetch from 'node-fetch'
-import axios from 'axios';
-let handler = async (m, { isPrems, conn }) => {
-/*let grupos = [nna, nn, nnn, nnnt]
-let gata = [img5, img6, img7, img8, img9]
-let enlace = { contextInfo: { externalAdReply: {title: wm + ' 🐈', body: 'support group' , sourceUrl: grupos.getRandom(), thumbnail: await(await fetch(gata.getRandom())).buffer() }}}
-let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', thumbnailUrl: await(await fetch(global.img)).buffer(), sourceUrl: yt }}}
-let dos = [enlace, enlace2]    */
-
-const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/navidad.json`)).data;
-  const tee = await res[Math.floor(res.length * Math.random())];
-conn.sendFile(m.chat, tee, 'error.jpg', `_*Navidad 🧑‍🎄*_`, m, null, fake);  
+import axios from 'axios'
+let handler = async (m, { conn, isPrems }) => {
 
 let user = global.db.data.users[m.sender]
 let premium = user.premium
 
-let exp = `${pickRandom([1500, 2000, 2500, 3000, 3500, 4500, 5000, 6300, 7500, 10000])}` * 1
-let exppremium = `${pickRandom([1000, 1500, 1800, 2100, 2500, 2900, 3300, 3600, 4000, 4500])}` * 1
-	
-let money = `${pickRandom([800, 1500, 2000, 2500, 3000, 3500, 4500, 5500, 6550, 7500])}` * 1
-let moneypremium = `${pickRandom([800, 1300, 1600, 1900, 2200, 2500, 2700, 3000, 3300, 3500])}` * 1
+const getRandomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 
-let potion = `${pickRandom([1, 2, 3, 4, 5])}` * 1
-let potionpremium = `${pickRandom([2, 4, 6, 9, 12])}` * 1
+let exp = getRandomInRange(1500, 5000)
+let exppremium = getRandomInRange(5001, 10000)
 
-let tiketcoin = `${pickRandom([1, 0, 0, 2, 0])}` * 1
-let tiketcoinpremium = `${pickRandom([2, 1, 1, 3, 4])}` * 1
+let money = getRandomInRange(800, 4000)
+let moneypremium = getRandomInRange(4001, 7500)
 
-let eleksirb = `${pickRandom([1, 1, 1, 3, 1, 2, 2, 1, 5, 8])}` * 1
-let eleksirbpremium = `${pickRandom([3, 3, 5, 3, 8, 3, 4, 4, 10, 7])}` * 1
+let potion = getRandomInRange(1, 3)
+let potionpremium = getRandomInRange(4, 5)
 
-let umpan = `${pickRandom([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])}` * 1
-let umpanpremium = `${pickRandom([30, 60, 90, 120, 150, 180, 210, 240, 270, 300])}` * 1
+let tiketcoin = getRandomInRange(1, 2)
+let tiketcoinpremium = getRandomInRange(3, 5)
 
-//let gata = Math.floor(Math.random() * 2000)
+let eleksirb = getRandomInRange(1, 4)
+let eleksirbpremium = getRandomInRange(5, 8)
+
+let umpan = getRandomInRange(10, 50)
+let umpanpremium = getRandomInRange(51, 100)
 
 const recompensas = {	
   exp: premium ? exppremium : exp,
@@ -42,46 +33,61 @@ const recompensas = {
   eleksirb: premium ? eleksirbpremium : eleksirb,
   umpan: premium ? umpanpremium : umpan,
 }
-let time = user.lastclaim + 3600000 //3600000 = 1hs
-if (new Date - user.lastclaim < 3600000) return await conn.reply(m.chat, `𝙔𝘼 𝙍𝙀𝘾𝙇𝘼𝙈𝘼𝙎𝙏𝙀 𝙏𝙐 𝙍𝙀𝙂𝘼𝙇𝙊 🎁\n𝙑𝙐𝙀𝙇𝙑𝙀 𝙀𝙉 *${msToTime(time - new Date())}* 𝙋𝘼𝙍𝘼 𝙑𝙊𝙇𝙑𝙀𝙍 𝘼 𝙍𝙀𝘾𝙇𝘼𝙈𝘼𝙍\n\n𝙔𝙊𝙐 𝘼𝙇𝙍𝙀𝘼𝘿𝙔 𝘾𝙇𝘼𝙄𝙈𝙀𝘿 𝙔𝙊𝙐𝙍 𝙂𝙄𝙁𝙏 🎁\n𝘾𝙊𝙈𝙀 𝘽𝘼𝘾𝙆 𝙄𝙉 *${msToTime(time - new Date())}* 𝙏𝙊 𝘾𝙇𝘼𝙄𝙈 𝘼𝙂𝘼𝙄𝙉`, m, null, fake);
-//conn.sendButton(m.chat, `𝙔𝘼 𝙍𝙀𝘾𝙇𝘼𝙈𝘼𝙎𝙏𝙀 𝙏𝙐 𝙍𝙀𝙂𝘼𝙇𝙊 🎁\n𝙑𝙐𝙀𝙇𝙑𝙀 𝙀𝙉 *${msToTime(time - new Date())}* 𝙋𝘼𝙍𝘼 𝙑𝙊𝙇𝙑𝙀𝙍 𝘼 𝙍𝙀𝘾𝙇𝘼𝙈𝘼𝙍\n\n𝙔𝙊𝙐 𝘼𝙇𝙍𝙀𝘼𝘿𝙔 𝘾𝙇𝘼𝙄𝙈𝙀𝘿 𝙔𝙊𝙐𝙍 𝙂𝙄𝙁𝙏 🎁\n𝘾𝙊𝙈𝙀 𝘽𝘼𝘾𝙆 𝙄𝙉 *${msToTime(time - new Date())}* 𝙏𝙊 𝘾𝙇𝘼𝙄𝙈 𝘼𝙂𝘼𝙄𝙉`, wm, null, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], fkontak, m)
+	
+//let time = user.lastclaim + 1800000 // 30 min
+//if (new Date - user.lastclaim < 1800000) return await conn.reply(m.chat, `\`Ya reclamaste tú regalo navideño.\`\nPróximo regalo navideño en *${msToTime(time - new Date())}*`, m, null, fake)
+
 let texto = ''
 for (let reward of Object.keys(recompensas)) {
-    if (!(reward in user)) continue
-    user[reward] += recompensas[reward]
+if (!(reward in user)) continue
+user[reward] += recompensas[reward]
 texto += `*+${recompensas[reward]}* ${global.rpgshop.emoticon(reward)}\n`}
-let text = `
-╭━━🎅━🎁━🎅━━⬣
-┃ ✨ 𝙊𝘽𝙏𝙄𝙀𝙉𝙀𝙎 𝙐𝙉 𝙍𝙀𝙂𝘼𝙇𝙊!!
-┃ ✨ 𝙔𝙊𝙐 𝙂𝙀𝙏 𝘼 𝙂𝙄𝙁𝙏!!
-┃ *${premium ? '🎟️ Recompensa Premium' : '🆓 Recompensa Gratis'}*
-╰━━🎁━☃️━🎅━━⬣`
-let img = 'https://img.freepik.com/vector-gratis/gente-diminuta-enormes-cajas-regalo-ilustracion-vectorial-plana-personas-que-celebran-cumpleanos-envian-o-reciben-regalos-lealtad-o-ideas-brillantes-recompensa-bonificacion-concepto-fiesta_74855-25016.jpg?w=2000'
+let text = `☃️🎁 *REGALO NAVIDEÑO* 🎁🎄\n> ${premium ? '🎟️ Recompensa Premium' : '🆓 Recompensa Gratis'}\n\n_${messagesNav}`
 
-await conn.sendFile(m.chat, img, 'navidad.jpg', `${text}\n${texto}` + `\n\n🎟️ 𝗣 𝗥 𝗘 𝗠 𝗜 𝗨 𝗠 ⇢ ${premium ? '✅' : '❌'}\n${wm}`, m, null, fake);
-//conn.sendButton(m.chat, text, texto + `\n\n🎟️ 𝗣 𝗥 𝗘 𝗠 𝗜 𝗨 𝗠 ⇢ ${premium ? '✅' : '❌'}\n${wm}`, img, [['⛰️ 𝘼𝘽𝙍𝙄𝙍 𝘾𝙊𝙁𝙍𝙀 | 𝘾𝙊𝙁𝙁𝙀𝙍 ⛰️', '/cofre'], ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']], m, dos.getRandom())  
-user.lastclaim = new Date * 1
+// Imágenes de GataBot especial mes de navidad
+let img = ['https://qu.ax/AAXbK.jpg', 'https://qu.ax/KQCkB.jpeg', 'https://qu.ax/Ubiaj.jpeg', 'https://qu.ax/QDqWy.jpeg', 'https://qu.ax/PXewx.jpeg', 'https://qu.ax/xxJLu.jpeg'].getRandom()
+
+await conn.sendFile(m.chat, img, 'navidad.jpg', `${text}\n${texto}\n${wm}`, m, null, fake)
+//user.lastclaim = new Date * 1
 }
-handler.help = ['navidad']
-handler.tags = ['diamantes']
-handler.command = ['navidad', 'navidad2'] 
-handler.fail = null
-handler.exp = 0
+handler.command = ['navidad', 'navidad2', 'christmas'] 
+handler.level = 3
+handler.register = true
 export default handler
 
-function pickRandom(list) {
-return list[Math.floor(Math.random() * list.length)]}
+global.messagesNav = [
+  "🎄 ¡Feliz Navidad! Que cada momento esté lleno de alegría y amor.",
+  "🎅 Deseándote una temporada llena de luz, paz y armonía.",
+  "🎁 Que el espíritu navideño ilumine tu camino y te colme de felicidad.",
+  "✨ En esta Navidad, agradecemos tu apoyo y te enviamos nuestros mejores deseos.",
+  "❄️ ¡Buena suerte, salud y éxito para el próximo año!",
+  "🌟 Que la magia de la Navidad brille en tu hogar y en tu corazón.",
+  "❤️ Gracias por ser parte de nuestras vidas. ¡Felicidades en estas fiestas!",
+  "🎄 En esta época de amor, que todos tus sueños se hagan realidad.",
+  "🎅 Que recibas tantas bendiciones como estrellas hay en el cielo navideño.",
+  "🎁 ¡Gracias por un año increíble! Que la Navidad traiga paz y esperanza.",
+  "✨ Te enviamos un abrazo lleno de cariño en estas fiestas.",
+  "❄️ ¡Nunca pierdas la ilusión! Feliz Navidad y próspero Año Nuevo.",
+  "🌟 Que compartas momentos únicos con quienes amas en estas fiestas.",
+  "❤️ Agradecemos cada instante contigo este año. ¡Feliz Navidad!",
+  "🎄 Que el sonido de las campanas llene tu vida de alegría.",
+  "🎅 Recibe este mensaje como un pequeño obsequio de felicidad.",
+  "🎁 La Navidad es mejor cuando la compartes con personas especiales. ¡Gracias por estar aquí!",
+  "✨ Que esta temporada sea el comienzo de grandes cosas para ti.",
+  "❄️ ¡Disfruta, ríe y celebra con los tuyos! Feliz Navidad.",
+  "🌟 Gracias por tu apoyo este año. ¡Te deseamos lo mejor para estas fiestas!"
+].getRandom()
 
 function msToTime(duration) {
-  let seconds = Math.floor((duration / 1000) % 60),
-      minutes = Math.floor((duration / (1000 * 60)) % 60),
-      hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+let seconds = Math.floor((duration / 1000) % 60),
+minutes = Math.floor((duration / (1000 * 60)) % 60),
+hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
       
-  hours = (hours < 10) ? "0" + hours : hours;
-  minutes = (minutes < 10) ? "0" + minutes : minutes;
-  seconds = (seconds < 10) ? "0" + seconds : seconds;
+hours = (hours < 10) ? "0" + hours : hours;
+minutes = (minutes < 10) ? "0" + minutes : minutes;
+seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-  return `${hours} Horas ${minutes} Minutos ${seconds} Segundos`;
+return `${hours}H ${minutes}M ${seconds}S`;
 }
 
 
