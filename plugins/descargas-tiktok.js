@@ -1,4 +1,3 @@
-import { tiktokdl } from '@bochilteam/scraper'
 import axios from "axios"
 let handler = async (m, { conn, text, args, usedPrefix, command}) => {
 if (!text) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsTikTok2}\n*${usedPrefix + command} https://vm.tiktok.com/ZM6n8r8Dk/*`, fkontak,  m)
