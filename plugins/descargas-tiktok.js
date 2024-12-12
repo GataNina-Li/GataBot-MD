@@ -1,4 +1,3 @@
-let generateWAMessageFromContent = (await import(global.baileys)).default
 import { tiktokdl } from '@bochilteam/scraper'
 import axios from "axios"
 let handler = async (m, { conn, text, args, usedPrefix, command}) => {
