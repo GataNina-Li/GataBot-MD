@@ -32,7 +32,6 @@ console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗
       console.error(error);
       await conn.sendMessage(m.chat, "Se produjo un error al intentar descargar el video.", { quoted: m });
   }}
-console.log(e)
 handler.limit = false
 handler.help = ['tiktok']
 handler.tags = ['dl']
