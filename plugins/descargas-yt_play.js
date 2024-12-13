@@ -55,7 +55,7 @@ await conn.sendMessage(m.chat, { audio: d3, mimetype: 'audio/mp4' }, { quoted: m
 } catch (e) { 
 await m.react('❌')
 console.log(e)
-}}}}
+}}}}}
 
 if (command == 'play2' || command == 'video') {
 try {    
