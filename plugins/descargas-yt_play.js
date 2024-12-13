@@ -55,7 +55,7 @@ await conn.sendMessage(m.chat, { audio: d3, mimetype: 'audio/mp4' }, { quoted: m
 } catch (e) { 
 await m.react('❌')
 console.log(e)
-}}}}
+}}}}}
 
 if (command == 'play2' || command == 'video') {
 try {    
@@ -138,7 +138,7 @@ await conn.sendMessage(m.chat, { document: { url: audioData.result.downloadUrl }
 } catch (e) {    
 await m.react('❌');
 console.log(e);
-}}}}}}} 
+}}}}}}
 
 if (command == 'play4' || command == 'playdoc2') {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`
