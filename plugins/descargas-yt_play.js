@@ -65,7 +65,7 @@ await conn.sendMessage(m.chat, { video: { url: await yt.video[q].download() }, f
 } catch (e) {
 await m.react('❌')
 console.log(e)
-}}
+}} 
 
 // Me falta actualizar las siguientes líneas, atte. GD
 
