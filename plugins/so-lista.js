@@ -5,7 +5,7 @@ if (m.isBot || m.sender.includes('bot') || m.sender.includes('Bot')) return true
 if (chat.isBanned) return
 global.db.data.users[m.sender].money += 50
 global.db.data.users[m.sender].exp += 50  
-//if (m.fromMe) return !0
+if (m.fromMe) return !0
 if (!db.data.chats[m.chat].audios) return   
 
 const audioMap = [
