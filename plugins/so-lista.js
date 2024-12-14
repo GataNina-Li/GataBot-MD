@@ -6,7 +6,7 @@ if (chat.isBanned) return
 global.db.data.users[m.sender].money += 50
 global.db.data.users[m.sender].exp += 50  
 //if (m.fromMe) return !0
-if (!db.data.chats[m.chat].audios) throw 0   
+if (!db.data.chats[m.chat].audios) throw !0  
 
 const audioMap = [
     { regex: /^A Bueno master|Bueno master|Bueno Máster|🫂$/i, url: 'https://qu.ax/xynz.mp3' },
