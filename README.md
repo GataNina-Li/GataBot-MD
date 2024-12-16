@@ -90,7 +90,31 @@
 
 ----
 
-### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA 🫰
+### 🪄 (OPCIÓN 1) INSTALACIÓN MANUAL POR TERMUX - GITHUB 
+<details>
+  <summary><b>Toca para ver más.</b></summary>
+ 
+> *Comandos para instalar de forma manual*
+```bash
+termux-setup-storage
+```
+```bash
+apt update && apt upgrade && pkg update && pkg upgrade && pkg install bash && pkg install libwebp && pkg install git -y && pkg install nodejs -y && pkg install ffmpeg -y && pkg install wget && pkg install imagemagick -y && pkg install yarn
+```
+```bash
+git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD
+```
+```bash
+bash ./install2.sh
+```
+```bash
+npm start
+```
+> *Si aparece **(Y/I/N/O/D/Z) [default=N] ?** use la letra **"y" + "ENTER"** para continuar con la instalación*
+</details>
+-----
+
+### 🌟 (OPCIÓN 2 - OBSOLETA) INSTALACIÓN AUTOMÁTICA 🫰
 <details>
   <summary><b>Toca para ver más.</b></summary>
  
@@ -128,30 +152,6 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 </details>
 
 -----
-### 🪄 (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB 
-<details>
-  <summary><b>Toca para ver más.</b></summary>
- 
-> *Comandos para instalar de forma manual*
-```bash
-termux-setup-storage
-```
-```bash
-apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
-```
-```bash
-git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD
-```
-```bash
-yarn install && npm install
-```
-```bash
-npm start
-```
-> *Si aparece **(Y/I/N/O/D/Z) [default=N] ?** use la letra **"y" + "ENTER"** para continuar con la instalación*
-</details>
-
-----
 ### 📁 (OPCIÓN 3) INSTALACIÓN POR TERMUX - ARCHIVOS
 <details>
   <summary><b>Toca para ver más.</b></summary>
@@ -170,10 +170,7 @@ apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 cd storage/downloads/GataBot-MD-master/GataBot-MD-master 
 ```
 ```bash
-yarn install
-```
-```bash
-npm install
+bash ./install2.sh
 ```
 ```bash
 npm start
