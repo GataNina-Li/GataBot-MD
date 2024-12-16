@@ -111,10 +111,11 @@ bash ./install2.sh
 npm start
 ```
 > *Si aparece **(Y/I/N/O/D/Z) [default=N] ?** use la letra **"y" + "ENTER"** para continuar con la instalación*
-</details>
------
 
-### 🌟 (OPCIÓN 2 - OBSOLETA) INSTALACIÓN AUTOMÁTICA 🫰
+----
+</details>
+
+### 🌟 (OPCIÓN 2 - OBSOLETA) INSTALACIÓN AUTOMÁTICA 🫰(No funka, Usar la instalacion manual de arriba de momento) 
 <details>
   <summary><b>Toca para ver más.</b></summary>
  
