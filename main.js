@@ -71,11 +71,7 @@ global.db.chain = chain(global.db.data);
 loadDatabase();
 
 // Inicialización de conexiones globales
-if (global.conns instanceof Array) {
-console.log('Conexiones ya inicializadas...');
-} else {
-global.conns = [];
-}
+//if (global.conns instanceof Array) {console.log('Conexiones ya inicializadas...');} else {global.conns = [];}
 
 /* ------------------------------------------------*/
 
