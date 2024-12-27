@@ -65,8 +65,6 @@ export default handler
 
 export async function gataJadiBot(options) {
 let {pathGataJadiBot, m, conn, args, usedPrefix, command } = options
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let id = `${who.split`@`[0]}`
 const mcode = args[0] && /(--code|code)/.test(args[0].trim()) ? true : args[1] && /(--code|code)/.test(args[1].trim()) ? true : false
 let txtCode, codeBot, txtQR
 //let user = global.db.data.users[m.sender]
@@ -159,8 +157,8 @@ const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.erro
 if (connection === 'close') {
 console.log(reason)
 if (reason == 405) {
-await fs.unlinkSync("./GataJadiBot/" + id + "/creds.json")
-//fs.unlinkSync(pathGataJadiBot)
+//await fs.unlinkSync("./GataJadiBot/" + id + "/creds.json")
+fs.unlinkSync(pathGataJadiBot)
 //thank you aiden_notLogic
 return await conn.sendMessage(m.chat, {text : lenguajeGB['smsreenvia']() }, { quoted: null })
 }
