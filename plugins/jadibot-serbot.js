@@ -66,7 +66,7 @@ export async function gataJadiBot(options) {
 let {pathGataJadiBot, m, conn, args, usedPrefix, command } = options
 const mcode = args[0] && /(--code|code)/.test(args[0].trim()) ? true : args[1] && /(--code|code)/.test(args[1].trim()) ? true : false
 let txtCode, codeBot, txtQR
-let user = global.db.data.users[m.sender]
+//let user = global.db.data.users[m.sender]
 if (mcode) {
 args[0] = args[0].replace(/^--code$|^code$/, "").trim()
 if (args[1]) args[1] = args[1].replace(/^--code$|^code$/, "").trim()
@@ -158,22 +158,25 @@ console.log(reason)
 if (reason == 405) {
 fs.unlinkSync(pathGataJadiBot)
 //thank you aiden_notLogic
-return await m.reply(lenguajeGB['smsreenvia']())
+return await conn.sendMessage(m.chat, {text : lenguajeGB['smsreenvia']() }, { quoted: null })
 }
 if (reason === DisconnectReason.restartRequired) {
 await creloadHandler(true).catch(console.error)
 return console.log(lenguajeGB['smsConexionreem']());  
 } else if (reason === DisconnectReason.loggedOut) {
 sleep(4000)
-return m.reply(lenguajeGB['smsJBConexionClose2']())
+return conn.sendMessage(m.chat, {text : lenguajeGB['smsJBConexionClose2']() }, { quoted: null })
+//m.reply(lenguajeGB['smsJBConexionClose2']())
 } else if (reason == 428) {
 await endSesion(false)
-return m.reply(lenguajeGB['smsJBConexion']())
+return conn.sendMessage(m.chat, {text : lenguajeGB['smsJBConexion']() }, { quoted: null })
+//m.reply(lenguajeGB['smsJBConexion']())
 } else if (reason === DisconnectReason.connectionLost) {
 await jddt()
 return console.log(lenguajeGB['smsConexionperdida']()); 
 } else if (reason === DisconnectReason.badSession) {
-return await m.reply(lenguajeGB['smsJBConexionClose']())
+return await conn.sendMessage(m.chat, {text : lenguajeGB['smsJBConexionClose']() }, { quoted: null })
+//m.reply(lenguajeGB['smsJBConexionClose']())
 } else if (reason === DisconnectReason.timedOut) {
 await endSesion(false)
 return console.log(lenguajeGB['smsConexiontiem']())
