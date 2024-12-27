@@ -25,7 +25,7 @@ global.owner = [
 
 global.mods = []
 global.prems = []
-
+global.gataJadibts = false
 // Cambiar a false para usar el Bot desde el mismo numero del Bot.
 global.isBaileysFail = false
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
