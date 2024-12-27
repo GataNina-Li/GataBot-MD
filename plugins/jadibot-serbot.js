@@ -157,7 +157,8 @@ const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.erro
 if (connection === 'close') {
 console.log(reason)
 if (reason == 405) {
-fs.unlinkSync(pathGataJadiBot)
+await fs.unlinkSync("./GataJadiBot/" + id + "/creds.json")
+//fs.unlinkSync(pathGataJadiBot)
 //thank you aiden_notLogic
 return await conn.sendMessage(m.chat, {text : lenguajeGB['smsreenvia']() }, { quoted: null })
 }
