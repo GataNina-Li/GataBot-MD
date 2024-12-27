@@ -25,7 +25,7 @@ import store from './lib/store.js'
 import readline from 'readline'
 import NodeCache from 'node-cache'
 import pkg from 'google-libphonenumber'
-import {gataJadiBot} from './plugins/jadibot-serbot'
+import {gataJadiBot} from './plugins/jadibot-serbot.js'
 const { PhoneNumberUtil } = pkg
 const phoneUtil = PhoneNumberUtil.getInstance()
 const { makeInMemoryStore, DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore } = await import('@whiskeysockets/baileys')
