@@ -183,11 +183,16 @@ console.log(lenguajeGB['smsConexiondescon']());
 }}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
+let userName, userJid 
 const credsPath = path.join(pathGataJadiBot, 'creds.json')
-if (!credsPath) return
+if (fs.existsSync(credsPath)) {
 const creds = JSON.parse(fs.readFileSync(credsPath, 'utf-8'))
-const userName = creds.me?.name || 'Anónimo'
-const userJid = creds.me?.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
+userName = creds.me?.name || 'Anónimo';
+userJid = creds.me?.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
+} else {
+userName = 'Anónimo'
+userJid = `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
+}
 	
 const nameOrNumber = conn.getName(userJid)
 const baseName = path.basename(pathGataJadiBot)
