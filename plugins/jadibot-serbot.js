@@ -18,7 +18,7 @@ Contenido adaptado para GataBot-MD por:
 const { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} = (await import(global.baileys));
 import qrcode from "qrcode"
 import NodeCache from "node-cache"
-import fs from "fs"
+import { promises as fs } from 'fs' //import fs from "fs"
 import path from "path"
 import pino from 'pino'
 import chalk from 'chalk'
