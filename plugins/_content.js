@@ -3,6 +3,7 @@ import moment from 'moment-timezone'
 import axios from 'axios'
 import fs from 'fs'
 const { generateWAMessageFromContent, prepareWAMessageMedia, proto }  = (await import(global.baileys))
+import '../config.js'
 
 let handler = m => m
 handler.all = async function (m) {
