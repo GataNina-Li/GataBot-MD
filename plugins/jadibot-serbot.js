@@ -37,7 +37,7 @@ let rtx = `${lenguajeGB['smsIniJadi']()}`
 let rtx2 = `${lenguajeGB['smsIniJadi2']()}`
 
 const gataJBOptions = {}
-if (global.conns instanceof Array) //console.log()
+if (global.conns instanceof Array) console.log()
 else global.conns = []
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
 let user = ''
