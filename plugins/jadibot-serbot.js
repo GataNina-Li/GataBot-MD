@@ -189,7 +189,6 @@ console.log(lenguajeGB['smsConexiondescon']());
 }}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
-await cleanDirectories(path.join(__dirname, '..', 'GataJadiBot'))
 /*let userName, userJid 
 const credsPath = path.join(pathGataJadiBot, 'creds.json')
 if (fs.existsSync(credsPath) && fs.readFileSync(credsPath, 'utf-8').trim()) {
@@ -365,40 +364,3 @@ for (const channelId of Object.values(global.ch)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}
 
-function cleanDirectories(rootDir) {
-    try {
-        // Leer los subdirectorios dentro del directorio raíz
-        const directories = fs.readdirSync(rootDir, { withFileTypes: true });
-
-        directories.forEach((dirent) => {
-            if (dirent.isDirectory()) {
-                const dirPath = path.join(rootDir, dirent.name); // Ruta de la carpeta
-                const credsPath = path.join(dirPath, 'creds.json'); // Ruta del creds.json
-
-                try {
-                    // Verificar si creds.json existe en la carpeta
-                    if (!fs.existsSync(credsPath)) {
-                        // Si creds.json no existe, eliminar la carpeta
-                        console.log(`No se encontró creds.json en ${dirPath}. Eliminando carpeta.`);
-                        fs.rmSync(dirPath, { recursive: true, force: true });
-                    } else {
-                        // Si creds.json existe, leerlo y verificar el valor de 'registered'
-                        const creds = JSON.parse(fs.readFileSync(credsPath, 'utf-8'));
-
-                        // Verificar si 'registered' es falsy (false, null, undefined, "")
-                        if (!creds.registered) {
-                            console.log(`El valor de 'registered' es falsy en ${dirPath}. Eliminando carpeta.`);
-                            fs.rmSync(dirPath, { recursive: true, force: true });
-                        }
-                    }
-                } catch (error) {
-                    console.error(`Error procesando ${dirPath}:`, error.message);
-                }
-            }
-        });
-
-        console.log("Limpieza completada.");
-    } catch (error) {
-        console.error("Error leyendo el directorio principal:", error.message);
-    }
-}
