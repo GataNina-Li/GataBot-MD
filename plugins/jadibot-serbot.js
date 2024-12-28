@@ -47,7 +47,7 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 let id = `${who.split`@`[0]}`  //conn.getName(who)
 let pathGataJadiBot = path.join("./GataJadiBot/", id)
 if (!fs.existsSync(pathGataJadiBot)){
-fs.mkdirSync(pathGataJadiBot, { recursive: true });
+fs.mkdirSync(pathGataJadiBot, { recursive: true })
 }
 gataJBOptions.pathGataJadiBot = pathGataJadiBot
 gataJBOptions.m = m
@@ -55,7 +55,6 @@ gataJBOptions.conn = conn
 gataJBOptions.args = args
 gataJBOptions.usedPrefix = usedPrefix
 gataJBOptions.command = command
-gataJBOptions.user = user
 //let id = m.sender
 gataJadiBot(gataJBOptions)
 } 
@@ -64,10 +63,9 @@ handler.register = true
 export default handler 
 
 export async function gataJadiBot(options) {
-let { pathGataJadiBot, m, conn, args, usedPrefix, command, user } = options
+let { pathGataJadiBot, m, conn, args, usedPrefix, command } = options
 const mcode = args[0] && /(--code|code)/.test(args[0].trim()) ? true : args[1] && /(--code|code)/.test(args[1].trim()) ? true : false
 let txtCode, codeBot, txtQR
-user = global.db.data.users[m.sender]
 if (mcode) {
 args[0] = args[0].replace(/^--code$|^code$/, "").trim()
 if (args[1]) args[1] = args[1].replace(/^--code$|^code$/, "").trim()
@@ -195,6 +193,7 @@ console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺�
 //}
 sock.isInit = true
 global.conns.push(sock)
+let user = global.db.data.users[m.sender]
 m?.chat ? await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m }) : ''
 let chtxt = `
 👤 *Usuario:* ${m.pushName || 'Anónimo'}
