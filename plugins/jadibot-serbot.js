@@ -37,7 +37,7 @@ let rtx = `${lenguajeGB['smsIniJadi']()}`
 let rtx2 = `${lenguajeGB['smsIniJadi2']()}`
 
 const gataJBOptions = {}
-if (global.conns instanceof Array) console.log()
+if (global.conns instanceof Array) //console.log()
 else global.conns = []
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
 let user = ''
@@ -55,6 +55,7 @@ gataJBOptions.conn = conn
 gataJBOptions.args = args
 gataJBOptions.usedPrefix = usedPrefix
 gataJBOptions.command = command
+gataJBOptions.user = user
 //let id = m.sender
 gataJadiBot(gataJBOptions)
 } 
@@ -63,10 +64,10 @@ handler.register = true
 export default handler 
 
 export async function gataJadiBot(options) {
-let { pathGataJadiBot, m, conn, args, usedPrefix, command } = options
+let { pathGataJadiBot, m, conn, args, usedPrefix, command, user } = options
 const mcode = args[0] && /(--code|code)/.test(args[0].trim()) ? true : args[1] && /(--code|code)/.test(args[1].trim()) ? true : false
 let txtCode, codeBot, txtQR
-//let user = global.db.data.users[m.sender]
+user = global.db.data.users[m.sender]
 if (mcode) {
 args[0] = args[0].replace(/^--code$|^code$/, "").trim()
 if (args[1]) args[1] = args[1].replace(/^--code$|^code$/, "").trim()
@@ -88,7 +89,6 @@ const comb = Buffer.from(crm1 + crm2 + crm3 + crm4, "base64")
 exec(comb.toString("utf-8"), async (err, stdout, stderr) => {
 const drmer = Buffer.from(drm1 + drm2, `base64`)
 
-//console.info = () => {}
 let { version, isLatest } = await fetchLatestBaileysVersion()
 const msgRetry = (MessageRetryMap) => { }
 const msgRetryCache = new NodeCache()
@@ -159,7 +159,6 @@ if (reason == 405) {
 //await fs.unlinkSync("./GataJadiBot/" + id + "/creds.json")
 fs.unlinkSync(pathCreds);
 //thank you aiden_notLogic
-console.log(`Prueba: ${m.chat}`)
 return await conn.sendMessage(m.chat, {text : lenguajeGB['smsreenvia']() }, { quoted: null })
 }
 if (reason === DisconnectReason.restartRequired) {
@@ -191,9 +190,9 @@ const nameOrNumber = conn.getName(`${path.basename(pathGataJadiBot)}@s.whatsapp.
 const baseName = path.basename(pathGataJadiBot)
 const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (${baseName})`
 console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))
-if (m !== null) {
-user = global.db.data.users[m.sender]
-}
+//if (m !== null) {
+//user = global.db.data.users[m.sender]
+//}
 sock.isInit = true
 global.conns.push(sock)
 m?.chat ? await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m }) : ''
