@@ -60,7 +60,6 @@ gataJBOptions.conn = conn
 gataJBOptions.args = args
 gataJBOptions.usedPrefix = usedPrefix
 gataJBOptions.command = command
-//let id = m.sender
 gataJadiBot(gataJBOptions)
 } 
 handler.command = /^(jadibot|serbot|rentbot)/i
@@ -141,7 +140,7 @@ if (codeBot && codeBot.key) {
 setTimeout(() => { conn.sendMessage(m.sender, { delete: codeBot.key })}, 30000)
 }
 const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
-console.log(code)
+code ? console.log(code) : ''
 const endSesion = async (loaded) => {
 if (!loaded) {
 try {
@@ -157,7 +156,7 @@ global.conns.splice(i, 1)
 
 const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (connection === 'close') {
-console.log(reason)
+//console.log(reason)
 if (reason == 405 || reason == 401) {
 fs.unlinkSync(pathCreds)
 //thank you aiden_notLogic
@@ -253,7 +252,7 @@ const Handler = await import(`../handler.js?update=${Date.now()}`).catch(console
 if (Object.keys(Handler || {}).length) handler = Handler
 													 
 } catch (e) {
-console.error(e)
+console.error('Nuevo error: ', e)
 }
 if (restatConn) {
 const oldChats = sock.chats
