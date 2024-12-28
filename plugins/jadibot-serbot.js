@@ -197,7 +197,7 @@ console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺�
 //if (m === null) return
 sock.isInit = true
 global.conns.push(sock)
-await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m })
+await sock.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m })
 let chtxt = `
 👤 *Usuario:* ${m.pushName || 'Anónimo'}
 🗃️ *Registrado:* ${user.registered ? 'Si' : 'No'}
