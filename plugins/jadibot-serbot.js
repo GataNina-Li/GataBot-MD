@@ -183,16 +183,23 @@ console.log(lenguajeGB['smsConexiondescon']());
 }}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
-const nameOrNumber = conn.getName(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`)
+const credsPath = path.join(pathGataJadiBot, 'creds.json')
+if (!credsPath) return
+const creds = JSON.parse(fs.readFileSync(credsPath, 'utf-8'))
+const userName = creds.me?.name || 'Anónimo'
+const userJid = creds.me?.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
+	
+const nameOrNumber = conn.getName(userJid)
 const baseName = path.basename(pathGataJadiBot)
 const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (${baseName})`
+	
 console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))
 sock.isInit = true
 global.conns.push(sock)
 let user = global.db.data.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.net`]
 m?.chat ? await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m }) : ''
 let chtxt = `
-👤 *Usuario:* ${m.pushName || 'Anónimo'}
+👤 *Usuario:* ${userName}
 🗃️ *Registrado:* ${user.registered ? 'Si' : 'No'}
 ✅ *Verificación:* ${user.registered ? user.name : 'No'}
 🔑 *Método de conexión:* ${mcode ? 'Código de 8 dígitos' : 'Código QR'}
@@ -201,7 +208,7 @@ let chtxt = `
 ⭐ *Versión del bot:* \`${vs}\`
 💫 *Versión sub bot:* \`${vsJB}\`\n
 > *¡Conviértete en sub-bot ahora!*
-wa.me/${m.sender.split`@`[0]}?text=${usedPrefix + command}%20code
+wa.me/${baseName}?text=${usedPrefix + command}%20code
 `.trim()
 let ppch = await sock.profilePictureUrl(who, 'image').catch(_ => gataMenu)
 await sleep(3000)
