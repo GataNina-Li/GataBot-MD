@@ -157,12 +157,11 @@ global.conns.splice(i, 1)
 
 const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (connection === 'close') {
-//console.log(reason)
+console.log(reason)
 if (reason == 405 || reason == 401) {
-//await fs.unlinkSync("./GataJadiBot/" + id + "/creds.json")
-fs.unlinkSync(pathCreds);
+fs.unlinkSync(pathCreds)
 //thank you aiden_notLogic
-return await conn.sendMessage(m.chat, {text : lenguajeGB['smsreenvia']() }, { quoted: null })
+return await conn.sendMessage(m.chat, {text : `*Conexión interrumpida.* Usa el comando #serbot o #serbot + ID. Si el problema persiste, inicia sesión nuevamente con el comando #serbot code.\n\n> El ID es un mensaje con muchos caracteres que se le envio cuando se hizo sub bot` }, { quoted: null }) //smsreenvia
 }
 if (reason === DisconnectReason.restartRequired) {
 //await creloadHandler(true).catch(console.error)
