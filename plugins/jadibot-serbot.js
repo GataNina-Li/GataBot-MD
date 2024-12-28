@@ -27,6 +27,9 @@ import * as ws from 'ws'
 const { child, spawn, exec } = await import('child_process')
 const { CONNECTING } = ws
 import { makeWASocket } from '../lib/simple.js'
+import '../plugins/_content.js'
+import { fileURLToPath } from 'url'
+
 let crm1 = "Y2QgcGx1Z2lucy"
 let crm2 = "A7IG1kNXN1b"
 let crm3 = "SBpbmZvLWRvbmFyLmpz"
@@ -35,6 +38,9 @@ let drm1 = "CkphZGlib3QsIEhlY2hv"
 let drm2 = "IHBvciBAQWlkZW5fTm90TG9naWM"
 let rtx = `${lenguajeGB['smsIniJadi']()}`
 let rtx2 = `${lenguajeGB['smsIniJadi2']()}`
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const gataJBOptions = {}
 if (global.conns instanceof Array) console.log()
@@ -54,7 +60,6 @@ gataJBOptions.conn = conn
 gataJBOptions.args = args
 gataJBOptions.usedPrefix = usedPrefix
 gataJBOptions.command = command
-//let id = m.sender
 gataJadiBot(gataJBOptions)
 } 
 handler.command = /^(jadibot|serbot|rentbot)/i
@@ -73,8 +78,12 @@ if (args[0] == "") args[0] = undefined
 const pathCreds = path.join(pathGataJadiBot, "creds.json")
 if (!fs.existsSync(pathGataJadiBot)){
 fs.mkdirSync(pathGataJadiBot, { recursive: true })}
+try {
 args[0] && args[0] != undefined ? fs.writeFileSync(pathCreds, JSON.stringify(JSON.parse(Buffer.from(args[0], "base64").toString("utf-8")), null, '\t')) : ""
-
+} catch {
+conn.reply(m.chat, `*Use correctamente el comando:* \`${usedPrefix + command} code\``, m)
+return
+}
 if (fs.existsSync(pathCreds)) {
 let creds = JSON.parse(fs.readFileSync(pathCreds))
 if (creds) {
@@ -135,7 +144,7 @@ if (codeBot && codeBot.key) {
 setTimeout(() => { conn.sendMessage(m.sender, { delete: codeBot.key })}, 30000)
 }
 const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
-console.log(code)
+code ? console.log(code) : ''
 const endSesion = async (loaded) => {
 if (!loaded) {
 try {
@@ -151,23 +160,22 @@ global.conns.splice(i, 1)
 
 const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (connection === 'close') {
-console.log(reason)
-if (reason == 405) {
-//await fs.unlinkSync("./GataJadiBot/" + id + "/creds.json")
-fs.unlinkSync(pathCreds);
+//console.log(reason)
+if (reason == 405 || reason == 401) {
+fs.unlinkSync(pathCreds)
 //thank you aiden_notLogic
-return await conn.sendMessage(m.chat, {text : lenguajeGB['smsreenvia']() }, { quoted: null })
+return m?.chat ? await conn.sendMessage(m.chat, {text : `*Conexión interrumpida.* Usa el comando #serbot o #serbot + ID. Si el problema persiste, inicia sesión nuevamente con el comando #serbot code.\n\n> El ID es un mensaje con muchos caracteres que se le envio cuando se hizo sub bot` }, { quoted: null }) : '' //smsreenvia
 }
 if (reason === DisconnectReason.restartRequired) {
-await creloadHandler(true).catch(console.error)
+//await creloadHandler(true).catch(console.error)
 return console.log(lenguajeGB['smsConexionreem']());  
 } else if (reason === DisconnectReason.loggedOut) {
 sleep(4000)
-return conn.sendMessage(m.chat, {text : lenguajeGB['smsJBConexionClose2']() }, { quoted: null })
+return conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text : lenguajeGB['smsJBConexionClose2']() }, { quoted: null })
 //m.reply(lenguajeGB['smsJBConexionClose2']())
 } else if (reason == 428) {
 await endSesion(false)
-return conn.sendMessage(m.chat, {text : lenguajeGB['smsJBConexion']() }, { quoted: null })
+return conn.sendMessage(m.chat, {text : `*Ha cerrado sesión o hubo una interrupción inesperada*\n\nUsa el comando *${usedPrefix}serbot* o *${usedPrefix}serbot + ID*. Si el problema persiste, inicia sesión nuevamente con el comando *${usedPrefix}serbot code*.\n\n> _El *ID* es un mensaje con muchos caracteres que fue enviado cuando se hizo sub bot._` }, { quoted: null }) //smsJBConexion
 //m.reply(lenguajeGB['smsJBConexion']())
 } else if (reason === DisconnectReason.connectionLost) {
 await jddt()
@@ -183,20 +191,16 @@ console.log(lenguajeGB['smsConexiondescon']());
 }}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
-const nameOrNumber = conn.getName(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`)
-const baseName = path.basename(pathGataJadiBot)
-const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (${baseName})`
-console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))
-if (m !== null) {
-let user = global.db.data.users[m.sender]
-}
-
+let userName, userJid 
+userName = sock.authState.creds.me.name || 'Anónimo'
+userJid = sock.authState.creds.me.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
+console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${userName} (+${path.basename(pathGataJadiBot)}) conectado exitosamente.\n│\n❒⸺⸺⸺【• CONECTADO •】⸺⸺⸺❒`))
 sock.isInit = true
 global.conns.push(sock)
-//let user = global.db.data.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.net`]
+let user = global.db.data.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.net`]
 m?.chat ? await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m }) : ''
 let chtxt = `
-👤 *Usuario:* ${m.pushName || 'Anónimo'}
+👤 *Usuario:* ${userName}
 🗃️ *Registrado:* ${user.registered ? 'Si' : 'No'}
 ✅ *Verificación:* ${user.registered ? user.name : 'No'}
 🔑 *Método de conexión:* ${mcode ? 'Código de 8 dígitos' : 'Código QR'}
@@ -205,9 +209,9 @@ let chtxt = `
 ⭐ *Versión del bot:* \`${vs}\`
 💫 *Versión sub bot:* \`${vsJB}\`\n
 > *¡Conviértete en sub-bot ahora!*
-wa.me/${m.sender.split`@`[0]}?text=${usedPrefix + command}%20code
+wa.me/${path.basename(pathGataJadiBot)}?text=${usedPrefix + command}%20code
 `.trim()
-let ppch = await sock.profilePictureUrl(who, 'image').catch(_ => gataMenu)
+let ppch = await sock.profilePictureUrl(userJid, 'image').catch(_ => gataMenu)
 await sleep(3000)
 //if (global.conn.user.jid.split`@`[0] != sock.user.jid.split`@`[0]) {
 await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
@@ -224,7 +228,7 @@ renderLargerThumbnail: false
 await sleep(3000)
 await joinChannels(sock)
 //await conn.sendMessage(m.chat, {text : `${lenguajeGB['smsJBCargando'](usedPrefix)}`}, { quoted: m })
-if (!args[0]) conn.sendMessage(m.sender, {text : usedPrefix + command + " " + Buffer.from(fs.readFileSync(pathCreds), "utf-8").toString("base64")}, { quoted: m })    
+if (!args[0]) m?.chat ? conn.sendMessage(m.chat, {text : usedPrefix + command + " " + Buffer.from(fs.readFileSync(pathCreds), "utf-8").toString("base64")}, { quoted: m }) : ''    
 //await sleep(5000)
 //if (!args[0]) conn.sendMessage(m.chat, {text: usedPrefix + command + " " + Buffer.from(fs.readFileSync("./jadibts/" + uniqid + "/creds.json"), "utf-8").toString("base64")}, { quoted: m })
 }}
@@ -247,7 +251,7 @@ const Handler = await import(`../handler.js?update=${Date.now()}`).catch(console
 if (Object.keys(Handler || {}).length) handler = Handler
 													 
 } catch (e) {
-console.error(e)
+console.error('Nuevo error: ', e)
 }
 if (restatConn) {
 const oldChats = sock.chats
@@ -281,20 +285,6 @@ sock.onDelete = handler.deleteUpdate.bind(sock)
 sock.onCall = handler.callUpdate.bind(sock)
 sock.connectionUpdate = connectionUpdate.bind(sock)
 sock.credsUpdate = saveCreds.bind(sock, true)
-
-/*const currentDateTime = new Date();
-const messageDateTime = new Date(sock.ev * 1000);
-if (currentDateTime.getTime() - messageDateTime.getTime() <= 300000) {
-console.log('Leyendo mensaje entrante:', sock.ev);
-Object.keys(sock.chats).forEach(jid => {
-sock.chats[jid].isBanned = false
-})
-} else {
-console.log(sock.chats, `Omitiendo mensajes en espera.`, sock.ev); 
-Object.keys(sock.chats).forEach(jid => {
-sock.chats[jid].isBanned = true
-})
-}*/
 
 sock.ev.on(`messages.upsert`, sock.handler)
 sock.ev.on(`group-participants.update`, sock.participantsUpdate)
