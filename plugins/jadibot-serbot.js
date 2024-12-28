@@ -190,12 +190,7 @@ if (connection == `open`) {
 let userName, userJid 
 userName = sock.authState.creds.me.name || 'Anónimo'
 userJid = sock.authState.creds.me.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
-console.log(userName)
-const nameOrNumber = conn.getName(userJid)
-const baseName = path.basename(pathGataJadiBot)
-const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${sock.authState.creds.me.name || nameOrNumber} (+${baseName})`
-	
-console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} conectado exitosamente.\n│\n❒⸺⸺⸺【• CONECTADO •】⸺⸺⸺❒`))
+console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${userName} (+${path.basename(pathGataJadiBot)}) conectado exitosamente.\n│\n❒⸺⸺⸺【• CONECTADO •】⸺⸺⸺❒`))
 sock.isInit = true
 global.conns.push(sock)
 let user = global.db.data.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.net`]
@@ -210,7 +205,7 @@ let chtxt = `
 ⭐ *Versión del bot:* \`${vs}\`
 💫 *Versión sub bot:* \`${vsJB}\`\n
 > *¡Conviértete en sub-bot ahora!*
-wa.me/${baseName}?text=${usedPrefix + command}%20code
+wa.me/${path.basename(pathGataJadiBot)}?text=${usedPrefix + command}%20code
 `.trim()
 let ppch = await sock.profilePictureUrl(userJid, 'image').catch(_ => gataMenu)
 await sleep(3000)
