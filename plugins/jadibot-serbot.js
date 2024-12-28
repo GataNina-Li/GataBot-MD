@@ -151,7 +151,7 @@ global.conns.splice(i, 1)
 
 const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (connection === 'close') {
-console.log(reason)
+//console.log(reason)
 if (reason == 405) {
 //await fs.unlinkSync("./GataJadiBot/" + id + "/creds.json")
 fs.unlinkSync(pathCreds);
@@ -159,7 +159,7 @@ fs.unlinkSync(pathCreds);
 return await conn.sendMessage(m.chat, {text : lenguajeGB['smsreenvia']() }, { quoted: null })
 }
 if (reason === DisconnectReason.restartRequired) {
-await creloadHandler(true).catch(console.error)
+//await creloadHandler(true).catch(console.error)
 return console.log(lenguajeGB['smsConexionreem']());  
 } else if (reason === DisconnectReason.loggedOut) {
 sleep(4000)
