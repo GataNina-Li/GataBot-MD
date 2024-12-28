@@ -193,7 +193,7 @@ console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺�
 
 sock.isInit = true
 global.conns.push(sock)
-let user = global.db.data.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.net`]
+//let user = global.db.data.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.net`]
 m?.chat ? await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m }) : ''
 let chtxt = `
 👤 *Usuario:* ${m.pushName || 'Anónimo'}
