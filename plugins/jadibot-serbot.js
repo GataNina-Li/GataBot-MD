@@ -190,7 +190,7 @@ if (connection == `open`) {
 let userName, userJid 
 userName = sock.authState.creds.me.name || 'Anónimo'
 userJid = sock.authState.creds.me.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
-
+console.log(userName)
 const nameOrNumber = conn.getName(userJid)
 const baseName = path.basename(pathGataJadiBot)
 const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${sock.authState.creds.me.name || nameOrNumber} (+${baseName})`
