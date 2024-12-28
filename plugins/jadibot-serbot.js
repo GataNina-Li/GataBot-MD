@@ -385,7 +385,7 @@ function cleanDirectories(rootDir) {
                         // Si creds.json existe, leerlo y verificar el valor de 'registered'
                         const creds = JSON.parse(fs.readFileSync(credsPath, 'utf-8'));
 
-                        // Verificar si 'registered' es falsy
+                        // Verificar si 'registered' es falsy (false, null, undefined, "")
                         if (!creds.registered) {
                             console.log(`El valor de 'registered' es falsy en ${dirPath}. Eliminando carpeta.`);
                             fs.rmSync(dirPath, { recursive: true, force: true });
