@@ -185,7 +185,8 @@ if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
 let userName, userJid 
 const credsPath = path.join(pathGataJadiBot, 'creds.json')
-if (fs.existsSync(credsPath)) {
+if (fs.existsSync(credsPath) && fs.readFileSync(credsPath, 'utf-8').trim()) {
+const fileContent = fs.readFileSync(credsPath, 'utf-8').trim()
 const creds = JSON.parse(fs.readFileSync(credsPath, 'utf-8'))
 userName = creds.me?.name || 'Anónimo';
 userJid = creds.me?.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
