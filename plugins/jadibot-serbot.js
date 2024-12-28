@@ -28,6 +28,7 @@ const { child, spawn, exec } = await import('child_process')
 const { CONNECTING } = ws
 import { makeWASocket } from '../lib/simple.js'
 import '../plugins/_content.js'
+import { fileURLToPath } from 'url'
 
 let crm1 = "Y2QgcGx1Z2lucy"
 let crm2 = "A7IG1kNXN1b"
@@ -37,6 +38,9 @@ let drm1 = "CkphZGlib3QsIEhlY2hv"
 let drm2 = "IHBvciBAQWlkZW5fTm90TG9naWM"
 let rtx = `${lenguajeGB['smsIniJadi']()}`
 let rtx2 = `${lenguajeGB['smsIniJadi2']()}`
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const gataJBOptions = {}
 if (global.conns instanceof Array) console.log()
