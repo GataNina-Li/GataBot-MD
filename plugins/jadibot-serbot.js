@@ -188,30 +188,13 @@ console.log(lenguajeGB['smsConexiondescon']());
 }}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
-console.log(sock.authState.creds.me.name)
-/*let userName, userJid 
-const credsPath = path.join(pathGataJadiBot, 'creds.json')
-if (fs.existsSync(credsPath) && fs.readFileSync(credsPath, 'utf-8').trim()) {
-const fileContent = fs.readFileSync(credsPath, 'utf-8').trim()
-const creds = JSON.parse(fs.readFileSync(credsPath, 'utf-8'))
-console.log(creds.me?.name)
-console.log(creds.me?.jid)
-userName = creds.me?.name || 'Anónimo';
-userJid = creds.me?.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
-} else {
-userName = 'Anónimo'
-userJid = `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
-}*/
-const credsPath = path.join(pathGataJadiBot, 'creds.json');
-let { userName, userJid } = getUserInfo(credsPath)
+let { userName, userJid }
+userName = sock.authState.creds.me.name || 'Anónimo'
+userJid = sock.authState.creds.me.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
 
-console.log("UserName:", userName)
-console.log("UserJid:", userJid)
-
-	
 const nameOrNumber = conn.getName(userJid)
 const baseName = path.basename(pathGataJadiBot)
-const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (${baseName})`
+const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (+${baseName})`
 	
 console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))
 sock.isInit = true
