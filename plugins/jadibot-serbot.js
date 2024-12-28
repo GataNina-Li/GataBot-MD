@@ -163,16 +163,19 @@ await creloadHandler(true).catch(console.error)
 return console.log(lenguajeGB['smsConexionreem']());  
 } else if (reason === DisconnectReason.loggedOut) {
 sleep(4000)
+if (m === null) return
 return conn.sendMessage(m.chat, {text : lenguajeGB['smsJBConexionClose2']() }, { quoted: null })
 //m.reply(lenguajeGB['smsJBConexionClose2']())
 } else if (reason == 428) {
 await endSesion(false)
+if (m === null) return
 return conn.sendMessage(m.chat, {text : lenguajeGB['smsJBConexion']() }, { quoted: null })
 //m.reply(lenguajeGB['smsJBConexion']())
 } else if (reason === DisconnectReason.connectionLost) {
-await jddt()
+await creloadHandler(true).catch(console.error)
 return console.log(lenguajeGB['smsConexionperdida']()); 
 } else if (reason === DisconnectReason.badSession) {
+if (m === null) return
 return await conn.sendMessage(m.chat, {text : lenguajeGB['smsJBConexionClose']() }, { quoted: null })
 //m.reply(lenguajeGB['smsJBConexionClose']())
 } else if (reason === DisconnectReason.timedOut) {
@@ -181,18 +184,16 @@ return console.log(lenguajeGB['smsConexiontiem']())
 } else {
 console.log(lenguajeGB['smsConexiondescon']()); 
 }}
-if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
+if (global.db.data == null) global.loadDatabase()
 const nameOrNumber = conn.getName(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`)
 const baseName = path.basename(pathGataJadiBot)
 const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (${baseName})`
 console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))
-if (m !== null) {
-let user = global.db.data.users[m.sender]
-}
-
 sock.isInit = true
 global.conns.push(sock)
+if (m !== null) {
+let user = global.db.data.users[m.sender]
 //let user = global.db.data.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.net`]
 m?.chat ? await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m }) : ''
 let chtxt = `
@@ -227,7 +228,9 @@ await joinChannels(sock)
 if (!args[0]) conn.sendMessage(m.sender, {text : usedPrefix + command + " " + Buffer.from(fs.readFileSync(pathCreds), "utf-8").toString("base64")}, { quoted: m })    
 //await sleep(5000)
 //if (!args[0]) conn.sendMessage(m.chat, {text: usedPrefix + command + " " + Buffer.from(fs.readFileSync("./jadibts/" + uniqid + "/creds.json"), "utf-8").toString("base64")}, { quoted: m })
-}}
+}
+}
+}
 setInterval(async () => {
 if (!sock.user) {
 try { sock.ws.close() } catch (e) {      
