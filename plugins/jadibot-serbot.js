@@ -190,6 +190,8 @@ const credsPath = path.join(pathGataJadiBot, 'creds.json')
 if (fs.existsSync(credsPath) && fs.readFileSync(credsPath, 'utf-8').trim()) {
 const fileContent = fs.readFileSync(credsPath, 'utf-8').trim()
 const creds = JSON.parse(fs.readFileSync(credsPath, 'utf-8'))
+console.log(creds.me?.name)
+console.log(creds.me?.jid)
 userName = creds.me?.name || 'Anónimo';
 userJid = creds.me?.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
 } else {
