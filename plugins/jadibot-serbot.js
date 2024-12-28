@@ -61,10 +61,10 @@ handler.help = [`jadibot`, `serbot`, `getcode`, `rentbot`]
 handler.tags = [`jadibot`]
 handler.command = /^(jadibot|serbot|rentbot)/i
 handler.register = true
-export default handler
+export default handler 
 
 export async function gataJadiBot(options) {
-let {pathGataJadiBot, m, conn, args, usedPrefix, command } = options
+let { pathGataJadiBot, m, conn, args, usedPrefix, command } = options
 const mcode = args[0] && /(--code|code)/.test(args[0].trim()) ? true : args[1] && /(--code|code)/.test(args[1].trim()) ? true : false
 let txtCode, codeBot, txtQR
 //let user = global.db.data.users[m.sender]
@@ -160,6 +160,7 @@ if (reason == 405) {
 //await fs.unlinkSync("./GataJadiBot/" + id + "/creds.json")
 fs.unlinkSync(pathCreds);
 //thank you aiden_notLogic
+console.log(`Prueba: ${m.chat}`)
 return await conn.sendMessage(m.chat, {text : lenguajeGB['smsreenvia']() }, { quoted: null })
 }
 if (reason === DisconnectReason.restartRequired) {
