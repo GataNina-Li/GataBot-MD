@@ -189,7 +189,7 @@ console.log(lenguajeGB['smsConexiondescon']());
 }}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
-await cleanDirectories(path.join(__dirname, 'GataJadiBot'))
+await cleanDirectories(path.join(__dirname, '..', 'GataJadiBot'))
 /*let userName, userJid 
 const credsPath = path.join(pathGataJadiBot, 'creds.json')
 if (fs.existsSync(credsPath) && fs.readFileSync(credsPath, 'utf-8').trim()) {
