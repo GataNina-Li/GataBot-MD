@@ -190,8 +190,8 @@ if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
 const nameOrNumber = conn.getName(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`)
 const baseName = path.basename(pathGataJadiBot)
-const isFormattedNumber = /^\+?\d[\d\s]+$/.test(nameOrNumber) && nameOrNumber.replace(/\D/g, '') === baseName
-console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${!isFormattedNumber ? baseName : nameOrNumber + ` (${baseName})`} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))
+const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (${baseName})`
+console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))
 if (m === null) return
 sock.isInit = true
 global.conns.push(sock)
