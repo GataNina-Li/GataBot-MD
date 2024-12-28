@@ -2489,7 +2489,7 @@ let chtxt = `📑 *Tipo de registro »* ${user.registroC === true ? 'Completo' :
 ❇️ *Pasatiempo(s) »* ${user.pasatiempo}
 ${user.premLimit === 1 ? '' : `🎟️ *Premium »* ${user.premLimit === 1 ? '' : `${user.premiumTime > 0 ? '✅' : '❌'} +10 HORAS || ${user.premiumTime - now} ms`}`}   ` : ''}${user.registroC === true ? `\n\n> 🌟 *Si es su primera vez registrándose, recibirá horas premium de forma gratuita como bonificación exclusiva por su primera inscripción, puede cancelar y eliminar su registro en cualquier momento. Gracias por registrarse ✨*` : ''}
 🐈 *Bot:* ${gt}`.trim()
-await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
+await global.conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
 body: '🥳 ¡Nuevo usuario registrado!',
