@@ -54,7 +54,6 @@ global.accountsgb = [all, canal1, canal2, canal3, canal4, tk, ig, yt, paypal, fb
 global.canalIdGB = ["120363160031023229@newsletter", "120363169294281316@newsletter", "120363203805910750@newsletter", "120363302472386010@newsletter"]
 global.canalNombreGB = ["INFINITY-WA 💫", "GB - UPDATE 🐈", "Tips sobre GataBot 🤩", "NEW PROJECT: YartexBot-MD ✨"]
 global.channelRD = await getRandomChannel()
-console.log(channelRD)
 
 // Imágenes 
 global.imagen1 = fs.readFileSync("./media/menus/Menu3.jpg")
