@@ -285,7 +285,7 @@ sock.onCall = handler.callUpdate.bind(sock)
 sock.connectionUpdate = connectionUpdate.bind(sock)
 sock.credsUpdate = saveCreds.bind(sock, true)
 
-const currentDateTime = new Date();
+/*const currentDateTime = new Date();
 const messageDateTime = new Date(sock.ev * 1000);
 if (currentDateTime.getTime() - messageDateTime.getTime() <= 300000) {
 console.log('Leyendo mensaje entrante:', sock.ev);
@@ -297,7 +297,7 @@ console.log(sock.chats, `Omitiendo mensajes en espera.`, sock.ev);
 Object.keys(sock.chats).forEach(jid => {
 sock.chats[jid].isBanned = true
 })
-}
+}*/
 
 sock.ev.on(`messages.upsert`, sock.handler)
 sock.ev.on(`group-participants.update`, sock.participantsUpdate)
