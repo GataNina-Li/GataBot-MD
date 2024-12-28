@@ -216,7 +216,7 @@ let chtxt = `
 > *¡Conviértete en sub-bot ahora!*
 wa.me/${baseName}?text=${usedPrefix + command}%20code
 `.trim()
-let ppch = await sock.profilePictureUrl(who, 'image').catch(_ => gataMenu)
+let ppch = await sock.profilePictureUrl(userJid, 'image').catch(_ => gataMenu)
 await sleep(3000)
 //if (global.conn.user.jid.split`@`[0] != sock.user.jid.split`@`[0]) {
 await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
