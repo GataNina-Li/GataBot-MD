@@ -201,33 +201,11 @@ userJid = creds.me?.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
 userName = 'Anónimo'
 userJid = `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
 }*/
-let userName, userJid
-const credsPath = path.join(pathGataJadiBot, 'creds.json')
-if (fs.existsSync(credsPath)) {
-const fileContent = fs.readFileSync(credsPath, 'utf-8').trim()
-if (fileContent) {
-try {
-const creds = JSON.parse(fileContent)
-console.log(creds.me?.name)
-console.log(creds.me?.jid)
+const credsPath = path.join(pathGataJadiBot, 'creds.json');
+let { userName, userJid } = getUserInfo(credsPath)
 
-userName = creds.me?.name || 'Anónimo'
-userJid = creds.me?.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
-} catch (error) {
-console.error("Error al parsear el archivo JSON:", error)
-userName = 'Anónimo'
-userJid = `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
-}
-} else {
-console.log("El archivo creds.json está vacío.")
-userName = 'Anónimo'
-userJid = `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
-}
-} else {
-    console.log("El archivo creds.json no existe.");
-    userName = 'Anónimo';
-    userJid = `${path.basename(pathGataJadiBot)}@s.whatsapp.net`;
-}
+console.log("UserName:", userName)
+console.log("UserJid:", userJid)
 
 	
 const nameOrNumber = conn.getName(userJid)
@@ -326,20 +304,6 @@ sock.onCall = handler.callUpdate.bind(sock)
 sock.connectionUpdate = connectionUpdate.bind(sock)
 sock.credsUpdate = saveCreds.bind(sock, true)
 
-/*const currentDateTime = new Date();
-const messageDateTime = new Date(sock.ev * 1000);
-if (currentDateTime.getTime() - messageDateTime.getTime() <= 300000) {
-console.log('Leyendo mensaje entrante:', sock.ev);
-Object.keys(sock.chats).forEach(jid => {
-sock.chats[jid].isBanned = false
-})
-} else {
-console.log(sock.chats, `Omitiendo mensajes en espera.`, sock.ev); 
-Object.keys(sock.chats).forEach(jid => {
-sock.chats[jid].isBanned = true
-})
-}*/
-
 sock.ev.on(`messages.upsert`, sock.handler)
 sock.ev.on(`group-participants.update`, sock.participantsUpdate)
 sock.ev.on(`groups.update`, sock.groupsUpdate)
@@ -363,3 +327,25 @@ for (const channelId of Object.values(global.ch)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}
 
+function getUserInfo(credsPath) {
+  function getCredsValue(key) {
+    try {
+      if (fs.existsSync(credsPath)) {
+        const fileContent = fs.readFileSync(credsPath, 'utf-8').trim();
+        if (fileContent) {
+          const creds = JSON.parse(fileContent);
+          return creds?.me?.[key] || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`;
+        }
+      }
+      console.log(`El archivo ${credsPath} no existe o está vacío.`);
+    } catch (error) {
+      console.error("Error al procesar el archivo creds.json:", error);
+    }
+    return 'Anónimo'; // Valor por defecto
+  }
+
+  const userName = getCredsValue('name');
+  const userJid = getCredsValue('jid');
+
+  return { userName, userJid };
+}
