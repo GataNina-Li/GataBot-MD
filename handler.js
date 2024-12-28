@@ -1066,6 +1066,7 @@ if (!('autoread' in settings)) settings.autoread = false
 if (!('autoread2' in settings)) settings.autoread2 = false
 if (!('restrict' in settings)) settings.restrict = false
 if (!('temporal' in settings)) settings.temporal = false
+if (!('anticommand' in settings)) settings.anticommand = true
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('antiCall' in settings)) settings.antiCall = true
 if (!('antiSpam' in settings)) settings.antiSpam = true 
@@ -1081,6 +1082,7 @@ antiPrivate: false,
 antiCall: true,
 antiSpam: true,
 modoia: false, 
+anticommand: true, 
 jadibotmd: true,
 }} catch (e) {
 console.error(e)
@@ -1582,6 +1584,6 @@ if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id
 const file = global.__filename(import.meta.url, true);
 watchFile(file, async () => {
 unwatchFile(file)
-console.log(chalk.redBright('Update \'handler.js\''))
-if (global.reloadHandler) console.log(await global.reloadHandler())
+console.log(chalk.redBright('Update \'handler.js\''));
+//if (global.reloadHandler) console.log(await global.reloadHandler());
 })
