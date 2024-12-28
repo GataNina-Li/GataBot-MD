@@ -46,10 +46,10 @@ li.DESTRAVip.to
 }
 export default handler
 
-global.canales = [canal1, canal2, canal3, canal4].getRandom()
-global.welgata = [tk, ig, md, yt, paypal, fb, ths, asistencia].getRandom()
-global.redesMenu = [all, canal1, canal2, canal3, canal4, md, ig, paypal, yt, asistencia, fb, tk].getRandom()
-global.accountsgb = [all, canal1, canal2, canal3, canal4, tk, ig, yt, paypal, fb, ths, md, asistencia].getRandom()
+global.canales = [canal1, canal2, canal3, canal4][Math.floor(Math.random() * 4)]
+global.welgata = [tk, ig, md, yt, paypal, fb, ths, asistencia][Math.floor(Math.random() * 8)]
+global.redesMenu = [all, canal1, canal2, canal3, canal4, md, ig, paypal, yt, asistencia, fb, tk][Math.floor(Math.random() * 12)]
+global.accountsgb = [all, canal1, canal2, canal3, canal4, tk, ig, yt, paypal, fb, ths, md, asistencia][Math.floor(Math.random() * 13)]
 
 global.canalIdGB = ["120363160031023229@newsletter", "120363169294281316@newsletter", "120363203805910750@newsletter", "120363302472386010@newsletter"]
 global.canalNombreGB = ["INFINITY-WA 💫", "GB - UPDATE 🐈", "Tips sobre GataBot 🤩", "NEW PROJECT: YartexBot-MD ✨"]
@@ -97,9 +97,9 @@ global.img18 = 'https://qu.ax/HCt.jpg'
 
 global.logogit = 'https://qu.ax/RzKF.jpg'
 
-global.gataVidMenu = ['https://qu.ax/AAvg.mp4', 'https://qu.ax/SeFS.mp4', 'https://qu.ax/NqZN.mp4'].getRandom()
-global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18].getRandom()
-global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13].getRandom()
+global.gataVidMenu = ['https://qu.ax/AAvg.mp4', 'https://qu.ax/SeFS.mp4', 'https://qu.ax/NqZN.mp4'][Math.floor(Math.random() * 3)]
+global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18][Math.floor(Math.random() * 11)]
+global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13][Math.floor(Math.random() * 13)]
 
 // Mensaje de espera
 // await mensajesEditados(conn, m)
