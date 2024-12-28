@@ -195,7 +195,7 @@ const nameOrNumber = conn.getName(userJid)
 const baseName = path.basename(pathGataJadiBot)
 const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${sock.authState.creds.me.name || nameOrNumber} (+${baseName})`
 	
-console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺【• CONECTADO •】⸺⸺⸺❒`))
+console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} conectado exitosamente.\n│\n❒⸺⸺⸺【• CONECTADO •】⸺⸺⸺❒`))
 sock.isInit = true
 global.conns.push(sock)
 let user = global.db.data.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.net`]
