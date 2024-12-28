@@ -172,7 +172,7 @@ return conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {tex
 //m.reply(lenguajeGB['smsJBConexionClose2']())
 } else if (reason == 428) {
 await endSesion(false)
-return conn.sendMessage(m.chat, {text : `*Ha cerrado sesión o hubo una interrupción inesperada*\n\nUsa el comando #serbot o #serbot + ID. Si el problema persiste, inicia sesión nuevamente con el comando #serbot code.\n\n> El ID es un mensaje con muchos caracteres que se le envio cuando se hizo sub bot` }, { quoted: null }) //smsJBConexion
+return conn.sendMessage(m.chat, {text : `*Ha cerrado sesión o hubo una interrupción inesperada*\n\nUsa el comando *${usedPrefix}serbot* o *${usedPrefix}serbot + ID*. Si el problema persiste, inicia sesión nuevamente con el comando *${usedPrefix}serbot code*.\n\n> _El *ID* es un mensaje con muchos caracteres que fue enviado cuando se hizo sub bot._` }, { quoted: null }) //smsJBConexion
 //m.reply(lenguajeGB['smsJBConexion']())
 } else if (reason === DisconnectReason.connectionLost) {
 await jddt()
