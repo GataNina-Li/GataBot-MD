@@ -40,7 +40,7 @@ const gataJBOptions = {}
 if (global.conns instanceof Array) console.log()
 else global.conns = []
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
-let user = global.db.data.users[m.sender]
+let user = ''
 if (!global.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`${lenguajeGB['smsSoloOwnerJB']()}`)
 //if (conn.user.jid !== global.conn.user.jid) return conn.reply(m.chat, `${lenguajeGB['smsJBPrincipal']()} wa.me/${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}`, m) 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -55,18 +55,15 @@ gataJBOptions.conn = conn
 gataJBOptions.args = args
 gataJBOptions.usedPrefix = usedPrefix
 gataJBOptions.command = command
-gataJBOptions.user = user
 //let id = m.sender
 gataJadiBot(gataJBOptions)
 } 
-handler.help = [`jadibot`, `serbot`, `getcode`, `rentbot`]
-handler.tags = [`jadibot`]
 handler.command = /^(jadibot|serbot|rentbot)/i
 handler.register = true
 export default handler 
 
 export async function gataJadiBot(options) {
-let { pathGataJadiBot, m, conn, args, usedPrefix, command, user } = options
+let { pathGataJadiBot, m, conn, args, usedPrefix, command } = options
 const mcode = args[0] && /(--code|code)/.test(args[0].trim()) ? true : args[1] && /(--code|code)/.test(args[1].trim()) ? true : false
 let txtCode, codeBot, txtQR
 //let user = global.db.data.users[m.sender]
@@ -194,10 +191,12 @@ const nameOrNumber = conn.getName(`${path.basename(pathGataJadiBot)}@s.whatsapp.
 const baseName = path.basename(pathGataJadiBot)
 const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (${baseName})`
 console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))
-//if (m === null) return
+if (m !== null) {
+user = global.db.data.users[m.sender]
+}
 sock.isInit = true
 global.conns.push(sock)
-await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m }) || null
+m?.chat ? await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m }) : ''
 let chtxt = `
 👤 *Usuario:* ${m.pushName || 'Anónimo'}
 🗃️ *Registrado:* ${user.registered ? 'Si' : 'No'}
@@ -212,8 +211,8 @@ wa.me/${m.sender.split`@`[0]}?text=${usedPrefix + command}%20code
 `.trim()
 let ppch = await sock.profilePictureUrl(who, 'image').catch(_ => gataMenu)
 await sleep(3000)
-if (global.conn.user.jid.split`@`[0] != sock.user.jid.split`@`[0]) {
-await sock.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
+//if (global.conn.user.jid.split`@`[0] != sock.user.jid.split`@`[0]) {
+await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
 body: '🙀 ¡Nuevo sub-bot encontrado!',
@@ -223,7 +222,7 @@ mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
 }}}, { quoted: null })
-}
+//}
 await sleep(3000)
 await joinChannels(sock)
 //await conn.sendMessage(m.chat, {text : `${lenguajeGB['smsJBCargando'](usedPrefix)}`}, { quoted: m })
