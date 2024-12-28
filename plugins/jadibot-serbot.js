@@ -376,18 +376,20 @@ function cleanDirectories(rootDir) {
                 const credsPath = path.join(dirPath, 'creds.json'); // Ruta del creds.json
 
                 try {
-                    // Comprobar si el archivo creds.json existe
-                    if (fs.existsSync(credsPath)) {
-                        const fileContent = fs.readFileSync(credsPath, 'utf-8').trim();
-                        if (!fileContent) {
-                            // Si el archivo está vacío, eliminar la carpeta
-                            console.log(`El archivo creds.json en ${dirPath} está vacío. Eliminando carpeta.`);
-                            fs.rmSync(dirPath, { recursive: true, force: true });
-                        }
-                    } else {
-                        // Si el archivo no existe, eliminar la carpeta
+                    // Verificar si creds.json existe en la carpeta
+                    if (!fs.existsSync(credsPath)) {
+                        // Si creds.json no existe, eliminar la carpeta
                         console.log(`No se encontró creds.json en ${dirPath}. Eliminando carpeta.`);
                         fs.rmSync(dirPath, { recursive: true, force: true });
+                    } else {
+                        // Si creds.json existe, leerlo y verificar el valor de 'registered'
+                        const creds = JSON.parse(fs.readFileSync(credsPath, 'utf-8'));
+
+                        // Verificar si 'registered' es falsy
+                        if (!creds.registered) {
+                            console.log(`El valor de 'registered' es falsy en ${dirPath}. Eliminando carpeta.`);
+                            fs.rmSync(dirPath, { recursive: true, force: true });
+                        }
                     }
                 } catch (error) {
                     console.error(`Error procesando ${dirPath}:`, error.message);
