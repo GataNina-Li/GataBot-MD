@@ -158,7 +158,7 @@ global.conns.splice(i, 1)
 const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (connection === 'close') {
 //console.log(reason)
-if (reason == 405) {
+if (reason == 405 || reason == 401) {
 //await fs.unlinkSync("./GataJadiBot/" + id + "/creds.json")
 fs.unlinkSync(pathCreds);
 //thank you aiden_notLogic
