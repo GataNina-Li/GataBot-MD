@@ -188,7 +188,7 @@ console.log(lenguajeGB['smsConexiondescon']());
 }}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
-let { userName, userJid }
+let userName, userJid 
 userName = sock.authState.creds.me.name || 'Anónimo'
 userJid = sock.authState.creds.me.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
 
@@ -310,26 +310,3 @@ async function joinChannels(conn) {
 for (const channelId of Object.values(global.ch)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}
-
-function getUserInfo(credsPath) {
-  function getCredsValue(key) {
-    try {
-      if (fs.existsSync(credsPath)) {
-        const fileContent = fs.readFileSync(credsPath, 'utf-8').trim();
-        if (fileContent) {
-          const creds = JSON.parse(fileContent);
-          return creds?.me?.[key] || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`;
-        }
-      }
-      console.log(`El archivo ${credsPath} no existe o está vacío.`);
-    } catch (error) {
-      console.error("Error al procesar el archivo creds.json:", error);
-    }
-    return 'Anónimo'; // Valor por defecto
-  }
-
-  const userName = getCredsValue('name');
-  const userJid = getCredsValue('jid');
-
-  return { userName, userJid };
-}
