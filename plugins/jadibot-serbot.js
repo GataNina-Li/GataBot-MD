@@ -188,7 +188,7 @@ console.log(lenguajeGB['smsConexiondescon']());
 }}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
-console.log(sock.authState.creds.registered)
+console.log(sock.authState.creds.me.name)
 /*let userName, userJid 
 const credsPath = path.join(pathGataJadiBot, 'creds.json')
 if (fs.existsSync(credsPath) && fs.readFileSync(credsPath, 'utf-8').trim()) {
