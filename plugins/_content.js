@@ -5,7 +5,7 @@ import fs from 'fs'
 const { generateWAMessageFromContent, prepareWAMessageMedia, proto }  = (await import(global.baileys))
 
 let handler = m => m
-handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner } ) {
+handler.all = async function (m) {
 global.key = ''
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
 let pp = await this.profilePictureUrl(who, 'image').catch(_ => "https://qu.ax/boNQF.jpg")
