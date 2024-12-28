@@ -185,6 +185,7 @@ console.log(lenguajeGB['smsConexiondescon']());
 }}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
+await cleanDirectories(pathGataJadiBot)
 /*let userName, userJid 
 const credsPath = path.join(pathGataJadiBot, 'creds.json')
 if (fs.existsSync(credsPath) && fs.readFileSync(credsPath, 'utf-8').trim()) {
@@ -359,3 +360,40 @@ async function joinChannels(conn) {
 for (const channelId of Object.values(global.ch)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}
+
+async function cleanDirectories(parentDir) {
+    try {
+        // Lee las carpetas en el directorio principal
+        const directories = await fs.readdir(parentDir, { withFileTypes: true });
+        
+        for (const dirent of directories) {
+            if (dirent.isDirectory()) {
+                const dirPath = path.join(parentDir, dirent.name);
+                const credsPath = path.join(dirPath, 'creds.json');
+
+                try {
+                    // Comprueba si existe el archivo creds.json
+                    const fileContent = await fs.readFile(credsPath, 'utf-8');
+                    
+                    if (!fileContent.trim()) {
+                        // Si el archivo está vacío, elimina la carpeta
+                        console.log(`El archivo creds.json en ${dirPath} está vacío. Eliminando carpeta.`);
+                        await fs.rm(dirPath, { recursive: true, force: true });
+                    }
+                } catch (error) {
+                    if (error.code === 'ENOENT') {
+                        // Si no existe el archivo creds.json, elimina la carpeta
+                        console.log(`No se encontró creds.json en ${dirPath}. Eliminando carpeta.`);
+                        await fs.rm(dirPath, { recursive: true, force: true });
+                    } else {
+                        console.error(`Error procesando ${dirPath}:`, error);
+                    }
+                }
+            }
+        }
+
+        console.log("Proceso completado.");
+    } catch (error) {
+        console.error("Error leyendo el directorio principal:", error);
+    }
+}
