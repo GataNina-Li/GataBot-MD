@@ -191,8 +191,8 @@ if (connection == `open`) {
 const nameOrNumber = conn.getName(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`)
 const baseName = path.basename(pathGataJadiBot)
 const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (${baseName})`
-console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} ${m?.pushName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))
-if (m === null) return
+console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))
+//if (m === null) return
 sock.isInit = true
 global.conns.push(sock)
 await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m })
@@ -211,7 +211,7 @@ wa.me/${m.sender.split`@`[0]}?text=${usedPrefix + command}%20code
 let ppch = await sock.profilePictureUrl(who, 'image').catch(_ => gataMenu)
 await sleep(3000)
 if (global.conn.user.jid.split`@`[0] != sock.user.jid.split`@`[0]) {
-await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
+await sock.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
 body: '🙀 ¡Nuevo sub-bot encontrado!',
