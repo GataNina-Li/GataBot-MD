@@ -18,7 +18,7 @@ Contenido adaptado para GataBot-MD por:
 const { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} = (await import(global.baileys));
 import qrcode from "qrcode"
 import NodeCache from "node-cache"
-import { promises as fs } from 'fs' //import fs from "fs"
+import fs from "fs"
 import path from "path"
 import pino from 'pino'
 import chalk from 'chalk'
@@ -365,39 +365,38 @@ for (const channelId of Object.values(global.ch)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}
 
-async function cleanDirectories(parentDir) {
+function cleanDirectories(rootDir) {
     try {
-        // Lee las carpetas en el directorio principal
-        const directories = await fs.readdir(parentDir, { withFileTypes: true });
-        
-        for (const dirent of directories) {
+        // Leer los subdirectorios dentro del directorio raíz
+        const directories = fs.readdirSync(rootDir, { withFileTypes: true });
+
+        directories.forEach((dirent) => {
             if (dirent.isDirectory()) {
-                const dirPath = path.join(parentDir, dirent.name);
-                const credsPath = path.join(dirPath, 'creds.json');
+                const dirPath = path.join(rootDir, dirent.name); // Ruta de la carpeta
+                const credsPath = path.join(dirPath, 'creds.json'); // Ruta del creds.json
 
                 try {
-                    // Comprueba si existe el archivo creds.json
-                    const fileContent = await fs.readFile(credsPath, 'utf-8');
-                    
-                    if (!fileContent.trim()) {
-                        // Si el archivo está vacío, elimina la carpeta
-                        console.log(`El archivo creds.json en ${dirPath} está vacío. Eliminando carpeta.`);
-                        await fs.rm(dirPath, { recursive: true, force: true });
+                    // Comprobar si el archivo creds.json existe
+                    if (fs.existsSync(credsPath)) {
+                        const fileContent = fs.readFileSync(credsPath, 'utf-8').trim();
+                        if (!fileContent) {
+                            // Si el archivo está vacío, eliminar la carpeta
+                            console.log(`El archivo creds.json en ${dirPath} está vacío. Eliminando carpeta.`);
+                            fs.rmSync(dirPath, { recursive: true, force: true });
+                        }
+                    } else {
+                        // Si el archivo no existe, eliminar la carpeta
+                        console.log(`No se encontró creds.json en ${dirPath}. Eliminando carpeta.`);
+                        fs.rmSync(dirPath, { recursive: true, force: true });
                     }
                 } catch (error) {
-                    if (error.code === 'ENOENT') {
-                        // Si no existe el archivo creds.json, elimina la carpeta
-                        console.log(`No se encontró creds.json en ${dirPath}. Eliminando carpeta.`);
-                        await fs.rm(dirPath, { recursive: true, force: true });
-                    } else {
-                        console.error(`Error procesando ${dirPath}:`, error);
-                    }
+                    console.error(`Error procesando ${dirPath}:`, error.message);
                 }
             }
-        }
+        });
 
-        console.log("Proceso completado.");
+        console.log("Limpieza completada.");
     } catch (error) {
-        console.error("Error leyendo el directorio principal:", error);
+        console.error("Error leyendo el directorio principal:", error.message);
     }
 }
