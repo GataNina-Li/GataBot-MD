@@ -185,7 +185,7 @@ console.log(lenguajeGB['smsConexiondescon']());
 }}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
-let userName, userJid 
+/*let userName, userJid 
 const credsPath = path.join(pathGataJadiBot, 'creds.json')
 if (fs.existsSync(credsPath) && fs.readFileSync(credsPath, 'utf-8').trim()) {
 const fileContent = fs.readFileSync(credsPath, 'utf-8').trim()
@@ -197,7 +197,35 @@ userJid = creds.me?.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
 } else {
 userName = 'Anónimo'
 userJid = `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
+}*/
+let userName, userJid
+const credsPath = path.join(pathGataJadiBot, 'creds.json')
+if (fs.existsSync(credsPath)) {
+const fileContent = fs.readFileSync(credsPath, 'utf-8').trim()
+if (fileContent) {
+try {
+const creds = JSON.parse(fileContent)
+console.log(creds.me?.name)
+console.log(creds.me?.jid)
+
+userName = creds.me?.name || 'Anónimo'
+userJid = creds.me?.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
+} catch (error) {
+console.error("Error al parsear el archivo JSON:", error)
+userName = 'Anónimo'
+userJid = `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
 }
+} else {
+console.log("El archivo creds.json está vacío.")
+userName = 'Anónimo'
+userJid = `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
+}
+} else {
+    console.log("El archivo creds.json no existe.");
+    userName = 'Anónimo';
+    userJid = `${path.basename(pathGataJadiBot)}@s.whatsapp.net`;
+}
+
 	
 const nameOrNumber = conn.getName(userJid)
 const baseName = path.basename(pathGataJadiBot)
