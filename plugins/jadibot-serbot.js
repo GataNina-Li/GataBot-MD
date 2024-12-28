@@ -164,7 +164,7 @@ if (connection === 'close') {
 if (reason == 405 || reason == 401) {
 fs.unlinkSync(pathCreds)
 //thank you aiden_notLogic
-return await conn.sendMessage(m.chat, {text : `*Conexión interrumpida.* Usa el comando #serbot o #serbot + ID. Si el problema persiste, inicia sesión nuevamente con el comando #serbot code.\n\n> El ID es un mensaje con muchos caracteres que se le envio cuando se hizo sub bot` }, { quoted: null }) //smsreenvia
+return m?.chat ? await conn.sendMessage(m.chat, {text : `*Conexión interrumpida.* Usa el comando #serbot o #serbot + ID. Si el problema persiste, inicia sesión nuevamente con el comando #serbot code.\n\n> El ID es un mensaje con muchos caracteres que se le envio cuando se hizo sub bot` }, { quoted: null }) : '' //smsreenvia
 }
 if (reason === DisconnectReason.restartRequired) {
 //await creloadHandler(true).catch(console.error)
