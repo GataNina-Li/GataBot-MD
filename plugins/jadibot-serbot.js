@@ -193,7 +193,7 @@ userJid = sock.authState.creds.me.jid || `${path.basename(pathGataJadiBot)}@s.wh
 
 const nameOrNumber = conn.getName(userJid)
 const baseName = path.basename(pathGataJadiBot)
-const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (+${baseName})`
+const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${sock.authState.creds.me.name || nameOrNumber} (+${baseName})`
 	
 console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺【• CONECTADO •】⸺⸺⸺❒`))
 sock.isInit = true
