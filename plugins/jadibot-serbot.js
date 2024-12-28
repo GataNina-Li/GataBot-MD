@@ -187,9 +187,9 @@ const nameOrNumber = conn.getName(`${path.basename(pathGataJadiBot)}@s.whatsapp.
 const baseName = path.basename(pathGataJadiBot)
 const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (${baseName})`
 console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${displayName} Sub-Bot conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))
-//if (m !== null) {
-//user = global.db.data.users[m.sender]
-//}
+if (m !== null) {
+let user = global.db.data.users[m.sender]
+}
 
 sock.isInit = true
 global.conns.push(sock)
@@ -231,7 +231,7 @@ if (!args[0]) conn.sendMessage(m.sender, {text : usedPrefix + command + " " + Bu
 setInterval(async () => {
 if (!sock.user) {
 try { sock.ws.close() } catch (e) {      
-console.log(await creloadHandler(true).catch(console.error))
+//console.log(await creloadHandler(true).catch(console.error))
 }
 sock.ev.removeAllListeners()
 let i = global.conns.indexOf(sock)		
