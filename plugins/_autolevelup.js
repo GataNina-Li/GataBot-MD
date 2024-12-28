@@ -33,8 +33,8 @@ if (nextRole) {
 chtxt += `\n\n> Próximo rango ${nextRole}, en el *nivel ${roles[nextRole]}*. ¡Sigue así!`
 }
 
-if (conn.user.jid === global.conn.user.jid) {	
-await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
+//if (conn.user.jid === global.conn.user.jid) {	
+await global.conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
 body: '😎 ¡Alguien obtuvo un nuevo Rango!',
@@ -43,8 +43,7 @@ sourceUrl: accountsgb,
 mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
-}}}, { quoted: null }) 
-}	
+}}}, { quoted: null }) 	
 }
 	
 conn.reply(m.chat, `*╭━⊰ ${username} ⊱━დ*
@@ -83,8 +82,7 @@ let chtxt = `👤 *Usuario:* ${userName}\n🆙 *Nivel anterior:* ${before}\n🆕
 - *${especialCant4 * (Math.floor(((level + 1) - 5) / 10) + 1)} ${global.rpgshop.emoticon(especial4)}*
 
 > 👀 Siguiente recompensa en el *nivel ${level + 6}*` : ''}`.trim()
-if (conn.user.jid === global.conn.user.jid) {
-	await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
+await global.conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
 body: '⭐ ¡Alguien a subido de nivel!',
@@ -93,8 +91,7 @@ sourceUrl: accountsgb,
 mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
-}}}, { quoted: null })
-}	
+}}}, { quoted: null }) 
 }
 
 if (user.level == 5){
