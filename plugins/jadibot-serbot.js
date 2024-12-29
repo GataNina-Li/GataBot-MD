@@ -208,7 +208,7 @@ if (connection === 'close') {
         console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue cerrada inesperadamente. Reconecta manualmente.`);
     } else if (reason === 408) {
         console.log(`La conexión (${path.basename(pathGataJadiBot)}) se perdió o expiró. Razón: ${reason}. Reconectando automáticamente.`);
-        await sock.connect()
+        await conns.connect()
     } else if (reason === 440) {
         console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue reemplazada por otra sesión activa. Cierra la nueva sesión para continuar.`);
     } else if (reason === 401) {
