@@ -147,8 +147,6 @@ global.vs = "1.7.0"
 global.vsJB = "5.0 (Beta)"
 global.gt = "𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿"
 
-fetchDataAndProcess().catch(error => console.error('Ocurrió un error:', error))
-
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
 global.rg = '╰⊱✅⊱ *𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊 | 𝙍𝙀𝙎𝙐𝙇𝙏* ⊱✅⊱╮\n\n'
@@ -451,43 +449,16 @@ console.log(chalk.redBright("Update 'config.js'"));
 import(`${file}?update=${Date.now()}`);
 })
 
-async function fetchDataAndProcess() {
-const response = await fetch('https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/official_accounts.json')
-const data = await response.json() 
-let { accounts, channels, groups, collaboration, sponsors, others } = data.info
-
-global.yt = accounts.youTube
-global.yt2 = others.yt_vid
-global.ig = accounts.instagram
-global.md = accounts.gatabot_md
-global.fb = accounts.facebook
-global.tk = accounts.tiktok
-global.ths = accounts.threads
-global.paypal = accounts.paypal
-global.asistencia = others.assistance_num
-global.bot = 'wa.me/50238024328'
-global.cuentas = accounts.all
-
-global.canal1 = channels.channel1
-global.canal2 = channels.channel2
-global.canal3 = channels.channel3
-global.canal4 = channels.channel4
-
-global.soporteGB = others.group_support
-global.grupo1 = groups.group1
-global.grupo2 = groups.group2
-global.grupo3 = groups.group3
-global.grupo4 = groups.group4
-global.grupo5 = groups.group5
-global.grupo6 = groups.group6
-
-global.grupo_collab1 = collaboration.group1
-global.grupo_collab2 = collaboration.group2
-global.grupo_collab3 = collaboration.group3
-global.grupo_collab4 = collaboration.group4
-
-global.patrocinador1 = sponsors.boxmine
-global.patrocinador2 = sponsors.cafirexos
-global.patrocinador3 = sponsors.vortexus
-global.patrocinador4 = sponsors.asif
-}
+global.yt = 'https://youtube.com/@gatadios'
+global.ig = 'https://www.instagram.com/gata_dios'
+global.md = 'https://github.com/GataNina-Li/GataBot-MD'
+global.fb = 'https://www.facebook.com/groups/872989990425789'
+global.tk = 'https://www.tiktok.com/@gata_dios'
+global.ths = 'https://www.threads.net/@gata_dios'
+global.paypal = 'https://paypal.me/OficialGD'
+global.asistencia = 'https://wa.me/message/MEKOUFBEOG5ED1'
+global.all = 'https://www.atom.bio/GataBot'
+global.canal1 = 'https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A'
+global.canal2 = 'https://whatsapp.com/channel/0029Va6yY0iLY6d6XDmqA03g'
+global.canal3 = 'https://whatsapp.com/channel/0029VaKn22pDJ6GwY61Ftn15'
+global.canal4 = 'https://t.me/globalgb'
