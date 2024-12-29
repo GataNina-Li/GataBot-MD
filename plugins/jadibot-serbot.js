@@ -153,7 +153,7 @@ global.conns.splice(i, 1)
 }}
 
 const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
-/*if (connection === 'close') {
+if (connection === 'close') {
 //console.log(reason)
 if (reason == 405 || reason == 401) {
 fs.unlinkSync(pathCreds)
@@ -163,7 +163,7 @@ return m?.chat ? await conn.sendMessage(m.chat, {text : `*Conexión interrumpida
 if (reason === DisconnectReason.restartRequired) {
 //await creloadHandler(true).catch(console.error)
 return console.log(lenguajeGB['smsConexionreem']());  
-} else if (reason === DisconnectReason.loggedOut) {
+} else if (reason === DisconnectReason.loggedOut) { 
 sleep(4000)
 return conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text : lenguajeGB['smsJBConexionClose2']() }, { quoted: null })
 //m.reply(lenguajeGB['smsJBConexionClose2']())
@@ -182,8 +182,8 @@ await endSesion(false)
 return console.log(lenguajeGB['smsConexiontiem']())
 } else {
 console.log(lenguajeGB['smsConexiondescon']()); 
-}}*/
-if (connection === 'close') {
+}}
+/*if (connection === 'close') {
 if (fs.existsSync(pathCreds)) {
     try {
         // Intenta leer y parsear el archivo creds.json
@@ -230,7 +230,7 @@ if (fs.existsSync(pathCreds)) {
     } else {
         console.log(`Razón desconocida de desconexión (${reason}) para la sesión: ${path.basename(pathGataJadiBot)}.`);
     }
-}
+}*/
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
 //console.log(sock.authState.creds.me.jid, sock.authState.creds.registered)
