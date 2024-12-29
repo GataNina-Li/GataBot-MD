@@ -1,7 +1,7 @@
 // Botones interactivos adptados y funcionando por Gata Dios (GataNina-Li)
 
 //QUEDO OBSOLETO DE NUEVO CULPA DE WHATSAPP BUG :v
-/*import { getDevice } from '@whiskeysockets/baileys'
+import { getDevice } from '@whiskeysockets/baileys'
 import fs from 'fs'
 import moment from 'moment-timezone'
 import fetch from 'node-fetch'
@@ -241,8 +241,8 @@ await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() 
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}}
 
-handler.command = /^(menu|menú|memu|memú|help\?)$/i
-handler.register = true
+handler.command = /^(test40)$/i
+//handler.register = true
 export default handler
 
 const more = String.fromCharCode(8206)
@@ -252,7 +252,8 @@ let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
 let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
 let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
 return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}  
-*/
+
+
 /* 
 import fs from 'fs'
 import fetch from 'node-fetch'
