@@ -12,10 +12,7 @@ warn: 0,
 banned: false
 }}
 
-if (m.chat === "120363297379773397@newsletter") return; 
-if (m.chat === "120363355261011910@newsletter") return;
 if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA') ||  m.text.includes('menu') ||  m.text.includes('estado') || m.text.includes('bots') ||  m.text.includes('serbot') || m.text.includes('jadibot')) return !0
-
 if (bot.anticommand) return 
 if (user.banned) return !1;
 
