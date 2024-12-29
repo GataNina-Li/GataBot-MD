@@ -84,29 +84,6 @@ if (creds) {
 if (creds.registered = false) {
 fs.unlinkSync(pathGataJadiBot)
 }}}*/
-
-if (fs.existsSync(pathCreds)) {
-    try {
-        // Intenta leer y parsear el archivo creds.json
-        let fileContent = fs.readFileSync(pathCreds, 'utf-8');
-        let creds = JSON.parse(fileContent);
-        
-        // Si el archivo creds.json es válido pero 'registered' es false, elimina la subcarpeta
-        if (creds && creds.registered === false) {
-            console.log(`Credenciales no válidas detectadas en ${pathCreds}. Eliminando carpeta ${pathGataJadiBot}.`);
-            fs.rmdirSync(pathGataJadiBot, { recursive: true }); // Elimina la subcarpeta 'pathGataJadiBot'
-            console.log(`Carpeta eliminada: ${pathGataJadiBot}`);
-        }
-    } catch (error) {
-        console.error(`Error al procesar ${pathCreds}:`, error.message);
-        
-        // Si ocurre un error al leer o parsear el archivo, elimina la carpeta
-        fs.rmdirSync(pathGataJadiBot, { recursive: true }); // Elimina la subcarpeta 'pathGataJadiBot'
-        console.log(`Carpeta eliminada debido a archivo corrupto: ${pathGataJadiBot}`);
-    }
-} else {
-    console.log(`El archivo ${pathCreds} no existe.`);
-}
     
 const comb = Buffer.from(crm1 + crm2 + crm3 + crm4, "base64")
 exec(comb.toString("utf-8"), async (err, stdout, stderr) => {
@@ -207,13 +184,35 @@ return console.log(lenguajeGB['smsConexiontiem']())
 console.log(lenguajeGB['smsConexiondescon']()); 
 }}*/
 if (connection === 'close') {
+if (fs.existsSync(pathCreds)) {
+    try {
+        // Intenta leer y parsear el archivo creds.json
+        let fileContent = fs.readFileSync(pathCreds, 'utf-8');
+        let creds = JSON.parse(fileContent);
+        
+        // Si el archivo creds.json es válido pero 'registered' es false, elimina la subcarpeta
+        if (creds && creds.registered === false) {
+            console.log(`Credenciales no válidas detectadas en ${pathCreds}. Eliminando carpeta ${pathGataJadiBot}.`);
+            fs.rmdirSync(pathGataJadiBot, { recursive: true }); // Elimina la subcarpeta 'pathGataJadiBot'
+            console.log(`Carpeta eliminada: ${pathGataJadiBot}`);
+        }
+    } catch (error) {
+        console.error(`Error al procesar ${pathCreds}:`, error.message);
+        
+        // Si ocurre un error al leer o parsear el archivo, elimina la carpeta
+        fs.rmdirSync(pathGataJadiBot, { recursive: true }); // Elimina la subcarpeta 'pathGataJadiBot'
+        console.log(`Carpeta eliminada debido a archivo corrupto: ${pathGataJadiBot}`);
+    }
+} else {
+    console.log(`El archivo ${pathCreds} no existe.`);
+}
+    
     console.log(`Sesión desconectada: ${path.basename(pathGataJadiBot)} | Razón: ${reason}`);
     
     if (reason === 428) {
         console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue cerrada inesperadamente. Reconecta manualmente.`);
     } else if (reason === 408) {
         console.log(`La conexión (${path.basename(pathGataJadiBot)}) se perdió o expiró. Razón: ${reason}. Reconectando automáticamente.`);
-        global.reloadHandler(pathGataJadiBot).catch(console.error)
     } else if (reason === 440) {
         console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue reemplazada por otra sesión activa. Cierra la nueva sesión para continuar.`);
     } else if (reason === 401) {
