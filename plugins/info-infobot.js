@@ -1,58 +1,89 @@
-import os from 'os'
-import util from 'util'
-import ws from 'ws';
-import sizeFormatter from 'human-readable'
-let MessageType =  (await import(global.baileys)).default
+import db from '../lib/database.js';
+import { cpus as _cpus, totalmem, freemem, platform, hostname, version, release, arch } from 'os';
+import os from 'os';
+import moment from 'moment';
+import speed from 'performance-now';
+import { sizeFormatter } from 'human-readable';
+import si from 'systeminformation';
 
-import fs from 'fs'
-import { performance } from 'perf_hooks'
+let format = sizeFormatter({std: 'JEDEC',
+decimalPlaces: 2,
+keepTrailingZeroes: false,
+render: (literal, symbol) => `${literal} ${symbol}B`,
+});
+
+const used = process.memoryUsage();
+    let ram = await si.mem()
+    let cpu = await si.cpuCurrentSpeed()
+    let disk = await si.fsSize()
+    let up = await si.time()
+      
+async function getSystemInfo() {
+let disk = await si.fsSize();
+const memInfo = await si.mem();
+const load = await si.currentLoad();
+    
+let cpuInfo = os.cpus();
+let modeloCPU = cpuInfo && cpuInfo.length > 0 ? cpuInfo[0].model : 'Modelo de CPU no disponible';
+let espacioTotalDisco = 'Información no disponible';
+if (disk && disk.length > 0) {
+espacioTotalDisco = humanFileSize(disk[0].available, true, 1) + ' libre de ' + humanFileSize(disk[0].size, true, 1);
+}
+
+const data = {
+latencia: 'No disponible',
+plataforma: os.platform(),
+núcleosCPU: cpuInfo ? cpuInfo.length : 'No disponible',
+modeloCPU: modeloCPU,
+arquitecturaSistema: os.arch(),
+versiónSistema: os.release(),
+procesosActivos: os.loadavg()[0],
+porcentajeCPUUsada: load.currentLoad.toFixed(2) + '%',
+memory: humanFileSize(ram.free, true, 1) + ' libre de ' + humanFileSize(ram.total, true, 1),
+ramUsada: (memInfo.used / (1024 * 1024 * 1024)).toFixed(2) + ' GB',
+ramTotal: (memInfo.total / (1024 * 1024 * 1024)).toFixed(2) + ' GB',
+ramLibre: (memInfo.free / (1024 * 1024 * 1024)).toFixed(2) + ' GB',
+porcentajeRAMUsada: ((memInfo.used / memInfo.total) * 100).toFixed(2) + '%',
+espacioTotalDisco: espacioTotalDisco,
+tiempoActividad: 'No disponible',
+cargaPromedio: os.loadavg().map((avg, index) => `${index + 1} min: ${avg.toFixed(2)}.`).join('\n'),
+horaActual: new Date().toLocaleString(),
+detallesCPUNúcleo: load.cpus.map(cpu => cpu.load.toFixed(2) + '%')
+};
+
+const startTime = Date.now();
+await si.currentLoad();
+const endTime = Date.now();
+data.latencia = `${endTime - startTime} ms`;
+const uptimeSeconds = await si.time().uptime;
+const days = Math.floor(uptimeSeconds / 60 / 60 / 24);
+const hours = Math.floor((uptimeSeconds / 60 / 60) % 24);
+const minutes = Math.floor((uptimeSeconds / 60) % 60);
+
+data.tiempoActividad = `${days}d ${hours}h ${minutes}m`;
+return data;
+}
+
 let handler = async (m, { conn, usedPrefix }) => {
-let _uptime = process.uptime() * 1000
-let uptime = clockString(_uptime) 
-let totalreg = Object.keys(global.db.data.users).length
-const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
-const groupsIn = chats.filter(([id]) => id.endsWith('@g.us'))
-const groups = chats.filter(([id]) => id.endsWith('@g.us'))
-const used = process.memoryUsage()
-const cpus = os.cpus().map(cpu => {
-    cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
-    return cpu
-  })
-const cpu = cpus.reduce((last, cpu, _, { length }) => {
-    last.total += cpu.total
-    last.speed += cpu.speed / length
-    last.times.user += cpu.times.user
-    last.times.nice += cpu.times.nice
-    last.times.sys += cpu.times.sys
-    last.times.idle += cpu.times.idle
-    last.times.irq += cpu.times.irq
-    return last
-  }, {
-    speed: 0,
-    total: 0,
-    times: {
-      user: 0,
-      nice: 0,
-      sys: 0,
-      idle: 0,
-      irq: 0
-    }
-  })
+let bot = global.db.data.settings[conn.user.jid];
+let _uptime = process.uptime() * 1000;
+let uptime = new Date(_uptime).toISOString().substr(11, 8);
+let totalreg = Object.keys(global.db.data.users).length;
+let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length;
+let totalbots = Object.keys(global.db.data.settings).length;
+let totalStats = Object.values(global.db.data.stats).reduce((total, stat) => total + stat.total, 0);
+const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats);
+let totalchats = Object.keys(global.db.data.chats).length;
+let totalf = Object.values(global.plugins).filter(v => v.help && v.tags).length;
+const groupsIn = chats.filter(([id]) => id.endsWith('@g.us'));
+let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])];
+let timestamp = speed();
+let latensi = speed() - timestamp;
 const { restrict } = global.db.data.settings[conn.user.jid] || {}
 const { autoread } = global.opts
 let pp = gataMenu
-//let grupos = [nna, nn, nnn, nnntt]
-//let gata = [img5, img6, img7, img8, img9]
-//let enlace = { contextInfo: { externalAdReply: {title: wm + ' ', body: 'support group' , sourceUrl: accountsgb, thumbnail: await(await fetch(gataMenu)).buffer() }}}
-//let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: md, thumbnailUrl: await(await fetch(gataMenu)).buffer(), sourceUrl: accountsgb }}}
-//let dos = [enlace, enlace2]
-let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
-let old = performance.now()
-  
-  let neww = performance.now()
-  let totaljadibot = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
-  let speed = neww - old
 
+getSystemInfo().then(async (data) => {
 let info = `╭━━━━[ ${gt} ]━━━━━⬣
 ┃➥ *CREADORA | CREATOR*
 ┃ღ *𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨*
@@ -66,102 +97,66 @@ let info = `╭━━━━[ ${gt} ]━━━━━⬣
 ┃➥ *PREFIJO | PREFIX*
 ┃ღ *${usedPrefix}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *TOTAL COMANDOS | COMMANDS*
+┃ღ ${totalf}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *CHATS PRIVADOS | PRIVATE CHAT*
-┃ღ *${chats.length - groups.length}*
+┃ღ ${chats.length - groupsIn.length}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *CHATS DE GRUPOS | GROUP CHAT*
-┃ღ *${groups.length}* 
+┃ღ ${groupsIn.length}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *CHATS EN TOTAL | TOTAL CHATS*
-┃ღ *${chats.length}* 
+┃ღ ${chats.length}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *ACTIVIDAD | ACTIVITY*
-┃ღ *${uptime}*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *USUARIOS | USERS*
-┃ღ *${totalreg}* 
+┃➥ *ACTIVIDAD | ACTIVITY* 
+┃ღ ${uptime}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *VELOCIDAD | SPEED*
-┃ღ  *${speed}*
+ ${latensi.toFixed(4)} ms
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *BOT SECUNDARIOS ACTIVOS | ACTIVE SECONDARY BACKS*
-┃ღ *${totaljadibot.length}*
+┃➥ *BOT SECUNDARIOS ACTIVOS | ACTIVE SECONDARY BACKS* 
+┃ღ ${totaljadibot.length}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *COMANDO EJECUTANDO | COMMAND EXECUTING* 
+┃ღ ${toNum(totalStats)}/${totalStats}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *GRUPOS REGISTRANDO | REGISTERED GROUPS* 
+┃ღ ${toNum(totalchats)}/${totalchats}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃➥ *USUARIOS REGISTRADO | USERS REGISTRATION* 
+┃ღ ${rtotalreg}/${totalreg}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *AUTOREAD*
 ┃ღ ${autoread ? '*Activado ✔*' : '*Desactivado ✘*'}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *RESTRICT* 
 ┃ღ ${restrict ? '*Activado ✔*' : '*Desactivado ✘*'} 
-┃
-╰━━━[ 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙘𝙞ó𝙣 | 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙩𝙞𝙤𝙣 ]━━⬣`
-await conn.sendButton(m.chat, info, wm, pp, [
-['𝙑𝙚𝙧 𝙂𝙧𝙪𝙥𝙤𝙨 | 𝙎𝙚𝙚 𝙂𝙧𝙤𝙪𝙥𝙨', '#grupolista'],
-['𝘾𝙪𝙚𝙣𝙩𝙖𝙨 𝙊𝙛𝙞𝙘𝙞𝙖𝙡𝙚𝙨 | 𝘼𝙘𝙘𝙤𝙪𝙣𝙩𝙨', '/cuentasgb'],
-['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '.menu']], null, [
-['𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', `${md}`]], fkontak)
-//conn.sendFile(m.chat, gataImg, 'lp.jpg', info, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) 
-/*let info = `
-╭━━━━[ ${gt} ]━━━━━⬣
-┃
-┃➥ *CREADORA | CREATOR*
-┃ღ *𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *CONTACTO | CONTACT* 
-┃ღ *${ig}*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃𓃠 *VERSIÓN ACTUAL | VERSION*
-┃ღ ${vs}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *PREFIJO | PREFIX*
-┃ღ *${usedPrefix}*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *CHATS PRIVADOS | PRIVATE CHAT*
-┃ღ *${chats.length - groups.length}*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *CHATS DE GRUPOS | GROUP CHAT*
-┃ღ *${groups.length}* 
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *CHATS EN TOTAL | TOTAL CHATS*
-┃ღ *${chats.length}* 
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *ACTIVIDAD | ACTIVITY*
-┃ღ *${uptime}*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *USUARIOS | USERS*
-┃ღ *${totalreg}* 
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *VELOCIDAD | SPEED*
-┃ღ  *${speed}*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *BOT SECUNDARIOS ACTIVOS | ACTIVE SECONDARY BACKS*
-┃ღ *${totaljadibot.length}*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *BATERIA | DRUMS*
-┃ღ *${conn.battery ? `${conn.battery.value}%* *${conn.battery.live ? '🔌 Cargando...*' : '⚡ Desconectado*'}` : 'Desconocido*'}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *AUTOREAD*
-┃ღ ${autoread ? '*Activado ✔*' : '*Desactivado ✘*'}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *RESTRICT* 
-┃ღ ${restrict ? '*Activado ✔*' : '*Desactivado ✘*'} 
-┃
-╰━━━[ 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙘𝙞ó𝙣 | 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙩𝙞𝙤𝙣 ]━━⬣`.trim()
+╰━━━[ 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙘𝙞ó𝙣 | 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙩𝙞𝙤𝙣 ]━━⬣
+`;
 
-conn.sendHydrated(m.chat, info, wm, pp, 'https://github.com/GataNina-Li/GataBot-MD', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
-['𝙑𝙚𝙧 𝙂𝙧𝙪𝙥𝙤𝙨 | 𝙎𝙚𝙚 𝙂𝙧𝙤𝙪𝙥𝙨', '#grupolista'],
-['𝘾𝙪𝙚𝙣𝙩𝙖𝙨 𝙊𝙛𝙞𝙘𝙞𝙖𝙡𝙚𝙨 | 𝘼𝙘𝙘𝙤𝙪𝙣𝙩𝙨', '/cuentasgb'],
-['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '.menu']
-], m,)*/
-//conn.reply(m.chat, info, m)
-}
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', info, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) 
+};
 handler.help = ['infobot']
 handler.tags = ['info', 'tools']
 handler.command = /^(infobot|informacionbot|infogata|informacióngata|informaciongata)$/i
 export default handler
 
-function clockString(ms) {
-let h = Math.floor(ms / 3600000)
-let m = Math.floor(ms / 60000) % 60
-let s = Math.floor(ms / 1000) % 60
-console.log({ms,h,m,s})
-return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')}
+function toNum(number) {
+if (number >= 1000 && number < 1000000) {
+return (number / 1000).toFixed(1) + 'k';
+} else if (number >= 1000000) {
+return (number / 1000000).toFixed(1) + 'M';
+} else if (number <= -1000 && number > -1000000) {
+return (number / 1000).toFixed(1) + 'k';
+} else if (number <= -1000000) {
+return (number / 1000000).toFixed(1) + 'M';
+} else {
+return number.toString();
+}}
+
+function humanFileSize(bytes) {
+const unidades = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
+const exponente = Math.floor(Math.log(bytes) / Math.log(1024));
+return `${(bytes / Math.pow(1024, exponente)).toFixed(2)} ${unidades[exponente]}`;
+}
