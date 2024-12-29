@@ -190,6 +190,7 @@ if (connection === 'close') {
         console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue cerrada inesperadamente. Reconecta manualmente.`);
     } else if (reason === 408) {
         console.log(`La conexión (${path.basename(pathGataJadiBot)}) se perdió o expiró. Razón: ${reason}. Reconectando automáticamente.`);
+        await sock.connect()
     } else if (reason === 440) {
         console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue reemplazada por otra sesión activa. Cierra la nueva sesión para continuar.`);
     } else if (reason === 401) {
@@ -210,7 +211,7 @@ if (connection === 'close') {
 }
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
-console.log(sock.authState.creds.me.jid, sock.authState.creds.registered)
+//console.log(sock.authState.creds.me.jid, sock.authState.creds.registered)
 let userName, userJid 
 userName = sock.authState.creds.me.name || 'Anónimo'
 userJid = sock.authState.creds.me.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
