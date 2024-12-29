@@ -153,7 +153,7 @@ global.conns.splice(i, 1)
 }}
 
 const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
-if (connection === 'close') {
+/*if (connection === 'close') {
 //console.log(reason)
 if (reason == 405 || reason == 401) {
 fs.unlinkSync(pathCreds)
@@ -182,7 +182,32 @@ await endSesion(false)
 return console.log(lenguajeGB['smsConexiontiem']())
 } else {
 console.log(lenguajeGB['smsConexiondescon']()); 
-}}
+}}*/
+if (connection === 'close') {
+    console.log(`Sesión desconectada: ${path.basename(pathGataJadiBot)} | Razón: ${reason}`);
+    
+    if (reason === 428) {
+        console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue cerrada inesperadamente. Reconecta manualmente.`);
+    } else if (reason === 408) {
+        console.log(`La conexión (${path.basename(pathGataJadiBot)}) se perdió o expiró. Razón: ${reason}. Reconectando automáticamente.`);
+    } else if (reason === 440) {
+        console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue reemplazada por otra sesión activa. Cierra la nueva sesión para continuar.`);
+    } else if (reason === 401) {
+        console.log(`La sesión (${path.basename(pathGataJadiBot)}) fue cerrada. Credenciales no válidas o dispositivo desconectado manualmente.`);
+    } else if (reason === 500) {
+        console.log(`Archivo de sesión corrupto para (${path.basename(pathGataJadiBot)}). Borra las credenciales y vuelve a iniciar sesión.`);
+    } else if (reason === 515) {
+        console.log(`Se requiere reinicio para la sesión (${path.basename(pathGataJadiBot)}). Reinicia el bot.`);
+    } else if (reason === 411) {
+        console.log(`Dispositivo no compatible con multidispositivo (${path.basename(pathGataJadiBot)}). Usa un dispositivo adecuado.`);
+    } else if (reason === 403) {
+        console.log(`Acceso denegado (${path.basename(pathGataJadiBot)}). Verifica permisos y configuración.`);
+    } else if (reason === 503) {
+        console.log(`El servicio no está disponible (${path.basename(pathGataJadiBot)}). Intenta nuevamente más tarde.`);
+    } else {
+        console.log(`Razón desconocida de desconexión (${reason}) para la sesión: ${path.basename(pathGataJadiBot)}.`);
+    }
+}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
 console.log(sock.authState.creds.me.jid, sock.authState.creds.registered)
