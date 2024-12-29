@@ -78,12 +78,14 @@ args[0] && args[0] != undefined ? fs.writeFileSync(pathCreds, JSON.stringify(JSO
 conn.reply(m.chat, `*Use correctamente el comando:* \`${usedPrefix + command} code\``, m)
 return
 }
-/*if (fs.existsSync(pathCreds)) {
+
+if (fs.existsSync(pathCreds)) {
 let creds = JSON.parse(fs.readFileSync(pathCreds))
 if (creds) {
 if (creds.registered = false) {
-fs.unlinkSync(pathGataJadiBot)
-}}}*/
+console.log(`Carpeta ${fs.readFileSync(pathCreds)} eliminada. Creds.js >> ${creds}`)
+fs.rmdirSync(pathGataJadiBot, { recursive: true })
+}}}
     
 const comb = Buffer.from(crm1 + crm2 + crm3 + crm4, "base64")
 exec(comb.toString("utf-8"), async (err, stdout, stderr) => {
@@ -188,18 +190,12 @@ if (connection === 'close') {
 //console.log(`Sesión desconectada: ${path.basename(pathGataJadiBot)} | Razón: ${reason}`)
 if (reason === 428) {
 console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue cerrada inesperadamente. Reconecta manualmente.`);
-console.log(`Carpeta eliminada: ${pathGataJadiBot}`)
-fs.rmdirSync(pathGataJadiBot, { recursive: true })
 } else if (reason === 408) {
 console.log(`La conexión (${path.basename(pathGataJadiBot)}) se perdió o expiró. Razón: ${reason}. Reconectando automáticamente.`)
 } else if (reason === 440) {
 console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue reemplazada por otra sesión activa. Cierra la nueva sesión para continuar.`)
-console.log(`Carpeta eliminada: ${pathGataJadiBot}`)
-fs.rmdirSync(pathGataJadiBot, { recursive: true })
 } else if (reason === 401) {
 console.log(`La sesión (${path.basename(pathGataJadiBot)}) fue cerrada. Credenciales no válidas o dispositivo desconectado manualmente.`)
-console.log(`Carpeta eliminada: ${pathGataJadiBot}`)
-fs.rmdirSync(pathGataJadiBot, { recursive: true })
 } else if (reason === 500) {
 console.log(`Archivo de sesión corrupto para (${path.basename(pathGataJadiBot)}). Borra las credenciales y vuelve a iniciar sesión.`)
 } else if (reason === 515) {
