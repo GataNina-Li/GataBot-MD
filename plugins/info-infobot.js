@@ -136,7 +136,8 @@ let info = `╭━━━━[ ${gt} ]━━━━━⬣
 `;
 
 await conn.sendFile(m.chat, gataImg, 'lp.jpg', info, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) 
-};
+});
+}
 handler.help = ['infobot']
 handler.tags = ['info', 'tools']
 handler.command = /^(infobot|informacionbot|infogata|informacióngata|informaciongata)$/i
