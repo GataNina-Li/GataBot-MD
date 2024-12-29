@@ -183,7 +183,7 @@ if (reason === 403) {
 console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Sesión cerrada o cuenta en soporte para la sesión (+${path.basename(pathGataJadiBot)}).\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
 fs.rmdirSync(pathGataJadiBot, { recursive: true })
 }
-console.log(pathGataJadiBot, reason)
+console.log(path.basename(pathGataJadiBot), reason)
 }
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
