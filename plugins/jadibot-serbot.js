@@ -154,9 +154,7 @@ global.conns.splice(i, 1)
 
 const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (connection === 'close') {
-if (!fs.existsSync(pathCreds)) {
-fs.rmdirSync(pathGataJadiBot, { recursive: true })
-}
+checkAndRemoveInvalidFolders(path.join(__dirname, '..', "GataJadiBot"))
 //console.log(reason)
 if (reason == 405 || reason == 401) {
 fs.unlinkSync(pathCreds)
@@ -354,3 +352,39 @@ async function joinChannels(conn) {
 for (const channelId of Object.values(global.ch)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}
+
+function checkAndRemoveInvalidFolders(basePath) {
+    // Lee las subcarpetas dentro de GataJadiBot
+    const subfolders = fs.readdirSync(basePath, { withFileTypes: true })
+        .filter(dirent => dirent.isDirectory())
+        .map(dirent => dirent.name);
+
+    subfolders.forEach(subfolder => {
+        const pathGataJadiBot = path.join(basePath, subfolder);
+        const pathCreds = path.join(pathGataJadiBot, "creds.json");
+
+        // Verifica si el archivo creds.json existe
+        if (fs.existsSync(pathCreds)) {
+            try {
+                // Intenta leer y parsear el archivo creds.json
+                let fileContent = fs.readFileSync(pathCreds, 'utf-8');
+                let creds = JSON.parse(fileContent);
+
+                // Si el archivo creds.json es válido pero 'registered' es false, elimina la subcarpeta
+                if (creds && creds.registered === false) {
+                    console.log(`Credenciales no válidas detectadas en ${pathCreds}. Eliminando carpeta ${pathGataJadiBot}.`);
+                    fs.rmdirSync(pathGataJadiBot, { recursive: true }); // Elimina la subcarpeta
+                    console.log(`Carpeta eliminada: ${pathGataJadiBot}`);
+                }
+            } catch (error) {
+                console.error(`Error al procesar ${pathCreds}:`, error.message);
+                
+                // Si ocurre un error al leer o parsear el archivo, elimina la carpeta
+                fs.rmdirSync(pathGataJadiBot, { recursive: true }); // Elimina la subcarpeta
+                console.log(`Carpeta eliminada debido a archivo corrupto: ${pathGataJadiBot}`);
+            }
+        } else {
+            console.log(`No se encontró ${pathCreds} en ${pathGataJadiBot}.`);
+        }
+    });
+}
