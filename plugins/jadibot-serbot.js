@@ -154,6 +154,9 @@ global.conns.splice(i, 1)
 
 const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (connection === 'close') {
+if (!fs.existsSync(pathCreds)) {
+fs.rmdirSync(pathGataJadiBot, { recursive: true })
+}
 //console.log(reason)
 if (reason == 405 || reason == 401) {
 fs.unlinkSync(pathCreds)
