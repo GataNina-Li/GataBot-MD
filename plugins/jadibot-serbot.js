@@ -155,63 +155,38 @@ global.conns.splice(i, 1)
 }}
 
 const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
-/*if (connection === 'close') {
-checkAndRemoveInvalidFolders(path.join(__dirname, '..', "GataJadiBot"))
-//console.log(reason)
-if (reason == 405 || reason == 401) {
-fs.unlinkSync(pathCreds)
-//thank you aiden_notLogic
-return m?.chat ? await conn.sendMessage(m.chat, {text : `*Conexión interrumpida.* Usa el comando #serbot o #serbot + ID. Si el problema persiste, inicia sesión nuevamente con el comando #serbot code.\n\n> El ID es un mensaje con muchos caracteres que se le envio cuando se hizo sub bot` }, { quoted: null }) : '' //smsreenvia
-}
-if (reason === DisconnectReason.restartRequired) {
-//await creloadHandler(true).catch(console.error)
-return console.log(lenguajeGB['smsConexionreem']());  
-} else if (reason === DisconnectReason.loggedOut) { 
-sleep(4000)
-return conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text : lenguajeGB['smsJBConexionClose2']() }, { quoted: null })
-//m.reply(lenguajeGB['smsJBConexionClose2']())
-} else if (reason == 428) {
-await endSesion(false)
-return conn.sendMessage(m.chat, {text : `*Ha cerrado sesión o hubo una interrupción inesperada*\n\nUsa el comando *${usedPrefix}serbot* o *${usedPrefix}serbot + ID*. Si el problema persiste, inicia sesión nuevamente con el comando *${usedPrefix}serbot code*.\n\n> _El *ID* es un mensaje con muchos caracteres que fue enviado cuando se hizo sub bot._` }, { quoted: null }) //smsJBConexion
-//m.reply(lenguajeGB['smsJBConexion']())
-} else if (reason === DisconnectReason.connectionLost) {
-//await jddt()
-return console.log(lenguajeGB['smsConexionperdida']()); 
-} else if (reason === DisconnectReason.badSession) {
-return await conn.sendMessage(m.chat, {text : lenguajeGB['smsJBConexionClose']() }, { quoted: null })
-//m.reply(lenguajeGB['smsJBConexionClose']())
-} else if (reason === DisconnectReason.timedOut) {
-await endSesion(false)
-return console.log(lenguajeGB['smsConexiontiem']())
-} else {
-console.log(lenguajeGB['smsConexiondescon']()); 
-}}*/
 if (connection === 'close') {
-//console.log(`Sesión desconectada: ${path.basename(pathGataJadiBot)} | Razón: ${reason}`)
 if (reason === 428) {
-console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue cerrada inesperadamente. Reconecta manualmente.`);
-} else if (reason === 408) {
-console.log(`La conexión (${path.basename(pathGataJadiBot)}) se perdió o expiró. Razón: ${reason}. Reconectando automáticamente.`)
-} else if (reason === 440) {
-console.log(`La conexión (${path.basename(pathGataJadiBot)}) fue reemplazada por otra sesión activa. Cierra la nueva sesión para continuar.`)
-} else if (reason === 401) {
-console.log(`La sesión (${path.basename(pathGataJadiBot)}) fue cerrada. Credenciales no válidas o dispositivo desconectado manualmente.`)
-} else if (reason === 500) {
-console.log(`Archivo de sesión corrupto para (${path.basename(pathGataJadiBot)}). Borra las credenciales y vuelve a iniciar sesión.`)
-} else if (reason === 515) {
-console.log(`Se requiere reinicio para la sesión (${path.basename(pathGataJadiBot)}). Reinicia el bot.`)
-} else if (reason === 411) {
-console.log(`Dispositivo no compatible con multidispositivo (${path.basename(pathGataJadiBot)}). Usa un dispositivo adecuado.`)
-} else if (reason === 403) {
-console.log(`Acceso denegado (${path.basename(pathGataJadiBot)}). Verifica permisos y configuración.`)
-} else if (reason === 503) {
-console.log(`El servicio no está disponible (${path.basename(pathGataJadiBot)}). Intenta nuevamente más tarde.`)
-} else {
-console.log(`Razón desconocida de desconexión (${reason}) para la sesión: ${path.basename(pathGataJadiBot)}.`)
-}}
+console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ La conexión (+${path.basename(pathGataJadiBot)}) fue cerrada inesperadamente. Intentando reconectar...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+}
+if (reason === 408) {
+console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ La conexión (+${path.basename(pathGataJadiBot)}) se perdió o expiró. Razón: ${reason}. Intentando reconectar...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+}
+if (reason === 440) {
+console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ La conexión (+${path.basename(pathGataJadiBot)}) fue reemplazada por otra sesión activa.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+await conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text : '*HEMOS DETECTADO UNA NUEVA SESIÓN, BORRE LA NUEVA SESIÓN PARA CONTINUAR*\n\n> *SI HAY ALGÚN PROBLEMA VUELVA A CONECTARSE*' }, { quoted: null })
+}
+if (reason == 405 || reason == 401) {
+console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ La sesión (+${path.basename(pathGataJadiBot)}) fue cerrada. Credenciales no válidas o dispositivo desconectado manualmente.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+await conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text : '*ERROR INESPERADO*\n\n> *INTENTÉ MANUALMENTE VOLVER A SER SUB-BOT*' }, { quoted: null })
+fs.rmdirSync(pathGataJadiBot, { recursive: true })
+}
+if (reason === 500) {
+console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Conexión perdida en la sesión (+${path.basename(pathGataJadiBot)}). Borrando datos...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+await conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text : '*CONEXIÓN PÉRDIDA*\n\n> *INTENTÉ MANUALMENTE VOLVER A SER SUB-BOT*' }, { quoted: null })
+fs.rmdirSync(pathGataJadiBot, { recursive: true })
+}
+if (reason === 515) {
+console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Se requiere reinicio para la sesión (+${path.basename(pathGataJadiBot)}).\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+}
+if (reason === 403) {
+console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Sesión cerrada o cuenta en soporte para la sesión (+${path.basename(pathGataJadiBot)}).\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+fs.rmdirSync(pathGataJadiBot, { recursive: true })
+}
+console.log(pathGataJadiBot, reason)
+}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
-//console.log(sock.authState.creds.me.jid, sock.authState.creds.registered)
 let userName, userJid 
 userName = sock.authState.creds.me.name || 'Anónimo'
 userJid = sock.authState.creds.me.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
