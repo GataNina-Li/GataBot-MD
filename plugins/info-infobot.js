@@ -125,13 +125,14 @@ let info = `╭━━━━[ ${gt} ]━━━━━⬣
 ┃ღ ${toNum(totalchats)}/${totalchats}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *USUARIOS REGISTRADO | USERS REGISTRATION* 
-┃ღ ${rtotalreg}/${totalreg}
+┃ღ ${rtotalreg} de ${totalreg} users totales
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *AUTOREAD*
 ┃ღ ${autoread ? '*Activado ✔*' : '*Desactivado ✘*'}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *RESTRICT* 
 ┃ღ ${restrict ? '*Activado ✔*' : '*Desactivado ✘*'} 
+┃
 ╰━━━[ 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙘𝙞ó𝙣 | 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙩𝙞𝙤𝙣 ]━━⬣
 `;
 
