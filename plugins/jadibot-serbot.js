@@ -185,6 +185,7 @@ console.log(lenguajeGB['smsConexiondescon']());
 }}
 if (global.db.data == null) loadDatabase()
 if (connection == `open`) {
+console.log(sock.authState.creds.me.jid, sock.authState.creds.registered)
 let userName, userJid 
 userName = sock.authState.creds.me.name || 'Anónimo'
 userJid = sock.authState.creds.me.jid || `${path.basename(pathGataJadiBot)}@s.whatsapp.net`
