@@ -1,6 +1,6 @@
 let handler = async (m, { conn, participants, groupMetadata }) => {
 
-    const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => gataMenu.getRandom())
+    const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => gataMenu)
    
     let text =`*╭─* ${groupMetadata.subject} *─╮*
 *│*
