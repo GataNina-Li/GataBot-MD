@@ -1,18 +1,17 @@
 let handler = async (m, { conn, participants, groupMetadata }) => {
 
-    const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => gataMenu)
+    let ppch = await conn.profilePictureUrl(m.sender, 'image').catch(_ => gataMenu)
    
-    let text =`*╭─* ${groupMetadata.subject} *─╮*
-*│*
-*├─ ✨ @${m.sender.split('@')[0]}⁨⁩, nos alegra tenerte aquí!*
-*├─ 📄 ¡No olvides revisar la descripción del grupo!*
-*│*
-*╰── ✨️ Atte: Gata Dios ✨️ ──╯*
+let text =`*╭────── ✨ ¡Bienvenido(a) al Grupo! ✨ ──────╮*\n`
+text += `*│*\n`
+text += `*├─ 👋 ¡Hola @${m.sender.split('@')[0]}⁨⁩!*\n`
+text += `*├─ 🎉 Nos alegra tenerte aquí. ¡Esperamos que disfrutes tu estadía!*\n`
+text += `*├─ 📜 No olvides revisar la descripción del grupo para más detalles.*\n`
+text += `*│*\n`
+text += `*╰────── 🌟 ¡Diviértete y participa! 🌟 ──────╯*\n\n`
+text += `${String.fromCharCode(8206).repeat(850)}`
 
-
-${groupMetadata.desc?.toString() || 'desconocido'}`.trim()
-const mentionedJid = groupMetadata.participants.map(v => v.id);
-    conn.sendFile(m.chat, pp, 'pp.jpg', text, null, true, { mentions: m.sender})
+    conn.sendFile(m.chat, ppch, 'pp.jpg', text, null, true, { mentions: m.sender})
 }
 
 handler.command = ['welcome','bienvenidos','bienbenidos'] 
