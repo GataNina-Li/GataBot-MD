@@ -76,7 +76,8 @@ const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isCha
 let totalchats = Object.keys(global.db.data.chats).length;
 let totalf = Object.values(global.plugins).filter(v => v.help && v.tags).length;
 const groupsIn = chats.filter(([id]) => id.endsWith('@g.us'));
-let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])];
+let totaljadibot = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
+const totalUsers = totaljadibot.length;
 let timestamp = speed();
 let latensi = speed() - timestamp;
 const { restrict } = global.db.data.settings[conn.user.jid] || {}
@@ -116,7 +117,7 @@ let info = `╭━━━━[ ${gt} ]━━━━━⬣
  ${latensi.toFixed(4)} ms
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *BOT SECUNDARIOS ACTIVOS | ACTIVE SECONDARY BACKS* 
-┃ღ ${totaljadibot.length}
+┃ღ ${totalUsers}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *COMANDO EJECUTANDO | COMMAND EXECUTING* 
 ┃ღ ${toNum(totalStats)}/${totalStats}
