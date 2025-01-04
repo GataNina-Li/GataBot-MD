@@ -2,13 +2,12 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import ws from 'ws'
-import speed from 'performance-now'
+import { performance } from 'perf_hooks'
 import { spawn, exec, execSync } from 'child_process'
 
 async function handler(m, { conn, usedPrefix, command }) {
 // pin
-const start = speed();
-const latency = (speed() - start).toFixed(4)
+let speed = (performance.now() - performance.now()).toFixed(2)
 
 // carpetas creadas
 const __filename = fileURLToPath(import.meta.url)
@@ -37,8 +36,8 @@ _${canal1}_
 💠 *Sub Bots conectados:* ${totalUsers || 0}
 📁 *Sesiones creadas:* ${cantidadCarpetas}
 📁 *Sesiones activas:* ${totalUsers || 0}
-🚄 *Velocidad:* \`${latency} ms\`
-💻 *Actividad:* \`\`\`${uptime}\`\`\`\n\n${replyMessage.trim()}`.trim()
+🚄 *Ping:* \`${speed} ms\`
+💻 *Servidor:* \`\`\`${uptime}\`\`\`\n\n${replyMessage.trim()}`.trim()
   
 await conn.sendMessage(m.chat, {text: responseMessage, mentions: conn.parseMention(responseMessage)}, {quoted: m})
 }
