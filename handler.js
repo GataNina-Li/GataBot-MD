@@ -1103,6 +1103,10 @@ await delay(time)
 }, time)
 }
 
+if (m.isBaileys || (m.sender === m.conn?.user?.jid)) { // Evitar que el bot responda a sus propios mensajes
+return
+}
+
 if (opts['nyimak']) return
 if (!isROwner && opts['self']) return 
 if (opts['pconly'] && m.chat.endsWith('g.us')) return
