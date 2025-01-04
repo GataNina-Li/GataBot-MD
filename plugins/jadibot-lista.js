@@ -7,7 +7,9 @@ import { spawn, exec, execSync } from 'child_process'
 
 async function handler(m, { conn, usedPrefix, command }) {
 // pin
-let speed = (performance.now() - performance.now()).toFixed(2)
+let old = performance.now()
+let neww = performance.now()
+let speed = (neww - old).toFixed(2)
 
 // carpetas creadas
 const __filename = fileURLToPath(import.meta.url)
