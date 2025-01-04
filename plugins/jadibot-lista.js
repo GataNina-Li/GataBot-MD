@@ -23,16 +23,12 @@ const replyMessage = message.length === 0 ? `*NO HAY SUB BOTS DISPONIBLE. VERIFI
 const totalUsers = users.length
 const responseMessage = `☄️ *LISTA DE SUB-BOTS V${vsJB}*\n
 \`¡Conviértete en sub bot desde otros sub bots!\`\n
-
 🔄 *Auto conexión automática*
 ✨ *Novedades:* 
 _${canal1}_
 
-${totalUsers ? `💠 *Sub Bots conectados:* ${totalUsers || 0}` : ''}
-${cantidadCarpetas ? `📁 *Sesiones creadas:* ${cantidadCarpetas}` : ''}
-${totalUsers ? `📁 *Sesiones activas:* ${totalUsers || 0}` : ''}
-💻 *Servidor:* \`\`\`${uptime}\`\`\`\n\n${replyMessage.trim()}`.trim()
-await m.reply(responseMessage)
+${totalUsers ? `💠 *Sub Bots conectados:* ${totalUsers || 0}\n` : ''}${cantidadCarpetas ? `📁 *Sesiones creadas:* ${cantidadCarpetas}\n` : ''}${totalUsers ? `📁 *Sesiones activas:* ${totalUsers || 0}\n` : ''}💻 *Servidor:* \`\`\`${uptime}\`\`\`\n\n${replyMessage.trim()}`.trim()
+await m.reply(responseMessage.trim())
 }
 handler.command = /^(listjadibots|bots|subsbots)$/i
 export default handler
