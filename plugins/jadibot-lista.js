@@ -3,7 +3,7 @@ async function handler(m, { conn: _envio, usedPrefix, command }) {
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
 
 const message = users.map((v, index) => `👤 \`[${index + 1}]\` *${v.user.name || global.db.data.users[v.user.jid]?.name || 'Anónimo' }*
-⏱️ \`\`\`${v.uptime ? convertirMs(Date.now() - v.uptime) : "Desconocido"}\`\`\`
+⏱️ \`\`\`${v.uptime ? await convertirMs(Date.now() - v.uptime) : "Desconocido"}\`\`\`
 🐈 wa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix + command}%20code
 `).join('\n\n∵ ∵ ∵ ∵ ∵ ∵ ∵ ∵ ∵ ∵\n\n')
 const replyMessage = message.length === 0 ? '*NO HAY SUB BOTS DISPONIBLE. VERIFIQUE MÁS TARDE.*' : message
