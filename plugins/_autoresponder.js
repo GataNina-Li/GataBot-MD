@@ -28,7 +28,7 @@ webSearchMode: true // true = resultado con url
 });
 return response.data.result
 } catch (error) {
-console.error(error)
+return 
 }}
 
 async function geminiProApi(q, logic) {
@@ -38,8 +38,7 @@ if (!response.ok) throw new Error(`Error en la solicitud: ${response.statusText}
 const result = await response.json();
 return result.answer
 } catch (error) {
-console.error('Error en Gemini Pro:', error)
-return null
+return
 }}
 
 let txtDefault = `
