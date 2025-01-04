@@ -3,13 +3,13 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import ws from 'ws'
 import { performance } from 'perf_hooks'
+import speed from 'performance-now'
 import { spawn, exec, execSync } from 'child_process'
 
 async function handler(m, { conn, usedPrefix, command }) {
 // pin
-let start = performance.now()
-let neww = performance.now()
-let speed = Math.round(start) //* 100) / 100
+const start = speed()
+const speed = (speed() - start).toFixed(2)
 
 const colores = [
 { max: 20, color: '🟢' }, // Buen ping
@@ -19,9 +19,9 @@ const colores = [
 const color = colores.find(item => speed <= item.max)?.color || '🔴'
 
 // carpetas creadas
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const carpetaBase = path.resolve(__dirname, '..', 'GataJadiBot')
+const __filename = fileURLToPath(import?.meta?.url)
+const __dirname = path?.dirname(__filename)
+const carpetaBase = path?.resolve(__dirname, '..', 'GataJadiBot')
 const cantidadCarpetas = (fs?.readdirSync(carpetaBase, { withFileTypes: true }).filter(item => item?.isDirectory())?.length) || 0
 
 // servidor
