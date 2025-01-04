@@ -136,15 +136,14 @@ setTimeout(() => { conn.sendMessage(m.sender, { delete: txtQR.key })}, 30000)
 return
 } 
 if (qr && mcode) {
-//txtCode = await conn.sendMessage(m.chat, { image: { url: 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom() }, caption: rtx2.trim() + '\n' + drmer.toString("utf-8") }, { quoted: m })
-//await sleep(3000)
+txtCode = await conn.sendMessage(m.chat, { image: { url: 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom() }, caption: rtx2.trim() + '\n' + drmer.toString("utf-8") }, { quoted: m })
+//conn.sendButton(m.chat, rtx2.trim() + '\n' + drmer.toString("utf-8"), wm, 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom(), [], secret, null, m) 
+await sleep(3000)
 let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
-codeBot = await conn.sendButton(m.chat, rtx2.trim() + '\n' + drmer.toString("utf-8"), wm, 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom(), [], secret, null, m) 
-//m.reply(secret)
-}
-/*if (txtCode && txtCode.key) {
+codeBot = await m.reply(secret)}
+if (txtCode && txtCode.key) {
 setTimeout(() => { conn.sendMessage(m.sender, { delete: txtCode.key })}, 30000)
-}*/
+}
 if (codeBot && codeBot.key) {
 setTimeout(() => { conn.sendMessage(m.sender, { delete: codeBot.key })}, 30000)
 }
