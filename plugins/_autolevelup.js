@@ -14,8 +14,8 @@ let userName = m.pushName || 'Anónimo'
 	
 let user = global.db.data.users[m.sender]
 let chat = global.db.data.chats[m.chat]
-if (!chat.autolevelup)
-return !0
+if (m.fromMe) return
+if (!chat.autolevelup) return !0
 
 let level = user.level
 let before = user.level * 1
