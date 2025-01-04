@@ -94,7 +94,6 @@ let syms1 = chat.sAutorespond ? chat.sAutorespond : txtDefault
 if (!chat.autorespond) return 
 if (m.isBot) return
 if (!user.registered) return
-this.sendPresenceUpdate('composing', m.chat)
 
 let result
 if (result && result.trim().length > 0) {
@@ -106,6 +105,7 @@ result = await luminsesi(query, username, syms1)
 }
 
 if (result && result.trim().length > 0) {
+this.sendPresenceUpdate('composing', m.chat)
 await this.reply(m.chat, result, m)
 } else {    
 }}
