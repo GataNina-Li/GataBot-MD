@@ -11,6 +11,13 @@ let start = performance.now()
 let neww = performance.now()
 let speed = Math.round(start) //* 100) / 100
 
+const colores = [
+{ max: 20, color: '🟢' }, // Buen ping
+{ max: 100, color: '🟡' }, // Ping intermedio
+{ max: Infinity, color: '🔴' } // Ping malo
+]
+const color = colores.find(item => speed <= item.max)?.color || '🔴'
+
 // carpetas creadas
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -38,7 +45,7 @@ _${canal1}_
 💠 *Sub Bots conectados:* ${totalUsers || 0}
 📁 *Sesiones creadas:* ${cantidadCarpetas}
 📁 *Sesiones activas:* ${totalUsers || 0}
-🚄 *Ping:* \`${speed} ms\`
+🚄 *Ping:* \`${speed} ms\` ${color}
 💻 *Servidor:* \`\`\`${uptime}\`\`\`\n\n${replyMessage.trim()}`.trim()
   
 await conn.sendMessage(m.chat, {text: responseMessage, mentions: conn.parseMention(responseMessage)}, {quoted: m})
