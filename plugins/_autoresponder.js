@@ -92,7 +92,7 @@ let username = m.pushName
 let syms1 = chat.sAutorespond ? chat.sAutorespond : txtDefault
   
 if (!chat.autorespond) return 
-if (m.fromMe) return
+if (m.isBot) return
 if (!user.registered) return
 this.sendPresenceUpdate('composing', m.chat)
 
