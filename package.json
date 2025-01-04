@@ -11,7 +11,7 @@
 "plugins": "plugins" },
     
 "scripts": {
-"start": "node index.js",
+"start": "node --no-deprecation index.js",
 "qr": "node index.js qr",
 "code": "node index.js code",
 "test": "node test.js",
