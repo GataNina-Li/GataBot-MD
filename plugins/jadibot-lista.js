@@ -31,7 +31,6 @@ _${canal1}_
 💠 *Sub Bots conectados:* ${totalUsers || 0}
 📁 *Sesiones creadas:* ${cantidadCarpetas}
 📁 *Sesiones activas:* ${totalUsers || 0}
-🚄 *Ping:* \`${Math.round(neww - old)} ms\` ${color}
 💻 *Servidor:* \`\`\`${uptime}\`\`\`\n\n${replyMessage.trim()}`.trim()
   
 await conn.sendMessage(m.chat, {text: responseMessage, mentions: conn.parseMention(responseMessage)}, {quoted: m})
