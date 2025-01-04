@@ -8,8 +8,8 @@ import { spawn, exec, execSync } from 'child_process'
 
 async function handler(m, { conn, usedPrefix, command }) {
 // pin
-const start = speed()
-const speed = (speed() - start).toFixed(2)
+let timestamp = speed()
+let speed = speed() - timestamp
 
 const colores = [
 { max: 20, color: '🟢' }, // Buen ping
@@ -45,7 +45,7 @@ _${canal1}_
 💠 *Sub Bots conectados:* ${totalUsers || 0}
 📁 *Sesiones creadas:* ${cantidadCarpetas}
 📁 *Sesiones activas:* ${totalUsers || 0}
-🚄 *Ping:* \`${speed} ms\` ${color}
+🚄 *Ping:* \`${speed.toFixed(2)} ms\` ${color}
 💻 *Servidor:* \`\`\`${uptime}\`\`\`\n\n${replyMessage.trim()}`.trim()
   
 await conn.sendMessage(m.chat, {text: responseMessage, mentions: conn.parseMention(responseMessage)}, {quoted: m})
