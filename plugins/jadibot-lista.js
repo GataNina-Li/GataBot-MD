@@ -2,24 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import ws from 'ws'
-import { performance } from 'perf_hooks'
-import speed from 'performance-now'
-import { spawn, exec, execSync } from 'child_process'
 
 async function handler(m, { conn, usedPrefix, command }) {
-// pin
-let old = performance.now()
-await new Promise(resolve => setTimeout(resolve, 1000))
-let neww = performance.now()
-let speed = neww - old
-
-const colores = [
-{ max: 20, color: '🟢' }, // Buen ping
-{ max: 100, color: '🟡' }, // Ping intermedio
-{ max: Infinity, color: '🔴' } // Ping malo
-]
-const color = colores.find(item => Math.round(neww - old) <= item.max)?.color || '🔴'
-
 // carpetas creadas
 const __filename = fileURLToPath(import.meta?.url)
 const __dirname = path?.dirname(__filename)
