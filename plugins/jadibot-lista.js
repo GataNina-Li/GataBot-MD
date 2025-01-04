@@ -9,7 +9,7 @@ async function handler(m, { conn, usedPrefix, command }) {
 // pin
 let start = performance.now()
 let neww = performance.now()
-let speed = Math.round((start) * 100) / 100
+let speed = Math.round((start - neww) * 100) / 100
 
 // carpetas creadas
 const __filename = fileURLToPath(import.meta.url)
