@@ -34,14 +34,9 @@ handler.command = /^(listjadibots|bots|subsbots)$/i
 export default handler
 
 function convertirMs(ms) {
-const s = Math.floor(ms / 1000) % 60
-const m = Math.floor(ms / 60000) % 60
-const h = Math.floor(ms / 3600000) % 24
-const d = Math.floor(ms / 86400000)
-return [
-d > 0 ? `${d}d` : "",
-h > 0 ? `${h}h` : "",
-m > 0 ? `${m}m` : "",
-s > 0 ? `${s}s` : ""
-].filter(Boolean).join(" ") || "0s"
+const s = Math.floor(ms / 1000) % 60;
+const m = Math.floor(ms / 60000) % 60;
+const h = Math.floor(ms / 3600000) % 24;
+const d = Math.floor(ms / 86400000);
+return [ d > 0 ? `${d}d` : "", `${h}h`, `${m}m`, `${s}s` ].filter(Boolean).join(" ")
 }
