@@ -1114,11 +1114,6 @@ if (opts['gconly'] && !m.chat.endsWith('g.us')) return
 if (opts['swonly'] && m.chat !== 'status@broadcast') return
 if (typeof m.text !== 'string')
 m.text = ''
-
-//if (m.isBaileys) return 
-if (m.isBaileys || isBaileysFail && m?.sender === this?.this?.user?.jid) {
-return
-}
 	
 m.exp += Math.ceil(Math.random() * 10)
 let usedPrefix
