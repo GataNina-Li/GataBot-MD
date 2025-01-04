@@ -19,7 +19,7 @@ const colores = [
 const color = colores.find(item => speed <= item.max)?.color || '🔴'
 
 // carpetas creadas
-const __filename = fileURLToPath(import?.meta?.url)
+const __filename = fileURLToPath(import.meta?.url)
 const __dirname = path?.dirname(__filename)
 const carpetaBase = path?.resolve(__dirname, '..', 'GataJadiBot')
 const cantidadCarpetas = (fs?.readdirSync(carpetaBase, { withFileTypes: true }).filter(item => item?.isDirectory())?.length) || 0
