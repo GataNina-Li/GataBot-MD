@@ -19,8 +19,8 @@ const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws
 const message = users.map((v, index) => `👤 \`[${index + 1}]\` *${v.user.name || global.db.data.users[v.user.jid]?.name || 'Anónimo' }*
 ⏱️ \`\`\`${v.uptime ? convertirMs(Date.now() - v.uptime) : "Desconocido"}\`\`\`
 🐈 wa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}serbot%20code`).join('\n\n∵ ∵ ∵ ∵ ∵ ∵ ∵ ∵ ∵ ∵\n\n')
-const replyMessage = message.length === 0 ? '*NO HAY SUB BOTS DISPONIBLE. VERIFIQUE MÁS TARDE.*' : message
-const totalUsers = users.length;
+const replyMessage = message.length === 0 ? `*NO HAY SUB BOTS DISPONIBLE. VERIFIQUE MÁS TARDE.*\n🐈 wa.me/${conn.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}serbot%20code` : message
+const totalUsers = users.length
 const responseMessage = `☄️ *LISTA DE SUB-BOTS V${vsJB}*\n
 \`¡Conviértete en sub bot desde otros sub bots!\`\n
 
@@ -28,12 +28,11 @@ const responseMessage = `☄️ *LISTA DE SUB-BOTS V${vsJB}*\n
 ✨ *Novedades:* 
 _${canal1}_
 
-💠 *Sub Bots conectados:* ${totalUsers || 0}
-📁 *Sesiones creadas:* ${cantidadCarpetas}
-📁 *Sesiones activas:* ${totalUsers || 0}
+${totalUsers ? `💠 *Sub Bots conectados:* ${totalUsers || 0}` : ''}
+${cantidadCarpetas ? `📁 *Sesiones creadas:* ${cantidadCarpetas}` : ''}
+${totalUsers ? `📁 *Sesiones activas:* ${totalUsers || 0}` : ''}
 💻 *Servidor:* \`\`\`${uptime}\`\`\`\n\n${replyMessage.trim()}`.trim()
-  
-await conn.sendMessage(m.chat, {text: responseMessage, mentions: conn.parseMention(responseMessage)}, {quoted: m})
+await m.reply(responseMessage)
 }
 handler.command = /^(listjadibots|bots|subsbots)$/i
 export default handler
