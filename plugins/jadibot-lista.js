@@ -28,7 +28,7 @@ const responseMessage = `☄️ *LISTA DE SUB-BOTS V${vsJB}*\n
 _${canal1}_
 
 ${totalUsers ? `💠 *Sub Bots conectados:* ${totalUsers || 0}\n` : ''}${cantidadCarpetas ? `📁 *Sesiones creadas:* ${cantidadCarpetas}\n` : ''}${totalUsers ? `📁 *Sesiones activas:* ${totalUsers || 0}\n` : ''}💻 *Servidor:* \`\`\`${uptime}\`\`\`\n\n${replyMessage.trim()}`.trim()
-await conn.sendMessage(m.chat, { image: { url: ['https://qu.ax/spUwF.jpeg', 'https://qu.ax/spUwF.jpeg', 'https://qu.ax/spUwF.jpeg'].getRandom() }, caption: responseMessage, { quoted: m })
+await conn.sendMessage(m.chat, { image: { url: ['https://qu.ax/spUwF.jpeg', 'https://qu.ax/spUwF.jpeg', 'https://qu.ax/spUwF.jpeg'].getRandom() }, caption: responseMessage }, { quoted: m })
 }
 handler.command = /^(listjadibots|bots|subsbots)$/i
 export default handler
