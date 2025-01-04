@@ -203,12 +203,13 @@ userJid = sock.authState.creds.me.jid || `${path.basename(pathGataJadiBot)}@s.wh
 console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${userName} (+${path.basename(pathGataJadiBot)}) conectado exitosamente.\n│\n❒⸺⸺⸺【• CONECTADO •】⸺⸺⸺❒`))
 sock.isInit = true
 global.conns.push(sock)
-let user = global.db.data.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.net`]
+loadDatabase()
+let user = global.db.data?.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.net`]
 m?.chat ? await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m }) : ''
 let chtxt = `
 👤 *Usuario:* ${userName}
-🗃️ *Registrado:* ${user.registered ? 'Si' : 'No'}
-✅ *Verificación:* ${user.registered ? user.name : 'No'}
+🗃️ *Registrado:* ${user?.registered ? 'Si' : 'No'}
+✅ *Verificación:* ${user?.registered ? user.name : 'No'}
 🔑 *Método de conexión:* ${mcode ? 'Código de 8 dígitos' : 'Código QR'}
 💻 *Browser:* ${mcode ? 'Ubuntu' : 'Chrome'}
 🐈 *Bot:* ${gt}
