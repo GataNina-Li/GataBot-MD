@@ -9,6 +9,7 @@ import { spawn, exec, execSync } from 'child_process'
 async function handler(m, { conn, usedPrefix, command }) {
 // pin
 let timestamp = speed()
+await new Promise(resolve => setTimeout(resolve, 1000))
 let ping = speed() - timestamp
 
 const colores = [
