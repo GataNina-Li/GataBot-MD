@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 import fs from 'fs' 
-let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner, text, isWABusiness }) => { 
+let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner, text }) => { 
 m.reply(m.isWABusiness)
 console.log(m.isWABusiness)
 //try{
