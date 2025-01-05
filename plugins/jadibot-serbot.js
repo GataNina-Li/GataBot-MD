@@ -136,7 +136,7 @@ setTimeout(() => { conn.sendMessage(m.sender, { delete: txtQR.key })}, 30000)
 return
 } 
 if (mcode) {
-!sock?.authState?.creds?.registered ? fs.rmdirSync(pathGataJadiBot, { recursive: true }) : ''
+//!sock?.authState?.creds?.registered ? fs.rmdirSync(pathGataJadiBot, { recursive: true }) : ''
 let secret = await sock.requestPairingCode(m.sender.split`@`[0]).match(/.{1,4}/g)?.join("-")
 if (m.isWABusiness) {
 txtCode = await conn.sendMessage(m.chat, { image: { url: 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom() }, caption: rtx2.trim() + '\n' + drmer.toString("utf-8") }, { quoted: m })
