@@ -136,10 +136,8 @@ setTimeout(() => { conn.sendMessage(m.sender, { delete: txtQR.key })}, 30000)
 return
 } 
 if (mcode) {
-if (!sock?.authState?.creds?.registered) fs.rmdirSync(pathGataJadiBot, { recursive: true })
-//await sleep(2000)
-let secret = await sock.requestPairingCode(m.sender.split`@`[0])
-const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
+!sock?.authState?.creds?.registered ? fs.rmdirSync(pathGataJadiBot, { recursive: true }) : ''
+let secret = await sock.requestPairingCode(m.sender.split`@`[0]).match(/.{1,4}/g)?.join("-")
 if (m.isWABusiness) {
 txtCode = await conn.sendMessage(m.chat, { image: { url: 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom() }, caption: rtx2.trim() + '\n' + drmer.toString("utf-8") }, { quoted: m })
 } else {
