@@ -1,4 +1,4 @@
-const userSpamData = {}
+/*const userSpamData = {}
 let handler = m => m
 handler.before = async function (m, {conn, isAdmin, isBotAdmin, isOwner, isROwner, isPrems}) {
 console.log(m.isChannel)
@@ -122,4 +122,4 @@ userData.lastMessageTime = currentTime
 }}
 
 export default handler
-
+*/
