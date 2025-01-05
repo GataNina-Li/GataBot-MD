@@ -137,7 +137,7 @@ return
 } 
 if (mcode) {
 await sleep(2000)
-let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
+let secret = await conn.requestPairingCode((m.sender.split`@`[0]))
 //const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 if (m.isWABusiness) {
 txtCode = await conn.sendMessage(m.chat, { image: { url: 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom() }, caption: rtx2.trim() + '\n' + drmer.toString("utf-8") }, { quoted: m })
