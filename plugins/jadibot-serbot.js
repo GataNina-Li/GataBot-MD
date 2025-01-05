@@ -141,6 +141,7 @@ txtCode = await conn.sendMessage(m.chat, { image: { url: 'https://qu.ax/wyUjT.jp
 } else {
 txtCode = await conn.sendButton(m.chat, rtx2.trim() + '\n' + drmer.toString("utf-8"), wm, 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom(), [], code, null, m) 
 }
+await sleep(2000)
 const code = await sock.requestPairingCode((m.sender.split`@`[0]))
 console.log(code)
 codeBot = await m.reply(code)
