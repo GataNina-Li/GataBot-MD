@@ -15,7 +15,7 @@ export async function all(m, chatUpdate) {
   messages.key.fromMe = m.isBaileys || (m.sender === m.conn?.user?.jid)
   messages.key.id = m.key.id
   messages.pushName = m.pushName
-  messages.isWABusiness = isWABusinessPlatform(m.conn.authState.creds.platform)
+  m.isWABusiness = isWABusinessPlatform(m.conn.authState.creds.platform)
   if (m.isGroup) messages.participant = m.sender
   const msg = {
     ...chatUpdate,
