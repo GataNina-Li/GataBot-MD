@@ -1122,7 +1122,7 @@ const bot = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) == this.use
 const isRAdmin = user?.admin == 'superadmin' || false
 const isAdmin = isRAdmin || user?.admin == 'admin' || false //user admins? 
 const isBotAdmin = bot?.admin || false //Detecta sin el bot es admin
-m.isWABusiness = global.conn.authState?.creds?.platform === 'smba' || global.conn.authState?.creds?.platform === 'smbi'
+const isWABusiness = global.conn.authState?.creds?.platform === 'smba' || global.conn.authState?.creds?.platform === 'smbi'
 
 const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
 for (let name in global.plugins) {
@@ -1180,6 +1180,7 @@ isOwner,
 isRAdmin,
 isAdmin,
 isBotAdmin,
+isWABusiness,
 isPrems,
 chatUpdate,
 __dirname: ___dirname,
@@ -1313,6 +1314,7 @@ isOwner,
 isRAdmin,
 isAdmin,
 isBotAdmin,
+isWABusiness,
 isPrems,
 chatUpdate,
 __dirname: ___dirname,
