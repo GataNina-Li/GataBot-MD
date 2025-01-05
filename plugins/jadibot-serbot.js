@@ -136,7 +136,7 @@ setTimeout(() => { conn.sendMessage(m.sender, { delete: txtQR.key })}, 30000)
 return
 } 
 if (mcode) {
-//!sock?.authState?.creds?.registered ? fs.rmdirSync(pathGataJadiBot, { recursive: true }) : ''
+!sock?.authState?.creds?.registered ? fs.rmdirSync(pathGataJadiBot, { recursive: true }) : ''
 let secret = await sock.requestPairingCode(m.sender.split`@`[0])
 secret = secret.match(/.{1,4}/g)?.join("-")
 if (m.isWABusiness) {
