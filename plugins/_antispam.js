@@ -1,9 +1,9 @@
-/*const userSpamData = {}
+const userSpamData = {}
 let handler = m => m
 handler.before = async function (m, {conn, isAdmin, isBotAdmin, isOwner, isROwner, isPrems}) {
 console.log(m.isChannel)
 console.log(m.sender)
-if (m.isChannel) return
+if (m.isChannel) return null
 const chat = global.db.data.chats[m.chat]
 const bot = global.db.data.settings[conn.user.jid] || {}
 //if (m.chat === "120363336642332098@newsletter") return; 
@@ -122,4 +122,4 @@ userData.lastMessageTime = currentTime
 }}
 
 export default handler
-*/
+
