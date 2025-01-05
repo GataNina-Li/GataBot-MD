@@ -57,6 +57,7 @@ gataJBOptions.command = command
 gataJadiBot(gataJBOptions)
 } 
 handler.command = /^(jadibot|serbot|rentbot)/i
+handler.register = true
 export default handler 
 
 export async function gataJadiBot(options) {
@@ -135,18 +136,17 @@ setTimeout(() => { conn.sendMessage(m.sender, { delete: txtQR.key })}, 30000)
 }
 return
 } 
-if (mcode) {
-//!sock?.authState?.creds?.registered || path.join('GataJadiBot', m.sender.split`@`[0]) ? fs.rmSync(path.join('GataJadiBot', m.sender.split`@`[0]), { recursive: true, force: true }) : ''
-let secret = await sock.requestPairingCode(m.sender.split`@`[0])
-secret = secret.match(/.{1,4}/g)?.join("-")
+if (qr && mcode) {
+await sleep(2000)
+let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
+//code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
+console.log(secret)
 if (m.isWABusiness) {
 txtCode = await conn.sendMessage(m.chat, { image: { url: 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom() }, caption: rtx2.trim() + '\n' + drmer.toString("utf-8") }, { quoted: m })
+codeBot = await m.reply(secret)
 } else {
 txtCode = await conn.sendButton(m.chat, rtx2.trim() + '\n' + drmer.toString("utf-8"), wm, 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom(), [], secret, null, m) 
-}
-console.log(secret)
-codeBot = await m.reply(secret)
-}
+}}
 if (txtCode && txtCode.key) {
 setTimeout(() => { conn.sendMessage(m.sender, { delete: txtCode.key })}, 30000)
 }
@@ -182,7 +182,7 @@ await conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text
 }
 if (reason == 405 || reason == 401) {
 console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ La sesión (+${path.basename(pathGataJadiBot)}) fue cerrada. Credenciales no válidas o dispositivo desconectado manualmente.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-path?.basename(pathGataJadiBot) ? await conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text : '*ERROR INESPERADO*\n\n> *INTENTÉ NUEVAMENTE VOLVER A SER SUB-BOT*' }, { quoted: null }) : ''
+await conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text : '*ERROR INESPERADO*\n\n> *INTENTÉ NUEVAMENTE VOLVER A SER SUB-BOT*' }, { quoted: null })
 fs.rmdirSync(pathGataJadiBot, { recursive: true })
 }
 if (reason === 500) {
@@ -238,7 +238,6 @@ renderLargerThumbnail: false
 await sleep(3000)
 await joinChannels(sock)
 //await conn.sendMessage(m.chat, {text : `${lenguajeGB['smsJBCargando'](usedPrefix)}`}, { quoted: m })
-if (global.conn.user.jid.split`@`[0] != sock.user.jid.split`@`[0]) return
 if (!args[0]) m?.chat ? conn.sendMessage(m.sender, {text : usedPrefix + command + " " + Buffer.from(fs.readFileSync(pathCreds), "utf-8").toString("base64")}, { quoted: m }) : ''    
 //await sleep(5000)
 //if (!args[0]) conn.sendMessage(m.chat, {text: usedPrefix + command + " " + Buffer.from(fs.readFileSync("./jadibts/" + uniqid + "/creds.json"), "utf-8").toString("base64")}, { quoted: m })
@@ -319,28 +318,3 @@ async function joinChannels(conn) {
 for (const channelId of Object.values(global.ch)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}
-
-
-async function checkSubBots() {
-    for (const sock of global.conns) {
-        if (!sock.user) {
-            try {
-                console.log(`el sub-bot +${path.basename(pathGataJadiBot)} se ha desconectado, intentando reiniciar.`);
-                await restartSubBot(sock);
-            } catch (error) {
-                console.error(`error inesperado: ${error}`);
-            }
-        }
-    }
-}
-
-async function restartSubBot(sock) {
-    let i = global.conns.indexOf(sock);
-    if (i >= 0) {
-        global.conns.splice(i, 1);
-    }
-    let options = { ...sock.options };
-    await gataJadiBot(options);
-}
-
-setInterval(checkSubBots, 5 * 60 * 1000);
