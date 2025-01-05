@@ -1124,7 +1124,7 @@ const isRAdmin = user?.admin == 'superadmin' || false
 const isAdmin = isRAdmin || user?.admin == 'admin' || false //user admins? 
 const isBotAdmin = bot?.admin || false //Detecta sin el bot es admin
 m.isWABusiness = global.conn.authState?.creds?.platform === 'smba' || global.conn.authState?.creds?.platform === 'smbi'
-m.isChannel = m.chat.endsWith('@newsletter') || m.sender.endsWith('@newsletter')
+m.isChannel = m.chat.includes('@newsletter') || m.sender.includes('@newsletter')
 	
 const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
 for (let name in global.plugins) {
