@@ -1,6 +1,6 @@
 // Esta función es para la versión LATAM 
 
-import fs from 'fs'
+/*import fs from 'fs'
 const rutaArchivo = './prefijos.json'
 const existeArchivo = fs.existsSync(rutaArchivo)
 
@@ -42,3 +42,4 @@ if (responseb[0].status === "404") return
 
 }}
 export default handler
+*/
