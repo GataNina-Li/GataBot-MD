@@ -1124,7 +1124,16 @@ const isRAdmin = user?.admin == 'superadmin' || false
 const isAdmin = isRAdmin || user?.admin == 'admin' || false //user admins? 
 const isBotAdmin = bot?.admin || false //Detecta sin el bot es admin
 m.isWABusiness = global.conn.authState?.creds?.platform === 'smba' || global.conn.authState?.creds?.platform === 'smbi'
+m.isBaileys = m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20;
+if (m.isBaileys) return 
 
+/**
+ * Returns early if ID starts with 'NJX-' due to Baileys' different generateId system.
+ * @param {Object} m - The object containing the ID to check.
+ * @returns {void} - Returns early if ID starts with 'NJX-', otherwise continues with the function.
+ */
+if (m.id.startsWith('NJX-')) return;
+	
 const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
 for (let name in global.plugins) {
 let plugin = global.plugins[name]
