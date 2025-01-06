@@ -8,6 +8,8 @@ const LimitVid = 425 * 1024 * 1024 //425MB
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 if (!text) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`, m)
 const tipoDescarga = command === 'play' ? 'audio' : command === 'play2' ? 'video' : command === 'play3' ? 'audio doc' : command === 'play4' ? 'video doc' : '';
+
+if (command == 'play' || command == 'play2') {
 const yt_play = await search(args.join(' '))
 const ytplay2 = await yts(text)
 const texto1 = `⌘━─━─≪ *YOUTUBE* ≫─━─━⌘
@@ -29,11 +31,67 @@ const texto1 = `⌘━─━─≪ *YOUTUBE* ≫─━─━⌘
 ★ ${mid.smsYT4}
 ★ ${yt_play[0].url.replace(/^https?:\/\//, '')}
 ⌘━━─≪ ${gt} ≫─━━⌘
+`.trim()
 
-> _*Descargando ${tipoDescarga}.... Aguarde un momento por favor*_`.trim()
-await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, fake)
-  
-if (command == 'play' || command == 'audio') {
+if (m.isWABusiness) {
+await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1 + `> Escriben: "audio" para descargar  en audios\n> escriben "video" para en video.`, m, null, fake)
+} else {
+await conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: texto1, footer: wm,
+buttons: [ {
+buttonId: `.ytmp3 ${yt_play[0].url}`,
+buttonText: {
+displayText: "Audio 🔊",
+},
+type: 1,
+},
+{
+buttonId: `.ytmp4 ${yt_play[0].url}`,
+buttonText: {
+displayText: "Video 🎥",
+},
+type: 1,
+},
+],
+viewOnce: true,
+headerType: 4,
+}, { quoted: m });
+}
+}
+
+if (m.text.toLowerCase() === 'audio' || command == 'audio') {
+try {    
+let searchh = await yts(yt_play[0].url);
+let __res = searchh.all.map(v => v).filter(v => v.type == "video");
+let infoo = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId);
+let ress = await ytdl.chooseFormat(infoo.formats, { filter: 'audioonly' });
+await conn.sendMessage(m.chat, { audio: { url: ress.url }, mimetype: 'audio/mpeg' }, { quoted: m });
+} catch (e1) {
+        try {    
+            const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${yt_play[0].url}`);
+            let { result } = await res.json();
+await conn.sendMessage(m.chat, { audio: { url: result.download.url }, mimetype: 'audio/mpeg' }, { quoted: m });
+} catch (e2) {
+   try {    
+const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
+                const apiResponse = await fetch(apiUrl);
+                const delius = await apiResponse.json();
+
+                if (!delius.status) return m.react("❌");
+
+                const downloadUrl = delius.data.download.url;
+                await conn.sendMessage(m.chat, { 
+                    audio: { url: downloadUrl }, 
+                    mimetype: 'audio/mpeg' 
+                }, { quoted: m });
+            } catch (e3) {
+                await m.react('❌');
+                console.log(e3);
+            }
+        }
+    }
+}
+
+/*if (m.text.toLowerCase() === 'audio' || command == 'audio') {
 try {    
 let searchh = await yts(yt_play[0].url)
 let __res = searchh.all.map(v => v).filter(v => v.type == "video")
@@ -72,9 +130,9 @@ await conn.sendMessage(m.chat, { audio: d3, mimetype: 'audio/mp4' }, { quoted: m
 } catch (e) { 
 await m.react('❌')
 console.log(e)
-}}}}}}}
+}}}}}}}*/
 
-if (command == 'play2' || command == 'video') {
+if (command == 'video') {
 try {    
 let searchh = await yts(yt_play[0].url)
 let __res = searchh.all.map(v => v).filter(v => v.type == "video")
