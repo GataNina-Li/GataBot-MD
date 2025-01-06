@@ -131,7 +131,7 @@ if (m.isWABusiness) {
 txtCode = await conn.sendMessage(m.chat, { image: { url: 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom() }, caption: rtx2.trim() + '\n' + drmer.toString("utf-8") }, { quoted: m })
 codeBot = await m.reply(secret)
 } else {
-txtCode = await conn.sendButton(m.chat, rtx2.trim() + '\n' + drmer.toString("utf-8"), wm, 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom(), [], secret, null, m) 
+txtCode = await conn.sendButton(m.chat, rtx2.trim() + '\n' + drmer.toString("utf-8"), wm, 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom(), null,  [[`copia code`, secret]], null, null, m)
 }
 console.log(secret)
 }
