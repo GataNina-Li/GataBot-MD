@@ -224,10 +224,23 @@ renderLargerThumbnail: false
 }}}, { quoted: null })
 await sleep(3000)
 await joinChannels(sock)
-//await conn.sendMessage(m.chat, {text : `${lenguajeGB['smsJBCargando'](usedPrefix)}`}, { quoted: m })
-if (!args[0]) m?.chat ? conn.sendMessage(m.sender, {text : usedPrefix + command + " " + Buffer.from(fs.readFileSync(pathCreds), "utf-8").toString("base64")}, { quoted: m }) : ''    
-//await sleep(5000)
-//if (!args[0]) conn.sendMessage(m.chat, {text: usedPrefix + command + " " + Buffer.from(fs.readFileSync("./jadibts/" + uniqid + "/creds.json"), "utf-8").toString("base64")}, { quoted: m })
+m?.chat ? await conn.sendMessage(m.chat, {text : `☄️ *IMPORTANTE*
+> Usa en este momento el comando *${usedPrefix}codetoken* para que tengas un respaldo de la sesión\n
+> Para pausar tú sesión (actualmente este comando solo hace una pausa temporal):
+\`${usedPrefix}gatabotstop\`\n
+> Eliminar datos y cerrar sesión:
+\`${usedPrefix}eliminarjb\`\n
+> Solicitar código QR o volver a conectar sin token:
+\`${usedPrefix + command}\`\n
+> Solicitar código de 8 dígitos:
+\`${usedPrefix + command}\` code\n
+> Crear sesión (solo si no has cerrado la sesión en WhatsApp):
+\`${usedPrefix + command} [token]\`\n
+💡 *Recomendaciones:*
+> Puedes hacer una pausa definitiva primero obteniendo el token de la sesión, luego borrar los datos y cuando quieras volver a ser bot usa el token para crear la sesión (Solo funciona mientras no cierres la sesión en WhatsApp).\n
+> Si tienes problemas de conexión, elimina los datos y usa el token o solicita un nuevo código QR o código de 8 dígitos.\n
+> Si te llega un mensaje de *"sesión reemplazada"* realiza la indicación anterior.\n
+> Si se desconecta frecuentemente usa \`${usedPrefix + command}\` si el problema persiste vuelve a ser sub bot.`}, { quoted: m }) : ''
 }}
 setInterval(async () => {
 if (!sock.user) {
