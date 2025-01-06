@@ -67,13 +67,24 @@ const userVideoData = tempStorage[m.sender];
 if (!userVideoData || !userVideoData.url) return conn.reply(m.chat, '❌ No se encontró información para procesar.', m);
 try {
 if (text === '🎶' || text === 'audio') {
+m.react("📥")
+try {    
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${userVideoData.url}`);
 let { data } = await res.json();
 await conn.sendMessage(m.chat, { audio: { url: data.dl }, mimetype: 'audio/mpeg' }, { quoted: m });
+} catch (e1) {
+try {    
+const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${userVideoData.url}`);
+let { result } = await res.json();
+await conn.sendMessage(m.chat, { audio: { url: result.download.url }, mimetype: 'audio/mpeg' }, { quoted: m });
+} catch (error) {
+m.react("❌️")
+}}
 } else if (text === '📽' || text === 'video') {
+m.react("📥")
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${userVideoData.url}`);
 let { data } = await res.json();
-await conn.sendMessage(m.chat, { video: { url: data.dl }, mimetype: 'video/mp4' }, { quoted: m });
+await conn.sendMessage(m.chat, { video: { url: data.dl }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `⟡ *${userVideoData.title}*\n> ${wm}`}, { quoted: m })
 }
 } catch (error) {
  m.react('❌')
