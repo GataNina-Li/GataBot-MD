@@ -19,9 +19,8 @@ return conn.sendMessage(m.chat, resp, m)
 } else {
 resp = '*Este comando solo puede ser ejecutado por Sub-Bots*'
 return conn.sendMessage(m.chat, resp, m)
+}}
 }
-}
-
 handler.command = /^(berhenti|stop|detener)$/i
 //handler.owner = true  
 //handler.fail = null
