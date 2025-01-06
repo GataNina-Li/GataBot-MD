@@ -129,7 +129,6 @@ if (qr && mcode) {
 let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
 secret = secret.match(/.{1,4}/g)?.join("-")
 const dispositivo = await getDevice(m.key.id)
-await m.reply(dispositivo)
 if (!m.isWABusiness && /web|desktop|unknown/i.test(dispositivo)) {
 txtCode = await conn.sendMessage(m.chat, { image: { url: 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom() }, caption: rtx2.trim() + '\n' + drmer.toString("utf-8") }, { quoted: m })
 codeBot = await m.reply(secret)
@@ -138,8 +137,8 @@ txtCode = await conn.sendButton(m.chat, rtx2.trim() + '\n' + drmer.toString("utf
 }
 console.log(secret)
 }
-if (txtCode && txtCode.key) {
-setTimeout(() => { conn.sendMessage(m.sender, { delete: txtCode.key })}, 30000)
+if ((txtCode && txtCode.key) || (txtCode && txtCode.id)) {
+setTimeout(() => { conn.sendMessage(m.sender, { delete: txtCode.key || txtCode.id })}, 30000)
 }
 if (codeBot && codeBot.key) {
 setTimeout(() => { conn.sendMessage(m.sender, { delete: codeBot.key })}, 30000)
