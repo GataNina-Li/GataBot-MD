@@ -176,7 +176,7 @@ console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄�
 try {
 await conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text : '*SESIÓN PENDIENTE*\n\n> *INTENTÉ NUEVAMENTE VOLVER A SER SUB-BOT*' }, { quoted: null }) || ''
 } catch (error) {
-console.error('Error al enviar el mensaje:', error)
+console.error(`Error de conexión de: +${path.basename(pathGataJadiBot)}`)
 }
 fs.rmdirSync(pathGataJadiBot, { recursive: true })
 }
