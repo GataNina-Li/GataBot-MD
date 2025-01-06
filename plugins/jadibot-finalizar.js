@@ -1,5 +1,6 @@
 let handler = async (m, { conn, command }) => {
 let resp
+try {
 if (global.conns.some(c => c.user.jid === conn.user.jid)) {
 if (/stop/i.test(command)) {
 let i = global.conns.indexOf(conn)
@@ -14,6 +15,10 @@ return conn.sendMessage(m.chat, { text: resp }, { quoted: m })
 }}
 } else {
 resp = 'Este comando solo puede ser ejecutado por un Sub-Bot registrado.'
+return conn.sendMessage(m.chat, { text: resp }, { quoted: m })
+}} catch (e) {
+console.log('Error al intentar apagar el Sub-Bot:', e)
+resp = 'Hubo un error al intentar apagar el Sub-Bot.'
 return conn.sendMessage(m.chat, { text: resp }, { quoted: m })
 }}
 
