@@ -1,6 +1,6 @@
 let handler = async (m, { conn, command }) => {
-if (global.conns.some(c => c.user.jid === conn.user.jid)) {
 let resp
+if (global.conns.some(c => c.user.jid === conn.user.jid)) {
 if (/stop/i.test(command)) {
 let i = global.conns.indexOf(conn)
 if (global.conn.user.jid != conn.user.jid && m.sender != global.conn.user.jid) {
