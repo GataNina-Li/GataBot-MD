@@ -20,6 +20,7 @@ await conn.reply(m.chat, `*No eres Sub-Bot de este Bot.*
 *Si no puedes acceder a tu sesión, elimina la sesión creada desde los dispositivos vinculados y utiliza el comando:*
 \`${usedPrefix + 'eliminarjb'}\`
 De esta manera, podrás solicitar una nueva sesión.`, m)
+if (m.fromMe) return
 }}
 handler.command = /^(codetoken)$/i
 handler.private = true
