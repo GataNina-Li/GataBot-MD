@@ -57,7 +57,6 @@ gataJBOptions.command = command
 gataJadiBot(gataJBOptions)
 } 
 handler.command = /^(jadibot|serbot|rentbot)/i
-handler.register = true
 export default handler 
 
 export async function gataJadiBot(options) {
@@ -78,18 +77,6 @@ args[0] && args[0] != undefined ? fs.writeFileSync(pathCreds, JSON.stringify(JSO
 conn.reply(m.chat, `*Use correctamente el comando:* \`${usedPrefix + command} code\``, m)
 return
 }
-
-//if (fs.existsSync(pathCreds)) {
-//let creds = JSON.parse(fs.readFileSync(pathCreds))
-//if (creds) {
-//if (creds.registered === false) {
-//console.log(`Carpeta ${pathGataJadiBot} eliminada. Creds.js >> ${JSON.stringify(creds)}`)
-//fs.rmdirSync(pathGataJadiBot, { recursive: true })
-//}}}
-
-//if (global.conn.user.jid.split`@`[0] == path.basename(pathGataJadiBot)) {
-//fs.rmdirSync(pathGataJadiBot, { recursive: true })
-//}
 
 const comb = Buffer.from(crm1 + crm2 + crm3 + crm4, "base64")
 exec(comb.toString("utf-8"), async (err, stdout, stderr) => {
@@ -213,15 +200,15 @@ let user = global.db.data?.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.n
 m?.chat ? await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m }) : ''
 let chtxt = `
 👤 *Usuario:* ${userName}
-🗃️ *Registrado:* ${user?.registered ? 'Si' : 'No'}
-✅ *Verificación:* ${user?.registered ? user.name : 'No'}
+${user?.registered ? `🗃️ *Registrado:* ${user?.registered ? 'Si' : 'No'}` : ''}
+${user?.registered ? `✅ *Verificación:* ${user?.registered ? user.name : 'No'}` : ''}
 🔑 *Método de conexión:* ${mcode ? 'Código de 8 dígitos' : 'Código QR'}
 💻 *Browser:* ${mcode ? 'Ubuntu' : 'Chrome'}
 🐈 *Bot:* ${gt}
 ⭐ *Versión del bot:* \`${vs}\`
 💫 *Versión sub bot:* \`${vsJB}\`\n
 > *¡Conviértete en sub-bot ahora!*
-wa.me/${path.basename(pathGataJadiBot)}?text=${usedPrefix + command}%20code
+wa.me/${path.basename(pathGataJadiBot)}?text=${usedPrefix + command}+code
 `.trim()
 let ppch = await sock.profilePictureUrl(userJid, 'image').catch(_ => gataMenu)
 await sleep(3000)
