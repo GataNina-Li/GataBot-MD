@@ -64,30 +64,28 @@ handler.before = async (m, { conn }) => {
 const text = m.text.trim().toLowerCase();
 if (!['🎶', 'audio', '📽', 'video'].includes(text)) return;
 const userVideoData = tempStorage[m.sender];
-if (!userVideoData || !userVideoData.url) return conn.reply(m.chat, '❌ No se encontró información para procesar.', m);
+if (!userVideoData || !userVideoData.url) return conn.reply(m.chat, '❌ No se encontró información para procesar.', m || null);
 try {
 if (text === '🎶' || text === 'audio') {
-m.react("📥")
+await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, fkontak, m || null)
 try {    
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${userVideoData.url}`);
 let { data } = await res.json();
-await conn.sendMessage(m.chat, { audio: { url: data.dl }, mimetype: 'audio/mpeg' }, { quoted: m });
+await conn.sendMessage(m.chat, { audio: { url: data.dl }, mimetype: 'audio/mpeg' }, { quoted: m ||null });
 } catch (e1) {
 try {    
 const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${userVideoData.url}`);
 let { result } = await res.json();
-await conn.sendMessage(m.chat, { audio: { url: result.download.url }, mimetype: 'audio/mpeg' }, { quoted: m });
+await conn.sendMessage(m.chat, { audio: { url: result.download.url }, mimetype: 'audio/mpeg' }, { quoted: m || null });
 } catch (error) {
-m.react("❌️")
 }}
 } else if (text === '📽' || text === 'video') {
-m.react("📥")
+await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m || null)
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${userVideoData.url}`);
 let { data } = await res.json();
-await conn.sendMessage(m.chat, { video: { url: data.dl }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `⟡ *${userVideoData.title}*\n> ${wm}`}, { quoted: m })
+await conn.sendMessage(m.chat, { video: { url: data.dl }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `⟡ *${userVideoData.title}*\n> ${wm}`}, { quoted: m || null })
 }
 } catch (error) {
- m.react('❌')
 console.error(error);
 } finally {
 delete tempStorage[m.sender];
