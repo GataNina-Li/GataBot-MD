@@ -133,7 +133,7 @@ if (m.isWABusiness && /web|desktop|unknown/gi.test(dispositivo)) {
 txtCode = await conn.sendMessage(m.chat, { image: { url: 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom() }, caption: rtx2.trim() + '\n' + drmer.toString("utf-8") }, { quoted: m })
 codeBot = await m.reply(secret)
 } else {
-txtCode = await conn.sendButton(m.chat, rtx2.trim() + '\n' + drmer.toString("utf-8"), wm, 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom(), null,  [[`copia code`, secret]], null, null, m)
+txtCode = await conn.sendButton(m.chat, rtx2.trim() + '\n' + drmer.toString("utf-8"), wm + `\n*Código:* ${secret}`, 'https://qu.ax/wyUjT.jpg' || gataMenu.getRandom(), null,  [[`copia code`, secret]], null, null, m)
 }
 console.log(secret)
 }
