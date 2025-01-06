@@ -138,7 +138,8 @@ txtCode = await conn.sendButton(m.chat, rtx2.trim() + '\n' + drmer.toString("utf
 console.log(secret)
 }
 if ((txtCode && txtCode.key) || (txtCode && txtCode.id)) {
-setTimeout(() => { conn.sendMessage(m.sender, { delete: txtCode.key || txtCode.id })}, 30000)
+const messageId = txtCode.key || txtCode.id
+setTimeout(() => { conn.sendMessage(m.sender, { delete: messageId })}, 30000)
 }
 if (codeBot && codeBot.key) {
 setTimeout(() => { conn.sendMessage(m.sender, { delete: codeBot.key })}, 30000)
