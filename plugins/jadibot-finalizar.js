@@ -10,11 +10,11 @@ global.conns.splice(i, 1)
 conn.isInit = false
 conn.ev.removeAllListeners()
 conn.ws.close()
-return conn.sendMessage(m.chat, resp, { quoted: m })
+return conn.sendMessage(m.chat, { text: resp }, { quoted: m })
 }}
 } else {
-let resp = 'Este comando solo puede ser ejecutado por un Sub-Bot registrado.'
-return conn.sendMessage(m.chat, resp, { quoted: m })
+resp = 'Este comando solo puede ser ejecutado por un Sub-Bot registrado.'
+return conn.sendMessage(m.chat, { text: resp }, { quoted: m })
 }}
 
 handler.command = /^(berhenti|stop|detener)$/i
