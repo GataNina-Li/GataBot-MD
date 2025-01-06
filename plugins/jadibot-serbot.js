@@ -170,7 +170,7 @@ await conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text
 }
 if (reason == 405 || reason == 401) {
 console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ La sesión (+${path.basename(pathGataJadiBot)}) fue cerrada. Credenciales no válidas o dispositivo desconectado manualmente.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-await conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text : '*SESIÓN PENDIENTE*\n\n> *INTENTÉ NUEVAMENTE VOLVER A SER SUB-BOT*' }, { quoted: null })
+await conn.sendMessage(`${path.basename(pathGataJadiBot)}@s.whatsapp.net`, {text : '*SESIÓN PENDIENTE*\n\n> *INTENTÉ NUEVAMENTE VOLVER A SER SUB-BOT*' }, { quoted: null }) ?? ''
 fs.rmdirSync(pathGataJadiBot, { recursive: true })
 }
 if (reason === 500) {
@@ -234,7 +234,7 @@ m?.chat ? await conn.sendMessage(m.chat, {text : `☄️ *IMPORTANTE*
 > Solicitar código QR o volver a conectar sin token:
 \`${usedPrefix + command}\`\n
 > Solicitar código de 8 dígitos:
-\`${usedPrefix + command}\` code\n
+\`${usedPrefix + command} code\`\n
 > Crear sesión (solo si no has cerrado la sesión en WhatsApp):
 \`${usedPrefix + command} [token]\`\n
 💡 *Recomendaciones:*
