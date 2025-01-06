@@ -172,7 +172,7 @@ const filterStrings = [
 "RXJyb3I6IEJhZCBNQUM=", // "Error: Bad MAC" 
 "RGVjcnlwdGVkIG1lc3NhZ2U=" // "Decrypted message" 
 ]
-console.info = () => {} 
+/*console.info = () => {} 
 console.debug = () => {} 
 ['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
 const connectionOptions = {
@@ -196,7 +196,30 @@ msgRetryCounterCache, // Resolver mensajes en espera
 msgRetryCounterMap, // Determinar si se debe volver a intentar enviar un mensaje o no
 defaultQueryTimeoutMs: undefined,
 version: [2, 3000, 1015901307],
+}*/
+
+const connectionOptions = {
+logger: pino({ level: 'silent' }),
+printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
+mobile: MethodMobile, 
+browser: opcion == '1' ? ['GataBot-MD', 'Edge', '20.0.04'] : methodCodeQR ? ['GataBot-MD', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
+auth: {
+creds: state.creds,
+keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
+},
+markOnlineOnConnect: true, 
+generateHighQualityLinkPreview: true, 
+getMessage: async (clave) => {
+let jid = jidNormalizedUser(clave.remoteJid)
+let msg = await store.loadMessage(jid, clave.id)
+return msg?.message || ""
+},
+msgRetryCounterCache,
+msgRetryCounterMap,
+defaultQueryTimeoutMs: undefined,   
+version: [2, 3000, 1015901307]
 }
+
 global.conn = makeWASocket(connectionOptions)
 if (!fs.existsSync(`./${authFile}/creds.json`)) {
 if (opcion === '2' || methodCode) {
