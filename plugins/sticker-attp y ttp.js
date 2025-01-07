@@ -5,11 +5,11 @@ if (!text) throw `${mg}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙋𝘼𝙍𝘼 𝙌𝙐�
 let teks = encodeURI(text)
 
 if (command == 'attp') {
-let stiker = await sticker(null,`https://api.erdwpe.com/api/maker/attp?text=${teks}`,global.packname, global.author)
+let stiker = await sticker(null,`https://btch.us.kg/attp?text=${teks}`,global.packname, global.author)
 conn.sendFile(m.chat, stiker, null, { asSticker: true })}
 
 if (command == 'ttp') {
-let stiker = await sticker(null,`https://api.erdwpe.com/api/maker/ttp?text=${teks}`,global.packname, global.author)
+let stiker = await sticker(null,`https://btch.us.kg/ttp?text=${teks}`,global.packname, global.author)
 conn.sendFile(m.chat, stiker, null, { asSticker: true })}
 }
 handler.command = handler.help = ['ttp', 'attp']
