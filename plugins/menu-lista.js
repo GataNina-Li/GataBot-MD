@@ -88,9 +88,8 @@ months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto
 lugarFecha.locale('es', formatoFecha)
 const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
 
-if (!/web|desktop|unknown/gi.test(dispositivo)) {  
-let menu = `
-⎔ \`\`\`${horarioFecha}\`\`\`
+if (!m.isWABusiness && !/web|desktop|unknown/gi.test(dispositivo)) {  
+let menu = `⎔ \`\`\`${horarioFecha}\`\`\`
 ⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
 ⎔ *Registrados »* ${rtotalreg}/${totalreg}    
 ⎔ *${lenguajeGB['smsUptime']()}* ➺ _${uptime}_ 
@@ -241,7 +240,7 @@ await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() 
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}}
 
-handler.command = /^(test40)$/i
+handler.command = /^(menu|menú|memu|memú|help|2help|commands|commandos)$/i
 //handler.register = true
 export default handler
 
