@@ -12,7 +12,8 @@ if (!text) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalu
 //const tipoDescarga = command === 'play' ? 'audio' : command === 'play2' ? 'video' : command === 'play3' ? 'audio doc' : command === 'play4' ? 'video doc' : '';
 const yt_play = await search(args.join(' '))
 const ytplay2 = await yts(text)
-const texto1 = `⌘━─━─≪ *YOUTUBE* ≫─━─━⌘
+const texto1 = `
+⌘━─━─≪ *YOUTUBE* ≫─━─━⌘
 ★ ${mid.smsYT1}
 ★ ${yt_play[0].title}
 ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
@@ -38,18 +39,18 @@ tempStorage[m.sender] = { url: yt_play[0].url, title: yt_play[0].title };
 if (m.isWABusiness) {
 await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1 + `\n> Para descargas en audio reacciona con "🎶"\n> Para descargar en video reacciona con "📽"`, m, null, fake)
 } else {
-await conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: texto1, footer: wm,
+await conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: gt, footer: texto1,
 buttons: [ {
 buttonId: `.ytmp3 ${yt_play[0].url}`,
 buttonText: {
-displayText: "Audio 🔊",
+displayText: "𓃠 𝗔 𝗨 𝗗 𝗜 𝗢",
 },
 type: 1,
 },
 {
 buttonId: `.ytmp4 ${yt_play[0].url}`,
 buttonText: {
-displayText: "Video 🎥",
+displayText: "𓃠 𝗩 𝗜 𝗗 𝗘 𝗢",
 },
 type: 1,
 },
@@ -64,7 +65,7 @@ handler.before = async (m, { conn }) => {
 const text = m.text.trim().toLowerCase();
 if (!['🎶', 'audio', '📽', 'video'].includes(text)) return;
 const userVideoData = tempStorage[m.sender];
-if (!userVideoData || !userVideoData.url) return conn.reply(m.chat, '❌ No se encontró información para procesar.', m || null);
+if (!userVideoData || !userVideoData.url) return conn.reply(m.chat, '❌ NO HAY RESULTADO DE LA APIS, INTENTE DE NUEVO POR FAVOR', m || null);
 try {
 if (text === '🎶' || text === 'audio') {
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, fkontak, m || null)
