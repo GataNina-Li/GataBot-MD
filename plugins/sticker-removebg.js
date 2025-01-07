@@ -16,7 +16,7 @@ stiker = await sticker(false, json.result.urls, global.packname, global.author)
 json = await (await fetch(`https://btch.us.kg/removebg?url=${text.trim()}`)).json()
 } else return m.reply(`*Responde a una imagen o ingresa una url que sea \`(jpg, jpeg o png)\` para quitar el fondo*`)
 
-await mensajesEditados(conn, m)
+//await mensajesEditados(conn, m)
 //await conn.sendMessage(m.chat, { text: waitttttt, edit: key })
 await conn.sendMessage(m.chat, { image: { url: json.result.urls }, caption: null }, { quoted: m })
 await conn.sendFile(m.chat, stiker ? stiker : await sticker(false, json.result.urls, global.packname, global.author), 'sticker.webp', '',m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: `😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 `, mediaType: 2, sourceUrl: accountsgb, thumbnail: imagen1}}}, { quoted: m })
