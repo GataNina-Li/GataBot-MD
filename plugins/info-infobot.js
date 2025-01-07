@@ -53,10 +53,10 @@ detallesCPUNúcleo: load.cpus.map(cpu => cpu.load.toFixed(2) + '%')
 };
 
 const startTime = Date.now();
-await si.currentLoad();
+//await si.currentLoad();
 const endTime = Date.now();
 data.latencia = `${endTime - startTime} ms`;
-const uptimeSeconds = await si.time().uptime;
+//const uptimeSeconds = await si.time().uptime;
 const days = Math.floor(uptimeSeconds / 60 / 60 / 24);
 const hours = Math.floor((uptimeSeconds / 60 / 60) % 24);
 const minutes = Math.floor((uptimeSeconds / 60) % 60);
