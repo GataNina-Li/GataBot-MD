@@ -29,9 +29,14 @@ second: 'numeric'
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who, 'image').catch((_) => gataMenu)
 let ppch = await conn.profilePictureUrl(who, 'image').catch(_ => gataMenu.getRandom())
-let api = await axios.get(`${apis}/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`)
-let userNationalityData = api.data.result
-let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido' 
+let userNationality = null; 
+try {
+let api = await axios.get(`${apis}/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`);
+let userNationalityData = api.data.result;
+userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : null;
+} catch (err) {
+userNationality = null; 
+}
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]}
 let nombreWA = await usedPrefix + conn.getName(m.sender) //'@' + m.sender.split("@s.whatsapp.net")[0]
@@ -2478,8 +2483,7 @@ renderLargerThumbnail: true
 }}}, { quoted: fkontak })
 await m.reply(`${sn}`)	
 
-let chtxt = `📑 *Tipo de registro »* ${user.registroC === true ? 'Completo' : 'Rápido'}
-🌎 *País »* ${userNationality}
+let chtxt = `📑 *Tipo de registro »* ${user.registroC === true ? 'Completo' : 'Rápido'} ${userNationality ? `\n🌎 *País »* ${userNationality}` : ''}
 👤 *Usuario »* ${m.pushName || 'Anónimo'}
 ✅ *Verificación »* ${user.name}
 👀 *Descripción »* ${user.descripcion} 
