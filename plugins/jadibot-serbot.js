@@ -238,9 +238,9 @@ await joinChannels(sock)
 m?.chat ? await conn.sendMessage(m.chat, {text : `☄️ *IMPORTANTE*
 > ⚠️ *Usa en este momento el comando ${usedPrefix}codetoken para que tengas un respaldo de la sesión*\n
 > Para pausar tú sesión (actualmente este comando solo hace una pausa temporal):
-\`${usedPrefix}gatabotstop\`\n
+\`${usedPrefix}stop\`\n
 > Eliminar datos y cerrar sesión:
-\`${usedPrefix}eliminarjb\`\n
+\`${usedPrefix}borrarsesion\`\n
 > Solicitar código QR o volver a conectar sin token:
 \`${usedPrefix + command}\`\n
 > Solicitar código de 8 dígitos:
