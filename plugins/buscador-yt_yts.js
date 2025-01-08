@@ -1,4 +1,4 @@
-import ytSearch from "yt-search"
+/*import ytSearch from "yt-search"
 const handler = async (m, { conn, usedPrefix, args, command }) => {
 try {
 const text = args.length >= 1 ? args.slice(0).join(" ") : (m.quoted && m.quoted?.text || m.quoted?.caption || m.quoted?.description) || null
@@ -69,8 +69,8 @@ conn.reply(m.chat, `Ocurrió un error.`, m)
 
 handler.command = /^y(outubesearch|ts(earch)?)$/i
 export default handler
-
-/*import yts from 'yt-search';
+*/
+import yts from 'yt-search';
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 if (!text) conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝘿𝙀 𝙐𝙉 𝙑𝙄𝘿𝙀𝙊 𝙊 𝘾𝘼𝙉𝘼𝙇 𝘿𝙀 𝙔𝙊𝙐𝙏𝙐𝘽𝙀\n\n𝙒𝙍𝙄𝙏𝙀 𝙏𝙃𝙀 𝙉𝘼𝙈𝙀 𝙊𝙁 𝘼 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝙑𝙄𝘿𝙀𝙊 𝙊𝙍 𝘾𝙃𝘼𝙉𝙉𝙀𝙇`, fkontak,  m)
 try {
@@ -121,4 +121,4 @@ handler.tags = ['dl']
 handler.command = /^playlist|ytbuscar|yts(earch)?$/i
 handler.limit = 1
 handler.level = 3
-export default handler*/
+export default handler
