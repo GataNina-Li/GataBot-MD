@@ -1,7 +1,6 @@
 <p align="center"> 
-<a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=GataBot-MD++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
-<a href="https://github.com/GataNina-Li"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=3000&size=14&duration=3000&pause=2000&color=48E2FF&background=5AFFAB00&width=435&lines=%C2%A1El+equipo+de+GataBot+te+desea+una+Feliz+Navidad!+%F0%9F%A4%97%E2%98%83%EF%B8%8F" height="70px"></a> 
-<img src="https://qu.ax/CvfOr.jpg" alt="GataBot-MD" width="1520" height="500" />
+<a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=9e62d7&center=falso&vCenter=falso&lines=GataBot-MD++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
+<img src="https://qu.ax/lHrxl.jpeg" alt="GataBot-MD" style="width: 100%; height: auto; max-width: 500px;">
   
 > Antes de usar este repositorio, visita la **[Política de GataBot. 😼](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)** 
 </p>
