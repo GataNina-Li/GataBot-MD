@@ -5,9 +5,9 @@ import ytdl from 'ytdl-core';
 import axios from 'axios';
 import fg from 'api-dylux';
 const handler = async (m, { command, usedPrefix, conn, args, text }) => {
+if (!args[0] || !text) throw `${mg}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`;
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
-if (!args[0] || !text) throw `${mg}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`;
 try {
 
 if (command === 'play.1' || command === 'audio') {
