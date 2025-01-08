@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 let handler = async (m, { command, conn, usedPrefix, args }) => {
 let user = global.db.data.users[m.sender]
 let time = user.lastmiming + 150000 //5 min
-if (new Date - user.lastmiming < 150000) return await conn.reply(m.chat, `⏱️ 𝙑𝙪𝙚𝙡𝙫𝙖 𝙚𝙣 ${msToTime(time - new Date())} 𝙉𝙊 𝙃𝘼𝙂𝘼 𝙎𝙋𝘼𝙈`, m)
+if (new Date - user.lastmiming < 150000) return await conn.fakeReply(m.chat, `\`🏦 BANCO CERRADO 🔒\`\n> Volvemos en: ${msToTime(time - new Date())}`, m.sender + '@s.whatsapp.net', `No hagan spam 😾`, 'status@broadcast')
 
 const items = {
    buy: {
