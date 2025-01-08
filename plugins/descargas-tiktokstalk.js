@@ -2,6 +2,44 @@ import fetch from 'node-fetch'
 let handler = async(m, { conn, text, command, usedPrefix }) => {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsTikTok6}\n*${usedPrefix + command} Gata_Dios*`
 try {
+const apiUrl = `${apis}/tools/tiktokstalk?q=${encodeURIComponent(args[0])}`;
+const apiResponse = await fetch(apiUrl);
+const delius = await apiResponse.json();
+if (!delius || !delius.result || !delius.result.users) return m.react("❌");
+const profile = delius.result.users;
+const stats = delius.result.stats;
+let gata = `👤 ${mid.user} 
+ ${profile.username}
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+✨ ${mid.name}
+${profile.nickname}
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+✅️ VERIFICADO 
+${profile.verified ? 'Sí' : 'No'}
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+💖 ${mid.smsinsta1}
+ ${stats.followerCount.toLocaleString()}
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+❇️ ${mid.smsinsta2}
+${stats.followingCount.toLocaleString()}
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+❤️ ${mid.smsinsta5}
+ ${stats.heartCount.toLocaleString()}
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+🎁 ${mid.smsinsta3}
+${stats.videoCount.toLocaleString()}
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+👀 FIRMAR:
+${profile.signature}
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+*○ URL*: 
+${profile.url}
+`.trim()
+
+await conn.sendFile(m.chat, profile.avatarLarger, 'tt.png', gata, m);
+m.react("✅");
+} catch (e2) {
+try {
 let res = await fetch(`https://api.lolhuman.xyz/api/stalktiktok/${text}?apikey=${lolkeysapi}`)
 let res2 = `https://api.lolhuman.xyz/api/pptiktok/${text}?apikey=${lolkeysapi}`
 let json = await res.json()
@@ -37,7 +75,7 @@ await conn.sendButton(m.chat, gata, wm, res2, [
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
-}}
+}}}
 handler.help = ['tiktokstalk'].map(v => v + ' <username>')
 handler.tags = ['stalk']
 handler.command = /^(tiktokstalk|ttstalk)$/i

@@ -3,7 +3,31 @@ import fetch from 'node-fetch'
 import cheerio from 'cheerio'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsFire}`
+m.react("📥")
 try {  
+const res = await fetch(`${apis}/api/mediafire?url=${args[0]}`);
+if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+const data = await res.json();
+const fileDataArray = data.data;
+fileDataArray.forEach((fileData) => {
+let caption = `${eg}
+> ┃ 𓃠 *${gt} ${vs}* 
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 💫 ${mid.name}
+> ┃ ${fileData.filename}
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 💪 ${mid.smsYT11}
+> ┃ ${fileData.size}
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 🚀 ${mid.smsYT12}
+> ┃ ${fileData.mime}`.trim()
+m.reply(caption);
+conn.sendFile(m.chat, fileData.link, fileData.filename, '', m, null, {mimetype: fileData.mime, asDocument: true, 
+});
+m.react(`✅`);
+});
+} catch (error) {
+try {
 let res = await mediafireDl(args[0])
 let { name, size, date, mime, link } = res
 let caption = `${eg}
@@ -20,12 +44,14 @@ let caption = `${eg}
 conn.reply(m.chat, caption, m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: 'Super Bot WhatsApp', previewType: 0, thumbnail: gataMenu, sourceUrl: md}}})
 await conn.sendFile(m.chat, link, name, '', m, null, { mimetype: mime, asDocument: true })
+m.react(`✅`);
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
+m.react(`❌️`);
 handler.limit = false      
-}}
+}}}
 handler.help = ['mediafire'].map(v => v + ' <url>')
 handler.tags = ['downloader']
 handler.command = /^(mediafire|mediafiredl|dlmediafire)$/i

@@ -4,6 +4,42 @@ import fetch from 'node-fetch'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsInsta2}\n*${usedPrefix + command} gata_dios*`
 try {
+const apiUrl = `${apis}/tools/igstalk?username=${encodeURIComponent(args[0])}`;
+const apiResponse = await fetch(apiUrl);
+const delius = await apiResponse.json();
+if (!delius || !delius.data) return m.react("❌");
+const profile = delius.data;
+const txt = `┃ 𓃠 *${gt} ${vs}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 
+┃ ${mid.user}
+┃ ${profile.username}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ ${mid.name}
+┃ ${profile.full_name}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ ${mid.smsinsta4} 
+┃ ${profile.biography}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ *VERIFICADOS*: 
+┃ ${profile.verified ? 'Sí' : 'No'}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ *CUENTA PRIVADA*: 
+┃ ${profile.private ? 'Sí' : 'No'}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ ${mid.smsinsta1}
+┃ ${profile.followers}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ ${mid.smsinsta2}
+┃ ${profile.following}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ ${mid.smsinsta3} 
+┃ ${profile.posts}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ *URL*: 
+┃ ${profile.url}`;
+await conn.sendFile(m.chat, profile.profile_picture, 'insta_profile.jpg', txt, m, null, fake);
+} catch (error) {
+try {
 const {key} = await conn.sendMessage(m, {text: wait})
 await conn.sendMessage(m, {text: waitt, edit: key})
 await conn.sendMessage(m, {text: waittt, edit: key})
@@ -46,7 +82,7 @@ await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['s
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 handler.money = false
-}}
+}}}
 handler.help = ['igstalk'].map(v => v + ' <username>')
 handler.tags = ['downloader']
 handler.command = /^(igstalk|verig|igver)$/i

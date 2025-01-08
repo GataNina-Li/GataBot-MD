@@ -1,52 +1,89 @@
-import { igdl } from 'ruhend-scraper'
-
-const handler = async (m, { text, conn, args }) => {
-  if (!args[0]) {
-    return conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}🐈 𝗘𝗻𝘃𝗶́𝗮 𝗲𝗹 𝗹𝗶𝗻𝗸 𝗱𝗲𝗹 𝘃𝗶𝗱𝗲𝗼 𝗱𝗲 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸.`, m)
-  }
-
-  let res;
-  try {
-    await m.react('⏱️')
-    res = await igdl(args[0]);
-  } catch (e) {
-    return conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}⚠️ 𝗘𝗹 𝗲𝗻𝗹𝗮𝗰𝗲 𝗻𝗼 𝗲𝘀 𝘃𝗮́𝗹𝗶𝗱𝗼, 𝘃𝗲𝗿𝗶𝗳𝗶𝗾𝘂𝗲 𝘀𝗶 𝗲𝘀 𝘂𝗻 𝗲𝗻𝗹𝗮𝗰𝗲 𝗱𝗲 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸.`, m)
-    await m.react('❎️')
-  }
-
-  let result = res.data;
-  if (!result || result.length === 0) {
-    return conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}⚠️ 𝗡𝗼 𝘀𝗲 𝗲𝗻𝗰𝗼𝗻𝘁𝗿𝗮𝗿𝗼𝗻 𝗿𝗲𝘀𝘂𝗹𝘁𝗮𝗱𝗼𝘀 𝗱𝗲𝗹 𝘃𝗶𝗱𝗲𝗼.`, m)
-    await m.react('❎️')
-  }
-
-  let data;
-  try {
-    data = result.find(i => i.resolution === "720p (HD)") || result.find(i => i.resolution === "360p (SD)");
-  } catch (e) {
-    return conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}⚠️ 𝗗𝗮𝘁𝗼𝘀 𝗻𝗼 𝗲𝗻𝗰𝗼𝗻𝘁𝗿𝗮𝗱𝗼𝘀.`, m)
-    await m.react('❎️')
-  }
-
-  if (!data) {
-    return conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}⚠️ 𝗡𝗼 𝘀𝗲 𝗲𝗻𝗰𝗼𝗻𝘁𝗿𝗼́ 𝗿𝗲𝘀𝘂𝗹𝘁𝗮𝗱𝗼𝘀 𝗱𝗲𝗹 𝘃𝗶𝗱𝗲𝗼.`, m)
-    await m.react('❎️')
-  }
-
-  let video = data.url;
-  try {
-    await conn.sendMessage(m.chat, { video: { url: video }, caption: `${lenguajeGB['smsAvisoEG']()}🏖 𝘼𝙦𝙪𝙞́ 𝙩𝙞𝙚𝙣𝙚𝙨 𝙩𝙪 𝙫𝙞𝙙𝙚𝙤 𝙙𝙚 𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠.\n${wm}`, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m })
-    await m.react('✅️')
-  } catch (e) {
-    return conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}❎️ 𝗢𝗰𝘂𝗿𝗿𝗶𝗼́ 𝘂𝗻 𝗲𝗿𝗿𝗼𝗿 𝗮𝗹 𝗱𝗲𝘀𝗰𝗮𝗿𝗴𝗮𝗿 𝗲𝗹 𝘃𝗶𝗱𝗲𝗼.`, m)
-    await m.react('❎️')
-  }
-}
-
-handler.help = ['facebook', 'fb']
-handler.tags = ['descargas']
-handler.command = ['facebook', 'fb']
-handler.register = true
-handler.limit = true
-
+import fg from 'api-dylux';
+import fetch from 'node-fetch';
+import {savefrom, facebookdl, facebookdlv2} from '@bochilteam/scraper';
+import fbDownloader from 'fb-downloader-scrapper';
+import {facebook} from '@xct007/frieren-scraper';
+import axios from 'axios';
+const handler = async (m, {conn, args, command, usedPrefix}) => {
+let user = global.db.data.users[m.sender]
+if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙐𝙉 𝙀𝙉𝙇𝘼𝘾𝙀 𝘿𝙀 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆 𝙋𝘼𝙍𝘼 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙍 𝙀𝙇 𝙑𝙄𝘿𝙀𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} https://www.facebook.com/watch?v=636541475139*\n\n𝙀𝙉𝙏𝙀𝙍 𝘼 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆 𝙇𝙄𝙉𝙆 𝙏𝙊 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿 𝙏𝙃𝙀 𝙑𝙄𝘿𝙀𝙊\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} https://fb.watch/dcXq_0CaHi/*`, fkontak, m)
+if (!args[0].match(/www.facebook.com|fb.watch/g)) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙐𝙉 𝙀𝙉𝙇𝘼𝘾𝙀 𝘿𝙀 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆 𝙋𝘼𝙍𝘼 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙍 𝙀𝙇 𝙑𝙄𝘿𝙀𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} https://www.facebook.com/watch?v=636541475139*\n\n𝙀𝙉𝙏𝙀𝙍 𝘼 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆 𝙇𝙄𝙉𝙆 𝙏𝙊 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿 𝙏𝙃𝙀 𝙑𝙄𝘿𝙀𝙊\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} https://fb.watch/dcXq_0CaHi/*`, fkontak, m)
+let contenido = `✅ 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆\n${wm}`
+await m.react('⏱️')
+try {
+const apiUrl = `https://api.dorratz.com/fbvideo?url=${encodeURIComponent(args[0])}`;
+const response = await fetch(apiUrl);
+const data = await response.json();
+if (data.result) {
+const hdUrl = data.result.hd;
+const sdUrl = data.result.sd;
+const audioUrl = data.result.audio;        
+const downloadUrl = hdUrl || sdUrl; 
+await conn.sendFile(m.chat, downloadUrl, `error.mp4`, contenido, m)
+}} catch (err1) {
+try {
+const apiUrl = `${apis}/download/facebook?url=${encodeURIComponent(args[0])}`;
+const apiResponse = await fetch(apiUrl);
+const delius = await apiResponse.json();
+if (!delius || !delius.urls || delius.urls.length === 0) return m.react("❌")
+const downloadUrl = delius.urls[0].hd || delius.urls[0].sd;
+if (!downloadUrl) return m.react("❌");
+await conn.sendFile(m.chat, downloadUrl, `error.mp4`, contenido, m)
+} catch (err2) {
+try {
+const d2ata = await facebook.v1(args[0]);
+let r2es = '';
+if (d2ata.urls && d2ata.urls.length > 0) {
+r2es = `${d2ata.urls[0]?.hd || d2ata.urls[1]?.sd || ''}` }
+conn.sendFile(m.chat, r2es, `error.mp4`, contenido, m)
+m.react(`✅`) 
+} catch (err3) {
+try {
+const req = await igeh(args[0]);
+conn.sendMessage(m.chat, {video: {url: req.url_list}}, m);
+} catch (err5) {
+try {
+const ress = await fg.fbdl(args[0]);
+const urll = await ress.data[0].url;
+await conn.sendFile(m.chat, urll, `error.mp4`, contenido, m)
+m.react(`✅`) 
+} catch (err6) {
+try {
+const res = await fbDownloader(args[0]);
+for (const result of res.download) {
+const ur = result.url;
+await conn.sendFile(m.chat, ur, `error.mp4`, contenido, m) 
+m.react(`✅`)               
+}} catch (err7) {
+try {
+const {result} = await facebookdl(args[0]).catch(async (_) => await facebookdlv2(args[0])).catch(async (_) => await savefrom(args[0]));
+for (const {url, isVideo} of result.reverse()) await conn.sendFile(m.chat, url, `error.mp4`, contenido, m) 
+m.react(`✅`)                 
+} catch (e) {   
+console.log(e) 
+}}}}}}}}
+handler.command = /^(facebook|fb|facebookdl|fbdl|facebook1|fb1|facebookdl1|fbdl1|facebook2|fb2|facebookdl2|fbdl2)$/i
+handler.limit = 3
 export default handler
+
+async function igeh(url_media) {
+return new Promise(async (resolve, reject)=>{
+const BASE_URL = 'https://instasupersave.com/';
+try {
+const resp = await axios(BASE_URL);
+const cookie = resp.headers['set-cookie']; // obtener cookie de la solicitud
+const session = cookie[0].split(';')[0].replace('XSRF-TOKEN=', '').replace('%3D', '');
+const config = {method: 'post', url: `${BASE_URL}api/convert`, headers: {'origin': 'https://instasupersave.com', 'referer': 'https://instasupersave.com/pt/', 'sec-fetch-dest': 'empty', 'sec-fetch-mode': 'cors', 'sec-fetch-site': 'same-origin', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52', 'x-xsrf-token': session, 'Content-Type': 'application/json', 'Cookie': `XSRF-TOKEN=${session}; instasupersave_session=${session}`}, data: {url: url_media}};
+axios(config).then(function(response) {
+const ig = [];
+if (Array.isArray(response.data)) {
+response.data.forEach((post) => {
+ig.push(post.sd === undefined ? post.thumb : post.sd.url);
+})} else {
+ig.push(response.data.url[0].url)}
+resolve({results_number: ig.length, url_list: ig});
+}).catch(function(error) {
+reject(error.message)});
+} catch (e) {
+reject(e.message);
+}})}
