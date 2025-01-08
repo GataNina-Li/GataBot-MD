@@ -10,7 +10,7 @@ const { key } = await conn.sendMessage(m.chat, {text: wait}, {quoted: fkontak});
 await conn.sendMessage(m.chat, {text: waitt, edit: key});
 await conn.sendMessage(m.chat, {text: waittt, edit: key});
 await conn.sendMessage(m.chat, {text: waitttt, edit: key});
-try{
+try {
 const apiUrl = `${apis}/download/instagram?url=${encodeURIComponent(args[0])}`;
 const apiResponse = await fetch(apiUrl);
 const delius = await apiResponse.json();
@@ -19,10 +19,10 @@ const downloadUrl = delius.data[0].url;
 const fileType = delius.data[0].type;
 if (!downloadUrl) return m.react("❌");
 if (fileType === 'image') {
-await conn.sendFile(m.chat, downloadUrl, 'ig.jpg', `${gt}`, m, null, fake);
+await conn.sendFile(m.chat, downloadUrl, 'ig.jpg', `${wm}`, m, null, fake);
 await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 } else if (fileType === 'video') {
-await conn.sendFile(m.chat, downloadUrl, 'ig.mp4', `${gt}`, m, null, fake);
+await conn.sendFile(m.chat, downloadUrl, 'ig.mp4', `${wm}`, m, null, fake);
 await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 } else {
 return m.react("❌"); 
@@ -73,7 +73,7 @@ await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 conn.sendMessage(m.chat, {text: `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, edit: key});
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
-}}}}}}}}
+}}}}}}}
 handler.help = ['instagram <link ig>']
 handler.tags = ['downloader']
 handler.command =/^(instagram|ig(dl)?)$/i
