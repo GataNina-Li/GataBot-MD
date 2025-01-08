@@ -472,6 +472,7 @@ if (!isNumber(user.skillexp)) user.skillexp = 0
 if (!isNumber(user.snlast)) user.snlast = 0
 if (!isNumber(user.soda)) user.soda = 0
 if (!isNumber(user.sop)) user.sop = 0
+if (!isNumber(user.banco)) user.banco = 0
 if (!isNumber(user.spammer)) user.spammer = 0
 if (!isNumber(user.spinlast)) user.spinlast = 0
 if (!isNumber(user.ssapi)) user.ssapi = 0
@@ -545,6 +546,7 @@ anakphonix: 0,
 anakrubah: 0,
 anakserigala: 0,
 anggur: 0,
+banco: 0,
 anjing: 0,
 anjinglastclaim: 0,
 antispam: 0,
