@@ -215,6 +215,7 @@ ${user?.registered ? `🗃️ *Registrado:* ${user?.registered ? 'Si' : 'No'}` :
 ${user?.registered ? `✅ *Verificación:* ${user?.registered ? user.name : 'No'}` : ''}
 🔑 *Método de conexión:* ${mcode ? 'Código de 8 dígitos' : 'Código QR'}
 💻 *Browser:* ${mcode ? 'Ubuntu' : 'Chrome'}
+📱 *WhatsApp:* ${m?.isWABusiness ? 'Business' : 'Message'}
 🐈 *Bot:* ${gt}
 ⭐ *Versión del bot:* \`${vs}\`
 💫 *Versión sub bot:* \`${vsJB}\`\n
