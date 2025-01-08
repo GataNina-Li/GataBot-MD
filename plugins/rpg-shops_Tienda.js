@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 let handler = async (m, { command, conn, usedPrefix, args }) => {
 let user = global.db.data.users[m.sender]
 let time = user.lastmiming + 150000 //5 min
-if (new Date - user.lastmiming < 150000) return await conn.fakeReply(m.chat, `\`🏦 BANCO CERRADO 🔒\`\n> Volvemos en: ${msToTime(time - new Date())}`, `${m.sender}`, `No hagan spam 😾`, 'status@broadcast')
+if (new Date - user.lastmiming < 150000) return await conn.fakeReply(m.chat, `\`🏦 BANCO CERRADO 🔒\`\n\n> Volvemos en: ${msToTime(time - new Date())}`, `${m.sender}`, `No hagan spam 😾`, 'status@broadcast')
 
 const items = {
    buy: {
@@ -298,7 +298,7 @@ hours = (hours < 10) ? "0" + hours : hours
 minutes = (minutes < 10) ? "0" + minutes : minutes
 seconds = (seconds < 10) ? "0" + seconds : seconds
 
-return minutes + " m y " + seconds + " s " 
+return minutes + " minutos y " + seconds + " seg " 
 }  
 
 function pickRandom(list) {
