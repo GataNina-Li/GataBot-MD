@@ -63,7 +63,7 @@
 | ☁️ **SKY ULTRA PLUS** | *Activar en SkyUltraPlus* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD/tree/master#%EF%B8%8F-sky-ultra-plus) |
 | 📦⛏️ **BOXMINE HOST** | *Activar en BoxMine Host* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-boxmine-host) |
 | 🎇 **HOSTING-PY** | *Activar en Hosting-Py* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#-hosting-py) |
-| **TK HOST** | *Activar en TK Host* | [![Here](https://img.shields.io/badge/Aquí-blue)]() |
+| **TK HOST** | *Activar en TK Host* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#tk-host) |
 </details>
 
  <details>
@@ -296,6 +296,8 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VaGGynJLY6d43krQYR2g)
 - **Comunidad:** [`Aquí`](https://chat.whatsapp.com/DOlxV0eOoH7HDunGuZCOCb)
 - **Contacto:** [`Matias`](https://wa.me/5491164123932)
+
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://qu.ax/WkhDz.png"></details>
 -----
 ### 🚄 DESPLIEGUE
 <details>
