@@ -32,10 +32,10 @@ if (!text) throw `Ingresa el nombre de la canción a buscar`;
         return await conn.sendList(m.chat, `${htki} *𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎* ${htka}\n`, `\n𝘽𝙪𝙨𝙦𝙪𝙚𝙙𝙖 𝙙𝙚: ${text}`, `𝗕 𝗨 𝗦 𝗖 𝗔 𝗥`, listSections, fkontak);
         }
            
-        let dddata = await axios.get(`https://api.erdwpe.com/api/dowloader/soundcloud?url=${text}`)
-        let ddlink=dddata.data.result.download
+        let dddata = await axios.get(`https://btch.us.kg/soundcloud?url=${text}`)
+        let ddlink=dddata.data.result.url
         let ddname=dddata.data.result.title
-        let portada=dddata.data.result.thumbnail
+        let portada=dddata.data.result.imageURL
         await delay(2000)
         conn.sendMessage(m.chat, {image: {url: portada}, caption: `Espera por favor...\n\nEnviando: ${ddname}\n\n${wm}`}, {quoted: m});
         await delay(15000)
