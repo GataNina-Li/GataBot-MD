@@ -17,8 +17,8 @@ if (m.isBot || m.sender.includes('bot') || m.sender.includes('Bot')) {
 return true
 }
   
-if (m.mentionedJid.includes(this.user.jid) || (m.quoted && m.quoted.sender === this.user.jid) && !chat.isBanned) {
-//if (m.mentionedJid.includes(this.user.jid) || !chat.isBanned) {
+//if (m.mentionedJid.includes(this.user.jid) || (m.quoted && m.quoted.sender === this.user.jid) && !chat.isBanned) {
+if (m.mentionedJid.includes(this.user.jid) || !chat.isBanned) {
 if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA') ||  m.text.includes('menu') ||  m.text.includes('estado') || m.text.includes('bots') ||  m.text.includes('serbot') || m.text.includes('jadibot') || m.text.includes('Video') || m.text.includes('Audio') || m.text.includes('audio')) return !0
 await this.sendPresenceUpdate('composing', m.chat)
 
