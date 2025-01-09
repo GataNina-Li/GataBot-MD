@@ -27,5 +27,6 @@ console.log(e)
 }}}
 handler.help = ['simsimi']
 handler.tags = ['General']
+handler.customPrefix = /bot|Bot|simi|simsimi/
 handler.command = ['bot', 'simi', 'simsimi'] 
 export default handler
