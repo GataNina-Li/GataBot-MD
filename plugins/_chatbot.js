@@ -46,8 +46,8 @@ https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 
 No esperes más y lleva tu bot al siguiente nivel con nuestro servicio de alojamiento. ¡Es fácil, rápido y económico! 💪🚀` 
 
-//if (/^bot|Bot|simi|alexa|simsimi|alexa$/i.test(m.text)) {   
-if (m.text.includes(`bot`) || m.text.includes(`Bot`) || m.text.includes(`simsimi`) || m.text.includes(`simi`) || m.text.includes(`alexa`)) {  
+if (/^bot|Bot|simi|alexa|simsimi|alexa$/i.test(m.text)) {   
+/*if (m.text.includes(`bot`) || m.text.includes(`Bot`) || m.text.includes(`simsimi`) || m.text.includes(`simi`) || m.text.includes(`alexa`)) {  
 if (/^bot$/i.test(m.text)) { 
 await conn.reply(m.chat, bot, m, fakeChannel)
 await conn.sendPresenceUpdate('recording', m.chat)
@@ -57,7 +57,7 @@ await conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽�
 }
 return; 
 }
-
+*/
 if (m.text.includes('jadibot') || m.text.includes('bots') || m.text.includes('serbot') || m.text.includes('instalarbot') || m.text.includes('infobot')) return;
 try {
 await conn.sendPresenceUpdate('composing', m.chat)
