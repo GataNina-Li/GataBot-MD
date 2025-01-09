@@ -1,5 +1,7 @@
 // by https://github.com/elrebelde21
 
+import translate from '@vitalets/google-translate-api';
+import fetch from 'node-fetch';
 import '../plugins/_content.js'
 let handler = m => m
 handler.all = async function (m) {
@@ -8,10 +10,6 @@ let name = conn.getName(m.sender)
 m.isBot = m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20;
 if (m.isBot) return 
 if (chat.isBanned) return
-if (m.isBot || m.sender.includes('bot') || m.sender.includes('Bot')) {
-return true; 
-}
- 
 let vn = 'https://qu.ax/Ocxm.mp3'
 let bot = `${pickRandom([`*¡𝑬𝒚! 𝑨𝒒𝒖í 𝒆𝒔𝒕𝒐𝒚. 𝒀𝒐 𝒑𝒖𝒆𝒅𝒐 𝒂𝒚𝒖𝒅𝒂𝒓 👉👈 𝑯𝒆𝒚! 𝑰'𝒎 𝒉𝒆𝒓𝒆. 𝑰 𝒄𝒂𝒏 𝒉𝒆𝒍𝒑 🙌*`, `Aqui estoy | Here I am 😼`, `*Hola Aqui estoy yo puedo ayudar? | Hello, here I am, can I help? 😸*`])}`.trim()
 let txt = `*¿Tu Nokia es muy lento y necesitas que tu bot esté activo 24/7?* 📱⏳
@@ -48,6 +46,42 @@ https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 
 No esperes más y lleva tu bot al siguiente nivel con nuestro servicio de alojamiento. ¡Es fácil, rápido y económico! 💪🚀` 
 
+if (/^bot|Bot|simi|alexa|simsimi|alexa$/i.test(m.text)) {   
+if (/^bot$/i.test(m.text)) { 
+await conn.reply(m.chat, bot, m, fakeChannel)
+await conn.sendPresenceUpdate('recording', m.chat)
+await conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: m })   
+} else if (/^simi$/i.test(m.text)) {
+await conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙐𝙉 𝙏𝙀𝙓𝙏𝙊 𝙋𝘼𝙍𝘼 𝙃𝘼𝘽𝙇𝘼𝙍 𝘾𝙊𝙉𝙈𝙄𝙂𝙊\n\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*bot* Hola Gata Bot\n\n𝙒𝙍𝙄𝙏𝙀 𝘼 𝙏𝙀𝙓𝙏 𝙏𝙊 𝙏𝘼𝙇𝙆 𝙏𝙊 𝙈𝙀\n\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*Bot*Hello GataBot*`, m);
+}
+return; 
+}
+
+if (m.text.includes('jadibot') || m.text.includes('bots') || m.text.includes('serbot') || m.text.includes('instalarbot') || m.text.includes('infobot')) return;
+try {
+await conn.sendPresenceUpdate('composing', m.chat)
+let api = await fetch(`${apis}/tools/simi?text=${m.text}`)
+let resSimi = await api.json()
+await m.reply(resSimi.data.message)
+} catch {
+try {
+if (text.includes('Hola')) text = text.replace('Hola', 'Hello');
+if (text.includes('hola')) text = text.replace('hola', 'Hello');
+if (text.includes('HOLA')) text = text.replace('HOLA', 'HELLO');
+const reis = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=' + text);
+const resu = await reis.json();
+const nama = m.pushName || '1';
+const api = await fetch('http://api.brainshop.ai/get?bid=153868&key=rcKonOgrUFmn5usX&uid=' + nama + '&msg=' + resu[0][0][0]);
+const res = await api.json();
+const reis2 = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=es&dt=t&q=' + res.cnt);
+const resu2 = await reis2.json();
+m.reply(resu2[0][0][0]);
+} catch (e) {
+m.reply(`😿 Api simsimi caida, vuelva mas tardé`)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+console.log(e)
+}}}
+
 if (/^infohost$/i.test(m.text)) {
  await conn.sendMessage(m.chat, { text: txt,
 contextInfo:{
@@ -66,12 +100,6 @@ body: `¡El plus que necesitas!_`,
 thumbnailUrl: 'https://qu.ax/wXciz.jpg', 
 sourceUrl: accountsgb}}},
 { quoted: fkontak})
-} 
- 
-if (/^bot$/i.test(m.text)) {
-await conn.reply(m.chat, bot, m, fakeChannel)
-await conn.sendPresenceUpdate('recording', m.chat)    
-await conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: m })   
 }
 
 if (/^e$/i.test(m.text) ) { //sin prefijo 
