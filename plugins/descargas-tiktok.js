@@ -21,9 +21,8 @@ const response = await axios.get(`https://api.dorratz.com/v2/tiktok-dl?url=${arg
 if (response.data.status && response.data.data) {
 const videoData = response.data.data.media;
 const videoUrl = videoData.org; 
-await conn.sendMessage(m.chat, { video: { url: videoUrl }, caption: `⛱️ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 : 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n${response.data.data.author.nickname}` }, { quoted: m });
-}
-} catch (e2) {
+await conn.sendMessage(m.chat, { video: { url: videoUrl }, caption: `⛱️ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 : 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n${response.data.data.author.nickname}\n${wm}` }, { quoted: m });
+}} catch (e2) {
 try {
 const dataFn = await conn.getFile(`${CFROSAPI}/api/tiktokv2?url=${args[0]}`);   
 await conn.sendMessage(m.chat, {video: dataFn.data, caption: `${wm}`}, {quoted: m});
@@ -35,7 +34,7 @@ await conn.sendMessage(m.chat, {video: {url: p.nowm}, caption: `${wm}`}, {quoted
 try {
 const {author: {nickname}, video, description} = await tiktokdl(args[0]);
 const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd;
-await conn.sendMessage(m.chat, {video: {url: url}, caption: `⛱️ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 : 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n${nickname}\n`}, {quoted: m});               
+await conn.sendMessage(m.chat, {video: {url: url}, caption: `⛱️ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 : 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n${nickname}\n${wm}`}, {quoted: m});               
 } catch (e) {
 console.log(e) 
 m.react(`❌`)         
