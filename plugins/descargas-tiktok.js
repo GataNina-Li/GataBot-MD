@@ -9,21 +9,25 @@ if (!text) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsTikT
 if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) return conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}${mid.smsTikTok3}`, fkontak,  m)  
 await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙋𝙍𝙊𝙉𝙏𝙊 𝙏𝙀𝙉𝘿𝙍𝘼 𝙀𝙇 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙏𝙄𝙆𝙏𝙊𝙆 😸\n𝙎𝙊𝙊𝙉 𝙒𝙄𝙇𝙇 𝙃𝘼𝙑𝙀 𝙏𝙃𝙀 𝙏𝙄𝙆𝙏𝙊𝙆 𝙑𝙄𝘿𝙀𝙊 🥳`, fkontak,  m)    
 try {
-const response = await axios.get(`https://api.dorratz.com/v2/tiktok-dl?url=${text}`);
+const dataF = await tiktok.v1(args[0]);
+await conn.sendMessage(m.chat, {video: {url: dataF.play}, caption: `${wm}`}, {quoted: m});    
+} catch (ee1) {
+try {
+const tTiktok = await tiktokdlF(args[0]);
+await conn.sendMessage(m.chat, {video: {url: tTiktok.video}, caption: `${wm}`}, {quoted: m});            
+} catch (e1) {
+try {
+const response = await axios.get(`https://api.dorratz.com/v2/tiktok-dl?url=${args[0]}`);
 if (response.data.status && response.data.data) {
 const videoData = response.data.data.media;
 const videoUrl = videoData.org; 
 await conn.sendMessage(m.chat, { video: { url: videoUrl }, caption: `⛱️ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 : 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n${response.data.data.author.nickname}` }, { quoted: m });
 }
-} catch (ee1) {
-try {
-const dataF = await tiktok.v1(args[0]);
-await conn.sendMessage(m.chat, {video: {url: dataF.play}, caption: `${wm}`}, {quoted: m});          
-} catch (e1) {
-try {
-const tTiktok = await tiktokdlF(args[0]);
-await conn.sendMessage(m.chat, {video: {url: tTiktok.video}, caption: `${wm}`}, {quoted: m});            
 } catch (e2) {
+try {
+const dataFn = await conn.getFile(`${CFROSAPI}/api/tiktokv2?url=${args[0]}`);   
+await conn.sendMessage(m.chat, {video: dataFn.data, caption: `${wm}`}, {quoted: m});
+} catch (e3) {
 try {
 const p = await fg.tiktok(args[0]);
 await conn.sendMessage(m.chat, {video: {url: p.nowm}, caption: `${wm}`}, {quoted: m});             
@@ -35,7 +39,7 @@ await conn.sendMessage(m.chat, {video: {url: url}, caption: `⛱️ 𝙐𝙎𝙐
 } catch (e) {
 console.log(e) 
 m.react(`❌`)         
-}}}}}}
+}}}}}}}
 handler.help = ['tiktok']
 handler.tags = ['dl']
 handler.command = /^(tt|tiktok)(dl|nowm)?$/i
