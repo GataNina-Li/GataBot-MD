@@ -39,6 +39,7 @@ li.DESTRAVip.to
   
 }
 export default handler
+global.bot = "wa.me/525577917106"
 global.canales = [canal1, canal2, canal3, canal4][Math.floor(Math.random() * 4)]
 global.welgata = [tk, ig, md, yt, paypal, fb, ths, asistencia][Math.floor(Math.random() * 8)]
 global.redesMenu = [all, canal1, canal2, canal3, canal4, md, ig, paypal, yt, asistencia, fb, tk][Math.floor(Math.random() * 12)]
