@@ -46,7 +46,7 @@ let activeConversation = Object.entries(ACTIVE_CONVERSATIONS).find(([id, convo])
 
 if (activeConversation) {
 let [reportId] = activeConversation;
-let message = `📩 *Mensaje del usuario @${m.sender.split("@")[0]} (ID: ${reportId}):*\n${text || ''}`;
+let message = `❒═════[SEGUIMIENTO DE CONVERSACION]═════❒\n*┬\n├❧ NUMERO:* wa.me/${m.sender.split("@")[0]} (ID: ${reportId}):*\n*┬\n├❧ MENSAJE:* ${text || ''}\n*┴*`;
 
 if (url) {
 if (/image/.test(mime)) {
@@ -72,14 +72,14 @@ let reportId = Math.floor(Math.random() * 901);
 
 ACTIVE_CONVERSATIONS[reportId] = {
 userId: m.sender,
-userName: m.pushName || 'Usuario desconocido',
+userName: m.pushName || 'Anónimo',
 active: true,
 chatId: m.chat,
 url: url,
 mime: mime,
 };
 
-let reportText = text || (m.quoted && m.quoted.text) || 'Sin mensaje';
+let reportText = text || (m.quoted && m.quoted.text) || '';
 let teks = `*╭━━[ 𝙍𝙀𝙋𝙊𝙍𝙏𝙀 | 𝙍𝙀𝙋𝙊𝙍𝙏 ]━━━⬣*\n*┃*\n*┃* *𝙉𝙐𝙈𝙀𝙍𝙊 | 𝙉𝙐𝙈𝘽𝙀𝙍*\n┃ ✦ Wa.me/${m.sender.split("@")[0]}\n*┃*\n*┃* *𝙈𝙀𝙉𝙎𝘼𝙅𝙀 | 𝙈𝙀𝙎𝙎𝘼𝙂𝙀*\n*┃* ✦ ${reportText}\n*┃*\n*╰━━━━━━━━━━━━━━━━━━⬣*\n\n> Responde al mensaje con: *"responder ${reportId} [mensaje]"* para interactuar con el usuarios.\n> Usa *.fin ${reportId}* para finalizar la conversación.`;
 
 await conn.sendMessage(OWNER1, { text: teks, mentions: [m.sender] }, { quoted: m });
@@ -92,8 +92,8 @@ handler.before = async (m, { conn }) => {
 let activeConversation = Object.entries(ACTIVE_CONVERSATIONS).find(([id, convo]) => convo.active && convo.userId === m.sender && convo.chatId === m.chat);
 
 if (activeConversation) {
-let [reportId] = activeConversation;
-let message2 = `*📩 Nueva respuesta del usuario @${m.sender.split("@")[0]} (ID: ${reportId}):*\n${m.text || ''}`;
+let [reportId] = activeConversation;   
+let message2 = `❒═════[SEGUIMIENTO DE CONVERSACION]═════❒\n*┬\n├❧ NUMERO:* wa.me/${m.sender.split("@")[0]} (ID: ${reportId}):*\n*┴*\n*┬*\n*├❧ MENSAJE:* ${m.text || ''}\n*┴*`;
 
 if (m.mtype === 'stickerMessage') {
 let sticker = await m.download();
@@ -145,7 +145,7 @@ if (quotedTextMatch) {
 let reportId = quotedTextMatch[1];
 if (ACTIVE_CONVERSATIONS[reportId] && ACTIVE_CONVERSATIONS[reportId].active) {
 let { userId } = ACTIVE_CONVERSATIONS[reportId];
-let ownerMessage = m.text || 'Sin mensaje';
+let ownerMessage = m.text || '';
 
 if (/image|video|audio|sticker/.test(m.mtype)) {
 let media = await m.download();
