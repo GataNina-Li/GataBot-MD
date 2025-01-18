@@ -200,34 +200,27 @@ version: [2, 3000, 1015901307],
 }*/
 
 const connectionOptions = {
-logger: Pino({ level: 'silent' }),
+logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
 browser: opcion == '1' ? ['GataBot-MD', 'Edge', '20.0.04'] : methodCodeQR ? ['GataBot-MD', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
 auth: {
 creds: state.creds,
-keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: 'fatal' }).child({ level: 'fatal' })),
+keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
 },
-waWebSocketUrl: 'wss://web.whatsapp.com/ws/chat?ED=CAIICA',
-markOnlineOnConnect: true,
-generateHighQualityLinkPreview: true,
-getMessage: async (key) => {
-let jid = jidNormalizedUser(key.remoteJid);
-let msg = await store.loadMessage(jid, key.id);
-return msg?.message || "";
+markOnlineOnConnect: true, 
+generateHighQualityLinkPreview: true, 
+getMessage: async (clave) => {
+let jid = jidNormalizedUser(clave.remoteJid)
+let msg = await store.loadMessage(jid, clave.id)
+return msg?.message || ""
 },
-patchMessageBeforeSending: async (message) => {
-let messages = 0;
-global.conn.uploadPreKeysToServerIfRequired();
-messages++;
-return message;
-},
-msgRetryCounterCache: msgRetryCounterCache,
-userDevicesCache: userDevicesCache,
-defaultQueryTimeoutMs: undefined,
-cachedGroupMetadata: (jid) => global.conn.chats[jid] ?? {},
-version: [2, 3000, 1015901307],
-};
+msgRetryCounterCache,
+userDevicesCache,
+//msgRetryCounterMap,
+defaultQueryTimeoutMs: undefined,   
+version: [2, 3000, 1015901307]
+}
 
 global.conn = makeWASocket(connectionOptions)
 if (!fs.existsSync(`./${authFile}/creds.json`)) {
