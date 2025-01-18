@@ -16,7 +16,7 @@ let users = participants.map(u => conn.decodeJid(u.id))
 const groupAdmins = participants.filter(p => p.admin)
 const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
 
-if (chat.detect && m.messageStubType == 2) {
+/*if (chat.detect && m.messageStubType == 2) {
 const uniqid = (m.isGroup ? m.chat : m.sender).split('@')[0]
 const sessionPath = './GataBotSession/'
 for (const file of await fs.readdir(sessionPath)) {
@@ -27,7 +27,9 @@ console.log(`${chalk.yellow.bold('[ ⚠️ Archivo Eliminado ]')} ${chalk.greenB
 )
 }}
 
-} else if (chat.detect && m.messageStubType == 21) {
+} else */
+        
+if (chat.detect && m.messageStubType == 21) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoAG']() + mid.smsAutodetec1(usuario, m), mentions: [m.sender], mentions: [...groupAdmins.map(v => v.id)] }, { quoted: fkontak })   
 } else if (chat.detect && m.messageStubType == 22) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec2(usuario, groupMetadata), mentions: [m.sender] }, { quoted: fkontak })  
