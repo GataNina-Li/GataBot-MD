@@ -312,7 +312,7 @@ fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')}
 }}}
 //user.fantasy = new Date * 1  
 }}
-handler.command = /^(fantasy|fy)$/i
+handler.command = /^(fantasy|fy|rw|roll)$/i
 export default handler
 
 function msToTime(duration) {
