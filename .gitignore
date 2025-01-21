@@ -6,3 +6,5 @@ yarn.lock
 database.json
 GataBotSession/
 GataJadiBot/
+database/
+BackupSession/
