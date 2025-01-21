@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import yts from 'yt-search'
 import ytdl from 'ytdl-core'
 import axios from 'axios'
-import ytdlf from "@EdderBot02/video"
+import ytdlf from "@EdderBot02/ytdlf"
 
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
