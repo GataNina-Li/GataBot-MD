@@ -2,6 +2,8 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 import yts from 'yt-search'
 import ytdl from 'ytdl-core'
+import ytdlf from "@EdderBot02/ytdlf"
+
 let handler = async (m, { text, conn, args, usedPrefix, command }) => {
 if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`, fkontak, m)
 let youtubeLink = '';
@@ -23,6 +25,10 @@ throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsY2(usedPrefix, command)} ${usedPre
 throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)} ${usedPrefix}playlist <texto>*`;
 }}}  
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, fkontak, m)
+try{
+let x=await ytdlf(`${encodeURIComponent(args)}`,"mp3");
+await conn.sendMessage(m.chat, { audio: { url:x.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
+} catch{
 try {
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${encodeURIComponent(args)}`);
 let { data } = await res.json();
@@ -74,6 +80,6 @@ await conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, fileName: `${
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}
-}}}}}}}
+}}}}}}}}
 handler.command = /^audio|fgmp3|dlmp3|getaud|yt(a|mp3)$/i
 export default handler
