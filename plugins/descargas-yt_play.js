@@ -70,7 +70,7 @@ try {
 if (text === '🎶' || text === 'audio') {
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, fkontak, m || null)
 try {    
-const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${userVideoData.url}`);
+const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${userVideoData.url}`);
 let { data } = await res.json();
 await conn.sendMessage(m.chat, { audio: { url: data.dl }, mimetype: 'audio/mpeg' }, { quoted: m ||null });
 } catch (e1) {
