@@ -3,6 +3,7 @@ import fetch from 'node-fetch'
 import yts from 'yt-search'
 import ytdl from 'ytdl-core'
 import axios from 'axios'
+import ytdlf from "@EdderBot02/ytdlf"
 const LimitAud = 725 * 1024 * 1024 //700MB
 const LimitVid = 425 * 1024 * 1024 //425MB
 let tempStorage = {};
@@ -79,12 +80,22 @@ const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenk
 let { result } = await res.json();
 await conn.sendMessage(m.chat, { audio: { url: result.download.url }, mimetype: 'audio/mpeg' }, { quoted: m || null });
 } catch (error) {
-}}
+try
+{
+let x=await ytdlf(`${userVideoData.url}`,"mp3");
+await conn.sendMessage(m.chat, { audio: { url:x.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
+} catch (error) {
+}}}
 } else if (text === '📽' || text === 'video') {
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m || null)
+try{
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${userVideoData.url}`);
 let { data } = await res.json();
-await conn.sendMessage(m.chat, { video: { url: data.dl }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `⟡ *${userVideoData.title}*\n> ${wm}`}, { quoted: m || null })
+await conn.sendMessage(m.chat, { video: { url: data.dl }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `⟡ *${userVideoData.title}*\n> ${wm}`}, { quoted: m || null }
+} catch (error){
+let y=await ytdlf(`${userVideoData.url}`,"360");
+await conn.sendMessage(m.chat, { audio: { url:y.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
+}
 }
 } catch (error) {
 console.error(error);
