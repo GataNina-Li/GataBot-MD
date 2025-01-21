@@ -91,10 +91,10 @@ await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m || 
 try{
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${userVideoData.url}`);
 let { data } = await res.json();
-await conn.sendMessage(m.chat, { video: { url: data.dl }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `⟡ *${userVideoData.title}*\n> ${wm}`}, { quoted: m || null }
+await conn.sendMessage(m.chat, { video: { url: data.dl }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `⟡ *${userVideoData.title}*\n> ${wm}`}, { quoted: m || null })
 } catch (error){
 let y=await ytdlf(`${userVideoData.url}`,"360");
-await conn.sendMessage(m.chat, { audio: { url:y.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
+await conn.sendMessage(m.chat, { video: { url:y.downloadUrl }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `⟡ *${userVideoData.title}*\n> ${wm}`}, { quoted: m || null })
 }
 }
 } catch (error) {
