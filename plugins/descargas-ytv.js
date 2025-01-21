@@ -28,12 +28,12 @@ throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)}${usedPrefi
 }}}  
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m)
 try {
-const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${yt_play[0].url}`);
+const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${youtubeLink}`);
 let { data } = await res.json();
 await conn.sendMessage(m.chat, { video: { url: data.dl }, fileName: `video.mp4`, caption: `${wm}` }, { quoted: m }) 
 } catch {
 try {
-let y=await ytdlf(`${yt_play[0].url}`,"360");
+let y=await ytdlf(`${youtubeLink}`,"360");
 await conn.sendMessage(m.chat, { video: { url:y.downloadUrl }, fileName: `video.mp4`, caption: `${wm}` }, { quoted: m }) 
 } catch {
 try {
