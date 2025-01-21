@@ -43,7 +43,52 @@ global.timestamp = { start: new Date }
 const __dirname = global.__dirname(import.meta.url);
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse());
 global.prefix = new RegExp('^[' + (opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@').replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']')
-global.db = new Low(/https?:\/\//.test(opts['db'] || '') ? new cloudDBAdapter(opts['db']) : new JSONFile('database.json'))
+
+const databasePath = path.join(__dirname, 'database');
+if (!fs.existsSync(databasePath)) {
+fs.mkdirSync(databasePath);
+}
+
+const files = {
+users: path.join(databasePath, 'users.json'),
+chats: path.join(databasePath, 'chats.json'),
+stats: path.join(databasePath, 'stats.json'),
+msgs: path.join(databasePath, 'msgs.json'),
+sticker: path.join(databasePath, 'sticker.json'),
+settings: path.join(databasePath, 'settings.json'),
+};
+
+const databases = {};
+for (const [key, filePath] of Object.entries(files)) {
+if (!fs.existsSync(filePath)) {
+fs.writeFileSync(filePath, '{}'); // Crear archivo vacío si no existe
+}
+databases[key] = new Low(new JSONFile(filePath));
+}
+
+// Inicializar la estructura de global.db
+global.db = {
+data: {}, 
+chain: null, 
+};
+
+global.loadDatabase = async function loadDatabase() {
+for (const [key, db] of Object.entries(databases)) {
+await db.read();
+db.data = db.data || {}; 
+global.db.data[key] = db.data; 
+}
+global.db.chain = chain(global.db.data); 
+};
+
+global.db.save = async function saveDatabase() {
+for (const [key, db] of Object.entries(databases)) {
+db.data = global.db.data[key]; 
+await db.write();
+}};
+loadDatabase();
+
+/*global.db = new Low(/https?:\/\//.test(opts['db'] || '') ? new cloudDBAdapter(opts['db']) : new JSONFile('database.json'))
 global.DATABASE = global.db; 
 global.loadDatabase = async function loadDatabase() {
 if (global.db.READ) {
@@ -68,7 +113,7 @@ settings: {},
 };
 global.db.chain = chain(global.db.data);
 };
-loadDatabase();
+loadDatabase();/*
 
 // Inicialización de conexiones globales
 //if (global.conns instanceof Array) {console.log('Conexiones ya inicializadas...');} else {global.conns = [];}
@@ -255,7 +300,7 @@ conn.well = false
 
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
-if (global.db.data) await global.db.write()
+if (global.db.data) await global.db.save()
 if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "GataJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, 30 * 1000)}
 
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
