@@ -39,9 +39,6 @@ if (!m) {
 return;
 }
 if (global.db.data == null) await global.loadDatabase()
-/*------------------------------------------------*/	     
-if (global.chatgpt.data === null) await global.loadChatgptDB()
-/*------------------------------------------------*/	
 try {
 m = smsg(this, m) || m
 if (!m)
@@ -52,11 +49,6 @@ m.money = false
 try {
 // TODO: use loop to insert data instead of this
 let user = global.db.data.users[m.sender]
-/*------------------------------------------------*/	            
-let chatgptUser = global.chatgpt.data.users[m.sender];
-if (typeof chatgptUser !== "object")
-global.chatgpt.data.users[m.sender] = [];		
-/*------------------------------------------------*/
 if (typeof user !== 'object')
 global.db.data.users[m.sender] = {}
 if (user) {
