@@ -3,6 +3,8 @@ import yts from 'yt-search';
 import ytdl from 'ytdl-core';
 import axios from 'axios';
 import {youtubedl, youtubedlv2} from '@bochilteam/scraper';
+import ytdlf from "@EdderBot02/ytdlf"
+
 
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 if (!args || !args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/85xI8WFMIUY*`, fkontak, m)
@@ -31,6 +33,11 @@ let { result } = await res.json()
 await conn.sendMessage(m.chat, { document: { url: result.download.url }, mimetype: 'audio/mpeg', fileName: `${yt_play[0].title}.mp3` }, { quoted: m });
 handler.limit = 1
 } catch (e1) {
+try{
+let x=await ytdlf(`${yt_play[0].url}`,"mp3");
+await conn.sendMessage(m.chat, { audio: { url:x.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
+}
+catch {
 try {    
 const q = '128kbps';
 const v = yt_play[0].url;
@@ -82,7 +89,7 @@ renderLargerThumbnail: true
 }}} , { quoted: m })   
 handler.limit = 2
 } catch {
-}}}}}}
+}}}}}}}
 
 if (command == 'playvideodoc' || command == 'ytmp4doc') {
 try {
@@ -99,6 +106,11 @@ let { result } = await res.json()
 await conn.sendMessage(m.chat, { document: { url: result.download.url }, fileName: `${yt_play[0].title}.mp4`, caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${yt_play[0].title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: yt_play[0].thumbnail, mimetype: 'video/mp4' }, { quoted: m })    
 handler.limit = 2
 } catch (e1) {
+try{
+let y=await ytdlf(`${userVideoData.url}`,"360");
+await conn.sendMessage(m.chat, { video: { url:y.downloadUrl }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `⟡ *${userVideoData.title}*\n> ${wm}`}, { quoted: m || null })
+}
+catch {
 try {    
 const qu = '360';
 const q = qu + 'p';
@@ -133,7 +145,7 @@ const n4 = lolh.result.thumbnail;
 await conn.sendMessage(m.chat, {document: {url: n2}, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃» ${n}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *${mid.smsYT11}:*\n┃» ${n3}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(n4)}, {quoted: m});
 handler.limit = 3
 } catch {
-}}}}}}
+}}}}}}}
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
