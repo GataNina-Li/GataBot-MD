@@ -8,9 +8,6 @@ let name = conn.getName(m.sender)
 m.isBot = m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20;
 if (m.isBot) return 
 if (chat.isBanned) return
-if (m.isBot || m.sender.includes('bot') || m.sender.includes('Bot')) {
-return true; 
-}
  
 let vn = 'https://qu.ax/Ocxm.mp3'
 let bot = `${pickRandom([`*¡𝑬𝒚! 𝑨𝒒𝒖í 𝒆𝒔𝒕𝒐𝒚. 𝒀𝒐 𝒑𝒖𝒆𝒅𝒐 𝒂𝒚𝒖𝒅𝒂𝒓 👉👈 𝑯𝒆𝒚! 𝑰'𝒎 𝒉𝒆𝒓𝒆. 𝑰 𝒄𝒂𝒏 𝒉𝒆𝒍𝒑 🙌*`, `Aqui estoy | Here I am 😼`, `*Hola Aqui estoy yo puedo ayudar? | Hello, here I am, can I help? 😸*`])}`.trim()
@@ -63,16 +60,53 @@ isForwarded: true,
 title: `🤖 𝐒𝐊𝐘𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
 body: `¡El plus que necesitas!_`,
 "previewType": "PHOTO",
-thumbnailUrl: 'https://qu.ax/wXciz.jpg', 
+thumbnailUrl: 'https://cloud.dorratz.com/files/0e620e089bf149565c789c350f4f3347.jpg', 
 sourceUrl: accountsgb}}},
 { quoted: fkontak})
 } 
  
 if (/^bot$/i.test(m.text)) {
 await conn.reply(m.chat, bot, m, fakeChannel)
-await conn.sendPresenceUpdate('recording', m.chat)    
+await conn.sendPresenceUpdate('recording', m.chat)
 await conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: m })   
-}
+} else if (/^simi$/i.test(m.text)) {
+await conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙐𝙉 𝙏𝙀𝙓𝙏𝙊 𝙋𝘼𝙍𝘼 𝙃𝘼𝘽𝙇𝘼𝙍 𝘾𝙊𝙉𝙈𝙄𝙂𝙊\n\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*Hola Gata Bot*\n\n𝙒𝙍𝙄𝙏𝙀 𝘼 𝙏𝙀𝙓𝙏 𝙏𝙊 𝙏𝘼𝙇𝙆 𝙏𝙊 𝙈𝙀\n\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*Hello Gata Bot.*`, m);
+} else if (m.text.includes(`bot`) || m.text.includes(`Bot`) || m.text.includes(`simsimi`) || m.text.includes(`simi`) || m.text.includes(`alexa`)) {   
+//if (/^(bot|simi|simsimi)\s.+$/i.test(m.text)) {
+try {
+await conn.sendPresenceUpdate('composing', m.chat)
+async function luminsesi(q, username, logic) {
+try {
+const response = await axios.post("https://luminai.my.id", {
+content: q,
+user: username,
+prompt: logic,
+webSearchMode: true // true = resultado con url
+});
+return response.data.result;
+} catch (error) {
+console.error(error);
+}}
+
+let query = m.text;
+let username = `${m.pushName}`;
+
+let syms1 = `Serás GataBot 🐈, el bot creado por Gata Dios para WhatsApp. Tu misión es entretener, generar risas y también ser útil. Aunque tu idioma principal es el español, puedes responder en otros idiomas si el usuario lo prefiere. tiene este rol que chat divertido con exploit incluido osea los quiere dices es que este rol solo es humor, divertido, no que tome nada real, tu respuesta sera divertida, humor, y usar mucho emojis el tu respuesta.
+
+"general risa el chat por que este rol actúal más como simsimi" Chatbot no chatgpt. 
+
+los quiere dices que tu respuesta sera humor puro, risa, memes.`;  
+
+let result = await luminsesi(query, username, syms1);
+await conn.reply(m.chat, result, m)
+} catch {
+try {
+let gpt = await fetch(`${apis}/tools/simi?text=${m.text}`)
+let res = await gpt.json()
+await m.reply(res.data.message)
+} catch (e) {
+console.log(e) 
+}}}
 
 if (/^e$/i.test(m.text) ) { //sin prefijo 
 let teks = `${pickRandom([`Que bueno sabe la letra E`, `eeeeee`])}`.trim()

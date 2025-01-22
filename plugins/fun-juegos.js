@@ -479,16 +479,37 @@ Tan enamorados 😍, para cuando la familia 🥰
 
 *_5.- ${user(i)} 💘 ${user(j)}_* 
 Genial! 💝, están de Luna de miel 🥵✨❤️‍🔥`
-m.reply(top, null, { mentions: conn.parseMention(top) })}
-} catch (e) {
+m.reply(top, null, { mentions: conn.parseMention(top) })
+}
+
+if (command == 'sorteo') {
+let ps = groupMetadata.participants.map(v => v.id)
+let a = ps.getRandom()
+let k = Math.floor(Math.random() * 70)
+let vn = `https://hansxd.nasihosting.com/sound/sound${k}.mp3`
+let top = `*\`[ 🥳 ＦＥＬＩＣＩＤＡＤＥＳ 🥳]\`*\n\n${user(a)} 🥳\nAcaba de ganar el sorteo felicitaciones 🎉`
+let txt = ''
+let count = 0
+for (const c of top) {
+await new Promise(resolve => setTimeout(resolve, 15))
+txt += c
+count++
+
+if (count % 10 === 0) {
+conn.sendPresenceUpdate('composing' , m.chat);
+}
+}
+await conn.sendMessage(m.chat, { text: txt.trim(), mentions: conn.parseMention(txt) }, {quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100} )
+}} catch (e) {
 //await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}}
 handler.help = ['love', 'gay2', 'lesbiana', 'pajero', 'pajera', 'puto', 'puta', 'manco', 'manca', 'rata', 'prostituta', 'prostituto'].map(v => v + ' @tag | nombre')
 handler.tags = ['calculator']
-handler.command = /^love|gay2|lesbiana|pajero|pajera|puto|puta|manco|manca|rata|prostituta|prostituto|amigorandom|amistad|regalar|dar|enviar|meter|chupar|metersela|retar|formarpareja|formarparejas|gay|personalidad|pregunta|preguntas|apakah|ship|shippear|topgays|topputos|toplindos|toplind@s|topput@s|toppajer@s|toppajeros|topshipost|topshiposters|toppanafresco|topgrasa|toppanafrescos|toplagrasa|topintegrante|topintegrantes|topotakus|topfamosos|topfamos@s|topsostero|topparejas|top5parejas|Doxxeo|doxxeo|doxxear|Doxxear|doxeo|doxear|doxxeame|doxeame|ruletas|ruleta|suerte/i
+handler.command = /^love|gay2|lesbiana|pajero|pajera|puto|puta|manco|manca|rata|prostituta|prostituto|amigorandom|amistad|regalar|dar|enviar|meter|chupar|metersela|retar|formarpareja|formarparejas|gay|personalidad|pregunta|preguntas|apakah|ship|shippear|topgays|topputos|toplindos|toplind@s|topput@s|toppajer@s|toppajeros|topshipost|topshiposters|toppanafresco|topgrasa|toppanafrescos|toplagrasa|topintegrante|topintegrantes|topotakus|topfamosos|topfamos@s|topsostero|topparejas|top5parejas|Doxxeo|doxxeo|doxxear|Doxxear|doxeo|doxear|doxxeame|doxeame|ruletas|ruleta|suerte|sorteo/i
 handler.exp = 100
 handler.group = true
+handler.register = true
 export default handler
 
 function pickRandom(list) {
