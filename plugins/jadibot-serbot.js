@@ -343,7 +343,7 @@ for (const channelId of Object.values(global.ch)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}
 
-async function checkSubBots() {
+/*async function checkSubBots() {
   for (let sock of global.conns) {
     if (!sock.ws || sock.ws.readyState !== ws.OPEN) {
       console.log(`Sub bot ${sock.user.jid} está desconectado, intentando reiniciar...`);
@@ -358,3 +358,4 @@ async function checkSubBots() {
 }
 
 setInterval(checkSubBots, 300000) //5 min
+*/
