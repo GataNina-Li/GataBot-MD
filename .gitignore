@@ -1,3 +1,6 @@
+.npm/
+.git/
+.database/
 terms.md
 dealers.md
 node_modules/
@@ -6,5 +9,4 @@ yarn.lock
 database.json
 GataBotSession/
 GataJadiBot/
-database/
 BackupSession/
