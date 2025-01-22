@@ -2,15 +2,26 @@ import fs from 'fs'
 import archiver from 'archiver'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
+const databaseFolder = './.database'
+const zipPath = './database_backup.zip'
+  
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+
+if (!fs.existsSync(databaseFolder)) {
+await m.reply('⚠️ La carpeta *.database* no existe.')
+return
+}
+
+if (!fs.existsSync('./GataBotSession/creds.json')) {
+await m.reply('⚠️ El archivo *creds.json* no existe.')
+return
+}
+  
 await m.reply(`_*🗂️ Preparando envío de base de datos...*_`)
 
 try {
 let d = new Date()
 let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' })
-
-const databaseFolder = './.database'
-const zipPath = './database_backup.zip'
 let creds = await fs.readFileSync(`./GataBotSession/creds.json`)
 
 const output = fs.createWriteStream(zipPath)
@@ -21,7 +32,7 @@ console.log(`Archivo .zip creado: ${archive.pointer()} bytes`)
 
 await conn.reply(m.sender, `*🗓️ Database:* ${date}`, fkontak)
 await conn.sendMessage(m.sender, { document: creds, mimetype: 'application/json', fileName: `creds.json`}, { quoted: m })
-await conn.sendMessage(m.sender, { document: fs.readFileSync(zipPath), mimetype: 'application/zip', fileName: `database_backup_${date}.zip` }, { quoted: m })
+await conn.sendMessage(m.sender, { document: fs.readFileSync(zipPath), mimetype: 'application/zip', fileName: `.database.zip` }, { quoted: m })
 
 fs.unlinkSync(zipPath)
 })
