@@ -12,17 +12,23 @@ await m.reply('⚠️ La carpeta *.database* no existe.')
 return
 }
 
-if (!fs.existsSync('./GataBotSession/creds.json')) {
+if (conn.user.jid != global.conn.user.jid) {
+if (!fs.existsSync(`./GataJadiBot/${conn.user.jid.split`@`[0]}/creds.json`)) {
+await m.reply('⚠️ El archivo *creds.json* del Sub Bot no existe.')
+return
+}
+} else if (!fs.existsSync('./GataBotSession/creds.json')) {
 await m.reply('⚠️ El archivo *creds.json* no existe.')
 return
 }
-  
+
 await m.reply(`_*🗂️ Preparando envío de base de datos...*_`)
 
 try {
 let d = new Date()
 let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' })
-let creds = await fs.readFileSync(`./GataBotSession/creds.json`)
+const path = conn.user.jid != global.conn.user.jid ? `./GataJadiBot/${conn.user.jid.split`@`[0]}/creds.json` : `./GataBotSession/creds.json`
+let creds = await fs.readFileSync(path)
 
 const output = fs.createWriteStream(zipPath)
 const archive = archiver('zip', { zlib: { level: 9 } })
@@ -54,9 +60,6 @@ handler.command = /^(backup|respaldo|copia)$/i
 handler.owner = true
 
 export default handler
-
-
-
 
 /*import fs from 'fs'
 
