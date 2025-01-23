@@ -5,8 +5,9 @@ import fs from 'fs'
 const { generateWAMessageFromContent, prepareWAMessageMedia, proto }  = (await import(global.baileys))
 import '../config.js'
 
-let handler = m => m
-handler.all = async function (m) {
+//let handler = m => m
+//handler.all = async function (m) {
+export async function before(m, { conn }) {	
 global.key = ''
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
 let pp = await this.profilePictureUrl(who, 'image').catch(_ => "https://cloud.dorratz.com/files/77ab8bf550effc29038f74f2111eff8b.jpg")
@@ -38,7 +39,8 @@ li.DESTRAVip.to
 ☣✝ﾚⅰɬ◊D͠Я◊ⅰD͠  D͠∑ㄅɬЯ∆√✝☣`
   
 }
-export default handler
+//export default handler
+
 global.bot = "wa.me/525577917106"
 global.canales = [canal1, canal2, canal3, canal4][Math.floor(Math.random() * 4)]
 global.welgata = [tk, ig, md, yt, paypal, fb, ths, asistencia][Math.floor(Math.random() * 8)]
