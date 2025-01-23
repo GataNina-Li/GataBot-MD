@@ -1,8 +1,9 @@
 // by https://github.com/elrebelde21
 
 import '../plugins/_content.js'
-let handler = m => m
-handler.all = async function (m) {
+//let handler = m => m
+//handler.all = async function (m) {
+export async function before(m, { conn }) {
 let chat = global.db.data.chats[m.chat]
 let name = conn.getName(m.sender)
 m.isBot = m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20;
@@ -73,6 +74,7 @@ await conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage'
 await conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙐𝙉 𝙏𝙀𝙓𝙏𝙊 𝙋𝘼𝙍𝘼 𝙃𝘼𝘽𝙇𝘼𝙍 𝘾𝙊𝙉𝙈𝙄𝙂𝙊\n\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*Hola Gata Bot*\n\n𝙒𝙍𝙄𝙏𝙀 𝘼 𝙏𝙀𝙓𝙏 𝙏𝙊 𝙏𝘼𝙇𝙆 𝙏𝙊 𝙈𝙀\n\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*Hello Gata Bot.*`, m);
 } else if (m.text.includes(`bot`) || m.text.includes(`Bot`) || m.text.includes(`simsimi`) || m.text.includes(`simi`) || m.text.includes(`alexa`)) {   
 //if (/^(bot|simi|simsimi)\s.+$/i.test(m.text)) {
+if (m.text.includes('jadibot') || m.text.includes('bots') || m.text.includes('serbot') || m.text.includes('instalarbot') || m.text.includes('infobot')) return;
 try {
 await conn.sendPresenceUpdate('composing', m.chat)
 async function luminsesi(q, username, logic) {
@@ -173,7 +175,7 @@ conn.reply(m.chat, `\`✨ ¿𝐐𝐮𝐞́ 𝐞𝐬 𝐮𝐧 𝐁𝐨𝐭 𝐝�
 🐈 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨 🐈`, m)}  
 return !0 
 }
-export default handler
+//export default handler
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]
