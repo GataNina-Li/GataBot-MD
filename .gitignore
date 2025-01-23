@@ -1,6 +1,5 @@
 .npm/
 .git/
-.database/
 terms.md
 dealers.md
 node_modules/
@@ -10,3 +9,4 @@ database.json
 GataBotSession/
 GataJadiBot/
 BackupSession/
+database/
