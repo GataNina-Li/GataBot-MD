@@ -1,8 +1,7 @@
 // @type {import('@whiskeysockets/baileys')}
 
 const { proto, generateWAMessage, areJidsSameUser, decryptPollVote, } = (await import('@whiskeysockets/baileys')).default;
-//export async function all(m, chatUpdate) {
-export async function before(m, chatUpdate) {
+export async function all(m, chatUpdate) {
 if (m.isBaileys) {
 return
 }
