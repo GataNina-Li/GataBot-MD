@@ -26,8 +26,8 @@ const handler = async (m, { conn, args }) => {
     }
 };
 
-handler.command = ['dalle'];
-handler.help = ['dalle'];
+handler.command = ['dalle', 'dall-e'];
+handler.help = ['dalle', 'dall-e'];
 handler.tags = ['tools'];
 
 export default handler;
