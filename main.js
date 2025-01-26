@@ -46,8 +46,7 @@ global.prefix = new RegExp('^[' + (opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆
 
 //news
 const databasePath = path.join(__dirname, 'database');
-if (!fs.existsSync(databasePath)) {
-fs.mkdirSync(databasePath)}
+if (!fs.existsSync(databasePath)) fs.mkdirSync(databasePath);
 
 const usersPath = path.join(databasePath, 'users');
 const chatsPath = path.join(databasePath, 'chats');
@@ -56,15 +55,13 @@ const msgsPath = path.join(databasePath, 'msgs');
 const stickerPath = path.join(databasePath, 'sticker');
 const statsPath = path.join(databasePath, 'stats');
 
-if (!fs.existsSync(usersPath)) fs.mkdirSync(usersPath);
-if (!fs.existsSync(chatsPath)) fs.mkdirSync(chatsPath);
-if (!fs.existsSync(settingsPath)) fs.mkdirSync(settingsPath);
-if (!fs.existsSync(msgsPath)) fs.mkdirSync(msgsPath);
-if (!fs.existsSync(stickerPath)) fs.mkdirSync(stickerPath);
-if (!fs.existsSync(statsPath)) fs.mkdirSync(statsPath);
+[usersPath, chatsPath, settingsPath, msgsPath, stickerPath, statsPath].forEach((dir) => {
+if (!fs.existsSync(dir)) fs.mkdirSync(dir);
+});
 
 function getFilePath(basePath, id) {
-return path.join(basePath, `${id}.json`)}
+return path.join(basePath, `${id}.json`);
+}
 
 global.db = {
 data: {
@@ -75,17 +72,29 @@ msgs: {},
 sticker: {},
 stats: {},
 },
-chain: null,
+READ: false, 
 };
 
 global.loadDatabase = async function loadDatabase() {
+if (global.db.READ) {
+return new Promise((resolve) => {
+const interval = setInterval(() => {
+if (!global.db.READ) {
+clearInterval(interval);
+resolve(global.db.data);
+}}, 1000);
+});
+}
+
+global.db.READ = true;
+try {
 const userFiles = fs.readdirSync(usersPath);
 for (const file of userFiles) {
 const userId = path.basename(file, '.json');
 const userDb = new Low(new JSONFile(getFilePath(usersPath, userId)));
 await userDb.read();
 userDb.data = userDb.data || {};
-global.db.data.users[userId] = userDb.data;
+global.db.data.users[userId] = { ...global.db.data.users[userId], ...userDb.data };
 }
 
 const chatFiles = fs.readdirSync(chatsPath);
@@ -94,7 +103,7 @@ const chatId = path.basename(file, '.json');
 const chatDb = new Low(new JSONFile(getFilePath(chatsPath, chatId)));
 await chatDb.read();
 chatDb.data = chatDb.data || {};
-global.db.data.chats[chatId] = chatDb.data;
+global.db.data.chats[chatId] = { ...global.db.data.chats[chatId], ...chatDb.data };
 }
 
 const settingsFiles = fs.readdirSync(settingsPath);
@@ -103,7 +112,7 @@ const settingId = path.basename(file, '.json');
 const settingDb = new Low(new JSONFile(getFilePath(settingsPath, settingId)));
 await settingDb.read();
 settingDb.data = settingDb.data || {};
-global.db.data.settings[settingId] = settingDb.data;
+global.db.data.settings[settingId] = { ...global.db.data.settings[settingId], ...settingDb.data };
 }
 
 const msgsFiles = fs.readdirSync(msgsPath);
@@ -112,7 +121,7 @@ const msgId = path.basename(file, '.json');
 const msgDb = new Low(new JSONFile(getFilePath(msgsPath, msgId)));
 await msgDb.read();
 msgDb.data = msgDb.data || {};
-global.db.data.msgs[msgId] = msgDb.data;
+global.db.data.msgs[msgId] = { ...global.db.data.msgs[msgId], ...msgDb.data };
 }
 
 const stickerFiles = fs.readdirSync(stickerPath);
@@ -121,7 +130,7 @@ const stickerId = path.basename(file, '.json');
 const stickerDb = new Low(new JSONFile(getFilePath(stickerPath, stickerId)));
 await stickerDb.read();
 stickerDb.data = stickerDb.data || {};
-global.db.data.sticker[stickerId] = stickerDb.data;
+global.db.data.sticker[stickerId] = { ...global.db.data.sticker[stickerId], ...stickerDb.data };
 }
 
 const statsFiles = fs.readdirSync(statsPath);
@@ -130,10 +139,18 @@ const statId = path.basename(file, '.json');
 const statDb = new Low(new JSONFile(getFilePath(statsPath, statId)));
 await statDb.read();
 statDb.data = statDb.data || {};
-global.db.data.stats[statId] = statDb.data;
+global.db.data.stats[statId] = { ...global.db.data.stats[statId], ...statDb.data };
+}} catch (error) {
+console.error('Error al cargar la base de datos:', error);
+} finally {
+global.db.READ = false;
 }};
 
 global.db.save = async function saveDatabase() {
+while (global.db.READ) {
+await new Promise((resolve) => setTimeout(resolve, 100)); 
+}
+
 for (const [userId, userData] of Object.entries(global.db.data.users)) {
 const userDb = new Low(new JSONFile(getFilePath(usersPath, userId)));
 userDb.data = userData;
@@ -283,9 +300,9 @@ const filterStrings = [
 "RXJyb3I6IEJhZCBNQUM=", // "Error: Bad MAC" 
 "RGVjcnlwdGVkIG1lc3NhZ2U=" // "Decrypted message" 
 ]
-console.info = () => {} 
-//console.debug = () => {} 
-//['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
+/*console.info = () => {} 
+console.debug = () => {} 
+['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
@@ -307,7 +324,35 @@ msgRetryCounterCache, // Resolver mensajes en espera
 msgRetryCounterMap, // Determinar si se debe volver a intentar enviar un mensaje o no
 defaultQueryTimeoutMs: undefined,
 version: [2, 3000, 1015901307],
-}
+}*/
+
+const connectionOptions = {
+logger: pino({ level: 'silent' }),
+printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
+mobile: MethodMobile, 
+browser: opcion == '1' ? ['GataBot-MD', 'Edge', '20.0.04'] : methodCodeQR ? ['GataBot-MD', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
+auth: {
+creds: state.creds,
+keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
+},
+markOnlineOnConnect: true, 
+generateHighQualityLinkPreview: true, 
+syncFullHistory: true,
+getMessage: async (key) => {
+try {
+let jid = jidNormalizedUser(key.remoteJid);
+let msg = await store.loadMessage(jid, key.id);
+return msg?.message || "";
+} catch (error) {
+return "";
+}},
+msgRetryCounterCache: msgRetryCounterCache || new Map(),
+userDevicesCache: userDevicesCache || new Map(),
+//msgRetryCounterMap,
+defaultQueryTimeoutMs: undefined,
+cachedGroupMetadata: (jid) => global.conn.chats[jid] ?? {},
+version: [2, 3000, 1015901307],
+};
 
 global.conn = makeWASocket(connectionOptions)
 
