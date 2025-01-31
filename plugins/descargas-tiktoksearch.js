@@ -10,7 +10,7 @@ let searchResults = response.meta;
 shuffleArray(searchResults);
 let selectedResults = searchResults.slice(0, 3)
 let messages = selectedResults.map(result => [
-`⛱️ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 : 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n${result.author.nickname}\n\n⛱️ 𝘿𝙀𝙎𝘾𝙍𝙄𝙋𝘾𝙄𝙊𝙉 : 𝘿𝙀𝙎𝘾𝙍𝙄𝙋𝙏𝙄𝙊𝙉\n${result.title}`, 
+`${result.title}`, 
 gt,
 result.hd
 ]);
