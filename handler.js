@@ -52,17 +52,20 @@ let user = global.db.data.users[m.sender]
 if (typeof user !== 'object')
 global.db.data.users[m.sender] = {}
 if (user) {
-if (!isNumber(user.exp)) user.exp = 0
+if (!isNumber(user.exp)) user.exp = 0;
+if (user.exp < 0) user.exp = 0; 
+if (!isNumber(user.money)) user.money = 150;
+if (user.money < 0) user.money = 0; 
+if (!isNumber(user.limit)) user.limit = 15;
+if (user.limit < 0) user.limit = 0; 
+if (!isNumber(user.joincount)) user.joincount = 1 
+if (user.joincount < 0) user.joincount = 0; 
 if (!('premium' in user)) user.premium = false
-if (!('muto' in user)) user.muto = false
-if (!isNumber(user.joincount)) user.joincount = 1
-if (!isNumber(user.money)) user.money = 150
-if (!isNumber(user.limit)) user.limit = 15 	       
+if (!('muto' in user)) user.muto = false  
 if (!('registered' in user)) user.registered = false
 if (!('registroR' in user)) user.registroR = false
 if (!('registroC' in user)) user.registroC = false  
 if (!isNumber(user.IDregister)) user.IDregister = 0 
-	
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
 if (!('age' in user)) user.age = 0
