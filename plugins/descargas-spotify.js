@@ -11,12 +11,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         let songInfo = await spotifyxv(text);
         if (!songInfo.length) throw `❌ No se encontraron resultados, intente nuevamente.`;
         let song = songInfo[0];
-        const res = await fetch(`${apis}/download/spotifydlv3?url=${song.url}`);
+        const res = await fetch(`https://apis-starlights-team.koyeb.app/starlight/spotifydl?url=${song.url}`);
         const data = await res.json();
 
-        if (!data || !data.datos || !data.datos.url) throw "No se pudo obtener el enlace de descarga.";
+        if (!data || !data.music) throw "No se pudo obtener el enlace de descarga.";
 
-        const info = `🪼 *Titulo:* ${data.datos.title}\n\n🪩 *Artista:* ${data.datos.autor}\n\n🦋 *Álbum:* ${song.album}\n\n⏳ *Duración:* ${song.duracion}\n\n🔗 *Enlace:* ${data.datos.url}\n\n${wm}`;
+        const info = `🪼 *Titulo:* ${data.title}\n\n🪩 *Artista:* ${data.artist}\n\n🦋 *Álbum:* ${song.album}\n\n⏳ *Duración:* ${song.duracion}\n\n🔗 *Enlace:* ${data.spotify}\n\n${wm}`;
 
         await conn.sendMessage(m.chat, { text: info, contextInfo: { forwardingScore: 9999999, isForwarded: true, 
         externalAdReply: {
@@ -25,12 +25,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             renderLargerThumbnail: true,
             title: 'Spotify Music',
             mediaType: 1,
-            thumbnailUrl: data.datos.imagen,
-            mediaUrl: data.datos.url,
-            sourceUrl: data.datos.url
+            thumbnailUrl: data.thumbnail,
+            mediaUrl: data.music,
+            sourceUrl: data.music
         }}}, { quoted: m });
 
-        await conn.sendMessage(m.chat, { audio: { url: data.datos.url }, fileName: `${data.datos.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
+        await conn.sendMessage(m.chat, { audio: { url: data.music }, fileName: `${data.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
         m.react('✅');
 
     } catch (e1) {
@@ -91,34 +91,4 @@ function timestamp(time) {
     const minutes = Math.floor(time / 60000);
     const seconds = Math.floor((time % 60000) / 1000);
     return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-}
-
-async function getBuffer(url, options) {
-    try {
-        options = options || {};
-        const res = await axios({
-            method: 'get',
-            url,
-            headers: {
-                DNT: 1,
-                'Upgrade-Insecure-Request': 1,
-            },
-            ...options,
-            responseType: 'arraybuffer',
-        });
-        return res.data;
-    } catch (err) {
-        console.error(`Error en getBuffer: ${err}`);
-        return err;
-    }
-}
-
-async function getTinyURL(text) {
-    try {
-        let response = await axios.get(`https://tinyurl.com/api-create.php?url=${text}`);
-        return response.data;
-    } catch (error) {
-        console.error(`Error en getTinyURL: ${error}`);
-        return text;
-    }
 }
