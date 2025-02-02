@@ -10,7 +10,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         m.react('⌛️');
 
         let songInfo = await spotifyxv(text);
-        if (!songInfo.length) throw `No se encontró la canción.`;
+        if (!songInfo.length) throw `❌ No se encontraron resultados, intente nuevamente.`;
         let song = songInfo[0];
         const res = await fetch(`https://apis-starlights-team.koyeb.app/starlight/spotifydl?url=${song.url}`);
         const data = await res.json();
@@ -35,7 +35,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     } catch (e1) {
         m.react('❌');
-        m.reply(`❌ No se encontraron resultados, intente nuevamente.`);
+        m.reply(`Error: ${e1}`);
     }
 };
 
@@ -44,36 +44,46 @@ export default handler;
 
 async function spotifyxv(query) {
     let token = await tokens();
-    let response = await axios({
-        method: 'get',
-        url: 'https://api.spotify.com/v1/search?q=' + encodeURIComponent(query) + '&type=track',
-        headers: {
-            Authorization: 'Bearer ' + token,
-        },
-    });
-    const tracks = response.data.tracks.items;
-    const results = tracks.map((track) => ({
-        name: track.name,
-        artista: track.artists.map((artist) => artist.name),
-        album: track.album.name,
-        duracion: timestamp(track.duration_ms),
-        url: track.external_urls.spotify,
-        imagen: track.album.images.length ? track.album.images[0].url : '',
-    }));
-    return results;
+    try {
+        let response = await axios({
+            method: 'get',
+            url: 'https://api.spotify.com/v1/search?q=' + encodeURIComponent(query) + '&type=track',
+            headers: {
+                Authorization: 'Bearer ' + token,
+            },
+        });
+        const tracks = response.data.tracks.items;
+        const results = tracks.map((track) => ({
+            name: track.name,
+            artista: track.artists.map((artist) => artist.name),
+            album: track.album.name,
+            duracion: timestamp(track.duration_ms),
+            url: track.external_urls.spotify,
+            imagen: track.album.images.length ? track.album.images[0].url : '',
+        }));
+        return results;
+    } catch (error) {
+        console.error(`Error en spotifyxv: ${error}`);
+        return [];
+    }
 }
 
 async function tokens() {
-    const response = await axios({
-        method: 'post',
-        url: 'https://accounts.spotify.com/api/token',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            Authorization: 'Basic ' + Buffer.from('acc6302297e040aeb6e4ac1fbdfd62c3:0e8439a1280a43aba9a5bc0a16f3f009').toString('base64'),
-        },
-        data: 'grant_type=client_credentials',
-    });
-    return response.data.access_token;
+    try {
+        const response = await axios({
+            method: 'post',
+            url: 'https://accounts.spotify.com/api/token',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: 'Basic ' + Buffer.from('acc6302297e040aeb6e4ac1fbdfd62c3:0e8439a1280a43aba9a5bc0a16f3f009').toString('base64'),
+            },
+            data: 'grant_type=client_credentials',
+        });
+        return response.data.access_token;
+    } catch (error) {
+        console.error(`Error en tokens: ${error}`);
+        throw new Error('No se pudo obtener el token de acceso');
+    }
 }
 
 function timestamp(time) {
@@ -97,15 +107,11 @@ async function getBuffer(url, options) {
         });
         return res.data;
     } catch (err) {
+        console.error(`Error en getBuffer: ${err}`);
         return err;
     }
 }
 
 async function getTinyURL(text) {
     try {
-        let response = await axios.get(`https://tinyurl.com/api-create.php?url=${text}`);
-        return response.data;
-    } catch (error) {
-        return text;
-    }
-}
+        let response = await axios.get(`https://tinyurl.com/api-create.php?url=${
