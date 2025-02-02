@@ -6,17 +6,17 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw `${lenguajeGB.smsMalused2()} ⊱ *${usedPrefix + command} Bellyache*`;
 
     try {
-
         m.react('⌛️');
 
         let songInfo = await spotifyxv(text);
         if (!songInfo.length) throw `❌ No se encontraron resultados, intente nuevamente.`;
         let song = songInfo[0];
-        const res = await fetch(`https://apis-starlights-team.koyeb.app/starlight/spotifydl?url=${song.url}`);
+        const res = await fetch(`${apis}/download/spotifydlv3?url=${song.url}`);
         const data = await res.json();
-        if (!data || !data.music) throw "No se pudo obtener el enlace de descarga.";
 
-        const info = `🪼 *Titulo:* ${data.title}\n\n🪩 *Artista:* ${data.artist}\n\n🦋 *Álbum:* ${song.album}\n\n⏳ *Duración:* ${song.duracion}\n\n🔗 *Enlace:* ${data.spotify}\n\n${wm}`;
+        if (!data || !data.datos || !data.datos.url) throw "No se pudo obtener el enlace de descarga.";
+
+        const info = `🪼 *Titulo:* ${data.datos.title}\n\n🪩 *Artista:* ${data.datos.autor}\n\n🦋 *Álbum:* ${song.album}\n\n⏳ *Duración:* ${song.duracion}\n\n🔗 *Enlace:* ${data.datos.url}\n\n${wm}`;
 
         await conn.sendMessage(m.chat, { text: info, contextInfo: { forwardingScore: 9999999, isForwarded: true, 
         externalAdReply: {
@@ -25,17 +25,18 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             renderLargerThumbnail: true,
             title: 'Spotify Music',
             mediaType: 1,
-            thumbnailUrl: data.thumbnail,
-            mediaUrl: data.music,
-            sourceUrl: data.music
+            thumbnailUrl: data.datos.imagen,
+            mediaUrl: data.datos.url,
+            sourceUrl: data.datos.url
         }}}, { quoted: m });
 
-        await conn.sendMessage(m.chat, { audio: { url: data.music }, fileName: `${data.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
+        await conn.sendMessage(m.chat, { audio: { url: data.datos.url }, fileName: `${data.datos.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
         m.react('✅');
 
     } catch (e1) {
         m.react('❌');
-        m.reply(`Error: ${e1}`);
+        m.reply(`❌ No se encontraron resultados, intente nuevamente. Error: ${e1.message}`);
+        console.error(`Error: ${e1}`);
     }
 };
 
