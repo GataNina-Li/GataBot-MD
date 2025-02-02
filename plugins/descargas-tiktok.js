@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-const handler = async (m, { conn, text }) => {
+const handler = async (m, { conn, usedPrefix, command, text }) => {
 
 if (!text) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsTikTok2}\n*${usedPrefix + command} https://vm.tiktok.com/ZM6n8r8Dk/*`, fkontak,  m);
 
