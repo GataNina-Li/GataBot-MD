@@ -35,7 +35,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     } catch (e1) {
         m.react('❌')
-        m.reply(`❌ Ocurrio un error inesperado: ${e1.message || e1}`);
+        m.reply(`❌ No se encontraron resultados, intente nuevamente.`);
     }
 };
 
