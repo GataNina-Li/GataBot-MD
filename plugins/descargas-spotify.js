@@ -114,4 +114,10 @@ async function getBuffer(url, options) {
 
 async function getTinyURL(text) {
     try {
-        let response = await axios.get(`https://tinyurl.com/api-create.php?url=${
+        let response = await axios.get(`https://tinyurl.com/api-create.php?url=${text}`);
+        return response.data;
+    } catch (error) {
+        console.error(`Error en getTinyURL: ${error}`);
+        return text;
+    }
+}
