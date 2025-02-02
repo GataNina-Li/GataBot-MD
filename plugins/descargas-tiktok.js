@@ -8,15 +8,15 @@ await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙋𝙍𝙊𝙉𝙏𝙊 
 
 const isUrl = /(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text);
 
-let tiktokAPI;
+let ttApi;
 if (isUrl) {
-tiktokAPI = `https://apis-starlights-team.koyeb.app/starlight/tiktok2?url=${text}`;
+ttApi = `https://apis-starlights-team.koyeb.app/starlight/tiktok2?url=${text}`;
 } else {
-tiktokAPI = `https://delirius-apiofc.vercel.app/search/tiktoksearch?query=${text}`;
+ttApi = `${apis}/search/tiktoksearch?query=${text}`;
 }
 
 try {
-const res = await fetch(tiktokAPI);
+const res = await fetch(ttApi);
 const json = await res.json();
 
 if (isUrl) {
