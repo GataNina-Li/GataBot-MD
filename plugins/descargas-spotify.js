@@ -3,11 +3,11 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 
-    if (!text) throw `${lenguajeGB.smsMalused2()} ⊱ *${usedPrefix + command} Bellyache*`
+    if (!text) throw `${lenguajeGB.smsMalused2()} ⊱ *${usedPrefix + command} Bellyache*`;
 
     try {
 
-        m.react('⌛️')
+        m.react('⌛️');
 
         let songInfo = await spotifyxv(text);
         if (!songInfo.length) throw `No se encontró la canción.`;
@@ -31,10 +31,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         }}}, { quoted: m });
 
         await conn.sendMessage(m.chat, { audio: { url: data.music }, fileName: `${data.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
-        m.react('✅')
+        m.react('✅');
 
     } catch (e1) {
-        m.react('❌')
+        m.react('❌');
         m.reply(`❌ No se encontraron resultados, intente nuevamente.`);
     }
 };
