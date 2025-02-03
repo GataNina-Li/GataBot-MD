@@ -291,34 +291,20 @@ defaultQueryTimeoutMs: undefined,
 version: [2, 3000, 1015901307],
 }*/
 
+console.info = () => {} 
 const connectionOptions = {
-logger: pino({ level: 'silent' }),
+logger: pino({ level: "fatal" }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
-browser: opcion == '1' ? ['GataBot-MD', 'Edge', '20.0.04'] : methodCodeQR ? ['GataBot-MD', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
 auth: {
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
 },
-markOnlineOnConnect: true, 
-generateHighQualityLinkPreview: true, 
-syncFullHistory: true,
-getMessage: async (key) => {
-try {
-let jid = jidNormalizedUser(key.remoteJid);
-let msg = await store.loadMessage(jid, key.id);
-return msg?.message || "";
-} catch (error) {
-return "";
-}},
-msgRetryCounterCache: msgRetryCounterCache || new Map(),
-userDevicesCache: userDevicesCache || new Map(),
-//msgRetryCounterMap,
-defaultQueryTimeoutMs: undefined,
-cachedGroupMetadata: (jid) => global.conn.chats[jid] ?? {},
-version: [2, 3000, 1015901307],
+browser: opcion == '1' ? ['GataBot-MD', 'Edge', '20.0.04'] : methodCodeQR ? ['GataBot-MD', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
+version: version,
+generateHighQualityLinkPreview: true
 };
-
+    
 global.conn = makeWASocket(connectionOptions)
 
 if (!fs.existsSync(`./${authFile}/creds.json`)) {
