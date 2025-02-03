@@ -1,54 +1,4 @@
-import fetch from 'node-fetch';
-
-const handler = async (m, { conn, usedPrefix, command, text }) => {
-
-if (!text) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsTikTok2}\n*${usedPrefix + command} https://vm.tiktok.com/ZM6n8r8Dk/*`, fkontak,  m);
-
-await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙋𝙍𝙊𝙉𝙏𝙊 𝙏𝙀𝙉𝘿𝙍𝘼 𝙀𝙇 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙏𝙄𝙆𝙏𝙊𝙆 😸\n𝙎𝙊𝙊𝙉 𝙒𝙄𝙇𝙇 𝙃𝘼𝙑𝙀 𝙏𝙃𝙀 𝙏𝙄𝙆𝙏𝙊𝙆 𝙑𝙄𝘿𝙀𝙊 🥳`, fkontak,  m);
-
-const isUrl = /(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text);
-
-let ttApi;
-if (isUrl) {
-ttApi = `https://apis-starlights-team.koyeb.app/starlight/tiktok2?url=${text}`;
-} else {
-ttApi = `${apis}/search/tiktoksearch?query=${text}`;
-}
-
-try {
-const res = await fetch(ttApi);
-const json = await res.json();
-
-if (isUrl) {
-if (!json || !json.video) return conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}${mid.smsTikTok3}`, fkontak,  m);
-
-const caption = `⛱️ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 : 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n${json.creator}\n${wm}`;
-
-await conn.sendMessage(m.chat, { video: { url: json.video }, caption: caption }, { quoted: m });
-
-} else {
-if (!json || !json.meta || json.meta.length === 0) return conn.reply(m.chat, `🐱 Sin resultados para *"${text}"*.`, m);
-
-const result = json.meta[Math.floor(Math.random() * json.meta.length)];
-const creador = result.author;
-const author = creador.username;
-const caption = `⛱️ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 : 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n${author}\n${wm}`;
-
-await conn.sendMessage(m.chat, { video: { url: result.hd }, caption: caption }, { quoted: m });
-}
-
-} catch (e) {
-console.error(e);
-m.react(`❌`);
-}};
-
-handler.help = ['tiktok'];
-handler.tags = ['dl'];
-handler.command = /^(tt|tiktok)(dl|nowm)?$/i;
-//handler.limit = 2;
-export default handler;
-
-/*import axios from "axios"
+import axios from "axios"
 import fg from 'api-dylux';
 import cheerio from 'cheerio';
 import {tiktok} from '@xct007/frieren-scraper';
@@ -108,4 +58,4 @@ async function tiktokdlF(url) {
   } else {
     return {status: false};
   }
-}*/
+}
