@@ -1,141 +1,115 @@
-import fs from 'fs'
+import fs from 'fs';
 import fetch from 'node-fetch';
-import axios from 'axios';
+import similarity from 'similarity';
 
-let timeout = 30000
-let poin = 500 
- 
-let handler = async (m, { conn, command, usedPrefix }) => {
-if (!db.data.chats[m.chat].game) throw `${lenguajeGB['smsAvisoAG']()}𝙇𝙊𝙎 𝙅𝙐𝙀𝙂𝙊𝙎 𝙀𝙎𝙏𝘼𝙎 𝘿𝙀𝙎𝘼𝘾𝙏𝙄𝙑𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝙂𝙍𝙐𝙋𝙊, 𝙎𝙄 𝙀𝙍𝙀𝙎 𝘼𝘿𝙈𝙄𝙉𝙎 𝙋𝙐𝙀𝘿𝙀 𝘼𝘾𝙏𝙄𝙑𝘼𝙍𝙇𝙊 𝘾𝙊𝙉 : #on juegos` 
-conn.tekateki = conn.tekateki ? conn.tekateki : {}
-let id = m.chat
-if (id in conn.tekateki) {
-conn.reply(m.chat, 'Todavía hay un juegos sin responder en este chat', conn.tekateki[id][0])
-throw false
-}
+let timeout = 60000;  //60s
+let timeout2 = 20000; //20s
+let poin = 500;
+const threshold = 0.72;
+let juegos = {};
 
-try {    
-if (command == 'acertijo' || command == 'acert' || command == 'adivinanza' || command == 'tekateki') {
-let tekateki = JSON.parse(fs.readFileSync(`./src/game/acertijo.json`))
-let json = tekateki[Math.floor(Math.random() * tekateki.length)]
-let _clue = json.response
-let clue = _clue.replace(/[A-Za-z]/g, '_')
-let caption = `
-ⷮ *${json.question}*
-
-*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
-*• Bono:* +${poin} Exp
-`.trim()
-conn.tekateki[id] = [
-await conn.reply(m.chat, caption, m),
-json, poin, setTimeout(async () => {
-if (conn.tekateki[id]) await conn.reply(m.chat, `Se acabó el tiempo!\n*Respuesta:* ${json.response}`, conn.tekateki[id][0])
-delete conn.tekateki[id]
-}, timeout)]}
-
-if (command == 'advpe' || command == 'adv' || command == 'peliculas' || command == 'pelicula') {    
-let tekateki = JSON.parse(fs.readFileSync(`./src/game/peliculas.json`))
-let json = tekateki[Math.floor(Math.random() * tekateki.length)]
-let _clue = json.response
-let clue = _clue.replace(/[A-Za-z]/g, '_')
-let caption = `
-ⷮ *${json.question}*
-
-*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
-*• Bono:* +${poin} Exp
-`.trim()
-conn.tekateki[id] = [
-await //conn.reply(m.chat, caption, m),
-conn.sendMessage(m.chat, { text: caption, contextInfo:{forwardingScore: 9999999, isForwarded: true, "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "body": `• ADIVINAN LA PELÍCULA CON EMOJIS •`, "previewType": "PHOTO", thumbnail: imagen1, sourceUrl: md}}}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}), json, poin, setTimeout(async () => {
-if (conn.tekateki[id]) await conn.reply(m.chat, `Se acabó el tiempo!\n*Respuesta:* ${json.response}`, conn.tekateki[id][0])
-delete conn.tekateki[id]
-}, timeout)
-]}
-
-if (command == 'cancion' || command == 'canción') {
-conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {};
-const id = m.chat;
-if (id in conn.tebaklagu) {
-conn.reply(m.chat, 'Todavía hay canciones sin respuesta en este chat.', conn.tebaklagu[id][0]);
-throw false;
-} // 5LTV57azwaid7dXfz5fzJu
-const res = await fetchJson(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/tebaklagu.json`);
-const json = res[Math.floor(Math.random() * res.length)];
-const caption = `ADIVINA EL TITULO DE LA CANCION\n⎔ Tiempo ➺ ${(timeout / 1000).toFixed(2)} segundos ⏰\n⎔ Escribe *${usedPrefix}pista* Para obtener una pista 😸\n⎔ Premio: ${poin} XP⚡\n\nRESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!!`.trim();
-conn.tebaklagu[id] = [
-await m.reply(caption),
-json, poin, setTimeout(() => {
-if (conn.tebaklagu[id]) conn.reply(m.chat, `Se acabó el tiempo!\nLa respuesta es ${json.jawaban}`, conn.tebaklagu[id][0]);
-delete conn.tebaklagu[id];
-}, timeout),
-];
-const aa = await conn.sendMessage(m.chat, {audio: {url: json.link_song}, fileName: `error.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
-if (!aa) return conn.sendFile(m.chat, json.link_song, 'coba-lagi.mp3', '', m);
+const archivosRespaldo = {
+acertijo: "acertijo.json",
+pelicula: "peliculas.json",
+trivia: "trivia.json"
 };
 
-//Créditos a Katashi Fukushima
-if (command == 'palabra' || command == 'word' || command == 'ordenar' || command == 'order') {
+async function obtenerPregunta(tipo) {
+let prompt = "";
+if (tipo === "acertijo") {
+prompt = "Genera un acertijo con su respuesta en formato JSON: {\"question\": \"<pregunta>\", \"response\": \"<respuesta>\"}. Solo genera el JSON sin ningún comentario adicional.";
+} else if (tipo === "pelicula") {
+prompt = "Genera un juego de adivinar película usando emojis como pista, en formato JSON: {\"question\": \"<pregunta>\", \"response\": \"<respuesta>\"}. Solo genera el JSON sin ningún comentario adicional.";
+} else if (tipo === "trivia") {
+prompt = "Genera una pregunta de trivia con opciones múltiples en formato JSON, siguiendo este formato: {\"question\": \"<pregunta>\\n\\nA) ...\\n\\nB) ...\\n\\nC) ...\", \"response\": \"<letra de la respuesta correcta>\"}. Solo genera el JSON sin ningún comentario adicional.";
+}
 
-let tekateki = JSON.parse(fs.readFileSync(`./src/game/palabra.json`))
-let json = tekateki[Math.floor(Math.random() * tekateki.length)]
-let _clue = json.response
-let clue = _clue.replace(/[A-Za-z]/g, '_')
-let caption = `
-ⷮ *${json.question}*
+try {
+let gpt = await fetch(`${apis}/ia/gptweb?text=${encodeURIComponent(prompt)}`);
+let res = await gpt.json();
+console.log("Respuesta API:", res);
+if (res.data) {
+let dataText = res.data;
+const match = dataText.match(/```json\s*([\s\S]*?)\s*```/);
+if (match) {
+dataText = match[1];
+}
+try {
+return JSON.parse(dataText);
+} catch (error) {
+console.error("Error al parsear JSON de la API:", error);
+}}} catch (error) {
+console.error(`Error en la API para ${tipo}:`, error);
+}
 
-*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
-*• Bono:* +${poin} Exp
+try {
+let archivo = `./src/game/${archivosRespaldo[tipo]}`;
+let data = JSON.parse(fs.readFileSync(archivo));
+return data[Math.floor(Math.random() * data.length)];
+} catch (error) {
+return null;
+}}
 
-✨ Responde a este mensaje con la palabra correcta ✨
-`.trim()
-conn.tekateki[id] = [
-await conn.reply(m.chat, caption, m),
-json, poin, setTimeout(async () => {
-if (conn.tekateki[id]) await conn.reply(m.chat, `Se acabó el tiempo!\n*Palabra:* ${json.response}`, conn.tekateki[id][0])
-delete conn.tekateki[id]
-}, timeout)
-]}
-
-// Créditos a Katashi Fukushima
-// Créditos a Wilson Waoz
-if (command == 'trivia' || command == 'triviador') {
-let tekateki = JSON.parse(fs.readFileSync(`./src/game/trivia.json`))
-let json = tekateki[Math.floor(Math.random() * tekateki.length)]
-let _clue = json.response
-let clue = _clue.replace(/[A-Za-z]/g, '_')
-let caption = `
-ⷮ *${json.question}*
-
-*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
-*• Bono:* +${poin} Exp
-
-💫 Responde a este mensaje con la letra de la opción correcta ✅
-`.trim()
-conn.tekateki[id] = [
-await conn.reply(m.chat, caption, m),
-json, poin, setTimeout(async () => {
-if (conn.tekateki[id]) await conn.reply(m.chat, `Se acabó el tiempo!`, conn.tekateki[id][0])
-delete conn.tekateki[id]
-}, timeout)
-]}
-
-if (command == 'hint' || command == 'pista') {
-conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {};
-const id = m.chat;
-if (!(id in conn.tebaklagu)) throw false;
-const json = conn.tebaklagu[id][1];
-const nya = json.jawaban;
-const nyanya = nya.replace(/[bcdfghjklmnñpqrstvwxyzBCDEFGHJKLMNÑPQRSTVWXYZ]/g, '_');
-m.reply('' + nyanya + '');
+let handler = async (m, { conn, command }) => {
+let id = m.chat;
+if (juegos[id]) return conn.reply(m.chat, '❌️ Todavía hay un juegos sin responder en este chat', m);
+try {
+let tipo = "";
+if (/^(acertijo|acert|adivinanza|tekateki)$/i.test(command)) tipo = "acertijo";
+else if (/^(advpe|adv|peliculas|pelicula)$/i.test(command)) tipo = "pelicula";
+else if (/^(trivia|triviador)$/i.test(command)) tipo = "trivia";
+if (!tipo) return;
+let pregunta = await obtenerPregunta(tipo);
+if (!pregunta) return 
+let caption = "";
+if (tipo === "acertijo") {      
+caption = `${pregunta.question}\n\n*• Tiempo:* ${(timeout / 1000)}s\n*• Bono:* +${poin} XP`;
+} else if (tipo === "pelicula") {
+let clue = pregunta.response.replace(/[A-Za-z]/g, '_');
+caption = `${pregunta.question}\n\n*Pista:* ${clue}\n\n*• Tiempo:* ${(timeout / 1000)}s\n*• Bono:* +${poin} XP`;
+} else if (tipo === "trivia") {
+caption = `${pregunta.question}\n\n*• Tiempo:* ${(timeout2 / 1000)}s\n*• Bono:* +${poin} XP\n\n💫 Responde a este mensaje con la letra de la opción correcta ✅`;
+}
+let enviado = await conn.reply(m.chat, caption, m)
+juegos[id] = {
+tipo,
+pregunta,
+caption: enviado,
+puntos: poin,
+timeout: setTimeout(() => {
+if (juegos[id]) {
+conn.reply(m.chat, `⏳ ¡Tiempo agotado! La respuesta era: *${pregunta.response}*`, enviado);
+delete juegos[id];
+}}, tipo === "trivia" ? timeout2 : timeout)
 }} catch (e) {
-//await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
-//console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(e)}}
-handler.help = ['acertijo']
-handler.tags = ['game']
-handler.command = /^(acertijo|acert|adivinanza|tekateki|advpe|adv|peliculas|pelicula|cancion|canción|palabra|word|ordenar|order|trivia|triviador|hint|pista)$/i
+console.error(e);
+}
+};
 
-export default handler
+handler.before = async (m) => {
+let id = m.chat;
+if (!juegos[id] || !m.quoted || !m.quoted.fromMe || !m.quoted.id) return;
+let juego = juegos[id];
+if (m.quoted.id !== juego.caption.key.id) return;
+
+let respuestaCorrecta = juego.pregunta.response.toLowerCase().trim();
+let respuestaUsuario = m.text.toLowerCase().trim();
+if (respuestaUsuario === respuestaCorrecta) {
+global.db.data.users[m.sender].exp += juego.puntos;
+m.reply(`✅ *¡Correcto!*\nGanaste +${juego.puntos} XP`);
+clearTimeout(juego.timeout);
+delete juegos[id];
+} else if (similarity(respuestaUsuario, respuestaCorrecta) >= threshold) {
+m.reply(`🔥 *Casi!* La respuesta es muy parecida.`);
+} else {
+m.reply(`❌ *Incorrecto!* Intenta de nuevo.`);
+}};
+handler.help = ['acertijo', 'pelicula', 'trivia'];
+handler.tags = ['game'];
+handler.command = /^(acertijo|acert|adivinanza|tekateki|advpe|adv|peliculas|pelicula|trivia|triviador)$/i;
+handler.register = true;
+
+export default handler;
 
 async function fetchJson(url, options) {
   try {
