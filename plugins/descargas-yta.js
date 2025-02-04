@@ -3,6 +3,9 @@ import fetch from 'node-fetch'
 import yts from 'yt-search'
 import ytdl from 'ytdl-core'
 import ytdlf from "@EdderBot02/ytdlf"
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const { ytmp3, ytmp4 } = require("@hiudyy/ytdl");
 
 let handler = async (m, { text, conn, args, usedPrefix, command }) => {
 if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`, fkontak, m)
@@ -26,6 +29,10 @@ throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)} ${usedPref
 }}}  
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, fkontak, m)
 try{
+const audiodlp = await ytmp3(encodeURIComponent(args));
+conn.sendMessage(m.chat, { audio: audiodlp, mimetype: "audio/mpeg" }, { quoted: m });
+} catch (e1) {
+try {  
 let x=await ytdlf(`${encodeURIComponent(args)}`,"mp3");
 await conn.sendMessage(m.chat, { audio: { url:x.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
 } catch{
@@ -80,6 +87,6 @@ await conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, fileName: `${
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}
-}}}}}}}}
+}}}}}}}}}
 handler.command = /^audio|fgmp3|dlmp3|getaud|yt(a|mp3)$/i
 export default handler

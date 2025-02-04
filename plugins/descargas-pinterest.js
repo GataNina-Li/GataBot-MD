@@ -3,6 +3,14 @@ import axios from 'axios'
 let handler = async(m, { conn, text, usedPrefix, command }) => {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsMalused7}\n*${usedPrefix + command} gata | cat*` 
 try {
+let response = await axios.get(`https://api.siputzx.my.id/api/s/pinterest?query=${encodeURIComponent(text)}`);
+if (!response.data.status) return await m.reply("❌ No se encontraron resultados.")
+let searchResults = response.data.data; 
+let selectedResults = searchResults.slice(0, 6); 
+let messages = selectedResults.map(result => [result.grid_title || text, gt, result.images_url]);
+await conn.sendCarousel(m.chat, `${lenguajeGB['smsAvisoEG']()} 💞 ${mid.buscador}: ${text}`, "🔍 Pinterest Search", messages, m);
+} catch {
+try {
 let { data: response } = await axios.get(`${apis}/search/pinterestv2?text=${encodeURIComponent(text)}`);
 if (!response.status || !response.data || response.data.length === 0) return m.reply(`❌ No se encontraron resultados para "${text}".`);
 let searchResults = response.data;
@@ -18,7 +26,7 @@ await conn.sendFile(m.chat, json.getRandom(), 'error.jpg', `${lenguajeGB['smsAvi
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 handler.money = false
-}}
+}}}
 handler.help = ['pinterest <keyword>']
 handler.tags = ['internet']
 handler.command = /^(pinterest|dlpinterest|pinterestdl)$/i

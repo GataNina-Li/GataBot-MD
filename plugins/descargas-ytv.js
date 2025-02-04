@@ -4,7 +4,9 @@ import yts from 'yt-search'
 import ytdl from 'ytdl-core'
 import axios from 'axios'
 import ytdlf from "@EdderBot02/ytdlf"
-
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const { ytmp3, ytmp4 } = require("@hiudyy/ytdl");
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`, fkontak, m)
@@ -27,6 +29,10 @@ throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)} ${usedPref
 throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)}${usedPrefix}playlist <texto>*`;
 }}}  
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m)
+try {
+const video = await ytmp4(youtubeLink);
+await conn.sendMessage(m.chat, { video: { url: video }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `${gt}`}, { quoted: m })
+} catch {
 try {
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${youtubeLink}`);
 let { data } = await res.json();
@@ -77,7 +83,7 @@ await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimet
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(E3)}
-}}}}}}}
+}}}}}}}}
 handler.command = /^video|fgmp4|dlmp4|getvid|yt(v|mp4)?$/i
 export default handler
 
