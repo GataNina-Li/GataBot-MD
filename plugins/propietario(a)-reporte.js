@@ -1,5 +1,6 @@
 //Código elaborado por: https://github.com/elrebelde21 
 
+/*
 import { webp2png } from '../lib/webp2mp4.js';
 import uploadFile from '../lib/uploadFile.js';
 import uploadImage from '../lib/uploadImage.js';
@@ -183,7 +184,7 @@ handler.private = true
 export default handler
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-/*
+*/
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 if (!text) throw `${mg}*𝙀𝙨𝙘𝙧𝙞𝙗𝙖 𝙚𝙡 𝙧𝙚𝙥𝙤𝙧𝙩𝙚*\n\n*𝙀𝙅𝙀𝙈𝙋𝙇𝙊:*\n*${usedPrefix + command} el comando ${usedPrefix}infobot no funciona.*\n\n*𝙒𝙧𝙞𝙩𝙚 𝙩𝙝𝙚 𝙧𝙚𝙥𝙤𝙧𝙩*\n\n*𝙀𝙓𝘼𝙈𝙋𝙇𝙀:*\n*${usedPrefix + command} the command ${usedPrefix}owner it does not work.*`
 if (text.length < 8) throw `${fg} ✨ *Mínimo 10 caracteres para hacer El Reporte.*\n\n✨ *Minimum 10 characters to make the Report.*`
@@ -200,4 +201,3 @@ handler.tags = ['info']
 handler.exp = 25 
 handler.command = /^(report|request|reporte|bugs|bug|report-owner|reportes|reportar)$/i 
 export default handler
-*/
