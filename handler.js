@@ -475,6 +475,7 @@ if (!isNumber(user.stamina)) user.stamina = 100
 if (!isNumber(user.steak)) user.steak = 0
 if (!isNumber(user.stick)) user.stick = 0
 if (!isNumber(user.strength)) user.strength = 0
+if (!user.mensaje) user.mensaje = 0;
 if (!isNumber(user.string)) user.string = 0
 if (!isNumber(user.superior)) user.superior = 0
 if (!isNumber(user.suplabu)) user.suplabu = 0
@@ -542,6 +543,7 @@ anakrubah: 0,
 anakserigala: 0,
 anggur: 0,
 banco: 0,
+mensaje: 0,
 anjing: 0,
 anjinglastclaim: 0,
 antispam: 0,
