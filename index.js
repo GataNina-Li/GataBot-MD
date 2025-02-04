@@ -33,6 +33,15 @@ gradient: ['red', 'magenta']})
 
 var isRunning = false
 
+process.on('uncaughtException', (err) => {
+if (err.code === 'ENOSPC') {
+console.error('Se ha detectado ENOSPC (sin espacio o límite de watchers alcanzado), reiniciando....')
+} else {
+console.error('Error no capturado:', err)
+}
+process.exit(1)
+})
+
 async function start(file) {
 if (isRunning) return
 isRunning = true
