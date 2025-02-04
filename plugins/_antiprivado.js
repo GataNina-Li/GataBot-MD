@@ -2,18 +2,24 @@ const comandos = /piedra|papel|tijera|estado|verificar|code|jadibot --code|--cod
 
 export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
 let prefixRegex = new RegExp('^[' + (opts['prefix'] || '‎z/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.,\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
-
 let setting = global.db.data.settings[this.user.jid]
 const settingsREAD = global.db.data.settings[this.user.jid] || {}
 
+//Autoread 
 if (m.text && prefixRegex.test(m.text)) {
 await conn.readMessages([m.key])        
 //conn.sendPresenceUpdate('composing', m.chat)
-        
 let usedPrefix = m.text.match(prefixRegex)[0]
 let command = m.text.slice(usedPrefix.length).trim().split(' ')[0]
 }
 
+//contandor de mensaje
+if (!global.db.data.users[m.sender]) global.db.data.users[m.sender] = {};
+if (!global.db.data.users[m.sender].mensaje) global.db.data.users[m.sender].mensaje = {};
+if (!global.db.data.users[m.sender].mensaje[m.chat]) global.db.data.users[m.sender].mensaje[m.chat] = 0;
+global.db.data.users[m.sender].mensaje[m.chat]++;
+
+//antiPrivate 
 if (m.fromMe) return !0
 if (m.isGroup) return !1
 if (!m.message) return !0
