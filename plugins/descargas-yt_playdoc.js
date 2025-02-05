@@ -28,7 +28,7 @@ await conn.sendMessage(m.chat, { document: { url: ress.url }, mimetype: 'audio/m
 handler.limit = 1
 } catch (e1) {
 try {    
-const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${yt_play[0].url}`);
+const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${yt_play[0].url}`)
 let { result } = await res.json()
 await conn.sendMessage(m.chat, { document: { url: result.download.url }, mimetype: 'audio/mpeg', fileName: `${yt_play[0].title}.mp3` }, { quoted: m });
 handler.limit = 1
