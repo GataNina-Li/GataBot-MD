@@ -1,11 +1,10 @@
 import axios from "axios"
-import fetch from 'node-fetch'
-let handler = async(m, { conn, text, usedPrefix, command, xteamkey }) => {
+let handler = async(m, { conn, text, usedPrefix, command }) => {
 if (!text) throw `${mg}${mid.smsAcorta}`
 try {
-let json = await (await fetch(`https://api.xteam.xyz/shorturl/tinyurl?url=${text}&apikey=cb15ed422c71a2fb`)).json()
+let json = await (await axios.get(`https://tinyurl.com/api-create.php?url=` + encodeURIComponent(url))).data
 if (!json.status) throw json
-let hasil = `${smsAcorta(text)}\n*${json.result}*`.trim()   
+let hasil = `${smsAcorta(text)}\n*${json}*`.trim()   
 m.reply(hasil)
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
