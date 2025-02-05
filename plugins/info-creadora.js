@@ -1,6 +1,6 @@
 //CÓDIGO CREADO GRACIAS A https://github.com/AzamiJs & https://github.com/GataNina-Li
 //Puedes editar el país,enlaces, los números se editan desde el config.js
-/*import fetch from 'node-fetch'
+import fetch from 'node-fetch'
 
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 try{
@@ -52,9 +52,9 @@ handler.help = ['owner', 'creator']
 handler.tags = ['info']
 handler.command = /^(owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador|contactos?|contacts?)$/i
 
-export default handler*/
+export default handler
 
-let MessageType =  (await import(global.baileys)).default
+/*let MessageType =  (await import(global.baileys)).default
 let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
   let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
@@ -147,4 +147,4 @@ const listMessage = {
 handler.help = ['owner', 'creator']
 handler.tags = ['info']
 handler.command = /^(contacto|owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador)$/i
-export default handler
+export default handler*/
