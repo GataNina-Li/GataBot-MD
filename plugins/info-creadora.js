@@ -38,7 +38,7 @@ await conn.sendContactArray(m.chat, lista, null, { quoted: fkontak });
 await sendContactArray(conn, m.chat, lista, m, { quoted: m });
 
 } catch (e) {
-await conn.sendFile(m.chat, pp, 'lp.jpg', cat, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb.getRandom()}}})
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', `𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈\n* ${bot}\n\n*---------------------*\n\n*CENTER GATABOT*\n*centergatabot@gmail.com*\n\n𝙂𝘼𝙏𝘼 𝘿𝙄𝙊𝙎 - 𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼\n*${asistencia}*\n\n*---------------------*\n\nᵃ ᶜᵒⁿᵗᶦⁿᵘᵃᶜᶦᵒ́ⁿ ˢᵉ ᵉⁿᵛᶦᵃʳᵃⁿ ˡᵒˢ ᶜᵒⁿᵗᵃᶜᵗᵒˢ ᵈᵉ ᵐᶦ ᵖʳᵒᵖᶦᵉᵗᵃʳᶦᵒ / ᵈᵉˢᵃʳʳᵒˡˡᵃᵈᵒʳᵉˢ`, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb.getRandom()}}})
 await conn.sendContactArray(m.chat, lista, null, { quoted: fkontak });
 }};
 
