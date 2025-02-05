@@ -10,7 +10,7 @@ import '../config.js'
 export async function before(m, { conn }) {	
 global.key = ''
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
-let pp = await this.profilePictureUrl(who, 'image').catch(_ => "https://cloud.dorratz.com/files/77ab8bf550effc29038f74f2111eff8b.jpg")
+let pp = await this.profilePictureUrl(who, 'image').catch(_ => "https://cdn.dorratz.com/files/1738785861212.jpg")
 
 // Fake
 global.fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
@@ -67,8 +67,8 @@ global.imagen11 = fs.readFileSync("./media/menus/img10.jpg")
 global.imagen12 = fs.readFileSync("./media/menus/img11.jpg")
 global.imagen13 = fs.readFileSync("./media/menus/img12.jpg")
 
-global.img = 'https://qu.ax/vZii.jpg'
-global.img2 = 'https://qu.ax/hjcB.jpg'
+global.img = 'https://cdn.dorratz.com/files/1738785861212.jpg'
+global.img2 = 'https://qu.ax/hjcB.jpg' || img
 
 global.img3 = 'https://qu.ax/zELg.jpg' //prem
 global.img4 = 'https://qu.ax/YueS.jpg' //prem
