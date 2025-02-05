@@ -27,7 +27,6 @@ prompt = "Genera una pregunta de trivia con opciones múltiples en formato JSON,
 try {
 let gpt = await fetch(`${apis}/ia/gptweb?text=${encodeURIComponent(prompt)}`);
 let res = await gpt.json();
-console.log("Respuesta API:", res);
 if (res.data) {
 let dataText = res.data;
 const match = dataText.match(/```json\s*([\s\S]*?)\s*```/);
