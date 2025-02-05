@@ -22,7 +22,7 @@ const handler = async (m, { conn, args }) => {
     } catch (error) {
         console.error('Error al generar la imagen:', error);
         await m.react('❌')
-        await conn.reply(m.chat, '❌ No se pudo generar la imagen, intenta nuevamente mas tarde.', m);
+        await conn.reply(m.chat, '❌ No se pudo generar la imagen, intenta nuevamente mas tarde.\n\n' + error, m);
     }
 };
 
