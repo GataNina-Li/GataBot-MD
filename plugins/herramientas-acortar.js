@@ -4,7 +4,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     try {
         let json = await axios.get(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(text)}`)
         if (!json.data) throw json
-        let hasil = `${smsAcorta(text)}\n*${json.data}*`.trim()
+        let hasil = `${mid.smsAcorta2(text)}\n*${json.data}*`.trim()
         m.reply(hasil)
     } catch (e) {
         await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
