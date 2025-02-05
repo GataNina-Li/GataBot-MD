@@ -2,7 +2,7 @@
 //Puedes editar el país,enlaces, los números se editan desde el config.js
 import fetch from 'node-fetch';
 
-let handler = async (m, { conn, usedPrefix, text, args, command }) => {
+let handler = async (m, { conn, usedPrefix, text = '', args, command }) => {
 try {
 let contact, number, ofc, nombre, description, correo, lugar, enlace, biog;
 let pp = gataImg;
@@ -37,8 +37,7 @@ await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() 
 await m.reply(e);
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`);
 console.log(e);
-}
-};
+}};
 
 handler.help = ['owner', 'creator'];
 handler.tags = ['info'];
