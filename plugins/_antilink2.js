@@ -6,8 +6,6 @@ handler.before = async function (m, { isAdmin, isBotAdmin, isOwner, isROwner, pa
 if (!m.isGroup) return 
 if (isAdmin || isOwner || m.fromMe || isROwner || !isBotAdmin) return
 
-//if (!isAdmin || !isOwner || !isROwner || m.fromMe || !isBotAdmin) return
-
 let chat = global.db.data.chats[m.chat]
 let delet = m.key.participant
 let bang = m.key.id
