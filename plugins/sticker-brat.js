@@ -1,13 +1,17 @@
 import { sticker } from '../lib/sticker.js'
 
 let handler = async (m, { conn, text, command }) => {
-    let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
-    let apiUrl = command === 'brat' ? global.API('caliphdev', '/api/brat', { text: teks }) : global.API('caliphdev', '/api/brat/animate', { text: teks })
-    let stiker = await sticker(null, apiUrl, global.packname, global.author)
-    if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
-    throw stiker.toString()
+    let stiker = await sticker(null,
+        global.API('caliphdev', `/api/brat${command.toLowerCase().includes('animate') ? '/animate' : ''}`, {
+            text: text
+        }),
+        global.packname,
+        global.author
+    )
+    conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
 }
-handler.help = ['brat <teks>', 'brat animate <teks>']
+
+handler.help = ['brat <texto>', 'bratanimate <texto>']
 handler.tags = ['sticker']
 handler.command = /^brat(animate)?$/i
 export default handler
