@@ -9,5 +9,5 @@ let handler = async (m, { conn, text, command }) => {
 }
 handler.help = ['brat <teks>', 'brat animate <teks>']
 handler.tags = ['sticker']
-handler.command = /^brat( animate)?$/i
+handler.command = /^brat(animate)?$/i
 export default handler
