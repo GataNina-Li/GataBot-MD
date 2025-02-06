@@ -84,7 +84,7 @@ global.baileys = "@whiskeysockets/baileys"
 global.apis = 'https://delirius-apiofc.vercel.app'
 
 global.APIs = { 
-caliphdev: 'https://brat.caliphdev.com/',
+caliphdev: 'https://brat.caliphdev.com',
 xteam: 'https://api.xteam.xyz',
 dzx: 'https://api.dhamzxploit.my.id',
 lol: 'https://api.lolhuman.xyz',
