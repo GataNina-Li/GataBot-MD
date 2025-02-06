@@ -39,8 +39,8 @@ if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mTiktok} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-if (remove[0].status === '404') return
+//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//if (remove[0].status === '404') return
 }}
     
 if (chat.antiYoutube && isAntiLinkYt) {
@@ -48,8 +48,8 @@ if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mYoutube} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-if (remove[0].status === '404') return
+//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//if (remove[0].status === '404') return
 }}
     
 if (chat.antiTelegram && isAntiLinkTel) {
@@ -57,8 +57,8 @@ if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mTelegram} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-if (remove[0].status === '404') return
+//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//if (remove[0].status === '404') return
 }}
     
 if (chat.antiFacebook && isAntiLinkFb) {
@@ -66,8 +66,8 @@ if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mFacebook} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-if (remove[0].status === '404') return 
+//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//if (remove[0].status === '404') return 
 }}
     
 if (chat.antiInstagram && isAntiLinkIg) {
@@ -75,8 +75,8 @@ if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mInstagram} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-if (remove[0].status === '404') return 
+//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//if (remove[0].status === '404') return 
 }}
     
 if (chat.antiTwitter && isAntiLinkTw) {
@@ -84,8 +84,8 @@ if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mX} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-if (remove[0].status === '404') return
+//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//if (remove[0].status === '404') return
 }}
 
 if (chat.antiDiscord && isAntiLinkDc) {
@@ -93,8 +93,8 @@ if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mDiscord} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-if (remove[0].status === '404') return
+//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//if (remove[0].status === '404') return
 }}
 
 if (chat.antiThreads && isAntiLinkTh) {
@@ -102,8 +102,8 @@ if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mThreads} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-if (remove[0].status === '404') return
+//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//if (remove[0].status === '404') return
 }}
 
 if (chat.antiTwitch && isAntiLinkTch) {
@@ -111,8 +111,8 @@ if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.
 if (isBotAdmin) {
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mTwitch} *@${toUser}*`, null, { mentions: [aa] })
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-if (remove[0].status === '404') return
+//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//if (remove[0].status === '404') return
 }}
 
 return !0
