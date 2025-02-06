@@ -8,5 +8,5 @@ let handler = async (m, { conn, text }) => {
 }
 handler.help = ['brat <teks>']
 handler.tags = ['sticker']
-handler.command = /^brat6$/i
+handler.command = /^brat$/i
 export default handler
