@@ -45,22 +45,22 @@ global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse()
 global.prefix = new RegExp('^[' + (opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@').replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']')
 
 //news
-const databasePath = path.join(__dirname, 'database');
-if (!fs.existsSync(databasePath)) fs.mkdirSync(databasePath);
+const databasePath = path.join(__dirname, 'database')
+if (!fs.existsSync(databasePath)) fs.mkdirSync(databasePath)
 
-const usersPath = path.join(databasePath, 'users');
-const chatsPath = path.join(databasePath, 'chats');
-const settingsPath = path.join(databasePath, 'settings');
-const msgsPath = path.join(databasePath, 'msgs');
-const stickerPath = path.join(databasePath, 'sticker');
-const statsPath = path.join(databasePath, 'stats');
+const usersPath = path.join(databasePath, 'users')
+const chatsPath = path.join(databasePath, 'chats')
+const settingsPath = path.join(databasePath, 'settings')
+const msgsPath = path.join(databasePath, 'msgs')
+const stickerPath = path.join(databasePath, 'sticker')
+const statsPath = path.join(databasePath, 'stats')
 
 [usersPath, chatsPath, settingsPath, msgsPath, stickerPath, statsPath].forEach((dir) => {
-if (!fs.existsSync(dir)) fs.mkdirSync(dir);
-});
+if (!fs.existsSync(dir)) fs.mkdirSync(dir)
+})
 
 function getFilePath(basePath, id) {
-return path.join(basePath, `${id}.json`);
+return path.join(basePath, `${id}.json`)
 }
 
 global.db = {
@@ -89,21 +89,21 @@ resolve(global.db.data);
 global.db.READ = true;
 try {
 const loadFiles = async (dirPath, targetObj, ignorePatterns = []) => {
-const files = fs.readdirSync(dirPath);
+const files = fs.readdirSync(dirPath)
 for (const file of files) {
-const id = path.basename(file, '.json');
+const id = path.basename(file, '.json')
 
 if (ignorePatterns.some(pattern => id.includes(pattern))) {
 continue; 
 }
-const db = new Low(new JSONFile(getFilePath(dirPath, id)));
-await db.read();
+const db = new Low(new JSONFile(getFilePath(dirPath, id)))
+await db.read()
 db.data = db.data || {};
-targetObj[id] = { ...targetObj[id], ...db.data };
+targetObj[id] = { ...targetObj[id], ...db.data }
 }};
 
-await Promise.all([loadFiles(usersPath, global.db.data.users, ['@newsletter', 'lid']), 
-loadFiles(chatsPath, global.db.data.chats, ['@newsletter']), 
+await Promise.all([loadFiles(usersPath, global.db.data.users, ['@newsletter', 'lid', '@g.us']), 
+loadFiles(chatsPath, global.db.data.chats, ['status@broadcast']), 
 loadFiles(settingsPath, global.db.data.settings),
 loadFiles(msgsPath, global.db.data.msgs),
 loadFiles(stickerPath, global.db.data.sticker),
@@ -112,7 +112,7 @@ loadFiles(statsPath, global.db.data.stats),
 } catch (error) {
 console.error('Error loading database:', error);
 } finally {
-global.db.READ = false;
+global.db.READ = false
 }};
 
 global.db.save = async function saveDatabase() {
@@ -120,13 +120,13 @@ if (global.db.READ) {
 await new Promise((resolve) => {
 const interval = setInterval(() => {
 if (!global.db.READ) {
-clearInterval(interval);
-resolve();
-}}, 100);
+clearInterval(interval)
+resolve()
+}}, 100)
 });
 }
 
-global.db.READ = true;
+global.db.READ = true
 try {
 const saveFiles = async (dirPath, dataObj, ignorePatterns = []) => {
 for (const [id, data] of Object.entries(dataObj)) {
@@ -134,24 +134,24 @@ if (ignorePatterns.some(pattern => id.includes(pattern))) {
 continue; 
 }
 
-const db = new Low(new JSONFile(getFilePath(dirPath, id)));
-db.data = data;
-await db.write();
-}};
+const db = new Low(new JSONFile(getFilePath(dirPath, id)))
+db.data = data
+await db.write()
+}}
 
-await Promise.all([saveFiles(usersPath, global.db.data.users, ['@newsletter', 'lid']), 
-saveFiles(chatsPath, global.db.data.chats, ['@newsletter']), 
+await Promise.all([saveFiles(usersPath, global.db.data.users, ['@newsletter', 'lid', '@g.us']), 
+saveFiles(chatsPath, global.db.data.chats, ['status@broadcast']), 
 saveFiles(settingsPath, global.db.data.settings),
 saveFiles(msgsPath, global.db.data.msgs),
 saveFiles(stickerPath, global.db.data.sticker),
 saveFiles(statsPath, global.db.data.stats),
 ]);
 } catch (error) {
-console.error('Error saving database:', error);
+console.error('Error saving database:', error)
 } finally {
-global.db.READ = false;
-}};
-loadDatabase();
+global.db.READ = false
+}}
+loadDatabase()
 
 /*global.db = new Low(/https?:\/\//.test(opts['db'] || '') ? new cloudDBAdapter(opts['db']) : new JSONFile('database.json'))
 global.DATABASE = global.db; 
@@ -265,7 +265,8 @@ const filterStrings = [
 "RXJyb3I6IEJhZCBNQUM=", // "Error: Bad MAC" 
 "RGVjcnlwdGVkIG1lc3NhZ2U=" // "Decrypted message" 
 ]
-/*console.info = () => {} 
+
+console.info = () => {} 
 console.debug = () => {} 
 ['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
 const connectionOptions = {
@@ -289,9 +290,9 @@ msgRetryCounterCache, // Resolver mensajes en espera
 msgRetryCounterMap, // Determinar si se debe volver a intentar enviar un mensaje o no
 defaultQueryTimeoutMs: undefined,
 version: [2, 3000, 1015901307],
-}*/
+}
 
-console.info = () => {} 
+/*console.info = () => {} 
 const connectionOptions = {
 logger: pino({ level: "fatal" }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
@@ -303,7 +304,7 @@ keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ l
 browser: opcion == '1' ? ['GataBot-MD', 'Edge', '20.0.04'] : methodCodeQR ? ['GataBot-MD', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
 version: version,
 generateHighQualityLinkPreview: true
-};
+};*/
     
 global.conn = makeWASocket(connectionOptions)
 
