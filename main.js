@@ -53,13 +53,7 @@ const chatsPath = path.join(databasePath, 'chats')
 const settingsPath = path.join(databasePath, 'settings')
 const msgsPath = path.join(databasePath, 'msgs')
 const stickerPath = path.join(databasePath, 'sticker')
-const statsPath = path.join(databasePath, 'stats')
-console.log('usersPath:', usersPath);
-console.log('chatsPath:', chatsPath);
-console.log('settingsPath:', settingsPath);
-console.log('msgsPath:', msgsPath);
-console.log('stickerPath:', stickerPath);
-console.log('statsPath:', statsPath);
+const statsPath = path.join(databasePath, 'stats');
 
 [usersPath, chatsPath, settingsPath, msgsPath, stickerPath, statsPath].forEach((dir) => {
 if (!fs.existsSync(dir)) fs.mkdirSync(dir)
