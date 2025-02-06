@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
     let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
     let stiker = await sticker(null, `https://brat.caliphdev.com/api/brat?text=${encodeURIComponent(teks)}`, global.packname, global.author)
     if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
-    throw stiker.toString()
+    throw stiker
 }
 handler.help = ['brat <teks>']
 handler.tags = ['sticker']
