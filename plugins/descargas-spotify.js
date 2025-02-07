@@ -11,7 +11,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         let songInfo = await spotifyxv(text);
         if (!songInfo.length) throw `❌ No se encontraron resultados, intente nuevamente.`;
         let song = songInfo[0];
-        const res = await fetch(`https://apis-starlights-team.koyeb.app/starlight/spotifydl?url=${song.url}`);
+        const res = await fetch(`https://archive-ui.tanakadomp.biz.id/download/spotify?url=${song.url}`);
         
         if (!res.ok) throw `❌ Error al obtener datos de la API, código de estado: ${res.status}`;
         
@@ -20,9 +20,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             throw "❌ Error al analizar la respuesta JSON.";
         });
 
-        if (!data || !data.music) throw "No se pudo obtener el enlace de descarga.";
+        if (!data || !data.resultado || !data.resultado.datos || !data.resultado.datos.descargar) throw "No se pudo obtener el enlace de descarga.";
 
-        const info = `🪼 *Titulo:* ${data.title}\n\n🪩 *Artista:* ${data.artist}\n\n🦋 *Álbum:* ${song.album}\n\n⏳ *Duración:* ${song.duracion}\n\n🔗 *Enlace:* ${data.spotify}\n\n${wm}`;
+        const info = `🪼 *Titulo:* ${data.resultado.datos.título}\n\n🪩 *Artista:* ${data.resultado.datos.artis}\n\n🦋 *Álbum:* ${song.album}\n\n⏳ *Duración:* ${timestamp(data.resultado.datos.durasi)}\n\n🔗 *Enlace:* ${song.url}\n\n${wm}`;
 
         await conn.sendMessage(m.chat, { text: info, contextInfo: { forwardingScore: 9999999, isForwarded: true, 
         externalAdReply: {
@@ -31,12 +31,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             renderLargerThumbnail: true,
             title: 'Spotify Music',
             mediaType: 1,
-            thumbnailUrl: data.thumbnail,
-            mediaUrl: data.music,
-            sourceUrl: data.music
+            thumbnailUrl: data.resultado.datos.imagen,
+            mediaUrl: data.resultado.datos.descargar,
+            sourceUrl: data.resultado.datos.descargar
         }}}, { quoted: m });
 
-        await conn.sendMessage(m.chat, { audio: { url: data.music }, fileName: `${data.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
+        await conn.sendMessage(m.chat, { audio: { url: data.resultado.datos.descargar }, fileName: `${data.resultado.datos.título}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
         m.react('✅');
 
     } catch (e1) {
@@ -54,7 +54,7 @@ async function spotifyxv(query) {
     try {
         let response = await axios({
             method: 'get',
-            url: 'https://api.spotify.com/v1/search?q=' + encodeURIComponent(query) + '&type=track',
+            url: 'https://api.spotify.com/v1/search?q=' + query + '&type=track',
             headers: {
                 Authorization: 'Bearer ' + token,
             },
