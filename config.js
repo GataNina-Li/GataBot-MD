@@ -79,11 +79,14 @@ global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())]
 global.keysneoxrrr = ["5VC9rvNx", "cfALv5"]
 global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = "GataDiosV3"
+global.fgkeysapi = "elrebelde21"
 global.itsrose = ["4b146102c4d500809da9d1ff"]
 global.baileys = "@whiskeysockets/baileys"
 global.apis = 'https://delirius-apiofc.vercel.app'
 
 global.APIs = { 
+nrtm: 'https://fg-nrtm.ddns.net',
+fgmods: 'https://api.fgmods.xyz',
 caliphdev: 'https://brat.caliphdev.com',
 xteam: 'https://api.xteam.xyz',
 dzx: 'https://api.dhamzxploit.my.id',
@@ -93,7 +96,6 @@ neoxr: 'https://api.neoxr.my.id',
 zenzapis: 'https://api.zahwazein.xyz',
 akuari: 'https://api.akuari.my.id',
 akuari2: 'https://apimu.my.id',	
-fgmods: 'https://api.fgmods.xyz', 
 botcahx: 'https://api.botcahx.biz.id',
 ibeng: 'https://api.ibeng.tech/docs',	
 rose: 'https://api.itsrose.site',
@@ -102,6 +104,7 @@ xcoders : 'https://api-xcoders.site'
 },
    
 global.APIKeys = { 
+'https://api.fgmods.xyz': `${fgkeysapi}`,
 'https://api.xteam.xyz': `${keysxteam}`,
 'https://api.lolhuman.xyz': `${lolkeysapi}`,
 'https://api.neoxr.my.id': `${keysneoxr}`,	
