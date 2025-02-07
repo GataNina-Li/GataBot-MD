@@ -33,7 +33,7 @@ class Spotify {
           thumbnail: data.album.images.filter(({ height }) => height === 640).map(({ url }) => url)[0],
           album: data.album.name,
           date: data.album.release_date,
-          artists: data.artists.map(({ name, type, id }) => ({ name, type, id })),
+          artists: data.artists ? data.artists.map(({ name, type, id }) => ({ name, type, id })) : [],
           url: data.external_urls.spotify
         }));
         resolve(result);
