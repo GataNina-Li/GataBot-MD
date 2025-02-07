@@ -12,7 +12,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         if (!songInfo.length) throw `❌ No se encontraron resultados, intente nuevamente.`;
         let song = songInfo[0];
         const res = await fetch(`https://apis-starlights-team.koyeb.app/starlight/spotifydl?url=${song.url}`);
-        const data = await res.json();
+        
+        if (!res.ok) throw `❌ Error al obtener datos de la API, código de estado: ${res.status}`;
+        
+        const data = await res.json().catch((e) => { 
+            console.error('Error parsing JSON:', e);
+            throw "❌ Error al analizar la respuesta JSON.";
+        });
 
         if (!data || !data.music) throw "No se pudo obtener el enlace de descarga.";
 
