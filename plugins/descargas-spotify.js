@@ -20,9 +20,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             throw "❌ Error al analizar la respuesta JSON.";
         });
 
-        if (!data || !data.resultado || !data.resultado.datos || !data.resultado.datos.descargar) throw "No se pudo obtener el enlace de descarga.";
+        if (!data || !data.result || !data.result.data || !data.result.data.download) throw "No se pudo obtener el enlace de descarga.";
 
-        const info = `🪼 *Titulo:* ${data.resultado.datos.título}\n\n🪩 *Artista:* ${data.resultado.datos.artis}\n\n🦋 *Álbum:* ${song.album}\n\n⏳ *Duración:* ${timestamp(data.resultado.datos.durasi)}\n\n🔗 *Enlace:* ${song.url}\n\n${wm}`;
+        const info = `🪼 *Titulo:* ${data.result.data.title}\n\n🪩 *Artista:* ${data.result.data.artis}\n\n🦋 *Álbum:* ${song.album}\n\n⏳ *Duración:* ${timestamp(data.result.data.durasi)}\n\n🔗 *Enlace:* ${song.url}\n\n${wm}`;
 
         await conn.sendMessage(m.chat, { text: info, contextInfo: { forwardingScore: 9999999, isForwarded: true, 
         externalAdReply: {
@@ -31,12 +31,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             renderLargerThumbnail: true,
             title: 'Spotify Music',
             mediaType: 1,
-            thumbnailUrl: data.resultado.datos.imagen,
-            mediaUrl: data.resultado.datos.descargar,
-            sourceUrl: data.resultado.datos.descargar
+            thumbnailUrl: data.result.data.image,
+            mediaUrl: data.result.data.download,
+            sourceUrl: data.result.data.download
         }}}, { quoted: m });
 
-        await conn.sendMessage(m.chat, { audio: { url: data.resultado.datos.descargar }, fileName: `${data.resultado.datos.título}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
+        await conn.sendMessage(m.chat, { audio: { url: data.result.data.download }, fileName: `${data.result.data.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
         m.react('✅');
 
     } catch (e1) {
