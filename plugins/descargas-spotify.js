@@ -24,17 +24,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
         const info = `🪼 *Titulo:* ${data.result.data.title}\n🪩 *Artista:* ${data.result.data.artis}\n🦋 *Álbum:* ${song.album}\n⏳ *Duración:* ${timestamp(data.result.data.durasi)}\n🔗 *Enlace:* ${song.url}\n\n${wm}`;
 
-        await conn.sendMessage(m.chat, { text: info, contextInfo: { forwardingScore: 9999999, isForwarded: true, 
-        externalAdReply: {
-            showAdAttribution: true,
-            containsAutoReply: true,
-            renderLargerThumbnail: true,
-            title: 'Spotify Music',
-            mediaType: 1,
-            thumbnailUrl: data.result.data.image,
-            mediaUrl: data.result.data.download,
-            sourceUrl: data.result.data.download
-        }}}, { quoted: m });
+      await conn.sendFile(m.chat, data.result.data.image, 'gata.png', info, m, null, fake)
 
         await conn.sendMessage(m.chat, { audio: { url: data.result.data.download }, fileName: `${data.result.data.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
         m.react('✅');
