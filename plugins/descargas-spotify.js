@@ -11,11 +11,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         let songInfo = await spotifyxv(text);
         if (!songInfo.length) throw `❌ No se encontraron resultados, intente nuevamente.`;
         let song = songInfo[0];
+        const res = await fetch(`https://apis-starlights-team.koyeb.app/starlight/spotifydl?url=${song.url}`);
         
-        let data = await fetchFromPrimaryAPI(song.url);
-        if (!data || !data.music) {
-            data = await fetchFromSecondaryAPI(song.url);
-        }
+        if (!res.ok) throw `❌ Error al obtener datos de la API, código de estado: ${res.status}`;
+        
+        const data = await res.json().catch((e) => { 
+            console.error('Error parsing JSON:', e);
+            throw "❌ Error al analizar la respuesta JSON.";
+        });
 
         if (!data || !data.music) throw "No se pudo obtener el enlace de descarga.";
 
@@ -51,7 +54,7 @@ async function spotifyxv(query) {
     try {
         let response = await axios({
             method: 'get',
-            url: 'https://api.spotify.com/v1/search?q=' + query + '&type=track',
+            url: 'https://api.spotify.com/v1/search?q=' + encodeURIComponent(query) + '&type=track',
             headers: {
                 Authorization: 'Bearer ' + token,
             },
@@ -87,26 +90,6 @@ async function tokens() {
     } catch (error) {
         console.error(`Error en tokens: ${error}`);
         throw new Error('No se pudo obtener el token de acceso');
-    }
-}
-
-async function fetchFromPrimaryAPI(url) {
-    try {
-        const res = await fetch(`https://apis-starlights-team.koyeb.app/starlight/spotifydl?url=${url}`);
-        return await res.json();
-    } catch (e) {
-        console.error(`Error al usar la API primaria: ${e}`);
-        return null;
-    }
-}
-
-async function fetchFromSecondaryAPI(url) {
-    try {
-        const res = await fetch(`https://apis-starlights-team.koyeb.app/starlight/spotify-albums-list?url=${url}`);
-        return await res.json();
-    } catch (e) {
-        console.error(`Error al usar la API secundaria: ${e}`);
-        return null;
     }
 }
 
