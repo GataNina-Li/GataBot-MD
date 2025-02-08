@@ -27,7 +27,7 @@ externalAdReply: {
   sourceUrl: md, 
   mediaType: 1, 
   renderLargerThumbnail: false 
-}}}, { quoted: fkontak })
+}}}, { quoted: m })
 
 }
 handler.command = /^(fake10)$/i
