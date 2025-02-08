@@ -2346,7 +2346,7 @@ let header = `╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮
 ╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯\n`
 yyr1 += header; yyr2 += header; yyr3 += header; yyr4 += header
 //.replace(/[^\p{L}\p{N}]/gu, '') // Elimina caracteres que no sean letras o números
-let primeraParte = todosLosPasatiemposOrdenados.slice(0, 200)
+let primeraParte = todosLosPasatiemposOrdenados.slice(0, 100)
 let segundaParte = todosLosPasatiemposOrdenados.slice(500, 1000)
 let terceraParte = todosLosPasatiemposOrdenados.slice(1000, 1500)
 let cuartaParte = todosLosPasatiemposOrdenados.slice(1500)
