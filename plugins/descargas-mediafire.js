@@ -5,6 +5,47 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsFire}`
 m.react("📥")
 try {  
+const res = await fetch(`https://api.fgmods.xyz/api/downloader/mediafire?url=${args[0]}&apikey=${fgkeysapi}`);
+const data = await res.json();
+const fileData = data.result;
+const caption = `${eg}
+> ┃ 𓃠 *${gt} ${vs}* 
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 💫 ${mid.name}
+> ┃  ${fileData.title}
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 💪 ${mid.smsYT11}
+> ┃ ${fileData.filesize}
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 🚀 ${mid.smsYT12}
+> ┃  ${fileData.mimetype}
+`.trim();
+await conn.sendFile(m.chat, fileData.url, fileData.title, caption, m, null, {mimetype: fileData.mimetype, asDocument: true });
+m.react('✅'); 
+} catch (error) {
+try {
+const res = await fetch(`https://api.siputzx.my.id/api/d/mediafire?url=${args[0]}`);
+if (!res.ok) throw new Error(`Error en la API 1: ${res.statusText}`);
+const data = await res.json();
+if (!data.status || !data.data) return 
+const fileDataArray = data.data;
+for (const fileData of fileDataArray) {
+const caption = `${eg}
+> ┃ 𓃠 *${gt} ${vs}* 
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 💫 ${mid.name}
+> ┃ ${fileData.filename}
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 💪 ${mid.smsYT11}
+> ┃ ${fileData.size}
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 🚀 ${mid.smsYT12}
+> ┃  ${fileData.mime}`.trim(); 
+await conn.sendFile(m.chat, fileData.link, fileData.filename, caption, m, null, {mimetype: fileData.mime, asDocument: true });
+m.react('✅'); 
+}
+} catch (error) {
+try {
 const res = await fetch(`${apis}/api/mediafire?url=${args[0]}`);
 if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 const data = await res.json();
@@ -51,7 +92,7 @@ console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗
 console.log(e)
 m.react(`❌️`);
 handler.limit = false      
-}}}
+}}}}}
 handler.help = ['mediafire'].map(v => v + ' <url>')
 handler.tags = ['downloader']
 handler.command = /^(mediafire|mediafiredl|dlmediafire)$/i
