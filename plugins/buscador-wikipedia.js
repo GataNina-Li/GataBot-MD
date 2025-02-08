@@ -1,35 +1,4 @@
 import axios from 'axios';
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-if (!text) return conn.reply(m.chat, `🪼 Por favor proporciona un término de búsqueda. Ejemplo: *${usedPrefix + command} El gato con bota*`, m);
-try {
-let result = await wikiSearch(text);
-if (!result) throw `No se encontró información sobre "${text}".`;
-let info = `🪭 *Resultados de Wikipedia:* ${text}\n🪽 *Título:* ${result.title}\n🪽 *Descripción:* ${result.description}\n🪽 *Link:* ${result.link}\n\n${wm}`;       
-conn.sendMessage(m.chat, { text: info, contextInfo: { forwardingScore: 9999999, isForwarded: true, externalAdReply: { showAdAttribution: true, containsAutoReply: true, renderLargerThumbnail: true, title: 'Wikipedia', body: wm, mediaType: 1, thumbnailUrl: result.thumbnail || 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png', mediaUrl: result.link, sourceUrl: result.link }}}, { quoted: m });
-} catch (e1) {
-m.reply(`${e1.message || e1}`);
-}};
-
-handler.help = ['wikipedia'].map((v) => v + ' <apa>');
-handler.tags = ['internet'];
-handler.command = /^(wiki|wikipedia)$/i;
-handler.exp = 40
-//handler.level = 3
-handler.limit = 1
-handler.register = true
-export default handler;
-
-async function wikiSearch(query) {
-try {
-let response = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/${query}`);
-if (response.data && response.data.title && response.data.extract) { return { title: response.data.title, description: response.data.extract, link: response.data.content_urls.desktop.page, thumbnail: response.data.thumbnail ? response.data.thumbnail.source : null }; }
-return null;
-} catch (error) {
-console.error(`Error en wikiSearch: ${error}`);
-return null;
-}}
-
-/*import axios from 'axios';
 import fetch from 'node-fetch';
 import cheerio from 'cheerio';
 const handler = async (m, {conn, text, usedPrefix, command}) => {
@@ -77,4 +46,4 @@ async function wikipedia(querry) {
       Pesan: eror};
     return notFond;
   }
-}*/
+}
