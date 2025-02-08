@@ -1,6 +1,6 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 
-let text = 'Texto'
+let text_ = 'Texto'
 let titulo = 'Titulo texto'
 let canal = 'Canal'
 let id = '120363160031023229@newsletter'
@@ -8,7 +8,7 @@ let titulo_cita = 'Cita Titulo'
 let text_cita = 'Cita Texto'
 let img_cita = 'https://qu.ax/TPVV.jpg'
 
-await conn.sendMessage(m.chat, { text: text, 
+await conn.sendMessage(m.chat, { text: text_, 
 contextInfo: { 
   forwardingScore: 999, 
   isForwarded: true, 
