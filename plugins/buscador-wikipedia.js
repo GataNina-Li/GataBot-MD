@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 if (!text) return conn.reply(m.chat, `🪼 Por favor proporciona un término de búsqueda. Ejemplo: *${usedPrefix + command} El gato con bota*`, m);
 try {
