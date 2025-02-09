@@ -1543,6 +1543,7 @@ await this.updateBlockStatus(nk.from, 'block')
 export async function deleteUpdate(message) {
 try {
 const { fromMe, id, participant } = message
+console.log(message)
 if (fromMe) return 
 let msg = this.serializeM(this.loadMessage(id))
 let chat = global.db.data.chats[msg?.chat] || {}
