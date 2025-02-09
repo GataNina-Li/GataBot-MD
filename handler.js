@@ -1541,38 +1541,29 @@ await this.updateBlockStatus(nk.from, 'block')
 }}}}
 
 export async function deleteUpdate(message) {
-  try {
-const { fromMe, id, author, participant } = message;
-console.log(message)
-if (fromMe) return;
-   let msg = this.serializeM(this.loadMessage(id));
-    if (!msg) return;
-    
-    let chat = global.db.data.chats[msg.chat] || {};
-    if (!chat?.delete) return;
-    if (!msg?.isGroup) return;
-    const groupMetadata = await this.groupMetadata(msg.chat);
-    if (groupMetadata) {
-      const adminList = groupMetadata.participants
-        .filter(p => p.admin)
-        .map(p => p.id);
-      if (adminList.includes(participant)) {
-        return;
-      }
-    }
-
-    const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n@${participant.split('@')[0]} eliminó un mensaje\nReenviando el mensaje...\n\n*Para desactivar esta función escriba:*\n#disable delete\n\n[ANTI_DELETE]`;
-    await this.sendMessage(
-      msg.chat,
-      { text: antideleteMessage, mentions: [participant] },
-      { quoted: msg }
-    );
-    
-    this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg));
-  } catch (e) {
-    console.error(e);
-  }
-}
+try {
+const { fromMe, id, participant } = message
+if (fromMe) return
+let msg = this.serializeM(this.loadMessage(id))
+if (!msg) return
+let chat = global.db.data.chats[msg.chat] || {}
+if (!chat?.delete) return
+const isGroup = msg.chat.endsWith('@g.us')
+let botIsAdmin = false
+if (isGroup) {
+const groupMetadata = await this.groupMetadata(msg.chat)
+const botNumber = this.user?.jid || ''
+if (groupMetadata) {
+const adminList = groupMetadata.participants.filter(p => p.admin).map(p => p.id)
+botIsAdmin = adminList.includes(botNumber)
+if (!botIsAdmin) return
+}}
+const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n@${participant.split('@')[0]} eliminó un mensaje\nReenviando el mensaje...\n\n*Para desactivar esta función escriba:*\n#disable delete\n\n[ANTI_DELETE]`   
+await this.sendMessage(msg.chat, { text: antideleteMessage, mentions: [participant] }, { quoted: msg })
+await this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg));
+} catch (e) {
+console.error('Error  deleteUpdate: ', e)
+}}
 
 /*export async function deleteUpdate(message) {
 try {
