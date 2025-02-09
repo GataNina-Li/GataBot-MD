@@ -1542,32 +1542,46 @@ await this.updateBlockStatus(nk.from, 'block')
 
 export async function deleteUpdate(message) {
   try {
-    const { fromMe, id, participant, messageStubParameters } = message;
-    const deleter = messageStubParameters?.[0] || participant;
-    console.log(message);
+    const {
+      fromMe,
+      id,
+      participant,
+      messageStubParameters,
+      messageStubType,
+      sender
+    } = message;
 
-    if (fromMe || deleter === this.user.jid) return;
+    const deleter = (messageStubParameters && messageStubParameters[0])
+      ? messageStubParameters[0]
+      : participant;
+
+console.log(message);
+
+    if (fromMe || sender === this.user.jid || deleter === this.user.jid) {
+      console.log("Eliminación realizada por el bot, no se reenvía.");
+      return;
+    }
+
     let msg = this.serializeM(this.loadMessage(id));
     if (!msg) return;
-    let chat = global.db.data.chats[msg?.chat] || {};
-    if (!chat?.delete) return;
-    if (!msg?.isGroup) return;
-    
-    console.log(msg.key.participant + msg.key.remoteJid)
-const originalSender = msg.key?.participant || msg.key?.remoteJid;
-
+    let chat = global.db.data.chats[msg.chat] || {};
+    if (!chat.delete) return;
+    if (!msg.isGroup) return;
+    const originalSender = msg.key?.participant || msg.key?.remoteJid;
     let deleterInfo = (deleter !== originalSender)
       ? `El mensaje de @${originalSender.split('@')[0]} fue eliminado por admin @${deleter.split('@')[0]}`
       : `@${deleter.split('@')[0]} eliminó su mensaje`;
-      
-const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n${deleterInfo}\nEnviando el mensaje...\n\n*Para desactivar esta función escriba:*\n#disable delete`;
-   
-await this.sendMessage(msg.chat, { text: antideleteMessage, mentions: [this.user.jid] }, { quoted: msg });
-this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg));
+
+    const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n${deleterInfo}\nEnviando el mensaje...\n\n*Para desactivar esta función escriba:*\n#disable delete`;
+    await this.sendMessage(msg.chat, { text: antideleteMessage, mentions: [sender, deleter, originalSender] }, { quoted: msg });
+    
+    this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg));
+
   } catch (e) {
     console.error(e);
   }
 }
+
 
 /*export async function deleteUpdate(message) {
 try {
