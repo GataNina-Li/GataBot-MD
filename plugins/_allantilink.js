@@ -15,8 +15,6 @@ handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwn
 if (!m.isGroup) return 
 //if (isAdmin || isOwner || m.fromMe || isROwner || !isBotAdmin) return
 
-//if (!isAdmin || !isOwner || !isROwner || m.fromMe || !isBotAdmin) return
-
 let chat = global.db.data.chats[m.chat]
 let bot = global.db.data.settings[this.user.jid] || {}
 let delet = m.key.participant
