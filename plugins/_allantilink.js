@@ -13,7 +13,7 @@ const isLinkTch = /twitch.tv/i
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
 if (!m.isGroup) return 
-if (isAdmin || isOwner || m.fromMe || isROwner || !isBotAdmin) return
+//if (isAdmin || isOwner || m.fromMe || isROwner || !isBotAdmin) return
 
 //if (!isAdmin || !isOwner || !isROwner || m.fromMe || !isBotAdmin) return
 
@@ -85,7 +85,6 @@ if (isBotAdmin) {
 let wasDeleteActive = chat.delete; 
 chat.delete = false; 
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mX} *@${toUser}*`, null, { mentions: [aa] });
-
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }});
 //let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
  //if (remove[0].status === '404') return;
