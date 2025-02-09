@@ -1542,27 +1542,38 @@ await this.updateBlockStatus(nk.from, 'block')
 
 export async function deleteUpdate(message) {
     try {
-const { id, participant, fromMe } = message;
-const botJid = this.user.jid;
+        const { id, participant, fromMe } = message;
+        const botJid = this.user.jid;
 console.log(message)
 
-if (fromMe || participant === botJid) return;
+        if (fromMe || participant === botJid) return;
 
-const msg = this.serializeM(this.loadMessage(id));
-const chat = global.db.data.chats[msg?.chat] || {};
+        const msg = this.serializeM(this.loadMessage(id));
+        const chat = global.db.data.chats[msg?.chat] || {};
 
         if (!chat?.delete || !msg || !msg?.isGroup) return;
-        const originalAuthor = msg?.key?.fromMe ? botJid : msg.sender || msg.author;
+
+        const originalAuthor = msg?.key?.fromMe 
+            ? botJid 
+            : msg.key.participant || msg.sender || msg.author;
+
         const deletedBy = participant.split('@')[0];
-        const originalUser = originalAuthor.split('@')[0];
+        const originalUser = originalAuthor?.split('@')[0] || "";
 
         if (originalAuthor === participant) {
-            const selfDeleteMsg = `*[ AUTO ELIMINACIÓN ]*\n\n@${deletedBy} eliminó su propio mensaje.\n\n*Contenido:*\n${msg.text || "(multimedia)"}`;
-            await this.sendMessage(msg.chat, { text: selfDeleteMsg, mentions: [participant] }, { quoted: msg });          
+            const selfDeleteMsg = `*[ AUTO ELIMINACIÓN ]*\n@${deletedBy} eliminó su propio mensaje.\n\n*Contenido:*\n${msg.text || "(multimedia)"}`;
+            await this.sendMessage(msg.chat, { text: selfDeleteMsg, mentions: [participant] }, { quoted: msg });
+            return;
         }
+        
+const groupMetadata = await this.groupMetadata(msg.chat);
+    return groupMetadata.participants.some(p => p.id === msg.sender && p.admin);
+    
+        const isAdmin = await this.isAdmin(msg.chat, participant); 
+        const adminTag = isAdmin ? " (admin)" : "";
 
         const content = msg.text || "(archivo multimedia)";
-        const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n@${deletedBy} (admin) eliminó un mensaje de @${originalUser}\n\n*Contenido original:*\n${content}\n\n_Para desactivar: #disable delete_`;
+        const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n@${deletedBy}${adminTag} eliminó un mensaje de @${originalUser}\n\n*Contenido original:*\n${content}\n\n_Para desactivar: #disable delete_`;
 
         await this.sendMessage(
             msg.chat,
