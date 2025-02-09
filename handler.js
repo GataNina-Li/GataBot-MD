@@ -1541,9 +1541,11 @@ await this.updateBlockStatus(nk.from, 'block')
 }}}}
 
 export async function deleteUpdate(message) {
-  try {
-    const { fromMe, id, participant } = message;
-    if (fromMe || participant === this.user.jid) return;
+try {
+const { sender, fromMe, id, participant } = message;
+this.reply(m.chat, message, null)
+
+if (fromMe || participant === this.user.jid) return;
     let msg = this.serializeM(this.loadMessage(id));
     if (!msg) return;
     let chat = global.db.data.chats[msg?.chat] || {};
@@ -1556,7 +1558,7 @@ export async function deleteUpdate(message) {
     } else {
       deleterInfo = `@${participant.split('@')[0]} eliminó su mensaje`;
     }
-    
+        
     const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n${deleterInfo}\nEnviando el mensaje...\n\n*Para desactivar esta función escriba:*\n#disable delete`;
     await this.sendMessage(msg.chat, { text: antideleteMessage, mentions: [participant, originalSender] }, { quoted: msg });
     this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg));
