@@ -1542,14 +1542,16 @@ await this.updateBlockStatus(nk.from, 'block')
 
 export async function deleteUpdate(message) {
 try {
-const { fromMe, id, participant } = message
+const { fromMe, id, participant, remoteJid } = message
 if (fromMe) return 
 let msg = this.serializeM(this.loadMessage(id))
 console.log(msg)
 let chat = global.db.data.chats[msg?.chat] || {}
 if (!chat?.delete) return 
 if (!msg) return 
-if (!msg?.isGroup) return 
+let isGroup = remoteJid.endsWith('@g.us')
+let isPrivate = !isGroup && remoteJid.endsWith('@s.whatsapp.net')
+if (!isGroup && !isPrivate) return
 const antideleteMessage = `*╭━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━ 𓃠*
 ${lenguajeGB['smsCont20']()} @${participant.split`@`[0]}
 ${lenguajeGB['smsCont21']()}
