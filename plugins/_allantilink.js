@@ -13,7 +13,9 @@ const isLinkTch = /twitch.tv/i
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
 if (!m.isGroup) return 
-//if (isAdmin || isOwner || m.fromMe || isROwner || !isBotAdmin) return
+if (isAdmin || isOwner || m.fromMe || isROwner || !isBotAdmin) return
+
+//if (!isAdmin || !isOwner || !isROwner || m.fromMe || !isBotAdmin) return
 
 let chat = global.db.data.chats[m.chat]
 let bot = global.db.data.settings[this.user.jid] || {}
@@ -80,10 +82,14 @@ await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id:
 if (chat.antiTwitter && isAntiLinkTw) {
 //if (chat.delete) return conn.sendMessage(m.chat, { text: mid.mAdvertencia + mid.mAntiDelete }, { quoted: m })  
 if (isBotAdmin) {
-await conn.reply(m.chat, `${mid.mAdvertencia + mid.mX} *@${toUser}*`, null, { mentions: [aa] })
-await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-//if (remove[0].status === '404') return
+let wasDeleteActive = chat.delete; 
+chat.delete = false; 
+await conn.reply(m.chat, `${mid.mAdvertencia + mid.mX} *@${toUser}*`, null, { mentions: [aa] });
+
+await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }});
+//let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
+ //if (remove[0].status === '404') return;
+chat.delete = wasDeleteActive;
 }}
 
 if (chat.antiDiscord && isAntiLinkDc) {
