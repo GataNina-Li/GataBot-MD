@@ -85,9 +85,11 @@ if (isBotAdmin) {
 let wasDeleteActive = chat.delete; 
 chat.delete = false; 
 await conn.reply(m.chat, `${mid.mAdvertencia + mid.mX} *@${toUser}*`, null, { mentions: [aa] });
+await new Promise(resolve => setTimeout(resolve, 100)); 
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }});
 //let remove = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
- //if (remove[0].status === '404') return;
+//if (remove[0].status === '404') return;
+await new Promise(resolve => setTimeout(resolve, 100)); 
 chat.delete = wasDeleteActive;
 }}
 
