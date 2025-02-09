@@ -1541,9 +1541,33 @@ await this.updateBlockStatus(nk.from, 'block')
 }}}}
 
 export async function deleteUpdate(message) {
+  try {
+    const { fromMe, id, participant } = message;
+    if (fromMe || participant === this.user.jid) return;
+    let msg = this.serializeM(this.loadMessage(id));
+    if (!msg) return;
+    let chat = global.db.data.chats[msg?.chat] || {};
+    if (!chat?.delete) return;
+    if (!msg?.isGroup) return;
+    const originalSender = msg.key?.participant || msg.key?.remoteJid;
+    let deleterInfo = "";
+    if (participant !== originalSender) {
+      deleterInfo = `El mensaje de @${originalSender.split('@')[0]} fue eliminado por admin @${participant.split('@')[0]}`;
+    } else {
+      deleterInfo = `@${participant.split('@')[0]} eliminó su mensaje`;
+    }
+    
+    const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n${deleterInfo}\nEnviando el mensaje...\n\n*Para desactivar esta función escriba:*\n#disable delete`;
+    await this.sendMessage(msg.chat, { text: antideleteMessage, mentions: [participant, originalSender] }, { quoted: msg });
+    this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+/*export async function deleteUpdate(message) {
 try {
 const { fromMe, id, participant } = message
-console.log(message)
 if (fromMe) return 
 let msg = this.serializeM(this.loadMessage(id))
 let chat = global.db.data.chats[msg?.chat] || {}
@@ -1558,7 +1582,7 @@ await this.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participan
 this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 } catch (e) {
 console.error(e)
-}}
+}}*/
 
 global.dfail = (type, m, conn) => {
 let msg = {
