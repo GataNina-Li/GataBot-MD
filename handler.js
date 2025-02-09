@@ -1541,29 +1541,29 @@ await this.updateBlockStatus(nk.from, 'block')
 }}}}
 
 export async function deleteUpdate(message) {
-try {
-const { fromMe, id, participant } = message
-if (fromMe) return
-let msg = this.serializeM(this.loadMessage(id))
-if (!msg) return
-let chat = global.db.data.chats[msg.chat] || {}
-if (!chat?.delete) return
-const isGroup = msg.chat.endsWith('@g.us')
-let botIsAdmin = false
-if (isGroup) {
-const groupMetadata = await this.groupMetadata(msg.chat)
-const botNumber = this.user?.jid || ''
-if (groupMetadata) {
-const adminList = groupMetadata.participants.filter(p => p.admin).map(p => p.id)
-botIsAdmin = adminList.includes(botNumber)
-if (!botIsAdmin) return
-}}
-const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n@${participant.split('@')[0]} eliminó un mensaje\nReenviando el mensaje...\n\n*Para desactivar esta función escriba:*\n#disable delete\n\n[ANTI_DELETE]`   
-await this.sendMessage(msg.chat, { text: antideleteMessage, mentions: [participant] }, { quoted: msg })
-await this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg));
-} catch (e) {
-console.error('Error  deleteUpdate: ', e)
-}}
+    try {
+const { fromMe, id, participant, author } = message;
+console.log(message)
+const botJid = this.user.jid; // JID del bot
+
+if (fromMe || participant === botJid) return;
+
+        const msg = this.serializeM(this.loadMessage(id));
+        const chat = global.db.data.chats[msg?.chat] || {};
+
+   if (!chat?.delete || !msg || !msg?.isGroup) return;
+const originalAuthor = msg.author || msg.sender || author;
+const deletedBy = participant.split('@')[0]; 
+
+        const antideleteMessage = `*[ ANTI ELIMINAR ]*\n\n@${deletedBy} eliminó un mensaje de @${originalAuthor.split('@')[0]}\n\n*Contenido original:*\n${msg.text || "(archivo multimedia)"}\n\n_Para desactivar: #disable delete_`;
+
+await this.sendMessage(msg.chat, { text: antideleteMessage, mentions: [participant, originalAuthor] }, { quoted: msg });
+this.copyNForward(msg.chat, msg).catch(e => console.log(e));
+
+    } catch (e) {
+        console.error(e);
+    }
+}
 
 /*export async function deleteUpdate(message) {
 try {
