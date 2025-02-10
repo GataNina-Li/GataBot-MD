@@ -1453,7 +1453,7 @@ text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'We
 			    
 if (chat.antifake && isBotAdminNn && action === 'add') {
 const prefijosPredeterminados = [2, 4, 6, 7, 8, 9] // Puedes personalizar los prefijos de los usuarios que deseas eliminar, especificando los que deben ser bloqueados si el número empieza con alguno de ellos.
-let prefijos = Array.isArray(chat.sCondition) && chat.sCondition.length > 0 ? chat.sCondition : prefijosPredeterminados
+let prefijos = (Array.isArray(chat.sCondition) && chat.sCondition.length > 0) || chat.sCondition !== "" ? chat.sCondition : prefijosPredeterminados
 const comienzaConPrefijo = prefijos.some(prefijo => user.startsWith(`+${prefijo}`))
 if (comienzaConPrefijo) {
 let texto = mid.mAdvertencia + mid.mFake2(user)
