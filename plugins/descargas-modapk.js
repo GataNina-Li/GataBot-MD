@@ -23,7 +23,8 @@ if (data5.size.includes('GB') || data5.size.replace(' MB', '') > 999) {
 return await conn.sendMessage(m.chat, {text: mid.smsApk4}, {quoted: m})}
 await conn.sendMessage(m.chat, {document: {url: data5.dllink}, mimetype: 'application/vnd.android.package-archive', fileName: data5.name + '.apk', caption: null}, {quoted: m}); 
 } catch (e) {
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
+conn.sendButton(m.chat, `Ocurrió un error temporal, toque el botón reintentar...`, wm, null, [['Reintentar', `.apk2 ${text}`]], null, null, m)
+//await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 handler.limit = false
