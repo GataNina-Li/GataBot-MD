@@ -2,42 +2,46 @@ const comandos = /piedra|papel|tijera|estado|verificar|code|jadibot --code|--cod
 
 export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
 let prefixRegex = new RegExp('^[' + (opts['prefix'] || '‎z/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.,\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
+let chat = global.db.data.chats[m.chat]
+let user = global.db.data.users[m.sender] || {};
 let setting = global.db.data.settings[this.user.jid]
 const settingsREAD = global.db.data.settings[this.user.jid] || {}
 
-//Autoread 
-if (m.text && prefixRegex.test(m.text)) {
-await conn.readMessages([m.key])        
-//conn.sendPresenceUpdate('composing', m.chat)
-let usedPrefix = m.text.match(prefixRegex)[0]
-let command = m.text.slice(usedPrefix.length).trim().split(' ')[0]
-}
-
-//contandor de mensaje
+//contando de mensaje 
 if (!global.db.data.users[m.sender]) global.db.data.users[m.sender] = {};
 if (!global.db.data.users[m.sender].mensaje) global.db.data.users[m.sender].mensaje = {};
 if (!global.db.data.users[m.sender].mensaje[m.chat]) global.db.data.users[m.sender].mensaje[m.chat] = 0;
 global.db.data.users[m.sender].mensaje[m.chat]++;
 
-//antiPrivate 
-if (m.fromMe) return !0
+if (m.fromMe) return
 if (m.isGroup) return !1
-if (!m.message) return !0
+if (!m.message) return !0 
 if (m.chat === "120363336642332098@newsletter") return; 
 const regexWithPrefix = new RegExp(`^${prefix.source}\\s?${comandos.source}`, 'i')
 if (regexWithPrefix.test(m.text.toLowerCase().trim())) return !0
+if (!user.warnPv) user.warnPv = false;
 
-let chat, user, bot, mensaje
-chat = global.db.data.chats[m.chat]
-user = global.db.data.users[m.sender]
-bot = global.db.data.settings[this.user.jid] || {}
+//antipv
+if (setting.antiPrivate && !isOwner && !isROwner) {
+if (user.warnPv) {
+console.log(`[ANTIPRIVATE]`);
+throw !0; 
+}
 
-if (bot.antiPrivate && !isOwner && !isROwner) {
+if (!user.warnPv) {
 await conn.sendPresenceUpdate('composing', m.chat)
 await conn.readMessages([m.key])
 await conn.reply(m.chat, mid.mAdvertencia + mid.smsprivado(m, cuentas), m, { mentions: [m.sender] })  
-await conn.updateBlockStatus(m.chat, 'block')
-//await this.updateBlockStatus(m.sender, 'block')
+user.warnPv = true;
+throw !0; 
+}}
+
+//autoread
+if (m.text && prefixRegex.test(m.text)) {
+//this.sendPresenceUpdate('composing', m.chat)
+this.readMessages([m.key])
+        
+let usedPrefix = m.text.match(prefixRegex)[0]
+let command = m.text.slice(usedPrefix.length).trim().split(' ')[0]
 }
-return !1
 }
