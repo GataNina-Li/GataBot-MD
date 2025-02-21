@@ -102,6 +102,7 @@ if (!isNumber(user.reporte)) user.reporte = 0
 if (!('role' in user)) user.role = '*NOVATO(A)* 🪤'
 if (!isNumber(user.agility)) user.agility = 0
 if (!isNumber(user.anakanjing)) user.anakanjing = 0
+if (!user.warnPv) user.warnPv = false
 if (!isNumber(user.mesagge)) user.anakanjing = 0
 if (!isNumber(user.anakcentaur)) user.anakcentaur = 0
 if (!isNumber(user.anakgriffin)) user.anakgriffin = 0
@@ -535,6 +536,7 @@ anakcentaur: 0,
 anakgriffin: 0,
 anakkucing: 0,
 anakkuda: 0,
+warnPv: false,
 anakkyubi: 0,
 anaknaga: 0,
 anakpancingan: 0,
