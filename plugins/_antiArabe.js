@@ -14,7 +14,7 @@ const allowedCommands = ['piedra', 'papel', 'tijera', 'menu', 'estado', 'bots', 
 if (allowedCommands.some(cmd => text.includes(cmd))) {
 if (user.banned && m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA') ||  m.text.includes('code') ||  m.text.includes('menu') || m.text.includes('estado') || m.text.includes('bots') ||  m.text.includes('serbot') || m.text.includes('jadibot')) {
 user.banned = false;
-await conn.reply(m.chat, `✅ @${m.sender.split`@`[0]} ha sido desbaneado.\nAhora puedes usar los comandos permitidos.`, m, { mentions: [m.sender] });
+//await conn.reply(m.chat, `✅ @${m.sender.split`@`[0]} ha sido desbaneado.\nAhora puedes usar los comandos permitidos.`, m, { mentions: [m.sender] });
 }
 return !0; 
 }
