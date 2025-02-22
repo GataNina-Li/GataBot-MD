@@ -33,7 +33,7 @@ conn.sendMessage(m.chat, {
      text: text_,
      footer: titulo_cita,
      buttons: [ 
-         { buttonId: 🚀,
+         { buttonId: '🚀',
           buttonText: {
               displayText: '🗿'
           }, type: 1 }
