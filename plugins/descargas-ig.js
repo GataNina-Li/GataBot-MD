@@ -1,8 +1,8 @@
 import fetch from 'node-fetch';
 import axios from 'axios';
-import instagramGetUrl from 'instagram-url-direct';
-import {instagram} from '@xct007/frieren-scraper';
-import {instagramdl} from '@bochilteam/scraper';
+//import instagramGetUrl from 'instagram-url-direct';
+//import {instagram} from '@xct007/frieren-scraper';
+//import {instagramdl} from '@bochilteam/scraper';
 const handler = async (m, {conn, args, command, usedPrefix}) => {
 if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsInsta}\n*${usedPrefix + command} https://www.instagram.com/p/CCoI4DQBGVQ/?igshid=YmMyMTA2M2Y=*`
 const { key } = await conn.sendMessage(m.chat, {text: wait}, {quoted: fkontak});
@@ -10,6 +10,19 @@ const { key } = await conn.sendMessage(m.chat, {text: wait}, {quoted: fkontak});
 await conn.sendMessage(m.chat, {text: waitt, edit: key});
 await conn.sendMessage(m.chat, {text: waittt, edit: key});
 await conn.sendMessage(m.chat, {text: waitttt, edit: key});
+try {
+const res = await fetch(`https://api.siputzx.my.id/api/d/igdl?url=${args}`);
+const data = await res.json();
+const fileType = data.data[0].url.includes('.webp') ? 'image' : 'video'; 
+const downloadUrl = data.data[0].url;
+if (fileType === 'image') {
+await conn.sendFile(m.chat, downloadUrl, 'ig.jpg', `${wm}`, m, null, fake);
+await conn.sendMessage(m.chat, {text: waittttt, edit: key})
+} else if (fileType === 'video') {
+await conn.sendFile(m.chat, downloadUrl, 'ig.mp4', `${wm}`, m, null, fake);
+await conn.sendMessage(m.chat, {text: waittttt, edit: key})
+}
+} catch {   
 try {
 const apiUrl = `${apis}/download/instagram?url=${encodeURIComponent(args[0])}`;
 const apiResponse = await fetch(apiUrl);
@@ -73,7 +86,7 @@ await conn.sendMessage(m.chat, {text: waittttt, edit: key})
 conn.sendMessage(m.chat, {text: `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, edit: key});
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
-}}}}}}}
+}}}}}}}}
 handler.help = ['instagram <link ig>']
 handler.tags = ['downloader']
 handler.command =/^(instagram|ig(dl)?)$/i

@@ -1,8 +1,8 @@
 import fg from 'api-dylux';
 import fetch from 'node-fetch';
-import {savefrom, facebookdl, facebookdlv2} from '@bochilteam/scraper';
-import fbDownloader from 'fb-downloader-scrapper';
-import {facebook} from '@xct007/frieren-scraper';
+//import {savefrom, facebookdl, facebookdlv2} from '@bochilteam/scraper';
+//import fbDownloader from 'fb-downloader-scrapper';
+//import {facebook} from '@xct007/frieren-scraper';
 import axios from 'axios';
 const handler = async (m, {conn, args, command, usedPrefix}) => {
 let user = global.db.data.users[m.sender]
@@ -10,6 +10,30 @@ if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙄𝙉�
 if (!args[0].match(/www.facebook.com|fb.watch/g)) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙐𝙉 𝙀𝙉𝙇𝘼𝘾𝙀 𝘿𝙀 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆 𝙋𝘼𝙍𝘼 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙍 𝙀𝙇 𝙑𝙄𝘿𝙀𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} https://www.facebook.com/watch?v=636541475139*\n\n𝙀𝙉𝙏𝙀𝙍 𝘼 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆 𝙇𝙄𝙉𝙆 𝙏𝙊 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿 𝙏𝙃𝙀 𝙑𝙄𝘿𝙀𝙊\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} https://fb.watch/dcXq_0CaHi/*`, fkontak, m)
 let contenido = `✅ 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆\n${wm}`
 await m.react('⏱️')
+try {
+const api = await fetch(`https://api.agatz.xyz/api/facebook?url=${args}`);
+const data = await api.json();
+const videoUrl = data.data.hd || data.data.sd; 
+const imageUrl = data.data.thumbnail; 
+if (videoUrl && videoUrl.endsWith('.mp4')) {
+await conn.sendFile(m.chat, videoUrl, 'video.mp4', `${gt}`, m, null, fake);
+m.react('✅');
+} else if (imageUrl && (imageUrl.endsWith('.jpg') || imageUrl.endsWith('.png'))) {
+await conn.sendFile(m.chat, imageUrl, 'thumbnail.jpg', `${gt}`, m, null, fake);
+m.react('✅');
+}} catch {   
+try {
+const api = await fetch(`https://api.alyachan.dev/api/fb?url=${args}&apikey=Gata-Dios`);
+const data = await api.json();
+const downloadUrl = data.data[0].url;
+if (downloadUrl.endsWith('.jpg') || downloadUrl.endsWith('.png')) {
+await conn.sendFile(m.chat, downloadUrl, 'ig.jpg', `${gt}`, m, null, fake);
+m.react('✅');
+} else if (downloadUrl.endsWith('.mp4')) {
+await conn.sendFile(m.chat, downloadUrl, 'ig.mp4', `${gt}`, m, null, fake);
+m.react('✅');
+}
+} catch {   
 try {
 const apiUrl = `https://api.dorratz.com/fbvideo?url=${encodeURIComponent(args[0])}`;
 const response = await fetch(apiUrl);
@@ -61,7 +85,7 @@ for (const {url, isVideo} of result.reverse()) await conn.sendFile(m.chat, url, 
 m.react(`✅`)                 
 } catch (e) {   
 console.log(e) 
-}}}}}}}}
+}}}}}}}}}}
 handler.command = /^(facebook|fb|facebookdl|fbdl|facebook1|fb1|facebookdl1|fbdl1|facebook2|fb2|facebookdl2|fbdl2)$/i
 handler.limit = 3
 export default handler

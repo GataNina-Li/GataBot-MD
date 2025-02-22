@@ -2,6 +2,23 @@
 import axios from 'axios'
 let handler = async(m, { conn, text, usedPrefix, command }) => {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsMalused7}\n*${usedPrefix + command} gata | cat*` 
+m.react("🚀")
+try {
+let response = await axios.get(`https://api.dorratz.com/v2/pinterest?q=${text}`);
+let searchResults = response.data; 
+if (m.isWABusiness) {
+await conn.sendFile(m.chat, searchResults[0].image, 'thumbnail.jpg', `${lenguajeGB['smsAvisoEG']()} 💞 ${mid.buscador}: ${text}`, m, null, fake);
+} else {
+let selectedResults = searchResults.slice(0, 9);
+let messages = selectedResults.map(result => [
+``,
+`*${result.fullname || text}*\n*💞 Autor:* ${result.upload_by}\n*💞 Seguidores:* ${result.followers}`, 
+result.image 
+]);
+await conn.sendCarousel(m.chat, `${lenguajeGB['smsAvisoEG']()} 💞 ${mid.buscador}: ${text}`, "🔍 Pinterest Search\n" + wm, messages, m);
+m.react("✅️")
+}
+} catch {
 try {
 let response = await axios.get(`https://api.siputzx.my.id/api/s/pinterest?query=${encodeURIComponent(text)}`);
 if (!response.data.status) return await m.reply("❌ No se encontraron resultados.")
@@ -26,7 +43,7 @@ await conn.sendFile(m.chat, json.getRandom(), 'error.jpg', `${lenguajeGB['smsAvi
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 handler.money = false
-}}}
+}}}}
 handler.help = ['pinterest <keyword>']
 handler.tags = ['internet']
 handler.command = /^(pinterest|dlpinterest|pinterestdl)$/i

@@ -4,6 +4,17 @@ import cheerio from 'cheerio';
 const handler = async (m, {conn, usedPrefix, command, text}) => {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsApk}`;
 try {    
+const res = await fetch(`https://api.dorratz.com/v2/apk-dl?text=${text}`);
+const data = await res.json();
+let response = `${eg}┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃💫 ${mid.name}: ${data.name}\n┃📦 𝙋𝘼𝘾𝙆𝘼𝙂𝙀:  ${data.package}\n┃🕒 ${mid.smsApk2}:  ${data.lastUpdate}\n┃💪 ${mid.smsYT11} ${data.size}\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ ${mid.smsApk3} 🚀🚀🚀`
+await conn.sendFile(m.chat, data.icon, 'error.jpg', response, m);
+const apkSize = data.size.toLowerCase();
+if (apkSize.includes('gb') || (apkSize.includes('mb') && parseFloat(apkSize) > 999)) {
+return await conn.sendMessage(m.chat, {text: mid.smsApk4}, {quoted: m})
+}
+await conn.sendMessage(m.chat, {document: { url: data.dllink }, mimetype: 'application/vnd.android.package-archive', fileName: `${data.name}.apk`, caption: null }, { quoted: m });
+} catch {
+try {
 const res = await fetch(`${apis}/download/apk?query=${text}`);
 const data = await res.json();
 if (!data.status || !data.data) throw 'error'
@@ -28,7 +39,7 @@ conn.sendButton(m.chat, `Ocurrió un error temporal, toque el botón reintentar.
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)
 handler.limit = false
-}}}
+}}}}
 handler.command = /^(apkmod|apk|modapk|dapk2|aptoide|aptoidedl)$/i;
 handler.register = true
 handler.limit = 2

@@ -5,6 +5,25 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsFire}`
 m.react("📥")
 try {  
+const res = await fetch(`https://api.agatz.xyz/api/mediafire?url=${args}`)
+const data = await res.json();
+const caption = `${eg}
+> ┃ 𓃠 *${gt} ${vs}* 
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 💫 ${mid.name}
+> ┃  ${data.data.nama}
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 💪 ${mid.smsYT11}
+> ┃ ${data.data.size}
+> ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> ┃ 🚀 ${mid.smsYT12}
+> ┃  ${data.data.mime}
+`.trim();
+m.reply(caption);
+conn.sendFile(m.chat, data.data.link, data.data.nama, '', m, null, {mimetype: data.data.mime, asDocument: true, 
+});
+} catch {
+try {
 const res = await fetch(`https://api.fgmods.xyz/api/downloader/mediafire?url=${args[0]}&apikey=${fgkeysapi}`);
 const data = await res.json();
 const fileData = data.result;
@@ -92,7 +111,7 @@ console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗
 console.log(e)
 m.react(`❌️`);
 handler.limit = false      
-}}}}}
+}}}}}}
 handler.help = ['mediafire'].map(v => v + ' <url>')
 handler.tags = ['downloader']
 handler.command = /^(mediafire|mediafiredl|dlmediafire)$/i

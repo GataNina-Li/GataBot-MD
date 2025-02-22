@@ -39,7 +39,7 @@ if (m.quoted && m.quoted.id === reply && ['d', '4', 'cancelar'].includes(m.text.
 if (!isOwner || !isROwner || !isAdmin) return m.reply(`*Esta acción no te corresponde realizar*`)
 m.reply('*No se realizaron cambios.*')
 return
-}}
+}}}
 
 handler.command = /^(editarantifake|editarfake|editantifake|editfake)$/i
 handler.register = true
@@ -66,4 +66,4 @@ chat.sCondition = [...new Set(chat.sCondition)]
 
 const prefijosConSigno = chat.sCondition.map(prefijo => `+${prefijo}`)
 m.reply(mid.mExito + `Configuración guardada: *${prefijosConSigno.join(', ')}*\n\n> Puede agregar más si desea`)
-}}
+}
