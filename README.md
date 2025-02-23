@@ -81,7 +81,6 @@
 
 | TEMA | DESCRIPCIÓN | ATAJO |
 |------|-------------|-------|
-| 🟣 **Heroku** | *Instalación directa por Heroku* | [![Here](https://img.shields.io/badge/Aquí-purple)](https://github.com/GataNina-Li/GataBot-MD#-despliegue) |
 | ⚡ **Replit** | *Instalación directa por Replit* | [![Here](https://img.shields.io/badge/Aquí-orange)](https://github.com/GataNina-Li/GataBot-MD#-despliegue) |
 | ⏏️ **Koyeb** | *Instalación directa por Koyeb* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#-despliegue) |
 | 💻 **Windows** | *Instalar para Windows 10 o superior* | [![Here](https://img.shields.io/badge/Aquí-pink)](https://github.com/GataNina-Li/GataBot-MD#-despliegue) |
