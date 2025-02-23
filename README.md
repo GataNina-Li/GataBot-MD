@@ -275,11 +275,11 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/tD3NQSR.jpeg"></details>
 -----
 ### 🎇 Hosting Py
-<a href="https://dahs.hostingpy.shop/"><img src="https://files.catbox.moe/lr92z2.jpg" height="130px"></a>
+<a href="https://dash.hostingpy.shop/"><img src="https://files.catbox.moe/lr92z2.jpg" height="130px"></a>
 
-- **Dashboard:** [`Aquí`](https://dahs.hostingpy.shop/)
+- **Dashboard:** [`Aquí`](https://dash.hostingpy.shop/)
 - **Panel:** [`Aquí`](https://panel.hostingpy.shop/)
-- **Registrarse:** [`Aquí`](https://dahs.hostingpy.shop/register?ref=GataDios)
+- **Registrarse:** [`Aquí`](https://dash.hostingpy.shop/register?ref=GataDios)
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
 - **Comunidad:** [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
 - **Contacto:** [`AdrianOficial`](https://wa.me/595976126756)
@@ -287,7 +287,7 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/jD7AT0x.png"></details>
 -----
 ### ¡TK HOST!
-<a href="https://dahs.hostingpy.shop"><img src="https://qu.ax/UzvYt.jpeg" height="130px"></a>
+<a href="https://dash.tk-joanhost.com"><img src="https://qu.ax/UzvYt.jpeg" height="130px"></a>
 
 - **Dashboard:** [`Aquí`](https://dash.tk-joanhost.com/register?ref=GataDios)
 - **Panel:** [`Aquí`](https://panel.tk-joanhost.com)
