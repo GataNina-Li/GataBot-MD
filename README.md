@@ -302,21 +302,6 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 <details>
   <summary><b>Toca para ver más.</b></summary>
   
-### 🟣 ACTIVAR EN HEROKU 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GataNina-Li/GataBotMD-Heroku) 
-### 👇 Añada lo siguente al Buildpack: 
-```bash
-heroku/nodejs
-```
-```bash
-https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
-```
-```bash
-https://github.com/clhuang/heroku-buildpack-webp-binaries.git
-```
-- [x] Resultado <details><summary>Buildpack</summary><img src="https://i.imgur.com/t3Xzgnh.jpeg"></details>
------
-
 ### ⚡ REPLIT - GATABOT
 [![blog](https://img.shields.io/badge/Replit-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/pQYkq4xv37o)
