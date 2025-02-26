@@ -18,6 +18,7 @@ import Pino from 'pino'
 import { Boom } from '@hapi/boom'
 import { makeWASocket, protoType, serialize } from './lib/simple.js'
 import {Low, JSONFile} from 'lowdb'
+import PQueue from 'p-queue'
 import store from './lib/store.js'
 import readline from 'readline'
 import NodeCache from 'node-cache' 
@@ -45,113 +46,110 @@ global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse()
 global.prefix = new RegExp('^[' + (opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@').replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']')
 
 //news
-const databasePath = path.join(__dirname, 'database') 
-if (!fs.existsSync(databasePath)) fs.mkdirSync(databasePath)
+const databasePath = path.join(__dirname, 'database');
+if (!fs.existsSync(databasePath)) fs.mkdirSync(databasePath);
 
-const usersPath = path.join(databasePath, 'users')
-const chatsPath = path.join(databasePath, 'chats')
-const settingsPath = path.join(databasePath, 'settings')
-const msgsPath = path.join(databasePath, 'msgs')
-const stickerPath = path.join(databasePath, 'sticker')
-const statsPath = path.join(databasePath, 'stats');
-
-[usersPath, chatsPath, settingsPath, msgsPath, stickerPath, statsPath].forEach((dir) => {
-if (!fs.existsSync(dir)) fs.mkdirSync(dir)
-})
-
-function getFilePath(basePath, id) {
-return path.join(basePath, `${id}.json`)
-}
-
-global.db = {
-data: {
-users: {},
-chats: {},
-settings: {},
-msgs: {},
-sticker: {},
-stats: {},
-},
-READ: false,
+const paths = {
+    users: path.join(databasePath, 'users'),
+    chats: path.join(databasePath, 'chats'),
+    settings: path.join(databasePath, 'settings'),
+    msgs: path.join(databasePath, 'msgs'),
+    sticker: path.join(databasePath, 'sticker'),
+    stats: path.join(databasePath, 'stats'),
 };
 
-global.loadDatabase = async function loadDatabase() {
-if (global.db.READ) {
-return new Promise((resolve) => {
-const interval = setInterval(() => {
-if (!global.db.READ) {
-clearInterval(interval);
-resolve(global.db.data);
-}}, 1000);
+Object.values(paths).forEach(dir => {
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 });
+
+const queue = new PQueue({ concurrency: 5 });
+
+global.db = {
+    data: {
+        users: {},
+        chats: {},
+        settings: {},
+        msgs: {},
+        sticker: {},
+        stats: {},
+    },
+};
+
+function getFilePath(category, id) {
+return path.join(paths[category], `${id}.json`);
 }
 
-global.db.READ = true;
-try {
-const loadFiles = async (dirPath, targetObj, ignorePatterns = []) => {
-const files = fs.readdirSync(dirPath)
-for (const file of files) {
-const id = path.basename(file, '.json')
-
-if (ignorePatterns.some(pattern => id.includes(pattern))) {
-continue; 
-}
-const db = new Low(new JSONFile(getFilePath(dirPath, id)))
-await db.read()
-db.data = db.data || {};
-targetObj[id] = { ...targetObj[id], ...db.data }
-}};
-
-await Promise.all([loadFiles(usersPath, global.db.data.users, ['@newsletter', 'lid', '@g.us']), 
-loadFiles(chatsPath, global.db.data.chats, ['status@broadcast']), 
-loadFiles(settingsPath, global.db.data.settings),
-loadFiles(msgsPath, global.db.data.msgs),
-loadFiles(stickerPath, global.db.data.sticker),
-loadFiles(statsPath, global.db.data.stats),
-]);
-} catch (error) {
-console.error('Error loading database:', error);
-} finally {
-global.db.READ = false
-}};
-
-global.db.save = async function saveDatabase() {
-if (global.db.READ) {
-await new Promise((resolve) => {
-const interval = setInterval(() => {
-if (!global.db.READ) {
-clearInterval(interval)
-resolve()
-}}, 100)
-});
+async function readFile(category, id) {
+    const filePath = getFilePath(category, id);
+    const db = new Low(new JSONFile(filePath));
+    await db.read();
+    db.data = db.data || {};
+    return db.data;
 }
 
-global.db.READ = true
-try {
-const saveFiles = async (dirPath, dataObj, ignorePatterns = []) => {
-for (const [id, data] of Object.entries(dataObj)) {
-if (ignorePatterns.some(pattern => id.includes(pattern))) {
-continue; 
+async function writeFile(category, id, data) {
+    const filePath = getFilePath(category, id);
+    const db = new Low(new JSONFile(filePath));
+    await db.read();
+    db.data = { ...db.data, ...data };    
+    await db.write();
 }
 
-const db = new Low(new JSONFile(getFilePath(dirPath, id)))
-db.data = data
-await db.write()
-}}
+global.db.readData = async function (category, id) {
+    if (!global.db.data[category][id]) {
+        const data = await queue.add(() => readFile(category, id));
+        global.db.data[category][id] = data;
+    }
+    return global.db.data[category][id];
+};
 
-await Promise.all([saveFiles(usersPath, global.db.data.users, ['@newsletter', 'lid', '@g.us']), 
-saveFiles(chatsPath, global.db.data.chats, ['status@broadcast']), 
-saveFiles(settingsPath, global.db.data.settings),
-saveFiles(msgsPath, global.db.data.msgs),
-saveFiles(stickerPath, global.db.data.sticker),
-saveFiles(statsPath, global.db.data.stats),
-]);
-} catch (error) {
-console.error('Error saving database:', error)
-} finally {
-global.db.READ = false
-}}
-loadDatabase()
+global.db.writeData = async function (category, id, data) {
+    global.db.data[category][id] = { ...global.db.data[category][id], ...data };
+    await queue.add(() => writeFile(category, id, global.db.data[category][id]));
+};
+
+global.db.loadDatabase = async function () {
+    const categories = ['users', 'chats', 'settings', 'msgs', 'sticker', 'stats'];
+    const loadPromises = [];
+
+    for (const category of categories) {
+        const files = fs.readdirSync(paths[category]);
+        for (const file of files) {
+            const id = path.basename(file, '.json');
+            if (category === 'users' && (id.includes('@newsletter') || id.includes('lid'))) continue;
+            if (category === 'chats' && id.includes('@newsletter')) continue;
+
+            loadPromises.push(
+                queue.add(() => readFile(category, id))
+                    .then(data => {
+                        global.db.data[category][id] = data;
+                    })
+                    .catch(err => console.error(`Error cargando ${category}/${id}:`, err))
+            );
+        }
+    }
+
+    await Promise.all(loadPromises);
+    console.log('Base de datos cargada');
+};
+
+global.db.save = async function () {
+    const categories = ['users', 'chats', 'settings', 'msgs', 'sticker', 'stats'];
+
+    for (const category of categories) {
+        for (const [id, data] of Object.entries(global.db.data[category])) {
+            if (Object.keys(data).length > 0) {
+                if (category === 'users' && (id.includes('@newsletter') || id.includes('lid'))) continue;
+                if (category === 'chats' && id.includes('@newsletter')) continue;
+
+                await queue.add(() => writeFile(category, id, data));                
+            }
+        }
+    }
+};
+
+global.db.loadDatabase().then(() => {
+}).catch(err => console.error(err));
 
 /*global.db = new Low(/https?:\/\//.test(opts['db'] || '') ? new cloudDBAdapter(opts['db']) : new JSONFile('database.json'))
 global.DATABASE = global.db; 
@@ -340,7 +338,7 @@ conn.well = false
 
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
-if (global.db.data) await global.db.save()
+if (global.db.data) await global.db.save();
 if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "GataJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, 30 * 1000)}
 
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
