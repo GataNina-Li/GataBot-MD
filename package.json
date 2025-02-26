@@ -48,6 +48,7 @@
 "awesome-phonenumber": "^3.4.0",
 "axios": "^1.7.9",
 "mathjs": "^11.3.0",
+"p-queue": "^8.1.0",
 "body-parser": "^1.20.2",
 "cfonts": "^3.3.0",
 "chalk": "^5.4.1",
