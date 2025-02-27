@@ -37,8 +37,7 @@ const selectedQuality = validQualities.includes(quality) ? quality : '320';
 
 const audioApis = [
 { url: () => ogmp3.download(yt_play[0].url, selectedQuality, 'audio'), extract: (data) => ({ data: data.result.download, isDirect: false }) },
-{ url: () => ytmp3(encodeURIComponent(yt_play[0].url)), extract: (data) => ({ data, isDirect: true }) },
-{ url: () => ytdlf(encodeURIComponent(yt_play[0].url), "mp3"), extract: (data) => ({ data: data.downloadUrl, isDirect: false }) },
+{ url: () => ytmp3(yt_play[0].url), extract: (data) => ({ data, isDirect: true }) },
 { url: () => fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${yt_play[0].url}`).then(res => res.json()), extract: (data) => ({ data: data.dl, isDirect: false }) },
 { url: () => fetch(`https://axeel.my.id/api/download/audio?url=${yt_play[0].url}`).then(res => res.json()), extract: (data) => ({ data: data.downloads?.url, isDirect: false }) },
 { url: async () => {
