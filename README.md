@@ -286,17 +286,6 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/jD7AT0x.png"></details>
 -----
-### ¡TK HOST!
-<a href="https://dash.tk-joanhost.com"><img src="https://qu.ax/UzvYt.jpeg" height="130px"></a>
-
-- **Dashboard:** [`Aquí`](https://dash.tk-joanhost.com/register?ref=GataDios)
-- **Panel:** [`Aquí`](https://panel.tk-joanhost.com)
-- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VaGGynJLY6d43krQYR2g)
-- **Comunidad:** [`Aquí`](https://chat.whatsapp.com/DOlxV0eOoH7HDunGuZCOCb)
-- **Contacto:** [`Matias`](https://wa.me/5491164123932)
-
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://qu.ax/WkhDz.png"></details>
------
 ### 🚄 DESPLIEGUE
 <details>
   <summary><b>Toca para ver más.</b></summary>
