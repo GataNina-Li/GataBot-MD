@@ -1,17 +1,19 @@
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper' 
-import fetch from 'node-fetch'
-import yts from 'yt-search'
-import ytdl from 'ytdl-core'
-import ytdlf from "@EdderBot02/ytdlf"
+import fetch from 'node-fetch';
+import yts from 'yt-search';
+import ytdl from 'ytdl-core';
+import { ogmp3 } from '../lib/youtubedl.js'; 
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const { ytmp3, ytmp4 } = require("@hiudyy/ytdl");
+const LimitAud = 700 * 1024 * 1024; // 700MB
 
 let handler = async (m, { text, conn, args, usedPrefix, command }) => {
-if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`, fkontak, m)
+if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`, fkontak, m);
+const yt_play = await search(args.join(' '));
 let youtubeLink = '';
 if (args[0].includes('you')) {
-youtubeLink = args[0]; 
+youtubeLink = args[0];
 } else {
 const index = parseInt(args[0]) - 1;
 if (index >= 0) {
@@ -26,67 +28,84 @@ throw `${lenguajeGB['smsAvisoFG']()}${mid.smsYT} ${matchingItem.urls.length}*`;
 throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsY2(usedPrefix, command)} ${usedPrefix}playlist <texto>*`;
 }} else {
 throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)} ${usedPrefix}playlist <texto>*`;
-}}}  
-await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, fkontak, m)
-try{
-const audiodlp = await ytmp3(encodeURIComponent(args));
-conn.sendMessage(m.chat, { audio: audiodlp, mimetype: "audio/mpeg" }, { quoted: m });
-} catch (e1) {
-try {  
-let x=await ytdlf(`${encodeURIComponent(args)}`,"mp3");
-await conn.sendMessage(m.chat, { audio: { url:x.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
-} catch{
+}}}
+
+await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, fkontak, m);
+const [input, quality = '320'] = text.split(' ');
+const validQualities = ['64', '96', '128', '192', '256', '320'];
+const selectedQuality = validQualities.includes(quality) ? quality : '320';
+
+const audioApis = [
+{ url: () => ogmp3.download(yt_play[0].url, selectedQuality, 'audio'), extract: (data) => ({ data: data.result.download, isDirect: false }) },
+{ url: () => ytmp3(encodeURIComponent(yt_play[0].url)), extract: (data) => ({ data, isDirect: true }) },
+{ url: () => ytdlf(encodeURIComponent(yt_play[0].url), "mp3"), extract: (data) => ({ data: data.downloadUrl, isDirect: false }) },
+{ url: () => fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${yt_play[0].url}`).then(res => res.json()), extract: (data) => ({ data: data.dl, isDirect: false }) },
+{ url: () => fetch(`https://axeel.my.id/api/download/audio?url=${yt_play[0].url}`).then(res => res.json()), extract: (data) => ({ data: data.downloads?.url, isDirect: false }) },
+{ url: async () => {
+let searchh = await yts(yt_play[0].url);
+let __res = searchh.all.filter(v => v.type === "video");
+let infoo = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId);
+let ress = await ytdl.chooseFormat(infoo.formats, { filter: 'audioonly' });
+return ress;
+}, extract: (data) => ({ data: data.url, isDirect: false }) },
+{ url: () => fetch(`https://api.ryzendesu.vip/api/downloader/ytmp3?url=${yt_play[0].url}`).then(res => res.json()), extract: (data) => ({ data: data.status === 'tunnel' ? data.url : null, isDirect: false }) },
+{ url: () => fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${yt_play[0].url}`).then(res => res.json()), extract: (data) => ({ data: data.result.download.url, isDirect: false }) },
+{ url: async () => {
+let q = '128kbps';
+let v = youtubeLink || yt_play[0].url;
+const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v));
+return yt.audio[q].download();
+}, extract: (data) => ({ data, isDirect: false }) },
+{ url: () => fetch(`${apis}/download/ytmp3?url=${yt_play[0].url}`).then(res => res.json()), extract: (data) => ({ data: data.result?.link, isDirect: false }) 
+}];
+
+const download = async (apis) => {
+let audioData = null;
+let isDirect = false;
+for (const api of apis) {
 try {
-const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${encodeURIComponent(args)}`);
-let { data } = await res.json();
-await conn.sendMessage(m.chat, { audio: { url: data.dl }, mimetype: 'audio/mpeg' }, { quoted: m });
-} catch {
-try {
-const axeelUrl = `https://axeel.my.id/api/download/audio?url=${encodeURIComponent(args)}`;
-const axeelResponse = await fetch(axeelUrl);
-const axeelData = await axeelResponse.json();
-if (!axeelData || !axeelData.downloads?.url) throw new Error();
-await conn.sendMessage(m.chat, { audio: { url: axeelData.downloads.url }, mimetype: 'audio/mpeg' }, { quoted: m });
-} catch {
-try {
-let searchh = await yts(youtubeLink)
-let __res = searchh.all.map(v => v).filter(v => v.type == "video")
-let infoo = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId)
-let ress = await ytdl.chooseFormat(infoo.formats, { filter: 'audioonly' })
-await conn.sendMessage(m.chat, { audio: { url: ress.url}, mimetype: 'audio/mpeg' }, { quoted: m})
-} catch {
-try {
-const ryzenUrl = `https://api.ryzendesu.vip/api/downloader/ytmp3?url=${encodeURIComponent(videoUrl)}`;
-const ryzenResponse = await fetch(ryzenUrl);
-const ryzenData = await ryzenResponse.json();
-if (ryzenData.status === 'tunnel' && ryzenData.url) {
-const downloadUrl = ryzenData.url;
-await conn.sendMessage(m.chat, { audio: { url: downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
-}
-} catch {
-try {          
-const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${encodeURIComponent(args)}`)
-let { result } = await res.json()
-await conn.sendMessage(m.chat, { audio: { url: await result.download.url }, mimetype: 'audio/mpeg' }, { quoted: m })
-} catch {
-try {
-let q = '128kbps'
-let v = youtubeLink
-const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v))
-const dl_url = await yt.audio[q].download()
-const ttl = await yt.title
-const size = await yt.audio[q].fileSizeH
-await conn.sendFile(m.chat, dl_url, ttl + '.mp3', null, m, false, { mimetype: 'audio/mp4' })
-} catch {
-try {
-let lolhuman = await fetch(`${apis}/download/ytmp3?&url=${youtubeLink}`)    
-let lolh = await lolhuman.json()
-let n = lolh.result.title || 'error'
-await conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, fileName: `${n}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })  
+const data = await api.url();
+const { data: extractedData, isDirect: direct } = api.extract(data);
+if (extractedData) {
+const size = await getFileSize(extractedData);
+if (size >= 1024) {
+audioData = extractedData;
+isDirect = direct;
+break;
+}}
 } catch (e) {
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
-console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(e)}
-}}}}}}}}}
-handler.command = /^audio|fgmp3|dlmp3|getaud|yt(a|mp3)$/i
-export default handler
+console.log(`Error con API: ${e}`);
+continue;
+}}
+return { audioData, isDirect };
+};
+
+const { audioData, isDirect } = await download(audioApis);
+if (audioData) {
+const fileSize = await getFileSize(audioData);
+if (fileSize > LimitAud) {
+await conn.sendMessage(m.chat, { document: isDirect ? audioData : { url: audioData }, mimetype: 'audio/mpeg', fileName: `${yt_play[0].title || 'audio'}.mp3` }, { quoted: m });
+} else {
+await conn.sendMessage(m.chat, { audio: isDirect ? audioData : { url: audioData }, mimetype: 'audio/mpeg' }, { quoted: m });
+}
+} else {
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m);
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`);
+}};
+handler.command = /^audio|fgmp3|dlmp3|getaud|yt(a|mp3)$/i;
+handler.register = true;
+export default handler;
+
+async function search(query, options = {}) {
+  const search = await yts.search({ query, hl: 'es', gl: 'ES', ...options });
+  return search.videos;
+}
+
+async function getFileSize(url) {
+  try {
+    const response = await fetch(url, { method: 'HEAD' });
+    return parseInt(response.headers.get('content-length') || 0);
+  } catch {
+    return 0;
+  }
+}
