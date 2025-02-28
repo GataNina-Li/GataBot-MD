@@ -6,11 +6,10 @@ m.react("🚀")
 try {
 let response = await axios.get(`https://api.dorratz.com/v2/pinterest?q=${text}`);
 let searchResults = response.data; 
-let selectedResults = searchResults.slice(0, 9);
+let selectedResults = searchResults.slice(0, 9); 
 if (m.isWABusiness) {
-let album = selectedResults.map(result => ({type: "image", data: { url: result.image }}));
-await conn.sendAlbumMessage(m.chat, album, { caption: `${lenguajeGB['smsAvisoEG']()} 💞 ${mid.buscador}: ${text}` });
-//await conn.sendFile(m.chat, searchResults[0].image, 'thumbnail.jpg', `${lenguajeGB['smsAvisoEG']()} 💞 ${mid.buscador}: ${text}`, m, null, fake);
+const medias = selectedResults.map(result => ({image: { url: result.image }, caption: result.fullname || text }));
+await conn.sendAlbumMessage(m.chat, medias, { quoted: m, delay: 2000, caption: `${lenguajeGB['smsAvisoEG']()} 💞 ${mid.buscador}: ${text}` });
 } else {
 let messages = selectedResults.map(result => [
 ``,
@@ -18,7 +17,7 @@ let messages = selectedResults.map(result => [
 result.image 
 ]);
 await conn.sendCarousel(m.chat, `${lenguajeGB['smsAvisoEG']()} 💞 ${mid.buscador}: ${text}`, "🔍 Pinterest Search\n" + wm, messages, m);
-m.react("✅️")
+m.react("✅️");
 }
 } catch {
 try {

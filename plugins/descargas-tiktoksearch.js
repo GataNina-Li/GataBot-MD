@@ -11,9 +11,18 @@ shuffleArray(searchResults);
 let selectedResults = searchResults.slice(0, 6);
 
 if (m.isWABusiness) {
-let album = selectedResults.map(result => ({type: "video", data: { url: result.hd }}));
-await conn.sendAlbumMessage(m.chat, album, { caption: `💞 𝙍𝙚𝙨𝙪𝙡𝙩𝙖𝙙𝙤 | 𝙍𝙚𝙨𝙪𝙡𝙩: ${text}\n> 🔍 TikTok Search` });
+const medias = selectedResults.map(result => ({video: { url: result.hd }}));
+await conn.sendAlbumMessage(m.chat, medias, { quoted: m, delay: 2000, caption: `💞 𝙍𝙚𝙨𝙪𝙡𝙩𝙖𝙙𝙤 | 𝙍𝙚𝙨𝙪𝙡𝙩: ${text}\n> 🔍 TikTok Search` });
 m.react("✅️");
+} else {
+let messages = selectedResults.map(result => [
+`${result.title}`, 
+wm,
+result.hd
+]);
+await conn.sendCarousel(m.chat, `💞 𝙍𝙚𝙨𝙪𝙡𝙩𝙖𝙙𝙤 | 𝙍𝙚𝙨𝙪𝙡𝙩: ${text}`, "🔍 TikTok Search", messages, m);
+m.react("✅️");
+}
 } else {
 let messages = selectedResults.map(result => [
 `${result.title}`, 
