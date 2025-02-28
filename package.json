@@ -71,7 +71,7 @@
 "instagram-url-direct": "^1.0.12",
 "jsdom": "^20.0.1",
 "link-preview-js": "^3.0.0",
-"jimp": "^1.6.0",   
+"jimp": "^0.16.1",
 "lodash": "^4.17.21",
 "lowdb": "^3.0.0",
 "libphonenumber-js": "^1.10.55",
