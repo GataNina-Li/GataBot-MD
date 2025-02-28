@@ -39,6 +39,8 @@ const selectedQuality = validQualities.includes(quality) ? quality : '720';
 const videoApis = [
 { url: () => ogmp3.download(yt_play[0].url, selectedQuality, 'video'), extract: (data) => ({ data: data.result.download, isDirect: false }) },
 { url: () => ytmp4(args), extract: (data) => ({ data, isDirect: true }) },
+{ url: () => fetch(`https://api.neoxr.eu/api/youtube?url=${args}&type=video&quality=720p&apikey=GataDios`).then(res => res.json()), extract: (data) => ({ data: data.data.url, isDirect: false }) },
+{ url: () => fetch(`https://api.fgmods.xyz/api/downloader/ytmp4?url=${args}&apikey=${fgkeysapi}`).then(res => res.json()), extract: (data) => ({ data: data.result.dl_url, isDirect: false }) },
 { url: () => fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${args}`).then(res => res.json()), extract: (data) => ({ data: data.dl, isDirect: false }) },
 { url: async () => {
 let searchh = await yts(youtubeLink);
@@ -46,14 +48,12 @@ let __res = searchh.all.filter(v => v.type === "video");
 let infoo = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId);
 return ytdl.chooseFormat(infoo.formats, { filter: 'videoandaudio' });
 }, extract: (data) => ({ data: data.url, isDirect: false }) },
-{ url: () => fetch(`https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${encodeURIComponent(args)}`).then(res => res.json()), extract: (data) => ({ data: data.result.download.url, isDirect: false }) },
 { url: async () => {
 let q = selectedQuality + 'p';
 const yt = await youtubedl(youtubeLink).catch(async _ => await youtubedlv2(youtubeLink));
 return yt.video[q].download();
 }, extract: (data) => ({ data, isDirect: false }) },
-{ url: () => ytMp4(youtubeLink), extract: (data) => ({ data: data.result, isDirect: false }) },
-{ url: () => fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolkeysapi}&url=${args}`).then(res => res.json()), extract: (data) => ({ data: data.result.link, isDirect: false }) 
+{ url: () => ytMp4(youtubeLink), extract: (data) => ({ data: data.result, isDirect: false })
 }];
 
 const download = async (apis) => {
