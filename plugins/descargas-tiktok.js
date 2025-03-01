@@ -1,50 +1,63 @@
-import axios from "axios"
-import fg from 'api-dylux';
-import cheerio from 'cheerio';
-import { Tiktok } from '../lib/tiktok.js';
-let handler = async (m, { conn, text, args, usedPrefix, command}) => {
-if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsTikTok2}\n*${usedPrefix + command} https://vm.tiktok.com/ZM6n8r8Dk/*`
-if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) throw `${lenguajeGB['smsAvisoFG']()}${mid.smsTikTok3}`
-await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙋𝙍𝙊𝙉𝙏𝙊 𝙏𝙀𝙉𝘿𝙍𝘼 𝙀𝙇 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙏𝙄𝙆𝙏𝙊𝙆 😸\n𝙎𝙊𝙊𝙉 𝙒𝙄𝙇𝙇 𝙃𝘼𝙑𝙀 𝙏𝙃𝙀 𝙏𝙄𝙆𝙏𝙊𝙆 𝙑𝙄𝘿𝙀𝙊 🥳`, fkontak,  m)    
-try {
-const data = await Tiktok(args)
-conn.sendMessage(m.chat, {video: {url: data.nowm}, caption: `⛱️ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 : 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n${data.author}`}, {quoted: m})
-} catch {
-try {
-const tTiktok = await tiktokdlF(args[0]);
-await conn.sendMessage(m.chat, {video: {url: tTiktok.video}, caption: `${wm}`}, {quoted: m});            
-} catch {
-try {
-const response = await axios.get(`https://api.dorratz.com/v2/tiktok-dl?url=${args[0]}`);
-if (response.data.status && response.data.data) {
-const videoData = response.data.data.media;
-const videoUrl = videoData.org; 
-await conn.sendMessage(m.chat, { video: { url: videoUrl }, caption: `⛱️ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 : 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n${response.data.data.author.nickname}\n${wm}` }, { quoted: m });
-}} catch {
-try {
-const p = await fg.tiktok(args[0]);
-await conn.sendMessage(m.chat, {video: {url: p.nowm}, caption: `${wm}`}, {quoted: m}); 
-} catch (e) {
-console.log(e) 
-m.react(`❌`)         
-}}}}}
-handler.help = ['tiktok']
-handler.tags = ['dl']
-handler.command = /^(tt|tiktok)(dl|nowm)?$/i
-handler.limit = 2
-export default handler
+//Código Creado por @Alba070503
+import Scraper from '@SumiFX/Scraper'
+import axios from 'axios'
+import fetch from 'node-fetch'
 
-async function tiktokdlF(url) {
-  if (!/tiktok/.test(url)) return `*Ejemplo:* _${usedPrefix + command} https://vm.tiktok.com/ZM686Q4ER/_`;
-  const gettoken = await axios.get('https://tikdown.org/id');
-  const $ = cheerio.load(gettoken.data);
-  const token = $('#download-form > input[type=hidden]:nth-child(2)').attr( 'value' );
-  const param = {url: url, _token: token};
-  const {data} = await axios.request('https://tikdown.org/getAjax?', {method: 'post', data: new URLSearchParams(Object.entries(param)), headers: {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8', 'user-agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36'}});
-  const getdata = cheerio.load(data.html);
-  if (data.status) {
-    return {status: true, thumbnail: getdata('img').attr('src'), video: getdata('div.download-links > div:nth-child(1) > a').attr('href'), audio: getdata('div.download-links > div:nth-child(2) > a').attr('href')};
-  } else {
-    return {status: false};
-  }
+
+
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+    if (!args[0]) return m.reply(`✿ Ingresa un enlace del video de TikTok junto al comando.\n\nEjemplo:\n${usedPrefix + command} https://vm.tiktok.com/ZMMCYHnxf/`)
+
+    try {
+        // Intentar con Scraper API
+        let { title, published, likes, commentCount, shareCount, views, dl_url } = await Scraper.tiktokdl(args[0])
+
+        let txt = `*＊✿❀ Tiktok Download ❀✿＊*\n`
+            txt += `ᥫ᭡ Título* : ${title}\n`
+            txt += ` Publicado* : ${published}\n`
+            txt += `ᥫ᭡ Likes* : ${likes}\n`
+            txt += `ᥫ᭡ Visitas* : ${views}\n`
+
+        await conn.sendMessage(m.chat, { video: { url: dl_url }, caption: txt }, { quoted: m })
+    } catch {
+        try {
+            const api = await fetch(`https://api-starlights-team.koyeb.app/api/tiktok?url=${args[0]}`)
+            const data = await api.json()
+
+            if (data.status) {
+                const { title, video } = data.data
+                let txt = `*＊✿❀ Tiktok Download ❀✿＊*\n`
+                    txt += `ᥫ᭡ Título* : ${title}\n`
+              
+
+                await conn.sendMessage(m.chat, { video: { url: video }, caption: txt }, { quoted: m })
+            }
+        } catch {
+            try {
+              
+                const api1 = await fetch(`https://delirius-api-oficial.vercel.app/api/tiktok?url=${args[0]}`)
+                const data1 = await api1.json()
+
+                if (data1.status) {
+                    const { title, meta } = data1.data
+                    const videoUrl = meta.media.find(v => v.quality === 'HD')?.org || meta.media[0].org
+
+          let txt = `*＊✿❀ Tiktok Download ❀✿＊*\n`
+                    txt += `ᥫ᭡ Título* : ${title}\n`
+              
+
+                    await conn.sendMessage(m.chat, { video: { url: videoUrl }, caption: txt }, { quoted: m })
+                }
+            } catch {
+                m.reply('✘ No se pudo descargar el video. Intenta nuevamente más tarde.')
+            }
+        }
+    }
 }
+
+handler.help = ['tiktok <url tt>']
+handler.tags = ['downloader']
+handler.command = ['tiktok', 'ttdl', 'tiktokdl', 'tiktoknowm']
+handler.register = true
+
+export default handler
