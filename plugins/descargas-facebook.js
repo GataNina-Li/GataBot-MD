@@ -8,7 +8,7 @@ if (!args[0].match(/www.facebook.com|fb.watch/g)) return conn.reply(m.chat, `${l
 
   let res;
   try {
-  m.reply('⏱️')
+  m.react('⏱️')
 
     res = await igdl(args[0]);
   } catch (e) {
