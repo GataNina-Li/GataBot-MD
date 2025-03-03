@@ -1,4 +1,3 @@
-//NO EDITE SI NO SABES PTM CÓDIGO YA FUNCIÓNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 import fg from 'api-dylux';
 import fetch from 'node-fetch';
 //import {savefrom, facebookdl, facebookdlv2} from '@bochilteam/scraper';
