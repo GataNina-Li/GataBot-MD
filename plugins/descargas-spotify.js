@@ -1,41 +1,63 @@
-import axios from 'axios';
-import fetch from 'node-fetch';
+import axios from 'axios'
+import fetch from 'node-fetch'
+import search from 'yt-search'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
+if (!text) throw `${lenguajeGB.smsMalused2()} ⊱ *${usedPrefix + command} Bellyache*`;
 
-    if (!text) throw `${lenguajeGB.smsMalused2()} ⊱ *${usedPrefix + command} Bellyache*`;
+const spotify = await fetch(`${apis}/search/spotify?q=${text}`);
+const song = await spotify.json();
+if (!song.data || song.data.length === 0) throw '⚠️ No se encontraron resultados para esa búsqueda.';
+const track = song.data[0]; 
+let spotifyMessage = `
+🪼 *Titulo:* ${track.title}
+🪩 *Artista:* ${track.artist}
+🦋 *Álbum:* ${track.album}
+⏳ *Duración:* ${track.duration}
+🔗 *Enlace:* ${track.url}
 
-    try {
-        m.react('⌛️');
-
-        let songInfo = await spotifyxv(text);
-        if (!songInfo.length) throw `❌ No se encontraron resultados, intente nuevamente.`;
-        let song = songInfo[0];
-        const res = await fetch(`https://archive-ui.tanakadomp.biz.id/download/spotify?url=${song.url}`);
-        
-        if (!res.ok) throw `❌ Error al obtener datos de la API, código de estado: ${res.status}`;
-        
-        const data = await res.json().catch((e) => { 
-            console.error('Error parsing JSON:', e);
-            throw "❌ Error al analizar la respuesta JSON.";
-        });
-
-        if (!data || !data.result || !data.result.data || !data.result.data.download) throw "No se pudo obtener el enlace de descarga.";
-
-        const info = `🪼 *Titulo:* ${data.result.data.title}\n🪩 *Artista:* ${data.result.data.artis}\n🦋 *Álbum:* ${song.album}\n⏳ *Duración:* ${timestamp(data.result.data.durasi)}\n🔗 *Enlace:* ${song.url}\n\n${wm}`;
-
-      await conn.sendFile(m.chat, data.result.data.image, 'gata.png', info, m, null, fake)
-
-        await conn.sendMessage(m.chat, { audio: { url: data.result.data.download }, fileName: `${data.result.data.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
-        m.react('✅');
-
-    } catch (e1) {
-        m.react('❌');
-        m.reply(`❌ No se encontraron resultados, intente nuevamente. Error: ${e1.message || e1}`);
-        console.error(`Error: ${e1}`);
-    }
-};
-
+${gt}`;
+await conn.sendMessage(m.chat, {text: spotifyMessage,
+contextInfo: {
+forwardingScore: 1,
+isForwarded: true,
+externalAdReply: {
+showAdAttribution: true,
+containsAutoReply: true,
+renderLargerThumbnail: true,
+title: track.title,
+body: gt,
+mediaType: 1,
+thumbnailUrl: track.image,
+mediaUrl: track.url,
+sourceUrl: track.url
+}}}, { quoted: m });
+m.react('⌛️');
+try {
+const res = await fetch(`https://api.siputzx.my.id/api/d/spotify?url=${track.url}`);
+const data = await res.json();
+conn.sendMessage(m.chat, {audio: { url: data.data.download }, fileName: `${track.title}.mp3`,mimetype: 'audio/mpeg'}, { quoted: m });
+m.react('✅️');
+} catch {
+try {
+const res = await fetch(`${apis}/download/spotifydl?url=${track.url}`);
+const data = await res.json();
+conn.sendMessage(m.chat, { audio: { url: data.data.url }, fileName: `${track.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
+m.react('✅️');
+} catch {
+try {
+let songInfo = await spotifyxv(text);
+if (!songInfo.length) throw `❌ No se encontraron resultados, intente nuevamente.`;
+let song = songInfo[0];
+const res = await fetch(`https://archive-ui.tanakadomp.biz.id/download/spotify?url=${track.url}`);
+const data = await res.json()
+await conn.sendMessage(m.chat, { audio: { url: data.result.data.download }, fileName: `${data.result.data.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
+m.react('✅');
+} catch (e) {
+m.react('❌');
+console.error(e);
+}
+}}}
 handler.command = ['spotify', 'music'];
 export default handler;
 

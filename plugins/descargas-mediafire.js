@@ -24,7 +24,7 @@ conn.sendFile(m.chat, data.data.link, data.data.nama, '', m, null, {mimetype: da
 });
 } catch {
 try {
-const res = await fetch(`https://api.fgmods.xyz/api/downloader/mediafire?url=${args[0]}&apikey=${fgkeysapi}`);
+const res = await fetch(`${global.APIs.fgmods.url}/downloader/mediafire?url=${args[0]}&apikey=${global.APIs.fgmods.key}`);
 const data = await res.json();
 const fileData = data.result;
 const caption = `${eg}

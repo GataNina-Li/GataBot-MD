@@ -54,7 +54,10 @@ let v = youtubeLink || yt_play[0].url;
 const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v));
 return yt.audio[q].download();
 }, extract: (data) => ({ data, isDirect: false }) },
-{ url: () => fetch(`${apis}/download/ytmp3?url=${yt_play[0].url}`).then(res => res.json()), extract: (data) => ({ data: data.result?.link, isDirect: false }) 
+{ url: () => fetch(`${apis}/download/ytmp3?url=${yt_play[0].url}`).then(res => res.json()), extract: (data) => ({ data: data.result?.link, isDirect: false }) },
+{ url: () => fetch(`https://api.dorratz.com/v3/ytdl?url=${encodeURIComponent(yt_play[0].url)}`).then(res => res.json()), extract: (data) => { 
+const mp3 = data.medias.find(media => media.quality === "160kbps" && media.extension === "mp3");
+return { data: mp3.url, isDirect: false }}
 }];
 
 const download = async (apis) => {
