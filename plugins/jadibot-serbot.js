@@ -357,3 +357,46 @@ async function joinChannels(conn) {
 for (const channelId of Object.values(global.ch)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}
+
+async function checkSubBots() {
+const subBotDir = path.resolve("./GataJadiBot") 
+console.log(chalk.bold.blueBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Revisando ruta: ${subBotDir}\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+    
+if (!fs.existsSync(subBotDir)) return
+const subBotFolders = fs.readdirSync(subBotDir).filter(folder => 
+fs.statSync(path.join(subBotDir, folder)).isDirectory()
+)
+
+for (const folder of subBotFolders) {
+const pathGataJadiBot = path.join(subBotDir, folder)
+const credsPath = path.join(pathGataJadiBot, "creds.json")
+
+if (!fs.existsSync(credsPath)) {
+console.log(chalk.bold.yellowBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Sub-bot (+${folder}) no tiene creds.json. Omitiendo...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+continue
+}
+
+const subBot = global.conns.find(conn => 
+conn.user?.jid?.includes(folder) || path.basename(pathGataJadiBot) === folder)
+
+if (!subBot || !subBot.user) {
+console.log(chalk.bold.yellowBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Sub-bot (+${folder}) no está conectado o fue añadido recientemente. Intentando activarlo...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            
+try {
+const options = { pathGataJadiBot,
+m: null,
+conn: global.conn,
+args: [],
+usedPrefix: '#',
+command: 'jadibot',
+fromCommand: false
+}
+await gataJadiBot(options)
+console.log(chalk.bold.greenBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Sub-bot (+${folder}) iniciado exitosamente.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+} catch (e) {
+console.error(chalk.redBright(`Error al intentar activar sub-bot (+${folder}):`), e)
+}} else {
+console.log(chalk.bold.cyanBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Sub-bot (+${folder}) ya está conectado.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+}}}
+
+setInterval(checkSubBots, 4500000) //15min
