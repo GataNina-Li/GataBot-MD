@@ -1073,6 +1073,7 @@ if (!('antiCall' in settings)) settings.antiCall = true
 if (!('antiSpam' in settings)) settings.antiSpam = true 
 if (!('modoia' in settings)) settings.modoia = false
 if (!('jadibotmd' in settings)) settings.jadibotmd = true 
+if (!('prefix' in settings)) settings.prefix = opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@';
 } else global.db.data.settings[this.user.jid] = {
 self: false,
 autoread: false,
@@ -1084,11 +1085,14 @@ antiCall: true,
 antiSpam: true,
 modoia: false, 
 anticommand: false, 
+prefix: opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@',
 jadibotmd: true,
 }} catch (e) {
 console.error(e)
 }
 
+var settings = global.db.data.settings[this.user.jid]
+const prefix = new RegExp('^[' + settings.prefix.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']');  
 const isROwner = [...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isOwner = isROwner || m.fromMe
 const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
@@ -1157,65 +1161,57 @@ if (plugin.tags && plugin.tags.includes('admin')) {
 // global.dfail('restrict', m, this)
 continue
 }
-const str2Regex = str => str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
-let _prefix = plugin.customPrefix ? plugin.customPrefix : conn.prefix ? conn.prefix : global.prefix
-let match = (_prefix instanceof RegExp ? // RegExp Mode?
-[[_prefix.exec(m.text), _prefix]] :
-Array.isArray(_prefix) ? // Array?
-_prefix.map(p => {
-let re = p instanceof RegExp ? // RegExp in Array?
-p :
-new RegExp(str2Regex(p))
-return [re.exec(m.text), re]
-}) :
-typeof _prefix === 'string' ? // String?
-[[new RegExp(str2Regex(_prefix)).exec(m.text), new RegExp(str2Regex(_prefix))]] :
-[[[], new RegExp]]
-).find(p => p[1])
-if (typeof plugin.before === 'function') {
-if (await plugin.before.call(this, m, {
-match,
-conn: this,
-participants,
-groupMetadata,
-user,
-bot,
-isROwner,
-isOwner,
-isRAdmin,
-isAdmin,
-isBotAdmin,
-isPrems,
-chatUpdate,
-__dirname: ___dirname,
-__filename
-}))
-continue
-}
-if (typeof plugin !== 'function')
-continue
-if ((usedPrefix = (match[0] || '')[0])) {
-let noPrefix = m.text.replace(usedPrefix, '')
-let [command, ...args] = noPrefix.trim().split` `.filter(v => v)
-args = args || []
-let _args = noPrefix.trim().split` `.slice(1)
-let text = _args.join` `
-command = (command || '').toLowerCase()
-let fail = plugin.fail || global.dfail // When failed
-let isAccept = plugin.command instanceof RegExp ? // RegExp Mode?
-plugin.command.test(command) :
-Array.isArray(plugin.command) ? // Array?
-plugin.command.some(cmd => cmd instanceof RegExp ? // RegExp in Array?
-cmd.test(command) :
-cmd === command
-) :
-typeof plugin.command === 'string' ? // String?
-plugin.command === command :
-false
+const str2Regex = str => str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
+            let _prefix = plugin.customPrefix ? plugin.customPrefix : this.prefix ? this.prefix : prefix; // Usamos prefix local
+            let match = (_prefix instanceof RegExp ?
+                [[_prefix.exec(m.text), _prefix]] :
+                Array.isArray(_prefix) ?
+                _prefix.map(p => {
+                    let re = p instanceof RegExp ? p : new RegExp(str2Regex(p));
+                    return [re.exec(m.text), re];
+                }) :
+                typeof _prefix === 'string' ?
+                [[new RegExp(str2Regex(_prefix)).exec(m.text), new RegExp(str2Regex(_prefix))]] :
+                [[[], new RegExp]]
+            ).find(p => p[1]);
+            if (typeof plugin.before === 'function') {
+                if (await plugin.before.call(this, m, {
+                    match,
+                    conn: this,
+                    participants,
+                    groupMetadata,
+                    user,
+                    bot,
+                    isROwner,
+                    isOwner,
+                    isRAdmin,
+                    isAdmin,
+                    isBotAdmin,
+                    isPrems,
+                    chatUpdate,
+                    __dirname: ___dirname,
+                    __filename
+                })) continue;
+            }
+            if (typeof plugin !== 'function') continue;
+            if ((usedPrefix = (match[0] || '')[0])) {
+                let noPrefix = m.text.replace(usedPrefix, '');
+                let [command, ...args] = noPrefix.trim().split` `.filter(v => v);
+                args = args || [];
+                let _args = noPrefix.trim().split` `.slice(1);
+                let text = _args.join` `;
+                command = (command || '').toLowerCase();
+                let fail = plugin.fail || global.dfail;
+                let isAccept = plugin.command instanceof RegExp ?
+                    plugin.command.test(command) :
+                    Array.isArray(plugin.command) ?
+                    plugin.command.some(cmd => cmd instanceof RegExp ? cmd.test(command) : cmd === command) :
+                    typeof plugin.command === 'string' ?
+                    plugin.command === command :
+                    false;
 
-if (!isAccept)
-continue
-m.plugin = name
+                if (!isAccept) continue;
+                m.plugin = name;
 if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
 let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
@@ -1522,7 +1518,7 @@ if (!chats?.detect) continue
 // if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '```Description has been changed to```\n@desc').replace('@desc', groupUpdate.desc)
 //if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '```Subject has been changed to```\n@subject').replace('@subject', groupUpdate.subject)
 //if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '```Icon has been changed to```').replace('@icon', groupUpdate.icon)
-if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '```Group link has been changed to```\n@revoke').replace('@revoke', groupUpdate.revoke)
+//if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '```Group link has been changed to```\n@revoke').replace('@revoke', groupUpdate.revoke)
 if (!text) continue
 await this.sendMessage(id, { text, mentions: this.parseMention(text) })
 }}

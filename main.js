@@ -39,11 +39,11 @@ global.__filename = function filename(pathURL = import.meta.url, rmPrefix = plat
 }; global.__require = function require(dir = import.meta.url) {
   return createRequire(dir);
 };
-global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({...query, ...(apikeyqueryname ? {[apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name]} : {})})) : '')
+//global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({...query, ...(apikeyqueryname ? {[apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name]} : {})})) : '')
 global.timestamp = { start: new Date }
 const __dirname = global.__dirname(import.meta.url);
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse());
-global.prefix = new RegExp('^[' + (opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@').replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']')
+//global.prefix = new RegExp('^[' + (opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@').replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']')
 
 //news
 const databasePath = path.join(__dirname, 'database');
@@ -343,12 +343,6 @@ if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 't
 
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
-async function getMessage(key) {
-if (store) {
-} return {
-conversation: 'SimpleBot',
-}}
-
 //respaldo de la sesión "GataBotSession"
 const backupCreds = () => {
 if (fs.existsSync(credsFile)) {
@@ -419,48 +413,8 @@ await global.reloadHandler(true).catch(console.error) //process.send('reset')
 console.log(chalk.bold.redBright(lenguajeGB['smsConexiondescon'](reason, connection)))
 }}
 }
+
 process.on('uncaughtException', console.error);
-//process.on('uncaughtException', (err) => {
-//console.error('Se ha cerrado la conexión:\n', err)
-//process.send('reset') })
-
-/* ------------------------------------------------*/
-/* Código reconexión de sub-bots fases beta */
-/* Echo por: https://github.com/elrebelde21 */
-
-/*async function connectSubBots() {
-const subBotDirectory = './GataJadiBot';
-if (!existsSync(subBotDirectory)) {
-console.log('No se encontraron ningun sub-bots.');
-return;
-}
-const subBotFolders = readdirSync(subBotDirectory).filter(file => 
-statSync(join(subBotDirectory, file)).isDirectory()
-);
-const botPromises = subBotFolders.map(async folder => {
-const authFile = join(subBotDirectory, folder);
-if (existsSync(join(authFile, 'creds.json'))) {
-return await connectionUpdate(authFile);
-}
-});
-const bots = await Promise.all(botPromises);
-global.conns = bots.filter(Boolean);
-console.log(chalk.bold.greenBright(`✅ TODOS LOS SUB-BOTS SE HAN INICIADO CORRECTAMENTE`))
-}
-(async () => {
-global.conns = [];
-const mainBotAuthFile = 'GataBotSession';
-try {
-const mainBot = await connectionUpdate(mainBotAuthFile);
-global.conns.push(mainBot);
-console.log(chalk.bold.greenBright(`✅ BOT PRINCIPAL INICIANDO CORRECTAMENTE`))
-await connectSubBots();
-} catch (error) {
-console.error(chalk.bold.cyanBright(`❌ OCURRIÓ UN ERROR AL INICIAR EL BOT PRINCIPAL: `, error))
-}
-})();*/
-
-/* ------------------------------------------------*/
 
 let isInit = true;
 let handler = await import('./handler.js');
@@ -515,6 +469,7 @@ conn.ev.on('creds.update', conn.credsUpdate);
 isInit = false
 return true
 }
+
 /** Arranque nativo para subbots by - ReyEndymion >> https://github.com/ReyEndymion
  */
 if (global.gataJadibts) {
@@ -583,9 +538,11 @@ conn.logger.error(`HAY UN ERROR REQUIERE EL PLUGINS '${filename}\n${format(e)}'`
 } finally {
 global.plugins = Object.fromEntries(Object.entries(global.plugins).sort(([a], [b]) => a.localeCompare(b)));
 }}}};
+
 Object.freeze(global.reload);
 watch(pluginFolder, global.reload);
 await global.reloadHandler();
+
 async function _quickTest() {
 const test = await Promise.all([
 spawn('ffmpeg'),
@@ -602,14 +559,17 @@ p.on('close', (code) => {
 resolve(code !== 127);
 });
 }),
+
 new Promise((resolve) => {
 p.on('error', (_) => resolve(false));
 })]);
 }));
+
 const [ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, find] = test;
 const s = global.support = {ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, find};
 Object.freeze(global.support);
 }
+
 function clearTmp() {
 const tmpDir = join(__dirname, 'tmp')
 const filenames = readdirSync(tmpDir)
@@ -617,7 +577,94 @@ filenames.forEach(file => {
 const filePath = join(tmpDir, file)
 unlinkSync(filePath)})
 }
-function purgeSession() {
+
+async function purgeSession() {
+const sessionDir = './GataBotSession';
+try {
+if (!existsSync(sessionDir)) return;
+const files = await readdir(sessionDir);
+const preKeys = files.filter(file => file.startsWith('pre-key-')); 
+const now = Date.now();
+const oneHourAgo = now - (24 * 60 * 60 * 1000); //24 horas
+    
+for (const file of preKeys) {
+const filePath = join(sessionDir, file);
+const fileStats = await stat(filePath);
+if (fileStats.mtimeMs < oneHourAgo) { 
+try {
+await unlink(filePath);
+console.log(chalk.green(`[🗑️] Pre-key antigua eliminada: ${file}`));
+} catch (err) {
+//console.error(chalk.red(`[⚠] Error al eliminar pre-key antigua ${file}: ${err.message}`));
+}} else {
+console.log(chalk.yellow(`[ℹ️] Manteniendo pre-key activa: ${file}`));
+}}
+console.log(chalk.cyanBright(`[🔵] Sesiones no esenciales eliminadas de ${global.authFile}`));
+} catch (err) {
+//console.error(chalk.red(`[⚠] Error al limpiar: ${err.message}`));
+}}
+
+async function purgeSessionSB() {
+const jadibtsDir = './GataJadiBot/';
+try {
+if (!existsSync(jadibtsDir)) return;
+const directories = await readdir(jadibtsDir);
+let SBprekey = [];
+const now = Date.now();
+const oneHourAgo = now - (24 * 60 * 60 * 1000); //24 horas
+    
+for (const dir of directories) {
+const dirPath = join(jadibtsDir, dir);
+const stats = await stat(dirPath);
+if (stats.isDirectory()) {
+const files = await readdir(dirPath);
+const preKeys = files.filter(file => file.startsWith('pre-key-') && file !== 'creds.json');
+SBprekey = [...SBprekey, ...preKeys];
+for (const file of preKeys) {
+const filePath = join(dirPath, file);
+const fileStats = await stat(filePath);
+if (fileStats.mtimeMs < oneHourAgo) { 
+try {
+await unlink(filePath);
+console.log(chalk.bold.green(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lenguajeGB.smspurgeOldFiles2()}`))
+} catch (err) {
+//console.error(chalk.red(`[⚠] Error al eliminar pre-key antigua ${file} en ${dir}: ${err.message}`));
+}} else {
+//console.log(chalk.yellow(`[ℹ️] Manteniendo pre-key activa en sub-bot ${dir}: ${file}`));
+}}}}
+if (SBprekey.length === 0) {
+console.log(chalk.bold.green(lenguajeGB.smspurgeSessionSB1()))
+} else {
+console.log(chalk.cyanBright(`[🔵] Pre-keys antiguas eliminadas de sub-bots: ${SBprekey.length}`));
+}} catch (err) {
+console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err))
+}}
+
+async function purgeOldFiles() {
+const directories = ['./GataBotSession/', './GataJadiBot/'];
+for (const dir of directories) {
+try {
+if (!fs.existsSync(dir)) { 
+console.log(chalk.yellow(`[⚠] Carpeta no existe: ${dir}`));
+continue;
+}
+const files = await fsPromises.readdir(dir); 
+for (const file of files) {
+if (file !== 'creds.json') {
+const filePath = join(dir, file);
+try {
+await fsPromises.unlink(filePath);
+//console.log(chalk.green(`[🗑️] Archivo residual eliminado: ${file} en ${dir}`));
+} catch (err) {
+//console.error(chalk.red(`[⚠] Error al eliminar ${file} en ${dir}: ${err.message}`));
+}}}
+} catch (err) {
+//console.error(chalk.red(`[⚠] Error al limpiar ${dir}: ${err.message}`));
+}}
+//console.log(chalk.cyanBright(`[🟠] Archivos residuales eliminados de ${directories.join(', ')}`));
+}
+
+/*function purgeSession() {
 let prekey = []
 let directorio = readdirSync("./GataBotSession")
 let filesFolderPreKeys = directorio.filter(file => {
@@ -628,6 +675,7 @@ filesFolderPreKeys.forEach(files => {
 unlinkSync(`./GataBotSession/${files}`)
 })
 } 
+
 function purgeSessionSB() {
 try {
 const listaDirectorios = readdirSync('./GataJadiBot/');
@@ -664,7 +712,9 @@ console.log(chalk.bold.red(`${lenguajeGB.smspurgeOldFiles3()} ${file} ${lenguaje
 } else {
 console.log(chalk.bold.green(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lenguajeGB.smspurgeOldFiles2()}`))
 } }) }
-}) }) }) }
+}) }) }) }*/
+
+
 function redefineConsoleMethod(methodName, filterStrings) {
 const originalConsoleMethod = console[methodName]
 console[methodName] = function() {
@@ -678,7 +728,7 @@ originalConsoleMethod.apply(console, arguments)
 setInterval(async () => {
 if (stopped === 'close' || !conn || !conn.user) return
 await clearTmp()
-console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4) // 4 min 
+console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 3) //3 min 
 
 setInterval(async () => {
 if (stopped === 'close' || !conn || !conn.user) return
