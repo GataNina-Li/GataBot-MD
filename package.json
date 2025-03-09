@@ -29,7 +29,7 @@
 "url": "https://github.com/GataNina-Li/GataBot-MD/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
-"@whiskeysockets/baileys": "npm:@fizzxydev/baileys-pro@^8.6.8",
+"@whiskeysockets/baileys": "github:ds6/lyru-baileys",
 "@adiwajshing/keyed-db": "^0.2.4",
 "@bochilteam/scraper": "^5.0.1",
 "@brandond/findthelyrics": "^2.0.5",
@@ -71,7 +71,6 @@
 "instagram-url-direct": "^1.0.12",
 "jsdom": "^20.0.1",
 "link-preview-js": "^3.0.0",
-"jimp": "^0.16.1",
 "lodash": "^4.17.21",
 "lowdb": "^3.0.0",
 "libphonenumber-js": "^1.10.55",
