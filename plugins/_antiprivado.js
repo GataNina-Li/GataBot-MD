@@ -5,7 +5,7 @@ let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender] || {};
 let setting = global.db.data.settings[this.user.jid]
 const settingsREAD = global.db.data.settings[this.user.jid] || {}
-let prefixRegex = new RegExp('^[' + settings.prefix.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']');
+let prefixRegex = new RegExp('^[' + setting.prefix.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']');
 
 //contando de mensaje 
 if (!global.db.data.users[m.sender]) global.db.data.users[m.sender] = {};
