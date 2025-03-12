@@ -1109,7 +1109,7 @@ await delay(time)
 }, time)
 }
 
-if ((m.id.startsWith('NJX-') || (m.id.startsWith('BAE5') && m.id.length === 16) || (m.id.startsWith('B24E') && m.id.length === 20) || m.id.startsWith('FizzxyTheGreat-') || m.id.startsWith('Lyru-'))) return
+if ((m.id.startsWith('NJX-') || m.id.startsWith('8SC0FA63C80C') || (m.id.startsWith('BAE5') && m.id.length === 16) || (m.id.startsWith('B24E') && m.id.length === 20) || m.id.startsWith('FizzxyTheGreat-') || m.id.startsWith('Lyru-'))) return
 
 if (opts['nyimak']) return
 if (!isROwner && opts['self']) return 
