@@ -9,7 +9,8 @@ const require = createRequire(__dirname)
 
 let handler = async (m, _2) => {
 if (m.fromMe) return
-let { conn, usedPrefix, noPrefix, args, groupMetadata } = _2
+let { conn, isROwner, usedPrefix, noPrefix, args, groupMetadata } = _2
+if (!isROwner) return
   let _return
   let _syntax = ''
   let _text = (/^=/.test(usedPrefix) ? 'return ' : '') + noPrefix
