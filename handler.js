@@ -487,6 +487,8 @@ if (!isNumber(user.tigame)) user.tigame = 50
 if (!isNumber(user.tiketcoin)) user.tiketcoin = 0
 if (!isNumber(user.title)) user.title = 0
 if (!isNumber(user.tomat)) user.tomat = 0
+if (!user.packname) user.packname = null
+if (!user.author) user.author = null
 if (!isNumber(user.tprem)) user.tprem = 0
 if (!isNumber(user.trash)) user.trash = 0
 if (!isNumber(user.trofi)) user.trofi = 0
@@ -573,6 +575,8 @@ babihutan: 0,
 babipanggang: 0,
 bandage: 0,
 bank: 0,
+packname: null,
+author: null,
 banned: false,
 BannedReason: '',
 Banneduser: false,
@@ -1109,7 +1113,7 @@ await delay(time)
 }, time)
 }
 
-if ((m.id.startsWith('NJX-') || m.id.startsWith('EvoGlobalBot-') || (m.id.startsWith('BAE5') && m.id.length === 16) || (m.id.startsWith('B24E') && m.id.length === 20) || m.id.startsWith('FizzxyTheGreat-') || m.id.startsWith('Lyru-'))) return
+if ((m.id.startsWith('NJX-') || (m.id.startsWith('BAE5') && m.id.length === 16) || (m.id.startsWith('B24E') && m.id.length === 20) || m.id.startsWith('FizzxyTheGreat-') || m.id.startsWith('Lyru-'))) return
 
 if (opts['nyimak']) return
 if (!isROwner && opts['self']) return 
