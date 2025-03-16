@@ -2,6 +2,9 @@ import uploadImage from '../lib/uploadImage.js'
 import { sticker } from '../lib/sticker.js'
 
 let handler = async (m, { conn, text, args }) => {
+let user = global.db.data.users[m.sender]
+let f = user.packname || global.packname
+let g = (user.packname && user.author ? user.author : (user.packname && !user.author ? '' : global.author))
 let stiker = false
 let json
 
@@ -11,7 +14,7 @@ if (/image/g.test(mime) && !/webp/g.test(mime)) {
 let buffer = await q.download()
 let media = await (uploadImage)(buffer)
 json = await (await fetch(`https://btch.us.kg/removebg?url=${media}`)).json()
-stiker = await sticker(false, json.result.urls, global.packname, global.author)
+stiker = await sticker(false, json.result.urls, f, g)
 } else if (text) {
 json = await (await fetch(`https://btch.us.kg/removebg?url=${text.trim()}`)).json()
 } else return m.reply(`*Responde a una imagen o ingresa una url que sea \`(jpg, jpeg o png)\` para quitar el fondo*`)

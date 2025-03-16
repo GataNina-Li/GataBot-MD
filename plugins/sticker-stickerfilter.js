@@ -4,6 +4,9 @@ let MessageType = (await import(global.baileys)).default
 const effects = ['greyscale', 'invert', 'brightness', 'threshold', 'sepia', 'red', 'green', 'blue', 'blurple', 'pixelate', 'blur']
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
+let user = global.db.data.users[m.sender]
+let f = user.packname || global.packname
+let g = (user.packname && user.author ? user.author : (user.packname && !user.author ? '' : global.author))
 let effect = text.trim().toLowerCase()
 if (!effects.includes(effect)) throw `
 ${mg}𝘿𝙀𝘽𝙀 𝘿𝙀 𝙐𝙎𝘼𝙍 𝙀𝙇 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝘿𝙀 𝙇𝘼 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 𝙁𝙊𝙍𝙈𝘼
@@ -29,7 +32,7 @@ let apiUrl = global.API('https://some-random-api.ml/canvas/', encodeURIComponent
 avatar: url
 })
 try {
-let stiker = await sticker(null, apiUrl, global.packname, global.author)
+let stiker = await sticker(null, apiUrl, f, g)
 conn.sendFile(m.chat, stiker, null, { asSticker: true })
 } catch (e) {
 m.reply(`${fg}𝙉𝙊 𝙎𝙀 𝙋𝙐𝘿𝙊 𝙃𝘼𝘾𝙀𝙍 𝙇𝘼 𝘾𝙊𝙉𝙑𝙀𝙍𝙎𝙄𝙊𝙉, 𝙀𝙉 𝙎𝙐 𝙇𝙐𝙂𝘼𝙍 𝙀𝙉𝙑𝙄𝘼𝙍 𝙐𝙉𝘼 𝙄𝙈𝘼𝙂𝙀𝙉\n\n𝙏𝙃𝙀 𝘾𝙊𝙉𝙑𝙀𝙍𝙎𝙄𝙊𝙉 𝘾𝙊𝙐𝙇𝘿 𝙉𝙊𝙏 𝘽𝙀 𝘿𝙊𝙉𝙀, 𝙎𝙀𝙉𝘿 𝘼𝙉 𝙄𝙈𝘼𝙂𝙀 𝙄𝙉𝙎𝙏𝙀𝘼𝘿`)
