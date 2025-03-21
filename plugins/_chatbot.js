@@ -7,9 +7,10 @@ const antiSpam = new Map();
 export async function before(m, { conn }) {
 let chat = global.db.data.chats[m.chat]
 let name = conn.getName(m.sender)
-m.isBot = m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20;
+if(m.id.startsWith('NJX-') || m.id.startsWith('Lyru-') || m.id.startsWith('EvoGlobalBot-') || m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') || m.id.startsWith('8SCO') && m.id.length === 20 || m.id.startsWith('FizzxyTheGreat-')) return
 if (m.isBot) return 
 if (chat.isBanned) return
+if (m.fromMe) return
  
 let vn = 'https://qu.ax/Ocxm.mp3'
 let bot = `${pickRandom([`*¡𝑬𝒚! 𝑨𝒒𝒖í 𝒆𝒔𝒕𝒐𝒚. 𝒀𝒐 𝒑𝒖𝒆𝒅𝒐 𝒂𝒚𝒖𝒅𝒂𝒓 👉👈 𝑯𝒆𝒚! 𝑰'𝒎 𝒉𝒆𝒓𝒆. 𝑰 𝒄𝒂𝒏 𝒉𝒆𝒍𝒑 🙌*`, `Aqui estoy | Here I am 😼`, `*Hola Aqui estoy yo puedo ayudar? | Hello, here I am, can I help? 😸*`])}`.trim()
