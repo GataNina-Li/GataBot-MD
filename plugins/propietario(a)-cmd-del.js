@@ -7,5 +7,5 @@ if (sticker[hash] && sticker[hash].locked) throw `${lenguajeGB['smsAvisoAG']()}�
 delete sticker[hash]
 m.reply(`${lenguajeGB['smsAvisoEG']()}𝙀𝙇 𝙏𝙀𝙓𝙏𝙊/𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝘼𝙎𝙄𝙂𝙉𝘼𝘿𝙊 𝘼𝙇 𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝙀 𝙄𝙈𝘼𝙂𝙀𝙉 𝙁𝙐𝙀 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝙊 𝘿𝙀 𝙇𝘼 𝘽𝘼𝙎𝙀 𝘿𝙀 𝘿𝘼𝙏𝙊𝙎 𝘾𝙊𝙍𝙍𝙀𝘾𝙏𝘼𝙈𝙀𝙉𝙏𝙀`)}
 handler.command = ['delcmd']
-handler.rowner = true
+handler.owner = true
 export default handler

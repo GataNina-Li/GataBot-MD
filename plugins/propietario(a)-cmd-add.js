@@ -10,5 +10,5 @@ sticker[hash] = { text, mentionedJid: m.mentionedJid, creator: m.sender, at: + n
 m.reply(`${lenguajeGB['smsAvisoEG']()}𝙀𝙇 𝙏𝙀𝙓𝙏𝙊/𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝘼𝙎𝙄𝙂𝙉𝘼𝘿𝙊 𝘼𝙇 𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝙀 𝙄𝙈𝘼𝙂𝙀𝙉 𝙁𝙐𝙀 𝘼𝙂𝙍𝙀𝙂𝘼𝘿𝙊 𝘼 𝙇𝘼 𝘽𝘼𝙎𝙀 𝘿𝙀 𝘿𝘼𝙏𝙊𝙎 𝘾𝙊𝙍𝙍𝙀𝘾𝙏𝘼𝙈𝙀𝙉𝙏𝙀`)
 }
 handler.command = ['setcmd', 'addcmd', 'cmdadd', 'cmdset']
-handler.rowner = true
+handler.owner = true
 export default handler

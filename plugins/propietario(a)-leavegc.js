@@ -12,5 +12,5 @@ return console.log(e)
 }}
 handler.command = /^(salir|leavegc|salirdelgrupo|leave)$/i
 handler.group = true
-handler.rowner = true
+handler.owner = true
 export default handler

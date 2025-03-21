@@ -16,5 +16,5 @@ handler.command = /^(remove|-|del)prem$/i
 handler.group = true
 handler.admin = true
 handler.botAdmin = true
-handler.rowner = true
+handler.owner = true
 export default handler

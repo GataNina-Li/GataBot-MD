@@ -24,5 +24,5 @@ handler.help = ['addxp <@user>']
 handler.tags = ['xp']
 handler.command = ['eliminarxp', 'eliminarexp', 'eliminarexperiencia', 'quitarexperiencia', 'quitarxp', 'quitarexp', 'delexperiencia', 'delxp', 'quitarexp'] 
 handler.group = true
-handler.rowner = true
+handler.owner = true
 export default handler

@@ -25,5 +25,5 @@ handler.help = ["ddxp  [@user]"]
 handler.tags = ['xp']
 handler.command = ['añadirxp', 'añadirexp', 'añadirexperiencia', 'darexperiencia', 'darxp', 'darexp'] 
 handler.group = true
-handler.rowner = true
+handler.owner = true
 export default handler

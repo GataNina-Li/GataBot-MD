@@ -42,5 +42,5 @@ await conn.reply(m.chat, lenguajeGB.smsPropban7(usedPrefix, command, number), nu
 console.log(e) 
 }}
 handler.command = /^banuser$/i
-handler.rowner = true
+handler.owner = true
 export default handler

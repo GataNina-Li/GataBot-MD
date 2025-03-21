@@ -25,5 +25,5 @@ handler.help = ['addgb <@user>']
 handler.tags = ['gatacoins']
 handler.command = ['eliminargatacoins', 'eliminargata', 'eliminarcoins', 'quitargatacoins', 'quitargata', 'quitarcoins', 'delgatacoins', 'delgata', 'delcoins'] 
 handler.group = true
-handler.rowner = true
+handler.owner = true
 export default handler 

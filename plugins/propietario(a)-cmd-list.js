@@ -5,5 +5,5 @@ ${Object.entries(global.db.data.sticker).map(([key, value], index) => `*${index 
 `.trim(), null, {mentions: Object.values(global.db.data.sticker).map(x => x.mentionedJid).reduce((a, b) => [...a, ...b], [])})
 }
 handler.command = ['listcmd', 'cmdlist']
-handler.rowner = true
+handler.owner = true
 export default handler

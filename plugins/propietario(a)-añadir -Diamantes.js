@@ -25,5 +25,5 @@ handler.help = ['adddi <@user>']
 handler.tags = ['xp']
 handler.command = ['añadirdiamantes', 'dardiamantes', 'dardiamante'] 
 handler.group = true
-handler.rowner = true
+handler.owner = true
 export default handler
