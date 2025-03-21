@@ -128,6 +128,7 @@ conversation: 'GataBot-MD',
 let sock = makeWASocket(connectionOptions)
 sock.isInit = false
 let isInit = true
+let reconnectAttempts = 0;
 
 async function connectionUpdate(update) {
 const { connection, lastDisconnect, isNewLogin, qr } = update
