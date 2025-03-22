@@ -61,8 +61,7 @@
 |------|-------------|-------|
 | ☁️ **SKY ULTRA PLUS** | *Activar en SkyUltraPlus* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD/tree/master#%EF%B8%8F-sky-ultra-plus) |
 | 📦⛏️ **BOXMINE HOST** | *Activar en BoxMine Host* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#%EF%B8%8F-boxmine-host) |
-| 🎇 **HOSTING-PY** | *Activar en Hosting-Py* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#-hosting-py) |
-| **TK HOST** | *Activar en TK Host* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#tk-host) |
+| 🎇 **EDRACLOUD HOST** | *Activar en EdraCloud Host* | [![Here](https://img.shields.io/badge/Aquí-blue)](https://github.com/GataNina-Li/GataBot-MD#-edracloud-host) |
 </details>
 
  <details>
@@ -274,15 +273,13 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/tD3NQSR.jpeg"></details>
 -----
-### 🎇 Hosting Py
-<a href="https://dash.hostingpy.shop/"><img src="https://files.catbox.moe/lr92z2.jpg" height="130px"></a>
+### 🎇 EDRACLOUD HOST
+<a href="https://test.crxsmods.site"><img src="https://qu.ax/pXdEg.jpg" height="130px"></a>
 
-- **Dashboard:** [`Aquí`](https://dash.hostingpy.shop/)
-- **Panel:** [`Aquí`](https://panel.hostingpy.shop/)
-- **Registrarse:** [`Aquí`](https://dash.hostingpy.shop/register?ref=GataDios)
+- **Página:** [`Aquí`](https://test.crxsmods.site)
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
 - **Comunidad:** [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
-- **Contacto:** [`AdrianOficial`](https://wa.me/595976126756)
+- **Contacto:** [`Adrian`](https://wa.me/595976126756)
 
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/jD7AT0x.png"></details>
 -----
