@@ -3,7 +3,7 @@
 import '../plugins/_content.js'
 //let handler = m => m
 //handler.all = async function (m) {
-import { perplexity } from '../lib/scraper.js';
+import { perplexity } from '../lib/chatgpt.js;
 const antiSpam = new Map();
 export async function before(m, { conn }) {
 if (m.id.startsWith('NJX-') || m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20 || m.id.startsWith('FizzxyTheGreat-')) return
