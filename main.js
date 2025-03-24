@@ -350,16 +350,35 @@ console.info = () => {}
 console.debug = () => {} 
 ['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
 const connectionOptions = {
-logger: pino({ level: "fatal" }),
+logger: pino({ level: 'silent' }), 
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
-mobile: MethodMobile, 
-auth: {
+mobile: MethodMobile,
+auth: { 
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
 },
 browser: opcion == '1' ? ['GataBot-MD', 'Edge', '20.0.04'] : methodCodeQR ? ['GataBot-MD', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
-version: version,
-generateHighQualityLinkPreview: true
+version: version, 
+generateHighQualityLinkPreview: true, 
+markOnlineOnConnect: false, 
+syncFullHistory: false, 
+msgRetryCounterCache: msgRetryCounterCache, 
+userDevicesCache: userDevicesCache, 
+defaultQueryTimeoutMs: 60000, 
+cachedGroupMetadata: async (jid) => { 
+return global.db.data.chats[jid] || {};
+},
+getMessage: async (key) => { 
+try {
+let jid = jidNormalizedUser(key.remoteJid);
+let msg = await store.loadMessage(jid, key.id);
+return msg?.message || "";
+} catch {
+return "";
+}
+},
+keepAliveIntervalMs: 55000, 
+maxIdleTimeMs: 60000, 
 };
     
 global.conn = makeWASocket(connectionOptions)
