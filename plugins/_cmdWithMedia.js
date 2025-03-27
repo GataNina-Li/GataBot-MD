@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 const globalContentFile = path.join(process.cwd(), './database/globalContent.json');
+const localContentFile = path.join(process.cwd(), './database/localContent.json');
 
 function loadGlobalContent() {
   try {
@@ -18,16 +19,26 @@ function loadGlobalContent() {
   }
 }
 
+function loadLocalContent() {
+  try {
+    if (fs.existsSync(localContentFile)) {
+      const data = fs.readFileSync(localContentFile, 'utf8');
+      return JSON.parse(data);
+    }
+    return {};
+  } catch (e) {
+    console.error(`Error al cargar localContent.json: ${e}`);
+    return {};
+  }
+}
+
 export async function all(m, chatUpdate) {
 if (m.isBaileys) return;
 global.db.data = global.db.data || {};
-global.db.data.chats = global.db.data.chats || {};
 global.db.data.sticker = global.db.data.sticker || {};
 
-if (!global.db.data.chats[m.chat]) {
-global.db.data.chats[m.chat] = { savedContent: {} };
-}
-const chat = global.db.data.chats[m.chat];
+const localContent = loadLocalContent();
+const chat = localContent[m.chat] || { savedContent: {} };
 const globalContent = loadGlobalContent();
 
 if (m.text && !m.isCommand && m.mtype !== 'protocolMessage' && !m.text.startsWith('.')) {
@@ -43,14 +54,36 @@ switch (content.type) {
 case 'sticker':
 if (content.data) {
 const stickerBuffer = Buffer.from(content.data, 'base64');
-await this.sendFile(m.chat, stickerBuffer, 'sticker.webp', '', m, content.isAnimated || false, { contextInfo: { forwardingScore: 200, isForwarded: false, externalAdReply: { showAdAttribution: false, title: gt, body: vs, mediaType: 2, sourceUrl: all, thumbnail: imagen }}})
+await this.sendFile(m.chat, stickerBuffer, 'sticker.webp', '', m, content.isAnimated || false, { contextInfo: { forwardingScore: 200, isForwarded: false, externalAdReply: { showAdAttribution: false, title: wm, body: vs, mediaType: 2, sourceUrl: [nna, nn, md, yt].getRandom(), thumbnail: imagen4 }}});
 }
 break;
-case 'image': case 'video': case 'audio':
+case 'image': case 'video': case 'gif': case 'audio': case 'document':
 if (content.data) {
 const buffer = Buffer.from(content.data, 'base64');
-await this.sendMessage(m.chat, { [content.type]: buffer, caption: content.caption || '' }, options);
+const message = {
+[content.type === 'gif' ? 'video' : content.type]: buffer,
+caption: content.caption || '',
+...(content.type === 'gif' ? { gifPlayback: true } : {}),
+...(content.type === 'document' ? { mimetype: content.mimetype, fileName: content.fileName } : {}),
+...(content.type === 'audio' ? { ptt: false } : {})
+};
+await this.sendMessage(m.chat, message, options);
 }
+break;
+case 'location':
+await this.sendMessage(m.chat, { location: { degreesLatitude: content.latitude, degreesLongitude: content.longitude, name: content.caption || '' } }, options);
+break;
+case 'contact':
+await this.sendMessage(m.chat, { contacts: { contacts: [{ vcard: content.vcard, displayName: content.caption || '' }] } }, options);
+break;
+case 'buttons':
+if (content.text || content.buttons.length > 0) {
+await this.sendMessage(m.chat, { text: content.text || content.caption || '', buttons: content.buttons.map(b => ({ buttonId: b.buttonId, buttonText: { displayText: b.buttonText }, type: 1 })), headerType: 1
+}, options);
+}
+break;
+case 'link':
+await m.reply(`${content.caption ? content.caption + '\n\n' : ''}${content.url}`, options);
 break;
 case 'text':
 if (content.value) {
@@ -59,14 +92,15 @@ await m.reply(content.value);
 break;
 default:
 return;
-}} catch (e) {
+}
+} catch (e) {
 console.error(`Error al procesar contenido: ${e}`);
 }
 return;
 }
 
-  if (m.message && m.msg?.fileSha256) {
-    const hash = Buffer.from(m.msg.fileSha256).toString('base64');
+if (m.message && m.msg?.fileSha256) {
+const hash = Buffer.from(m.msg.fileSha256).toString('base64');
     if (global.db.data.sticker?.[hash]) {
       const commandData = global.db.data.sticker[hash];
       const { text, mentionedJid, chat: commandChat } = commandData || {};
