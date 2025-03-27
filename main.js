@@ -197,9 +197,8 @@ console.error('Error cargando base de datos:', err);
 
 // Guardar antes de cerrar
 async function gracefulShutdown() {
-console.log('Guardando base de datos antes de cerrar...');
 await global.db.save();
-console.log('Base de datos guardada. Cerrando el bot...');
+console.log('Guardando base de datos antes de cerrar...');
 process.exit(0);
 }
 
@@ -349,33 +348,31 @@ console.info = () => {}
 console.debug = () => {} 
 ['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
 const connectionOptions = {
-logger: pino({ level: 'silent' }), 
+logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
-mobile: MethodMobile,
-auth: { 
+mobile: MethodMobile, 
+browser: opcion == '1' ? ['GataBot-MD', 'Edge', '20.0.04'] : methodCodeQR ? ['GataBot-MD', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
+auth: {
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
 },
-browser: opcion == '1' ? ['GataBot-MD', 'Edge', '20.0.04'] : methodCodeQR ? ['GataBot-MD', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
-version: version, 
-generateHighQualityLinkPreview: true, 
 markOnlineOnConnect: false, 
-syncFullHistory: false, 
-msgRetryCounterCache: msgRetryCounterCache, 
-userDevicesCache: userDevicesCache, 
-defaultQueryTimeoutMs: 60000, 
-cachedGroupMetadata: async (jid) => { 
-return global.db.data.chats[jid] || {};
-},
-getMessage: async (key) => { 
+generateHighQualityLinkPreview: true, 
+syncFullHistory: false,
+getMessage: async (key) => {
 try {
 let jid = jidNormalizedUser(key.remoteJid);
 let msg = await store.loadMessage(jid, key.id);
 return msg?.message || "";
-} catch {
+} catch (error) {
 return "";
-}
-},
+}},
+msgRetryCounterCache: msgRetryCounterCache || new Map(),
+userDevicesCache: userDevicesCache || new Map(),
+//msgRetryCounterMap,
+defaultQueryTimeoutMs: undefined,
+cachedGroupMetadata: (jid) => global.conn.chats[jid] ?? {},
+version: version, 
 keepAliveIntervalMs: 55000, 
 maxIdleTimeMs: 60000, 
 };
