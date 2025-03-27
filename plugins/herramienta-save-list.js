@@ -53,7 +53,7 @@ const { data, isAnimated, chat: commandChat } = commandData;
 if (commandChat !== null && commandChat !== m.chat && !isOwner) throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙀𝙎 𝙇𝙊𝘾𝘼𝙇 𝘼 𝙊𝙏𝙍𝙊 𝘾𝙃𝘼𝙏 𝙔 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀𝙎 𝙋𝙀𝙍𝙈𝙄𝙎𝙊 𝙋𝘼𝙍𝘼 𝙑𝙀𝙍𝙇𝙊.`
 if (!data) throw `${lenguajeGB['smsAvisoMG']()}𝙉𝙊 𝙎𝙀 𝙀𝙉𝘾𝙊𝙉𝙏𝙍Ó 𝙀𝙇 𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝘼𝙎𝙊𝘾𝙄𝘼𝘿𝙊 𝘼 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊.`
 const stickerBuffer = Buffer.from(data, 'base64');
-await conn.sendFile(m.chat, stickerBuffer, 'sticker.webp', '', m, isAnimated || false, { contextInfo: {  forwardingScore: 200, isForwarded: false,  externalAdReply: { showAdAttribution: false, title: 'Sticker recuperado', body: `Comando: ${commandText}`, mediaType: 2, sourceUrl: md,  thumbnail: imagen4 }}});
+await conn.sendFile(m.chat, stickerBuffer, 'sticker.webp', '', m, isAnimated || false, { contextInfo: {  forwardingScore: 200, isForwarded: false,  externalAdReply: { showAdAttribution: false, title: 'Sticker recuperado ' + gt, body: `Comando: ${commandText}`, mediaType: 2, sourceUrl: all,thumbnail: imagen4, }}});
 await m.react("✅");
 return;
 }

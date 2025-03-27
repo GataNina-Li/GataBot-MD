@@ -54,7 +54,7 @@ switch (content.type) {
 case 'sticker':
 if (content.data) {
 const stickerBuffer = Buffer.from(content.data, 'base64');
-await this.sendFile(m.chat, stickerBuffer, 'sticker.webp', '', m, content.isAnimated || false, { contextInfo: { forwardingScore: 200, isForwarded: false, externalAdReply: { showAdAttribution: false, title: wm, body: vs, mediaType: 2, sourceUrl: [nna, nn, md, yt].getRandom(), thumbnail: imagen4 }}});
+await this.sendFile(m.chat, stickerBuffer, 'sticker.webp', '', m, content.isAnimated || false, { contextInfo: { forwardingScore: 200, isForwarded: false, externalAdReply: { showAdAttribution: false, title: gt, body: vs, mediaType: 2, sourceUrl: all, thumbnail: imagen }}});
 }
 break;
 case 'image': case 'video': case 'gif': case 'audio': case 'document':
