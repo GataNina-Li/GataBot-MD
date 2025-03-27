@@ -51,26 +51,27 @@ const dbPath = path.join(__dirname, 'database');
 if (!fs.existsSync(dbPath)) fs.mkdirSync(dbPath);
 
 const collections = {
-users: new Datastore({ filename: path.join(dbPath, 'users.db'), autoload: true }),
-chats: new Datastore({ filename: path.join(dbPath, 'chats.db'), autoload: true }),
-settings: new Datastore({ filename: path.join(dbPath, 'settings.db'), autoload: true }),
-msgs: new Datastore({ filename: path.join(dbPath, 'msgs.db'), autoload: true }),
-sticker: new Datastore({ filename: path.join(dbPath, 'sticker.db'), autoload: true }),
-stats: new Datastore({ filename: path.join(dbPath, 'stats.db'), autoload: true }),
+  users: new Datastore({ filename: path.join(dbPath, 'users.db'), autoload: true }),
+  chats: new Datastore({ filename: path.join(dbPath, 'chats.db'), autoload: true }),
+  settings: new Datastore({ filename: path.join(dbPath, 'settings.db'), autoload: true }),
+  msgs: new Datastore({ filename: path.join(dbPath, 'msgs.db'), autoload: true }),
+  sticker: new Datastore({ filename: path.join(dbPath, 'sticker.db'), autoload: true }),
+  stats: new Datastore({ filename: path.join(dbPath, 'stats.db'), autoload: true }),
 };
 
 Object.values(collections).forEach(db => {
-  db.setAutocompactionInterval(60000);
+  db.setAutocompactionInterval(300000);
 });
 
-global.db = { data: {
-users: {},
-chats: {},
-settings: {},
-msgs: {},
-sticker: {},
-stats: {},
-},
+global.db = {
+  data: {
+    users: {},
+    chats: {},
+    settings: {},
+    msgs: {},
+    sticker: {},
+    stats: {},
+  },
 };
 
 function sanitizeId(id) {
@@ -82,112 +83,110 @@ function unsanitizeId(id) {
 }
 
 function sanitizeObject(obj) {
-const sanitized = {};
-for (const [key, value] of Object.entries(obj)) {
-const sanitizedKey = key.replace(/\./g, '_');
-sanitized[sanitizedKey] = (typeof value === 'object' && value !== null) ? sanitizeObject(value) : value;
-}
-return sanitized;
+  const sanitized = {};
+  for (const [key, value] of Object.entries(obj)) {
+    const sanitizedKey = key.replace(/\./g, '_');
+    sanitized[sanitizedKey] = (typeof value === 'object' && value !== null) ? sanitizeObject(value) : value;
+  }
+  return sanitized;
 }
 
 function unsanitizeObject(obj) {
-const unsanitized = {};
-for (const [key, value] of Object.entries(obj)) {
-const unsanitizedKey = key.replace(/_/g, '.');
-unsanitized[unsanitizedKey] = (typeof value === 'object' && value !== null) ? unsanitizeObject(value) : value;
-}
-return unsanitized;
-}
-
-async function readFromNeDB(category, id) {
-const sanitizedId = sanitizeId(id);
-return new Promise((resolve, reject) => {
-collections[category].findOne({ _id: sanitizedId }, (err, doc) => {
-if (err) {
-console.error(`Error leyendo ${category}/${id}:`, err);
-return reject(err);
-}
-resolve(doc ? unsanitizeObject(doc.data) : {});
-});
-});
-}
-
-async function writeToNeDB(category, id, data) {
-const sanitizedId = sanitizeId(id);
-const sanitizedData = sanitizeObject(data);
-return new Promise((resolve, reject) => {
-collections[category].update(
-{ _id: sanitizedId },
-{ $set: { data: sanitizedData } },
-{ upsert: true, multi: false },
-(err) => {
-if (err) {
-console.error(`Error escribiendo ${category}/${id}:`, err);
-return reject(err);
-}
-collections[category].compactDatafile();
-resolve();
-});
-});
+  const unsanitized = {};
+  for (const [key, value] of Object.entries(obj)) {
+    const unsanitizedKey = key.replace(/_/g, '.');
+    unsanitized[unsanitizedKey] = (typeof value === 'object' && value !== null) ? unsanitizeObject(value) : value;
+  }
+  return unsanitized;
 }
 
 global.db.readData = async function (category, id) {
-const originalId = id;
-if (!global.db.data[category][originalId]) {
-const data = await readFromNeDB(category, originalId);
-global.db.data[category][originalId] = data;
-}
-return global.db.data[category][originalId];
+  const sanitizedId = sanitizeId(id);
+  if (!global.db.data[category][sanitizedId]) {
+    const data = await new Promise((resolve, reject) => {
+      collections[category].findOne({ _id: sanitizedId }, (err, doc) => {
+        if (err) return reject(err);
+        resolve(doc ? unsanitizeObject(doc.data) : {});
+      });
+    });
+    global.db.data[category][sanitizedId] = data;
+  }
+  return global.db.data[category][sanitizedId];
 };
 
 global.db.writeData = async function (category, id, data) {
-const originalId = id;
-global.db.data[category][originalId] = { ...global.db.data[category][originalId], ...data };
-await writeToNeDB(category, originalId, global.db.data[category][originalId]);
+  const sanitizedId = sanitizeId(id);
+  global.db.data[category][sanitizedId] = {
+    ...global.db.data[category][sanitizedId],
+    ...sanitizeObject(data),
+  };
+  await new Promise((resolve, reject) => {
+    collections[category].update(
+      { _id: sanitizedId },
+      { $set: { data: sanitizeObject(global.db.data[category][sanitizedId]) } },
+      { upsert: true },
+      (err) => {
+        if (err) return reject(err);
+        resolve();
+      }
+    );
+  });
 };
 
 global.db.loadDatabase = async function () {
-const loadPromises = Object.keys(collections).map(async (category) => {
-const docs = await new Promise((resolve, reject) => {
-collections[category].find({}, (err, docs) => {
-if (err) return reject(err);
-resolve(docs);
-});
-});
-const seenIds = new Set();
-for (const doc of docs) {
-const originalId = unsanitizeId(doc._id);
-if (seenIds.has(originalId)) {
-await new Promise((res, rej) => {
-collections[category].remove({ _id: doc._id }, {}, (err) => {
-if (err) {
-console.error(`Error eliminando duplicado ${originalId}:`, err);
-rej(err);
-} else {
-collections[category].persistence.compactDatafile();
-res();
-}});
-});
-} else {
-seenIds.add(originalId);
-if (category === 'users' && (originalId.includes('@newsletter') || originalId.includes('lid'))) continue;
-if (category === 'chats' && originalId.includes('@newsletter')) continue;
-global.db.data[category][originalId] = unsanitizeObject(doc.data);
-}}});
-
-await Promise.all(loadPromises);
+  const loadPromises = Object.keys(collections).map(async (category) => {
+    const docs = await new Promise((resolve, reject) => {
+      collections[category].find({}, (err, docs) => {
+        if (err) return reject(err);
+        resolve(docs);
+      });
+    });
+    const seenIds = new Set();
+    for (const doc of docs) {
+      const originalId = unsanitizeId(doc._id);
+      if (seenIds.has(originalId)) {
+        // Eliminar duplicados
+        await new Promise((resolve, reject) => {
+          collections[category].remove({ _id: doc._id }, {}, (err) => {
+            if (err) return reject(err);
+            resolve();
+          });
+        });
+      } else {
+        seenIds.add(originalId);
+        if (category === 'users' && (originalId.includes('@newsletter') || originalId.includes('lid'))) continue;
+        if (category === 'chats' && originalId.includes('@newsletter')) continue;
+        global.db.data[category][originalId] = unsanitizeObject(doc.data);
+      }
+    }
+  });
+  await Promise.all(loadPromises);
 };
 
 global.db.save = async function () {
-const savePromises = [];
-for (const category of Object.keys(global.db.data)) {
-for (const [id, data] of Object.entries(global.db.data[category])) {
-if (Object.keys(data).length > 0) {
-if (category === 'users' && (id.includes('@newsletter') || id.includes('lid'))) continue;
-if (category === 'chats' && id.includes('@newsletter')) continue;
-savePromises.push(writeToNeDB(category, id, data));
-}}}
-await Promise.all(savePromises);
+  const savePromises = [];
+  for (const category of Object.keys(global.db.data)) {
+    for (const [id, data] of Object.entries(global.db.data[category])) {
+      if (Object.keys(data).length > 0) {
+        if (category === 'users' && (id.includes('@newsletter') || id.includes('lid'))) continue;
+        if (category === 'chats' && id.includes('@newsletter')) continue;
+        savePromises.push(
+          new Promise((resolve, reject) => {
+            collections[category].update(
+              { _id: sanitizeId(id) },
+              { $set: { data: sanitizeObject(data) } },
+              { upsert: true },
+              (err) => {
+                if (err) return reject(err);
+                resolve();
+              }
+            );
+          })
+        );
+      }
+    }
+  }
+  await Promise.all(savePromises);
 };
 
 global.db.loadDatabase().then(() => {
