@@ -42,12 +42,40 @@ const chat = localContent[m.chat] || { savedContent: {} };
 const globalContent = loadGlobalContent();
 
 if (m.text && !m.isCommand && m.mtype !== 'protocolMessage' && !m.text.startsWith('.')) {
-const keyword = m.text.toLowerCase().trim();
-const content = chat.savedContent?.[keyword] || globalContent?.[keyword];
+const textLower = m.text.toLowerCase().trim();
+let content = null;
+let matchedKeywords = '';
 
-if (!content || typeof content !== 'object') return;
-if (!content.type) return;
-console.log(`🔥 Palabra clave detectada: "${keyword}"`);
+for (const [key, value] of Object.entries(chat.savedContent)) {
+if (value.keywords && Array.isArray(value.keywords)) {
+if (value.keywords.some(k => textLower.includes(k))) { 
+content = value;
+matchedKeywords = value.keywords.filter(k => textLower.includes(k)).join(', ');
+break;
+}
+} else if (textLower === key) { 
+content = value;
+matchedKeywords = key;
+break;
+}}
+
+if (!content) {
+for (const [key, value] of Object.entries(globalContent)) {
+if (value.keywords && Array.isArray(value.keywords)) {
+if (value.keywords.some(k => textLower.includes(k))) { 
+content = value;
+matchedKeywords = value.keywords.filter(k => textLower.includes(k)).join(', ');
+break;
+}
+} else if (textLower === key) { 
+content = value;
+matchedKeywords = key;
+break;
+}}
+}
+
+if (!content || typeof content !== 'object' || !content.type) return;
+console.log(`🔥 Palabras clave detectadas: "${matchedKeywords}"`);
 try {
 const options = { quoted: m };
 switch (content.type) {
@@ -60,8 +88,7 @@ break;
 case 'image': case 'video': case 'gif': case 'audio': case 'document':
 if (content.data) {
 const buffer = Buffer.from(content.data, 'base64');
-const message = {
-[content.type === 'gif' ? 'video' : content.type]: buffer,
+const message = {[content.type === 'gif' ? 'video' : content.type]: buffer,
 caption: content.caption || '',
 ...(content.type === 'gif' ? { gifPlayback: true } : {}),
 ...(content.type === 'document' ? { mimetype: content.mimetype, fileName: content.fileName } : {}),
@@ -78,8 +105,8 @@ await this.sendMessage(m.chat, { contacts: { contacts: [{ vcard: content.vcard, 
 break;
 case 'buttons':
 if (content.text || content.buttons.length > 0) {
-await this.sendMessage(m.chat, { text: content.text || content.caption || '', buttons: content.buttons.map(b => ({ buttonId: b.buttonId, buttonText: { displayText: b.buttonText }, type: 1 })), headerType: 1
-}, options);
+await this.sendMessage(m.chat, { text: content.text || content.caption || '', buttons: content.buttons.map(b => ({ buttonId: b.buttonId, buttonText: { displayText: b.buttonText }, type: 1 })), 
+headerType: 1 }, options);
 }
 break;
 case 'link':
@@ -92,8 +119,7 @@ await m.reply(content.value);
 break;
 default:
 return;
-}
-} catch (e) {
+}} catch (e) {
 console.error(`Error al procesar contenido: ${e}`);
 }
 return;
@@ -105,12 +131,12 @@ const hash = Buffer.from(m.msg.fileSha256).toString('base64');
       const commandData = global.db.data.sticker[hash];
       const { text, mentionedJid, chat: commandChat } = commandData || {};
 
-      if (commandChat === undefined || commandChat === m.chat) {
+      if (commandChat === null || commandChat === m.chat) {
         const messages = await generateWAMessage(m.chat, { text, mentions: mentionedJid }, {
-          userJid: m.conn.user.id,
+          userJid: this.user.id,
           quoted: m.quoted && m.quoted.fakeObj,
         });
-        messages.key.fromMe = areJidsSameUser(m.sender, m.conn.user.jid);
+        messages.key.fromMe = areJidsSameUser(m.sender, this.user.jid);
         messages.key.id = m.key.id;
         messages.pushName = m.pushName;
         if (m.isGroup) messages.participant = m.sender;
@@ -119,7 +145,7 @@ const hash = Buffer.from(m.msg.fileSha256).toString('base64');
           messages: [proto.WebMessageInfo.fromObject(messages)],
           type: 'append',
         };
-        m.conn.ev.emit('messages.upsert', msg);
+        this.ev.emit('messages.upsert', msg);
       }
     }
   }

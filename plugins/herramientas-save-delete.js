@@ -88,7 +88,7 @@ const { chat: commandChat, creator, locked } = commandData;
 
 if (isOwner) {
 delete global.db.data.sticker[hash];
-await await m.reply(`${lenguajeGB['smsAvisoEG']()} *${keyword}* 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝙊 𝘾𝙊𝙍𝙍𝙀𝙎𝙏𝘼𝙈𝙀𝙉𝙏𝙀 𝙋𝙊𝙍 𝙀𝙇 𝙊𝙒𝙉𝙀𝙍`);
+await m.reply(`${lenguajeGB['smsAvisoEG']()} *${keyword}* 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝙊 𝘾𝙊𝙍𝙍𝙀𝙎𝙏𝘼𝙈𝙀𝙉𝙏𝙀 𝙋𝙊𝙍 𝙀𝙇 𝙊𝙒𝙉𝙀𝙍`);
 await m.react("✅");
 } else if (commandChat === m.chat) {
 if (m.sender === creator || isAdmin) {
@@ -112,13 +112,13 @@ const { chat: commandChat, creator, locked } = commandData;
 
 if (isOwner) {
 delete global.db.data.sticker[hash];
-await await m.reply(`${lenguajeGB['smsAvisoEG']()} 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝙊 𝘾𝙊𝙍𝙍𝙀𝙎𝙏𝘼𝙈𝙀𝙉𝙏𝙀 𝙋𝙊𝙍 𝙀𝙇 𝙊𝙊𝙒𝙉𝙀𝙍.`);
+await m.reply(`${lenguajeGB['smsAvisoEG']()} 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝙊 𝘾𝙊𝙍𝙍𝙀𝙎𝙏𝘼𝙈𝙀𝙉𝙏𝙀 𝙋𝙊𝙍 𝙀𝙇 𝙊𝙊𝙒𝙉𝙀𝙍.`);
 await m.react("✅");
 } else if (commandChat === m.chat) {
 if (m.sender === creator || isAdmin) {
 if (locked && m.sender !== creator) throw `${lenguajeGB['smsAvisoMG']()} 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙀𝙎𝙏𝘼 𝘽𝙇𝙊𝙌𝙐𝙀𝘼𝘿𝙊, 𝙎𝙊𝙇𝙊 𝙀𝙇 𝘾𝙍𝙀𝘼𝘿𝙊𝙍 𝙋𝙐𝙀𝘿𝙀 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝙍𝙇𝙊`
 delete global.db.data.sticker[hash];
-await await m.reply(`${lenguajeGB['smsAvisoEG']()} 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝙊 𝘾𝙊𝙍𝙍𝙍𝙎𝙏𝘼𝙈𝙀𝙉𝙏𝙀.`);
+await m.reply(`${lenguajeGB['smsAvisoEG']()} 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝙊 𝘾𝙊𝙍𝙍𝙀𝙎𝙏𝘼𝙈𝙀𝙉𝙏𝙀.`);
 await m.react("✅");
 } else {
 throw `${lenguajeGB['smsAvisoMG']()} 𝙎𝙊𝙇𝙊 𝙀𝙇 𝘾𝙍𝙀𝘼𝘿𝙊𝙍 𝙊 𝙐𝙉 𝘼𝘿𝙈𝙄𝙉 𝙋𝙐𝙀𝘿𝙀𝙉 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝙍 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙇𝙊𝘾𝘼𝙇`

@@ -35,6 +35,7 @@ const localContent = loadLocalContent();
 const chat = localContent[m.chat] || { savedContent: {} };
 const globalContent = loadGlobalContent();
 let response = '';
+
 const itemsPerPage = 30;
 let page = 1;
 if (text && !text.toLowerCase().startsWith('get ')) {
@@ -53,7 +54,18 @@ const { data, isAnimated, chat: commandChat } = commandData;
 if (commandChat !== null && commandChat !== m.chat && !isOwner) throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙀𝙎 𝙇𝙊𝘾𝘼𝙇 𝘼 𝙊𝙏𝙍𝙊 𝘾𝙃𝘼𝙏 𝙔 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀𝙎 𝙋𝙀𝙍𝙈𝙄𝙎𝙊 𝙋𝘼𝙍𝘼 𝙑𝙀𝙍𝙇𝙊.`
 if (!data) throw `${lenguajeGB['smsAvisoMG']()}𝙉𝙊 𝙎𝙀 𝙀𝙉𝘾𝙊𝙉𝙏𝙍Ó 𝙀𝙇 𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝘼𝙎𝙊𝘾𝙄𝘼𝘿𝙊 𝘼 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊.`
 const stickerBuffer = Buffer.from(data, 'base64');
-await conn.sendFile(m.chat, stickerBuffer, 'sticker.webp', '', m, isAnimated || false, { contextInfo: {  forwardingScore: 200, isForwarded: false,  externalAdReply: { showAdAttribution: false, title: 'Sticker recuperado ' + gt, body: `Comando: ${commandText}`, mediaType: 2, sourceUrl: all,thumbnail: imagen4, }}});
+await conn.sendFile(m.chat, stickerBuffer, 'sticker.webp', '', m, isAnimated || false, { 
+contextInfo: { 
+forwardingScore: 200, 
+isForwarded: false, 
+externalAdReply: { 
+showAdAttribution: false, 
+title: 'Sticker recuperado ' + gt, 
+body: `Comando: ${commandText}`,
+mediaType: 2, 
+sourceUrl: all,
+thumbnail: imagen4
+}}}); 
 await m.react("✅");
 return;
 }
@@ -61,11 +73,20 @@ return;
 const isGlobalCommand = /^(listasglobal|globalcmd|cmdlist)$/i.test(command);
 
 if (isGlobalCommand) {
-response += '*\`🌐 𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙈𝙐𝙇𝙏𝙄𝙈𝙀𝘿𝙄𝘼 𝙂𝙇𝙊𝘽𝘼𝙇\`*\n';
-response += '───────•••───────\n';
 const globalSaved = Object.entries(globalContent);
-let totalPagesGlobal = 0;
-if (globalSaved.length > 0) {
+const globalCommands = isOwner ? Object.entries(global.db.data.sticker).filter(([_, value]) => value.chat === null) : [];
+const hasGlobalContent = globalSaved.length > 0;
+const hasGlobalCommands = globalCommands.length > 0;
+
+if (!hasGlobalContent && (!isOwner || !hasGlobalCommands)) {
+response = `${lenguajeGB['smsAvisoMG']()}𝙉𝙊 𝙃𝘼𝙔 𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙂𝙐𝘼𝙍𝘿𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝘾𝙃𝘼𝙏`
+await conn.reply(m.chat, response, m);
+return;
+}
+
+if (hasGlobalContent) {
+response += '*\`🌐 𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙈𝙐𝙇𝙏𝙄𝙈𝙀𝘿𝙄𝘼 𝙂𝙇𝙊𝘽𝘼𝙇\`*\n';
+response += '═══════════════════════\n';
 const start = (page - 1) * itemsPerPage;
 const end = start + itemsPerPage;
 const paginatedGlobal = globalSaved.slice(start, end);
@@ -74,16 +95,10 @@ paginatedGlobal.forEach(([keyword, data], index) => {
 response += `🔹 *${start + index + 1}. ${keyword}*\n`;
 response += `   └─ *Tipo:* ${data.type}${data.caption ? `\n   └─ *Caption:* ${data.caption}` : ''}\n\n`;
 });
-totalPagesGlobal = Math.ceil(globalSaved.length / itemsPerPage);
-} else {
-response += `${lenguajeGB['smsAvisoMG']()}𝙉𝙊 𝙃𝘼𝙔 𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙂𝙐𝘼𝙍𝘿𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝘾𝙃𝘼𝙏.\n`
+response += '═══════════════════════\n';
 }
-response += '\n═══════════════════════\n';
 
-let totalPagesCommands = 0;
-if (isOwner) {
-const globalCommands = Object.entries(global.db.data.sticker).filter(([_, value]) => value.chat === null);
-if (globalCommands.length > 0) {
+if (isOwner && hasGlobalCommands) {
 response += '*\`🔧 𝘾𝙊𝙈𝘼𝙉𝘿𝙊𝙎 𝙂𝙇𝙊𝘽𝘼𝙇𝙀𝙎 (𝙎𝙊𝙇𝙊 𝙊𝙒𝙉𝙀𝙍)\`*\n';
 response += '═══════════════════════\n';
 const start = (page - 1) * itemsPerPage;
@@ -94,9 +109,11 @@ paginatedGlobalCommands.forEach(([key, value], index) => {
 response += `🔹 *${start + index + 1}. ${value.text}*\n`;
 response += `   └─ *Código:* ${value.locked ? `*(bloqueado)* ${key}` : key}\n\n`;
 });
-totalPagesCommands = Math.ceil(globalCommands.length / itemsPerPage);
-}}
+response += '═══════════════════════\n';
+}
 
+const totalPagesGlobal = hasGlobalContent ? Math.ceil(globalSaved.length / itemsPerPage) : 0;
+const totalPagesCommands = hasGlobalCommands ? Math.ceil(globalCommands.length / itemsPerPage) : 0;
 const maxPages = Math.max(totalPagesGlobal, totalPagesCommands);
 if (maxPages > 0) {
 response += `> 📖 *Página ${page} de ${maxPages}*\n`;
@@ -104,11 +121,20 @@ response += `> ✧ Usa *${usedPrefix + command} <número>* para ver más\n`;
 }
 response += `\n> 💡 *Tip:* Usa la palabra clave para reproducir el contenido\n`;
 } else {
+const localSaved = Object.entries(chat.savedContent);
+const localCommands = Object.entries(global.db.data.sticker).filter(([_, value]) => value.chat === m.chat);
+const hasLocalContent = localSaved.length > 0;
+const hasLocalCommands = localCommands.length > 0;
+
+if (!hasLocalContent && !hasLocalCommands) {
+response = `${lenguajeGB['smsAvisoMG']()}𝙉𝙊 𝙃𝘼𝙔 𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙂𝙐𝘼𝙍𝘿𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝘾𝙃𝘼𝙏`
+await conn.reply(m.chat, response, m);
+return;
+}
+
+if (hasLocalContent) {
 response += `${lenguajeGB['smsAvisoIIG']()} *\`📍𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙈𝙐𝙇𝙏𝙄𝙈𝙀𝘿𝙄𝘼 𝙇𝙊𝘾𝘼𝙇\`*\n`
 response += '═══════════════════════\n';
-const localSaved = Object.entries(chat.savedContent);
-let totalPagesLocal = 0;
-if (localSaved.length > 0) {
 const start = (page - 1) * itemsPerPage;
 const end = start + itemsPerPage;
 const paginatedLocal = localSaved.slice(start, end);
@@ -117,15 +143,10 @@ paginatedLocal.forEach(([keyword, data], index) => {
 response += `🔹 *${start + index + 1}. ${keyword}*\n`;
 response += `   └─ *Tipo:* ${data.type}${data.caption ? `\n   └─ *Caption:* ${data.caption}` : ''}\n\n`;
 });
-totalPagesLocal = Math.ceil(localSaved.length / itemsPerPage);
-} else {
-response += `${lenguajeGB['smsAvisoMG']()}𝙉𝙊 𝙃𝘼𝙔 𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙂𝙐𝘼𝙍𝘿𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝘾𝙃𝘼𝙏.\n`
-}
 response += '═══════════════════════\n';
+}
 
-let totalPagesCommands = 0;
-const localCommands = Object.entries(global.db.data.sticker).filter(([_, value]) => value.chat === m.chat);
-if (localCommands.length > 0) {
+if (hasLocalCommands) {
 response += '*\`🛠️ 𝘾𝙊𝙈𝘼𝙉𝘿𝙊𝙎 𝙇𝙊𝘾𝘼𝙇𝙀𝙎 🛠️\`*';
 response += '\n═══════════════════════\n\n';
 const start = (page - 1) * itemsPerPage;
@@ -136,15 +157,17 @@ paginatedCommands.forEach(([key, value], index) => {
 response += `🔹 *${start + index + 1}. ${value.text}*\n`;
 response += `   └─ *Código:* ${value.locked ? `*(bloqueado)* ${key}` : key}\n\n`;
 });
-totalPagesCommands = Math.ceil(localCommands.length / itemsPerPage);
+response += '═══════════════════════\n';
 }
 
+const totalPagesLocal = hasLocalContent ? Math.ceil(localSaved.length / itemsPerPage) : 0;
+const totalPagesCommands = hasLocalCommands ? Math.ceil(localCommands.length / itemsPerPage) : 0;
 const maxPages = Math.max(totalPagesLocal, totalPagesCommands);
 if (maxPages > 0) {
 response += `> 📖 *Página ${page} de ${maxPages}*\n`;
 response += `> ✧ Usa *${usedPrefix + command} <número>* para ver más\n`;
 }
-response += `\n═══════════════════════\n*💡 \`Tips:\`*\n`;
+response += `═══════════════════════\n*💡 \`Tips:\`*\n`;
 response += `> ✧ Usa la palabra clave para reproducir contenido\n`;
 response += `> ✧ Recupera stickers con *${usedPrefix + command} get <comando>* (ej: ${usedPrefix + command} get .help)\n`;
 response += `> ✧ Mira el contenido global con *${usedPrefix}cmdlist*\n`;
