@@ -1484,7 +1484,7 @@ mentionedJid:[user],
 "externalAdReply": {
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
-"thumbnail": apii.data, 
+"thumbnail": "https://images.app.goo.gl/38MLmzNyEk1K2jJz8", 
 "title": [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centergatabot.gmail.com'].getRandom(),
 "containsAutoReply": true,
 "mediaType": 1, 
