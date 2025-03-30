@@ -107,24 +107,6 @@ version: version,
 generateHighQualityLinkPreview: true
 };
 
-/*const connectionOptions = {
-printQRInTerminal: false,
-logger: pino({ level: 'silent' }),
-auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})) },
-msgRetry,
-msgRetryCache,
-version: [2, 3000, 1015901307],
-syncFullHistory: true,
-browser: mcode ? ['Ubuntu', 'Chrome', '110.0.5585.95'] : ['GataBot-MD (Sub Bot)', 'Chrome','2.0.0'],
-defaultQueryTimeoutMs: undefined,
-getMessage: async (key) => {
-if (store) {
-//const msg = store.loadMessage(key.remoteJid, key.id)
-//return msg.message && undefined
-} return {
-conversation: 'GataBot-MD',
-}}} */
-
 let sock = makeWASocket(connectionOptions)
 sock.isInit = false
 let isInit = true
@@ -418,4 +400,4 @@ continue
     }
 }
 
-setInterval(checkSubBots, 300000); //5min
+//setInterval(checkSubBots, 300000); //5min
