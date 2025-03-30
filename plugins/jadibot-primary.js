@@ -24,6 +24,10 @@ if (!selectedBot)
 return m.reply("⚠️ El bot no es un bot de la misma sessión, verifica los bots conectados, usando */bots*.");
 
 let chat = global.db.data.chats[m.chat];
+if (chat.primaryBot === botJid) {
+return conn.reply(m.chat, `⚠️ @${botJid.split`@`[0]} ya es el bot primario.`, m, { mentions: [botJid] });
+}
+
 chat.primaryBot = botJid; 
 conn.sendMessage(m.chat, { text: `✅ El bot @${botJid.split('@')[0]} ha sido establecido como primario en este grupo. Los demás bots no responderán aquí.`, mentions: [botJid]}, { quoted: m });
 };
