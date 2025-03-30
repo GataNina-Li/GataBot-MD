@@ -21,11 +21,10 @@ selectedBot = users.find(conn => conn.user.jid === botJid);
 }
 
 if (!selectedBot) {
-return m.reply("⚠️ El bot no es un bot de la misma sessión, verifica los bots conectados, usando */bots*.");
+return conn.reply(m.chat, `⚠️ @${botJid.split`@`[0]} no es un bot de la misma sessión, verifica los bots conectados, usando */bots*.`, m, { mentions: [botJid] });
 }
 
 let chat = global.db.data.chats[m.chat];
-
 if (chat.primaryBot === botJid) {
 return conn.reply(m.chat, `⚠️ @${botJid.split`@`[0]} ya es el bot primario.`, m, { mentions: [botJid] });
 }
