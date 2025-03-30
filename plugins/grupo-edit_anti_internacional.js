@@ -9,6 +9,18 @@ return
 }
 await obtenerPrefijos(text)
 
+let chat = global.db.data.chats[m.chat]
+if (chat.sCondition && chat.sCondition.length > 0) {
+reply = (await conn.reply(m.chat, mid.mInfo + `> *Hemos encontrado prefijos/números ya configurados*
+*Reciente:* \`\`\`${chat.sCondition.map(prefijo => `+${prefijo}`).join(', ')}\`\`\`
+*Existente:* \`\`\`${chat.sCondition.join(', ')}\`\`\`\n
+*Responde a este mensaje eligiendo un número para:*
+\`\`\`[1]\`\`\` \`Combinar\` _Se juntarán los prefijos existentes con los recientes._\n
+\`\`\`[2]\`\`\` \`Reemplazar\` _Se eliminarán los prefijos existentes para agregar los recientes._\n
+\`\`\`[3]\`\`\` \`Eliminar\` _Se usarán los prefijos predeterminados, eliminando los existentes y recientes._\n
+\`\`\`[4]\`\`\` \`Cancelar\` _No se realizarán cambios._`, m)).key.id
+}
+
 handler.before = async function (m, { conn, isOwner, isROwner, isAdmin }) {
 let chat = global.db.data.chats[m.chat]
 if (!chat.sCondition || chat.sCondition.length === 0) {
