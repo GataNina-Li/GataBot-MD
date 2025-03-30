@@ -1546,7 +1546,6 @@ try {
 const { fromMe, id, participant, remoteJid } = message
 if (fromMe) return 
 let msg = this.serializeM(this.loadMessage(id))
-console.log(msg)
 let chat = global.db.data.chats[msg?.chat] || {}
 if (!chat?.delete) return 
 if (!msg) return 
