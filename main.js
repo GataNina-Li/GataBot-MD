@@ -415,28 +415,41 @@ if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 't
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
 //respaldo de la sesión "GataBotSession"
-const backupCreds = () => {
-if (fs.existsSync(credsFile)) {
-fs.copyFileSync(credsFile, backupFile);
-console.log(`[✅] Respaldo creado en ${backupFile}`);
-} else {
-console.log('[⚠] No se encontró el archivo creds.json para respaldar.');
-}};
+const backupCreds = async () => {
+if (!fs.existsSync(credsFile)) {
+console.log(await tr('[⚠] No se encontró el archivo creds.json para respaldar.'));
+return;
+}
 
-const restoreCreds = () => {
-if (fs.existsSync(credsFile)) {
-fs.copyFileSync(backupFile, credsFile);
-console.log(`[✅] creds.json reemplazado desde el respaldo.`);
-} else if (fs.existsSync(backupFile)) {
-fs.copyFileSync(backupFile, credsFile);
-console.log(`[✅] creds.json restaurado desde el respaldo.`);
-} else {
-console.log('[⚠] No se encontró ni el archivo creds.json ni el respaldo.');
-}};
+const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+const newBackup = join(respaldoDir, `creds-${timestamp}.json`);
+fs.copyFileSync(credsFile, newBackup);
+console.log(`[✅] Respaldo creado: ${newBackup}`);
+
+const backups = fs.readdirSync(respaldoDir).filter(file => file.startsWith('creds-') && file.endsWith('.json')).sort((a, b) => fs.statSync(join(respaldoDir, a)).mtimeMs - fs.statSync(join(respaldoDir, b)).mtimeMs);
+
+while (backups.length > 3) {
+const oldest = backups.shift();
+fs.unlinkSync(join(respaldoDir, oldest));
+console.log(`[🗑️] Respaldo antiguo eliminado: ${oldest}`);
+}}; 
+
+const restoreCreds = async () => {
+const backups = fs.readdirSync(respaldoDir).filter(file => file.startsWith('creds-') && file.endsWith('.json')).sort((a, b) => fs.statSync(join(respaldoDir, b)).mtimeMs - fs.statSync(join(respaldoDir, a)).mtimeMs);
+
+if (backups.length === 0) {
+console.log('[⚠] No hay respaldos disponibles para restaurar.');
+return;
+}
+
+const latestBackup = join(respaldoDir, backups[0]);
+fs.copyFileSync(latestBackup, credsFile);
+console.log(`[✅] Restaurado desde respaldo: ${backups[0]}`);
+};
 
 setInterval(async () => {
 await backupCreds();
-console.log('[♻️] Respaldo periódico realizado.');
+console.log('[♻️] Respaldo periódico realizado.')
 }, 5 * 60 * 1000);
 
 async function connectionUpdate(update) {  
