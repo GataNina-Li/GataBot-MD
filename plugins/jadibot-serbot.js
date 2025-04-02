@@ -102,7 +102,7 @@ printQRInTerminal: false,
 auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})) },
 msgRetry,
 msgRetryCache,
-browser: mcode ? ['Ubuntu', 'Chrome', '110.0.5585.95'] : ['GataBot-MD (Sub Bot)', 'Chrome','2.0.0'],
+browser: mcode ? ['Windows', 'Chrome', '110.0.5585.95'] : ['GataBot-MD (Sub Bot)', 'Chrome','2.0.0'],
 version: version,
 generateHighQualityLinkPreview: true
 };
@@ -376,7 +376,7 @@ continue
             const retries = retryMap.get(folder) || 0;
             if (retries >= 5) {
                 console.log(chalk.redBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Sub-bot (+${folder}) alcanzó límite de reintentos.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`));
-               fs.rmdirSync(pathGataJadiBot, { recursive: true });
+             //  fs.rmdirSync(pathGataJadiBot, { recursive: true });
                 retryMap.delete(folder);
                 continue;
             }
@@ -400,4 +400,4 @@ continue
     }
 }
 
-//setInterval(checkSubBots, 300000); //5min
+setInterval(checkSubBots, 1800000); //30min
