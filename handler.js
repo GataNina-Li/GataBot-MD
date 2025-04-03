@@ -1099,12 +1099,18 @@ console.error(e)
 
 var settings = global.db.data.settings[this.user.jid];
 let prefix;
+const defaultPrefix = '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@'; // Valor por defecto
 if (settings.prefix) {
-  const prefixes = settings.prefix.split(',').map(p => p.trim());
-  prefix = new RegExp('^(' + prefixes.map(p => p.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&')).join('|') + ')');
+if (settings.prefix.includes(',')) {
+const prefixes = settings.prefix.split(',').map(p => p.trim());
+prefix = new RegExp('^(' + prefixes.map(p => p.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&')).join('|') + ')');
+} else if (settings.prefix === defaultPrefix) {
+prefix = new RegExp('^[' + settings.prefix.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']');
 } else {
-  prefix = new RegExp(''); // Permite comandos sin prefijo
-} 
+prefix = new RegExp('^' + settings.prefix.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&'));
+}} else {
+prefix = new RegExp(''); // Permite comandos sin prefijo
+}
 const isROwner = [...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isOwner = isROwner || m.fromMe
 const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
