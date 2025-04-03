@@ -1097,8 +1097,14 @@ jadibotmd: true,
 console.error(e)
 }
 
-var settings = global.db.data.settings[this.user.jid]
-const prefix = new RegExp('^[' + settings.prefix.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']');  
+var settings = global.db.data.settings[this.user.jid];
+let prefix;
+if (settings.prefix) {
+  const prefixes = settings.prefix.split(',').map(p => p.trim());
+  prefix = new RegExp('^(' + prefixes.map(p => p.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&')).join('|') + ')');
+} else {
+  prefix = new RegExp(''); // Permite comandos sin prefijo
+} 
 const isROwner = [...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isOwner = isROwner || m.fromMe
 const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
@@ -1115,7 +1121,7 @@ await delay(time)
 }, time)
 }
 
-if(m.id.startsWith('NJX-') || m.id.startsWith('Lyru-') || m.id.startsWith('EvoGlobalBot-') || m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20) || m.id.startsWith('B24E') || m.id.startsWith('8SCO') && m.id.length === 20 || m.id.startsWith('FizzxyTheGreat-')) return
+if(m.id.startsWith('NJX-') || m.id.startsWith('Lyru-') || m.id.startsWith('EvoGlobalBot-') || m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') || m.id.startsWith('8SCO') && m.id.length === 20 || m.id.startsWith('FizzxyTheGreat-')) return
 
 if (opts['nyimak']) return
 if (!isROwner && opts['self']) return 
@@ -1546,6 +1552,7 @@ try {
 const { fromMe, id, participant, remoteJid } = message
 if (fromMe) return 
 let msg = this.serializeM(this.loadMessage(id))
+console.log(msg)
 let chat = global.db.data.chats[msg?.chat] || {}
 if (!chat?.delete) return 
 if (!msg) return 
