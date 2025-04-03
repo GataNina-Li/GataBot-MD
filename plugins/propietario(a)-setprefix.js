@@ -3,7 +3,7 @@ const settings = global.db.data.settings[conn.user.jid] || {};
 if (!('prefix' in settings)) settings.prefix = opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@'; // Prefijos por defecto
 const currentPrefix = settings.prefix || 'ninguno';
     
-if (!text) throw `${lenguajeGB['smsAvisoMG']()} Uso: ${usedPrefix + command} [prefijos] para establecer, ${usedPrefix + command} none para sin prefijo, o ${usedPrefix + command} del [prefijo] para eliminar uno. Ej: ${usedPrefix + command} hola o ${usedPrefix + command} del /\n\nPrefijos actuales: [ ${currentPrefix} ]`;
+if (!text) throw `${lenguajeGB['smsAvisoMG']()} Uso: ${usedPrefix + command} [prefijos] para establecer\n${usedPrefix + command} none para sin prefijo\n${usedPrefix + command} del [prefijo] para eliminar uno.\nEj: ${usedPrefix + command} hola\n${usedPrefix + command} del /\n\nPrefijos actuales: [ ${currentPrefix} ]`;
 
   const args = text.trim().split(' ');
   const action = args[0].toLowerCase();
