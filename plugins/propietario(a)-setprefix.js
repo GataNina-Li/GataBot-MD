@@ -1,12 +1,11 @@
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-const settings = global.db.data.settings[conn.user.jid] || {};
-if (!('prefix' in settings)) settings.prefix = opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@'; // Prefijos por defecto
+  const settings = global.db.data.settings[conn.user.jid] || {};
+  if (!('prefix' in settings)) settings.prefix = opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@'; // Prefijos por defecto
 const currentPrefix = settings.prefix || 'ninguno';
-    
-if (!text) throw `${lenguajeGB['smsAvisoMG']()} Uso: ${usedPrefix + command} [prefijos] para establecer\n${usedPrefix + command} none para sin prefijo\n${usedPrefix + command} del [prefijo] para eliminar uno.\nEj: ${usedPrefix + command} hola\n${usedPrefix + command} del /\n\nPrefijos actuales: [ ${currentPrefix} ]`;
 
-  const args = text.trim().split(' ');
-  const action = args[0].toLowerCase();
+if (!text) throw `${lenguajeGB['smsAvisoMG']()} Uso: ${usedPrefix + command} [prefijos] para establecer\n${usedPrefix + command} none para sin prefijo\n${usedPrefix + command} del [prefijo] para eliminar uno.\nEj: ${usedPrefix + command} 🌟\n${usedPrefix + command} del /\n\nPrefijos actuales: [ ${currentPrefix} ]`;
+const args = text.trim().split(' ');
+const action = args[0].toLowerCase();
 
   if (action === 'none') {
     if (!settings.prefix) {
@@ -29,7 +28,7 @@ if (!text) throw `${lenguajeGB['smsAvisoMG']()} Uso: ${usedPrefix + command} [pr
       await m.reply(`${lenguajeGB['smsAvisoFG']()} *El prefijo [ ${prefixToDelete} ] no está en la lista actual.*`);
       return;
     }
-    settings.prefix = settings.prefix.replace(prefixToDelete, ''); 
+    settings.prefix = settings.prefix.replace(prefixToDelete, ''); // Elimina el prefijo específico
     if (settings.prefix === '') settings.prefix = null; 
     global.db.data.settings[conn.user.jid] = settings;
     const updatedPrefix = settings.prefix || 'ninguno';
@@ -42,7 +41,7 @@ if (!text) throw `${lenguajeGB['smsAvisoMG']()} Uso: ${usedPrefix + command} [pr
     }
     settings.prefix = newPrefix; 
     global.db.data.settings[conn.user.jid] = settings;
-    await m.reply(`${lenguajeGB['smsAvisoEG']()} *Los prefijos del ${gt} se establecieron a:* [ ${newPrefix} ]`);
+    await m.reply(`${lenguajeGB['smsAvisoEG']()} *Los prefijos del bot se establecieron a:* [ ${newPrefix} ]`);
   }
 };
 
