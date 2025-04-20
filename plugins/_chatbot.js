@@ -171,7 +171,7 @@ return response.result.response;
 throw new Error(`Error en Perplexity: ${response.result.error}`);
 }} catch (error) {
 console.error('Error en Perplexity:', error);
-return null;
+return
 }}
     
 async function SimSimi(text, language = 'es') {
@@ -183,7 +183,7 @@ headers: {'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'Mo
 return data.message;
 } catch (error) {
 console.error(error);
-return null;
+return
 }}
 
 let username = `${m.pushName}`;
