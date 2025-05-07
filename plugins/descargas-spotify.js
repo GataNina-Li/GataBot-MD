@@ -60,6 +60,7 @@ console.error(e);
 }}}
 handler.command = ['spotify', 'music'];
 export default handler;
+handler.register = true
 
 async function spotifyxv(query) {
     let token = await tokens();
