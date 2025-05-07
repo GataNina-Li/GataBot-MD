@@ -40,7 +40,7 @@ conn.sendMessage(m.chat, {audio: { url: data.data.download }, fileName: `${track
 m.react('✅️');
 } catch {
 try {
-const res = await fetch(`${apis}/download/spotifydl?url=${track.url}`);
+const res = await fetch(`${apis}/download/spotifydlv3?url=${track.url}`);
 const data = await res.json();
 conn.sendMessage(m.chat, { audio: { url: data.data.url }, fileName: `${track.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
 m.react('✅️');
