@@ -1127,7 +1127,7 @@ await delay(time)
 }, time)
 }
 
-if (m.id.startsWith('NJX-') ||
+if (m.id.startsWith('EVO') ||
 m.id.startsWith('Lyru-') ||
 m.id.startsWith('EvoGlobalBot-') ||
 (m.id.startsWith('BAE5') && m.id.length === 16) ||
