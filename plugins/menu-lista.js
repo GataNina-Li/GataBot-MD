@@ -2,9 +2,6 @@
 
 //QUEDO OBSOLETO DE NUEVO CULPA DE WHATSAPP BUG :v
 import { getDevice } from '@whiskeysockets/baileys'
-import fs from 'fs'
-import moment from 'moment-timezone'
-import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 const { levelling } = '../lib/levelling.js'
 import PhoneNumber from 'awesome-phonenumber'
@@ -72,7 +69,7 @@ let mentionedJid = [who]
 let username = conn.getName(who)
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let pp = gataVidMenu
-let vn = 'https://qu.ax/bfaM.mp3'
+let vn = 'https://github.com/davidcito/recursos/raw/main/error.mp3'
 let pareja = global.db.data.users[m.sender].pasangan 
 //let fsizedoc = '1'.repeat(10)
 //let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(gataMenu.getRandom())).buffer(), sourceUrl: redesMenu.getRandom() }}}
