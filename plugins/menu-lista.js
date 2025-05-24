@@ -2,6 +2,9 @@
 
 //QUEDO OBSOLETO DE NUEVO CULPA DE WHATSAPP BUG :v
 import { getDevice } from '@whiskeysockets/baileys'
+import fs from 'fs' 
+import moment from 'moment-timezone'
+import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 const { levelling } = '../lib/levelling.js'
 import PhoneNumber from 'awesome-phonenumber'
@@ -69,7 +72,7 @@ let mentionedJid = [who]
 let username = conn.getName(who)
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let pp = gataVidMenu
-let vn = 'https://github.com/davidcito/recursos/raw/main/error.mp3'
+let vn = 'https://qu.ax/VStPb.mp3'
 let pareja = global.db.data.users[m.sender].pasangan 
 //let fsizedoc = '1'.repeat(10)
 //let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(gataMenu.getRandom())).buffer(), sourceUrl: redesMenu.getRandom() }}}
@@ -111,24 +114,23 @@ let menu = `⎔ \`\`\`${horarioFecha}\`\`\`
       
 const buttonParamsJson = JSON.stringify({
 title: "VER LISTA",
-description: "Infórmate por medios oficiales sobre GataBot",
+description: "Infórmate por medios oficiales sobre Fenix Security Cloud",
 sections: [
 { title: "ℹ️ Información", highlight_label: "Popular",
 rows: [
-{ header: "✅ Redes", title: "🔓 Para: Todos", description: "Infórmate por medios oficiales sobre GataBot", id: usedPrefix + "cuentasgb" },
-{ header: "📢 Grupos/Canales", title: "🔓 Para: Todos", description: "¡Te esperamos!", id: usedPrefix + "grupos" },
-{ header: "🎁 Donar", title: "🔓 Para: Todos", description: "GataBot se mantiene funcionando gracias a donaciones ¡tú también puedes sumarte apoyando el proyecto!", id: usedPrefix + "donar" }
+{ header: "✅ Redes", title: "🔓 Para: Todos", description: "Infórmate por medios oficiales sobre Fenix Security Cloud", id: usedPrefix + "cuentasgb" },
+{ header: "📢 Grupos/Canales", title: "🔓 Para: Todos", description: "¡Links De Soporte!", id: usedPrefix + "grupos" },
+{ header: "🎁 Pass Premium", title: "🔓 Para: Todos", description: "Aquire tu pase premium aqui!", id: usedPrefix + "donar" }
 ]},
 { title: "🔖 Atajos", highlight_label: "Popular",
 rows: [
-{ header: "🆕 Ser Bot (código)", title: "🔓 Para: Todos", description: "¡Conviértete en Bot con el método de código de 8 dígitos!", id: usedPrefix + "serbot --code" },
-{ header: "🤖 Ser Bot (qr)", title: "🔓 Para: Todos", description: "Forma estándar de ser bot con código QR", id: usedPrefix + "serbot" },
+{ header: "📜 Comandos", title: "🔓 Para: Todos", description: "Lista de comandos del Bot", id: usedPrefix + "allmenu" },
 { header: "🚄 Velocidad", title: "🔓 Para: Todos", description: "Seleccione esto si desea saber el ping del Bot", id: usedPrefix + "ping" },
 { header: "😺 Estado", title: "🔓 Para: Todos", description: "Conoce en que estado se encuentra GataBot", id: usedPrefix + "estado" }
 ]},
 { title: "Ⓜ️ Menú", highlight_label: "Popular",
 rows: [
-{ header: "⭐ Menú completo", title: "", description: "Visita todos los comandos", id: usedPrefix + "allmenu" }
+{ header: "⭐ Menú completo", title: "🔓 Para: Todos" ,description:"/allmenu", id: usedPrefix + "allmenu" }
 ]}
 ]})
 const interactiveMessage = {

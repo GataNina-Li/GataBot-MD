@@ -23,5 +23,5 @@ De esta manera, podrás solicitar una nueva sesión.`, m)
 if (m.fromMe) return
 }}
 handler.command = /^(codetoken)$/i
-handler.private = true
+handler.private = false
 export default handler

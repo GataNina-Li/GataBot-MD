@@ -58,7 +58,7 @@ gataJBOptions.conn = conn
 gataJBOptions.args = args
 gataJBOptions.usedPrefix = usedPrefix
 gataJBOptions.command = command
-gataJBOptions.fromCommand = true
+gataJBOptions.fromCommand = false
 gataJadiBot(gataJBOptions)
 } 
 handler.command = /^(jadibot|serbot|rentbot|code)/i
@@ -70,7 +70,7 @@ if (command === 'code') {
 command = 'jadibot'; 
 args.unshift('code')}
 
-const mcode = args[0] && /(--code|code)/.test(args[0].trim()) ? true : args[1] && /(--code|code)/.test(args[1].trim()) ? true : false;
+const mcode = args[0] && /(--code|code)/.test(args[0].trim()) ? false : args[1] && /(--code|code)/.test(args[1].trim()) ? true : false;
 let txtCode, codeBot, txtQR
 if (mcode) {
 args[0] = args[0].replace(/^--code$|^code$/, "").trim()

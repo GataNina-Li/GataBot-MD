@@ -24,6 +24,6 @@ return conn.sendMessage(m.chat, { text: resp }, { quoted: m })
 }}
 
 handler.command = /^(berhenti|stop|detener)$/i
-handler.private = true  
+handler.private = false  
 export default handler
 
