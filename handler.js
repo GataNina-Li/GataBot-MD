@@ -1149,8 +1149,8 @@ let _user = global.db.data && global.db.data.users && global.db.data.users[m.sen
 
 const groupMetadata = (m.isGroup ? ((conn.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch(_ => null)) : {}) || {}
 const participants = (m.isGroup ? groupMetadata.participants : []) || []
-const user = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) === m.sender) : {}) || {} // User Data
-const bot = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) == this.user.jid) : {}) || {}
+const user = (m.isGroup ? participants.find(u => conn.decodeJid(u.phoneNumber) === m.sender) : {}) || {}
+const bot = (m.isGroup ? participants.find(u => conn.decodeJid(u.phoneNumber) == this.user.jid) : {}) || {}
 const isRAdmin = user?.admin == 'superadmin' || false
 const isAdmin = isRAdmin || user?.admin == 'admin' || false //user admins? 
 const isBotAdmin = bot?.admin || false //Detecta sin el bot es admin
