@@ -4,7 +4,7 @@ let linkRegex2 = /whatsapp.com\/channel\/([0-9A-Za-z]{20,24})/i;
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, participants }) {
 if (!m.isGroup) return 
-if (isAdmin || isOwner || m.fromMe || isROwner || !isBotAdmin) return
+if (isAdmin || m.fromMe || !isBotAdmin) return
 
 let chat = global.db.data.chats[m.chat]
 let delet = m.key.participant
