@@ -25,9 +25,9 @@ selectedBot = conn;
 selectedBot = users.find(conn => detectwhat2 === botJid);
 }
 
-/*if (!selectedBot) {
-return conn.reply(m.chat, `⚠️ Ese bot no es un bot de la misma sessión, verifica los bots conectados, usando */bots*.`, m);
-}*/
+// if (!selectedBot) {
+// return conn.reply(m.chat, `⚠️ Ese bot no es un bot de la misma sessión, verifica los bots conectados, usando *.bots*.`, m);
+// }
 
 let chat = global.db.data.chats[m.chat];
 if (chat.primaryBot === botJid) {
