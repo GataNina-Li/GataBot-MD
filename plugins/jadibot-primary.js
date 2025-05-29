@@ -3,8 +3,11 @@ import ws from 'ws';
 let handler = async (m, { conn, usedPrefix, args }) => {
 if (!args[0] && !m.quoted) return m.reply(`⚠️ Menciona el número de un bot o responde al mensaje de un bot.\n> Ejemplo: *${usedPrefix}setprimary @0*`);
 
-const detectwhat = global.conn.user.jid;
-const detectwhat2 = conn.user.jid;
+let numBot = conn.user.lid.replace(/:.*/, '')
+let numBot2 = global.conn.user.lid.replace(/:.*/, '')
+const detectwhat = m.sender.includes('@lid') ? `${numBot2}@lid` : global.conn.user.jid;
+const detectwhat2 = m.sender.includes('@lid') ? `${numBot}@lid` : conn.user.jid;
+const pref = m.sender.includes('@lid') ? `@lid` : `@s.whatsapp.net`;
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
 
 let botJid;
@@ -15,7 +18,7 @@ botJid = m.mentionedJid[0];
 } else if (m.quoted) {
 botJid = m.quoted.sender;
 } else {
-botJid = args[0].replace(/[^0-9]/g, '') + '@s.whatsapp.net';
+botJid = args[0].replace(/[^0-9]/g, '') + pref;
 } if (botJid === detectwhat2 || botJid === detectwhat) {
 selectedBot = conn;
 } else {
