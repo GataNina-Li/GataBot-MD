@@ -59,12 +59,12 @@ gataJBOptions.args = args
 gataJBOptions.usedPrefix = usedPrefix
 gataJBOptions.command = command
 gataJBOptions.fromCommand = true
-gataJadiBot(gataJBOptions)
+gataJadiBot(gataJBOptions, text)
 } 
 handler.command = /^(jadibot|serbot|rentbot|code)/i
 export default handler 
 
-export async function gataJadiBot(options) {
+export async function gataJadiBot(options, text) {
 let { pathGataJadiBot, m, conn, args, usedPrefix, command } = options
 if (command === 'code') {
 command = 'jadibot'; 
