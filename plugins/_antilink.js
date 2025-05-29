@@ -10,7 +10,8 @@ let chat = global.db.data.chats[m.chat]
 let delet = m.key.participant
 let bang = m.key.id
 const userss = m.sender.split(':')[0]
-const userT = m.sender.includes('@lid') ? `${userss}@lid` : m.sender.split('@')[0];
+const usersss = m.sender.split('@')[0];
+const userT = m.sender.includes('@lid') ? `${userss}@lid` : `${usersss}@s.whatsapp.net`;
 const isGroupLink = linkRegex1.exec(m.text) || linkRegex2.exec(m.text);
 if (chat.antiLink && isGroupLink) {
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
