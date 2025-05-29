@@ -9,9 +9,6 @@ if (isAdmin || m.fromMe || !isBotAdmin) return
 let chat = global.db.data.chats[m.chat]
 let delet = m.key.participant
 let bang = m.key.id
-const userss = m.sender.split(':')[0]
-const usersss = m.sender.split('@')[0];
-const userT = m.sender.includes('@lid') ? `${userss}@lid` : `${usersss}@s.whatsapp.net`;
 const isGroupLink = linkRegex1.exec(m.text) || linkRegex2.exec(m.text);
 if (chat.antiLink && isGroupLink) {
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
@@ -22,8 +19,7 @@ if (isBotAdmin) {
 if (m.text.includes(linkThisGroup)) return
 await conn.sendMessage(m.chat, { text: `${mid.mAdvertencia + mid.mWhatsApp}..` }, { quoted: m })    
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let remove = await conn.groupParticipantsUpdate(m.chat, [userT], 'remove')
-if (remove[0].status === '404') return
+let remove = await conn.groupParticipantsUpdate(m.chat, [id], 'remove')
 }}
 return !0
 }
