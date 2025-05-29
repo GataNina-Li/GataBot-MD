@@ -19,7 +19,7 @@ if (isBotAdmin) {
 if (m.text.includes(linkThisGroup)) return
 await conn.sendMessage(m.chat, { text: `${mid.mAdvertencia + mid.mWhatsApp}..` }, { quoted: m })    
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-let remove = await conn.groupParticipantsUpdate(m.chat, [id], 'remove')
+let remove = await conn.groupParticipantsUpdate(m.chat, [bang], 'remove')
 }}
 return !0
 }
