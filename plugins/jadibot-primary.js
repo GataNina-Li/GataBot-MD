@@ -3,8 +3,8 @@ import ws from 'ws';
 let handler = async (m, { conn, usedPrefix, args }) => {
 if (!args[0] && !m.quoted) return m.reply(`⚠️ Menciona el número de un bot o responde al mensaje de un bot.\n> Ejemplo: *${usedPrefix}setprimary @0*`);
 
-const detectwhat = m.sender.includes('@lid') ? global.conn.user.jid : global.conn.user.jid;
-const detectwhat2 = m.sender.includes('@lid') ? conn.user.jid : conn.user.jid;
+const detectwhat = global.conn.user.jid;
+const detectwhat2 = conn.user.jid;
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
 
 let botJid;
