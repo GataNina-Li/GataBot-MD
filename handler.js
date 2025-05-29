@@ -1066,7 +1066,9 @@ fin: "23:59"
 }
 }
 let settings = global.db.data.settings[this.user.jid]
-if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
+let numBott = conn.user.lid.replace(/:.*/, '')
+const detectwhatt = m.sender.includes('@lid') ? `${numBott}@lid` : conn.user.jid;
+if (typeof settings !== 'object') global.db.data.settings[detectwhatt] = {}
 if (settings) {
 if (!('self' in settings)) settings.self = false
 if (!('autoread' in settings)) settings.autoread = false
@@ -1080,7 +1082,7 @@ if (!('antiSpam' in settings)) settings.antiSpam = true
 if (!('modoia' in settings)) settings.modoia = false
 if (!('jadibotmd' in settings)) settings.jadibotmd = true 
 if (!('prefix' in settings)) settings.prefix = opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@';
-} else global.db.data.settings[this.user.jid] = {
+} else global.db.data.settings[detectwhatt] = {
 self: false,
 autoread: false,
 autoread2: false,
@@ -1097,7 +1099,9 @@ jadibotmd: true,
 console.error(e)
 }
 
-var settings = global.db.data.settings[this.user.jid];
+let numConn = conn.user.lid.replace(/:.*/, '')
+const numBost = m.sender.includes('@lid') ? `${numConn}@lid` : conn.user.jid;
+var settings = global.db.data.settings[numBost];
 let prefix;
 const defaultPrefix = '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®&.\\-.@'; // Valor por defecto
 if (settings.prefix) {
@@ -1439,7 +1443,9 @@ try {
 if (!opts['noprint']) await (await import(`./lib/print.js`)).default(m, this)
 } catch (e) {
 console.log(m, m.quoted, e)}
-let settingsREAD = global.db.data.settings[this.user.jid] || {}  
+let bugBot = conn.user.lid.replace(/:.*/, '')
+const detectBot = m.sender.includes('@lid') ? `${bugBot}@lid` : conn.user.jid;
+let settingsREAD = global.db.data.settings[detectBot] || {}  
 if (opts['autoread']) await this.readMessages([m.key])
 if (settingsREAD.autoread2) await this.readMessages([m.key])  
 //if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])    
