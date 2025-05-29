@@ -42,7 +42,7 @@ const retryMap = new Map();
 const maxAttempts = 5;
 if (global.conns instanceof Array) console.log()
 else global.conns = []
-let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
+let handler = async (m, { conn, args, usedPrefix, command, isOwner, text }) => {
 if (!global.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`${lenguajeGB['smsSoloOwnerJB']()}`)
 if (m.fromMe || conn.user.jid === m.sender) return
 //if (conn.user.jid !== global.conn.user.jid) return conn.reply(m.chat, `${lenguajeGB['smsJBPrincipal']()} wa.me/${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}`, m) 
@@ -127,7 +127,8 @@ setTimeout(() => { conn.sendMessage(m.sender, { delete: txtQR.key })}, 30000)
 return
 } 
 if (qr && mcode) {
-let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
+//let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
+let secret = await sock.requestPairingCode((text.replace(/\D/g, '')))
 secret = secret.match(/.{1,4}/g)?.join("-")
 const dispositivo = await getDevice(m.key.id);
 if (!m.isWABusiness) {
