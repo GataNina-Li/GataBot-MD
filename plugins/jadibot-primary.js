@@ -1,42 +1,36 @@
-import ws from 'ws';
+import ws from 'ws'
 
-let handler = async (m, { conn, usedPrefix, args }) => {
-if (!args[0] && !m.quoted) return m.reply(`⚠️ Menciona el número de un bot o responde al mensaje de un bot.\n> Ejemplo: *${usedPrefix}setprimary @0*`);
+const handler = async (m, { conn }) => {
 
 let numBot = conn.user.lid.replace(/:.*/, '')
 let numBot2 = global.conn.user.lid.replace(/:.*/, '')
-const detectwhat = m.sender.includes('@lid') ? `${numBot2}@lid` : global.conn.user.jid;
+const detectwhat = m.sender.includes('@lid') ? `${numBot2}@lid` : global.conn.user.jid
 const detectwhat2 = m.sender.includes('@lid') ? `${numBot}@lid` : conn.user.jid;
-const pref = m.sender.includes('@lid') ? `@lid` : `@s.whatsapp.net`;
-const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
+const pref = m.sender.includes('@lid') ? `@lid` : `@s.whatsapp.net`
 
-let botJid;
-let selectedBot;
+const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => detectwhat2)])]
 
-if (m.mentionedJid && m.mentionedJid.length > 0) {
-botJid = m.mentionedJid[0];
-} else if (m.quoted) {
-botJid = m.quoted.sender;
-} else {
-botJid = args[0].replace(/[^0-9]/g, '') + pref;
-} if (botJid === detectwhat2 || botJid === detectwhat) {
-selectedBot = conn;
-} else {
-selectedBot = users.find(conn => detectwhat2 === botJid);
+  if (!subBots.includes(detectwhat)) {
+    subBots.push(detectwhat)
+  }
+
+  const who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
+  const chat = globalThis.db.data.chats[m.chat]
+  if (!who) return conn.reply(m.chat, `✧ Por favor menciona un bot para convertirlo en primario.`, m)
+
+  if (!subBots.includes(who)) return conn.reply(m.chat, `✧ El usuario mencionado no es un Socket de Stellar WaBot.`, m)
+
+  if (chat.primaryBot === who) {
+    return conn.reply(m.chat, `@${who.split`@`[0]} ya es el Bot principal del Grupo.`, m, { mentions: [who] });
+  }
+
+  try {
+    chat.primaryBot = who
+    conn.reply(m.chat, `✩ Se ha establecido a @${who.split`@`[0]} como bot primario de este grupo.\n> Ahora todos los comandos de este grupo serán ejecutados por @${who.split`@`[0]}.`, m, { mentions: [who] })
+  } catch (e) {
+    await m.reply(`✎ No pudimos atrapar la información esta vez.\n> *Si crees que es un fallo, pásate por el grupo de soporte y lo revisamos juntos.*`)
+  }
 }
-
-// if (!selectedBot) {
-// return conn.reply(m.chat, `⚠️ Ese bot no es un bot de la misma sessión, verifica los bots conectados, usando *.bots*.`, m);
-// }
-
-let chat = global.db.data.chats[m.chat];
-if (chat.primaryBot === botJid) {
-return conn.reply(m.chat, `⚠️ Listo, ese bot ya es el bot primario.`, m);
-}
-
-chat.primaryBot = botJid;
-conn.sendMessage(m.chat, { text: `✅ El bot ha sido establecido como primario en este grupo. Los demás bots no responderán aquí.` }, { quoted: m });
-};
 
 handler.help = ['setprimary <@tag>'];
 handler.tags = ['jadibot'];
@@ -44,4 +38,4 @@ handler.command = ['setprimary'];
 handler.group = true;
 handler.admin = true;
 
-export default handler;
+export default handler
