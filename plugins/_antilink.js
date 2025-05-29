@@ -10,7 +10,8 @@ let chat = global.db.data.chats[m.chat]
 let delet = m.key.participant
 let bang = m.key.id
 const users = m.sender.split(':')[0]
-const detectwhat = m.sender.includes('@lid') ? `${users}@lid` : m.sender;
+const users2 = m.sender.split('@')[0]
+const detectwhat = m.sender.includes('@lid') ? `${users}@lid` : `${users2}@s.whatsapp.net`;
 const user = await this.getName(detectwhat);
 const isGroupLink = linkRegex1.exec(m.text) || linkRegex2.exec(m.text);
 if (chat.antiLink && isGroupLink) {
