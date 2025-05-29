@@ -11,8 +11,8 @@ let delet = m.key.participant
 let bang = m.key.id
 const users = m.sender.split(':')[0]
 const users2 = m.sender.split('@')[0]
-const detectwhat = m.sender.includes('@lid') ? `${users}@lid` : `${users2}@s.whatsapp.net`;
-const user = await this.getName(detectwhat);
+const detectwhatss = m.sender.includes('@lid') ? `${users}@lid` : `${users2}@s.whatsapp.net`;
+const user = await this.getName(detectwhatss);
 const isGroupLink = linkRegex1.exec(m.text) || linkRegex2.exec(m.text);
 if (chat.antiLink && isGroupLink) {
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
