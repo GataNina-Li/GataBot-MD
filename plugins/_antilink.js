@@ -9,10 +9,9 @@ if (isAdmin || m.fromMe || !isBotAdmin) return
 let chat = global.db.data.chats[m.chat]
 let delet = m.key.participant
 let bang = m.key.id
-const users = m.sender.split(':')[0]
-const users2 = m.sender.split('@')[0]
-const detectwhatss = m.sender.includes('@lid') ? `${users}@lid` : `${users2}@s.whatsapp.net`;
-const user = await this.getName(detectwhatss);
+const users = m.sender.split(':')[0] + '@lid'
+const users2 = m.sender.split('@')[0] + '@s.whatsapp.net'
+const user = await this.getName(users) || conn.getName(users2);
 const isGroupLink = linkRegex1.exec(m.text) || linkRegex2.exec(m.text);
 if (chat.antiLink && isGroupLink) {
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
