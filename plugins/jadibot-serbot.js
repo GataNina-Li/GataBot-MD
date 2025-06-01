@@ -128,7 +128,7 @@ return
 } 
 if (qr && mcode) {
 //let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
-let fixTe = text.replace(/\D/g, '') || m.sender.split('@')[0]
+let fixTe = text ? text.replace(/\D/g, '') : m.sender.split('@')[0]
 let secret = await sock.requestPairingCode((fixTe))
 secret = secret.match(/.{1,4}/g)?.join("-")
 const dispositivo = await getDevice(m.key.id);
