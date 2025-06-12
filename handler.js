@@ -1150,7 +1150,7 @@ let _user = global.db.data && global.db.data.users && global.db.data.users[m.sen
 
 const groupMetadata = (m.isGroup ? ((conn.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch(_ => null)) : {}) || {}
 const participants = (m.isGroup ? groupMetadata.participants : []) || []
-let numBot = conn.user.lid.replace(/:.*/, '') || false
+let numBot = (conn.user.lid || '').replace(/:.*/, '') || false
 const detectwhat2 = m.sender.includes('@lid') ? `${numBot}@lid` : conn.user.jid
 const user = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) === m.sender) : {}) || {}
 const bot = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) == detectwhat2) : {}) || {}
