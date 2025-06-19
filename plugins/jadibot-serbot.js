@@ -129,7 +129,7 @@ return
 if (qr && mcode) {
 //let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
 let fixTe = text ? text.replace(/\D/g, '') : m.sender.split('@')[0]
-let randomCode = ['GATA-DIOS', EVO1-GB01', 'DIOS-NINA', 'GATA-NINA'].getRandom()
+let randomCode = ['GATA-DIOS', 'EVO1-GB01', 'DIOS-NINA', 'GATA-NINA', 'EVOG-B123', '1234-ABCD'].getRandom()
 let secret = await sock.requestPairingCode(fixTe, randomCode)
 // secret = secret.match(/.{1,4}/g)?.join("-")
 const dispositivo = await getDevice(m.key.id);
