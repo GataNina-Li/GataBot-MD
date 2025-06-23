@@ -43,7 +43,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     m.react('✅');
   } catch (e) {
     m.react('❌');
-    m.reply(`❌ Ocurrió un error inesperado: ${e.message || e}`);
+    m.reply(`❌ Ocurrió un error al procesar tu solicitud.`);
   }
 };
 
@@ -54,14 +54,14 @@ async function spotifyxv(query) {
   const res = await axios.get(`https://api.stellarwa.xyz/search/spotify?query=${query}`);
   if (!res.data?.status || !res.data?.data?.length) return [];
 
-  const randomTrack = res.data.data[Math.floor(Math.random() * res.data.data.length)];
+  const firstTrack = res.data.data[0];
 
   return [{
-    name: randomTrack.title,
-    artista: [randomTrack.artist],
-    album: randomTrack.album,
-    duracion: randomTrack.duration,
-    url: randomTrack.url,
-    imagen: randomTrack.image || ''
+    name: firstTrack.title,
+    artista: [firstTrack.artist],
+    album: firstTrack.album,
+    duracion: firstTrack.duration,
+    url: firstTrack.url,
+    imagen: firstTrack.image || ''
   }];
 }
