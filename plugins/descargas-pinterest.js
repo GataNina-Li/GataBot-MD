@@ -30,31 +30,24 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     `https://api.betabotz.eu.org/api/search/pinterest?query=`
   ]
 
-  let resultados = null
   for (const api of apis) {
     try {
       const res = await axios.get(api + encodeURIComponent(text))
       const data = res.data?.data || res.data
       if (Array.isArray(data) && data.length > 0) {
-        resultados = data.slice(0, 6).map(r => ({
-          image: { url: r.hd || r.image || r.images_url },
-          caption: `📌 ${r.title || r.fullname || text}\n🧑 ${lenguajeGB.autor || 'Autor'}: ${r.full_name || r.upload_by || r.name || 'Desconocido'}`
-        }))
-        break
+        const r = data[0]
+        const url = r.hd || r.image || r.images_url
+        if (!url) continue
+        const caption = `📌 ${r.title || r.fullname || text}\n🧑 ${lenguajeGB.autor || 'Autor'}: ${r.full_name || r.upload_by || r.name || 'Desconocido'}`
+        await conn.sendMessage(m.chat, { image: { url }, caption }, { quoted: m })
+        return m.react('✅')
       }
     } catch {
       continue
     }
   }
 
-  if (!resultados) return conn.reply(m.chat, lenguajeGB.smsAvisoFallo || '❌ No se encontraron resultados.', m)
-
-  await conn.sendAlbumMessage(m.chat, resultados, {
-    quoted: m,
-    delay: 1500,
-    caption: `${lenguajeGB.smsAvisoEG?.() || '✅'} 💞 ${mid?.buscador || 'Pinterest Resultados'}: ${text}`
-  })
-  m.react('✅')
+  return conn.reply(m.chat, lenguajeGB.smsAvisoFallo || '❌ No se encontraron resultados.', m)
 }
 
 handler.help = ['pinterest <consulta|enlace>']
