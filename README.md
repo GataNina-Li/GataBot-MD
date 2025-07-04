@@ -229,21 +229,6 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 
 </details>
 
-<details>
-<summary><b>⛏️ BoxMineWorld</b></summary>
-
-<a href="https://boxmineworld.com"><img src="https://boxmineworld.com/img/Logo.png" height="125px"></a>
-
-- **Sitio Web:** [https://boxmineworld.com](https://boxmineworld.com)  
-- **Área de Clientes:** [https://dash.boxmineworld.com](https://dash.boxmineworld.com)  
-- **Panel de Control:** [https://panel.boxmineworld.com](https://panel.boxmineworld.com)  
-- **Documentación:** [https://docs.boxmineworld.com](https://docs.boxmineworld.com)  
-- **Comunidad de Discord:** [¡Únete aquí!](https://discord.gg/84qsr4v)
-
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - GataBot-MD**</summary><img src="https://i.imgur.com/tD3NQSR.jpeg"></details>
-
-</details>
-
 ----
 
 <details>
