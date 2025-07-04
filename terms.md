@@ -1,6 +1,6 @@
 # TÉRMINOS, PRIVACIDAD, Y CONDICIONES DE USO.
  
-> **_Última actualización 1 de enero de 2025_**
+> **_Última actualización 3 de Julio de 2025_**
 
 ## MODIFICACIONES Y ACTUALIZACIONES
 _Nos reservamos el derecho de actualizar, modificar o cambiar nuestros términos, políticas de privacidad y condiciones sin previo aviso. Cualquier ajuste será efectivo inmediatamente después de su publicación. Le recomendamos revisar periódicamente nuestras políticas para estar informado sobre cualquier cambio. El uso continuado de nuestro código o bot después de la publicación de cualquier modificación constituirá su aceptación de dichas modificaciones._
@@ -86,12 +86,6 @@ En el contexto de un bot, es posible que algunos comandos no funcionen correctam
 
 <details>
 <summary><b>PATROCINADORES</b></summary>
-
-<details>
-<summary><b>BoxMine Host</b></summary>
-
-El servicio de hosting proporciona alojamiento para GataBot en sus servidores. Han leído y aceptado la política de GataBot, consolidando mejoras para la Comunidad GataBot y la comunidad de BoxMine.
-</details>
 
 <details>
 <summary><b>Sky Ultra Plus Host</b></summary>
