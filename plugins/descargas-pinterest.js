@@ -27,20 +27,19 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     `https://api.stellarwa.xyz/search/pinterest?query=`,
     `https://api.dorratz.com/v2/pinterest?q=`,
     `https://api.siputzx.my.id/api/s/pinterest?query=`,
-    `https://api.betabotz.eu.org/api/search/pinterest?query=`,
+    `https://api.betabotz.eu.org/api/search/pinterest?query=`
   ]
 
-  let results = null
+  let resultados = null
   for (const api of apis) {
     try {
       const res = await axios.get(api + encodeURIComponent(text))
       const data = res.data?.data || res.data
-      if (Array.isArray(data) && data.length) {
-        results = data.slice(0, 6).map(r => [
-          r.title || r.fullname || text,
-          `🧑 ${lenguajeGB.autor || 'Autor'}: ${r.full_name || r.upload_by || r.name || 'Desconocido'}\n❤️ Likes: ${r.likes || '-'}\n📅 ${r.created || '-'}`,
-          r.hd || r.image || r.images_url
-        ])
+      if (Array.isArray(data) && data.length > 0) {
+        resultados = data.slice(0, 6).map(r => ({
+          image: { url: r.hd || r.image || r.images_url },
+          caption: `📌 ${r.title || r.fullname || text}\n🧑 ${lenguajeGB.autor || 'Autor'}: ${r.full_name || r.upload_by || r.name || 'Desconocido'}`
+        }))
         break
       }
     } catch {
@@ -48,19 +47,17 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
   }
 
-  if (!results) return conn.reply(m.chat, `${lenguajeGB.smsAvisoFallo || '❌ No se encontraron resultados.'}`, m)
+  if (!resultados) return conn.reply(m.chat, lenguajeGB.smsAvisoFallo || '❌ No se encontraron resultados.', m)
 
-  await conn.sendCarousel(
-    m.chat,
-    `${lenguajeGB.smsAvisoEG?.() || '✅'} 💞 ${mid?.buscador || 'Resultados'}: ${text}`,
-    lenguajeGB.tituloBusqueda || '🔍 Pinterest',
-    results,
-    m
-  )
+  await conn.sendAlbumMessage(m.chat, resultados, {
+    quoted: m,
+    delay: 1500,
+    caption: `${lenguajeGB.smsAvisoEG?.() || '✅'} 💞 ${mid?.buscador || 'Pinterest Resultados'}: ${text}`
+  })
   m.react('✅')
 }
 
-handler.help = ['pinterest <query|link>']
+handler.help = ['pinterest <consulta|enlace>']
 handler.tags = ['internet']
 handler.command = /^(pinterest(dl)?|dlpinterest)$/i
 handler.money = 30
