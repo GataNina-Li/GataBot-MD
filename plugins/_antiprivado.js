@@ -1,4 +1,4 @@
-import ws from 'ws';
+/*import ws from 'ws';
 const comandos = /piedra|papel|tijera|estado|verificar|code|jadibot --code|--code|creadora|bottemporal|grupos|instalarbot|términos|bots|deletebot|eliminarsesion|serbot|verify|register|registrar|reg|reg1|nombre|name|nombre2|name2|edad|age|edad2|age2|genero|género|gender|identidad|pasatiempo|hobby|identify|finalizar|pas2|pas3|pas4|pas5|registroc|deletesesion|registror|jadibot/i
 
 export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
@@ -66,4 +66,4 @@ this.readMessages([m.key])
 let usedPrefix = m.text.match(prefixRegex)[0]
 let command = m.text.slice(usedPrefix.length).trim().split(' ')[0]
 }
-}
+}*/
