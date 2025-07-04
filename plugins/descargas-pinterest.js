@@ -13,7 +13,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       const file = {
         type: data.data.format.includes('mp4') ? 'video' : 'image',
         url: data.data.dl,
-        caption: `🪸 Titulo: *${data.data.title || "-"}*\n💖 ${lenguajeGB.tipo || 'Tipo'}: ${data.data.format.includes('mp4') ? 'Video' : 'Imagen'}`
+        caption: `💞 *${data.data.title || "-"}*\n💖 ${lenguajeGB.tipo || 'Tipo'}: ${data.data.format.includes('mp4') ? 'Video' : 'Imagen'}`
       }
 
       await conn.sendMessage(m.chat, { [file.type]: { url: file.url }, caption: file.caption }, { quoted: m })
@@ -38,7 +38,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         const r = data[0]
         const url = r.hd || r.image || r.images_url
         if (!url) continue
-        const caption = `🐞 Titulo: ${r.title || r.fullname || text}\n🎋 ${lenguajeGB.autor || 'Autor'}: ${r.full_name || r.upload_by || r.name || 'Desconocido'}`
+        const caption = `🐞 ${r.title || r.fullname || text}\n🎋 ${lenguajeGB.autor || 'Autor'}: ${r.full_name || r.upload_by || r.name || 'Desconocido'}`
         await conn.sendMessage(m.chat, { image: { url }, caption }, { quoted: m })
         return m.react('✅')
       }
