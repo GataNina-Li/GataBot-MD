@@ -1,13 +1,13 @@
-import fs from 'fs'
-import path from 'path'
 import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
 import ws from 'ws'
 
 async function handler(m, { conn, usedPrefix, command }) {
 // carpetas creadas
-const __filename = fileURLToPath(import.meta?.url)
-const __dirname = path?.dirname(__filename)
-const carpetaBase = path?.resolve(__dirname, '..', 'GataJadiBot')
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const carpetaBase = path.resolve(__dirname, '..', 'GataJadiBot')    
 const cantidadCarpetas = (fs?.readdirSync(carpetaBase, { withFileTypes: true }).filter(item => item?.isDirectory())?.length) || 0
 
 // servidor
