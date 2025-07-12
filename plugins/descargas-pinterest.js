@@ -7,7 +7,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
   if (/^https?:\/\/[^\s]+$/i.test(text)) {
     try {
-      let { data } = await axios.get(`https://api.stellarwa.xyz/dow/pinterest?url=${text}`)
+      let { data } = await axios.get(`https://api.stellarwa.xyz/dow/pinterest?url=${text}&apikey=Stellar`)
       if (!data?.data) throw null
 
       const file = {
@@ -24,15 +24,15 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
   const apis = [
-    `https://api.stellarwa.xyz/search/pinterest?query=`,
-    `https://api.dorratz.com/v2/pinterest?q=`,
-    `https://api.siputzx.my.id/api/s/pinterest?query=`,
-    `https://api.betabotz.eu.org/api/search/pinterest?query=`
+    `https://api.stellarwa.xyz/search/pinterest?query=${text}&apikey=Stellar`,
+    `https://api.dorratz.com/v2/pinterest?q=${text}`,
+    `https://api.siputzx.my.id/api/s/pinterest?query=${text}`,
+    `https://api.betabotz.eu.org/api/search/pinterest?query=${text}`
   ]
 
   for (const api of apis) {
     try {
-      const res = await axios.get(api + encodeURIComponent(text))
+      const res = await axios.get(api)
       const data = res.data?.data || res.data
       if (Array.isArray(data) && data.length > 0) {
         const r = data[0]
