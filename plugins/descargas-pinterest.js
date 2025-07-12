@@ -7,7 +7,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
   if (/^https?:\/\/[^\s]+$/i.test(text)) {
     try {
-      let { data } = await axios.get(`https://api.stellarwa.xyz/dow/pinterest?url=${text}&apikey=Stellar`)
+      let { data } = await axios.get(`${global.APIs.stellar.url}/dow/pinterest?url=${text}&apikey=${global.APIs.stellar.key}`)
       if (!data?.data) throw null
 
       const file = {
