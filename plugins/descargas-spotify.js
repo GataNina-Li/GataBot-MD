@@ -10,7 +10,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!songInfo.length) throw 'No se encontró la canción.';
     let song = songInfo[0];
 
-    const res = await axios.get(`https://api.stellarwa.xyz/dow/spotify?url=${song.url}`);
+    const res = await axios.get(`https://api.stellarwa.xyz/dow/spotify?url=${song.url}&apikey=Stellar`);
     const data = res.data?.data;
     if (!data?.download) throw 'No se pudo obtener el enlace de descarga.';
 
@@ -51,7 +51,7 @@ handler.command = ['spotify', 'music'];
 export default handler;
 
 async function spotifyxv(query) {
-  const res = await axios.get(`https://api.stellarwa.xyz/search/spotify?query=${query}`);
+  const res = await axios.get(`https://api.stellarwa.xyz/search/spotify?query=${query}&apikey=Stellar`);
   if (!res.data?.status || !res.data?.data?.length) return [];
 
   const firstTrack = res.data.data[0];
