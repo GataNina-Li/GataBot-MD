@@ -10,7 +10,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!songInfo.length) throw 'No se encontró la canción.';
     let song = songInfo[0];
 
-    const res = await axios.get(`https://api.stellarwa.xyz/dow/spotify?url=${song.url}&apikey=Stellar`);
+    const res = await axios.get(`${global.APIs.stellar.url}/dow/spotify?url=${song.url}&apikey=${global.APIs.stellar.key}`);
     const data = res.data?.data;
     if (!data?.download) throw 'No se pudo obtener el enlace de descarga.';
 
