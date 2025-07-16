@@ -23,31 +23,114 @@ const cat = `𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈
 let biografiaBot = await conn.fetchStatus(conn.user.jid.split('@')[0] + '@s.whatsapp.net').catch(_ => 'undefined')
 let bioBot = biografiaBot.status?.toString() || `${desc2 == '' ? lenguajeGB.smsContacto1() : desc2}`
 
-let contacts = global.official.filter(c => c[2] === 1)
+let contacts = global.official // toma todo sin filtro, o cambia filtro correcto
+
 let lista = []
+
 for (let i = 0; i < contacts.length; i++) {
-contact = contacts[i]
-number = String(contact[0])
-ofc = await conn.getName(number + '@s.whatsapp.net') //String(contact[1])
-let biografia = await conn.fetchStatus(number +'@s.whatsapp.net').catch(_ => 'undefined')
-let bio = biografia.status?.toString() || `${desc2 == '' ? lenguajeGB.smsContacto2() : desc2}`
+  const contact = contacts[i]
+  const number = String(contact[0]) // número como string
+  let ofc = ''
+  try {
+    ofc = await conn.getName(number + '@s.whatsapp.net')
+  } catch {
+    ofc = ''
+  }
 
-nombre = official[0][0] == String(contact[0]) ? official[0][1] : official[1][0] == String(contact[0]) ? official[1][1] : official[2][0] == String(contact[0]) ? official[2][1] : official[3][0] == String(contact[0]) ? official[3][1] : lenguajeGB.smsContacto3() 
-description = official[0][0] == String(contact[0]) ? 'Solo temas de GataBot' : official[1][0] == String(contact[0]) ? lenguajeGB.smsContacto4() : official[2][0] == String(contact[0]) ? lenguajeGB.smsContacto4() : official[3][0] == String(contact[0]) ? lenguajeGB.smsContacto4() : desc === '' ? lenguajeGB.smsContacto5() : desc
-correo = official[0][0] == String(contact[0]) ? 'socialplus.gata@gamil.com' : official[1][0] == String(contact[0]) ? 'thelolibotm@gmail.com' : official[2][0] == String(contact[0]) ? 'alexismaldonado90700@gmail.com' : mail === '' ? lenguajeGB.smsContacto6() : mail
-lugar = official[0][0] == String(contact[0]) ? '🇪🇨 Ecuador' : official[1][0] == String(contact[0]) ? '🇦🇷 Argentina' : official[2][0] == String(contact[0]) ? '🇲🇽 México' : official[3][0] == String(contact[0]) ? '🇧🇷 Brazil' : country === '' ? lenguajeGB.smsContacto7() : country
-enlace = official[0][0] == String(contact[0]) ? 'https://github.com/GataNina-Li' : official[1][0] == String(contact[0]) ? 'https://github.com/elrebelde21' : official[2][0] == String(contact[0]) ? 'https://github.com/AzamiJs' : official[3][0] == String(contact[0]) ? 'https://github.com/Abiguelreyes75' : md 
+  const biografia = await conn.fetchStatus(number + '@s.whatsapp.net').catch(() => null)
+  let bio = biografia?.status?.toString() || (desc2 === '' ? lenguajeGB.smsContacto2() : desc2)
 
-lista.push([number, ofc, nombre, description, official[3][0] == String(contact[0]) ? null : correo, lugar, enlace, bio, official[1][0] == String(contact[0]) ? 'https://www.youtube.com/@elrebelde.21' : null]) }  
-lista.push([conn.user.jid.split('@')[0], await conn.getName(conn.user.jid), packname, lenguajeGB.smsContacto8(), mail === '' ? 'centergatabot@gmail.com' : mail, lenguajeGB.smsContacto7(), md, bioBot, yt, ig, fb, paypal, nna])
-await conn.sendFile(m.chat, pp, 'lp.jpg', cat, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb.getRandom()}}})
-await conn.sendContactArray(m.chat, lista, null, { quoted: fkontak })
+  const nombre = contact[2] || lenguajeGB.smsContacto3() // nombre está en posición 2 según tu lista
+
+  const description = i === 0
+    ? 'Solo temas de GataBot'
+    : lenguajeGB.smsContacto4()
+
+  const correo = i === 0
+    ? 'socialplus.gata@gamil.com'
+    : i === 1
+    ? 'thelolibotm@gmail.com'
+    : i === 2
+    ? 'alexismaldonado90700@gmail.com'
+    : ''
+
+  const lugar = i === 0
+    ? '🇪🇨 Ecuador'
+    : i === 1
+    ? '🇦🇷 Argentina'
+    : i === 2
+    ? '🇲🇽 México'
+    : i === 3
+    ? '🇧🇷 Brazil'
+    : ''
+
+  const enlace = i === 0
+    ? 'https://github.com/GataNina-Li'
+    : i === 1
+    ? 'https://github.com/elrebelde21'
+    : i === 2
+    ? 'https://github.com/AzamiJs'
+    : i === 3
+    ? 'https://github.com/Abiguelreyes75'
+    : ''
+
+  const youtube = i === 1 ? 'https://www.youtube.com/@elrebelde.21' : ''
+
+  lista.push([
+    number || '',
+    ofc || '',
+    nombre || '',
+    description || '',
+    correo || '',
+    lugar || '',
+    enlace || '',
+    bio || '',
+    youtube || ''
+  ])
+}
+
+// Función para asegurar strings
+const safeField = (field) => {
+  if (field === undefined || field === null) return ''
+  if (typeof field === 'number') return field.toString()
+  return field
+}
+
+let safeLista = lista.map(contact => contact.map(safeField))
+
+// Enviar contactos
+await conn.sendFile(
+  m.chat,
+  pp,                // buffer o url
+  'lp.jpg',
+  cat || '',
+  fkontak,
+  false,
+  {
+    contextInfo: {
+      externalAdReply: {
+        mediaUrl: undefined,
+        mediaType: 1,
+        description: undefined,
+        title: gt || '',
+        body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽',
+        previewType: 0,
+        thumbnail: gataImg,  // debe ser Buffer
+        sourceUrl: accountsgb.getRandom() || ''
+      }
+    }
+  }
+)
+
+await conn.sendContactArray(m.chat,safeLista, null, { quoted: fkontak })
 
 } catch (e) {
 await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '*\n*' + usedPrefix + `${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'}` + '* ' + `${lenguajeGB.smsMensError2()} ` + usedPrefix + command)
 //await m.reply(e)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(e)}} 
+console.log(e)}
+
+} 
 handler.help = ['owner', 'creator']
 handler.tags = ['info']
 handler.command = /^(owner|creator|propietario|dueño|dueña|propietaria|dueño|creadora|creador|contactos?|contacts?)$/i
