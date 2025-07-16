@@ -10,7 +10,9 @@ if (!setting.prefix) return
 let prefixRegex = new RegExp('^[' + setting.prefix.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']')
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
 const participants = m.isGroup ? (await conn.groupMetadata(m.chat).catch(() => ({ participants: [] }))).participants : []
-let numBot = conn.user.lid.replace(/:.*/, '')
+let numBot = typeof conn.user?.lid === 'string' 
+  ? conn.user.lid.replace(/:.*/, '') 
+  : (conn.user?.jid || '').replace(/:.*/, '')
 let numBot2 = global.conn.user.lid.replace(/:.*/, '')
 const detectwhat = m.sender.includes('@lid') ? `${numBot2}@lid` : global.conn.user.jid;
 const detectwhat2 = m.sender.includes('@lid') ? `${numBot}@lid` : conn.user.jid;
