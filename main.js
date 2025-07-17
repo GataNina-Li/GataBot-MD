@@ -703,40 +703,51 @@ console.log(chalk.cyanBright(`[🔵] Sesiones no esenciales eliminadas de ${glob
 }}
 
 async function purgeSessionSB() {
-const jadibtsDir = './GataJadiBot/';
-try {
-if (!existsSync(jadibtsDir)) return;
-const directories = await readdir(jadibtsDir);
-let SBprekey = [];
-const now = Date.now();
-const oneHourAgo = now - (24 * 60 * 60 * 1000); //24 horas
-    
-for (const dir of directories) {
-const dirPath = join(jadibtsDir, dir);
-const stats = await stat(dirPath);
-if (stats.isDirectory()) {
-const files = await readdir(dirPath);
-const preKeys = files.filter(file => file.startsWith('pre-key-') && file !== 'creds.json');
-SBprekey = [...SBprekey, ...preKeys];
-for (const file of preKeys) {
-const filePath = join(dirPath, file);
-const fileStats = await stat(filePath);
-if (fileStats.mtimeMs < oneHourAgo) { 
-try {
-await unlink(filePath);
-console.log(chalk.bold.green(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lenguajeGB.smspurgeOldFiles2()}`))
-} catch (err) {
-//console.error(chalk.red(`[⚠] Error al eliminar pre-key antigua ${file} en ${dir}: ${err.message}`));
-}} else {
-//console.log(chalk.yellow(`[ℹ️] Manteniendo pre-key activa en sub-bot ${dir}: ${file}`));
-}}}}
-if (SBprekey.length === 0) {
-console.log(chalk.bold.green(lenguajeGB.smspurgeSessionSB1()))
-} else {
-console.log(chalk.cyanBright(`[🔵] Pre-keys antiguas eliminadas de sub-bots: ${SBprekey.length}`));
-}} catch (err) {
-console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err))
-}}
+  const jadibtsDir = './GataJadiBot/';
+  try {
+    if (!existsSync(jadibtsDir)) return;
+
+    const directories = await readdir(jadibtsDir);
+    let SBprekey = [];
+    const now = Date.now();
+    const oneDayAgo = now - (24 * 60 * 60 * 1000); // 24 horas en milisegundos
+
+    for (const dir of directories) {
+      const dirPath = join(jadibtsDir, dir);
+      const stats = await stat(dirPath);
+      if (stats.isDirectory()) {
+        const files = await readdir(dirPath);
+        const preKeys = files.filter(file => file.startsWith('pre-key-') && file !== 'creds.json');
+        SBprekey = [...SBprekey, ...preKeys];
+
+        for (const file of preKeys) {
+          const filePath = join(dirPath, file);
+          const fileStats = await stat(filePath);
+
+          if (fileStats.mtimeMs < oneDayAgo) { 
+            try {
+              await unlink(filePath);
+              console.log(chalk.bold.green(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lenguajeGB.smspurgeOldFiles2()}`));
+            } catch (err) {
+              // Manejo del error de eliminación si es necesario
+            }
+          } else {
+            // Archivo todavía activo, no hacer nada
+          }
+        }
+      }
+    }
+
+    if (SBprekey.length === 0) {
+      console.log(chalk.bold.green(lenguajeGB.smspurgeSessionSB1()));
+    } else {
+      console.log(chalk.cyanBright(`[🔵] Pre-keys antiguas eliminadas de sub-bots: ${SBprekey.length}`));
+    }
+
+  } catch (err) {
+    console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err));
+  }
+}
 
 async function purgeOldFiles() {
 const directories = ['./GataBotSession/', './GataJadiBot/'];
