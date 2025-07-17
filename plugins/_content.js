@@ -96,7 +96,7 @@ global.img18 = img //'https://qu.ax/HCt.jpg'
 
 global.logogit = img //'https://qu.ax/RzKF.jpg' 
 
-global.gataVidMenu = ['https://qu.ax/AAvg.mp4', 'https://qu.ax/SeFS.mp4', 'https://qu.ax/NqZN.mp4'][Math.floor(Math.random() * 3)]
+global.gataVidMenu = ['https://qu.ax/SeFS.mp4', 'https://qu.ax/NqZN.mp4'][Math.floor(Math.random() * 2)]
 global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18][Math.floor(Math.random() * 11)]
 global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13][Math.floor(Math.random() * 13)]
 
