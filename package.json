@@ -29,7 +29,7 @@
 "url": "https://github.com/GataNina-Li/GataBot-MD/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
-"@whiskeysockets/baileys": "github:gatanina-li/baileys",
+"@whiskeysockets/baileys": "github:Itsukichann/Baileys",
 "@bochilteam/scraper": "^5.0.1",
 "@brandond/findthelyrics": "^2.0.5",
 "@green-code/music-track-data": "^2.0.3",
