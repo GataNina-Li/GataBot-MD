@@ -13,7 +13,9 @@ const participants = m.isGroup ? (await conn.groupMetadata(m.chat).catch(() => (
 let numBot = typeof conn.user?.lid === 'string' 
   ? conn.user.lid.replace(/:.*/, '') 
   : (conn.user?.jid || '').replace(/:.*/, '')
-let numBot2 = global.conn.user.lid.replace(/:.*/, '')
+let numBot2 = typeof global.conn.user?.lid === 'string' 
+  ? global.conn.user.lid.replace(/:.*/, '') 
+  : (global.conn.user?.jid || '').replace(/:.*/, '');
 const detectwhat = m.sender.includes('@lid') ? `${numBot2}@lid` : global.conn.user.jid;
 const detectwhat2 = m.sender.includes('@lid') ? `${numBot}@lid` : conn.user.jid;
 
