@@ -11,15 +11,32 @@ if (!args[0].match(/www.facebook.com|fb.watch/g)) return conn.reply(m.chat, `${l
 let contenido = `✅ 𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆\n${wm}`
 await m.react('⏱️')
 try {
-const api = await fetch(`${global.APIs.neoxr.url}/fb?url=${args}&apikey=${global.APIs.neoxr.key}`);
-const response = await api.json();
-if (response.status && Array.isArray(response.data)) {
-const videoHD = response.data.find(video => video.quality === "HD")?.url;
-const videoSD = response.data.find(video => video.quality === "SD")?.url;
-const videoUrl = videoHD || videoSD;
-await conn.sendFile(m.chat, videoUrl, 'video.mp4', contenido, m, null, fake);
-m.react('✅');
-}} catch {   
+    const apiUrl = `https://api.dorratz.com/fbvideo?url=${args}`;
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    // Filtrar solo elementos con url válidas (que empiecen con http)
+    const videosConUrl = data.filter(v => typeof v.url === 'string' && v.url.startsWith('http'));
+
+    // Orden de preferencia: 1080p primero, luego 720p
+    const prioridades = ['1080p', '720p (HD)'];
+    let videoSeleccionado = null;
+
+    for (const resolucion of prioridades) {
+        videoSeleccionado = videosConUrl.find(v => v.resolution === resolucion);
+        if (videoSeleccionado) break;
+    }
+
+    // Si no se encuentra resolución preferida, usar el primero válido
+    if (!videoSeleccionado) {
+        videoSeleccionado = videosConUrl[0];
+    }
+
+    const downloadUrl = videoSeleccionado.url;
+    const contenido = `Resolución: ${videoSeleccionado.resolution}`;
+
+    await conn.sendFile(m.chat, downloadUrl, `video.mp4`, contenido, m);
+    await m.react('✅');
+} catch {   
 try {
 const api = await fetch(`https://api.agatz.xyz/api/facebook?url=${args}`);
 const data = await api.json();
@@ -27,21 +44,20 @@ const videoUrl = data.data.hd || data.data.sd;
 const imageUrl = data.data.thumbnail; 
 if (videoUrl && videoUrl.endsWith('.mp4')) {
 await conn.sendFile(m.chat, videoUrl, 'video.mp4', `${gt}`, m, null, fake);
-m.react('✅');
+await m.react('✅');
 } else if (imageUrl && (imageUrl.endsWith('.jpg') || imageUrl.endsWith('.png'))) {
 await conn.sendFile(m.chat, imageUrl, 'thumbnail.jpg', contenido, m, null, fake);
-m.react('✅');
+await m.react('✅');
 }} catch {   
 try {
-const apiUrl = `https://api.dorratz.com/fbvideo?url=${args}`;
-const response = await fetch(apiUrl);
-const data = await response.json();
-if (data.result) {
-const hdUrl = data.result.hd;
-const sdUrl = data.result.sd;
-const audioUrl = data.result.audio;        
-const downloadUrl = hdUrl || sdUrl; 
-await conn.sendFile(m.chat, downloadUrl, `error.mp4`, contenido, m)
+const api = await fetch(`${global.APIs.neoxr.url}/fb?url=${args}&apikey=${global.APIs.neoxr.key}`);
+const response = await api.json();
+if (response.status && Array.isArray(response.data)) {
+const videoHD = response.data.find(video => video.quality === "HD")?.url;
+const videoSD = response.data.find(video => video.quality === "SD")?.url;
+const videoUrl = videoHD || videoSD;
+await conn.sendFile(m.chat, videoUrl, 'video.mp4', contenido, m, null, fake);
+await m.react('✅');
 }} catch {   
 try {
 const apiUrl = `${apis}/download/facebook?url=${args}`;
@@ -56,7 +72,7 @@ try {
 const ress = await fg.fbdl(args[0]);
 const urll = await ress.data[0].url;
 await conn.sendFile(m.chat, urll, `error.mp4`, contenido, m)
-m.react(`✅`)                
+await m.react(`✅`)                
 } catch (e) {   
 console.log(e) 
 }}}}}}
