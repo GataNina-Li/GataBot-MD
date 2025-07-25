@@ -26,7 +26,7 @@ say('Gata\nBot\nMD', {
 font: 'chrome',
 align: 'center',
 gradient: ['red', 'magenta']})
-say(`Por GataDios`, {
+say(`Powered By GataDios`, {
 font: 'console',
 align: 'center',
 gradient: ['red', 'magenta']})
