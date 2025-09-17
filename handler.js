@@ -433,7 +433,7 @@ if (!isNumber(user.ramuanherolast)) user.ramuanherolast = 0
 if (!isNumber(user.ramuankucinglast)) user.ramuankucinglast = 0
 if (!isNumber(user.ramuankudalast)) user.ramuankudalast = 0
 if (!isNumber(user.ramuankyubilast)) user.ramuankyubilast = 0
-if (!isNumber(user.ramuannagalast)) user.ramuannagalast = 0
+if (!isNumber(user.ramuannagalast)) user.ramuannagalast = 0 // <-- si tuvieras un typo raro aquí, corrígelo a 'ramuannagalast'
 if (!isNumber(user.ramuanphonixlast)) user.ramuanphonixlast = 0
 if (!isNumber(user.ramuanrubahlast)) user.ramuanrubahlast = 0
 if (!isNumber(user.ramuanserigalalast)) user.ramuanserigalalast = 0
@@ -1214,232 +1214,215 @@ m.isWABusiness = global.conn.authState?.creds?.platform === 'smba' || global.con
 m.isChannel = m.chat.includes('@newsletter') || m.sender.includes('@newsletter')
 	
 const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
+
 for (let name in global.plugins) {
-let plugin = global.plugins[name]
-if (!plugin)
-continue
-if (plugin.disabled)
-continue
-const __filename = join(___dirname, name)
-if (typeof plugin.all === 'function') {
-try {
-await plugin.all.call(this, m, {
-chatUpdate,
-__dirname: ___dirname,
-__filename
-})
-} catch (e) {
-// if (typeof e === 'string') continue
-console.error(e)
-for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
-let data = (await conn.onWhatsApp(jid))[0] || {}
-if (data.exists)
-m.reply(`${lenguajeGB['smsCont1']()}\n\n${lenguajeGB['smsCont2']()}\n*_${name}_*\n\n${lenguajeGB['smsCont3']()}\n*_${m.sender}_*\n\n${lenguajeGB['smsCont4']()}\n*_${m.text}_*\n\n${lenguajeGB['smsCont5']()}\n\`\`\`${format(e)}\`\`\`\n\n${lenguajeGB['smsCont6']()}`.trim(), data.jid)
-}}}
-if (!opts['restrict'])
-if (plugin.tags && plugin.tags.includes('admin')) {
-// global.dfail('restrict', m, this)
-continue
-}
-const str2Regex = str => str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
-            let _prefix = plugin.customPrefix ? plugin.customPrefix : this.prefix ? this.prefix : prefix; // Usamos prefix local
-            let match = (_prefix instanceof RegExp ?
-                [[_prefix.exec(m.text), _prefix]] :
-                Array.isArray(_prefix) ?
-                _prefix.map(p => {
-                    let re = p instanceof RegExp ? p : new RegExp(str2Regex(p));
-                    return [re.exec(m.text), re];
-                }) :
-                typeof _prefix === 'string' ?
-                [[new RegExp(str2Regex(_prefix)).exec(m.text), new RegExp(str2Regex(_prefix))]] :
-                [[[], new RegExp]]
-            ).find(p => p[1]);
-            if (typeof plugin.before === 'function') {
-                if (await plugin.before.call(this, m, {
-                    match,
-                    conn: this,
-                    participants,
-                    groupMetadata,
-                    user,
-                    bot,
-                    isROwner,
-                    isOwner,
-                    isRAdmin,
-                    isAdmin,
-                    isBotAdmin,
-                    isPrems,
-                    chatUpdate,
-                    __dirname: ___dirname,
-                    __filename
-                })) continue;
-            }
-            if (typeof plugin !== 'function') continue;
-            if ((usedPrefix = (match[0] || '')[0])) {
-                let noPrefix = m.text.replace(usedPrefix, '');
-                let [command, ...args] = noPrefix.trim().split` `.filter(v => v);
-                args = args || [];
-                let _args = noPrefix.trim().split` `.slice(1);
-                let text = _args.join` `;
-                command = (command || '').toLowerCase();
-                let fail = plugin.fail || global.dfail;
-                let isAccept = plugin.command instanceof RegExp ?
-                    plugin.command.test(command) :
-                    Array.isArray(plugin.command) ?
-                    plugin.command.some(cmd => cmd instanceof RegExp ? cmd.test(command) : cmd === command) :
-                    typeof plugin.command === 'string' ?
-                    plugin.command === command :
-                    false;
+  let plugin = global.plugins[name]
+  if (!plugin) continue
+  if (plugin.disabled) continue
 
-                if (!isAccept) continue;
-                m.plugin = name;
-if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
-let chat = global.db.data.chats[m.chat]
-let user = global.db.data.users[m.sender]
-if (!['owner-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner) return // Except this
-if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'tool-delete.js' && chat?.isBanned && !isROwner) return 
-if (m.text && user.banned && !isROwner) {
-if (user.antispam > 2) return
-m.reply(`🚫 *ESTÁ BANEADO(A), NO PUEDE USAR LOS COMANDOS*\n📑 *MOTIVO: ${user.messageSpam === 0 ? 'NO ESPECIFICADO' : user.messageSpam}*\n⚠️ \`\`\`SI ESTE BOT ES CUENTA OFICIAL Y TIENE EVIDENCIA QUE RESPALDE QUE ESTE MENSAJE ES UN ERROR, PUEDE EXPONER SU CASO EN:\`\`\`👉 *${ig}*\n👉 ${asistencia}`)
-user.antispam++	
-return
-}
+  const __filename = join(___dirname, name)
 
-//Antispam 2		
-if (user.antispam2 && isROwner) return
-let time = global.db.data.users[m.sender].spam + 3000
-if (new Date - global.db.data.users[m.sender].spam < 3000) return console.log(`[ SPAM ]`) 
-global.db.data.users[m.sender].spam = new Date * 1
-}
-		
-let hl = _prefix 
-let adminMode = global.db.data.chats[m.chat].modoadmin
-let gata = `${plugins.botAdmin || plugins.admin || plugins.group || plugins || noPrefix || hl ||  m.text.slice(0, 1) == hl || plugins.command}`
-if (adminMode && !isOwner && !isROwner && m.isGroup && !isAdmin && gata) return   
-if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { //número bot owner
-fail('owner', m, this)
-continue
-}
-if (plugin.rowner && !isROwner) { //Owner
-fail('rowner', m, this)
-continue
-}
-if (plugin.owner && !isOwner) { //Propietario/Owner
-fail('owner', m, this)
-continue
-}
-if (plugin.mods && !isMods) { // Moderator
-fail('mods', m, this)
-continue
-}
-if (plugin.premium && !isPrems) { // Premium
-fail('premium', m, this)
-continue
-}
-if (plugin.group && !m.isGroup) { //Solo el grupo
-fail('group', m, this)
-continue
-} else if (plugin.botAdmin && !isBotAdmin) { //Detecta si el bot es admins
-fail('botAdmin', m, this)
-continue
-} else if (plugin.admin && !isAdmin) { //admins
-fail('admin', m, this)
-continue
-}
-if (plugin.private && m.isGroup) { //Solo chat privado
-fail('private', m, this)
-continue
-}
-if (plugin.register == true && _user.registered == false) { // user registrado? 
-fail('unreg', m, this)
-continue
-}
+  if (typeof plugin.all === 'function') {
+    try {
+      await plugin.all.call(this, m, {
+        chatUpdate,
+        __dirname: ___dirname,
+        __filename
+      })
+    } catch (e) {
+      console.error(e)
+      for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
+        let data = (await conn.onWhatsApp(jid))[0] || {}
+        if (data.exists)
+          m.reply(`${lenguajeGB['smsCont1']()}\n\n${lenguajeGB['smsCont2']()}\n*_${name}_*\n\n${lenguajeGB['smsCont3']()}\n*_${m.sender}_*\n\n${lenguajeGB['smsCont4']()}\n*_${m.text}_*\n\n${lenguajeGB['smsCont5']()}\n\`\`\`${format(e)}\`\`\`\n\n${lenguajeGB['smsCont6']()}`.trim(), data.jid)
+      }
+    }
+  }
 
-m.isCommand = true
-let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10 // Ganancia de XP por comando
-if (xp > 2000)
-m.reply('Exp limit') // Hehehe
-else               
-if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
-//this.reply(m.chat, `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`, m)
-this.sendMessage(m.chat, {text: `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
-continue     
-}
+  // Respeta restrict: plugins tag 'admin' saltan si no hay restrict ON
+  if (!opts['restrict']) {
+    if (plugin.tags && plugin.tags.includes('admin')) {
+      continue
+    }
+  }
+
+  const str2Regex = str => str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
+  let _prefix = plugin.customPrefix ? plugin.customPrefix : this.prefix ? this.prefix : prefix;
+
+  let matchCandidates =
+    (_prefix instanceof RegExp
+      ? [[_prefix.exec(m.text), _prefix]]
+      : Array.isArray(_prefix)
+      ? _prefix.map(p => {
+          let re = p instanceof RegExp ? p : new RegExp(str2Regex(p))
+          return [re.exec(m.text), re]
+        })
+      : typeof _prefix === 'string'
+      ? [[new RegExp(str2Regex(_prefix)).exec(m.text), new RegExp(str2Regex(_prefix))]]
+      : [[null, null]])
+
+  // MUY IMPORTANTE: buscar un match real (p[0]), no el regex
+  let match = matchCandidates.find(p => p[0])
+
+  if (typeof plugin.before === 'function') {
+    if (await plugin.before.call(this, m, {
+      match,
+      conn: this,
+      participants,
+      groupMetadata,
+      user,
+      bot,
+      isROwner,
+      isOwner,
+      isRAdmin,
+      isAdmin,
+      isBotAdmin,
+      isPrems,
+      chatUpdate,
+      __dirname: ___dirname,
+      __filename
+    })) continue
+  }
+
+  if (typeof plugin !== 'function') continue
+
+  if (!match) continue
+
+  usedPrefix = (match[0] || [])[0] || ''
+  let noPrefix = m.text.slice(usedPrefix.length)
+  let [command, ...args] = noPrefix.trim().split(/\s+/).filter(Boolean)
+  args = args || []
+  let _args = noPrefix.trim().split(/\s+/).slice(1)
+  let text = _args.join(' ')
+  command = (command || '').toLowerCase()
+
+  let fail = plugin.fail || global.dfail
+  let isAccept =
+    plugin.command instanceof RegExp ? plugin.command.test(command)
+    : Array.isArray(plugin.command) ? plugin.command.some(cmd => cmd instanceof RegExp ? cmd.test(command) : cmd === command)
+    : typeof plugin.command === 'string' ? plugin.command === command
+    : false
+
+  if (!isAccept) continue
+  m.plugin = name
+
+  if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
+    let chat = global.db.data.chats[m.chat]
+    let user = global.db.data.users[m.sender]
+    if (!['owner-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner) return
+    if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'tool-delete.js' && chat?.isBanned && !isROwner) return
+    if (m.text && user.banned && !isROwner) {
+      if (user.antispam > 2) return
+      m.reply(`🚫 *ESTÁ BANEADO(A), NO PUEDE USAR LOS COMANDOS*\n📑 *MOTIVO: ${user.messageSpam === 0 ? 'NO ESPECIFICADO' : user.messageSpam}*\n⚠️ \`\`\`SI ESTE BOT ES CUENTA OFICIAL Y TIENE EVIDENCIA QUE RESPALDE QUE ESTE MENSAJE ES UN ERROR, PUEDE EXPONER SU CASO EN:\`\`\`👉 *${ig}*\n👉 ${asistencia}`)
+      user.antispam++	
+      return
+    }
+    if (user.antispam2 && isROwner) return
+    let time = global.db.data.users[m.sender].spam + 3000
+    if (new Date - global.db.data.users[m.sender].spam < 3000) {
+      console.log(`[ SPAM ]`)
+      continue
+    }
+    global.db.data.users[m.sender].spam = new Date * 1
+  }
+
+  let hl = _prefix 
+  let adminMode = global.db.data.chats[m.chat].modoadmin
+  let gata = `${plugin.botAdmin || plugin.admin || plugin.group || plugin || noPrefix || hl || (m.text.slice(0, 1) == hl) || plugin.command}`
+  if (adminMode && !isOwner && !isROwner && m.isGroup && !isAdmin && gata) continue
+
+  if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { fail('owner', m, this); continue }
+  if (plugin.rowner && !isROwner) { fail('rowner', m, this); continue }
+  if (plugin.owner && !isOwner) { fail('owner', m, this); continue }
+  if (plugin.mods && !isMods) { fail('mods', m, this); continue }
+  if (plugin.premium && !isPrems) { fail('premium', m, this); continue }
+  if (plugin.group && !m.isGroup) { fail('group', m, this); continue }
+  else if (plugin.botAdmin && !isBotAdmin) { fail('botAdmin', m, this); continue }
+  else if (plugin.admin && !isAdmin) { fail('admin', m, this); continue }
+  if (plugin.private && m.isGroup) { fail('private', m, this); continue }
+  if (plugin.register == true && _user.registered == false) { fail('unreg', m, this); continue }
+
+  m.isCommand = true
+  let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10
+  if (xp > 2000) { m.reply('Exp limit'); continue }
+
+  if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
+    this.sendMessage(m.chat, {text: `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
+    continue     
+  }
 			
-m.exp += xp
-if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
-//this.reply(m.chat, `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`, m)
-continue //Sin límite
+  m.exp += xp
+  if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
+    this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
+    continue
+  }
+  if (plugin.level > _user.level) {
+    this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
+    continue
+  }
+
+  let extra = {
+    match,
+    usedPrefix,
+    noPrefix,
+    _args,
+    args,
+    command,
+    text,
+    conn: this,
+    participants,
+    groupMetadata,
+    user,
+    bot,
+    isROwner,
+    isOwner,
+    isRAdmin,
+    isAdmin,
+    isBotAdmin,
+    isPrems,
+    chatUpdate,
+    __dirname: ___dirname,
+    __filename
+  }
+  try {
+    await plugin.call(this, m, extra)
+    if (!isPrems)
+      m.limit = m.limit || plugin.limit || false
+    m.money = m.money || plugin.money || false
+  } catch (e) {
+    m.error = e
+    console.error(e)
+    if (e) {
+      let text = format(e) || 'Error desconocido';
+      for (let api in global.APIs) {
+        let key = global.APIs[api].key;
+        if (key) text = text.replace(new RegExp(key, 'g'), '#HIDDEN#');
+      }
+      if (e.name)
+        for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
+          let data = (await conn.onWhatsApp(jid))[0] || {}
+          if (data.exists)
+            m.reply(`${lenguajeGB['smsCont1']()}\n\n${lenguajeGB['smsCont2']()}\n*_${name}_*\n\n${lenguajeGB['smsCont3']()}\n*_${m.sender}_*\n\n${lenguajeGB['smsCont4']()}\n*_${m.text}_*\n\n${lenguajeGB['smsCont5']()}\n\`\`\`${format(e)}\`\`\`\n\n${lenguajeGB['smsCont6']()}`.trim(), data.jid)
+        }
+      m.reply(text)
+    }
+  } finally {
+    if (typeof plugin.after === 'function') {
+      try {
+        await plugin.after.call(this, m, extra)
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    if (m.limit)
+      m.reply(+m.limit + lenguajeGB.smsCont8())
+  }
+  if (m.money)
+    m.reply(+m.money + ' 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 🐱 𝙐𝙎𝘼𝘿𝙊(𝙎)')  
+  break
 }
-if (plugin.level > _user.level) {
-this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
-//this.reply(m.chat, `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`, m)
-continue // Si no se ha alcanzado el nivel
-}
-let extra = {
-match,
-usedPrefix,
-noPrefix,
-_args,
-args,
-command,
-text,
-conn: this,
-participants,
-groupMetadata,
-user,
-bot,
-isROwner,
-isOwner,
-isRAdmin,
-isAdmin,
-isBotAdmin,
-isPrems,
-chatUpdate,
-__dirname: ___dirname,
-__filename
-}
-try {
-await plugin.call(this, m, extra)
-if (!isPrems)
-m.limit = m.limit || plugin.limit || false
-m.money = m.money || plugin.money || false
+
 } catch (e) {
-// Error occured
-m.error = e
-console.error(e)
-if (e) {
-let text = format(e) || 'Error desconocido';
-for (let api in global.APIs) {
-let key = global.APIs[api].key;
-if (key) text = text.replace(new RegExp(key, 'g'), '#HIDDEN#');
-}
-/*if (e) {
-let text = format(e)
-for (let key of Object.values(global.APIKeys))
-text = text.replace(new RegExp(key, 'g'), '#HIDDEN#')*/
-if (e.name)
-for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
-let data = (await conn.onWhatsApp(jid))[0] || {}
-if (data.exists)
-m.reply(`${lenguajeGB['smsCont1']()}\n\n${lenguajeGB['smsCont2']()}\n*_${name}_*\n\n${lenguajeGB['smsCont3']()}\n*_${m.sender}_*\n\n${lenguajeGB['smsCont4']()}\n*_${m.text}_*\n\n${lenguajeGB['smsCont5']()}\n\`\`\`${format(e)}\`\`\`\n\n${lenguajeGB['smsCont6']()}`.trim(), data.jid)
-}
-m.reply(text)
-}} finally {
-// m.reply(util.format(_user))
-if (typeof plugin.after === 'function') {
-try {
-await plugin.after.call(this, m, extra)
-} catch (e) {
-console.error(e)
-}}
-if (m.limit)
-m.reply(+m.limit + lenguajeGB.smsCont8())
-}
-if (m.money)
-m.reply(+m.money + ' 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 🐱 𝙐𝙎𝘼𝘿𝙊(𝙎)')  
-break
-}}} catch (e) {
 console.error(e)
 } finally {
 if (opts['queque'] && m.text) {
@@ -1536,7 +1519,7 @@ text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'We
 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
 			    
 if (chat.antifake && isBotAdminNn && action === 'add') {
-const prefijosPredeterminados = [2, 4, 6, 7, 8, 9] // Puedes personalizar los prefijos de los usuarios que deseas eliminar, especificando los que deben ser bloqueados si el número empieza con alguno de ellos.
+const prefijosPredeterminados = [2, 4, 6, 7, 8, 9]
 let prefijos = (Array.isArray(chat.sCondition) && chat.sCondition.length > 0) || chat.sCondition !== "" ? chat.sCondition : prefijosPredeterminados
 const comienzaConPrefijo = prefijos.some(prefijo => user.startsWith(`+${prefijo}`))
 if (comienzaConPrefijo) {
@@ -1545,8 +1528,6 @@ await conn.sendMessage(id, { text: texto, mentions: [user] })
 if (m.key.participant && m.key.id) {
 await conn.sendMessage(id, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 }
-//let responseb = await conn.groupParticipantsUpdate(id, [user], 'remove')
-//if (responseb[0].status === "404") return
 }}
 	
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
@@ -1564,7 +1545,6 @@ mentionedJid:[user],
 "mediaType": 1, 
 sourceUrl: 'https://github.com/GataNina-Li/GataBot-MD' }}}, { quoted: fkontak2 })
 apii.data = ''
-//this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
 }}}
 			    
 break
