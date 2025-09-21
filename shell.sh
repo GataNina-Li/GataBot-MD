@@ -1,14 +1,24 @@
 #!/bin/bash
 
 # ==========================================
-# Script de Auto-Push a GitHub
-# Detecta cambios en los archivos del proyecto
-# y realiza push automático.
-# Ideal para usuarios que editan desde el celular.
-
-# Instala iNotify
-# pkg install inotify-tools
+# Auto-Push a GitHub
+# From AzamiJs for Mobile Developers
 # ==========================================
+# Detecta cambios en tu proyecto y hace push automáticamente.
+# Ideal para ediciones desde el celular.
+
+# Requisito:
+# pkg install inotify-tools
+
+# Y ejecute usando
+# bash shell.sh
+
+# Aviso:
+# Edita este archivo localmente, NO en el repositorio.
+# Tus credenciales de GitHub se mantienen confidenciales
+# y no se subirán al repositorio.
+# ==========================================
+
 
 RED='\033[1;31m'
 GREEN='\033[1;32m'
@@ -17,42 +27,61 @@ BLUE='\033[1;34m'
 CYAN='\033[1;36m'
 RESET='\033[0m'
 
-# Ruta del proyecto (ajústala según tu entorno)
-PROJECT_PATH="/data/data/com.termux/files/home/storage/"
-SCRIPT_NAME="shell.sh"
-cd "$PROJECT_PATH" || exit
+PROJECT_PATH="${1:-$(pwd)}"
+SCRIPT_NAME="$(basename "$0")"
 
-# URL del repositorio con token
-GIT_REMOTE="https://TU_TOKEN@github.com/TU_USUARIO/TU_REPOSITORIO.git"
+# Agrega tus credenciales
+# Obten tu token aquí
+# (https://github.com/settings/personal-access-tokens/new)
+GITHUB_TOKEN="TOKEN"
+GITHUB_USER="USER"
+GITHUB_REPO="REPO"
+
+if [ -n "$GITHUB_TOKEN" ]; then
+GIT_REMOTE="https://${GITHUB_TOKEN}@github.com/${GITHUB_USER}/${GITHUB_REPO}.git"
 git remote set-url origin "$GIT_REMOTE" 2>/dev/null
+else
+GIT_REMOTE="https://github.com/${GITHUB_USER}/${GITHUB_REPO}.git"
+git remote set-url origin "$GIT_REMOTE" 2>/dev/null
+fi
 
-# Mensajes aleatorios para commits
+cd "$PROJECT_PATH" || { echo "No se pudo acceder a $PROJECT_PATH"; exit 1; }
+
 phrases=(
-"Auto Push"
-"Este es un commit automático"
-"Zam: meeee"
-"GataDios"
+"Auto Push "
+"Commit automático"
+"Zam: update"
 "GataBot-MD"
+"GataDios"
 )
 
-# Loop infinito para detectar cambios
-while true; do
-inotifywait -e modify,create,delete -r "$PROJECT_PATH"
+log() {
+ echo -e "${CYAN}[$(date +'%H:%M:%S')]${RESET} $1"
+}
 
-echo -e "${CYAN}[$(date +'%H:%M:%S')]${RESET} ${YELLOW}Cambios detectados, realizando push automático...${RESET}"
+log "Buscando cambios en: ${GREEN}$PROJECT_PATH${RESET}"
+
+while true; do
+inotifywait -e modify,create,delete -r "$PROJECT_PATH" --exclude "\.git|node_modules" |
+while read -r directory events filename; do
+
+log "${YELLOW}Cambios detectados en:${RESET} $filename"
 
 git add . ":!$SCRIPT_NAME"
 
 if ! git diff --cached --quiet; then
-# Selecciona un mensaje aleatorio para el commit
-commit_message=${phrases[$RANDOM % ${#phrases[@]}]}
+commit_message="${phrases[$RANDOM % ${#phrases[@]}]} | $(date +'%d-%m %H:%M')"
 git commit -m "$commit_message"
 echo -e "${BLUE}Commit realizado con mensaje:${RESET} ${GREEN}\"$commit_message\"${RESET}"
 else
-echo -e "${RED}No hay cambios para commitear.${RESET}"
+echo -e "${RED}No hay cambios para subir.${RESET}"
 fi
 
-git push
+if git push; then
+log "${GREEN}Push completado ✅${RESET}\n"
+else
+log "${RED}Error al hacer push ${RESET}\n"
+fi
 
-echo -e "${CYAN}[$(date +'%H:%M:%S')]${RESET} ${GREEN}Push completado ✅${RESET}\n"
+done
 done
