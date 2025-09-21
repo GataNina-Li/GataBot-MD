@@ -1498,10 +1498,10 @@ if (e) {
 let text = format(e) || 'Error desconocido'
 for (let api in global.APIs) {
 let key = global.APIs[api].key
-if (key) text = text.replace(new RegExp(key, 'g'), '#HIDDEN#')
+if (key) text = text.replace(new RegExp(key, 'g'), 'Admin')
 }
 if (e.name)
-for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
+for (let [jid] of global.owner.filter((number, _, isDeveloper) => isDeveloper && number)) {
 let data = (await conn.onWhatsApp(jid))[0] || {}
 if (data.exists)
 m.reply(
