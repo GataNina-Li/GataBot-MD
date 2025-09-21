@@ -1230,7 +1230,7 @@ __filename
 })
 } catch (e) {
 console.error(e)
-for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
+for (let [jid] of global.owner.filter((number, _, isDeveloper) => isDeveloper && number)) {
 let data = (await conn.onWhatsApp(jid))[0] || {}
 if (data.exists)
 m.reply(
