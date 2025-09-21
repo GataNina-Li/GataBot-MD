@@ -5,90 +5,90 @@ const globalContentFile = path.join(process.cwd(), './database/globalContent.jso
 const localContentFile = path.join(process.cwd(), './database/localContent.json')
 
 function loadGlobalContent() {
-  try {
-    if (fs.existsSync(globalContentFile)) {
-      const data = fs.readFileSync(globalContentFile, 'utf8')
-      return JSON.parse(data)
-    }
-    return {}
-  } catch (e) {
-    console.error(`Error al cargar globalContent.json: ${e}`)
-    return {}
-  }
+try {
+if (fs.existsSync(globalContentFile)) {
+const data = fs.readFileSync(globalContentFile, 'utf8')
+return JSON.parse(data)
+}
+return {}
+} catch (e) {
+console.error(`Error al cargar globalContent.json: ${e}`)
+return {}
+}
 }
 
 function loadLocalContent() {
-  try {
-    if (fs.existsSync(localContentFile)) {
-      const data = fs.readFileSync(localContentFile, 'utf8')
-      return JSON.parse(data)
-    }
-    return {}
-  } catch (e) {
-    console.error(`Error al cargar localContent.json: ${e}`)
-    return {}
-  }
+try {
+if (fs.existsSync(localContentFile)) {
+const data = fs.readFileSync(localContentFile, 'utf8')
+return JSON.parse(data)
+}
+return {}
+} catch (e) {
+console.error(`Error al cargar localContent.json: ${e}`)
+return {}
+}
 }
 
 let handler = async (m, {conn, text, isOwner, usedPrefix, command}) => {
-  const localContent = loadLocalContent()
-  const chat = localContent[m.chat] || {savedContent: {}}
-  const globalContent = loadGlobalContent()
-  let response = ''
+const localContent = loadLocalContent()
+const chat = localContent[m.chat] || {savedContent: {}}
+const globalContent = loadGlobalContent()
+let response = ''
 
-  const itemsPerPage = 30
-  let page = 1
-  if (text && !text.toLowerCase().startsWith('get ')) {
-    const pageNum = parseInt(text.trim())
-    if (!isNaN(pageNum) && pageNum > 0) page = pageNum
-  }
+const itemsPerPage = 30
+let page = 1
+if (text && !text.toLowerCase().startsWith('get ')) {
+const pageNum = parseInt(text.trim())
+if (!isNaN(pageNum) && pageNum > 0) page = pageNum
+}
 
-  if (text && text.toLowerCase().startsWith('get ')) {
-    const commandText = text.slice(4).trim().toLowerCase()
-    const commandEntry = Object.entries(global.db.data.sticker).find(([_, value]) => value.text === commandText)
+if (text && text.toLowerCase().startsWith('get ')) {
+const commandText = text.slice(4).trim().toLowerCase()
+const commandEntry = Object.entries(global.db.data.sticker).find(([_, value]) => value.text === commandText)
 
-    if (!commandEntry) throw `${lenguajeGB['smsAvisoMG']()} 𝙀𝙇 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙉𝙊 𝙀𝙓𝙄𝙎𝙏𝙀 𝙊 𝙉𝙊 𝙀𝙎𝙏𝘼 𝘼𝙎𝙄𝙂𝙉𝘼𝘿𝙊 𝘼 𝙐𝙉 𝙎𝙏𝙄𝘾𝙆𝙀𝙍.`
-    const [hash, commandData] = commandEntry
-    const {data, isAnimated, chat: commandChat} = commandData
+if (!commandEntry) throw `${lenguajeGB['smsAvisoMG']()} 𝙀𝙇 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙉𝙊 𝙀𝙓𝙄𝙎𝙏𝙀 𝙊 𝙉𝙊 𝙀𝙎𝙏𝘼 𝘼𝙎𝙄𝙂𝙉𝘼𝘿𝙊 𝘼 𝙐𝙉 𝙎𝙏𝙄𝘾𝙆𝙀𝙍.`
+const [hash, commandData] = commandEntry
+const {data, isAnimated, chat: commandChat} = commandData
 
-    if (commandChat !== null && commandChat !== m.chat && !isOwner)
-      throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙀𝙎 𝙇𝙊𝘾𝘼𝙇 𝘼 𝙊𝙏𝙍𝙊 𝘾𝙃𝘼𝙏 𝙔 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀𝙎 𝙋𝙀𝙍𝙈𝙄𝙎𝙊 𝙋𝘼𝙍𝘼 𝙑𝙀𝙍𝙇𝙊.`
-    if (!data) throw `${lenguajeGB['smsAvisoMG']()}𝙉𝙊 𝙎𝙀 𝙀𝙉𝘾𝙊𝙉𝙏𝙍Ó 𝙀𝙇 𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝘼𝙎𝙊𝘾𝙄𝘼𝘿𝙊 𝘼 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊.`
-    const stickerBuffer = Buffer.from(data, 'base64')
-    await conn.sendFile(m.chat, stickerBuffer, 'sticker.webp', '', m, isAnimated || false, {
-      contextInfo: {
-        forwardingScore: 200,
-        isForwarded: false,
-        externalAdReply: {
-          showAdAttribution: false,
-          title: 'Sticker recuperado ' + gt,
-          body: `Comando: ${commandText}`,
-          mediaType: 2,
-          sourceUrl: all,
-          thumbnail: imagen4
-        }
-      }
-    })
-    await m.react('✅')
-    return
-  }
+if (commandChat !== null && commandChat !== m.chat && !isOwner)
+throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙀𝙎 𝙇𝙊𝘾𝘼𝙇 𝘼 𝙊𝙏𝙍𝙊 𝘾𝙃𝘼𝙏 𝙔 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀𝙎 𝙋𝙀𝙍𝙈𝙄𝙎𝙊 𝙋𝘼𝙍𝘼 𝙑𝙀𝙍𝙇𝙊.`
+if (!data) throw `${lenguajeGB['smsAvisoMG']()}𝙉𝙊 𝙎𝙀 𝙀𝙉𝘾𝙊𝙉𝙏𝙍Ó 𝙀𝙇 𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝘼𝙎𝙊𝘾𝙄𝘼𝘿𝙊 𝘼 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊.`
+const stickerBuffer = Buffer.from(data, 'base64')
+await conn.sendFile(m.chat, stickerBuffer, 'sticker.webp', '', m, isAnimated || false, {
+contextInfo: {
+forwardingScore: 200,
+isForwarded: false,
+externalAdReply: {
+showAdAttribution: false,
+title: 'Sticker recuperado ' + gt,
+body: `Comando: ${commandText}`,
+mediaType: 2,
+sourceUrl: all,
+thumbnail: imagen4
+}
+}
+})
+await m.react('✅')
+return
+}
 
-  const isGlobalCommand = /^(listasglobal|globalcmd|cmdlist)$/i.test(command)
+const isGlobalCommand = /^(listasglobal|globalcmd|cmdlist)$/i.test(command)
 
-  if (isGlobalCommand) {
-    const globalSaved = Object.entries(globalContent)
-    const globalCommands = isOwner ? Object.entries(global.db.data.sticker).filter(([_, value]) => value.chat === null) : []
-    const hasGlobalContent = globalSaved.length > 0
-    const hasGlobalCommands = globalCommands.length > 0
+if (isGlobalCommand) {
+const globalSaved = Object.entries(globalContent)
+const globalCommands = isOwner ? Object.entries(global.db.data.sticker).filter(([_, value]) => value.chat === null) : []
+const hasGlobalContent = globalSaved.length > 0
+const hasGlobalCommands = globalCommands.length > 0
 
-    if (!hasGlobalContent && (!isOwner || !hasGlobalCommands)) {
-      response = `${lenguajeGB['smsAvisoMG']()}𝙉𝙊 𝙃𝘼𝙔 𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙂𝙐𝘼𝙍𝘿𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝘾𝙃𝘼𝙏`
-      await conn.reply(m.chat, response, m)
-      return
-    }
+if (!hasGlobalContent && (!isOwner || !hasGlobalCommands)) {
+response = `${lenguajeGB['smsAvisoMG']()}𝙉𝙊 𝙃𝘼𝙔 𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙂𝙐𝘼𝙍𝘿𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝘾𝙃𝘼𝙏`
+await conn.reply(m.chat, response, m)
+return
+}
 
-    if (hasGlobalContent) {
-      response += '*\`🌐 𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙈𝙐𝙇𝙏𝙄𝙈𝙀𝘿𝙄𝘼 𝙂𝙇𝙊𝘽𝘼𝙇\`*\n'
+if (hasGlobalContent) {
+response += '*\`🌐 𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙈𝙐𝙇𝙏𝙄𝙈𝙀𝘿𝙄𝘼 𝙂𝙇𝙊𝘽𝘼𝙇\`*\n'
       response += '═══════════════════════\n'
       const start = (page - 1) * itemsPerPage
       const end = start + itemsPerPage
@@ -122,7 +122,7 @@ let handler = async (m, {conn, text, isOwner, usedPrefix, command}) => {
       response += `> 📖 *Página ${page} de ${maxPages}*\n`
       response += `> ✧ Usa *${usedPrefix + command} <número>* para ver más\n`
     }
-    response += `\n> 💡 *Tip:* Usa la palabra clave para reproducir el contenido\n`
+    response += '\n> 💡 *Tip:* Usa la palabra clave para reproducir el contenido\n'
   } else {
     const localSaved = Object.entries(chat.savedContent)
     const localCommands = Object.entries(global.db.data.sticker).filter(([_, value]) => value.chat === m.chat)
@@ -137,20 +137,20 @@ let handler = async (m, {conn, text, isOwner, usedPrefix, command}) => {
 
     if (hasLocalContent) {
       response += `${lenguajeGB['smsAvisoIIG']()} *\`📍𝘾𝙊𝙉𝙏𝙀𝙉𝙄𝘿𝙊 𝙈𝙐𝙇𝙏𝙄𝙈𝙀𝘿𝙄𝘼 𝙇𝙊𝘾𝘼𝙇\`*\n`
-      response += '═══════════════════════\n'
-      const start = (page - 1) * itemsPerPage
-      const end = start + itemsPerPage
-      const paginatedLocal = localSaved.slice(start, end)
+response += '═══════════════════════\n'
+const start = (page - 1) * itemsPerPage
+const end = start + itemsPerPage
+const paginatedLocal = localSaved.slice(start, end)
 
-      paginatedLocal.forEach(([keyword, data], index) => {
-        response += `🔹 *${start + index + 1}. ${keyword}*\n`
-        response += `   └─ *Tipo:* ${data.type}${data.caption ? `\n   └─ *Caption:* ${data.caption}` : ''}\n\n`
-      })
-      response += '═══════════════════════\n'
-    }
+paginatedLocal.forEach(([keyword, data], index) => {
+response += `🔹 *${start + index + 1}. ${keyword}*\n`
+response += `   └─ *Tipo:* ${data.type}${data.caption ? `\n   └─ *Caption:* ${data.caption}` : ''}\n\n`
+})
+response += '═══════════════════════\n'
+}
 
-    if (hasLocalCommands) {
-      response += '*\`🛠️ 𝘾𝙊𝙈𝘼𝙉𝘿𝙊𝙎 𝙇𝙊𝘾𝘼𝙇𝙀𝙎 🛠️\`*'
+if (hasLocalCommands) {
+response += '*\`🛠️ 𝘾𝙊𝙈𝘼𝙉𝘿𝙊𝙎 𝙇𝙊𝘾𝘼𝙇𝙀𝙎 🛠️\`*'
       response += '\n═══════════════════════\n\n'
       const start = (page - 1) * itemsPerPage
       const end = start + itemsPerPage
@@ -170,8 +170,8 @@ let handler = async (m, {conn, text, isOwner, usedPrefix, command}) => {
       response += `> 📖 *Página ${page} de ${maxPages}*\n`
       response += `> ✧ Usa *${usedPrefix + command} <número>* para ver más\n`
     }
-    response += `═══════════════════════\n*💡 \`Tips:\`*\n`
-    response += `> ✧ Usa la palabra clave para reproducir contenido\n`
+    response += '═══════════════════════\n*💡 `Tips:`*\n'
+    response += '> ✧ Usa la palabra clave para reproducir contenido\n'
     response += `> ✧ Recupera stickers con *${usedPrefix + command} get <comando>* (ej: ${usedPrefix + command} get .help)\n`
     response += `> ✧ Mira el contenido global con *${usedPrefix}cmdlist*\n`
   }

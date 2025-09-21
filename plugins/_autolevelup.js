@@ -1,65 +1,65 @@
-import {canLevelUp, xpRange} from '../lib/levelling.js'
-import {levelup} from '../lib/canvas.js'
+import { canLevelUp, xpRange } from '../lib/levelling.js'
+import { levelup } from '../lib/canvas.js'
 import '../plugins/_content.js'
 
 let handler = (m) => m
 handler.before = async function (m, {conn, usedPrefix}) {
-  if (!db.data.chats[m.chat].autolevelup) return
-  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-  let ppch = await conn.profilePictureUrl(who, 'image').catch((_) => gataMenu)
-  let mentionedJid = [who]
-  let username = conn.getName(who)
-  let userName = m.pushName || 'Anónimo'
+if (!db.data.chats[m.chat].autolevelup) return
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let ppch = await conn.profilePictureUrl(who, 'image').catch((_) => gataMenu)
+let mentionedJid = [who]
+let username = conn.getName(who)
+let userName = m.pushName || 'Anónimo'
 
-  let user = global.db.data.users[m.sender]
-  let chat = global.db.data.chats[m.chat]
-  if (m.chat === '120363336642332098@newsletter') return
-  if (m.fromMe) return
-  if (!chat.autolevelup) return !0
+let user = global.db.data.users[m.sender]
+let chat = global.db.data.chats[m.chat]
+if (m.chat === '120363336642332098@newsletter') return
+if (m.fromMe) return
+if (!chat.autolevelup) return !0
 
-  let level = user.level
-  let before = user.level * 1
-  while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
-  if (before !== user.level) {
-    let currentRole = Object.entries(roles)
-      .sort((a, b) => b[1] - a[1])
-      .find(([, minLevel]) => level + 1 >= minLevel)[0]
-    let nextRole = Object.entries(roles)
-      .sort((a, b) => a[1] - b[1])
-      .find(([, minLevel]) => level + 2 < minLevel)[0]
+let level = user.level
+let before = user.level * 1
+while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
+if (before !== user.level) {
+let currentRole = Object.entries(roles)
+.sort((a, b) => b[1] - a[1])
+.find(([, minLevel]) => level + 1 >= minLevel)[0]
+let nextRole = Object.entries(roles)
+.sort((a, b) => a[1] - b[1])
+.find(([, minLevel]) => level + 2 < minLevel)[0]
 
-    //if (user.role != currentRole && level >= 1) {
-    if (level >= 1) {
-      user.role = currentRole
-      let chtxt = `✨ ¡Felicidades *${userName}*, por tu nuevo rango!\n\n\`Nuevo Rango:\`\n${currentRole}`
-      if (nextRole) {
-        chtxt += `\n\n> Próximo rango ${nextRole}, en el *nivel ${roles[nextRole]}*. ¡Sigue así!`
-      }
+//if (user.role != currentRole && level >= 1) {
+if (level >= 1) {
+user.role = currentRole
+let chtxt = `✨ ¡Felicidades *${userName}*, por tu nuevo rango!\n\n\`Nuevo Rango:\`\n${currentRole}`
+if (nextRole) {
+chtxt += `\n\n> Próximo rango ${nextRole}, en el *nivel ${roles[nextRole]}*. ¡Sigue así!`
+}
 
-      //if (conn.user.jid === global.conn.user.jid) {
-      await global.conn.sendMessage(
-        ch.ch1,
-        {
-          text: chtxt,
-          contextInfo: {
-            externalAdReply: {
-              title: '【 🔔 Notificación General 🔔 】',
-              body: '😎 ¡Alguien obtuvo un nuevo Rango!',
-              thumbnailUrl: ppch,
-              sourceUrl: accountsgb,
-              mediaType: 1,
-              showAdAttribution: false,
-              renderLargerThumbnail: false
-            }
-          }
-        },
-        {quoted: null}
-      )
-    }
+//if (conn.user.jid === global.conn.user.jid) {
+await global.conn.sendMessage(
+ch.ch1,
+{
+text: chtxt,
+contextInfo: {
+externalAdReply: {
+title: '【 🔔 Notificación General 🔔 】',
+body: '😎 ¡Alguien obtuvo un nuevo Rango!',
+thumbnailUrl: ppch,
+sourceUrl: accountsgb,
+mediaType: 1,
+showAdAttribution: false,
+renderLargerThumbnail: false
+}
+}
+},
+{quoted: null}
+)
+}
 
-    conn.reply(
-      m.chat,
-      `*╭━⊰ ${username} ⊱━დ*
+conn.reply(
+m.chat,
+`*╭━⊰ ${username} ⊱━დ*
 *┃ ${lenguajeGB.smsAutoLv2()} ${before}*
 *┃ ${lenguajeGB.smsAutoLv3()} ${user.level}*
 *┃ ${lenguajeGB.smsAutoLv4()}* ${user.role}
@@ -67,58 +67,58 @@ handler.before = async function (m, {conn, usedPrefix}) {
 *╰━⊰ ${lenguajeGB.smsAutoLv1()} ⊱━━დ*
 
 *_${lenguajeGB.smsAutoLv6()}_*`,
-      fkontak,
-      {
-        contextInfo: {
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: gt,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: gataImg,
-            sourceUrl: accountsgb
-          }
-        }
-      }
-    )
+fkontak,
+{
+contextInfo: {
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: gt,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: gataImg,
+sourceUrl: accountsgb
+}
+}
+}
+)
 
-    let especial = ['limit', 'diamond', 'joincount', 'emerald', 'berlian', 'kyubi', 'gold', 'money', 'tiketcoin', 'stamina'].getRandom()
-    let especial2 = ['potion', 'aqua', 'trash', 'wood', 'rock', 'batu', 'string', 'iron', 'coal', 'botol', 'kaleng', 'kardus'].getRandom()
-    let especial3 = [
-      'eleksirb',
-      'emasbatang',
-      'emasbiasa',
-      'rubah',
-      'sampah',
-      'serigala',
-      'kayu',
-      'sword',
-      'umpan',
-      'healtmonster',
-      'emas',
-      'pancingan',
-      'pancing'
-    ].getRandom()
-    let especial4 = ['common', 'uncoommon', 'mythic', 'pet', 'gardenboxs', 'legendary'].getRandom()
+let especial = ['limit', 'diamond', 'joincount', 'emerald', 'berlian', 'kyubi', 'gold', 'money', 'tiketcoin', 'stamina'].getRandom()
+let especial2 = ['potion', 'aqua', 'trash', 'wood', 'rock', 'batu', 'string', 'iron', 'coal', 'botol', 'kaleng', 'kardus'].getRandom()
+let especial3 = [
+'eleksirb',
+'emasbatang',
+'emasbiasa',
+'rubah',
+'sampah',
+'serigala',
+'kayu',
+'sword',
+'umpan',
+'healtmonster',
+'emas',
+'pancingan',
+'pancing'
+].getRandom()
+let especial4 = ['common', 'uncoommon', 'mythic', 'pet', 'gardenboxs', 'legendary'].getRandom()
 
-    let especialCant = Math.floor(Math.random() * (9 - 6 + 1)) + 6 // Intervalo: 6 a 9
-    let especialCant2 = Math.floor(Math.random() * (10 - 6 + 1)) + 6 // Intervalo: 6 a 10
-    let especialCant3 = Math.floor(Math.random() * (10 - 6 + 1)) + 6 // Intervalo: 6 a 10
-    let especialCant4 = Math.floor(Math.random() * (3 - 2 + 1)) + 2 // Intervalo: 2 a 3
+let especialCant = Math.floor(Math.random() * (9 - 6 + 1)) + 6 // Intervalo: 6 a 9
+let especialCant2 = Math.floor(Math.random() * (10 - 6 + 1)) + 6 // Intervalo: 6 a 10
+let especialCant3 = Math.floor(Math.random() * (10 - 6 + 1)) + 6 // Intervalo: 6 a 10
+let especialCant4 = Math.floor(Math.random() * (3 - 2 + 1)) + 2 // Intervalo: 2 a 3
 
-    let normal = ['potion', 'aqua', 'trash', 'wood', 'rock', 'batu', 'string', 'iron', 'coal', 'botol', 'kaleng', 'kardus'].getRandom()
-    let normal2 = ['petFood', 'makanancentaur', 'makanangriffin', 'makanankyubi', 'makanannaga', 'makananpet', 'makananphonix'].getRandom()
-    let normal3 = ['anggur', 'apel', 'jeruk', 'mangga', 'pisang'].getRandom()
+let normal = ['potion', 'aqua', 'trash', 'wood', 'rock', 'batu', 'string', 'iron', 'coal', 'botol', 'kaleng', 'kardus'].getRandom()
+let normal2 = ['petFood', 'makanancentaur', 'makanangriffin', 'makanankyubi', 'makanannaga', 'makananpet', 'makananphonix'].getRandom()
+let normal3 = ['anggur', 'apel', 'jeruk', 'mangga', 'pisang'].getRandom()
 
-    let normalCant = [1, 3, 3, 3, 4, 4, 2, 2, 4, 4, 4, 4, 1].getRandom()
-    let normalCant2 = [1, 3, 2, 2, 4, 4, 2, 2, 4, 4, 5, 5, 1].getRandom()
-    let normalCant3 = [1, 3, 3, 3, 4, 4, 2, 2, 4, 4, 4, 4, 1].getRandom()
+let normalCant = [1, 3, 3, 3, 4, 4, 2, 2, 4, 4, 4, 4, 1].getRandom()
+let normalCant2 = [1, 3, 2, 2, 4, 4, 2, 2, 4, 4, 5, 5, 1].getRandom()
+let normalCant3 = [1, 3, 3, 3, 4, 4, 2, 2, 4, 4, 4, 4, 1].getRandom()
 
-    if (level >= 1) {
-      let chtxt =
-        `👤 *Usuario:* ${userName}\n🆙 *Nivel anterior:* ${before}\n🆕 *Nivel actual:* ${level + 1}\n👾 *Rango:* ${user.role}\n🐈 *Bot:* ${gt}${
+if (level >= 1) {
+let chtxt =
+`👤 *Usuario:* ${userName}\n🆙 *Nivel anterior:* ${before}\n🆕 *Nivel actual:* ${level + 1}\n👾 *Rango:* ${user.role}\n🐈 *Bot:* ${gt}${
           (level + 1) % 5 === 0
             ? `\n\n💰 *Recompensa por alacanzar el nivel ${level + 1}:*
 🎁 *Bono:* \`X${Math.floor((level + 1 - 5) / 10) + 1}\`
@@ -128,8 +128,8 @@ handler.before = async function (m, {conn, usedPrefix}) {
 - *${especialCant4 * (Math.floor((level + 1 - 5) / 10) + 1)} ${global.rpgshop.emoticon(especial4)}*
 
 > 👀 Siguiente recompensa en el *nivel ${level + 6}*`
-            : ''
-        }`.trim()
+: ''
+}`.trim()
       await global.conn.sendMessage(
         ch.ch1,
         {

@@ -1,192 +1,192 @@
-import {xpRange} from '../lib/levelling.js'
+import { xpRange } from '../lib/levelling.js'
 import PhoneNumber from 'awesome-phonenumber'
-import {promises} from 'fs'
-import {join} from 'path'
+import { promises } from 'fs'
+import { join } from 'path'
 import fetch from 'node-fetch'
 let handler = async (m, {conn, usedPrefix, command, args, usedPrefix: _p, __dirname, isOwner, text, isAdmin, isROwner}) => {
-  try {
-    const {levelling} = '../lib/levelling.js'
-    let {exp, limit, level, role} = global.db.data.users[m.sender]
-    let {min, xp, max} = xpRange(level, global.multiplier)
+try {
+const {levelling} = '../lib/levelling.js'
+let {exp, limit, level, role} = global.db.data.users[m.sender]
+let {min, xp, max} = xpRange(level, global.multiplier)
 
-    let d = new Date(new Date() + 3600000)
-    let locale = 'es'
-    let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
-    let week = d.toLocaleDateString(locale, {weekday: 'long'})
-    let date = d.toLocaleDateString(locale, {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    })
-    let dateIslamic = Intl.DateTimeFormat(locale + '-TN-u-ca-islamic', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    }).format(d)
-    let time = d.toLocaleTimeString(locale, {
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric'
-    })
-    let _uptime = process.uptime() * 1000
-    let _muptime
-    if (process.send) {
-      process.send('uptime')
-      _muptime =
-        (await new Promise((resolve) => {
-          process.once('message', resolve)
-          setTimeout(resolve, 1000)
-        })) * 1000
-    }
-    let {money} = global.db.data.users[m.sender]
-    let muptime = clockString(_muptime)
-    let uptime = clockString(_uptime)
-    let totalreg = Object.keys(global.db.data.users).length
-    let rtotalreg = Object.values(global.db.data.users).filter((user) => user.registered == true).length
-    let replace = {
-      '%': '%',
-      p: _p,
-      uptime,
-      muptime,
-      me: conn.getName(conn.user.jid),
+let d = new Date(new Date() + 3600000)
+let locale = 'es'
+let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
+let week = d.toLocaleDateString(locale, {weekday: 'long'})
+let date = d.toLocaleDateString(locale, {
+day: 'numeric',
+month: 'long',
+year: 'numeric'
+})
+let dateIslamic = Intl.DateTimeFormat(locale + '-TN-u-ca-islamic', {
+day: 'numeric',
+month: 'long',
+year: 'numeric'
+}).format(d)
+let time = d.toLocaleTimeString(locale, {
+hour: 'numeric',
+minute: 'numeric',
+second: 'numeric'
+})
+let _uptime = process.uptime() * 1000
+let _muptime
+if (process.send) {
+process.send('uptime')
+_muptime =
+(await new Promise((resolve) => {
+process.once('message', resolve)
+setTimeout(resolve, 1000)
+})) * 1000
+}
+let {money} = global.db.data.users[m.sender]
+let muptime = clockString(_muptime)
+let uptime = clockString(_uptime)
+let totalreg = Object.keys(global.db.data.users).length
+let rtotalreg = Object.values(global.db.data.users).filter((user) => user.registered == true).length
+let replace = {
+'%': '%',
+p: _p,
+uptime,
+muptime,
+me: conn.getName(conn.user.jid),
 
-      exp: exp - min,
-      maxexp: xp,
-      totalexp: exp,
-      xp4levelup: max - exp,
+exp: exp - min,
+maxexp: xp,
+totalexp: exp,
+xp4levelup: max - exp,
 
-      level,
-      limit,
-      weton,
-      week,
-      date,
-      dateIslamic,
-      time,
-      totalreg,
-      rtotalreg,
-      role,
-      readmore: readMore
-    }
-    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+level,
+limit,
+weton,
+week,
+date,
+dateIslamic,
+time,
+totalreg,
+rtotalreg,
+role,
+readmore: readMore
+}
+text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-    let mentionedJid = [who]
-    let username = conn.getName(who)
-    let user = global.db.data.users[m.sender]
-    //user.registered = false
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let mentionedJid = [who]
+let username = conn.getName(who)
+let user = global.db.data.users[m.sender]
+//user.registered = false
 
-    let pp = gataVidMenu
-    let fsizedoc = '1'.repeat(10)
-    let adReply = {
-      fileLength: fsizedoc,
-      seconds: fsizedoc,
-      contextInfo: {
-        forwardingScore: fsizedoc,
-        externalAdReply: {
-          showAdAttribution: true,
-          title: wm,
-          body: '👋 ' + username,
-          mediaUrl: ig,
-          description: 'Hola',
-          previewType: 'PHOTO',
-          thumbnail: await (await fetch(gataMenu)).buffer(),
-          sourceUrl: redesMenu
-        }
-      }
-    }
+let pp = gataVidMenu
+let fsizedoc = '1'.repeat(10)
+let adReply = {
+fileLength: fsizedoc,
+seconds: fsizedoc,
+contextInfo: {
+forwardingScore: fsizedoc,
+externalAdReply: {
+showAdAttribution: true,
+title: wm,
+body: '👋 ' + username,
+mediaUrl: ig,
+description: 'Hola',
+previewType: 'PHOTO',
+thumbnail: await (await fetch(gataMenu)).buffer(),
+sourceUrl: redesMenu
+}
+}
+}
 
-    const temaX = [
-      ['pornololi', 'nsfwloli'],
-      ['pornopies', 'nsfwfoot'],
-      ['pornoass', 'nsfwass'],
-      ['pornobdsm', 'nsfwbdsm'],
-      ['pornocum', 'nsfwcum'],
-      ['pornoero', 'nsfwero'],
-      ['pornodominar', 'nsfwfemdom'],
-      ['pornoglass', 'nsfwglass'],
-      ['pornohentai', 'nsfwhentai'],
-      ['pornorgia', 'nsfworgy'],
-      ['pornotetas', 'nsfwboobs'],
-      ['pornobooty', 'nsfwbooty'],
-      ['pornoecchi', 'nsfwecchi'],
-      ['pornofurro', 'nsfwfurry'],
-      ['pornotrapito', 'nsfwtrap'],
-      ['pornolesbiana', 'nsfwlesbian'],
-      ['pornobragas', 'nsfwpanties'],
-      ['pornopene', 'nsfwpenis'],
-      ['porno', 'porn'],
-      ['pornorandom', 'pornrandom'],
-      ['pornopechos', 'nsfwbreasts'],
-      ['pornoyaoi', 'nsfwyaoi'],
-      ['pornoyaoi2', 'nsfwyaoi2'],
-      ['pornoyuri', 'nsfwyuri'],
-      ['pornoyuri2', 'nsfwyuri2'],
-      ['pornodarling', 'nsfwdarling'],
-      ['pornodragonmaid', 'nsfwdragonmaid'],
-      ['pornokonosuba', 'nsfwkonosuba'],
-      ['pornopokemon', 'nsfwpokemon'],
-      ['pornotoloveru', 'nsfwtoloveru'],
-      ['pornouzaki', 'nsfwuzaki'],
-      ['pornopack', 'nsfwpack'],
-      ['pornopackchica', 'nsfwpackgirl'],
-      ['pornopackchico', 'nsfwpackmen'],
-      ['pornohentai3', 'nsfwhentai3'],
-      ['pornoass2', 'nsfwass2'],
-      ['pornosticker', 'nsfwsticker'],
-      ['pornochica', 'nsfwsgirl'],
-      ['pornoass3', 'nsfwass3'],
-      ['pornotetas2', 'nsfwboobs2'],
-      ['pornotetas3', 'nsfwboobs3'],
-      ['pornopussy', 'nsfwpussy'],
-      ['pornopaizuri', 'nsfwpaizuri'],
-      ['pornoneko', 'nsfwneko'],
-      ['pornopies2', 'nsfwfoot2'],
-      ['pornoyuri3', 'nsfwyuri3'],
-      ['pornomuslo', 'nsfwhthigh'],
-      ['pornochica2', 'nsfwsgirl2'],
-      ['pornoanal', 'nsfwanal'],
-      ['pornomamada', 'nsfwblowjob'],
-      ['pornogonewild', 'nsfwgonewild'],
-      ['pornofurro2', 'nsfwfurry2'],
-      ['pornotentacle', 'nsfwtentacle'],
-      ['porno4k', 'porn4k'],
-      ['pornokanna', 'nsfwkanna'],
-      ['pornoanal2', 'nsfwanal2'],
-      ['pornoalimento', 'nsfwfood'],
-      ['pornoholo', 'nsfwholo'],
-      ['pornoanal3', 'nsfwanal3'],
-      ['pornomamada2', 'nsfwblowjob2'],
-      ['pornocum2', 'nsfwcum2'],
-      ['pornofuck', 'nsfwfuck'],
-      ['pornoneko2', 'nsfwneko2'],
-      ['pornopussy2', 'nsfwpussy2'],
-      ['pornosolo', 'nsfwsolo'],
-      ['pornorgia2', 'nsfworgy2'],
-      ['pornorgia3', 'nsfworgy3'],
-      ['pornoyaoi3', 'nsfwyaoi3'],
-      ['pornocosplay', 'nsfwcosplay'],
-      ['pornodbz', 'nsfwdbz'],
-      ['pornogenshin', 'nsfwgenshin'],
-      ['pornokimetsu', 'nsfwkimetsu'],
-      ['pornohentai2', 'nsfwhentai2'],
-      ['pornonintendo', 'nsfwnintendo'],
-      ['pornohololive', 'nsfwhololive'],
-      ['pornoheroacademy', 'nsfwheroacademy'],
-      ['pornorezero', 'nsfwrezero'],
-      ['pornotatsumaki', 'nsfwtatsumaki'],
-      ['pornonaruto', 'nsfwnaruto'],
-      ['pornokitagawa', 'nsfwkitagawa'],
-      ['pornovid', 'nsfwvid'],
-      ['pornovid2', 'nsfwvid2'],
-      ['pornovidlesbi', 'nsfwvidlesbi'],
-      ['pornovidgay', 'nsfwvidgay'],
-      ['pornovidbisexual', 'nsfwvidbisexual'],
-      ['pornovidrandom', 'nsfwvidrandom']
-    ]
+const temaX = [
+['pornololi', 'nsfwloli'],
+['pornopies', 'nsfwfoot'],
+['pornoass', 'nsfwass'],
+['pornobdsm', 'nsfwbdsm'],
+['pornocum', 'nsfwcum'],
+['pornoero', 'nsfwero'],
+['pornodominar', 'nsfwfemdom'],
+['pornoglass', 'nsfwglass'],
+['pornohentai', 'nsfwhentai'],
+['pornorgia', 'nsfworgy'],
+['pornotetas', 'nsfwboobs'],
+['pornobooty', 'nsfwbooty'],
+['pornoecchi', 'nsfwecchi'],
+['pornofurro', 'nsfwfurry'],
+['pornotrapito', 'nsfwtrap'],
+['pornolesbiana', 'nsfwlesbian'],
+['pornobragas', 'nsfwpanties'],
+['pornopene', 'nsfwpenis'],
+['porno', 'porn'],
+['pornorandom', 'pornrandom'],
+['pornopechos', 'nsfwbreasts'],
+['pornoyaoi', 'nsfwyaoi'],
+['pornoyaoi2', 'nsfwyaoi2'],
+['pornoyuri', 'nsfwyuri'],
+['pornoyuri2', 'nsfwyuri2'],
+['pornodarling', 'nsfwdarling'],
+['pornodragonmaid', 'nsfwdragonmaid'],
+['pornokonosuba', 'nsfwkonosuba'],
+['pornopokemon', 'nsfwpokemon'],
+['pornotoloveru', 'nsfwtoloveru'],
+['pornouzaki', 'nsfwuzaki'],
+['pornopack', 'nsfwpack'],
+['pornopackchica', 'nsfwpackgirl'],
+['pornopackchico', 'nsfwpackmen'],
+['pornohentai3', 'nsfwhentai3'],
+['pornoass2', 'nsfwass2'],
+['pornosticker', 'nsfwsticker'],
+['pornochica', 'nsfwsgirl'],
+['pornoass3', 'nsfwass3'],
+['pornotetas2', 'nsfwboobs2'],
+['pornotetas3', 'nsfwboobs3'],
+['pornopussy', 'nsfwpussy'],
+['pornopaizuri', 'nsfwpaizuri'],
+['pornoneko', 'nsfwneko'],
+['pornopies2', 'nsfwfoot2'],
+['pornoyuri3', 'nsfwyuri3'],
+['pornomuslo', 'nsfwhthigh'],
+['pornochica2', 'nsfwsgirl2'],
+['pornoanal', 'nsfwanal'],
+['pornomamada', 'nsfwblowjob'],
+['pornogonewild', 'nsfwgonewild'],
+['pornofurro2', 'nsfwfurry2'],
+['pornotentacle', 'nsfwtentacle'],
+['porno4k', 'porn4k'],
+['pornokanna', 'nsfwkanna'],
+['pornoanal2', 'nsfwanal2'],
+['pornoalimento', 'nsfwfood'],
+['pornoholo', 'nsfwholo'],
+['pornoanal3', 'nsfwanal3'],
+['pornomamada2', 'nsfwblowjob2'],
+['pornocum2', 'nsfwcum2'],
+['pornofuck', 'nsfwfuck'],
+['pornoneko2', 'nsfwneko2'],
+['pornopussy2', 'nsfwpussy2'],
+['pornosolo', 'nsfwsolo'],
+['pornorgia2', 'nsfworgy2'],
+['pornorgia3', 'nsfworgy3'],
+['pornoyaoi3', 'nsfwyaoi3'],
+['pornocosplay', 'nsfwcosplay'],
+['pornodbz', 'nsfwdbz'],
+['pornogenshin', 'nsfwgenshin'],
+['pornokimetsu', 'nsfwkimetsu'],
+['pornohentai2', 'nsfwhentai2'],
+['pornonintendo', 'nsfwnintendo'],
+['pornohololive', 'nsfwhololive'],
+['pornoheroacademy', 'nsfwheroacademy'],
+['pornorezero', 'nsfwrezero'],
+['pornotatsumaki', 'nsfwtatsumaki'],
+['pornonaruto', 'nsfwnaruto'],
+['pornokitagawa', 'nsfwkitagawa'],
+['pornovid', 'nsfwvid'],
+['pornovid2', 'nsfwvid2'],
+['pornovidlesbi', 'nsfwvidlesbi'],
+['pornovidgay', 'nsfwvidgay'],
+['pornovidbisexual', 'nsfwvidbisexual'],
+['pornovidrandom', 'nsfwvidrandom']
+]
 
-    if (command == 'audioefectomenu') {
-      //audio
-      let menuA = `🎧 ${lenguajeGB['smsConfi2']()} *${username}*
+if (command == 'audioefectomenu') {
+//audio
+let menuA = `🎧 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -211,26 +211,26 @@ let handler = async (m, {conn, usedPrefix, command, args, usedPrefix: _p, __dirn
 ∘ _${usedPrefix}smooth_
 ∘ _${usedPrefix}tupai_
 `.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex2']()} 🧰`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'buscarmenu') {
-      //buscador
-      let menuA = `🎈 ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex2']()} 🧰`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'buscarmenu') {
+//buscador
+let menuA = `🎈 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -252,28 +252,28 @@ let handler = async (m, {conn, usedPrefix, command, args, usedPrefix: _p, __dirn
 ∘ _${usedPrefix}spotifysearch_
 ∘ _${usedPrefix}wiki | wikipedia *texto*_
 `.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex1']()} 🧰`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'hornymenu' || command == 'menu18') {
-      //comandos+18
-      let pp = './src/+18.jpg'
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex1']()} 🧰`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//await conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'hornymenu' || command == 'menu18') {
+//comandos+18
+let pp = './src/+18.jpg'
 
-      let menuA = `😏 ${lenguajeGB['smsConfi2']()} *${username}*
+let menuA = `😏 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -379,53 +379,53 @@ ${lenguajeGB['smsTex7']()}
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[83][0] : temaX[83][1]}_
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[84][0] : temaX[84][1]}_
 ∘ _${usedPrefix}${lenguajeGB.lenguaje() == 'es' ? temaX[85][0] : temaX[85][1]}_`.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex3']()} 🥵`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //await conn.sendButton(m.chat, menuA, menuB, pp, [[lenguajeGB.smsBotonM1(), usedPrefix + 'menu'], [lenguajeGB.smsBotonM2(), usedPrefix + 'allmenu'], [lenguajeGB.lenguaje() == 'es' ? '🔞 ver lista porno 🔞'.toUpperCase() : '🔞 list horny🔞 '.toUpperCase(), lenguajeGB.lenguaje() == 'es' ? usedPrefix + 'listaporno' : usedPrefix + 'listhorny']], fkontak, adReply, m)
-    }
-    if (command == 'listaporno' || command == 'listhorny') {
-      //comandos+18
-      let sections = Object.keys(temaX).map((v, index, temaX2) => ({
-        title: `${lenguajeGB['smsTex4']().slice(1, -1)} : ${wm}`,
-        rows: [
-          {
-            title: `${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🎟️🥵' : '⚠️'} ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0].toUpperCase() : temaX[index][1].toUpperCase()} ${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🥵🎟️' : '⚠️'} • ${lenguajeGB['smsBotonM7']()} ➜ ${user.premiumTime > 0 ? '✅' : '❌'}`,
-            description: `${1 + index}. ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1]} ➜ ${1 + index <= 33 ? (user.limit < 2 ? lenguajeGB.smsList1() + lenguajeGB.eDiamante() + lenguajeGB.smsList2() + rpgshopp.emoticon('limit') : lenguajeGB.smsList3()) : lenguajeGB.smsList4() + rpg.emoticon('premium')}`,
-            rowId: `${usedPrefix}${1 + index <= 33 ? (user.limit < 2 ? 'buy limit 5' : lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1]) : user.premiumTime > 0 ? (lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1]) : 'pase premium'}`
-          }
-        ]
-      }))
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex3']()} 🥵`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//await conn.sendButton(m.chat, menuA, menuB, pp, [[lenguajeGB.smsBotonM1(), usedPrefix + 'menu'], [lenguajeGB.smsBotonM2(), usedPrefix + 'allmenu'], [lenguajeGB.lenguaje() == 'es' ? '🔞 ver lista porno 🔞'.toUpperCase() : '🔞 list horny🔞 '.toUpperCase(), lenguajeGB.lenguaje() == 'es' ? usedPrefix + 'listaporno' : usedPrefix + 'listhorny']], fkontak, adReply, m)
+}
+if (command == 'listaporno' || command == 'listhorny') {
+//comandos+18
+let sections = Object.keys(temaX).map((v, index, temaX2) => ({
+title: `${lenguajeGB['smsTex4']().slice(1, -1)} : ${wm}`,
+rows: [
+{
+title: `${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🎟️🥵' : '⚠️'} ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0].toUpperCase() : temaX[index][1].toUpperCase()} ${1 + index <= 33 ? '🥵' : user.premiumTime > 0 ? '🥵🎟️' : '⚠️'} • ${lenguajeGB['smsBotonM7']()} ➜ ${user.premiumTime > 0 ? '✅' : '❌'}`,
+description: `${1 + index}. ${lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1]} ➜ ${1 + index <= 33 ? (user.limit < 2 ? lenguajeGB.smsList1() + lenguajeGB.eDiamante() + lenguajeGB.smsList2() + rpgshopp.emoticon('limit') : lenguajeGB.smsList3()) : lenguajeGB.smsList4() + rpg.emoticon('premium')}`,
+rowId: `${usedPrefix}${1 + index <= 33 ? (user.limit < 2 ? 'buy limit 5' : lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1]) : user.premiumTime > 0 ? (lenguajeGB.lenguaje() == 'es' ? temaX[index][0] : temaX[index][1]) : 'pase premium'}`
+}
+]
+}))
 
-      let name = await conn.getName(m.sender)
-      const listMessage = {
-        text: `${user.premiumTime > 0 ? lenguajeGB.smsCont18PornP() : lenguajeGB.smsCont18Porn()}`,
-        footer: `╭━━━✦ 🛐 ✦━━━━⬣
+let name = await conn.getName(m.sender)
+const listMessage = {
+text: `${user.premiumTime > 0 ? lenguajeGB.smsCont18PornP() : lenguajeGB.smsCont18Porn()}`,
+footer: `╭━━━✦ 🛐 ✦━━━━⬣
 🔞 ${lenguajeGB.smsConfi2()} *${name}*
 ${lenguajeGB.smsList5()}
 ╰━━━✦ *${vs}* ✦━━━⬣
 ${wm}`,
-        title: null,
-        buttonText: lenguajeGB.smsList6(),
-        sections
-      }
-      conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
-    }
-    if (command == 'convertidormenu') {
-      //convertidor
-      let menuA = `📍 ${lenguajeGB['smsConfi2']()} *${username}*
+title: null,
+buttonText: lenguajeGB.smsList6(),
+sections
+}
+conn.sendMessage(m.chat, listMessage, {quoted: fkontak})
+}
+if (command == 'convertidormenu') {
+//convertidor
+let menuA = `📍 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -444,26 +444,26 @@ ${wm}`,
 ∘ _${usedPrefix}toenlace  *video, imagen o audio*_
 ∘ _${usedPrefix}tts es *texto*_
 `.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex8']()}  🛰️`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'descargasmenu') {
-      //descargas
-      let menuA = `🪄 ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex8']()}  🛰️`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'descargasmenu') {
+//descargas
+let menuA = `🪄 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -505,26 +505,26 @@ ${wm}`,
 ∘ _${usedPrefix}morse decodificar *morse*_
 ∘ _${usedPrefix}drive | dldrive *link*_
 `.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex9']()} 🚀`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'juegosmenu') {
-      //fun
-      let menuA = `🎠 ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex9']()} 🚀`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'juegosmenu') {
+//fun
+let menuA = `🎠 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -578,26 +578,26 @@ ${wm}`,
 ∘ _${usedPrefix}suerte_
 ∘ _${usedPrefix}ruletadelban_
 `.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex10']()} 🎡`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'grupomenu' || command == 'menugrupo') {
-      //grupo
-      let menuA = `🔰 ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex10']()} 🎡`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'grupomenu' || command == 'menugrupo') {
+//grupo
+let menuA = `🔰 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -641,26 +641,26 @@ ${wm}`,
 ∘ _${usedPrefix}on_
 ∘ _${usedPrefix}off_
 `.trim()
-      await conn.sendFile(m.chat, gataImg.getRandom(), 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex11']()} 🌐`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu.getRandom()
-          }
-        }
-      })
-      //conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'herramientasmenu') {
-      //herramientas
-      let menuA = `🔩 ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, gataImg.getRandom(), 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex11']()} 🌐`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu.getRandom()
+}
+}
+})
+//conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'herramientasmenu') {
+//herramientas
+let menuA = `🔩 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -685,26 +685,26 @@ ${wm}`,
 ∘ _${usedPrefix}encuesta | poll *Motivo*_
 ∘ _${usedPrefix}horario_
 `.trim()
-      await conn.sendFile(m.chat, pp, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex12']()} 🛠️`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'infomenu') {
-      //info
-      let menuA = `🌟 ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, pp, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex12']()} 🛠️`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'infomenu') {
+//info
+let menuA = `🌟 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -732,26 +732,26 @@ ${wm}`,
 ∘ _términos y condiciones_
 ∘ _Bot_ 
 `.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex13']()} 💫`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'makermenu') {
-      //maker
-      let menuA = `✨ ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex13']()} 💫`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'makermenu') {
+//maker
+let menuA = `✨ ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -771,26 +771,26 @@ ${wm}`,
 ∘ _${usedPrefix}pixelar_
 ∘ _${usedPrefix}blur_
 `.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex14']()} ⛺`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'menulogos2') {
-      //marker
-      let menuA = `⛲ ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex14']()} ⛺`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'menulogos2') {
+//marker
+let menuA = `⛲ ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -829,26 +829,26 @@ ${wm}`,
 ∘ ${usedPrefix}cardchristmas *Texto*
 ∘ ${usedPrefix}flowercard *Texto*
 `.trim()
-      await conn.sendFile(m.chat, pp, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex15']()} 🌅`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      // conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'ownermenu') {
-      //propietario(a)
-      let menuA = `🛂 ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, pp, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex15']()} 🌅`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+// conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'ownermenu') {
+//propietario(a)
+let menuA = `🛂 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -888,26 +888,26 @@ ${wm}`,
 ∘ _${usedPrefix}añadirxp *@tag cantidad*_
 ∘ _${usedPrefix}añadirgatacoins *@tag cantidad*_
 `.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex20']()} 💎`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'randommenu') {
-      //randomm
-      let menuA = `⛩️ ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex20']()} 💎`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'randommenu') {
+//randomm
+let menuA = `⛩️ ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -969,26 +969,26 @@ ${wm}`,
 ∘ _${usedPrefix}sakura_
 ∘ _${usedPrefix}cosplay_
 `.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex23']()} 🧩`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'rpgmenu') {
-      //rpg
-      let menuA = `🪅 ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex23']()} 🧩`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'rpgmenu') {
+//rpg
+let menuA = `🪅 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -1045,26 +1045,26 @@ ${wm}`,
 ∘ _${usedPrefix}rob | robar_
 ∘ _${usedPrefix}crime_
 `.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex21']()} ⚗️`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      //conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-    if (command == 'stickermenu') {
-      //sticker
-      let menuA = `🧸 ${lenguajeGB['smsConfi2']()} *${username}*
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex21']()} ⚗️`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+//conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+if (command == 'stickermenu') {
+//sticker
+let menuA = `🧸 ${lenguajeGB['smsConfi2']()} *${username}*
 
 ╭┄〔 *${wm}* 〕┄⊱
 ┊დ *${week}, ${date}*
@@ -1099,58 +1099,58 @@ ${wm}`,
 ∘ _${usedPrefix}stickerfilter *efecto : responder a imagen*_
 ∘ _${usedPrefix}cs *:* cs2_
 `.trim()
-      await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
-        contextInfo: {
-          mentionedJid,
-          externalAdReply: {
-            mediaUrl: null,
-            mediaType: 1,
-            description: null,
-            title: `${lenguajeGB['smsTex22']()} 🧸`,
-            body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
-            previewType: 0,
-            thumbnail: imagen4,
-            sourceUrl: redesMenu
-          }
-        }
-      })
-      ///conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
-    }
-  } catch (e) {
-    await conn.sendButton(
-      m.chat,
-      `\n${wm}`,
-      lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command,
-      null,
-      [[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]],
-      m
-    )
-    console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-    console.log(e)
-  }
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menuA, fkontak, false, {
+contextInfo: {
+mentionedJid,
+externalAdReply: {
+mediaUrl: null,
+mediaType: 1,
+description: null,
+title: `${lenguajeGB['smsTex22']()} 🧸`,
+body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ',
+previewType: 0,
+thumbnail: imagen4,
+sourceUrl: redesMenu
+}
+}
+})
+///conn.sendButtonVid(m.chat, pp, menuA, menuB, lenguajeGB.smsBotonM1(), '.menu', lenguajeGB.smsBotonM2(), '/allmenu', lenguajeGB.smsBotonM3(), '#inventario', fkontak, adReply)
+}
+} catch (e) {
+await conn.sendButton(
+m.chat,
+`\n${wm}`,
+lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command,
+null,
+[[lenguajeGB.smsMensError1(), `#reporte ${lenguajeGB['smsMensError2']()} *${usedPrefix + command}*`]],
+m
+)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+console.log(e)
+}
 }
 handler.help = ['infomenu'].map((v) => v + 'able <option>')
 handler.tags = ['group', 'owner']
 handler.command = [
-  'audioefectomenu',
-  'buscarmenu',
-  'hornymenu',
-  'listaporno',
-  'listhorny',
-  'convertidormenu',
-  'descargasmenu',
-  'juegosmenu',
-  'grupomenu',
-  'herramientasmenu',
-  'infomenu',
-  'makermenu',
-  'menulogos2',
-  'ownermenu',
-  'randommenu',
-  'rpgmenu',
-  'stickermenu',
-  'menu18',
-  'menugrupo'
+'audioefectomenu',
+'buscarmenu',
+'hornymenu',
+'listaporno',
+'listhorny',
+'convertidormenu',
+'descargasmenu',
+'juegosmenu',
+'grupomenu',
+'herramientasmenu',
+'infomenu',
+'makermenu',
+'menulogos2',
+'ownermenu',
+'randommenu',
+'rpgmenu',
+'stickermenu',
+'menu18',
+'menugrupo'
 ]
 //handler.register = true
 handler.exp = 50
@@ -1159,8 +1159,8 @@ export default handler
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(':')
+let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(':')
 }

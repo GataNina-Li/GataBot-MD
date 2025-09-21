@@ -1,9 +1,9 @@
 let handler = async (m, {usedPrefix}) => {
-  let who
-  if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
-  else who = m.sender
-  let name = conn.getName(who)
-  let d = `╭━〔 🔖 *BALANCE* 〕━⬣
+let who
+if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
+else who = m.sender
+let name = conn.getName(who)
+let d = `╭━〔 🔖 *BALANCE* 〕━⬣
 ┃ *USUARIO(A) | USER*
 ┃ ${name}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -26,24 +26,24 @@ ${usedPrefix}dep *cantidad*
 *RETIRAR TUS DIAMANTES DEL BANCO:*
 ${usedPrefix}retirar *cantidad*`
 
-  if (m.isWABusiness) {
-    conn.reply(m.chat, d + wm, m)
-  } else {
-    conn.sendButton(
-      m.chat,
-      d,
-      wm,
-      null,
-      [
-        ['𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 | 𝙈𝙖𝙞𝙣 𝙢𝙚𝙣𝙪 ⚡', '#menu'],
-        ['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 💫', '.allmenu']
-      ],
-      null,
-      null,
-      null,
-      m
-    )
-  }
+if (m.isWABusiness) {
+conn.reply(m.chat, d + wm, m)
+} else {
+conn.sendButton(
+m.chat,
+d,
+wm,
+null,
+[
+['𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 | 𝙈𝙖𝙞𝙣 𝙢𝙚𝙣𝙪 ⚡', '#menu'],
+['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 💫', '.allmenu']
+],
+null,
+null,
+null,
+m
+)
+}
 }
 handler.help = ['bal']
 handler.tags = ['xp']
