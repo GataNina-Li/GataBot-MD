@@ -1,7 +1,7 @@
 // plugins/downloader-mediafire.js
 import fetch from 'node-fetch'
 
-let handler = async (m, { conn, args, usedPrefix, command }) => {
+let handler = async (m, {conn, args, usedPrefix, command}) => {
   if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsFire}`
 
   // Validar URL de MediaFire
@@ -23,10 +23,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     const data = json?.data || json?.result || json
 
     // Campos típicos que puede devolver la API
-    const fileUrl   = data?.url || data?.link || data?.download || data?.dl || data?.download_url
+    const fileUrl = data?.url || data?.link || data?.download || data?.dl || data?.download_url
     const fileTitle = data?.title || data?.filename || data?.name || 'archivo'
-    const fileSize  = data?.size || data?.filesize || 'Desconocido'
-    const fileMime  = data?.mime || data?.mimetype || 'application/octet-stream'
+    const fileSize = data?.size || data?.filesize || 'Desconocido'
+    const fileMime = data?.mime || data?.mimetype || 'application/octet-stream'
 
     if (!fileUrl) throw new Error('No se pudo obtener el enlace de descarga.')
 
@@ -43,15 +43,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 > ┃  ${fileMime}`.trim()
 
     // Enviar archivo como documento (mismo patrón que usabas)
-    await conn.sendFile(
-      m.chat,
-      fileUrl,
-      fileTitle,
-      caption,
-      m,
-      null,
-      { mimetype: fileMime, asDocument: true }
-    )
+    await conn.sendFile(m.chat, fileUrl, fileTitle, caption, m, null, {
+      mimetype: fileMime,
+      asDocument: true
+    })
 
     await m.react('✅')
   } catch (e) {
@@ -65,7 +60,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   }
 }
 
-handler.help = ['mediafire'].map(v => v + ' <url>')
+handler.help = ['mediafire'].map((v) => v + ' <url>')
 handler.tags = ['downloader']
 handler.command = /^(mediafire|mediafiredl|dlmediafire)$/i
 handler.register = true

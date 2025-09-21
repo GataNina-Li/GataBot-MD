@@ -1,28 +1,25 @@
 import fetch from 'node-fetch'
 import yts from 'yt-search'
-import { createRequire } from 'module'
+import {createRequire} from 'module'
 const require = createRequire(import.meta.url)
-const { ytmp3, ytmp4 } = require('@hiudyy/ytdl')
-
+const {ytmp3, ytmp4} = require('@hiudyy/ytdl')
 
 const LimitAud = 700 * 1024 * 1024 // 700MB
 const LimitVid = 450 * 1024 * 1024 // 450MB
 
-
 async function search(query, options = {}) {
-  const s = await yts.search({ query, hl: 'es', gl: 'ES', ...options })
+  const s = await yts.search({query, hl: 'es', gl: 'ES', ...options})
   return s.videos
 }
 
 async function getFileSize(url) {
   try {
-    const res = await fetch(url, { method: 'HEAD' })
+    const res = await fetch(url, {method: 'HEAD'})
     return parseInt(res.headers.get('content-length') || 0)
   } catch {
     return 0
   }
 }
-
 
 async function resolveYouTubeTarget(m, args, usedPrefix, command) {
   const query = args.join(' ')
@@ -36,7 +33,7 @@ async function resolveYouTubeTarget(m, args, usedPrefix, command) {
     if (!isNaN(index)) {
       if (index >= 0) {
         if (Array.isArray(global.videoList) && global.videoList.length > 0) {
-          const matchingItem = global.videoList.find(it => it.from === m.sender)
+          const matchingItem = global.videoList.find((it) => it.from === m.sender)
           if (matchingItem) {
             if (index < matchingItem.urls.length) youtubeLink = matchingItem.urls[index]
             else throw `${lenguajeGB['smsAvisoFG']()} ${mid.smsYT} ${matchingItem.urls.length}*`
@@ -57,22 +54,15 @@ async function resolveYouTubeTarget(m, args, usedPrefix, command) {
   const title = yt_play?.[0]?.title || 'media'
   const thumb = yt_play?.[0]?.thumbnail
 
-  return { target, title, thumb }
+  return {target, title, thumb}
 }
 
-
-const handler = async (m, { conn, command, args, text, usedPrefix }) => {
+const handler = async (m, {conn, command, args, text, usedPrefix}) => {
   if (!args || !args[0]) {
-    return conn.reply(
-      m.chat,
-      `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`,
-      fkontak,
-      m
-    )
+    return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`, fkontak, m)
   }
 
   try {
-    
     const isAudioDoc = /^(playaudiodoc|ytmp3doc|playdoc|playdoc2)$/i.test(command)
     const isVideoDoc = /^(playvideodoc|ytmp4doc)$/i.test(command)
 
@@ -84,22 +74,20 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
       m
     )
 
-    const { target, title, thumb } = await resolveYouTubeTarget(m, args, usedPrefix, command)
+    const {target, title, thumb} = await resolveYouTubeTarget(m, args, usedPrefix, command)
 
     if (isAudioDoc) {
-      
       try {
-        const result = await ytmp3(target) 
+        const result = await ytmp3(target)
         const audioOut = result
-        const isDirect = typeof audioOut !== 'string' 
+        const isDirect = typeof audioOut !== 'string'
         const url = isDirect ? null : audioOut
         const size = url ? await getFileSize(url) : 0
 
-       
         await conn.sendMessage(
           m.chat,
           {
-            document: isDirect ? audioOut : { url },
+            document: isDirect ? audioOut : {url},
             mimetype: 'audio/mpeg',
             fileName: `${title}.mp3`,
             contextInfo: thumb
@@ -115,7 +103,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
                 }
               : {}
           },
-          { quoted: m }
+          {quoted: m}
         )
         handler.limit = 1
         return
@@ -126,13 +114,9 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
     }
 
     if (isVideoDoc) {
-      
       try {
-        const data = await ytmp4(target) 
-        const out =
-          typeof data === 'string'
-            ? data
-            : data?.url || data?.result || data?.downloadUrl || data?.dl || data
+        const data = await ytmp4(target)
+        const out = typeof data === 'string' ? data : data?.url || data?.result || data?.downloadUrl || data?.dl || data
 
         const isUrl = typeof out === 'string'
         const size = isUrl ? await getFileSize(out) : 0
@@ -141,11 +125,10 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
 ┃ ${title}
 ╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`
 
-        
         await conn.sendMessage(
           m.chat,
           {
-            document: isUrl ? { url: out } : out,
+            document: isUrl ? {url: out} : out,
             fileName: `${title}.mp4`,
             caption,
             mimetype: 'video/mp4',
@@ -162,7 +145,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
                 }
               : {}
           },
-          { quoted: m }
+          {quoted: m}
         )
         handler.limit = 2
         return
@@ -172,28 +155,16 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
       }
     }
 
-
-    return conn.reply(
-      m.chat,
-      `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`,
-      fkontak,
-      m
-    )
+    return conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
   } catch (e) {
-    await conn.reply(
-      m.chat,
-      `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`,
-      fkontak,
-      m
-    )
+    await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
     console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
     console.log(e)
     handler.limit = 0
   }
 }
 
-
-handler.help = ['ytmp4doc', 'ytmp3doc', 'playaudiodoc', 'playvideodoc', 'playdoc', 'playdoc2'].map(v => v + ' <búsqueda|link|#índice>')
+handler.help = ['ytmp4doc', 'ytmp3doc', 'playaudiodoc', 'playvideodoc', 'playdoc', 'playdoc2'].map((v) => v + ' <búsqueda|link|#índice>')
 handler.tags = ['downloader']
 handler.command = /^(ytmp4doc|ytmp3doc|playaudiodoc|playdoc|playdoc2|playvideodoc)$/i
 handler.register = true

@@ -1,14 +1,14 @@
-import { File } from "megajs";
-import mime from 'mime-types';
+import {File} from 'megajs'
+import mime from 'mime-types'
 
-let handler = async (m, { conn, args, usedPrefix, text, command }) => {
-    try {
-        if (!text) return m.reply(`Ingresa un enlace de Mega`);
-        const file = File.fromURL(text);
-        await file.loadAttributes();
-        const fileExtension = file.name.split('.').pop().toLowerCase();
-        const mimeType = mime.lookup(fileExtension);
-        let caption = `${eg}
+let handler = async (m, {conn, args, usedPrefix, text, command}) => {
+  try {
+    if (!text) return m.reply(`Ingresa un enlace de Mega`)
+    const file = File.fromURL(text)
+    await file.loadAttributes()
+    const fileExtension = file.name.split('.').pop().toLowerCase()
+    const mimeType = mime.lookup(fileExtension)
+    let caption = `${eg}
 ┃ 𓃠 *${gt} ${vs}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ 💫 𝙉𝙊𝙈𝘽𝙍𝙀 | 𝙉𝘼𝙈𝙀
@@ -21,25 +21,27 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
 ┃ ${mimeType}
 ┃
 ┃ ${wm}`.trim()
-conn.reply(m.chat,caption, m)
-        if (file.size >= 1800000000 && !file.directory) return m.reply('Error: El archivo es muy pesado');
-        const data = await file.downloadBuffer();
-        await conn.sendFile(m.chat, data, file.name, null, m, null, { mimeType, asDocument: true });
-
-    } catch (error) {
-        return m.reply(`Error: ${error.message}`);
-    }
+    conn.reply(m.chat, caption, m)
+    if (file.size >= 1800000000 && !file.directory) return m.reply('Error: El archivo es muy pesado')
+    const data = await file.downloadBuffer()
+    await conn.sendFile(m.chat, data, file.name, null, m, null, {
+      mimeType,
+      asDocument: true
+    })
+  } catch (error) {
+    return m.reply(`Error: ${error.message}`)
+  }
 }
 
-handler.help = ["mega"]
-handler.tags = ["downloader"]
+handler.help = ['mega']
+handler.tags = ['downloader']
 handler.command = /^(mega)$/i
 export default handler
 
 function formatBytes(bytes) {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  if (bytes === 0) return '0 Bytes'
+  const k = 1024
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
 }

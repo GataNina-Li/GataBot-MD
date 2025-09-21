@@ -18,13 +18,14 @@
 <details>
   <summary><b>⭐ Realizar una solicitud sobre el proyecto.</b></summary>
 
-| Tipo de solicitud | Posibles asuntos | 
-|------|-------------|
-| **Bug** | [![Error](https://img.shields.io/badge/Error-red)](https://github.com/GataNina-Li/GataBot-MD/issues/new?assignees=&labels=Bug) |
-| **Help** | [![Ayuda, Duda, Pregunta](https://img.shields.io/badge/Ayuda,_Duda,_Pregunta-blue)](https://github.com/GataNina-Li/GataBot-MD/issues/new?assignees=&labels=Help) |
-| **Suggestion** | [![Sugerencia, Mejora, Ideas](https://img.shields.io/badge/Sugerencia,_Mejora,_Ideas-green)](https://github.com/GataNina-Li/GataBot-MD/issues/new?assignees=&labels=Suggestion) |
+| Tipo de solicitud | Posibles asuntos                                                                                                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bug**           | [![Error](https://img.shields.io/badge/Error-red)](https://github.com/GataNina-Li/GataBot-MD/issues/new?assignees=&labels=Bug)                                                  |
+| **Help**          | [![Ayuda, Duda, Pregunta](https://img.shields.io/badge/Ayuda,_Duda,_Pregunta-blue)](https://github.com/GataNina-Li/GataBot-MD/issues/new?assignees=&labels=Help)                |
+| **Suggestion**    | [![Sugerencia, Mejora, Ideas](https://img.shields.io/badge/Sugerencia,_Mejora,_Ideas-green)](https://github.com/GataNina-Li/GataBot-MD/issues/new?assignees=&labels=Suggestion) |
 
 > **Una vez que envíes tu solicitud, uno de nuestros colaboradores se pondrá en contacto contigo. Si no recibes una respuesta de inmediato, puedes reenviar la información a nuestro correo o a nuestro Chat Privado de Soporte en Telegram.**
+
 </details>
 
 <details>
@@ -45,8 +46,10 @@
 </details>  
 </details>
 
-----
+---
+
 ## Instalación por Termux
+
 > [!IMPORTANT]
 > **No garantizamos un funcionamiento perfecto en Termux, aunque trabajamos constantemente para asegurar una buena compatibilidad. Si experimentas lentitud o errores, por favor envía una solicitud con la evidencia correspondiente para que nuestro equipo pueda solucionarlo. Si el problema persiste, te recomendamos considerar los servicios de alojamiento de bots de nuestros patrocinadores.**
 
@@ -71,7 +74,8 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 
 // Ejemplo
 "wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash"
-```
+
+````
 #### MODIFICAR ARCHIVO [`gata.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
 ```js
 // Líneas a modificar:
@@ -87,8 +91,10 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 "cd [repositorio]"
 
 // Una vez hecho estos cambios, ejecuta el enlace personalizado de Instalación Automática en Termux
-```
+````
+
 > **Si solo quieres usar la Instalación Automática sin realizar Bifurcación y modificación de archivo simplemente usa los comandos originales al inicio de esta opción de Instalación**
+
 </details>
 
 <details>
@@ -124,28 +130,35 @@ npm start
 
 [![blog](https://img.shields.io/badge/Termux-GataBot-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/UcWlyQ8u5HE)
+
 ```bash
 termux-setup-storage
 ```
+
 ```bash
 apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
+
 ```bash
-cd storage/downloads/GataBot-MD-master/GataBot-MD-master 
+cd storage/downloads/GataBot-MD-master/GataBot-MD-master
 ```
+
 ```bash
 yarn install
 ```
+
 ```bash
 npm install
 ```
+
 ```bash
 npm start
 ```
-* #### Aplicación para [`Descomprimir`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
-* #### Aplicación para editar [`Archivos`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
-> *Guardar los archivos en la ubicación: `storage/downloads/GataBot-MD-master/GataBot-MD-master`*
-</details>
+
+- #### Aplicación para [`Descomprimir`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
+- #### Aplicación para editar [`Archivos`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
+  > _Guardar los archivos en la ubicación: `storage/downloads/GataBot-MD-master/GataBot-MD-master`_
+  </details>
 
 <details>
   <summary><b>Comandos para mantener más tiempo activo el Bot</b></summary>
@@ -194,18 +207,22 @@ cd && cd GataBot-MD && rm -rf GataBotSession && npm run code
 <details>
 <summary><b>Actualizar GataBot</b></summary>
   
-> **Utiliza esta opción únicamente si deseas actualizar a la última versión de GataBot. Hemos implementado un método ingenioso mediante comandos para realizar la actualización, pero ten en cuenta que al usarla se eliminarán todos los archivos de la versión actual y se reemplazarán con los de la nueva versión. Solo se conservará la base de datos, por lo que será necesario volver a vincular el Bot.**  
+> **Utiliza esta opción únicamente si deseas actualizar a la última versión de GataBot. Hemos implementado un método ingenioso mediante comandos para realizar la actualización, pero ten en cuenta que al usarla se eliminarán todos los archivos de la versión actual y se reemplazarán con los de la nueva versión. Solo se conservará la base de datos, por lo que será necesario volver a vincular el Bot.**
 
 **Comandos para actualizar GataBot-MD de forma automática**
-  
+
 ```bash
-grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/update.sh | bash 
+grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/update.sh | bash
 ```
+
 #### Para que no pierda su progreso en GataBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
-> *Estos comandos solo funcionan para TERMUX, REPLIT, LINUX*
+
+> _Estos comandos solo funcionan para TERMUX, REPLIT, LINUX_
+
 </details>
 
------
+---
+
 ### Patrocinadores del proyecto
 
 <details>
@@ -216,6 +233,7 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 <a href="https://skyultraplus.com"><img src="https://qu.ax/wbJoB.png" height="125px"></a>
 
 ### Información sobre Sky
+
 - **Pagina Oficial:** [`Aqui`](https://skyultraplus.com)
 - **Dashboard:** [`Aquí`](https://dash.skyultraplus.com)
 - **Panel:** [`Aquí`](https://panel.skyultraplus.com)
@@ -229,33 +247,41 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 
 </details>
 
-----
+---
 
 <details>
 <summary><b>💻 Instalación para usuarios de Windows</b></summary>
 
-* Descargar e instala Git [`Aquí`](https://git-scm.com/downloads)
-* Descargar e instala NodeJS [`Aquí`](https://nodejs.org/en/download)
-* Descargar e instala FFmpeg [`Aquí`](https://ffmpeg.org/download.html) (**No olvide agregar FFmpeg a la variable de entorno PATH**)
-* Descargar e instala ImageMagick [`Aquí`](https://imagemagick.org/script/download.php)
-* Descargar e instala Yarn [`Aquí`](https://classic.yarnpkg.com/en/docs/install#windows-stable)
+- Descargar e instala Git [`Aquí`](https://git-scm.com/downloads)
+- Descargar e instala NodeJS [`Aquí`](https://nodejs.org/en/download)
+- Descargar e instala FFmpeg [`Aquí`](https://ffmpeg.org/download.html) (**No olvide agregar FFmpeg a la variable de entorno PATH**)
+- Descargar e instala ImageMagick [`Aquí`](https://imagemagick.org/script/download.php)
+- Descargar e instala Yarn [`Aquí`](https://classic.yarnpkg.com/en/docs/install#windows-stable)
+
 ```bash
 git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && npm install && npm update && node .
 ```
-## 💻 Instalación de FFmpeg para Windows 
-* Descarga cualquiera de las versiones de FFmpeg disponibles haciendo clic en [FFmpeg](https://www.gyan.dev/ffmpeg/builds/).
-* Extraer archivos a `C:\` path.
-* Cambie el nombre de la carpeta extraída a `ffmpeg`.
-* Ejecute el símbolo del sistema como administrador.
-* Ejecute el siguiente comando:
+
+## 💻 Instalación de FFmpeg para Windows
+
+- Descarga cualquiera de las versiones de FFmpeg disponibles haciendo clic en [FFmpeg](https://www.gyan.dev/ffmpeg/builds/).
+- Extraer archivos a `C:\` path.
+- Cambie el nombre de la carpeta extraída a `ffmpeg`.
+- Ejecute el símbolo del sistema como administrador.
+- Ejecute el siguiente comando:
+
 ```cmd
 > setx /m PATH "C:\ffmpeg\bin;%PATH%"
 ```
+
 Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
-* Ahora que tiene FFmpeg instalado, verifique que funcionó ejecutando este comando para ver la versión:
+
+- Ahora que tiene FFmpeg instalado, verifique que funcionó ejecutando este comando para ver la versión:
+
 ```cmd
 > ffmpeg -version
 ```
+
 </details>
 
 </details>
@@ -269,14 +295,17 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 ----
 
 ### Colaboradores implicados
+
 <a href="https://github.com/GataNina-Li/GataBot-MD/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=GataNina-Li/GataBot-MD" /> 
 </a>
 
-### Gesto de agradecimiento 
-[![TheShadowBrokers1](https://github.com/BrunoSobrino.png?size=60)](https://github.com/BrunoSobrino) 
+### Gesto de agradecimiento
+
+[![TheShadowBrokers1](https://github.com/BrunoSobrino.png?size=60)](https://github.com/BrunoSobrino)
 
 ### Autora del Proyecto
-[![GataNina-Li](https://github.com/GataNina-Li.png?size=100)](https://github.com/GataNina-Li) 
+
+[![GataNina-Li](https://github.com/GataNina-Li.png?size=100)](https://github.com/GataNina-Li)
 
 [License](https://github.com/GataNina-Li/GataBot-MD/blob/master/LICENS) | [Terms and conditions](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md) | [Other projects](https://github.com/GataNina-Li) | [@Evolution-Global-Promotion](https://www.atom.bio/evo)

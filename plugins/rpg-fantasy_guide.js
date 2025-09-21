@@ -1,7 +1,7 @@
 // Código elaborado por: https://github.com/GataNina-Li
 
-let handler = async (m, { command, usedPrefix, conn, text }) => {
-let fantasy = `
+let handler = async (m, {command, usedPrefix, conn, text}) => {
+  let fantasy = `
 > *¡Bienvenido a la fascinante bitácora de Fantasy!*
 
 _Aquí, te proporcionaré información esencial para que te conviertas en un maestro en el emocionante mundo de los usuarios *Fantasy* en *GataBot*._
@@ -104,19 +104,21 @@ Utiliza el comando \`${usedPrefix}fantasyinfo o ${usedPrefix}fyinfo\` seguido de
 *¿Cómo puedo transferir la propiedad de un personaje comprado a otro usuario?*
 
 Con el comando \`${usedPrefix}fyentregar o ${usedPrefix}fytr\`, y mencionando el nombre del personaje y etiquentando a alguien o respondiendo al mensaje de un usuario, podrás transferir la propiedad del personaje al usuario deseado.`.trim()
-let pp = 'https://telegra.ph/file/5413c3d098f748e7def77.jpg'
-await conn.sendFile(m.chat, pp, 'error.jpg', fantasy, fkontak, true, {
-contextInfo: {
-'forwardingScore': 200,
-'isForwarded': false,
-externalAdReply: {
-showAdAttribution: false,
-title: `🌟 FANTASÍA RPG`,
-body: `😻 Una aventura nos espera...`,
-mediaType: 1,
-sourceUrl: accountsgb,
-thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
-}}})
+  let pp = 'https://telegra.ph/file/5413c3d098f748e7def77.jpg'
+  await conn.sendFile(m.chat, pp, 'error.jpg', fantasy, fkontak, true, {
+    contextInfo: {
+      forwardingScore: 200,
+      isForwarded: false,
+      externalAdReply: {
+        showAdAttribution: false,
+        title: `🌟 FANTASÍA RPG`,
+        body: `😻 Una aventura nos espera...`,
+        mediaType: 1,
+        sourceUrl: accountsgb,
+        thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
+      }
+    }
+  })
 }
 
 handler.command = /^(fantasyguia|fyguia|fyguía|fantasyguide|fyguide)$/i

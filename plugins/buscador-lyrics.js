@@ -1,37 +1,61 @@
-import {find_lyrics} from '@brandond/findthelyrics';
-import {getTracks} from '@green-code/music-track-data';
-import {googleImage} from '@bochilteam/scraper';
+import {find_lyrics} from '@brandond/findthelyrics'
+import {getTracks} from '@green-code/music-track-data'
+import {googleImage} from '@bochilteam/scraper'
 const handler = async (m, {conn, text, usedPrefix, command}) => {
-const teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : '';
-if (!teks) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused3}\n*${usedPrefix + command} Billie Eilish bored*`
-try {
-const result = await getTracks(teks);
-const lyrics = await find_lyrics(`${result[0].artist} ${result[0].title}`);
-const res = await fetch(global.API('https://some-random-api.com', '/lyrics', {title: result[0].artist + result[0].title}));
-const json = await res.json();
-let img; 
-try {
-img = result.album.artwork;
-} catch {
-try {
-img = json.thumbnail.genius;
-} catch {
-const bochil = await googleImage(`${result[0].artist} ${result[0].title}`);
-img = await bochil.getRandom();
-}}
-await conn.sendButton(m.chat, `ღ ${mid.smsYT1} :\n💚 *${result[0].title || ''}*\n\nღ ${mid.smsYT2} :\n💜 *${result[0].artist || ''}*\n\nღ ${mid.smsYT3} :\n${lyrics || ''}`, null, img, [
-['𝘿𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙧 | 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 🚀', `/play ${text}`],
-['𝙈𝙚𝙣𝙪 𝘽𝙪𝙨𝙦𝙪𝙚𝙙𝙖𝙨 | 𝙎𝙚𝙖𝙧𝙘𝙝𝙚𝙨 🔎', '#buscarmenu'],
-['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']], null, null, m)
-//conn.sendFile(m.chat, img, 'letra.jpg', `ღ ${mid.smsYT1} :\n💚 *${result[0].title || ''}*\n\nღ ${mid.smsYT2} :\n💜 *${result[0].artist || ''}*\n\nღ ${mid.smsYT3} :\n${lyrics || ''}`, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
-await conn.sendMessage(m.chat, {audio: {url: result[0].preview}, fileName: `${result[0].artist} ${result[0].title}.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
-} catch (e) {
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
-console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(e)
-handler.limit = 0
-}}
-handler.help = ['lirik','letra'].map(v => v + ' <Apa>')
+  const teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : ''
+  if (!teks) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused3}\n*${usedPrefix + command} Billie Eilish bored*`
+  try {
+    const result = await getTracks(teks)
+    const lyrics = await find_lyrics(`${result[0].artist} ${result[0].title}`)
+    const res = await fetch(
+      global.API('https://some-random-api.com', '/lyrics', {
+        title: result[0].artist + result[0].title
+      })
+    )
+    const json = await res.json()
+    let img
+    try {
+      img = result.album.artwork
+    } catch {
+      try {
+        img = json.thumbnail.genius
+      } catch {
+        const bochil = await googleImage(`${result[0].artist} ${result[0].title}`)
+        img = await bochil.getRandom()
+      }
+    }
+    await conn.sendButton(
+      m.chat,
+      `ღ ${mid.smsYT1} :\n💚 *${result[0].title || ''}*\n\nღ ${mid.smsYT2} :\n💜 *${result[0].artist || ''}*\n\nღ ${mid.smsYT3} :\n${lyrics || ''}`,
+      null,
+      img,
+      [
+        ['𝘿𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙧 | 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 🚀', `/play ${text}`],
+        ['𝙈𝙚𝙣𝙪 𝘽𝙪𝙨𝙦𝙪𝙚𝙙𝙖𝙨 | 𝙎𝙚𝙖𝙧𝙘𝙝𝙚𝙨 🔎', '#buscarmenu'],
+        ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']
+      ],
+      null,
+      null,
+      m
+    )
+    //conn.sendFile(m.chat, img, 'letra.jpg', `ღ ${mid.smsYT1} :\n💚 *${result[0].title || ''}*\n\nღ ${mid.smsYT2} :\n💜 *${result[0].artist || ''}*\n\nღ ${mid.smsYT3} :\n${lyrics || ''}`, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}})
+    await conn.sendMessage(
+      m.chat,
+      {
+        audio: {url: result[0].preview},
+        fileName: `${result[0].artist} ${result[0].title}.mp3`,
+        mimetype: 'audio/mp4'
+      },
+      {quoted: m}
+    )
+  } catch (e) {
+    await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
+    console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+    console.log(e)
+    handler.limit = 0
+  }
+}
+handler.help = ['lirik', 'letra'].map((v) => v + ' <Apa>')
 handler.tags = ['internet']
 handler.command = /^(lirik|lyrics|lyric|letra)$/i
 handler.limit = 1
@@ -78,4 +102,3 @@ handler.limit = 1
 handler.level = 3
 handler.exp = 55
 export default handler */
-

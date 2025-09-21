@@ -1,23 +1,23 @@
 import axios from 'axios'
 
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsMalused7}\n*${usedPrefix + command} gata | cat*` 
+let handler = async (m, {conn, text, usedPrefix, command}) => {
+  if (!text) throw `${lenguajeGB['smsAvisoMG']()} ${mid.smsMalused7}\n*${usedPrefix + command} gata | cat*`
 
   m.react('🔎')
 
   if (/^https?:\/\/[^\s]+$/i.test(text)) {
     try {
-      let { data } = await axios.get(`${global.APIs.stellar.url}/dow/pinterest?url=${text}&apikey=${global.APIs.stellar.key}`)
+      let {data} = await axios.get(`${global.APIs.stellar.url}/dow/pinterest?url=${text}&apikey=${global.APIs.stellar.key}`)
       if (!data?.data) throw null
 
       const file = {
         type: data.data.format.includes('mp4') ? 'video' : 'image',
         url: data.data.dl,
-        caption: `💞 *${data.data.title || "-"}*\n💖 ${lenguajeGB.tipo || 'Tipo'}: ${data.data.format.includes('mp4') ? 'Video' : 'Imagen'}`
+        caption: `💞 *${data.data.title || '-'}*\n💖 ${lenguajeGB.tipo || 'Tipo'}: ${data.data.format.includes('mp4') ? 'Video' : 'Imagen'}`
       }
 
-      await conn.sendMessage(m.chat, { [file.type]: { url: file.url }, caption: file.caption }, { quoted: m })
-      return m.react("✅")
+      await conn.sendMessage(m.chat, {[file.type]: {url: file.url}, caption: file.caption}, {quoted: m})
+      return m.react('✅')
     } catch {
       return conn.reply(m.chat, lenguajeGB.smsAvisoFallo || '❌ No se pudo procesar ese enlace.', m)
     }
@@ -39,7 +39,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         const url = r.hd || r.image || r.images_url
         if (!url) continue
         const caption = `🐞 ${r.title || r.fullname || text}\n🎋 ${lenguajeGB.autor || 'Autor'}: ${r.full_name || r.upload_by || r.name || 'Desconocido'}`
-        await conn.sendMessage(m.chat, { image: { url }, caption }, { quoted: m })
+        await conn.sendMessage(m.chat, {image: {url}, caption}, {quoted: m})
         return m.react('✅')
       }
     } catch {
