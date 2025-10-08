@@ -789,8 +789,8 @@ if (global.stopped === 'close' || !conn || !conn.user) return
 await purgeSessionSB()
 await purgeSession()
 console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSession()))
-await purgeOldFiles()
-console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))
+//await purgeOldFiles()
+//console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))
 },
 1000 * 60 * 10
 )
