@@ -167,31 +167,35 @@ return unsanitized
 }
 
 global.db.readData = async function (category, id) {
-const sanitizedId = sanitizeId(id)
-if (!global.db.data[category][sanitizedId]) {
-const data = await new Promise((resolve, reject) => {
-collections[category].findOne({_id: sanitizedId}, (err, doc) => {
-if (err) return reject(err)
-resolve(doc ? unsanitizeObject(doc.data) : {})
-})
-})
-global.db.data[category][sanitizedId] = data
-}
-return global.db.data[category][sanitizedId]
+  const memKey = id
+  const diskKey = sanitizeId(id)
+  if (!global.db.data[category][memKey]) {
+    const data = await new Promise((resolve, reject) => {
+      collections[category].findOne({ _id: diskKey }, (err, doc) => {
+        if (err) return reject(err)
+        resolve(doc ? unsanitizeObject(doc.data) : {})
+      })
+    })
+    global.db.data[category][memKey] = data
+  }
+  return global.db.data[category][memKey]
 }
 
 global.db.writeData = async function (category, id, data) {
-const sanitizedId = sanitizeId(id)
-global.db.data[category][sanitizedId] = {
-...global.db.data[category][sanitizedId],
-...sanitizeObject(data)
-}
-await new Promise((resolve, reject) => {
-collections[category].update({_id: sanitizedId}, {$set: {data: sanitizeObject(global.db.data[category][sanitizedId])}}, {upsert: true}, (err) => {
-if (err) return reject(err)
-resolve()
-})
-})
+  const memKey = id
+  const diskKey = sanitizeId(id)
+  global.db.data[category][memKey] = {
+    ...global.db.data[category][memKey],
+    ...data // en memoria sin sanitizar
+  }
+  await new Promise((resolve, reject) => {
+    collections[category].update(
+      { _id: diskKey },
+      { $set: { data: sanitizeObject(global.db.data[category][memKey]) } },
+      { upsert: true },
+      (err) => (err ? reject(err) : resolve())
+    )
+  })
 }
 
 global.db.loadDatabase = async function () {
