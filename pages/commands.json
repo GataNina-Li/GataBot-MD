@@ -1,0 +1,136 @@
+{
+  "commands": {
+    "AJUSTES / INFO DE GRUPO": {
+      "configuracion": {
+        "brief": "Muestra o cambia la configuración del bot",
+        "usage": ".configuracion"
+      },
+      "settings": {
+        "brief": "Accede a los ajustes del bot",
+        "usage": ".settings"
+      },
+      "vergrupo": {
+        "brief": "Muestra información del grupo",
+        "usage": ".vergrupo"
+      }
+    },
+    "COMANDOS DE GRUPO": {
+      "Administración": {
+        "add": {
+          "brief": "Agrega un número al grupo",
+          "usage": ".add numero"
+        },
+        "sacar": {
+          "brief": "Expulsa o banea a un usuario",
+          "usage": ".sacar | ban | kick @tag"
+        },
+        "mute": {
+          "brief": "Silencia a un usuario",
+          "usage": ".mute | unmute @tag"
+        },
+        "daradmin": {
+          "brief": "Promueve a admin",
+          "usage": ".daradmin | promote @tag"
+        },
+        "quitar": {
+          "brief": "Quita el rol de admin",
+          "usage": ".quitar | demote @tag"
+        },
+        "grupo": {
+          "brief": "Abre o cierra el grupo",
+          "usage": ".grupo abrir o cerrar | group open o close"
+        },
+        "banchat": {
+          "brief": "Bloquea o desbloquea el chat",
+          "usage": ".banchat / .unbanchat"
+        },
+        "banuser": {
+          "brief": "Banea o desbanea a un usuario",
+          "usage": ".banuser @tag / .unbanuser @tag"
+        },
+        "admins": {
+          "brief": "Muestra admins del grupo",
+          "usage": ".admins texto"
+        },
+        "invocar": {
+          "brief": "Menciona a un usuario con texto",
+          "usage": ".invocar texto"
+        },
+        "tagall": {
+          "brief": "Menciona a todos los miembros",
+          "usage": ".tagall texto"
+        },
+        "hidetag": {
+          "brief": "Menciona a todos sin notificación",
+          "usage": ".hidetag texto"
+        },
+        "infogrupo": {
+          "brief": "Información del grupo",
+          "usage": ".infogrupo | infogroup"
+        },
+        "grupotiempo": {
+          "brief": "Muestra el tiempo de actividad del grupo",
+          "usage": ".grupotiempo | grouptime Cantidad"
+        },
+        "advertencia": {
+          "brief": "Gestiona advertencias de usuarios",
+          "usage": ".advertencia @tag / .deladvertencia @tag / .delwarn @tag"
+        },
+        "enlace": {
+          "brief": "Obtiene el enlace del grupo",
+          "usage": ".enlace | link"
+        },
+        "newnombre": {
+          "brief": "Cambia el nombre del grupo",
+          "usage": ".newnombre | nuevonombre texto"
+        },
+        "newdesc": {
+          "brief": "Cambia la descripción del grupo",
+          "usage": ".newdesc | descripcion texto"
+        },
+        "setwelcome": {
+          "brief": "Configura mensaje de bienvenida",
+          "usage": ".setwelcome | bienvenida texto"
+        },
+        "setbye": {
+          "brief": "Configura mensaje de despedida",
+          "usage": ".setbye | despedida texto"
+        },
+        "nuevoenlace": {
+          "brief": "Genera un nuevo enlace de grupo",
+          "usage": ".nuevoenlace | resetlink"
+        },
+        "on": {
+          "brief": "Activa funciones",
+          "usage": ".on"
+        },
+        "off": {
+          "brief": "Desactiva funciones",
+          "usage": ".off"
+        }
+      },
+      "Votaciones": {
+        "crearvoto": {
+          "brief": "Inicia una votación",
+          "usage": ".crearvoto | startvoto texto"
+        },
+        "sivotar": {
+          "brief": "Votar a favor",
+          "usage": ".sivotar | upvote"
+        },
+        "novotar": {
+          "brief": "Votar en contra",
+          "usage": ".novotar | devote"
+        },
+        "vervotos": {
+          "brief": "Muestra los votos",
+          "usage": ".vervotos | cekvoto"
+        },
+        "delvoto": {
+          "brief": "Elimina la votación",
+          "usage": ".delvoto | deletevoto"
+        }
+      }
+    }
+  }
+}
