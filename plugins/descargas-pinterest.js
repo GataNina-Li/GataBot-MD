@@ -7,7 +7,7 @@ m.react('🔎')
 
 if (/^https?:\/\/[^\s]+$/i.test(text)) {
 try {
-let {data} = await axios.get(`${global.APIs.stellar.url}/dow/pinterest?url=${text}&apikey=${global.APIs.stellar.key}`)
+let {data} = await axios.get(`${global.APIs.stellar.url}/dow/pinterest?url=${text}&key=${global.APIs.stellar.key}`)
 if (!data?.data) throw null
 
 const file = {
@@ -24,7 +24,7 @@ return conn.reply(m.chat, lenguajeGB.smsAvisoFallo || '❌ No se pudo procesar e
 }
 
 const apis = [
-`${global.APIs.stellar.url}/search/pinterest?query=${text}&apikey=${global.APIs.stellar.key}`,
+`${global.APIs.stellar.url}/search/pinterest?query=${text}&key=${global.APIs.stellar.key}`,
 `https://api.dorratz.com/v2/pinterest?q=${text}`,
 `https://api.siputzx.my.id/api/s/pinterest?query=${text}`,
 `https://api.betabotz.eu.org/api/search/pinterest?query=${text}`
