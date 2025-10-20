@@ -68,7 +68,7 @@ global.apis = 'https://delirius-apiofc.vercel.app'
 
 global.APIs = {
 lolhuman: {url: 'https://api.lolhuman.xyz/api', key: 'GataDiosV3'},
-stellar: {url: 'https://api.stellarwa.xyz', key: 'Stellar'},
+stellar: {url: 'https://api.stellarwa.xyz', key: 'GataDios'},
 skizo: {url: 'https://skizo.tech/api', key: 'GataDios'},
 alyachan: {url: 'https://api.alyachan.dev/api', key: null},
 exonity: {url: 'https://exonity.tech/api', key: 'GataDios'},
