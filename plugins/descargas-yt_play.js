@@ -84,7 +84,7 @@ fetch(`https://api.neoxr.eu/api/youtube?url=${userVideoData.url}&type=audio&qual
 extract: (data) => ({data: data.data.url, isDirect: false})
 },
 {
-url: () => fetch(`${global.APIs.stellar.url}/dow/ytmp3?url=${userVideoData.url}`).then((res) => res.json()),
+url: () => fetch(`${global.APIs.stellar.url}/dow/ytmp3?url=${userVideoData.url}&key=GataDios`).then((res) => res.json()),
 extract: (data) => ({data: data?.data?.dl, isDirect: false})
 },
 {
@@ -113,7 +113,7 @@ url: () => fetch(`https://api.neoxr.eu/api/youtube?url=${userVideoData.url}&type
 extract: (data) => ({data: data.data.url, isDirect: false})
 },
 {
-url: () => fetch(`${global.APIs.stellar.url}/dow/ytmp4?url=${userVideoData.url}`).then((res) => res.json()),
+url: () => fetch(`${global.APIs.stellar.url}/dow/ytmp4?url=${userVideoData.url}&key=GataDios`).then((res) => res.json()),
 extract: (data) => ({data: data?.data?.dl, isDirect: false})
 },
 {
