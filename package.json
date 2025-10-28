@@ -86,5 +86,10 @@
     "google-it": "^1.6.3",
     "@hiudyy/ytdl": "^0.2.3",
     "ytdl-core": "latest"
+  },
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "eslint-config-google": "^0.14.0",
+    "prettier": "^3.6.2"
   }
 }
