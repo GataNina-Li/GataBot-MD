@@ -13,7 +13,7 @@ throw `${lenguajeGB['smsAvisoMG']()} *Enlace no válido.*\n📌 Asegúrate de in
 await m.react('📥')
 
 try {
-const api = `https://delirius-apiofc.vercel.app/download/mediafire?url=${encodeURIComponent(url)}`
+const api = `https://api.delirius.store/download/mediafire?url=${encodeURIComponent(url)}`
 const res = await fetch(api)
 if (!res.ok) throw new Error(`Error de la API: ${res.status} ${res.statusText}`)
 
