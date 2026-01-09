@@ -64,7 +64,7 @@ global.version_language = '1.0 (MID-GB)'
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // ❰❰ API KEYS ❱❱
 global.baileys = '@whiskeysockets/baileys'
-global.apis = 'https://delirius-apiofc.vercel.app'
+global.apis = 'https://api.delirius.store'
 
 global.APIs = {
 lolhuman: {url: 'https://api.lolhuman.xyz/api', key: 'GataDiosV3'},
