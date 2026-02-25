@@ -10,7 +10,7 @@ import { en as enDefault, es as esDefault } from './lib/multi-language/_default.
 import { ar, en, es, id, pt } from './lib/idiomas/total-idiomas.js'
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-// [ES] > Agrega el número que será Bot y los que serán propietarios.
+// [ES] >['5950981011942'] Agrega el número que será Bot y los que serán propietarios.
 // [EN] > Add the number that will be Bot and those that will be owners.
 global.owner = [
 '5214531287294', 
