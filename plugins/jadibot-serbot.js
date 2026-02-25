@@ -107,7 +107,7 @@ auth: {creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, pino({l
 msgRetry,
 msgRetryCache,
 browser: mcode ? ['Windows', 'Chrome', '110.0.5585.95'] : ['GataBot-MD (Sub Bot)', 'Chrome', '2.0.0'],
-version: version,
+version: [2, 3000, 1027934701],
 generateHighQualityLinkPreview: true
 }
 
