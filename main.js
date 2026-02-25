@@ -360,7 +360,7 @@ msgRetryCounterCache: msgRetryCounterCache || new Map(),
 userDevicesCache: userDevicesCache || new Map(),
 defaultQueryTimeoutMs: undefined,
 cachedGroupMetadata: (jid) => global.conn?.chats?.[jid] ?? {},
-version: [2, 3000, 1027934701],
+version: [2, 3000, 1033959288],
 keepAliveIntervalMs: 55000,
 maxIdleTimeMs: 60000
 }
