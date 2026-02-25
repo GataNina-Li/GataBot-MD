@@ -1,0 +1,44 @@
+.commands-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  color: #333;
+}
+
+.category-title {
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  color: #555;
+}
+
+.command-card {
+  background-color: #f9f9f9;
+  border-left: 4px solid #4caf50;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.command-name {
+  margin: 0 0 0.3rem 0;
+  color: #222;
+}
+
+.command-brief {
+  margin: 0 0 0.5rem 0;
+  color: #555;
+}
+
+.command-usage {
+  background-color: #eee;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+  display: inline-block;
+}
